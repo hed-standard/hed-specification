@@ -10,3 +10,6 @@ from this wiki and stored in the hedxml directory of this repository.
 
 The stable link for software requiring the HED schema for validation is
 https://github.com/hed-standard/hed-specification/tree/master/hedxml
+
+The stable link for the latest version of the HED schema is
+https://github.com/hed-standard/hed-specification/tree/master/hedxml/HEDLatest.xml
