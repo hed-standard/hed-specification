@@ -12,4 +12,4 @@ The stable link for software requiring the HED schema for validation is
 https://github.com/hed-standard/hed-specification/tree/master/hedxml
 
 The stable link for the latest version of the HED schema is
-https://github.com/hed-standard/hed-specification/tree/master/hedxml/HEDLatest.xml
+https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml
