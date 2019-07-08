@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="7.0.2">
+<HED version="7.0.3">
    <node>
       <name>Event</name>
       <node position="1" predicateType="passThrough" requireChild="true" required="true">
@@ -2123,9 +2123,6 @@
       </node>
       <node>
          <name>Swallow</name>
-      </node>
-      <node>
-         <name>Turn</name>
       </node>
       <node>
          <name>Flex</name>
