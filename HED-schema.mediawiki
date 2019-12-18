@@ -50,7 +50,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 !# start hed 
 
-'''Event ''' 
+'''Event''' 
 * Category <nowiki>{required, requireChild, predicateType=passThrough, position=1} [This is meant to designate the reason this event was recorded] </nowiki> 
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
 ** Participant response <nowiki> [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
@@ -107,7 +107,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Item ''' 
+'''Item''' 
 * ID <nowiki>{requireChild, predicateType=propertyOf} [Optional] </nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 ** Local <nowiki> [For IDs with local scope --- that is IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki> 
@@ -286,7 +286,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Real-world 
 *** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
 
-'''Attribute ''' {requireChild, extensionAllowed} 
+'''Attribute''' {requireChild, extensionAllowed} 
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
@@ -584,7 +584,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Follower 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Action '''<nowiki>[May or may not be associated with a prior stimulus and can be extended]</nowiki> 
+'''Action'''<nowiki>[May or may not be associated with a prior stimulus and can be extended]</nowiki> 
 * Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
 ** Hiccup 
 ** Cough 
@@ -915,7 +915,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Neutral 
 
 
-'''Experiment context ''' <nowiki>{requireChild, extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
+'''Experiment context''' <nowiki>{requireChild, extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
 * <nowiki># {takesValue} [Add common tags across all stimuli/ and/or responses here if all experimental events share /State/Drowsy, you can place it here instead of tagging each event individually ]</nowiki> 
 * With chin rest 
 * Sitting 
@@ -952,12 +952,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Real world 
 * Virtual world 
 
-'''Custom ''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
+'''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
 
-'''HED  '''  <nowiki> {requireChild} [Hierarchical Event Descriptor]</nowiki> 
+'''HED'''  <nowiki> {requireChild} [Hierarchical Event Descriptor]</nowiki> 
 * <nowiki># {takesValue, isNumeric} [HED specification version number: normally there is no need to specify the version number in the HED string since it will be matched by default to the most recent compliant version, but this tag can be used to specify the exact HED version the HED string was based on.]</nowiki> 
 
-'''Paradigm ''' <nowiki>{requireChild, extensionAllowed}[See Tasks in http://www.cognitiveatlas.org/tasks and CogPo definitions of paradigms]</nowiki>   
+'''Paradigm''' <nowiki>{requireChild, extensionAllowed}[See Tasks in http://www.cognitiveatlas.org/tasks and CogPo definitions of paradigms]</nowiki>   
 * Action imitation task 
 * Action observation task 
 * Acupuncture task 
