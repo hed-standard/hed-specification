@@ -1,4 +1,4 @@
-HED version: 7.0.5
+HED restructure version: 1.0.0
 
 '''Syntax'''  
 
