@@ -64,7 +64,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Item''' 
+'''Item <nowiki>{extensionAllowed}</nowiki>''' 
 * ID <nowiki>{requireChild, predicateType=propertyOf} [Optional] </nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 ** Local <nowiki> [For IDs with local scope --- that is IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki> 
@@ -243,9 +243,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Real-world 
 *** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
 
-'''Attribute''' {requireChild, extensionAllowed} 
+'''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
-** Value <nowiki>{requireChild}[Use this tag by itself or in a parenthesized expression with an ID type.]</nowiki>
+** Value <nowiki>{requireChild}[Use this tag by itself or in a parenthesized expression with an ID Type tag.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
 ** Type <nowiki>{requireChild}[Use this tag to define the type of ID in more detail.]</nowiki>
 *** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
@@ -550,7 +550,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Follower 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Action'''<nowiki>[May or may not be associated with a prior stimulus and can be extended]</nowiki> 
+'''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
 * Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
 ** Hiccup 
 ** Cough 
@@ -684,7 +684,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Encode 
 * Eye-blink inhibit
 
-'''Participant''' <nowiki>{predicateType=passThrough}</nowiki> 
+'''Participant''' <nowiki>{extensionAllowed,predicateType=passThrough}</nowiki> 
 * ID <nowiki>{requireChild, predicateType=propertyOf} [If not given assume 1]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Numeric value of an ID]</nowiki> 
 * Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
