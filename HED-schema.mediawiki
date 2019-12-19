@@ -1,4 +1,4 @@
-HED restructure version: 1.0.0
+HED restructure version: 1.0.1
 
 '''Syntax'''  
 
@@ -244,6 +244,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
 
 '''Attribute''' {requireChild, extensionAllowed} 
+* ID <nowiki>{requireChild}[To specify the value of an ID of a particular type group a tag specifying its type with a tag specifying its value]</nowiki>
+** Value <nowiki>{requireChild}[Use this tag by itself or in a parenthesized expression with an ID type.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Type <nowiki>{requireChild}{Use this tag to define the type of ID in more detail.]</nowiki>
+*** Group <nowiki>{requireChild}[ID that identifies a group of events associated with each other.]</nowiki>
+*** Local <nowiki>{requireChild}</nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki>
+*** Participant <nowiki>{requireChild}</nowiki>
+*** Permutation <nowiki>{requireChild}</nowiki>
+*** State <nowiki>{requireChild}[This is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
