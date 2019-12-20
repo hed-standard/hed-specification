@@ -1274,4 +1274,4 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
-* default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 
+* default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki>  
