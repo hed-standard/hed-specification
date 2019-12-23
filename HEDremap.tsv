@@ -1,2 +1,3 @@
  Event/Duration/#	(Event, Attribute/Duration/#)
- Event/ID/#			(Event, Attribute/ID/#)
+ Event/ID/#			(Event, Attribute/ID/Value/#)
+ Event/Group ID/#	(Event, Attribute/ID/Type/Group, Attribute/ID/Value/#)
