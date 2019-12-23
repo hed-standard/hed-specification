@@ -16,8 +16,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Environmental <nowiki> {extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
 ** Experimental stimulus <nowiki> {extensionAllowed} </nowiki>
 *** Instruction 
-** Experimental procedure <nowiki>[For example doing a saliva swab on the person]</nowiki> 
-*** <nowiki># {takesValue}[Description as string]</nowiki> 
+** Experimental procedure <nowiki> {extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
 ** Incidental <nowiki> [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
 *** <nowiki># {takesValue}[Description as string]</nowiki> 
 ** Miscellaneous <nowiki>[Events that are only have informational value and cannot be put in other event categories]</nowiki> 
