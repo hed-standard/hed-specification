@@ -861,7 +861,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 
 '''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
-* <nowiki># {takesValue} [Add common tags across all stimuli/ and/or responses here if all experimental events share /State/Drowsy, you can place it here instead of tagging each event individually ]</nowiki> 
 * With chin rest 
 * Sitting 
 * Standing 
