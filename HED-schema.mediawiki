@@ -244,8 +244,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki> 
 ** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-* State ID <nowiki>{requireChild} [This is used to identify a group of events that are changing the state of a variable where the onset means the offset of any other and a change in the state]</nowiki>
-** # <nowiki>{takesValue} [ID which could be a number or any string]</nowiki> 
 * Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Number starting from 1 where 1 indicates the first occurrence and 2 indicates the second occurrence]</nowiki>
 * Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
