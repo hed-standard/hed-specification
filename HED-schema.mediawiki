@@ -233,7 +233,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** # <nowiki>{takesValue}</nowiki>
 ** Type <nowiki>{requireChild}[Use this tag to define the type of ID in more detail.]</nowiki>
 *** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
-*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki>
+*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
 *** Participant <nowiki>[ID identifies a subject.]</nowiki>
 *** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
 *** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
