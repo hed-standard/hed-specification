@@ -214,8 +214,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Screen 
 **** Head-mounted display
 **** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
-***** ID <nowiki>{predicateType=passThrough}</nowiki> 
-****** <nowiki>#  {takesValue} [A descriptive label for the viewport] </nowiki> 
 **** 2D 
 **** 3D 
 **** Movie 
