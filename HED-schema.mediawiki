@@ -12,14 +12,13 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
 ** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
 ** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
-** Participant failure <nowiki> {extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
-** Environmental <nowiki> {extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
-** Experimental stimulus <nowiki> {extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
+** Participant failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
+** Environmental <nowiki>{extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
+** Experimental stimulus <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
 *** Instruction 
-** Experimental procedure <nowiki> {extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
-** Incidental <nowiki> {extensionAllowed} [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
-** Miscellaneous <nowiki>[Events that are only have informational value and cannot be put in other event categories]</nowiki> 
-*** <nowiki># {takesValue}[Description as a string]</nowiki> 
+** Experimental procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+** Incidental <nowiki>{extensionAllowed} [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
+** Miscellaneous <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 ** Experiment control <nowiki>[Information about states and events of the software program that controls the experiment]</nowiki> 
 *** Sequence<nowiki>{predicateType=propertyOf}</nowiki> 
 **** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset  to indicate start and end of the experiment]</nowiki> 
