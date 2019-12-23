@@ -12,8 +12,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
 ** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
 ** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
-** Participant failure <nowiki> [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
-*** <nowiki># {takesValue} [Description as string]</nowiki> 
+** Participant failure <nowiki> {extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
 ** Environmental <nowiki> [Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
 *** <nowiki># {takesValue} [Description as a string]</nowiki> 
 ** Experimental stimulus 
