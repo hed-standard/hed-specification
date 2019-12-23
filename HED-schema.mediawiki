@@ -14,7 +14,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
 ** Participant failure <nowiki> {extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
 ** Environmental <nowiki> {extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
-** Experimental stimulus 
+** Experimental stimulus <nowiki> {extensionAllowed} </nowiki>
 *** Instruction 
 ** Experimental procedure <nowiki>[For example doing a saliva swab on the person]</nowiki> 
 *** <nowiki># {takesValue}[Description as string]</nowiki> 
