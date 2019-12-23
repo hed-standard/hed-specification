@@ -236,6 +236,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki>
 *** Participant <nowiki>[ID identifies a subject.]</nowiki>
 *** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
+*** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
 *** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
@@ -262,8 +263,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
 * Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
-** Reference object ID  <nowiki>{requireChild,predicateType=propertyOf}[Place object ID after this]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
 ** Right 
 ** Left 
 ** Front 
