@@ -7,3 +7,5 @@ Item/ID/Local/#	(Item, Attribute/ID/Type/Local, Attribute/ID/Value/#)
 Item/ID/Group ID/#	(Item, Attribute/ID/Type/Group, Attribute/ID/Value/#)
 Participant/ID/#	(Participant, Attribute/ID/Type/Participant, Attribute/ID/Value/#)
 Attribute/State ID/#	(Attribute/ID/Value/#, Attribute/ID/Type/State)
+Attribute/Location/Reference frame/Relative to participant/Participant ID/#	(Attribute/Location/Reference frame/Relative to participant, Attribute/ID/Type/Participant, Atribute/ID/Value/#)
+
