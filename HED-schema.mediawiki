@@ -672,9 +672,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Encode 
 * Eye-blink inhibit
 
-'''Participant''' <nowiki>{extensionAllowed,predicateType=passThrough}</nowiki> 
-* ID <nowiki>{requireChild, predicateType=propertyOf} [If not given assume 1]</nowiki> 
-** <nowiki># {takesValue, isNumeric} [Numeric value of an ID]</nowiki> 
+'''Participant''' <nowiki>{extensionAllowed}</nowiki> 
 * Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
 ** Cognitive 
 *** Meaningful 
