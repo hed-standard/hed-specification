@@ -335,8 +335,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Reference frame <nowiki>{requireChild}</nowiki> 
 *** Specified absolute reference 
 *** Relative to participant 
-**** Participant ID <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
 **** Left 
 **** Front 
 **** Right 
