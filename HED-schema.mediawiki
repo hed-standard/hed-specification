@@ -57,8 +57,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Group ID <nowiki>{requireChild, predicateType=propertyOf} [Optional]</nowiki> 
-** <nowiki># {takesValue}</nowiki> 
 * Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
 ** Vehicle 
 *** Bicycle 

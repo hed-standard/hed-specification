@@ -4,3 +4,4 @@
  Event/Category/Experimental control/Sequence/Permutation ID/#	(Event/Category/Experimental control/Sequence, Attribute/ID/Value/#, Attibute/ID/Type/Sequence)
  Item/ID/#	(Item, Attribute/ID/Value/#)
  Item/ID/Local/#	(Item, Attribute/ID/Type/Local, Attribute/ID/Value/#)
+ Item/ID/Group ID/#	(Item, Attribute/ID/Type/Group, Attribute/ID/Value/#)
