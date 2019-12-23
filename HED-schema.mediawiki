@@ -27,8 +27,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue}[Description as a string]</nowiki> 
 ** Experiment control <nowiki>[Information about states and events of the software program that controls the experiment]</nowiki> 
 *** Sequence<nowiki>{predicateType=propertyOf}</nowiki> 
-**** Permutation ID <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue} [Permutation number/code used for permuted experiment parts]</nowiki> 
 **** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset  to indicate start and end of the experiment]</nowiki> 
 **** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
 ***** <nowiki># {takesValue} [Block number or identifier]</nowiki> 
