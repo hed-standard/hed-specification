@@ -23,8 +23,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
 **** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
 **** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
-**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-***** <nowiki># {takesValue} [Trial number or identifier]</nowiki> 
+**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
 **** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
 *** Task  
 **** <nowiki># {takesValue} [Label here]</nowiki> 
