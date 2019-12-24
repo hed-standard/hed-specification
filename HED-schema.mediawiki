@@ -19,11 +19,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Experimental procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
 ** Incidental <nowiki>{extensionAllowed} [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
 ** Miscellaneous <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
-** Experiment control <nowiki>[Information about states and events of the software program that controls the experiment]</nowiki> 
-*** Sequence<nowiki>{predicateType=propertyOf}</nowiki> 
-**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset  to indicate start and end of the experiment]</nowiki> 
-**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-***** <nowiki># {takesValue} [Block number or identifier]</nowiki> 
+** Experiment control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
+*** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
+**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
+**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
 **** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
 ***** <nowiki># {takesValue} [Trial number or identifier]</nowiki> 
 **** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
