@@ -20,3 +20,5 @@ Event/Category/Miscellaneous/#	(Event/Category/Miscellaneous, Attribute/ID/Value
 Event/Category/Experiment control/Sequence/Block/#	(Event/Category/Experiment control/Sequence/Block, Attribute/ID/Value/#)
 Event/Category/Experiment control/Sequence/Trial/#	(Event/Category/Experiment control/Sequence/Trial, Attribute/ID/Value/#)
 Event/Category/Experiment control/Task/#	(Event/Category/Experiment control/Task, Attribute/ID/Value/#)
+Event/Category/Experiment control/Synchronization/Tag	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization)
+Event/Category/Experiment control/Synchronization/Tag/#	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization, Attribute/ID/Value/#)

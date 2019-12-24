@@ -229,6 +229,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
 *** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
 *** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
+*** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
 * Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki> 
