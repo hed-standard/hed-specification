@@ -31,8 +31,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
 **** Display refresh 
 **** Trigger 
-**** Tag <nowiki>{predicateType=propertyOf}</nowiki> 
-***** <nowiki># {takesValue} [Actual tag: string or integer]</nowiki> 
 *** Status 
 **** Waiting for input 
 **** Loading 
