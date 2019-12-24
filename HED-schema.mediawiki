@@ -21,13 +21,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Miscellaneous <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 ** Experiment control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
 *** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
-**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
-**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
-**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier or the experiment.]</nowiki> 
-**** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-*** Task  
-**** <nowiki># {takesValue} [Label here]</nowiki> 
-*** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game]</nowiki> 
+**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
+**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier of the block.]</nowiki> 
+**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the trial.]</nowiki> 
+**** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the pause.]</nowiki> 
+*** Task <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki>  
+*** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki> 
 **** Participant action
 *** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
 **** Display refresh 
