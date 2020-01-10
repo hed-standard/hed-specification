@@ -8,42 +8,29 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 !# start hed 
 
 '''Event''' 
-* Category <nowiki>{required, requireChild, predicateType=passThrough, position=1} [This is meant to designate the reason this event was recorded] </nowiki> 
+* Category <nowiki>{required, requireChild, position=1} [This is meant to designate the reason this event was recorded. Every event should have at least one category, but may have multiple categories.] </nowiki> 
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
-** Participant response <nowiki> [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
-** Technical error <nowiki> [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
-*** <nowiki># {takesValue} [Description as string]</nowiki> 
-** Participant failure <nowiki> [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
-*** <nowiki># {takesValue} [Description as string]</nowiki> 
-** Environmental <nowiki> [Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
-*** <nowiki># {takesValue} [Description as a string]</nowiki> 
-** Experimental stimulus 
+** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
+** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
+** Participant failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
+** Environmental <nowiki>{extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
+** Experimental stimulus <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
 *** Instruction 
-** Experimental procedure <nowiki>[For example doing a saliva swab on the person]</nowiki> 
-*** <nowiki># {takesValue}[Description as string]</nowiki> 
-** Incidental <nowiki> [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
-*** <nowiki># {takesValue}[Description as string]</nowiki> 
-** Miscellaneous <nowiki>[Events that are only have informational value and cannot be put in other event categories]</nowiki> 
-*** <nowiki># {takesValue}[Description as a string]</nowiki> 
-** Experiment control <nowiki>[Information about states and events of the software program that controls the experiment]</nowiki> 
-*** Sequence<nowiki>{predicateType=propertyOf}</nowiki> 
-**** Permutation ID <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue} [Permutation number/code used for permuted experiment parts]</nowiki> 
-**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset  to indicate start and end of the experiment]</nowiki> 
-**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-***** <nowiki># {takesValue} [Block number or identifier]</nowiki> 
-**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-***** <nowiki># {takesValue} [Trial number or identifier]</nowiki> 
-**** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end]</nowiki> 
-*** Task  
-**** <nowiki># {takesValue} [Label here]</nowiki> 
-*** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game]</nowiki> 
+** Experimental procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+** Incidental <nowiki>{extensionAllowed} [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
+** Miscellaneous <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
+** Experiment control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
+*** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
+**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
+**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier of the block.]</nowiki> 
+**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the trial.]</nowiki> 
+**** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the pause.]</nowiki> 
+*** Task <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki>  
+*** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki> 
 **** Participant action
 *** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
 **** Display refresh 
 **** Trigger 
-**** Tag <nowiki>{predicateType=propertyOf}</nowiki> 
-***** <nowiki># {takesValue} [Actual tag: string or integer]</nowiki> 
 *** Status 
 **** Waiting for input 
 **** Loading 
@@ -51,12 +38,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Setup 
 **** Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
 ***** <nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
-* ID <nowiki>{predicateType=propertyOf} [A number or string label that uniquely identifies an event instance from all others in the recording (a UUID is strongly preferred).]</nowiki> 
-** <nowiki># {takesValue} [ID of the event] </nowiki>
-* Group ID <nowiki>{predicateType=propertyOf} [A number or string label that uniquely identifies a group of events associated with each other.]</nowiki> 
-** <nowiki># {takesValue} [ID of the group] </nowiki> 
-* Duration <nowiki>{requireChild, predicateType=propertyOf} [An offset that is implicit after duration time passed from the onset]</nowiki> 
-** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Onset  and Attribute/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
@@ -64,13 +45,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Item''' <nowiki>{extensionAllowed}</nowiki> 
-* ID <nowiki>{requireChild, predicateType=propertyOf} [Optional] </nowiki> 
-** <nowiki># {takesValue}</nowiki> 
-** Local <nowiki> [For IDs with local scope --- that is IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-* Group ID <nowiki>{requireChild, predicateType=propertyOf} [Optional]</nowiki> 
-** <nowiki># {takesValue}</nowiki> 
+'''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
 ** Vehicle 
 *** Bicycle 
@@ -228,8 +203,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Screen 
 **** Head-mounted display
 **** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
-***** ID <nowiki>{predicateType=passThrough}</nowiki> 
-****** <nowiki>#  {takesValue} [A descriptive label for the viewport] </nowiki> 
 **** 2D 
 **** 3D 
 **** Movie 
@@ -249,15 +222,17 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** # <nowiki>{takesValue}</nowiki>
 ** Type <nowiki>{requireChild}[Use this tag to define the type of ID in more detail.]</nowiki>
 *** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
-*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki>
+*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
 *** Participant <nowiki>[ID identifies a subject.]</nowiki>
 *** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
+*** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
 *** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
+*** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
+* Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki> 
+** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-* State ID <nowiki>{requireChild} [This is used to identify a group of events that are changing the state of a variable where the onset means the offset of any other and a change in the state]</nowiki>
-** # <nowiki>{takesValue} [ID which could be a number or any string]</nowiki> 
 * Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Number starting from 1 where 1 indicates the first occurrence and 2 indicates the second occurrence]</nowiki>
 * Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
@@ -278,8 +253,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
 * Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
-** Reference object ID  <nowiki>{requireChild,predicateType=propertyOf}[Place object ID after this]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
 ** Right 
 ** Left 
 ** Front 
@@ -349,8 +322,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Reference frame <nowiki>{requireChild}</nowiki> 
 *** Specified absolute reference 
 *** Relative to participant 
-**** Participant ID <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
 **** Left 
 **** Front 
 **** Right 
@@ -684,9 +655,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Encode 
 * Eye-blink inhibit
 
-'''Participant''' <nowiki>{extensionAllowed,predicateType=passThrough}</nowiki> 
-* ID <nowiki>{requireChild, predicateType=propertyOf} [If not given assume 1]</nowiki> 
-** <nowiki># {takesValue, isNumeric} [Numeric value of an ID]</nowiki> 
+'''Participant''' <nowiki>{extensionAllowed}</nowiki> 
 * Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
 ** Cognitive 
 *** Meaningful 
@@ -881,8 +850,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Neutral 
 
 
-'''Experiment context''' <nowiki>{requireChild, extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
-* <nowiki># {takesValue} [Add common tags across all stimuli/ and/or responses here if all experimental events share /State/Drowsy, you can place it here instead of tagging each event individually ]</nowiki> 
+'''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
 * With chin rest 
 * Sitting 
 * Standing 
