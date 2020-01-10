@@ -1200,12 +1200,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Attribute Definitions:'''
 * extensionAllowed <nowiki>[users can add (unlimited levels of) child nodes under this tag.]</nowiki> 
-* requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
-* takesValue <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is a string.] </nowiki> 
-* isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki>  
-*  required <nowiki>[Shown at the top of the events view in the order given by the position attribute. Checked for at the end if the user chooses "done".]</nowiki> 
+* isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki> 
+* position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki>  
 * recommended  <nowiki>[Shown below the required tags in the events view in the order given by the position attribute.]</nowiki> 
-* position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki> 
+* requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
+*  required <nowiki>[Shown at the top of the events view in the order given by the position attribute. Checked for at the end if the user chooses "done".]</nowiki> 
+* takesValue <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is a string.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
 * default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 
