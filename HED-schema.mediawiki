@@ -1115,35 +1115,22 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * <nowiki>[extend here]</nowiki> 
 
 '''Unit classes''' 
-* acceleration <nowiki>{default=cm-per-s2}</nowiki> 
-** m-per-s2 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
-* currency <nowiki>{default=$}</nowiki> 
-** dollar 
-** $ <nowiki>{unitSymbol}</nowiki> 
-** point 
-** fraction 
-* angle <nowiki>{default=radian}</nowiki> 
-** degree 
-** radian <nowiki>{SIUnit}</nowiki> 
+* time <nowiki>{default=s}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
+** centisecond <nowiki>{SIUnit}</nowiki> 
+** cs <nowiki>{unitSymbol}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** day 
+** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** millisecond <nowiki>{SIUnit}</nowiki> 
+** minute 
+** hour 
 * frequency <nowiki>{default=Hz}</nowiki> 
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* intensity <nowiki>{default=dB}</nowiki> 
-** dB <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{default=cm-per-s3}</nowiki> 
-** m-per-s3 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
-* luminousIntensity <nowiki>{default=cd}</nowiki> 
-** candela <nowiki>{SIUnit}</nowiki> 
-** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{default=mb}</nowiki> 
-** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** gb <nowiki>{SIUnit,unitSymbol}</nowiki> 
-** tb <nowiki>{SIUnit,unitSymbol}</nowiki> 
 * physicalLength <nowiki>{default=cm}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1155,35 +1142,49 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * pixels <nowiki>{default=px}</nowiki>  
 ** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
-* speed <nowiki>{default=cm-per-s}</nowiki> 
-** m-per-s <nowiki>{unitSymbol}</nowiki> 
-** mph <nowiki>{unitSymbol}</nowiki> 
-** kph <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s <nowiki>{unitSymbol}</nowiki> 
-* time <nowiki>{default=s}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** second <nowiki>{SIUnit}</nowiki> 
-** centisecond
-** cs <nowiki>{unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
-** day 
-** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** millisecond <nowiki>{SIUnit}</nowiki> 
-** minute 
-** hour 
 * area <nowiki>{default=cm2}</nowiki> 
 ** m2 <nowiki>{unitSymbol}</nowiki> 
 ** cm2 <nowiki>{unitSymbol}</nowiki> 
 ** km2 <nowiki>{unitSymbol}</nowiki> 
-** pixels2 
+** pixels2 <nowiki>{unitSymbol}</nowiki> 
 ** px2 <nowiki>{unitSymbol}</nowiki> 
-** pixel2 
+** pixel2 <nowiki>{unitSymbol}</nowiki> 
 ** mm2 <nowiki>{unitSymbol}</nowiki> 
 * volume <nowiki>{default=cm3}</nowiki> 
 ** m3 <nowiki>{unitSymbol}</nowiki> 
 ** cm3 <nowiki>{unitSymbol}</nowiki> 
 ** mm3 <nowiki>{unitSymbol}</nowiki> 
-** km3 <nowiki>{unitSymbol}</nowiki> 
+** km3 <nowiki>{unitSymbol}</nowiki>
+* speed <nowiki>{default=cm-per-s}</nowiki> 
+** m-per-s <nowiki>{unitSymbol}</nowiki> 
+** mph <nowiki>{unitSymbol}</nowiki> 
+** kph <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s <nowiki>{unitSymbol}</nowiki>  
+* acceleration <nowiki>{default=cm-per-s2}</nowiki> 
+** m-per-s2 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
+* jerk <nowiki>{default=cm-per-s3}</nowiki> 
+** m-per-s3 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
+* intensity <nowiki>{default=dB}</nowiki> 
+** dB <nowiki>{unitSymbol}</nowiki> 
+
+* luminousIntensity <nowiki>{default=cd}</nowiki> 
+** candela <nowiki>{SIUnit}</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{default=mb}</nowiki> 
+** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** gb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** tb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* currency <nowiki>{default=$}</nowiki> 
+** dollar 
+** $ <nowiki>{unitSymbol}</nowiki> 
+** point 
+** fraction 
+* angle <nowiki>{default=radian}</nowiki> 
+** degree 
+** radian <nowiki>{SIUnit}</nowiki> 
 !# end hed 
 
 '''Attribute Definitions:'''
@@ -1196,6 +1197,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names.]</nowiki>  
 * takesValue <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is a string.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
-* unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit.]</nowiki> 
+* unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
 * default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 
