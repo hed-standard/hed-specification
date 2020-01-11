@@ -1131,6 +1131,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* angle <nowiki>{default=radian}</nowiki> 
+** degree 
+** radian <nowiki>{SIUnit}</nowiki> 
 * physicalLength <nowiki>{default=cm}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1168,7 +1171,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
 * intensity <nowiki>{default=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
-
 * luminousIntensity <nowiki>{default=cd}</nowiki> 
 ** candela <nowiki>{SIUnit}</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1182,9 +1184,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
 ** fraction 
-* angle <nowiki>{default=radian}</nowiki> 
-** degree 
-** radian <nowiki>{SIUnit}</nowiki> 
 !# end hed 
 
 '''Attribute Definitions:'''
