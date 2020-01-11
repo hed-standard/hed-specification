@@ -1115,7 +1115,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * <nowiki>[extend here]</nowiki> 
 
 '''Unit classes''' 
-* time <nowiki>{default=s}</nowiki> 
+* time <nowiki>{defaultUnits=s}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** centisecond <nowiki>{SIUnit}</nowiki> 
@@ -1126,15 +1126,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** millisecond <nowiki>{SIUnit}</nowiki> 
 ** minute 
 ** hour 
-* frequency <nowiki>{default=Hz}</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki> 
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* angle <nowiki>{default=radian}</nowiki> 
+* angle <nowiki>{defaultUnits=radian}</nowiki> 
 ** degree 
 ** radian <nowiki>{SIUnit}</nowiki> 
-* physicalLength <nowiki>{default=cm}</nowiki> 
+* physicalLength <nowiki>{defaultUnits=cm}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** km <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1142,10 +1142,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** foot 
 ** meter <nowiki>{SIUnit}</nowiki> 
 ** mile  
-* pixels <nowiki>{default=px}</nowiki>  
+* pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
-* area <nowiki>{default=cm2}</nowiki> 
+* area <nowiki>{defaultUnits=cm2}</nowiki> 
 ** m2 <nowiki>{unitSymbol}</nowiki> 
 ** cm2 <nowiki>{unitSymbol}</nowiki> 
 ** km2 <nowiki>{unitSymbol}</nowiki> 
@@ -1153,33 +1153,33 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** px2 <nowiki>{unitSymbol}</nowiki> 
 ** pixel2 <nowiki>{unitSymbol}</nowiki> 
 ** mm2 <nowiki>{unitSymbol}</nowiki> 
-* volume <nowiki>{default=cm3}</nowiki> 
+* volume <nowiki>{defaultUnits=cm3}</nowiki> 
 ** m3 <nowiki>{unitSymbol}</nowiki> 
 ** cm3 <nowiki>{unitSymbol}</nowiki> 
 ** mm3 <nowiki>{unitSymbol}</nowiki> 
 ** km3 <nowiki>{unitSymbol}</nowiki>
-* speed <nowiki>{default=cm-per-s}</nowiki> 
+* speed <nowiki>{defaultUnits=cm-per-s}</nowiki> 
 ** m-per-s <nowiki>{unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
 ** cm-per-s <nowiki>{unitSymbol}</nowiki>  
-* acceleration <nowiki>{default=cm-per-s2}</nowiki> 
+* acceleration <nowiki>{defaultUnits=cm-per-s2}</nowiki> 
 ** m-per-s2 <nowiki>{unitSymbol}</nowiki> 
 ** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{default=cm-per-s3}</nowiki> 
+* jerk <nowiki>{defaultUnits=cm-per-s3}</nowiki> 
 ** m-per-s3 <nowiki>{unitSymbol}</nowiki> 
 ** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
-* intensity <nowiki>{default=dB}</nowiki> 
+* intensity <nowiki>{defaultUnits=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
-* luminousIntensity <nowiki>{default=cd}</nowiki> 
+* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
 ** candela <nowiki>{SIUnit}</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{default=mb}</nowiki> 
+* memorySize <nowiki>{defaultUnits=mb}</nowiki> 
 ** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** gb <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** tb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* currency <nowiki>{default=$}</nowiki> 
+* currency <nowiki>{defaultUnits=$}</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
@@ -1187,6 +1187,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 !# end hed 
 
 '''Attribute Definitions:'''
+* default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki>  
+* defaultUnits <nowiki>[Default units for a tag.]<nowiki>   
 * extensionAllowed <nowiki>[users can add (unlimited levels of) child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki> 
 * position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki>  
@@ -1198,4 +1200,3 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
-* default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 
