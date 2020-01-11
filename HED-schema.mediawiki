@@ -1121,16 +1121,16 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * currency <nowiki>{default=$}</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitSymbol, default=$}</nowiki> 
-**point 
-**fraction 
+** point 
+** fraction 
 * angle <nowiki>{default=radian}</nowiki> 
 ** degree 
 ** radian <nowiki>{SIUnit}</nowiki> 
 * frequency <nowiki>{default=Hz}</nowiki> 
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** MHz <nowiki>{unitSymbol}</nowiki> 
+** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hertz  <nowiki>{SIUnit}</nowiki>
-** kHz <nowiki>{unitSymbol}</nowiki> 
+** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * intensity <nowiki>{default=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
 * jerk <nowiki>{default=cm-per-s3}</nowiki> 
@@ -1140,10 +1140,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** candela <nowiki>{SIUnit}</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * memorySize <nowiki>{default=mb}</nowiki> 
-** Mb <nowiki>{unitSymbol}</nowiki> 
-** kb <nowiki>{unitSymbol}</nowiki> 
-** gb <nowiki>{unitSymbol}</nowiki> 
-** tb <nowiki>{unitSymbol}</nowiki> 
+** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** gb <nowiki>{SIUnit,unitSymbol}</nowiki> 
+** tb <nowiki>{SIUnit,unitSymbol}</nowiki> 
 * physicalLength <nowiki>{default=cm}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** cm <nowiki>{unitSymbol}</nowiki> 
@@ -1165,10 +1165,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** second <nowiki>{SIUnit}</nowiki> 
 ** centisecond
 ** cs <nowiki>{unitSymbol}</nowiki> 
-** hour:min 
+** hour:min <nowiki>{noPlural}</nowiki> 
 ** day 
 ** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** millisecond
+** millisecond <nowiki>{SIUnit}</nowiki> 
 ** minute 
 ** hour 
 * area <nowiki>{default=cm2}</nowiki> 
