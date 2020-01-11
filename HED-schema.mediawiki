@@ -1,4 +1,4 @@
-HED version: v1.0.1-restruct
+HED version: v1.0.1-unitdev
 
 '''Syntax'''  
 
@@ -1146,9 +1146,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** tb <nowiki>{SIUnit,unitSymbol}</nowiki> 
 * physicalLength <nowiki>{default=cm}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** cm <nowiki>{unitSymbol}</nowiki> 
-** km <nowiki>{unitSymbol}</nowiki> 
-** mm <nowiki>{unitSymbol}</nowiki> 
+** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** km <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** mm <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** foot 
 ** meter <nowiki>{SIUnit}</nowiki> 
 ** mile  
