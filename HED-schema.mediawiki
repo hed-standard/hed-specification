@@ -1189,7 +1189,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Attribute Definitions:'''
 * default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
-* extensionAllowed <nowiki>[users can add unlimited levels of child nodes under this tag.]</nowiki> 
+* extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
 * position <nowiki>[Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki>  
