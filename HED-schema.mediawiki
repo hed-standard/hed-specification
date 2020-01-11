@@ -1120,7 +1120,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
 * currency <nowiki>{default=$}</nowiki> 
 ** dollar 
-** $ <nowiki>{unitSymbol, default=$}</nowiki> 
+** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
 ** fraction 
 * angle <nowiki>{default=radian}</nowiki> 
@@ -1165,7 +1165,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** second <nowiki>{SIUnit}</nowiki> 
 ** centisecond
 ** cs <nowiki>{unitSymbol}</nowiki> 
-** hour:min <nowiki>{noPlural}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** millisecond <nowiki>{SIUnit}</nowiki> 
@@ -1189,7 +1189,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Attribute Definitions:'''
 * extensionAllowed <nowiki>[users can add (unlimited levels of) child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki> 
-* noPlural  <nowiki>[Designates a unit type that does not have a plural. Note that units with the attribute unitSymbol do not have plurals.]</nowiki> 
 * position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki>  
 * recommended  <nowiki>[Shown below the required tags in the events view in the order given by the position attribute.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
