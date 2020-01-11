@@ -1116,86 +1116,74 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Unit classes''' 
 * acceleration <nowiki>{default=cm-per-s2}</nowiki> 
-** m-per-s2 
-** cm-per-s2 
+** m-per-s2 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
 * currency <nowiki>{default=$}</nowiki> 
-** dollars 
-** $ 
-**points 
+** dollar 
+** $ <nowiki>{unitSymbol, default=$}</nowiki> 
+**point 
 **fraction 
-* angle <nowiki>{default=radians}</nowiki> 
-** degrees 
+* angle <nowiki>{default=radian}</nowiki> 
 ** degree 
-** radian 
-** radians 
+** radian <nowiki>{SIUnit}</nowiki> 
 * frequency <nowiki>{default=Hz}</nowiki> 
-** Hz 
-** mHz 
-** Hertz 
-** kHz 
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** MHz <nowiki>{unitSymbol}</nowiki> 
+** hertz  <nowiki>{SIUnit}</nowiki>
+** kHz <nowiki>{unitSymbol}</nowiki> 
 * intensity <nowiki>{default=dB}</nowiki> 
-** dB 
+** dB <nowiki>{unitSymbol}</nowiki> 
 * jerk <nowiki>{default=cm-per-s3}</nowiki> 
-** m-per-s3 
-** cm-per-s3 
+** m-per-s3 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
 * luminousIntensity <nowiki>{default=cd}</nowiki> 
-** candela 
-** cd 
+** candela <nowiki>{SIUnit}</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * memorySize <nowiki>{default=mb}</nowiki> 
-** mb 
-** kb 
-** gb 
-** tb 
+** Mb <nowiki>{unitSymbol}</nowiki> 
+** kb <nowiki>{unitSymbol}</nowiki> 
+** gb <nowiki>{unitSymbol}</nowiki> 
+** tb <nowiki>{unitSymbol}</nowiki> 
 * physicalLength <nowiki>{default=cm}</nowiki> 
-** m 
-** cm 
-** km 
-** mm 
-** feet 
+** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** cm <nowiki>{unitSymbol}</nowiki> 
+** km <nowiki>{unitSymbol}</nowiki> 
+** mm <nowiki>{unitSymbol}</nowiki> 
 ** foot 
-** meter 
-** meters 
-** mile 
-** miles 
-* pixels <nowiki>{default=px}</nowiki> 
-** pixels  
-** px 
+** meter <nowiki>{SIUnit}</nowiki> 
+** mile  
+* pixels <nowiki>{default=px}</nowiki>  
+** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
 * speed <nowiki>{default=cm-per-s}</nowiki> 
-** m-per-s 
-** mph 
-** kph 
-** cm-per-s 
+** m-per-s <nowiki>{unitSymbol}</nowiki> 
+** mph <nowiki>{unitSymbol}</nowiki> 
+** kph <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s <nowiki>{unitSymbol}</nowiki> 
 * time <nowiki>{default=s}</nowiki> 
-** s 
-** second 
-** seconds
-** centiseconds
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
 ** centisecond
-** cs
+** cs <nowiki>{unitSymbol}</nowiki> 
 ** hour:min 
 ** day 
-** days 
-** ms 
-** milliseconds
+** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** millisecond
 ** minute 
-** minutes 
 ** hour 
-** hours 
 * area <nowiki>{default=cm2}</nowiki> 
-**m2 
-** cm2 
-** km2 
+** m2 <nowiki>{unitSymbol}</nowiki> 
+** cm2 <nowiki>{unitSymbol}</nowiki> 
+** km2 <nowiki>{unitSymbol}</nowiki> 
 ** pixels2 
-** px2 
+** px2 <nowiki>{unitSymbol}</nowiki> 
 ** pixel2 
-** mm2 
+** mm2 <nowiki>{unitSymbol}</nowiki> 
 * volume <nowiki>{default=cm3}</nowiki> 
-** m3 
-** cm3 
-** mm3 
-** km3 
+** m3 <nowiki>{unitSymbol}</nowiki> 
+** cm3 <nowiki>{unitSymbol}</nowiki> 
+** mm3 <nowiki>{unitSymbol}</nowiki> 
+** km3 <nowiki>{unitSymbol}</nowiki> 
 !# end hed 
 
 '''Attribute Definitions:'''
