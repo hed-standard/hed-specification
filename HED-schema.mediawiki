@@ -1149,9 +1149,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** m^2 <nowiki>{unitSymbol}</nowiki> 
 ** cm^2 <nowiki>{unitSymbol}</nowiki> 
 ** km^2 <nowiki>{unitSymbol}</nowiki> 
-** pixels^2 <nowiki>{unitSymbol}</nowiki> 
 ** px^2 <nowiki>{unitSymbol}</nowiki> 
-** pixel^2 <nowiki>{unitSymbol}</nowiki> 
+** pixel^2
 ** mm^2 <nowiki>{unitSymbol}</nowiki> 
 * volume <nowiki>{defaultUnits=cm^3}</nowiki> 
 ** m^3 <nowiki>{unitSymbol}</nowiki> 
