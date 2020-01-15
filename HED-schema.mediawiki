@@ -1,4 +1,4 @@
-HED version: v1.1.0-unitdev
+HED version: v1.1.1-unitdev
 
 '''Syntax'''  
 
@@ -1145,30 +1145,30 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
-* area <nowiki>{defaultUnits=cm2}</nowiki> 
-** m2 <nowiki>{unitSymbol}</nowiki> 
-** cm2 <nowiki>{unitSymbol}</nowiki> 
-** km2 <nowiki>{unitSymbol}</nowiki> 
-** pixels2 <nowiki>{unitSymbol}</nowiki> 
-** px2 <nowiki>{unitSymbol}</nowiki> 
-** pixel2 <nowiki>{unitSymbol}</nowiki> 
-** mm2 <nowiki>{unitSymbol}</nowiki> 
-* volume <nowiki>{defaultUnits=cm3}</nowiki> 
-** m3 <nowiki>{unitSymbol}</nowiki> 
-** cm3 <nowiki>{unitSymbol}</nowiki> 
-** mm3 <nowiki>{unitSymbol}</nowiki> 
-** km3 <nowiki>{unitSymbol}</nowiki>
+* area <nowiki>{defaultUnits=cm^2}</nowiki> 
+** m^2 <nowiki>{unitSymbol}</nowiki> 
+** cm^2 <nowiki>{unitSymbol}</nowiki> 
+** km^2 <nowiki>{unitSymbol}</nowiki> 
+** pixels^2 <nowiki>{unitSymbol}</nowiki> 
+** px^2 <nowiki>{unitSymbol}</nowiki> 
+** pixel^2 <nowiki>{unitSymbol}</nowiki> 
+** mm^2 <nowiki>{unitSymbol}</nowiki> 
+* volume <nowiki>{defaultUnits=cm^3}</nowiki> 
+** m^3 <nowiki>{unitSymbol}</nowiki> 
+** cm^3 <nowiki>{unitSymbol}</nowiki> 
+** mm^3 <nowiki>{unitSymbol}</nowiki> 
+** km^3 <nowiki>{unitSymbol}</nowiki>
 * speed <nowiki>{defaultUnits=cm-per-s}</nowiki> 
 ** m-per-s <nowiki>{unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
 ** cm-per-s <nowiki>{unitSymbol}</nowiki>  
-* acceleration <nowiki>{defaultUnits=cm-per-s2}</nowiki> 
-** m-per-s2 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s2 <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=cm-per-s3}</nowiki> 
-** m-per-s3 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s3 <nowiki>{unitSymbol}</nowiki> 
+* acceleration <nowiki>{defaultUnits=cm-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s^2 <nowiki>{unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=cm-per-s^3}</nowiki> 
+** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
+** cm-per-s^3 <nowiki>{unitSymbol}</nowiki> 
 * intensity <nowiki>{defaultUnits=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
 * luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
