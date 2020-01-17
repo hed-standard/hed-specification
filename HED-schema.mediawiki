@@ -1,6 +1,6 @@
 HED version: v1.1.1-devunit
 
-'''Syntax'''  
+'''Syntax''' 
 
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers. Units can have ^ indicating exponent. 
 From version 2.2, HED adheres to http://semver.org/ versioning. 
