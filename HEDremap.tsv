@@ -31,3 +31,37 @@ Attribute/Response end delay/#	Attribute/Temporal/Response end delay/#
 Attribute/Temporal rate/#	Attribute/Temporal/Temporal rate/#
 Attribute/Temporal uncertainty/#	Attribute/Temporal/Temporal uncertainty/# 
 Attribute/Temporal uncertainty/Standard deviation/#	Attribute/Temporal/Temporal uncertainty/Standard deviation/# 
+Attribute/Direction/Bottom	Attribute/Spatial/Direction/Bottom
+Attribute/Direction/Bottom/#	Attribute/Spatial/Direction/Bottom/#
+Attribute/Direction/Left	Attribute/Spatial/Direction/Left
+Attribute/Direction/Left/#	Attribute/Spatial/Direction/Left/#
+Attribute/Direction/Right	Attribute/Spatial/Direction/Right
+Attribute/Direction/Right/#	Attribute/Spatial/Direction/Right/#
+Attribute/Direction/Top	Attribute/Spatial/Direction/Top
+Attribute/Direction/Top/#	Attribute/Spatial/Direction/Top/#
+Attribute/Direction/Angle	Attribute/Spatial/Direction/Angle
+Attribute/Direction/Angle/#	Attribute/Spatial/Direction/Angle/#
+Attribute/Direction/East	Attribute/Spatial/Direction/East
+Attribute/Direction/East/#	Attribute/Spatial/Direction/East/#
+Attribute/Direction/North	Attribute/Spatial/Direction/North
+Attribute/Direction/North/#	Attribute/Spatial/Direction/North/#
+Attribute/Direction/South	Attribute/Spatial/Direction/South
+Attribute/Direction/South/#	Attribute/Spatial/Direction/South/#
+Attribute/Direction/West	Attribute/Spatial/Direction/West
+Attribute/Direction/West/#	Attribute/Spatial/Direction/West/#
+Attribute/Direction/Bottom	Attribute/Spatial/Direction/Bottom
+Attribute/Direction/Bottom/#	Attribute/Spatial/Direction/Bottom/#
+Attribute/Direction/Forward	Attribute/Spatial/Direction/Forward
+Attribute/Direction/Backward	Attribute/Spatial/Direction/Backward
+Attribute/Object side/Back	Attribute/Spatial/Object side/Back
+Attribute/Object side/Bottom	Attribute/Spatial/Object side/Bottom
+Attribute/Object side/Bow	Attribute/Spatial/Object side/Bow
+Attribute/Object side/Driver side	Attribute/Spatial/Object side/Driver side
+Attribute/Object side/Front	Attribute/Spatial/Object side/Front
+Attribute/Object side/Left	Attribute/Spatial/Object side/Left
+Attribute/Object side/Passenger side	Attribute/Spatial/Object side/Passenger side
+Attribute/Object side/Port	Attribute/Spatial/Object side/Port
+Attribute/Object side/Right	Attribute/Spatial/Object side/Right
+Attribute/Object side/Starboard	Attribute/Spatial/Object side/Starboard
+Attribute/Object side/Stern	Attribute/Spatial/Object side/Stern
+Attribute/Object side/Top	Attribute/Spatial/Object side/Top

@@ -228,7 +228,46 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
 *** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
 *** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
-* Temporal 
+
+* Spatial <nowiki>{requireChild}</nowiki>
+** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
+*** Bottom 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
+*** Left 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** Right  
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>  
+*** Top <nowiki> [Combine Attribute/Direction/Top and Attribute/Direction/Left to mean the upper left]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** Angle <nowiki>[Clockwise angle in degrees from vertical]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki> 
+*** North 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** South 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** East 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** West 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+*** Forward <nowiki> [Like a car moving forward]</nowiki> 
+*** Backward <nowiki>[Like a car moving backward]</nowiki> 
+** Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
+*** Back 
+*** Bottom 
+*** Bow <nowiki>[Front of a ship]</nowiki> 
+*** Driver side <nowiki>[Side of a car]</nowiki> 
+*** Front 
+*** Left 
+*** Passenger side <nowiki>[Side of a car]</nowiki> 
+*** Port 
+*** Right 
+*** Stern <nowiki>[Back of the ship]</nowiki>
+*** Starboard 
+*** Top 
+
+
+
+* Temporal <nowiki>{requireChild}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 *** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
 ** Onset <nowiki>[Default]</nowiki> 
@@ -258,40 +297,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
-* Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
-** Right 
-** Left 
-** Front 
-** Back 
-** Top 
-** Bottom 
-** Starboard 
-** Port 
-** Passenger side <nowiki>[Side of a car]</nowiki> 
-** Driver side <nowiki>[Side of a car]</nowiki> 
-** Bow <nowiki>[Front of a ship]</nowiki> 
-** Stern <nowiki>[Back of the ship]</nowiki>
-* Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
-** Top <nowiki> [Combine Attribute/Direction/Top and Attribute/Direction/Left to mean the upper left]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** Bottom 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** Left 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** Right  
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** Angle <nowiki>[Clockwise angle in degrees from vertical]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki> 
-** North 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** South 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** East 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** West 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-** Forward <nowiki> [Like a car moving forward]</nowiki> 
-** Backward <nowiki>[Like a car moving backward]</nowiki> 
+
 * Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 ** <nowiki># {takesValue} [location label]</nowiki> 
 ** Screen <nowiki>[Specify displacements from each subnode in pixels or degrees or meters. Specify units such as Attribute/Location/Screen/Top/12 px]</nowiki> 
