@@ -228,15 +228,24 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
 *** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
 *** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
-* Onset <nowiki>[Default]</nowiki> 
-* Offset
-* Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki> 
-** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+* Temporal 
+** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
+** Onset <nowiki>[Default]</nowiki> 
+** Offset
+** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
+*** <nowiki># {takesValue, isNumeric} [Number starting from 1 where 1 indicates the first occurrence and 2 indicates the second occurrence]</nowiki> 
+** Response start delay <nowiki>[The time interval between this (stimulus) event and the start of the response event specified, usually by grouping with the event ID of the response start event.]</nowiki>
+*** <nowiki># {takesValue, unitClass=time}</nowiki>
+** Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
+*** <nowiki># {takesValue, unitClass=time}</nowiki>
+** Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=frequency} [In Hz]</nowiki> 
+** Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
+*** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-* Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
-** <nowiki># {takesValue, isNumeric} [Number starting from 1 where 1 indicates the first occurrence and 2 indicates the second occurrence]</nowiki>
-* Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
-** <nowiki># {takesValue, isNumeric, unitClass=frequency} [In Hz]</nowiki> 
 * Condition <nowiki>{requireChild} [Specifies the value of an independent variable (number of letters, N, in an N-back task) or function of independent variables that is varied or controlled for in the experiment.  This attribute is often specified at the task level and can be associated with specification of an experimental stimulus or an experiment context (e.g. 1-back, 2-back conditions in an N-back task, or changing the target type from faces to houses in a Rapid Serial Visual Presentation, or RSVP, task.)]</nowiki>
 ** # <nowiki>{takesValue} [the condition]</nowiki> 
 * Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
@@ -246,10 +255,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Time out 
 *** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
 ** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
-* Response start delay <nowiki>[The time interval between this (stimulus) event and the start of the response event specified, usually by grouping with the event ID of the response start event.]</nowiki>
-** <nowiki># {takesValue, unitClass=time}</nowiki>
-* Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
-** <nowiki># {takesValue, unitClass=time}</nowiki>
+
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
 * Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
@@ -475,10 +481,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
 * Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
-* Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
-** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
-** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
+
 * Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
 ** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
 *** <nowiki># {takesValue, isNumeric}</nowiki>

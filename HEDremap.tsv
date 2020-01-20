@@ -22,3 +22,12 @@ Event/Category/Experiment control/Sequence/Trial/#	(Event/Category/Experiment co
 Event/Category/Experiment control/Task/#	(Event/Category/Experiment control/Task, Attribute/ID/Value/#)
 Event/Category/Experiment control/Synchronization/Tag	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization)
 Event/Category/Experiment control/Synchronization/Tag/#	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization, Attribute/ID/Value/#)
+Attribute/Onset	Attribute/Temporal/Onset
+Attribute/Offset	Attribute/Temporal/Offset
+Attribute/Duration/#	Attribute/Temporal/Duration/#
+Attribute/Repetition/#	Attribute/Temporal/Repetition/#
+Attribute/Response start delay/#	Attribute/Temporal/Response start delay/#
+Attribute/Response end delay/#	Attribute/Temporal/Response end delay/#
+Attribute/Temporal rate/#	Attribute/Temporal/Temporal rate/#
+Attribute/Temporal uncertainty/#	Attribute/Temporal/Temporal uncertainty/# 
+Attribute/Temporal uncertainty/Standard deviation/#	Attribute/Temporal/Temporal uncertainty/Standard deviation/# 
