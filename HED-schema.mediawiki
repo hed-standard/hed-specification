@@ -252,6 +252,71 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Forward <nowiki> [Like a car moving forward]</nowiki> 
 *** Backward <nowiki>[Like a car moving backward]</nowiki> 
 
+** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
+*** <nowiki># {takesValue} [location label]</nowiki> 
+*** Lane <nowiki>[For example a car lane]</nowiki> 
+**** Cruising  
+**** Leftmost 
+**** Left of expected 
+**** Oncoming 
+**** Passing <nowiki>[The lane that cars use to take over other cars]</nowiki> 
+**** Rightmost 
+**** Right of expected 
+
+
+
+
+
+*** Screen <nowiki>[Specify displacements from each subnode in pixels or degrees or meters. Specify units such as Attribute/Spatial/Location/Screen/Top/12 px]</nowiki> 
+**** Angle  
+***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki> 
+**** Bottom 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+**** Center 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
+**** Center displacement 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [Displacement from screen center, in any direction, in degrees, cm, or other lengths]</nowiki> 
+***** Horizontal 
+****** <nowiki># {takesValue, isNumeric, unitClass=angle,  unitClass=physicalLength} [Displacement from screen center in any direction]</nowiki> 
+***** Vertical 
+****** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength}[Displacement from screen center in any direction]</nowiki>  
+**** Left 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+**** Right  
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+**** Top <nowiki>[You can combine Attribute/Location/Top and Attribute/Location/Left to designate UpperLeft and so on]</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
+
+
+
+
+
+
+** Real-world coordinates <nowiki>{requireChild}</nowiki> 
+*** Room 
+**** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/[10 50 30]]</nowiki> 
+***** <nowiki># {takesValue}</nowiki> 
+** Reference frame <nowiki>{requireChild}</nowiki> 
+*** Specified absolute reference 
+*** Relative to participant 
+**** Left 
+**** Front 
+**** Right 
+**** Back 
+**** Distance <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance is in meters by default]</nowiki> 
+***** Near 
+***** Moderate 
+***** Far 
+**** Azimuth <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise with units preferably in degrees]</nowiki> 
+**** Elevation <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Preferably in degrees]</nowiki> 
+
+
+
+
+
 ** Object orientation <nowiki>{requireChild}</nowiki> 
 *** Rotated 
 **** Degrees <nowiki>{requireChild}</nowiki> 
@@ -317,55 +382,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
 
-* Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-** <nowiki># {takesValue} [location label]</nowiki> 
-** Screen <nowiki>[Specify displacements from each subnode in pixels or degrees or meters. Specify units such as Attribute/Location/Screen/Top/12 px]</nowiki> 
-*** Center 
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-*** Top <nowiki>[You can combine Attribute/Location/Top and Attribute/Location/Left to designate UpperLeft and so on]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-*** Bottom 
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-*** Left 
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-*** Right  
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
-*** Angle  
-**** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki> 
-*** Center displacement 
-**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [displacement from screen center, in any direction, in degrees, cm, or other lengths]</nowiki> 
-**** Horizontal 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle,  unitClass=physicalLength} [Displacement from screen center in any direction]</nowiki> 
-**** Vertical 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength}[Displacement from screen center in any direction]</nowiki> 
-** Lane <nowiki>[For example a car lane]</nowiki> 
-*** Rightmost 
-*** Leftmost 
-*** Right of expected 
-*** Left of expected 
-*** Cruising  
-*** Passing <nowiki>[The lane that cars use to take over other cars]</nowiki> 
-*** Oncoming 
-** Real-world coordinates <nowiki>{requireChild}</nowiki> 
-*** Room 
-**** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/[10 50 30]]</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
-** Reference frame <nowiki>{requireChild}</nowiki> 
-*** Specified absolute reference 
-*** Relative to participant 
-**** Left 
-**** Front 
-**** Right 
-**** Back 
-**** Distance <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance is in meters by default]</nowiki> 
-***** Near 
-***** Moderate 
-***** Far 
-**** Azimuth <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise with units preferably in degrees]</nowiki> 
-**** Elevation <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Preferably in degrees]</nowiki> 
 
 
 * Item count <nowiki>{requireChild} [Number of items for example when there are 3 cars and they are identified as a single item]</nowiki> 
