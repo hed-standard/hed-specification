@@ -251,6 +251,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
 *** Forward <nowiki> [Like a car moving forward]</nowiki> 
 *** Backward <nowiki>[Like a car moving backward]</nowiki> 
+
+** Object orientation <nowiki>{requireChild}</nowiki> 
+*** Rotated 
+**** Degrees <nowiki>{requireChild}</nowiki> 
+***** <nowiki>#{takesValue, isNumeric, unitClass=angle}[Preferably in degrees]</nowiki> 
+
 ** Object side <nowiki>{requireChild} [Could be the left,  right, or both sides of a person or a vehicle]</nowiki> 
 *** Back 
 *** Bottom 
@@ -265,7 +271,20 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Starboard 
 *** Top 
 
-
+** Size <nowiki>{requireChild}</nowiki>
+*** Angle<nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=angle} [In degrees or other units of angle]</nowiki> 
+*** Area <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki>
+*** Height
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Default units are meters]</nowiki>
+*** Length<nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [In meters or other units of length ]</nowiki> 
+*** Volume <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=volume} [In cubic-meters or other units of volume]</nowiki> 
+*** Width
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki><nowiki>[in meters]</nowiki> 
+ 
 
 * Temporal <nowiki>{requireChild}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
@@ -347,23 +366,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise with units preferably in degrees]</nowiki> 
 **** Elevation <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Preferably in degrees]</nowiki> 
-* Object orientation <nowiki>{requireChild}</nowiki> 
-** Rotated 
-*** Degrees <nowiki>{requireChild}</nowiki> 
-**** <nowiki>#{takesValue, isNumeric, unitClass=angle}[Preferably in degrees]</nowiki> 
-* Size <nowiki>{requireChild}</nowiki> 
-** Length<nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [In meters or other units of length ]</nowiki> 
-** Width
-*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki><nowiki>[in meters]</nowiki> 
-** Height
-*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Default units are meters]</nowiki> 
-** Area <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
-** Volume <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=volume} [In cubic-meters or other units of volume]</nowiki> 
-** Angle<nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle} [In degrees or other units of angle]</nowiki> 
+
+
 * Item count <nowiki>{requireChild} [Number of items for example when there are 3 cars and they are identified as a single item]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Numeric value of number of items #]</nowiki> 
 ** <nowiki><=# {takesValue, isNumeric} [Number of items less than or equal to #]</nowiki> 

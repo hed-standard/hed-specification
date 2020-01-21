@@ -65,3 +65,12 @@ Attribute/Object side/Right	Attribute/Spatial/Object side/Right
 Attribute/Object side/Starboard	Attribute/Spatial/Object side/Starboard
 Attribute/Object side/Stern	Attribute/Spatial/Object side/Stern
 Attribute/Object side/Top	Attribute/Spatial/Object side/Top
+Attribute/Object orientation/Rotated	Attribute/Spatial/Object orientation/Rotated
+Attribute/Object orientation/Rotated/Degrees/#	Attribute/Spatial/Object orientation/Rotated/Degrees/#
+
+Attribute/Size/Angle/#	Attribute/Spatial/Size/Angle/#
+Attribute/Size/Area/#	Attribute/Spatial/Size/Area/#
+Attribute/Size/Height/#	Attribute/Spatial/Size/Height/#
+Attribute/Size/Length/#	Attribute/Spatial/Size/Length/#
+Attribute/Size/Volume/#	Attribute/Spatial/Size/Volume/#
+Attribute/Size/Width/#	Attribute/Spatial/Size/Width/#
