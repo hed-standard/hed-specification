@@ -263,9 +263,27 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Rightmost 
 **** Right of expected 
 
+*** Real-world coordinates <nowiki>{requireChild}</nowiki> 
+**** Room 
+***** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/[10 50 30]]</nowiki> 
+****** <nowiki># {takesValue}</nowiki> 
 
-
-
+*** Reference frame <nowiki>{requireChild}</nowiki> 
+**** Relative to participant
+***** Azimuth <nowiki>{requireChild}</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise with units preferably in degrees]</nowiki>  
+***** Back 
+***** Distance <nowiki>{requireChild}</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance is in meters by default]</nowiki> 
+****** Far
+****** Moderate  
+****** Near 
+***** Elevation <nowiki>{requireChild}</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=angle} [Preferably in degrees]</nowiki> 
+***** Front 
+***** Left 
+***** Right 
+**** Specified absolute reference 
 
 *** Screen <nowiki>[Specify displacements from each subnode in pixels or degrees or meters. Specify units such as Attribute/Spatial/Location/Screen/Top/12 px]</nowiki> 
 **** Angle  
@@ -291,27 +309,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 
 
-
-** Real-world coordinates <nowiki>{requireChild}</nowiki> 
-*** Room 
-**** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/[10 50 30]]</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
-** Reference frame <nowiki>{requireChild}</nowiki> 
-*** Specified absolute reference 
-*** Relative to participant 
-**** Left 
-**** Front 
-**** Right 
-**** Back 
-**** Distance <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance is in meters by default]</nowiki> 
-***** Near 
-***** Moderate 
-***** Far 
-**** Azimuth <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise with units preferably in degrees]</nowiki> 
-**** Elevation <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=angle} [Preferably in degrees]</nowiki> 
 
 
 

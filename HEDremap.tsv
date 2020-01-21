@@ -55,6 +55,34 @@ Attribute/Direction/Forward	Attribute/Spatial/Direction/Forward
 Attribute/Direction/Backward	Attribute/Spatial/Direction/Backward
 
 Attribute/Location/#	Attribute/Spatial/Location/#
+
+Attribute/Location/Lane	Attribute/Spatial/Location/Lane
+Attribute/Location/Lane/Cruising	Attribute/Spatial/Location/Lane/Cruising
+Attribute/Location/Lane/Leftmost	Attribute/Spatial/Location/Lane/Leftmost
+Attribute/Location/Lane/Left of expected	Attribute/Spatial/Location/Lane/Left of expected
+Attribute/Location/Lane/Oncoming	Attribute/Spatial/Location/Lane/Oncoming
+Attribute/Location/Lane/Passing	Attribute/Spatial/Location/Lane/Passing
+Attribute/Location/Lane/Rightmost	Attribute/Spatial/Location/Lane/Rightmost
+Attribute/Location/Lane/Right of expected	Attribute/Spatial/Location/Lane/Right of expected
+
+Attribute/Location/Reference frame/Relative to participant	Attribute/Spatial/Location/Reference frame/Relative to participant
+Attribute/Location/Reference frame/Relative to participant/Azimuth/#	Attribute/Spatial/Location/Reference frame/Relative to participant/Azimuth/#
+Attribute/Location/Reference frame/Relative to participant/Back	Attribute/Spatial/Location/Reference frame/Relative to participant/Back
+Attribute/Location/Reference frame/Relative to participant/Distance/#	Attribute/Spatial/Location/Reference frame/Relative to participant/Distance/#
+Attribute/Location/Reference frame/Relative to participant/Distance/Far	Attribute/Spatial/Location/Reference frame/Relative to participant/Distance/Far
+Attribute/Location/Reference frame/Relative to participant/Distance/Moderate	Attribute/Spatial/Location/Reference frame/Relative to participant/Distance/Moderate
+Attribute/Location/Reference frame/Relative to participant/Near	Attribute/Spatial/Location/Reference frame/Relative to participant/Near
+Attribute/Location/Reference frame/Relative to participant/Elevation/#	Attribute/Spatial/Location/Reference frame/Relative to participant/Elevation/#
+Attribute/Location/Reference frame/Relative to participant/Front	Attribute/Spatial/Location/Reference frame/Relative to participant/Front
+Attribute/Location/Reference frame/Relative to participant/Left	Attribute/Spatial/Location/Reference frame/Relative to participant/Left
+Attribute/Location/Reference frame/Relative to participant/Right	Attribute/Spatial/Location/Reference frame/Relative to participant/Right
+
+Attribute/Location/Reference frame/Specified absolute reference	Attribute/Spatial/Location/Reference frame/Specified absolute reference
+
+Attribute/Location/Reference frame	Attribute/Spatial/Location/Reference frame
+
+Attribute/Location/Real-world coordinates/Room/xyz/#	Attribute/Spatial/Location/Real-world coordinates/Room/xyz/#
+
 Attribute/Location/Screen	Attribute/Spatial/Location/Screen
 Attribute/Location/Screen/Angle	Attribute/Spatial/Location/Screen/Angle
 Attribute/Location/Screen/Angle/#	Attribute/Spatial/Location/Screen/Angle/#
