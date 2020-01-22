@@ -11,7 +11,7 @@
          </node>
          <node>
             <name>Participant response</name>
-            <description>The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response</description>
+            <description>The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response.</description>
          </node>
          <node>
             <name>Technical error</name>
