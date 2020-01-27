@@ -218,16 +218,22 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
-** Value <nowiki>{requireChild}[Use this tag by itself or in a parenthesized expression with an ID Type tag.]</nowiki>
+** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
-** Type <nowiki>{requireChild}[Use this tag to define the type of ID in more detail.]</nowiki>
-*** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
-*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
-*** Participant <nowiki>[ID identifies a subject.]</nowiki>
-*** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
-*** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
-*** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
-*** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
+** Index <nowiki>{requireChild}[Use this tag with a value for IDs that don't fall into another category.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Participant <nowiki>[ID identifies a subject.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
 * Spatial <nowiki>{requireChild}</nowiki>
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 *** Bottom 
