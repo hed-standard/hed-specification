@@ -347,9 +347,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue, unitClass=time}</nowiki>
 ** Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
 *** <nowiki># {takesValue, unitClass=time}</nowiki>
-** Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
+** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=frequency} [In Hz]</nowiki> 
-** Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
 *** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>

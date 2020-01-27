@@ -28,8 +28,8 @@ Attribute/Duration/#	Attribute/Temporal/Duration/#
 Attribute/Repetition/#	Attribute/Temporal/Repetition/#
 Attribute/Response start delay/#	Attribute/Temporal/Response start delay/#
 Attribute/Response end delay/#	Attribute/Temporal/Response end delay/#
-Attribute/Temporal rate/#	Attribute/Temporal/Temporal rate/#
-Attribute/Temporal uncertainty/#	Attribute/Temporal/Temporal uncertainty/# 
+Attribute/Temporal rate/#	Attribute/Temporal/Rate/#
+Attribute/Temporal uncertainty/#	Attribute/Temporal/Uncertainty/# 
 Attribute/Temporal uncertainty/Standard deviation/#	Attribute/Temporal/Temporal uncertainty/Standard deviation/# 
 Attribute/Direction/Bottom	Attribute/Spatial/Direction/Bottom
 Attribute/Direction/Bottom/#	Attribute/Spatial/Direction/Bottom/#
