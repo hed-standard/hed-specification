@@ -1,4 +1,4 @@
-HED version: v1.2.0-restruct
+HED version: v1.3.0-restruct
 
 '''Syntax'''  
 

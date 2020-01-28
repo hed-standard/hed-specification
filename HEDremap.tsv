@@ -144,3 +144,27 @@ Sensory presentation/Auditory/Human voice	(Item/Object/Human, Attribute/Sensory 
 
 Sensory presentation/Auditory/Real world
 Sensory presentation/Auditory/Real world/Pedestrian	(Item/Object/Human/Pedestrian, Attribute/Sensory presentation/Auditory)
+
+Sensory presentation/Olfactory Atribute/Sensory presentation/Olefactory
+Sensory presentation/Taste Atribute/Sensory presentation/Taste
+Sensory presentation/Tactile Atribute/Sensory presentation/Tactile
+
+
+Sensory presentation/Visual/Rendering type	Attribute/Sensory presentation/Visual/Rendering type
+Sensory presentation/Visual/Rendering type/Screen	Attribute/Sensory presentation/Visual/Rendering type/Screen
+Sensory presentation/Visual/Rendering type/Screen/Head-mounted display	Attribute//Sensory presentation/Visual/Rendering type/Screen/Head-mounted display
+Sensory presentation/Visual/Rendering type/Screen/View port	Attribute/Sensory presentation/Visual/Rendering type/Screen/View port
+Sensory presentation/Visual/Rendering type/Screen/2D	Attribute/Sensory presentation/Visual/Rendering type/Screen/3D
+Sensory presentation/Visual/Rendering type/Screen/Movie	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie
+Sensory presentation/Visual/Rendering type/Screen/Movie/Video-tape	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Video-tape
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Point light	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Point light
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Stick figure	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Stick figure
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Outline	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Outline
+Sensory presentation/Visual/Rendering type/Screen/Movie/Flickering	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Flickering
+Sensory presentation/Visual/Rendering type/Screen/Movie/Steady state	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Steady state
+Sensory presentation/Visual/Rendering type/LED	Attribute/Sensory presentation/Visual/Rendering type/LED
+
+____________________________________________________________________________________
+Sensory presentation/Visual	Attribute/Visual
+Senory presentation/Visual/Real-world
