@@ -103,8 +103,6 @@ Attribute/Location/Screen/Right/#	Attribute/Spatial/Location/Screen/Right/#
 Attribute/Location/Screen/Top	Attribute/Spatial/Location/Screen/Top
 Attribute/Location/Screen/Top/#	Attribute/Spatial/Location/Screen/Top/#
 
-
-
 Attribute/Object orientation/Rotated	Attribute/Spatial/Object orientation/Rotated
 Attribute/Object orientation/Rotated/Degrees/#	Attribute/Spatial/Object orientation/Rotated/Degrees/#
 
@@ -128,3 +126,21 @@ Attribute/Size/Height/#	Attribute/Spatial/Size/Height/#
 Attribute/Size/Length/#	Attribute/Spatial/Size/Length/#
 Attribute/Size/Volume/#	Attribute/Spatial/Size/Volume/#
 Attribute/Size/Width/#	Attribute/Spatial/Size/Width/#
+
+Sensory presentation	Attribute/Sensory presentation
+Sensory presentation/Auditory/Nameable	(Item/Sound, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Cash register	(Item/Object/Inanimate/Cash register, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Ding	(Item/Object/Inanimate/Bell, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Buzz	(Item/Object/Inanimate/Buzzer, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Fire alarm	(Item/Object/Inanimate/Fire alarm, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Siren	(Item/Object/Inanimate/Fire alarm, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Click	(Item/Object/Inanimate/Clicker, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice	(Item/Object/Animal, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Bird	(Item/Object/Animal/Bird, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Dog	(Item/Object/Animal/Dog, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Insect	(Item/Object/Animal/Insect, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Squirrel	(Item/Object/Animal/Squirrel, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Human voice	(Item/Object/Human, Attribute/Sensory presentation/Auditory)
+
+Sensory presentation/Auditory/Real world
+Sensory presentation/Auditory/Real world/Pedestrian	(Item/Object/Human/Pedestrian, Attribute/Sensory presentation/Auditory)

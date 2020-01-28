@@ -46,7 +46,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
+* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki>
+** Inanimate
+*** Bell
+*** Buzzer
+*** Cash register
+*** Clicker
+*** Fire alarm
+*** Siren
 ** Vehicle 
 *** Bicycle 
 *** Car 
@@ -57,13 +64,17 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Train 
 *** Aircraft 
 **** Airplane 
-**** Helicopter 
+**** Helicopter
 ** Person
 *** Pedestrian 
 *** Cyclist 
 *** Mother-child 
 *** Experimenter 
 ** Animal
+*** Bird 
+*** Dog 
+*** Insect 
+*** Squirrel 
 ** Plant 
 *** Flower 
 *** Tree 
@@ -137,16 +148,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * IAPS <nowiki>[International Affective Picture System]  </nowiki> 
 * IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
 * SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
+** Music
+*** Tone
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
 
 * Auditory <nowiki>[Sound]</nowiki> 
-** Nameable 
-** Cash register  
-** Ding <nowiki>[Often associated with positive valence]</nowiki> 
-** Buzz <nowiki>[Often associated with negative valence]</nowiki> 
-** Fire alarm 
-** Click 
 *** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
 ** Tone 
 ** Siren 
@@ -159,12 +166,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Noise 
 *** White 
 *** Colored <nowiki>[Not white --- for example a 1/f spectrum]</nowiki> 
-** Human voice 
-** Animal voice <nowiki>{extensionAllowed}</nowiki> 
-*** Bird 
-*** Dog 
-*** Insect 
-*** Squirrel 
 
 ** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
 *** Pedestrian 
@@ -195,10 +196,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Yawn 
 ** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
 *** Engine 
-* Olfactory <nowiki>[Odor]</nowiki> 
-* Taste 
-* Tactile <nowiki>[Pressure]</nowiki> 
-* Visual  
 ** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
 *** Screen 
 **** Head-mounted display
@@ -234,6 +231,30 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** # <nowiki>{takesValue}</nowiki>
 ** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
+
+* Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
+** Auditory
+** Olfactory
+** Tactile
+** Taste
+** Visual
+*** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
+**** Screen 
+***** Head-mounted display
+***** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
+***** 2D 
+***** 3D 
+***** Movie 
+****** Video-tape 
+****** Motion-capture <nowiki>[Stick figure of motion capture of someone else]</nowiki> 
+******* Point light 
+******* Stick figure 
+******* Outline 
+****** Flickering 
+****** Steady state 
+**** Real-world 
+**** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
+
 * Spatial <nowiki>{requireChild}</nowiki>
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 *** Bottom 
@@ -366,6 +387,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
+* Visual
+
 
 
 
