@@ -3640,21 +3640,21 @@
       <unitClass defaultUnits="cm^2">
          <name>area</name>
          <units>
-            <unit unitSymbol="true">m</unit>
-            <unit unitSymbol="true">cm</unit>
-            <unit unitSymbol="true">km</unit>
-            <unit unitSymbol="true">px</unit>
-            <unit>pixel</unit>
-            <unit unitSymbol="true">mm</unit>
+            <unit unitSymbol="true">m^2</unit>
+            <unit unitSymbol="true">cm^2</unit>
+            <unit unitSymbol="true">km^2</unit>
+            <unit unitSymbol="true">px^2</unit>
+            <unit>pixel^2</unit>
+            <unit unitSymbol="true">mm^2</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="cm^3">
          <name>volume</name>
          <units>
-            <unit unitSymbol="true">m</unit>
-            <unit unitSymbol="true">cm</unit>
-            <unit unitSymbol="true">mm</unit>
-            <unit unitSymbol="true">km</unit>
+            <unit unitSymbol="true">m^3</unit>
+            <unit unitSymbol="true">cm^3</unit>
+            <unit unitSymbol="true">mm^3</unit>
+            <unit unitSymbol="true">km^3</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="cm-per-s">
@@ -3669,15 +3669,15 @@
       <unitClass defaultUnits="cm-per-s^2">
          <name>acceleration</name>
          <units>
-            <unit unitSymbol="true">m-per-s</unit>
-            <unit unitSymbol="true">cm-per-s</unit>
+            <unit unitSymbol="true">m-per-s^2</unit>
+            <unit unitSymbol="true">cm-per-s^2</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="cm-per-s^3">
          <name>jerk</name>
          <units>
-            <unit unitSymbol="true">m-per-s</unit>
-            <unit unitSymbol="true">cm-per-s</unit>
+            <unit unitSymbol="true">m-per-s^3</unit>
+            <unit unitSymbol="true">cm-per-s^3</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="dB">
