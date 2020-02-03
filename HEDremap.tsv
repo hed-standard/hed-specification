@@ -155,3 +155,8 @@ Sensory presentation/Visual/Rendering type/Screen/Movie/Steady state	Attribute/S
 Sensory presentation/Visual/Rendering type/LED	Attribute/Sensory presentation/Visual/Rendering type/LED
 Sensory presentation/Visual	Attribute/Visual
 Senory presentation/Visual/Real-world
+Participant/State/Attention/Auditory	(Participant/State/Attention Attribute/Auditory)
+Participant/State/Attention/Visual	(Participant/State/Attention Attribute/Visual)
+Participant/State/Attention/Tactile	(Participant/State/Attention Attribute/Tactile)
+Participant/State/Attention/Taste	(Participant/State/Attention Attribute/Taste)
+Participant/State/Attention/Smell	(Participant/State/Attention Attribute/Olfactory)

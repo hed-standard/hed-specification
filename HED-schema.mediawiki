@@ -165,7 +165,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Noise 
 *** White 
 *** Colored <nowiki>[Not white --- for example a 1/f spectrum]</nowiki> 
-
 ** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
 *** Pedestrian 
 *** Footsteps 
@@ -195,7 +194,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Yawn 
 ** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
 *** Engine 
-
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
 ** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
@@ -214,7 +212,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** # <nowiki>{takesValue}</nowiki>
 ** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
-
 * Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
 ** Auditory
 ** Olfactory
@@ -857,11 +854,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Divided <nowiki> [Attending to more than one object or location]</nowiki> 
 *** Focused <nowiki> [Paying a lot of attention]</nowiki> 
 *** Sustained <nowiki> [Paying attention for a continuous time]</nowiki> 
-*** Auditory 
-*** Visual 
-*** Tactile 
-*** Taste 
-*** Smell 
 *** To a location <nowiki> [Spatial -- use the location attribute to specify to where the attention is directed]</nowiki> 
 *** Arousal <nowiki>{requireChild}</nowiki> 
 *** Alerting <nowiki> [Keeping the arousal up in order to respond quickly]</nowiki> 
