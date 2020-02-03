@@ -198,8 +198,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Engine 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
-** Collection <nowiki>[Identifier for an object in a specified collection]<nowiki>
-*** IAPS <nowiki>[International Affective Picture System]  </nowiki> 
+** Collection <nowiki>[Identifier for an object in a specified collection]</nowiki>
+*** IAPS <nowiki>[International Affective Picture System]</nowiki> 
 *** IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
 *** SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
 ** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
