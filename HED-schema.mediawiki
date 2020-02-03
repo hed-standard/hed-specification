@@ -148,8 +148,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * IAPS <nowiki>[International Affective Picture System]  </nowiki> 
 * IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
 * SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
-** Music
-*** Tone
+
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
 
@@ -196,22 +195,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Yawn 
 ** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
 *** Engine 
-** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
-*** Screen 
-**** Head-mounted display
-**** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
-**** 2D 
-**** 3D 
-**** Movie 
-***** Video-tape 
-***** Motion-capture <nowiki>[Stick figure of motion capture of someone else]</nowiki> 
-****** Point light 
-****** Stick figure 
-****** Outline 
-***** Flickering 
-***** Steady state 
-*** Real-world 
-*** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
