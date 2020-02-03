@@ -519,6 +519,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * File <nowiki>{requireChild} [File attributes]</nowiki> 
 ** Name 
 ** Size 
+** Number
 *** <nowiki># {takesValue, isNumeric, unitClass=memorySize} [Numeric value with default units of mb]</nowiki> 
 ** <nowiki># {takesValue, isNumeric}[Number of files]</nowiki> 
 * Object control <nowiki>{requireChild} [Specifies control such as for a vehicle]</nowiki> 
