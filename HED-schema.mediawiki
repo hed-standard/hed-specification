@@ -376,11 +376,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
-* Visual
-
-
-
-
 * Item count <nowiki>{requireChild} [Number of items for example when there are 3 cars and they are identified as a single item]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Numeric value of number of items #]</nowiki> 
 ** <nowiki><=# {takesValue, isNumeric} [Number of items less than or equal to #]</nowiki> 
