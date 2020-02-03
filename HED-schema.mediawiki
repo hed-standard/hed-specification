@@ -609,17 +609,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
 ** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
 *** From modality 
-**** Visual 
-**** Auditory 
-**** Tactile 
-**** Taste  
-**** Smell 
 *** To modality 
-**** Visual 
-**** Auditory 
-**** Tactile 
-**** Taste  
-**** Smell 
+
 * Walk 
 ** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
 ** Faster <nowiki>[increasing the speed of walking]</nowiki> 
