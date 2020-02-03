@@ -137,17 +137,19 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Letter <nowiki> [Authograph or valid letters and numbers such as A or 5]</nowiki> 
 **** <nowiki># {takesValue}</nowiki> 
 ** Composite <nowiki>[Has multiple of the above on it</nowiki> 
-* Natural scene 
-** Aerial 
-*** Satellite 
-* Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-** Line drawing 
-* Film clip  
+* Multimedia
+** Photograph
+*** Natural scene 
+**** Aerial 
+**** Satellite 
+** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
+*** Line drawing 
+** Film clip  
+** Sound clip
 ** Commercial TV 
 ** Animation 
-* IAPS <nowiki>[International Affective Picture System]  </nowiki> 
-* IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
-* SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
+** Movie
+
 
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
@@ -196,6 +198,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Engine 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
+** Collection <nowiki>[Identifier for an object in a specified collection]<nowiki>
+*** IAPS <nowiki>[International Affective Picture System]  </nowiki> 
+*** IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
+*** SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
 ** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
 ** Index <nowiki>{requireChild}[Use this tag with a value for IDs that don't fall into another category.]</nowiki>
