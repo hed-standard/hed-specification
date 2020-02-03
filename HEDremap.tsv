@@ -175,3 +175,6 @@ Action/Switch attention/Intermodal/To modality/Tactile	(Action/Switch attention/
 Action/Switch attention/Intermodal/To modality/Auditory	(Action/Switch attention/Intermodal/To modality, Attribute/Auditory)
 Action/Switch attention/Intermodal/To modality/Taste	(Action/Switch attention/Intermodal/To modality, Attribute/Taste)
 Action/Switch attention/Intermodal/To modality/Olfactory	(Action/Switch attention/Intermodal/To modality, Attribute/Olfactory)
+/Item/IAPS	(Object/Item/Multimedia/Photograph, Attribute/ID/Collection/IAPS/#)
+/Item/IADS	(Object/Item/Multimedia/Sound clip, Attribute/ID/CollectionS/IADS/#)
+/Item/SAM	(Object/Item/Multimedia/Drawing Attribute/ID/Collection/SAM/#)
