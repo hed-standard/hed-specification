@@ -155,7 +155,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
 
 * Auditory <nowiki>[Sound]</nowiki> 
-*** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
+** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
 ** Tone 
 ** Siren 
 ** Music 
