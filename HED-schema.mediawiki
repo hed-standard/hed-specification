@@ -607,11 +607,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Scratch 
 * Switch attention  
 ** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
-*** Visual 
-*** Auditory 
-*** Tactile 
-*** Taste  
-*** Smell 
 ** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
 *** From modality 
 **** Visual 

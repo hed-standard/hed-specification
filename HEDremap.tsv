@@ -160,3 +160,8 @@ Participant/State/Attention/Visual	(Participant/State/Attention Attribute/Visual
 Participant/State/Attention/Tactile	(Participant/State/Attention Attribute/Tactile)
 Participant/State/Attention/Taste	(Participant/State/Attention Attribute/Taste)
 Participant/State/Attention/Smell	(Participant/State/Attention Attribute/Olfactory)
+Action/Switch attention/Intramodal/Visual	(Action/Switch attention/Intramodal, Attribute/Visual)
+Action/Switch attention/Intramodal/Tactile	(Action/Switch attention/Intramodal, Attribute/Tactile)
+Action/Switch attention/Intramodal/Auditory	(Action/Switch attention/Intramodal, Attribute/Auditory)
+Action/Switch attention/Intramodal/Taste	(Action/Switch attention/Intramodal, Attribute/Taste)
+Action/Switch attention/Intramodal/Olfactory	(Action/Switch attention/Intramodal, Attribute/Olfactory)
