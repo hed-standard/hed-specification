@@ -200,8 +200,11 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
 ** Collection <nowiki>[Identifier for an object in a specified collection]</nowiki>
 *** IAPS <nowiki>[International Affective Picture System]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
 *** IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
 *** SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
 ** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
 ** Index <nowiki>{requireChild}[Use this tag with a value for IDs that don't fall into another category.]</nowiki>
