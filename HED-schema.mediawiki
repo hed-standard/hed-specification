@@ -1,4 +1,4 @@
-HED version: v1.2.0-restruct
+HED version: v1.3.0-restruct
 
 '''Syntax'''  
 
@@ -46,7 +46,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
+* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki>
+** Inanimate
+*** Bell
+*** Buzzer
+*** Cash register
+*** Clicker
+*** Fire alarm
+*** Siren
 ** Vehicle 
 *** Bicycle 
 *** Car 
@@ -57,13 +64,17 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Train 
 *** Aircraft 
 **** Airplane 
-**** Helicopter 
+**** Helicopter
 ** Person
 *** Pedestrian 
 *** Cyclist 
 *** Mother-child 
 *** Experimenter 
 ** Animal
+*** Bird 
+*** Dog 
+*** Insect 
+*** Squirrel 
 ** Plant 
 *** Flower 
 *** Tree 
@@ -126,28 +137,25 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Letter <nowiki> [Authograph or valid letters and numbers such as A or 5]</nowiki> 
 **** <nowiki># {takesValue}</nowiki> 
 ** Composite <nowiki>[Has multiple of the above on it</nowiki> 
-* Natural scene 
-** Aerial 
-*** Satellite 
-* Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-** Line drawing 
-* Film clip  
+* Multimedia
+** Photograph
+*** Natural scene 
+**** Aerial 
+**** Satellite 
+** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
+*** Line drawing 
+** Film clip  
+** Sound clip
 ** Commercial TV 
 ** Animation 
-* IAPS <nowiki>[International Affective Picture System]  </nowiki> 
-* IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
-* SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
+** Movie
+
+
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
 
 * Auditory <nowiki>[Sound]</nowiki> 
-** Nameable 
-** Cash register  
-** Ding <nowiki>[Often associated with positive valence]</nowiki> 
-** Buzz <nowiki>[Often associated with negative valence]</nowiki> 
-** Fire alarm 
-** Click 
-*** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
+** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
 ** Tone 
 ** Siren 
 ** Music 
@@ -159,13 +167,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Noise 
 *** White 
 *** Colored <nowiki>[Not white --- for example a 1/f spectrum]</nowiki> 
-** Human voice 
-** Animal voice <nowiki>{extensionAllowed}</nowiki> 
-*** Bird 
-*** Dog 
-*** Insect 
-*** Squirrel 
-
 ** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
 *** Pedestrian 
 *** Footsteps 
@@ -195,39 +196,54 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Yawn 
 ** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
 *** Engine 
-* Olfactory <nowiki>[Odor]</nowiki> 
-* Taste 
-* Tactile <nowiki>[Pressure]</nowiki> 
-* Visual  
-** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
-*** Screen 
-**** Head-mounted display
-**** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
-**** 2D 
-**** 3D 
-**** Movie 
-***** Video-tape 
-***** Motion-capture <nowiki>[Stick figure of motion capture of someone else]</nowiki> 
-****** Point light 
-****** Stick figure 
-****** Outline 
-***** Flickering 
-***** Steady state 
-*** Real-world 
-*** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
-
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
-** Value <nowiki>{requireChild}[Use this tag by itself or in a parenthesized expression with an ID Type tag.]</nowiki>
+** Collection <nowiki>[Identifier for an object in a specified collection]</nowiki>
+*** IAPS <nowiki>[International Affective Picture System]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
+*** IADS <nowiki> [International Affective Digital Sounds]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
+*** SAM <nowiki> [The Self-Assessment Manikin]</nowiki> 
+**** # <nowiki>{takesValue}</nowiki>
+** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
-** Type <nowiki>{requireChild}[Use this tag to define the type of ID in more detail.]</nowiki>
-*** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
-*** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
-*** Participant <nowiki>[ID identifies a subject.]</nowiki>
-*** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
-*** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
-*** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
-*** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
+** Index <nowiki>{requireChild}[Use this tag with a value for IDs that don't fall into another category.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Participant <nowiki>[ID identifies a subject.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Permutation <nowiki>[ID is used to identify an ordering as for example to indicate block order in an experimental design.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Reference object <nowiki>[ID is used to a reference object to specify location with respect to.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** State <nowiki>[ID is used to identify a group of events that are changing the state of a variable as for example when the onset means the offset of any other and a change in the state]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
+*** # <nowiki>{takesValue}</nowiki>
+* Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
+** Auditory
+** Olfactory
+** Tactile
+** Taste
+** Visual
+*** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
+**** Screen 
+***** Head-mounted display
+***** View port <nowiki> [Two or more views on the same object --- for example one from top one from street view]</nowiki> 
+***** 2D 
+***** 3D 
+***** Movie 
+****** Video-tape 
+****** Motion-capture <nowiki>[Stick figure of motion capture of someone else]</nowiki> 
+******* Point light 
+******* Stick figure 
+******* Outline 
+****** Flickering 
+****** Steady state 
+**** Real-world 
+**** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
+
 * Spatial <nowiki>{requireChild}</nowiki>
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 *** Bottom 
@@ -341,9 +357,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue, unitClass=time}</nowiki>
 ** Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
 *** <nowiki># {takesValue, unitClass=time}</nowiki>
-** Temporal rate <nowiki>{predicateType=propertyOf}</nowiki> 
+** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=frequency} [In Hz]</nowiki> 
-** Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
 *** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
@@ -360,9 +376,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 * Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 * Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
-
-
-
 * Item count <nowiki>{requireChild} [Number of items for example when there are 3 cars and they are identified as a single item]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Numeric value of number of items #]</nowiki> 
 ** <nowiki><=# {takesValue, isNumeric} [Number of items less than or equal to #]</nowiki> 
@@ -506,6 +519,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * File <nowiki>{requireChild} [File attributes]</nowiki> 
 ** Name 
 ** Size 
+** Number
 *** <nowiki># {takesValue, isNumeric, unitClass=memorySize} [Numeric value with default units of mb]</nowiki> 
 ** <nowiki># {takesValue, isNumeric}[Number of files]</nowiki> 
 * Object control <nowiki>{requireChild} [Specifies control such as for a vehicle]</nowiki> 
@@ -598,24 +612,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Scratch 
 * Switch attention  
 ** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
-*** Visual 
-*** Auditory 
-*** Tactile 
-*** Taste  
-*** Smell 
 ** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
 *** From modality 
-**** Visual 
-**** Auditory 
-**** Tactile 
-**** Taste  
-**** Smell 
 *** To modality 
-**** Visual 
-**** Auditory 
-**** Tactile 
-**** Taste  
-**** Smell 
+
 * Walk 
 ** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
 ** Faster <nowiki>[increasing the speed of walking]</nowiki> 
@@ -845,11 +845,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Divided <nowiki> [Attending to more than one object or location]</nowiki> 
 *** Focused <nowiki> [Paying a lot of attention]</nowiki> 
 *** Sustained <nowiki> [Paying attention for a continuous time]</nowiki> 
-*** Auditory 
-*** Visual 
-*** Tactile 
-*** Taste 
-*** Smell 
 *** To a location <nowiki> [Spatial -- use the location attribute to specify to where the attention is directed]</nowiki> 
 *** Arousal <nowiki>{requireChild}</nowiki> 
 *** Alerting <nowiki> [Keeping the arousal up in order to respond quickly]</nowiki> 

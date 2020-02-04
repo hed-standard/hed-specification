@@ -1,35 +1,35 @@
 Event/Duration/#	(Event, Attribute/Duration/#)
-Event/ID/#			(Event, Attribute/ID/Value/#)
-Event/Group ID/#	(Event, Attribute/ID/Type/Group, Attribute/ID/Value/#)
-Event/Category/Experimental control/Sequence/Permutation ID/#	(Event/Category/Experimental control/Sequence, Attribute/ID/Value/#, Attibute/ID/Type/Sequence)
-Item/ID/#	(Item, Attribute/ID/Value/#)
-Item/ID/Local/#	(Item, Attribute/ID/Type/Local, Attribute/ID/Value/#)
-Item/ID/Group ID/#	(Item, Attribute/ID/Type/Group, Attribute/ID/Value/#)
-Participant/ID/#	(Participant, Attribute/ID/Type/Participant, Attribute/ID/Value/#)
-Attribute/State ID/#	(Attribute/ID/Value/#, Attribute/ID/Type/State)
-Attribute/Location/Reference frame/Relative to participant/Participant ID/#	(Attribute/Location/Reference frame/Relative to participant, Attribute/ID/Type/Participant, Atribute/ID/Value/#)
-Sensory presentation/Visual/Rendering type/Screen/View port/ID/#	(Sensory presentation/Visual/Rendering type/Screen/View port, Attribute/ID/Value/#)
-Attribute/Object side/Reference object ID/#	(Attribute/Object side, Attribute/ID/Type/Reference object, Attribute/ID/Value/#)
-Experiment context/#	(Experiment context, Attribute/ID/Value/#)
-Event/Category/Technical error/#	(Event/Category/Technical error, Attribute/ID/Value/#)
-Event/Category/Partipant failure/#	(Event/Category/Partipant failure, Attribute/ID/Value/#)
-Event/Category/Environmental/#	(Event/Category/Environmental, Attribute/ID/Value/#)
-Event/Category/Experimental procedure/#	(Event/Category/Experimental procedure, Attribute/ID/Value/#)
-Event/Category/Incidental/#	(Event/Category/Incidental, Attribute/ID/Value/#)
-Event/Category/Miscellaneous/#	(Event/Category/Miscellaneous, Attribute/ID/Value/#)
-Event/Category/Experiment control/Sequence/Block/#	(Event/Category/Experiment control/Sequence/Block, Attribute/ID/Value/#)
-Event/Category/Experiment control/Sequence/Trial/#	(Event/Category/Experiment control/Sequence/Trial, Attribute/ID/Value/#)
-Event/Category/Experiment control/Task/#	(Event/Category/Experiment control/Task, Attribute/ID/Value/#)
-Event/Category/Experiment control/Synchronization/Tag	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization)
-Event/Category/Experiment control/Synchronization/Tag/#	(Event/Category/Experiment control/Synchronization, Attribute/ID/Type/Synchronization, Attribute/ID/Value/#)
+Event/ID/#			(Event, Attribute/ID/Index/#)
+Event/Group ID/#	(Event, Attribute/ID/Group/#)
+Event/Category/Experimental control/Sequence/Permutation ID/#	(Event/Category/Experimental control/Sequence, Attibute/ID/Sequence/#)
+Item/ID/#	(Item, Attribute/ID/Index/#)
+Item/ID/Local/#	(Item, Attribute/ID/Local/#)
+Item/ID/Group ID/#	(Item, Attribute/ID/Group/#)
+Participant/ID/#	(Participant, Attribute/ID/Participant/#)
+Attribute/State ID/#	(Attribute/ID/State/#)
+Attribute/Location/Reference frame/Relative to participant/Participant ID/#	(Attribute/Location/Reference frame/Relative to participant, Attribute/ID/Participant/#)
+Sensory presentation/Visual/Rendering type/Screen/View port/ID/#	(Sensory presentation/Visual/Rendering type/Screen/View port, Attribute/ID/Index/#)
+Attribute/Object side/Reference object ID/#	(Attribute/Object side, Attribute/ID/Reference object/#)
+Experiment context/#	(Experiment context, Attribute/ID/Index/#)
+Event/Category/Technical error/#	(Event/Category/Technical error, Attribute/ID/Index/#)
+Event/Category/Partipant failure/#	(Event/Category/Partipant failure, Attribute/ID/Index/#)
+Event/Category/Environmental/#	(Event/Category/Environmental, Attribute/ID/Index/#)
+Event/Category/Experimental procedure/#	(Event/Category/Experimental procedure, Attribute/ID/Index/#)
+Event/Category/Incidental/#	(Event/Category/Incidental, Attribute/ID/Index/#)
+Event/Category/Miscellaneous/#	(Event/Category/Miscellaneous, Attribute/ID/Index/#)
+Event/Category/Experiment control/Sequence/Block/#	(Event/Category/Experiment control/Sequence/Block, Attribute/ID/Index/#)
+Event/Category/Experiment control/Sequence/Trial/#	(Event/Category/Experiment control/Sequence/Trial, Attribute/ID/Index/#)
+Event/Category/Experiment control/Task/#	(Event/Category/Experiment control/Task, Attribute/ID/Index/#)
+Event/Category/Experiment control/Synchronization/Tag	(Event/Category/Experiment control/Synchronization, Attribute/ID/Synchronization/#)
+Event/Category/Experiment control/Synchronization/Tag/#	(Event/Category/Experiment control/Synchronization, Attribute/ID/Synchronization/#)
 Attribute/Onset	Attribute/Temporal/Onset
 Attribute/Offset	Attribute/Temporal/Offset
 Attribute/Duration/#	Attribute/Temporal/Duration/#
 Attribute/Repetition/#	Attribute/Temporal/Repetition/#
 Attribute/Response start delay/#	Attribute/Temporal/Response start delay/#
 Attribute/Response end delay/#	Attribute/Temporal/Response end delay/#
-Attribute/Temporal rate/#	Attribute/Temporal/Temporal rate/#
-Attribute/Temporal uncertainty/#	Attribute/Temporal/Temporal uncertainty/# 
+Attribute/Temporal rate/#	Attribute/Temporal/Rate/#
+Attribute/Temporal uncertainty/#	Attribute/Temporal/Uncertainty/# 
 Attribute/Temporal uncertainty/Standard deviation/#	Attribute/Temporal/Temporal uncertainty/Standard deviation/# 
 Attribute/Direction/Bottom	Attribute/Spatial/Direction/Bottom
 Attribute/Direction/Bottom/#	Attribute/Spatial/Direction/Bottom/#
@@ -53,9 +53,7 @@ Attribute/Direction/Bottom	Attribute/Spatial/Direction/Bottom
 Attribute/Direction/Bottom/#	Attribute/Spatial/Direction/Bottom/#
 Attribute/Direction/Forward	Attribute/Spatial/Direction/Forward
 Attribute/Direction/Backward	Attribute/Spatial/Direction/Backward
-
 Attribute/Location/#	Attribute/Spatial/Location/#
-
 Attribute/Location/Lane	Attribute/Spatial/Location/Lane
 Attribute/Location/Lane/Cruising	Attribute/Spatial/Location/Lane/Cruising
 Attribute/Location/Lane/Leftmost	Attribute/Spatial/Location/Lane/Leftmost
@@ -64,7 +62,6 @@ Attribute/Location/Lane/Oncoming	Attribute/Spatial/Location/Lane/Oncoming
 Attribute/Location/Lane/Passing	Attribute/Spatial/Location/Lane/Passing
 Attribute/Location/Lane/Rightmost	Attribute/Spatial/Location/Lane/Rightmost
 Attribute/Location/Lane/Right of expected	Attribute/Spatial/Location/Lane/Right of expected
-
 Attribute/Location/Reference frame/Relative to participant	Attribute/Spatial/Location/Reference frame/Relative to participant
 Attribute/Location/Reference frame/Relative to participant/Azimuth/#	Attribute/Spatial/Location/Reference frame/Relative to participant/Azimuth/#
 Attribute/Location/Reference frame/Relative to participant/Back	Attribute/Spatial/Location/Reference frame/Relative to participant/Back
@@ -76,13 +73,9 @@ Attribute/Location/Reference frame/Relative to participant/Elevation/#	Attribute
 Attribute/Location/Reference frame/Relative to participant/Front	Attribute/Spatial/Location/Reference frame/Relative to participant/Front
 Attribute/Location/Reference frame/Relative to participant/Left	Attribute/Spatial/Location/Reference frame/Relative to participant/Left
 Attribute/Location/Reference frame/Relative to participant/Right	Attribute/Spatial/Location/Reference frame/Relative to participant/Right
-
 Attribute/Location/Reference frame/Specified absolute reference	Attribute/Spatial/Location/Reference frame/Specified absolute reference
-
 Attribute/Location/Reference frame	Attribute/Spatial/Location/Reference frame
-
 Attribute/Location/Real-world coordinates/Room/xyz/#	Attribute/Spatial/Location/Real-world coordinates/Room/xyz/#
-
 Attribute/Location/Screen	Attribute/Spatial/Location/Screen
 Attribute/Location/Screen/Angle	Attribute/Spatial/Location/Screen/Angle
 Attribute/Location/Screen/Angle/#	Attribute/Spatial/Location/Screen/Angle/#
@@ -102,8 +95,6 @@ Attribute/Location/Screen/Right	Attribute/Spatial/Location/Screen/Right
 Attribute/Location/Screen/Right/#	Attribute/Spatial/Location/Screen/Right/#
 Attribute/Location/Screen/Top	Attribute/Spatial/Location/Screen/Top
 Attribute/Location/Screen/Top/#	Attribute/Spatial/Location/Screen/Top/#
-
-
 
 Attribute/Object orientation/Rotated	Attribute/Spatial/Object orientation/Rotated
 Attribute/Object orientation/Rotated/Degrees/#	Attribute/Spatial/Object orientation/Rotated/Degrees/#
@@ -128,3 +119,62 @@ Attribute/Size/Height/#	Attribute/Spatial/Size/Height/#
 Attribute/Size/Length/#	Attribute/Spatial/Size/Length/#
 Attribute/Size/Volume/#	Attribute/Spatial/Size/Volume/#
 Attribute/Size/Width/#	Attribute/Spatial/Size/Width/#
+
+Sensory presentation	Attribute/Sensory presentation
+Sensory presentation/Auditory/Nameable	(Item/Sound, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Cash register	(Item/Object/Inanimate/Cash register, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Ding	(Item/Object/Inanimate/Bell, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Buzz	(Item/Object/Inanimate/Buzzer, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Fire alarm	(Item/Object/Inanimate/Fire alarm, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Siren	(Item/Object/Inanimate/Fire alarm, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Click	(Item/Object/Inanimate/Clicker, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice	(Item/Object/Animal, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Bird	(Item/Object/Animal/Bird, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Dog	(Item/Object/Animal/Dog, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Insect	(Item/Object/Animal/Insect, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Animal voice/Squirrel	(Item/Object/Animal/Squirrel, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Human voice	(Item/Object/Human, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Auditory/Real world
+Sensory presentation/Auditory/Real world/Pedestrian	(Item/Object/Human/Pedestrian, Attribute/Sensory presentation/Auditory)
+Sensory presentation/Olfactory Atribute/Sensory presentation/Olefactory
+Sensory presentation/Taste Atribute/Sensory presentation/Taste
+Sensory presentation/Tactile Atribute/Sensory presentation/Tactile
+Sensory presentation/Visual/Rendering type	Attribute/Sensory presentation/Visual/Rendering type
+Sensory presentation/Visual/Rendering type/Screen	Attribute/Sensory presentation/Visual/Rendering type/Screen
+Sensory presentation/Visual/Rendering type/Screen/Head-mounted display	Attribute//Sensory presentation/Visual/Rendering type/Screen/Head-mounted display
+Sensory presentation/Visual/Rendering type/Screen/View port	Attribute/Sensory presentation/Visual/Rendering type/Screen/View port
+Sensory presentation/Visual/Rendering type/Screen/2D	Attribute/Sensory presentation/Visual/Rendering type/Screen/3D
+Sensory presentation/Visual/Rendering type/Screen/Movie	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie
+Sensory presentation/Visual/Rendering type/Screen/Movie/Video-tape	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Video-tape
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Point light	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Point light
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Stick figure	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Stick figure
+Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Outline	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Motion-capture/Outline
+Sensory presentation/Visual/Rendering type/Screen/Movie/Flickering	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Flickering
+Sensory presentation/Visual/Rendering type/Screen/Movie/Steady state	Attribute/Sensory presentation/Visual/Rendering type/Screen/Movie/Steady state
+Sensory presentation/Visual/Rendering type/LED	Attribute/Sensory presentation/Visual/Rendering type/LED
+Sensory presentation/Visual	Attribute/Visual
+Senory presentation/Visual/Real-world
+Participant/State/Attention/Auditory	(Participant/State/Attention Attribute/Auditory)
+Participant/State/Attention/Visual	(Participant/State/Attention Attribute/Visual)
+Participant/State/Attention/Tactile	(Participant/State/Attention Attribute/Tactile)
+Participant/State/Attention/Taste	(Participant/State/Attention Attribute/Taste)
+Participant/State/Attention/Smell	(Participant/State/Attention Attribute/Olfactory)
+Action/Switch attention/Intramodal/Visual	(Action/Switch attention/Intramodal, Attribute/Visual)
+Action/Switch attention/Intramodal/Tactile	(Action/Switch attention/Intramodal, Attribute/Tactile)
+Action/Switch attention/Intramodal/Auditory	(Action/Switch attention/Intramodal, Attribute/Auditory)
+Action/Switch attention/Intramodal/Taste	(Action/Switch attention/Intramodal, Attribute/Taste)
+Action/Switch attention/Intramodal/Olfactory	(Action/Switch attention/Intramodal, Attribute/Olfactory)
+Action/Switch attention/Intermodal/From modality/Visual	(Action/Switch attention/Intramodal/From modality, Attribute/Visual)
+Action/Switch attention/Intermodal/From modality/Tactile	(Action/Switch attention/Intermodal/From modality, Attribute/Tactile)
+Action/Switch attention/Intermodal/From modality/Auditory	(Action/Switch attention/Intermodal/From modality, Attribute/Auditory)
+Action/Switch attention/Intermodal/From modality/Taste	(Action/Switch attention/Intermodal/From modality, Attribute/Taste)
+Action/Switch attention/Intermodal/From modality/Olfactory	(Action/Switch attention/Intermodal/From modality, Attribute/Olfactory)
+Action/Switch attention/Intermodal/To modality/Visual	(Action/Switch attention/Intramodal/To modality, Attribute/Visual)
+Action/Switch attention/Intermodal/To modality/Tactile	(Action/Switch attention/Intermodal/To modality, Attribute/Tactile)
+Action/Switch attention/Intermodal/To modality/Auditory	(Action/Switch attention/Intermodal/To modality, Attribute/Auditory)
+Action/Switch attention/Intermodal/To modality/Taste	(Action/Switch attention/Intermodal/To modality, Attribute/Taste)
+Action/Switch attention/Intermodal/To modality/Olfactory	(Action/Switch attention/Intermodal/To modality, Attribute/Olfactory)
+/Item/IAPS	(Object/Item/Multimedia/Photograph, Attribute/ID/Collection/IAPS/#)
+/Item/IADS	(Object/Item/Multimedia/Sound clip, Attribute/ID/CollectionS/IADS/#)
+/Item/SAM	(Object/Item/Multimedia/Drawing Attribute/ID/Collection/SAM/#)
