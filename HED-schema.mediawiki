@@ -19,6 +19,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Incidental {extensionAllowed} <nowiki>[An action such as a yawn or stretch not in response to a sensory presentation.]</nowiki>
 ** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
 ** Experiment 
+**** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the task.]</nowiki> 
 *** Control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
 **** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
 ***** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
@@ -26,10 +27,11 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the trial.]</nowiki> 
 ***** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the pause.]</nowiki> 
 **** Task <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki>  
-**** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki> 
+
 *** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
-*** Instruction 
+*** Instruction <nowiki>[Give an instruction to the participant.]</nowiki> 
 *** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+*** Setup 
 *** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
 **** Display refresh 
 **** Trigger 
@@ -37,7 +39,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Waiting for input 
 **** Loading 
 **** Error 
-*** Setup 
+
 *** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
 *** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 
