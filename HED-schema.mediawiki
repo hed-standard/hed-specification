@@ -9,9 +9,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Event''' 
 * Category <nowiki>{required, requireChild, position=1} [This is meant to designate the reason this event was recorded. Every event should have at least one category, but may have multiple categories.] </nowiki> 
-** Sensory presentation <nowiki>{extensionAllowed} [Something that can be perceived.]</nowiki>
+** Sensory presentation <nowiki> [Something that can be perceived.]</nowiki>
 *** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
-*** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
+*** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
 
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
 ** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
