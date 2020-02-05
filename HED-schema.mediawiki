@@ -13,6 +13,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
 *** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
 
+** 
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
 ** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
 ** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
@@ -21,9 +22,11 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Incidental <nowiki>[An action such as a yawn or stretch not in response to a sensory presentation.]</nowiki>
 ** Participant failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
 
+** Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
 
-** Instruction 
-** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+** Experiment 
+*** Instruction 
+*** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
 
 *** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 *** Control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
