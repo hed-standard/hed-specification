@@ -21,31 +21,29 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Experiment 
 *** Control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
 **** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the task.]</nowiki> 
+**** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
 **** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
-***** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
-***** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier of the block.]</nowiki> 
-***** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the trial.]</nowiki> 
-***** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the pause.]</nowiki> 
-**** Task <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki>  
-
-*** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
+***** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end.  Use Attribute/ID/Index/# to designate an identifier of the block.]</nowiki> 
+***** Experiment <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to indicate start and end of the experiment. Use Attribute/ID/Index/# to designate an identifier of the experiment.]</nowiki> 
+***** Pause <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the pause.]</nowiki> 
+***** Task <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the task.]</nowiki>  
+***** Trial <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the trial.]</nowiki> 
+**** Setup 
+**** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
+***** Display refresh 
+***** Trigger 
+***** Status 
+***** Waiting for input 
+***** Loading 
+***** Error 
 *** Instruction <nowiki>[Give an instruction to the participant.]</nowiki> 
 *** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
-*** Setup 
-*** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
-**** Display refresh 
-**** Trigger 
-**** Status 
-**** Waiting for input 
-**** Loading 
-**** Error 
-
 *** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
 *** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Onset  and Attribute/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
@@ -516,7 +514,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Instruction <nowiki> [This tag is placed in events of type Event/Category/Experimental stimulus/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental stimulus/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental stimulus/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
 * Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
 * Path <nowiki>{requireChild}</nowiki> 
-** Velocity  <nowiki>[Use Attribute/Onset or Attribute/Offset to specify onset or offset]</nowiki> 
+** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=speed} [Numeric value with default units of m-per-s]</nowiki> 
 ** Acceleration 
 *** <nowiki># {takesValue, isNumeric, unitClass=acceleration} [Numeric value with default units of m-per-s2] </nowiki> 
@@ -579,7 +577,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Depart 
 * Speech 
 * Hum 
-* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Onset for the start of a saccade]</nowiki> 
+* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Temporal/Onset for the start of a saccade]</nowiki> 
 * Eye fixation 
 * Eye blink
 ** Left base <nowiki>[The time of the first detectable eyelid movement on closing.]</nowiki>
