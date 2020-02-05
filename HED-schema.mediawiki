@@ -13,23 +13,19 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
 *** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
 
-** 
+
 
 ** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
-** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
+
 ** Participant action <nowiki>[Any action engaged in by the participant.]</nowiki>
 *** Response <nowiki>[An action taken by a participant in response to an experimental or environmental stimulus.]</nowiki>
+*** Failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
 *** Incidental <nowiki>[An action such as a yawn or stretch not in response to a sensory presentation.]</nowiki>
-** Participant failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
+
 
 ** Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
 
 ** Experiment 
-*** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
-*** Instruction 
-*** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
-
-*** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 *** Control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
 **** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
 ***** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
@@ -47,6 +43,13 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Loading 
 **** Error 
 *** Setup 
+*** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
+*** Instruction 
+*** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+
+*** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
+*** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
+
 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
