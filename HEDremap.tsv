@@ -178,3 +178,32 @@ Action/Switch attention/Intermodal/To modality/Olfactory	(Action/Switch attentio
 /Item/IAPS	(Object/Item/Multimedia/Photograph, Attribute/ID/Collection/IAPS/#)
 /Item/IADS	(Object/Item/Multimedia/Sound clip, Attribute/ID/CollectionS/IADS/#)
 /Item/SAM	(Object/Item/Multimedia/Drawing Attribute/ID/Collection/SAM/#)
+
+
+Event/Category/Initial context	Event/Category/Experiment/Initial context
+Event/Category/Participant response	Event/Category/Participant action/Response
+Event/Category/Technical error	Event/Category/Experiment/Technical error
+Event/Category/Participant failure	Event/Category/Participant action/Failure
+Event/Category/Environmental	Event/Category/Sensory presentation/Environmental
+Event/Category/Experimental stimulus	Event/Category/Sensory presentation/Experimental
+Event/Category/Experimental procedure	Event/Category/Experiment/Procedure
+Event/Category/Incidental	Event/Category/Participant action/Incidental
+Event/Category/Miscellaneous	
+Event/Category/Experiment control	Event/Category/Experiment/Control/
+Event/Category/Experiment control/Sequence	Event/Category/Experiment/Control/Sequence
+Event/Category/Experiment control/Sequence/Experiment	Event/Category/Experiment/Control/Sequence/Experiment
+Event/Category/Experiment control/Sequence/Block	Event/Category/Experiment/Control/Sequence/Block
+Event/Category/Experiment control/Sequence/Trial	Event/Category/Experiment/Control/Sequence/Trial
+Event/Category/Experiment control/Sequence/Pause	Event/Category/Experiment/Control/Sequence/Pause
+Event/Category/Experiment control/Task	Event/Category/Experiment/Control/Sequence/Task
+Event/Category/Experiment control/Activity	Event/Category/Experiment/Control/Activity
+Event/Category/Experiment control/Synchronization	Event/Category/Experiment/Control/Synchronization
+Event/Category/Experiment control/Synchronization/Display reflesh	Event/Category/Experiment/Control/Synchronization/Display reflesh
+Event/Category/Experiment control/Synchronization/Trigger	Event/Category/Experiment/Control/Synchronization/Trigger
+Event/Category/Experiment control/Status	Event/Category/Experiment/Control/Status
+Event/Category/Experiment control/Status/Waiting for input	Event/Category/Experiment/Control/Status/Wiating for input
+Event/Category/Experiment control/Status/Loading	Event/Category/Experiment/Control/Status/Loading
+Event/Category/Experiment control/Status/Error	Event/Category/Experiment/Control/Status/Error
+Event/Category/Experiment control/Setup	Event/Category/Experiment/Control/Setup
+Event/Category/Experiment control/Setup/Parameters	(Event/Category/Experiment/Setup, Attribute/Parameters)
+Event/Category/Experiment control/Setup/Parameters/#	(Event/Category/Experiment/Setup, Attribute/Parameters/#)
