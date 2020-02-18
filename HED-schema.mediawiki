@@ -21,7 +21,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
 **** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
 **** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
-**** Procedure <nowiki>{extensionAllowed} [An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
+**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
 **** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
 *** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
 *** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
