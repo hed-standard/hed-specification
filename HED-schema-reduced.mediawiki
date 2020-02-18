@@ -12,34 +12,19 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Sensory presentation <nowiki> [Something that can be perceived.]</nowiki>
 *** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
 *** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
-
 ** Participant action <nowiki>[Any action engaged in by the participant.]</nowiki>
-*** Response {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental or environmental stimulus.]</nowiki>
-*** Failure {extensionAllowed} <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
-*** Incidental {extensionAllowed} <nowiki>[An action such as a yawn or stretch not in response to a sensory presentation.]</nowiki>
+*** Task-related {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental event.]</nowiki>
+*** Incidental {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, standing up during a seated experiment, or responding to a loud noise unrelated to the experiment.]</nowiki>
 ** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
 ** Experiment 
-*** Control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
-**** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the task.]</nowiki> 
-**** Initial context <nowiki>[Set the starting context for the experiment.]</nowiki> 
-**** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
-***** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end.  Use Attribute/ID/Index/# to designate an identifier of the block.]</nowiki> 
-***** Experiment <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to indicate start and end of the experiment. Use Attribute/ID/Index/# to designate an identifier of the experiment.]</nowiki> 
-***** Pause <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the pause.]</nowiki> 
-***** Task <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the task.]</nowiki>  
-***** Trial <nowiki>[Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the trial.]</nowiki> 
-**** Setup 
-**** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
-***** Display refresh 
-***** Trigger 
-***** Status 
-***** Waiting for input 
-***** Loading 
-***** Error 
-*** Instruction <nowiki>[Give an instruction to the participant.]</nowiki> 
-*** Procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
+*** Control <nowiki>{extensionAllowed} [Information about states and events that control the experiment.]</nowiki>
+**** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
+**** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
+**** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
+**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
+**** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
+*** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
 *** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
-*** Informational <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
