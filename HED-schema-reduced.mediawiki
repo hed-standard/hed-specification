@@ -1,0 +1,495 @@
+HED version: v1.5.0-restruct
+
+'''Syntax'''  
+
+HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  
+From version 2.2, HED adheres to http://semver.org/ versioning. 
+
+!# start hed 
+
+'''Event''' 
+* Category <nowiki>{required, requireChild, position=1} [This is meant to designate the reason this event was recorded. Every event should have at least one category, but may have multiple categories.] </nowiki> 
+** Sensory presentation <nowiki> [Something that can be perceived.]</nowiki>
+*** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
+*** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
+** Participant action <nowiki>[Any action engaged in by the participant.]</nowiki>
+*** Task-related {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental event.]</nowiki>
+*** Incidental {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, standing up during a seated experiment, or responding to a loud noise unrelated to the experiment.]</nowiki>
+** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
+** Experiment 
+*** Control <nowiki>{extensionAllowed} [An event pertaining to setup and/or control of the experiment.]</nowiki>
+**** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
+**** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
+**** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
+**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
+**** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
+*** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
+*** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
+* Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
+** <nowiki># {takesValue}</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+** <nowiki># {takesValue}</nowiki> 
+* Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
+** <nowiki># {takesValue}</nowiki> 
+
+'''Item''' <nowiki>{extensionAllowed}</nowiki>
+* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki>
+** Inanimate
+** Vehicle 
+** Person 
+** Animal
+** Plant 
+** Building 
+** Food 
+** Clothing 
+* Geometric shape
+** 2D shape  <nowiki>[Geometric shapes]</nowiki> 
+** 3D shape
+** Pattern
+* Face 
+** Whole face with hair 
+** Whole face without hair 
+** Cut-out 
+** Parts only 
+* Symbolic <nowiki> [Something that has a meaning, could be linguistic or not such as a stop signs.]</nowiki> 
+** Braille character 
+** Sign <nowiki>[Like the icon on a stop sign. This should not to be confused with the actual object itself.] </nowiki> 
+** Character  
+** Composite <nowiki>[Has multiple of the above on it</nowiki> 
+* Media
+** Photograph
+** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
+** Film clip  
+** Sound clip
+** Animation 
+** Movie
+
+
+'''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
+* Auditory <nowiki>[Sound]</nowiki> 
+** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
+** Tone 
+** Siren 
+** Music 
+** Noise 
+** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
+** Nonverbal vocal 
+*** Emotional 
+**** Crying 
+**** Sighing 
+*** Gulp 
+*** Gurgle 
+*** Sneeze 
+*** Cough 
+*** Yawn 
+** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
+*** Engine 
+
+
+
+
+
+'''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
+* Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
+** Hiccup 
+** Cough 
+** Sneeze 
+** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki> 
+** Fall 
+** Tether Jerk <nowiki>[When a tether attached to the subject is stuck/snagged and forces the participant to involuntary accommodate/react to it]</nowiki> 
+** Clear Throat 
+** Yawn 
+** Sniffle 
+** Burp 
+** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
+* Make fist
+* Curl toes
+* Open and close <nowiki>[Continue to curl and uncurl toes, for example in motor imagery paradigms.]</nowiki>
+* Button press <nowiki>{extensionAllowed}</nowiki> 
+* Button hold <nowiki>[Press a button and keep it pressed]</nowiki> 
+* Button release 
+* Cross boundary 
+** Arrive 
+** Depart 
+* Speech 
+* Hum 
+* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Temporal/Onset for the start of a saccade]</nowiki> 
+* Eye fixation 
+* Eye blink
+* Eye close <nowiki>[Close eyes and keep closed for more than approximately 0.1 s]</nowiki> 
+* Eye open <nowiki>[Open eyes and keep open for more than approximately 0.1 s]</nowiki>
+* Turn <nowiki>[Change in direction of movement or orientation. This includes both turn during movement on a path and also rotations such as head turns]</nowiki> 
+* Point 
+* Push 
+* Grab 
+* Tap <nowiki>[When there is nothing to be pressed for example like tapping a finger on a chair surface to follow a rhythm]</nowiki> 
+* Lift 
+* Reach <nowiki>[Requires a goal such as reaching to touch a button or to grab something. Stretching your body does not count as reach.]</nowiki> 
+** To Grab 
+** To Touch 
+* Course correction <nowiki>[Change the direction of a reach in the middle to adjust for a moving target.]</nowiki> 
+* Interact
+** With human
+* Take survey
+* Stretch <nowiki>[Stretch your body such as when you wake up]</nowiki> 
+* Bend 
+* Deep breath 
+* Laugh 
+* Sigh 
+* Groan 
+* Scratch 
+* Switch attention  
+** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
+** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
+*** From modality 
+*** To modality 
+* Walk 
+** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
+** Faster <nowiki>[increasing the speed of walking]</nowiki> 
+** Slower <nowiki>[decreasing the speed of walking]</nowiki> 
+* Control vehicle <nowiki>[Controlling an object that you are aboard]</nowiki> 
+** Drive <nowiki>[Driving a vehicle such as a car]</nowiki> 
+** Stop <nowiki>[Brake a car]</nowiki> 
+** Pilot <nowiki>[Pilot a vehicle such as an airplane]</nowiki> 
+* Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+* Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
+* Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+* Step around 
+* Step over 
+* Step on 
+* Swallow 
+* Flex 
+* Evade 
+* Shrug 
+* Dance 
+* Open mouth 
+* Whistle 
+* Read 
+* Attend
+* Recall
+* Generate
+* Repeat
+* Hold breath 
+* Breathe
+* Rest 
+* Count 
+* Move 
+** Upper torso 
+** Lower torso 
+** Whole body 
+* Speak
+* Sing
+* Detect
+* Name 
+* Smile 
+* Discriminate 
+* Track
+* Encode 
+* Eye-blink inhibit
+
+'''Participant''' <nowiki>{extensionAllowed}</nowiki> 
+* Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
+** Cognitive 
+*** Meaningful 
+*** Not meaningful 
+*** Newly learned meaning 
+*** Reward 
+*** Penalty 
+*** Error 
+*** Threat 
+*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
+*** Target <nowiki>[Something the subject is looking for]</nowiki> 
+*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
+*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
+*** Congruence 
+*** Feedback 
+** Visual 
+** Auditory 
+** TMS 
+** Tactile 
+** Vestibular 
+** Pain 
+** Taste 
+** Smell 
+** Body part 
+* State <nowiki>{requireChild}</nowiki> 
+** Level of consciousness <nowiki>{requireChild}</nowiki> 
+*** Awake 
+*** Drowsy 
+*** Sleep
+*** Drunk 
+*** Anesthesia 
+*** Locked-in 
+*** Coma 
+*** Vegetative 
+*** Brain-dead 
+** Emotion <nowiki>{requireChild}</nowiki> 
+*** Awe 
+*** Frustration 
+*** Joy 
+*** Anger 
+*** Happiness 
+*** Sadness 
+*** Love 
+*** Fear 
+*** Compassion 
+*** Jealousy 
+*** Contentment 
+*** Grief 
+*** Relief 
+*** Excitement 
+*** Disgust 
+*** Neutral <nowiki>[None of the above]</nowiki> 
+** Sense of community <nowiki>[Primed to have an emotion such as patriotism]</nowiki> 
+*** <nowiki># {takesValue, isNumeric} [SCI stands for Sense of Community Index]</nowiki> 
+** Sense of social justice 
+** Stress level <nowiki>{requireChild}</nowiki> 
+*** <nowiki>#  {takesValue, isNumeric} [A number between 0 and 1]</nowiki> 
+** Task load <nowiki>{requireChild}</nowiki> 
+*** <nowiki># {takesValue, isNumeric} [A number between 0 and 1]</nowiki> 
+** Under time pressure 
+*** Response window 
+**** <nowiki># {takesValue, isNumeric, unitClass=time} [Default time is seconds]</nowiki> 
+*** Competitive <nowiki> [Subject is competing against an opponent as for example when the faster respondent wins]</nowiki> 
+** Social interaction <nowiki>[Social]</nowiki> 
+*** Pseudo <nowiki>[Instructed so but actually not as when the other person may not exist in real world such as the case of a computer program agent]</nowiki> 
+** Passive <nowiki>[There is a stimulus presentation but no behavioral measurements are collected from the subject. Subject is instructed not to make any behavioral outputs for example when told to carefully watch/listen/sense. The resting state is not considered passive.]</nowiki> 
+** Resting <nowiki>[State when there is no stimulus presentation and no behavioral outputs]</nowiki> 
+** Attention 
+
+
+'''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
+* ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
+* Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
+**<nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
+* Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
+** Auditory
+** Olfactory
+** Tactile
+** Taste
+** Visual
+*** Rendering type <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
+* Spatial <nowiki>{requireChild}</nowiki>
+** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
+** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
+** Size <nowiki>{requireChild}</nowiki>
+* Temporal <nowiki>{requireChild}</nowiki>
+** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+** Onset <nowiki>[Default]</nowiki> 
+** Offset
+** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
+** Response start delay <nowiki>[The time interval between this (stimulus) event and the start of the response event specified, usually by grouping with the event ID of the response start event.]</nowiki>
+** Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
+** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
+** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+* Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+* Condition <nowiki>{requireChild} [Specifies the value of an independent variable (number of letters, N, in an N-back task) or function of independent variables that is varied or controlled for in the experiment.  This attribute is often specified at the task level and can be associated with specification of an experimental stimulus or an experiment context (e.g. 1-back, 2-back conditions in an N-back task, or changing the target type from faces to houses in a Rapid Serial Visual Presentation, or RSVP, task.)]</nowiki>
+** # <nowiki>{takesValue} [the condition]</nowiki> 
+* Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
+** Correct 
+** Incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
+** Indeterminate <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
+** Time out 
+*** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
+** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
+* Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+* Peak <nowiki>[Peak velocity or  acceleration or jerk]</nowiki>
+* Item count <nowiki>{requireChild} [Number of items for example when there are 3 cars and they are identified as a single item]</nowiki> 
+* Auditory <nowiki></nowiki> 
+** Frequency <nowiki>{requireChild}</nowiki> 
+** Loudness <nowiki>{requireChild}</nowiki> 
+** Ramp up <nowiki>[Increasing in amplitude]</nowiki> 
+** Ramp down <nowiki>[Decreasing in amplitude]</nowiki> 
+* Blink
+** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
+** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>***<nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
+** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki> 
+** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio, in centiseconds]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki>
+* Visual <nowiki></nowiki>
+** Bistable 
+** Background 
+** Foreground 
+** Up-down separated <nowiki>[Stimuli presented both at the top and the bottom of fovea]</nowiki> 
+** Bilateral <nowiki>[For bilateral visual field stimulus presentations]</nowiki> 
+** Motion 
+** Fixation point 
+** Luminance <nowiki>{requireChild}</nowiki> 
+** Color <nowiki>{requireChild}</nowiki> 
+* Nonlinguistic <nowiki>[Something that conveys meaning without using words such as the iconic pictures of a man or a woman on the doors of restrooms. Another example is a deer crossing sign with just a picture of jumping deer.]</nowiki> 
+* Semantic <nowiki>[Like in priming or in congruence]</nowiki> 
+* Language 
+** Unit <nowiki>{predicateType=passThrough}</nowiki> 
+** Family <nowiki>{predicateType=passThrough}</nowiki> 
+* Induced <nowiki>[Such as inducing emotions or keeping someone awake or in a coma with an external intervention]</nowiki> 
+* Emotional 
+** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
+** Negative valence 
+* Priming 
+** Motoric 
+** Emotional 
+** Perceptual
+* Subliminal 
+** Unmasked 
+** Masked 
+* Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
+* Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
+* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
+* Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
+** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
+** Cued <nowiki>[what is presented is cued to the presentation of something else] </nowiki> 
+** Background <nowiki>[presented in the background such as background music, background image, etc. The main factor here is that background presentations are to be ignored, e.g. ignore math question auditory stimuli.] </nowiki>
+* Intended effect <nowiki>[This tag is to be grouped with Participant/Effect/Cognitive to specify the intended cognitive effect (of the experimenter). This is to differentiate the resulting group with Participant/Effect which specifies the actual effect on the participant. For example, in an RSVP experiment if an image is intended to be perceived as a target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect) group is added. If the image was perceived by the subject as a target (e.g. they pressed a button to indicate so), then the tag Participant/Effect/Cognitive/Target is also added: Participant/Effect/Cognitive/Target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect). otherwise the Participant/Effect/Cognitive/Target tag is not included outside of the group.]</nowiki>
+* Instruction <nowiki> [This tag is placed in events of type Event/Category/Experimental stimulus/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental stimulus/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental stimulus/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
+* Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
+* Path <nowiki>{requireChild}</nowiki> 
+** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
+** Acceleration 
+** Jerk 
+** Constrained <nowiki>[For example a path cannot cross some region]</nowiki> 
+* File <nowiki>{requireChild} [File attributes]</nowiki> 
+** Name 
+** Size 
+** Number
+* Object control <nowiki>{requireChild} [Specifies control such as for a vehicle]</nowiki> 
+* Association <nowiki>{requireChild}</nowiki> 
+** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+* Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
+* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+** Leader 
+** Follower 
+** <nowiki># {takesValue}</nowiki> 
+
+
+'''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
+* With chin rest 
+* Sitting 
+* Standing 
+* Prone  <nowiki> [As in on a bed]</nowiki> 
+* Running 
+* Walking 
+** Treadmill 
+* Indoors <nowiki> [Default]</nowiki> 
+** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctor’s office]</nowiki> 
+** Dim Room 
+* Outdoors 
+** Terrain 
+
+* Motion platform <nowiki> [Subject is on a motion platform such as one that produces simulated car movements]</nowiki> 
+* Fixed screen 
+** Distance <nowiki>[Assuming static subject]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance from subject eyes to the presentation screen for 30 cm from subject eyes to the monitor]</nowiki> 
+** Width resolution  
+*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels] </nowiki> 
+** Height resolution 
+*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels ]</nowiki> 
+* Real world 
+* Virtual world 
+
+'''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
+
+'''HED'''  <nowiki> {requireChild} [Hierarchical Event Descriptor]</nowiki> 
+* <nowiki># {takesValue, isNumeric} [HED specification version number: normally there is no need to specify the version number in the HED string since it will be matched by default to the most recent compliant version, but this tag can be used to specify the exact HED version the HED string was based on.]</nowiki> 
+
+
+
+'''Unit classes''' 
+* acceleration <nowiki>{default=cm-per-s2}</nowiki> 
+** m-per-s2 
+** cm-per-s2 
+* currency <nowiki>{default=$}</nowiki> 
+** dollars 
+** $ 
+**points 
+**fraction 
+* angle <nowiki>{default=radians}</nowiki> 
+** degrees 
+** degree 
+** radian 
+** radians 
+* frequency <nowiki>{default=Hz}</nowiki> 
+** Hz 
+** mHz 
+** Hertz 
+** kHz 
+* intensity <nowiki>{default=dB}</nowiki> 
+** dB 
+* jerk <nowiki>{default=cm-per-s3}</nowiki> 
+** m-per-s3 
+** cm-per-s3 
+* luminousIntensity <nowiki>{default=cd}</nowiki> 
+** candela 
+** cd 
+* memorySize <nowiki>{default=mb}</nowiki> 
+** mb 
+** kb 
+** gb 
+** tb 
+* physicalLength <nowiki>{default=cm}</nowiki> 
+** m 
+** cm 
+** km 
+** mm 
+** feet 
+** foot 
+** meter 
+** meters 
+** mile 
+** miles 
+* pixels <nowiki>{default=px}</nowiki> 
+** pixels  
+** px 
+** pixel 
+* speed <nowiki>{default=cm-per-s}</nowiki> 
+** m-per-s 
+** mph 
+** kph 
+** cm-per-s 
+* time <nowiki>{default=s}</nowiki> 
+** s 
+** second 
+** seconds
+** centiseconds
+** centisecond
+** cs
+** hour:min 
+** day 
+** days 
+** ms 
+** milliseconds
+** millisecond
+** minute 
+** minutes 
+** hour 
+** hours 
+* area <nowiki>{default=cm2}</nowiki> 
+**m2 
+** cm2 
+** km2 
+** pixels2 
+** px2 
+** pixel2 
+** mm2 
+* volume <nowiki>{default=cm3}</nowiki> 
+** m3 
+** cm3 
+** mm3 
+** km3 
+!# end hed 
+
+'''Attribute Definitions:'''
+* extensionAllowed <nowiki>[users can add (unlimited levels of) child nodes under this tag.]</nowiki> 
+* requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
+* takesValue <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is a string.] </nowiki> 
+* isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki>  
+*  required <nowiki>[Shown at the top of the events view in the order given by the position attribute. Checked for at the end if the user chooses "done".]</nowiki> 
+* recommended  <nowiki>[Shown below the required tags in the events view in the order given by the position attribute.]</nowiki> 
+* position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki> 
+* unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
+* predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
+* default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 

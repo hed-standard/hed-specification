@@ -1,4 +1,4 @@
-HED version: v1.3.0-restruct
+HED version: v1.5.0-restruct
 
 '''Syntax'''  
 
@@ -9,38 +9,25 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Event''' 
 * Category <nowiki>{required, requireChild, position=1} [This is meant to designate the reason this event was recorded. Every event should have at least one category, but may have multiple categories.] </nowiki> 
-** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki> 
-** Participant response <nowiki>{extensionAllowed} [The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki> 
-** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki> 
-** Participant failure <nowiki>{extensionAllowed} [Situation in which participant acts outside of the constraints of the experiment -- such as driving outside the boundary of a simulation experiment or using equipment incorrectly]</nowiki> 
-** Environmental <nowiki>{extensionAllowed}[Change in experimental context such as walking on dirt versus sidewalk]</nowiki> 
-** Experimental stimulus <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
-*** Instruction 
-** Experimental procedure <nowiki>{extensionAllowed} [For example doing a saliva swab on the person]</nowiki> 
-** Incidental <nowiki>{extensionAllowed} [Not a part of the task as perceived by/instructed to the participant --- for example an airplane flew by and made noise or a random person showed up on the street]</nowiki> 
-** Miscellaneous <nowiki>{extensionAllowed} [Events that are only have informational value and cannot be put in other event categories.]</nowiki> 
-** Experiment control <nowiki>{extensionAllowed} [Information about states and events of the software program that controls the experiment]</nowiki> 
-*** Sequence<nowiki>[Used to designate that this event is part of a sequence of control events]</nowiki> 
-**** Experiment <nowiki>[Use Attribute/Onset and Attribute/Offset to indicate start and end of the experiment. Use Attribute/ID/Value/# to designate an identifier of the experiment.]</nowiki> 
-**** Block <nowiki>[Each block has the same general context and contains several trials -- use Attribute/Onset and Attribute/Offset to specify start and end.  Use Attribute/ID/Value/# to designate an identifier of the block.]</nowiki> 
-**** Trial <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the trial.]</nowiki> 
-**** Pause <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the pause.]</nowiki> 
-*** Task <nowiki>[Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki>  
-*** Activity <nowiki>[Experiment-specific actions such as moving a piece in a chess game. Use Attribute/Onset and Attribute/Offset to specify start and end. Use Attribute/ID/Value/# to designate an identifier of the task.]</nowiki> 
-**** Participant action
-*** Synchronization <nowiki>[An event used for synchronizing data streams]</nowiki> 
-**** Display refresh 
-**** Trigger 
-*** Status 
-**** Waiting for input 
-**** Loading 
-**** Error 
-*** Setup 
-**** Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
-***** <nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
+** Sensory presentation <nowiki> [Something that can be perceived.]</nowiki>
+*** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
+*** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
+** Participant action <nowiki>[Any action engaged in by the participant.]</nowiki>
+*** Task-related {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental event.]</nowiki>
+*** Incidental {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, standing up during a seated experiment, or responding to a loud noise unrelated to the experiment.]</nowiki>
+** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
+** Experiment 
+*** Control <nowiki>{extensionAllowed} [An event pertaining to setup and/or control of the experiment.]</nowiki>
+**** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
+**** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
+**** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
+**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
+**** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
+*** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
+*** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Onset  and Attribute/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
@@ -221,6 +208,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** # <nowiki>{takesValue}</nowiki>
 ** Synchronization <nowiki>[ID is used to tag an event for synchronizing data streams.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
+* Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
+**<nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
 * Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
 ** Auditory
 ** Olfactory
@@ -509,7 +498,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Instruction <nowiki> [This tag is placed in events of type Event/Category/Experimental stimulus/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental stimulus/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental stimulus/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
 * Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
 * Path <nowiki>{requireChild}</nowiki> 
-** Velocity  <nowiki>[Use Attribute/Onset or Attribute/Offset to specify onset or offset]</nowiki> 
+** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=speed} [Numeric value with default units of m-per-s]</nowiki> 
 ** Acceleration 
 *** <nowiki># {takesValue, isNumeric, unitClass=acceleration} [Numeric value with default units of m-per-s2] </nowiki> 
@@ -572,7 +561,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Depart 
 * Speech 
 * Hum 
-* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Onset for the start of a saccade]</nowiki> 
+* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Temporal/Onset for the start of a saccade]</nowiki> 
 * Eye fixation 
 * Eye blink
 ** Left base <nowiki>[The time of the first detectable eyelid movement on closing.]</nowiki>
