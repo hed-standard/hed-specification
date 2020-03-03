@@ -1,4 +1,4 @@
-HED version: v1.1.1-devunit
+HED version: v1.2.0-devunit
 
 '''Syntax''' 
 
@@ -1183,6 +1183,30 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
 ** fraction 
+
+'''Unit modifiers''' 
+* deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
+* hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
+* h <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^2]</nowiki>
+* kilo <nowiki>{SIUnitModifier} [SI unit multiple representing 10^3]</nowiki> 
+* k <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^3]</nowiki>
+* mega <nowiki>{SIUnitModifier} [SI unit multiple representing 10^6]</nowiki> 
+* M <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^6]</nowiki>
+* giga <nowiki>{SIUnitModifier} [SI unit multiple representing 10^9]</nowiki> 
+* G <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^9]</nowiki>
+* tera <nowiki>{SIUnitModifier} [SI unit multiple representing 10^12]</nowiki> 
+* T <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^12]</nowiki>
+* peta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^15]</nowiki> 
+* P <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^15]</nowiki> 
+* exa <nowiki>{SIUnitModifier} [SI unit multiple representing 10^18]</nowiki> 
+* E <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^18]</nowiki>
+* zetta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^21]</nowiki> 
+* Z <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^21]</nowiki>
+* yotta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^24]</nowiki> 
+* Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>   
+* deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki> 
 !# end hed 
 
 '''Attribute Definitions:'''
