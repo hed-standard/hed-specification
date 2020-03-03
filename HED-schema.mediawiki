@@ -1207,6 +1207,24 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>   
 * deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki> 
 * d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* centi <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-2]</nowiki> 
+* c <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-2]</nowiki>
+* milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki> 
+* m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
+* micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki> 
+* µ <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki> 
+* p <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-12]</nowiki>
+* femto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-15]</nowiki> 
+* f <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-15]</nowiki>
+* atto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-18]</nowiki> 
+* a <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-18]</nowiki>
+* zepto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-21]</nowiki> 
+* z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
+* yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
+* y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>         
 !# end hed 
 
 '''Attribute Definitions:'''
@@ -1219,7 +1237,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
 *  required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names.]</nowiki>  
+* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names.]</nowiki>
+* SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
 * takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
