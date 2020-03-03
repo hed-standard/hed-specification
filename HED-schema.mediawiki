@@ -1116,68 +1116,49 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
-** centisecond <nowiki>{SIUnit}</nowiki> 
-** cs <nowiki>{unitSymbol}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
-** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** millisecond <nowiki>{SIUnit}</nowiki> 
 ** minute 
 ** hour 
-* frequency <nowiki>{defaultUnits=Hz}</nowiki> 
-** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
-** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
-** degree 
 ** radian <nowiki>{SIUnit}</nowiki> 
+** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** degree 
 * physicalLength <nowiki>{defaultUnits=cm}</nowiki> 
+** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** km <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** mm <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** foot 
-** meter <nowiki>{SIUnit}</nowiki> 
 ** mile  
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
-** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
-* area <nowiki>{defaultUnits=cm^2}</nowiki> 
-** m^2 <nowiki>{unitSymbol}</nowiki> 
-** cm^2 <nowiki>{unitSymbol}</nowiki> 
-** km^2 <nowiki>{unitSymbol}</nowiki> 
+** px <nowiki>{unitSymbol}</nowiki> 
+* area <nowiki>{defaultUnits=m^2}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** px^2 <nowiki>{unitSymbol}</nowiki> 
 ** pixel^2
-** mm^2 <nowiki>{unitSymbol}</nowiki> 
-* volume <nowiki>{defaultUnits=cm^3}</nowiki> 
-** m^3 <nowiki>{unitSymbol}</nowiki> 
-** cm^3 <nowiki>{unitSymbol}</nowiki> 
-** mm^3 <nowiki>{unitSymbol}</nowiki> 
-** km^3 <nowiki>{unitSymbol}</nowiki>
+* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * speed <nowiki>{defaultUnits=cm-per-s}</nowiki> 
-** m-per-s <nowiki>{unitSymbol}</nowiki> 
+** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s <nowiki>{unitSymbol}</nowiki>  
-* acceleration <nowiki>{defaultUnits=cm-per-s^2}</nowiki> 
-** m-per-s^2 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s^2 <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=cm-per-s^3}</nowiki> 
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
 ** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s^3 <nowiki>{unitSymbol}</nowiki> 
 * intensity <nowiki>{defaultUnits=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
 * luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
 ** candela <nowiki>{SIUnit}</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{defaultUnits=mb}</nowiki> 
-** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** gb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** tb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * currency <nowiki>{defaultUnits=$}</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitSymbol}</nowiki> 
@@ -1237,7 +1218,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
 *  required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names.]</nowiki>
+* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
 * SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
 * SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
 * takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
