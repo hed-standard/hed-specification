@@ -1,4 +1,4 @@
-HED version: v1.1.1-devunit
+HED version: v1.2.0-devunit
 
 '''Syntax''' 
 
@@ -1116,73 +1116,96 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
-** centisecond <nowiki>{SIUnit}</nowiki> 
-** cs <nowiki>{unitSymbol}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
-** ms <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** millisecond <nowiki>{SIUnit}</nowiki> 
 ** minute 
 ** hour 
-* frequency <nowiki>{defaultUnits=Hz}</nowiki> 
-** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** MHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
-** kHz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
-** degree 
 ** radian <nowiki>{SIUnit}</nowiki> 
-* physicalLength <nowiki>{defaultUnits=cm}</nowiki> 
+** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** degree 
+* physicalLength <nowiki>{defaultUnits=m}</nowiki> 
+** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** cm <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** km <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** mm <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** foot 
-** meter <nowiki>{SIUnit}</nowiki> 
 ** mile  
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
-** px <nowiki>{unitSymbol}</nowiki> 
 ** pixel 
-* area <nowiki>{defaultUnits=cm^2}</nowiki> 
-** m^2 <nowiki>{unitSymbol}</nowiki> 
-** cm^2 <nowiki>{unitSymbol}</nowiki> 
-** km^2 <nowiki>{unitSymbol}</nowiki> 
+** px <nowiki>{unitSymbol}</nowiki> 
+* area <nowiki>{defaultUnits=m^2}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** px^2 <nowiki>{unitSymbol}</nowiki> 
 ** pixel^2
-** mm^2 <nowiki>{unitSymbol}</nowiki> 
-* volume <nowiki>{defaultUnits=cm^3}</nowiki> 
-** m^3 <nowiki>{unitSymbol}</nowiki> 
-** cm^3 <nowiki>{unitSymbol}</nowiki> 
-** mm^3 <nowiki>{unitSymbol}</nowiki> 
-** km^3 <nowiki>{unitSymbol}</nowiki>
-* speed <nowiki>{defaultUnits=cm-per-s}</nowiki> 
-** m-per-s <nowiki>{unitSymbol}</nowiki> 
+* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
+** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s <nowiki>{unitSymbol}</nowiki>  
-* acceleration <nowiki>{defaultUnits=cm-per-s^2}</nowiki> 
-** m-per-s^2 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s^2 <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=cm-per-s^3}</nowiki> 
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
 ** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
-** cm-per-s^3 <nowiki>{unitSymbol}</nowiki> 
 * intensity <nowiki>{defaultUnits=dB}</nowiki> 
 ** dB <nowiki>{unitSymbol}</nowiki> 
 * luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
 ** candela <nowiki>{SIUnit}</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{defaultUnits=mb}</nowiki> 
-** Mb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** kb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** gb <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** tb <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * currency <nowiki>{defaultUnits=$}</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
 ** fraction 
+
+'''Unit modifiers''' 
+* deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
+* hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
+* h <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^2]</nowiki>
+* kilo <nowiki>{SIUnitModifier} [SI unit multiple representing 10^3]</nowiki> 
+* k <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^3]</nowiki>
+* mega <nowiki>{SIUnitModifier} [SI unit multiple representing 10^6]</nowiki> 
+* M <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^6]</nowiki>
+* giga <nowiki>{SIUnitModifier} [SI unit multiple representing 10^9]</nowiki> 
+* G <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^9]</nowiki>
+* tera <nowiki>{SIUnitModifier} [SI unit multiple representing 10^12]</nowiki> 
+* T <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^12]</nowiki>
+* peta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^15]</nowiki> 
+* P <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^15]</nowiki> 
+* exa <nowiki>{SIUnitModifier} [SI unit multiple representing 10^18]</nowiki> 
+* E <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^18]</nowiki>
+* zetta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^21]</nowiki> 
+* Z <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^21]</nowiki>
+* yotta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^24]</nowiki> 
+* Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>   
+* deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* centi <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-2]</nowiki> 
+* c <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-2]</nowiki>
+* milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki> 
+* m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
+* micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki> 
+* µ <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki> 
+* p <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-12]</nowiki>
+* femto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-15]</nowiki> 
+* f <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-15]</nowiki>
+* atto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-18]</nowiki> 
+* a <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-18]</nowiki>
+* zepto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-21]</nowiki> 
+* z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
+* yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
+* y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>         
 !# end hed 
 
 '''Attribute Definitions:'''
@@ -1195,7 +1218,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
 *  required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names.]</nowiki>  
+* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+* SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
 * takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 

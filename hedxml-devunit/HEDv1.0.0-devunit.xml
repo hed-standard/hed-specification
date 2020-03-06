@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="v1.0.0-unitdev">
+<HED version="v1.0.0-devunit">
    <node>
       <name>Event</name>
       <node position="1" predicateType="passThrough" requireChild="true" required="true">
