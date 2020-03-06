@@ -1129,7 +1129,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** radian <nowiki>{SIUnit}</nowiki> 
 ** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** degree 
-* physicalLength <nowiki>{defaultUnits=cm}</nowiki> 
+* physicalLength <nowiki>{defaultUnits=m}</nowiki> 
 ** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** foot 
@@ -1143,7 +1143,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** pixel^2
 * volume <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* speed <nowiki>{defaultUnits=cm-per-s}</nowiki> 
+* speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
