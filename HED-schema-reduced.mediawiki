@@ -49,8 +49,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Food 
 ** Clothing 
 * Geometric shape
-** 2D shape
-** 3D shape
+** 2D
+** 3D
 ** Pattern
 * Linguistic
 ** Unit
