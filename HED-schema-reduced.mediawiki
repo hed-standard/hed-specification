@@ -34,7 +34,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Visually discernable objects in the physical world. This item excludes sounds that are Items but not objects]</nowiki>
-** Vehicle 
 ** Human
 *** Body parts
 **** Face 
@@ -45,9 +44,26 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Animal
 ** Plant 
 ** Building 
-** Vehicle
+** Mineral
+*** Rock
+*** Boulder
+*** Cliff
+** Manmade
+*** Clothing
+*** Household
+**** Room
+**** Furnishing
+**** Tool
+*** Vehicle
 ** Food 
-** Clothing 
+* Scene
+** Village
+** City
+** Field
+** Hill
+** Mountain
+** River
+** Waterfall
 * Geometric shape
 ** 2D
 ** 3D
