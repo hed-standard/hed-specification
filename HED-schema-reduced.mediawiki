@@ -33,36 +33,56 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki>
-** Inanimate
-** Vehicle 
-** Person 
+* Object <nowiki> {extensionAllowed} [Visually discernable objects in the physical world. This item excludes sounds that are Items but not objects]</nowiki>
+** Human
+*** Body parts
+**** Face 
+***** Whole face with hair 
+***** Whole face without hair 
+***** Cut-out 
+***** Parts only 
 ** Animal
 ** Plant 
 ** Building 
+** Mineral
+*** Rock
+*** Boulder
+*** Cliff
+** Manmade
+*** Clothing
+*** Household
+**** Room
+**** Furnishing
+**** Tool
+*** Vehicle
 ** Food 
-** Clothing 
+* Scene
+** Village
+** City
+** Field
+** Hill
+** Mountain
+** River
+** Waterfall
 * Geometric shape
-** 2D shape  <nowiki>[Geometric shapes]</nowiki> 
-** 3D shape
+** 2D
+** 3D
 ** Pattern
-* Face 
-** Whole face with hair 
-** Whole face without hair 
-** Cut-out 
-** Parts only 
-* Symbolic <nowiki> [Something that has a meaning, could be linguistic or not such as a stop signs.]</nowiki> 
-** Braille character 
-** Sign <nowiki>[Like the icon on a stop sign. This should not to be confused with the actual object itself.] </nowiki> 
-** Character  
-** Composite <nowiki>[Has multiple of the above on it</nowiki> 
-* Media
-** Photograph
-** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-** Film clip  
-** Sound clip
-** Animation 
-** Movie
+* Linguistic
+** Unit
+*** Word
+*** Character
+*** Sentence
+* Work
+** Art work
+*** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
+*** Photograph
+** Document
+*** File
+*** Image
+*** Sound
+** Film
+*** Animation
 
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
