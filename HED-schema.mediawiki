@@ -1193,7 +1193,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki> 
 * m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
 * micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki> 
-* µ <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* u <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
 * nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki> 
 * n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki> 
 * pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki> 
