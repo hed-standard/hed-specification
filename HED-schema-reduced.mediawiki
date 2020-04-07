@@ -16,15 +16,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Task-related {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental event.]</nowiki>
 *** Incidental {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, standing up during a seated experiment, or responding to a loud noise unrelated to the experiment.]</nowiki>
 ** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
-** Experiment 
-*** Control <nowiki>{extensionAllowed} [An event pertaining to setup and/or control of the experiment.]</nowiki>
-**** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
-**** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
-**** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
-**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
-**** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
-*** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
-*** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
+** Experiment Control <nowiki>{extensionAllowed} [An event pertaining to setup and/or control of the experiment.]</nowiki>
+*** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
+*** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
+*** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
+*** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
+*** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
+*** Technical mishap <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki>
+ 
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
@@ -34,55 +33,50 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Visually discernable objects in the physical world. This item excludes sounds that are Items but not objects]</nowiki>
-** Human
-*** Body parts
-**** Face 
-***** Whole face with hair 
-***** Whole face without hair 
-***** Cut-out 
-***** Parts only 
-** Animal
-** Plant 
-** Building 
-** Mineral
-*** Rock
-*** Boulder
-*** Cliff
+** Animate
+*** Human
+**** Body parts
+***** Face 
+****** Whole face with hair 
+****** Whole face without hair 
+****** Cut-out 
+****** Parts only 
+*** Animal
+*** Plant 
 ** Manmade
+*** Building 
 *** Clothing
 *** Household
 **** Room
 **** Furnishing
 **** Tool
 *** Vehicle
-** Food 
-* Scene
-** Village
-** City
-** Field
-** Hill
-** Mountain
-** River
-** Waterfall
-* Geometric shape
-** 2D
-** 3D
-** Pattern
-* Linguistic
-** Unit
-*** Word
-*** Character
-*** Sentence
-* Work
-** Art work
-*** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-*** Photograph
-** Document
-*** File
-*** Image
-*** Sound
-** Film
-*** Animation
+*** Production <nowiki>[a creation by someone or some process]</nowiki>
+**** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
+**** Photograph
+**** File
+**** Film
+** Location
+*** Village
+*** City
+*** Field
+*** Hill
+*** Mountain
+*** River
+*** Waterfall
+** Shape
+*** 2D
+*** 3D
+*** Pattern
+* Language
+** Diphthong
+** Letter
+** Word
+** Character
+** Phrase
+** Nonword
+** Sentence
+** Textblock
 
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
