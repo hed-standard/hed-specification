@@ -46,11 +46,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Manmade
 *** Building 
 *** Clothing
-*** Household
-**** Room
-**** Furnishing
+*** Instrumentation <nowiki>[An object that is instrumental in accomplishing some end]</nowiki>
+**** Furniture
 **** Tool
-*** Vehicle
+**** Vehicle
 *** Production <nowiki>[a creation by someone or some process]</nowiki>
 **** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
 **** Photograph
