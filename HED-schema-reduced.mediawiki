@@ -77,7 +77,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Textblock
 
 
-'''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
+'''Action'''<nowiki> {extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
 * Body movement
 ** Reaction
 *** Hiccup 
@@ -160,6 +160,18 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Discriminate 
 ** Track
 ** Encode 
+
+* Others
+** Eye blink inhibit
+** Sign
+** Groan
+** Speak
+** Interact
+** Take survey
+** Make fist
+** Laugh
+** Smile
+** Cross boundary
 
 
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
