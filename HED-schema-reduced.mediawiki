@@ -77,28 +77,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Textblock
 
 
-'''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
-* Auditory <nowiki>[Sound]</nowiki> 
-** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
-** Tone 
-** Siren 
-** Music 
-** Noise 
-** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
-** Nonverbal vocal 
-*** Emotional 
-**** Crying 
-**** Sighing 
-*** Gulp 
-*** Gurgle 
-*** Sneeze 
-*** Cough 
-*** Yawn 
-** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
-*** Engine 
-
-
-
 '''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
 * Body movement
 ** Reaction
@@ -182,6 +160,16 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Discriminate 
 ** Track
 ** Encode 
+
+
+'''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
+* Auditory <nowiki>[Sound]</nowiki> 
+** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
+** Tone 
+** Siren 
+** Music 
+** Noise 
+** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
 
 
 '''Participant''' <nowiki>{extensionAllowed}</nowiki> 
