@@ -100,105 +100,90 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 
 
-
-
 '''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
-* Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
-** Hiccup 
-** Cough 
-** Sneeze 
+* Body movement
+** Reaction
+*** Hiccup 
+*** Cough 
+*** Sneeze 
+*** Yawn 
+*** Burp 
+*** Tether Jerk <nowiki>[When a tether attached to the subject is stuck/snagged and forces the participant to involuntary accommodate/react to it]</nowiki> 
+** Eye
+*** Saccade
+*** Fixate
+*** Blink
+*** Open
+*** Close
 ** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki> 
 ** Fall 
-** Tether Jerk <nowiki>[When a tether attached to the subject is stuck/snagged and forces the participant to involuntary accommodate/react to it]</nowiki> 
 ** Clear Throat 
-** Yawn 
+** Move
+** Step
+*** Around 
+*** Over 
+*** On 
+** Swallow 
+** Flex 
 ** Sniffle 
-** Burp 
 ** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
-* Make fist
-* Curl toes
-* Open and close <nowiki>[Continue to curl and uncurl toes, for example in motor imagery paradigms.]</nowiki>
-* Button press <nowiki>{extensionAllowed}</nowiki> 
-* Button hold <nowiki>[Press a button and keep it pressed]</nowiki> 
-* Button release 
-* Cross boundary 
-** Arrive 
-** Depart 
-* Speech 
-* Hum 
-* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Temporal/Onset for the start of a saccade]</nowiki> 
-* Eye fixation 
-* Eye blink
-* Eye close <nowiki>[Close eyes and keep closed for more than approximately 0.1 s]</nowiki> 
-* Eye open <nowiki>[Open eyes and keep open for more than approximately 0.1 s]</nowiki>
-* Turn <nowiki>[Change in direction of movement or orientation. This includes both turn during movement on a path and also rotations such as head turns]</nowiki> 
-* Point 
-* Push 
-* Grab 
-* Tap <nowiki>[When there is nothing to be pressed for example like tapping a finger on a chair surface to follow a rhythm]</nowiki> 
-* Lift 
-* Reach <nowiki>[Requires a goal such as reaching to touch a button or to grab something. Stretching your body does not count as reach.]</nowiki> 
-** To Grab 
-** To Touch 
-* Course correction <nowiki>[Change the direction of a reach in the middle to adjust for a moving target.]</nowiki> 
-* Interact
-** With human
-* Take survey
-* Stretch <nowiki>[Stretch your body such as when you wake up]</nowiki> 
-* Bend 
-* Deep breath 
-* Laugh 
-* Sigh 
-* Groan 
-* Scratch 
-* Switch attention  
-** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
-** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
-*** From modality 
-*** To modality 
-* Walk 
-** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
-** Faster <nowiki>[increasing the speed of walking]</nowiki> 
-** Slower <nowiki>[decreasing the speed of walking]</nowiki> 
-* Control vehicle <nowiki>[Controlling an object that you are aboard]</nowiki> 
-** Drive <nowiki>[Driving a vehicle such as a car]</nowiki> 
-** Stop <nowiki>[Brake a car]</nowiki> 
-** Pilot <nowiki>[Pilot a vehicle such as an airplane]</nowiki> 
-* Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
-* Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-* Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-* Step around 
-* Step over 
-* Step on 
-* Swallow 
-* Flex 
-* Evade 
-* Shrug 
-* Dance 
-* Open mouth 
-* Whistle 
-* Read 
-* Attend
-* Recall
-* Generate
-* Repeat
-* Hold breath 
-* Breathe
-* Rest 
-* Count 
-* Move 
-** Upper torso 
-** Lower torso 
-** Whole body 
-* Speak
-* Sing
-* Detect
-* Name 
-* Smile 
-* Discriminate 
-* Track
-* Encode 
-* Eye-blink inhibit
+** Curl
+** Press
+** Hold
+** Release
+** Cross
+** Hum 
+** Open
+** Close
+** Turn
+** Point
+** Push
+** Grab
+** Tap
+** Lift
+** Shrug 
+** Dance  
+** Breathe
+*** Deep
+** Whistle 
+** Reach <nowiki>[Requires a goal such as reaching to touch a button or to grab something. Stretching your body does not count as reach.]</nowiki> 
+** Touch
+** Stretch <nowiki>[Stretch your body such as when you wake up]</nowiki> 
+** Bend 
+** Scratch 
+** Walk 
+*** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
+**** Faster <nowiki>[increasing the speed of walking]</nowiki> 
+**** Slower <nowiki>[decreasing the speed of walking]</nowiki> 
+* Mental
+** Control <nowiki>[An action to control an object]</nowiki> 
+*** Correction <nowiki>[Change the direction in the middle of an action.]</nowiki> 
+*** Switch attention
+**** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
+**** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
+***** From modality 
+***** To modality 
+*** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+*** Drive <nowiki>[Driving a vehicle such as a car]</nowiki> 
+*** Start <nowiki>[Brake a car]</nowiki> 
+*** Pilot <nowiki>[Pilot a vehicle such as an airplane]</nowiki> 
+*** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
+*** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+** Evade 
+** Read 
+** Attend
+** Recall
+** Generate
+** Repeat
+** Rest 
+** Count 
+** Sing
+** Detect
+** Name 
+** Discriminate 
+** Track
+** Encode 
+
 
 '''Participant''' <nowiki>{extensionAllowed}</nowiki> 
 * Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
