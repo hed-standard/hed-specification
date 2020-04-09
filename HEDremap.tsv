@@ -83,12 +83,12 @@ Attribute/Location/Screen/Bottom	Attribute/Spatial/Location/Screen/Bottom
 Attribute/Location/Screen/Bottom/#	Attribute/Spatial/Location/Screen/Bottom/#
 Attribute/Location/Screen/Center	Attribute/Spatial/Location/Screen/Center
 Attribute/Location/Screen/Center/#	Attribute/Spatial/Location/Screen/Center/#
-Attribute/Location/Screen/Center displacement	Attribute/Spatial/Location/Screen/Center displacement
-Attribute/Location/Screen/Center displacement/#	Attribute/Spatial/Location/Screen/Center displacement/#
-Attribute/Location/Screen/Center displacement/Horizontal	Attribute/Spatial/Location/Screen/Center displacement/Horizontal
-Attribute/Location/Screen/Center displacement/Horizontal/#	Attribute/Spatial/Location/Screen/Center displacement/Horizontal/#
-Attribute/Location/Screen/Center displacement/Vertical	Attribute/Spatial/Location/Screen/Center displacement/Vertical
-Attribute/Location/Screen/Center displacement/Vertical/#	Attribute/Spatial/Location/Screen/Center displacement/Vertical/#
+Attribute/Location/Screen/Center displacement	Attribute/Spatial/Location/Screen/Center offset
+Attribute/Location/Screen/Center displacement/#	Attribute/Spatial/Location/Screen/Center offset/#
+Attribute/Location/Screen/Center displacement/Horizontal	Attribute/Spatial/Location/Screen/Center offset/Horizontal
+Attribute/Location/Screen/Center displacement/Horizontal/#	Attribute/Spatial/Location/Screen/Center offset/Horizontal/#
+Attribute/Location/Screen/Center displacement/Vertical	Attribute/Spatial/Location/Screen/Center offset/Vertical
+Attribute/Location/Screen/Center displacement/Vertical/#	Attribute/Spatial/Location/Screen/Center offset/Vertical/#
 Attribute/Location/Screen/Left	Attribute/Spatial/Location/Screen/Left
 Attribute/Location/Screen/Left/#	Attribute/Spatial/Location/Screen/Left/#
 Attribute/Location/Screen/Right	Attribute/Spatial/Location/Screen/Right
