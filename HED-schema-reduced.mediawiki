@@ -99,7 +99,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Environmental <nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
-'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event event.]</nowiki> 
+'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Movement
 ** Ocular
 *** Saccade
