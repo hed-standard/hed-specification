@@ -31,42 +31,57 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Visually discernable objects in the physical world. This item excludes sounds that are Items but not objects]</nowiki>
-** Animate
-*** Human
-**** Body parts
-***** Face 
-****** Whole face with hair 
-****** Whole face without hair 
-****** Cut-out 
-****** Parts only 
-*** Animal
-*** Plant 
-** Manmade
-*** Building 
-*** Clothing
-*** Instrumentation <nowiki>[An object that is instrumental in accomplishing some end]</nowiki>
-**** Furniture
-**** Tool
-**** Vehicle
-*** Production <nowiki>[a creation by someone or some process]</nowiki>
-**** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-**** Photograph
-**** File
-**** Film
-** Location
-*** Village
-*** City
-*** Field
-*** Hill
-*** Mountain
-*** River
-*** Waterfall
+* Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Shape
 *** 2D
+**** Pattern
 *** 3D
-*** Pattern
-* Language
+** Human
+*** Body part
+**** Face
+**** Finger
+** Animal
+** Plant 
+** Mineral
+** Manmade <nowiki>[A manmade object]</nowiki>
+*** Building <nowiki>[Whole building or building feature]</nowiki>
+**** Room
+**** Roof
+**** Entrance
+**** Attic
+**** Basement
+*** Clothing
+*** Musical instrument
+*** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
+*** Tool <nowiki>[A hand-held object of single person control]</nowiki>
+**** Hammer
+**** Chainsaw
+*** Vehicle
+*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Drawing
+***** Cartoon
+***** Sketch
+**** Painting
+**** Installation
+**** Photograph
+**** Film
+**** Sculpture
+***	Document <nowiki>[A physical, written document]</nowiki>
+**** Manuscript
+**** Letter
+**** Note
+**** Book
+**** Notebook
+* Scene
+** Home
+** Town
+** City
+** Field
+** Hill
+** Mountain
+** River
+** Waterfall
+* Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Diphthong
 ** Letter
 ** Word
@@ -75,37 +90,52 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Nonword
 ** Sentence
 ** Textblock
+*	Sound
+** Tone
+** Siren
+** Music
+** Noise
+** Cocktail party <nowiki>[Multiple speech streams at once]</nowiki>
+** Environmental <nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
+*** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
-
-'''Action'''<nowiki> {extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
-* Body movement
-** Reaction
+'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event event.]</nowiki> 
+* Movement
+** Incidental
+*** Inspiration <nowiki>[An inbreath. Can also be coded instead as ‘Action/Movement/Deliberate/Inhale’]</nowiki>
+*** Exspiration <nowiki>[An outbreath. Can also be coded instead as ‘Action/Movement/Deliberate/Exhale’]</nowiki>
 *** Hiccup 
 *** Cough 
 *** Sneeze 
+*** Sniffle
+*** Swallow
+*** Throat clearance
 *** Yawn 
 *** Burp 
-*** Tether Jerk <nowiki>[When a tether attached to the subject is stuck/snagged and forces the participant to involuntary accommodate/react to it]</nowiki> 
-** Eye
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+*** Fall <nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Stretch <nowiki>[May also be found under 'Action/Movement/Deliberate'.]</nowiki>
+** Ocular
 *** Saccade
-*** Fixate
+*** Fixation
 *** Blink
-*** Open
-*** Close
-** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki> 
-** Fall 
-** Clear Throat 
-** Move
-** Step
-*** Around 
-*** Over 
-*** On 
-** Swallow 
-** Flex 
-** Sniffle 
-** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
-** Curl
-** Press
+*** Eye opening
+*** Eye closure
+** Deliberate
+*** Step
+**** Around 
+**** Over 
+**** On 
+*** Walk 
+**** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+**** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+**** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
+***** Faster <nowiki>[Increasing the speed of walking]</nowiki> 
+***** Slower <nowiki>[Decreasing the speed of walking]</nowiki> 
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Press <nowiki>[As in a button press; release may be quick or delayed; use also for other types of pushing actions; takes a ‘Body part’ attribute]</nowiki>
 ** Hold
 ** Release
 ** Cross
@@ -128,10 +158,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Stretch <nowiki>[Stretch your body such as when you wake up]</nowiki> 
 ** Bend 
 ** Scratch 
-** Walk 
-*** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
-**** Faster <nowiki>[increasing the speed of walking]</nowiki> 
-**** Slower <nowiki>[decreasing the speed of walking]</nowiki> 
+
 * Mental
 ** Control <nowiki>[An action to control an object]</nowiki> 
 *** Correction <nowiki>[Change the direction in the middle of an action.]</nowiki> 
@@ -263,7 +290,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
 * Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
 **<nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
-* Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
+* Modality <nowiki>{requireChild}[Presentation modality by which the object was manifested.]</nowiki>
 ** Auditory
 ** Olfactory
 ** Tactile
