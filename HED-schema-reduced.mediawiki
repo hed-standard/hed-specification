@@ -121,42 +121,47 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Flex
 *** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
 *** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+***	Recovery <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
 *** Fall <nowiki>[Involuntary fall to floor or ground]</nowiki>
 *** Stretch <nowiki>[May also be found under 'Action/Movement/Deliberate'.]</nowiki>
 ** Deliberate
 *** Step
-**** Around 
-**** Over 
-**** On 
-*** Walk 
 **** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
 **** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
-**** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
+**** Change <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
 ***** Faster <nowiki>[Increasing the speed of walking]</nowiki> 
 ***** Slower <nowiki>[Decreasing the speed of walking]</nowiki> 
-*** Control vehicle
-**** Drive <nowiki>[Driving a vehicle such as a car]</nowiki> 
+***** Halt
+*** Drive
+**** Start <nowiki>[Control a vehicle to begin moving]</nowiki> 
 **** Steer
+***** Left
+***** Right
 **** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+**** Accelerate
+**** Brake
+**** Stop
+**** Engage
+***** Turn signal
+***** Headlights
+***** Horn
+***** Radio
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
-*** Release <nowiki>[As in realeasing a button press. This event is infrequently recorded as an ‘Participant action’ event unless timing is task-relevant.]</nowiki>
+*** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
 *** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
 *** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-*** Touch <nowiki>[Might follow a Reach event]</nowiki> 
-*** Grasp
+***	Course correct <nowiki>[Change the direction of a Reach, Stretch, Grasp, or other ongoing action.]</nowiki>
+*** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
 *** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
 *** Hum 
 *** Whistle
-*** Sigh
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 *** Sing
 *** Groan
 *** Scream
-*** Open
-*** Close
-*** Turn
 *** Lift
 *** Shrug 
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
@@ -166,8 +171,20 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
 *** Bend 
 *** Scratch 
+** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
+***	Shrug
+***	Thumb(s) up
+***	Fist pump
+***	Hand spread
+***	Wave
+***	Index up
+***	Shhh
+** Expostulate <nowiki>[Make a expressive vocal sound]</nowiki>
+***	Sigh
+***	Groan
+***	Laugh
+***	Scream
 * Mental
-** Course correction <nowiki>[Change the direction in the middle of an action.]</nowiki> 
 ** Switch attention
 *** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
 *** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
