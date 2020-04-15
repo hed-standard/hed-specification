@@ -412,11 +412,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
 
-'''HED'''  <nowiki> {requireChild} [Hierarchical Event Descriptor]</nowiki> 
-* <nowiki># {takesValue, isNumeric} [HED specification version number: normally there is no need to specify the version number in the HED string since it will be matched by default to the most recent compliant version, but this tag can be used to specify the exact HED version the HED string was based on.]</nowiki> 
-
-
-
 '''Unit classes''' 
 * acceleration <nowiki>{default=cm-per-s2}</nowiki> 
 ** m-per-s2 
