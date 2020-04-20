@@ -8,204 +8,203 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 !# start hed 
 
 '''Event''' 
-* Category <nowiki>{required, requireChild, position=1} [This is meant to designate the reason this event was recorded. Every event should have at least one category, but may have multiple categories.] </nowiki> 
-** Sensory presentation <nowiki> [Something that can be perceived.]</nowiki>
-*** Experimental <nowiki>{extensionAllowed} [Primary category for time-locked stimulus events.]</nowiki>
-*** Environmental <nowiki>{extensionAllowed}[An environmental event, for example, a change in experimental context such as walking on dirt versus sidewalk or a loud noise in the next room.]</nowiki> 
-** Participant action <nowiki>[Any action engaged in by the participant.]</nowiki>
-*** Task-related {extensionAllowed} <nowiki>[An action taken by a participant in response to an experimental event.]</nowiki>
-*** Incidental {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, standing up during a seated experiment, or responding to a loud noise unrelated to the experiment.]</nowiki>
-** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion.]</nowiki>
-** Experiment 
-*** Control <nowiki>{extensionAllowed} [An event pertaining to setup and/or control of the experiment.]</nowiki>
-**** Condition <nowiki>[An event used to indicate an experimental condition. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>
-**** Instruction <nowiki>[Give an instruction to the participant .]</nowiki>
-**** Pause <nowiki>[An event indicating a stop in recording. Use Attribute/Temporal/Onset and Attribute/Temporal/Duration to specify the length of the pause.]</nowiki>    
-**** Procedure <nowiki>[An event marking an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate an identifier of the condition.]</nowiki>  
-**** Sync <nowiki>[An event used for synchronizing data streams.]</nowiki>
-*** Lab note <nowiki>{extensionAllowed} [Events that only have informational value and cannot be put in other event categories.]</nowiki> 
-*** Technical error <nowiki> {extensionAllowed} [Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data.]</nowiki> 
-* Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Same as HED 1.0 description for human-readable text]</nowiki> 
+* Category <nowiki>{required, requireChild, position=1} [This is meant to designate the basic nature of the event. Every event should have at least one category, but might have multiple categories.] </nowiki> 
+** Sensory presentation <nowiki> [Something perceivable by the participant.]</nowiki>
+*** Experimental <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
+*** Environmental <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the participant’s environment, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
+** Participant action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
+*** Task-related {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
+*** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
+** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
+** Experiment Control <nowiki>{extensionAllowed} [An event pertaining to the setup and/or control of the experiment.]</nowiki>
+*** Condition <nowiki>[An event used to indicate a shift to a new experimental and/or task condition. Use {Temporal/Onset, Temporal/Duration} or {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify start and end. Use {ID/Index/#} to designate a condition identifier.]</nowiki>
+*** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
+*** Pause <nowiki>[An event indicating a stop in recording. Use {Temporal/Onset, Temporal/Duration} or {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify the length of the pause.]</nowiki>    
+*** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+*** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify the start and end of the procedure. Use {ID/Index/#} to designate a procedure identifier.]</nowiki>  
+*** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
+* Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Human-readable text description of the event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event that is less than 20 characters. For example /Label/Accept button. Please note that the information under this tag is primarily not for use in the analysis and is provided for the convenience in referring to events in the context of a single study. Please use Custom tag to define custom event hierarchies. Please do not mention the words Onset or Offset in the label. These should only be placed in Attribute/Temporal/Onset  and Attribute/Temporal/Offset.  Software automatically generates a final label with (onset) or (offset) in parentheses added to the original label. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, 'Event/Label/Accept button press'. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words 'Onset' or 'Offset' in the Event/Label. These should only be placed in {Temporal/Onset} and {Temporal/Offset} attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
+* Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain ‘|’ characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Visually discernable objects in the physical world. This item excludes sounds that are Items but not objects]</nowiki>
+* Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
+** Shape
+*** 2D
+**** Pattern
+*** 3D
 ** Human
-*** Body parts
-**** Face 
-***** Whole face with hair 
-***** Whole face without hair 
-***** Cut-out 
-***** Parts only 
+*** Body part
+**** Face
+**** Finger
 ** Animal
 ** Plant 
-** Building 
 ** Mineral
-*** Rock
-*** Boulder
-*** Cliff
-** Manmade
-*** Clothing
-*** Household
+** Manmade <nowiki>[A manmade object]</nowiki>
+*** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
-**** Furnishing
-**** Tool
+**** Roof
+**** Entrance
+**** Attic
+**** Basement
+*** Clothing
+*** Musical instrument
+*** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
+*** Tool <nowiki>[A hand-held object of single person control]</nowiki>
+**** Hammer
+**** Chainsaw
 *** Vehicle
-** Food 
+*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Drawing
+***** Cartoon
+***** Sketch
+**** Painting
+**** Installation
+**** Photograph
+**** Film
+**** Sculpture
+***	Document <nowiki>[A physical, written document]</nowiki>
+**** Manuscript
+**** Letter
+**** Note
+**** Book
+**** Notebook
 * Scene
-** Village
+** Home
+** Town
 ** City
 ** Field
 ** Hill
 ** Mountain
 ** River
 ** Waterfall
-* Geometric shape
-** 2D
-** 3D
-** Pattern
-* Linguistic
-** Unit
-*** Word
-*** Character
-*** Sentence
-* Work
-** Art work
-*** Drawing <nowiki>[Cartoon or sketch]</nowiki> 
-*** Photograph
-** Document
-*** File
-*** Image
-*** Sound
-** Film
-*** Animation
+* Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
+** Diphthong
+** Letter
+** Word
+** Character
+** Phrase
+** Nonword
+** Sentence
+** Textblock
+*	Sound
+** Tone
+** Siren
+** Music
+** Noise
+** Cocktail party <nowiki>[Multiple speech streams at once]</nowiki>
+** Environmental <nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
+*** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
-
-'''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki> 
-* Auditory <nowiki>[Sound]</nowiki> 
-** ABR <nowiki>[Auditory Brainstem Response]</nowiki> 
-** Tone 
-** Siren 
-** Music 
-** Noise 
-** Real world <nowiki> [For example people walking or machines operating]</nowiki> 
-** Nonverbal vocal 
-*** Emotional 
-**** Crying 
-**** Sighing 
-*** Gulp 
-*** Gurgle 
-*** Sneeze 
+'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
+* Movement
+** Ocular
+*** Saccade
+*** Fixation
+*** Blink
+*** Eye opening
+*** Eye closure
+** Incidental
+*** Inspiration <nowiki>[An inbreath. If deliberate, use ‘Movement/Deliberate/Inhale’]</nowiki>
+*** Expiration <nowiki>[An outbreath. If deliberate, use ‘Movement/Deliberate/Exhale’]</nowiki>
+*** Hiccup 
 *** Cough 
+*** Sneeze 
+*** Sniffle
+*** Swallow
+*** Throat clearance
 *** Yawn 
-** Nonvocal <nowiki> [A car engine or gears grinding --- anything that is not made by a human or an animal]</nowiki> 
-*** Engine 
-
-
-
-
-
-'''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus.]</nowiki> 
-* Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
-** Hiccup 
-** Cough 
-** Sneeze 
-** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki> 
-** Fall 
-** Tether Jerk <nowiki>[When a tether attached to the subject is stuck/snagged and forces the participant to involuntary accommodate/react to it]</nowiki> 
-** Clear Throat 
-** Yawn 
-** Sniffle 
-** Burp 
-** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
-* Make fist
-* Curl toes
-* Open and close <nowiki>[Continue to curl and uncurl toes, for example in motor imagery paradigms.]</nowiki>
-* Button press <nowiki>{extensionAllowed}</nowiki> 
-* Button hold <nowiki>[Press a button and keep it pressed]</nowiki> 
-* Button release 
-* Cross boundary 
-** Arrive 
-** Depart 
-* Speech 
-* Hum 
-* Eye saccade <nowiki> [Use Attribute/Peak for the middle of saccade and Attribute/Temporal/Onset for the start of a saccade]</nowiki> 
-* Eye fixation 
-* Eye blink
-* Eye close <nowiki>[Close eyes and keep closed for more than approximately 0.1 s]</nowiki> 
-* Eye open <nowiki>[Open eyes and keep open for more than approximately 0.1 s]</nowiki>
-* Turn <nowiki>[Change in direction of movement or orientation. This includes both turn during movement on a path and also rotations such as head turns]</nowiki> 
-* Point 
-* Push 
-* Grab 
-* Tap <nowiki>[When there is nothing to be pressed for example like tapping a finger on a chair surface to follow a rhythm]</nowiki> 
-* Lift 
-* Reach <nowiki>[Requires a goal such as reaching to touch a button or to grab something. Stretching your body does not count as reach.]</nowiki> 
-** To Grab 
-** To Touch 
-* Course correction <nowiki>[Change the direction of a reach in the middle to adjust for a moving target.]</nowiki> 
-* Interact
-** With human
-* Take survey
-* Stretch <nowiki>[Stretch your body such as when you wake up]</nowiki> 
-* Bend 
-* Deep breath 
-* Laugh 
-* Sigh 
-* Groan 
-* Scratch 
-* Switch attention  
-** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
-** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
-*** From modality 
-*** To modality 
-* Walk 
-** Stride <nowiki>[Use onset and offset attributes to indicate different walking stride stages]</nowiki> 
-** Faster <nowiki>[increasing the speed of walking]</nowiki> 
-** Slower <nowiki>[decreasing the speed of walking]</nowiki> 
-* Control vehicle <nowiki>[Controlling an object that you are aboard]</nowiki> 
-** Drive <nowiki>[Driving a vehicle such as a car]</nowiki> 
-** Stop <nowiki>[Brake a car]</nowiki> 
-** Pilot <nowiki>[Pilot a vehicle such as an airplane]</nowiki> 
-* Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
-* Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-* Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-* Step around 
-* Step over 
-* Step on 
-* Swallow 
-* Flex 
-* Evade 
-* Shrug 
-* Dance 
-* Open mouth 
-* Whistle 
-* Read 
-* Attend
-* Recall
-* Generate
-* Repeat
-* Hold breath 
-* Breathe
-* Rest 
-* Count 
-* Move 
-** Upper torso 
-** Lower torso 
-** Whole body 
-* Speak
-* Sing
-* Detect
-* Name 
-* Smile 
-* Discriminate 
-* Track
-* Encode 
-* Eye-blink inhibit
+*** Burp 
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+***	Recovery <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Fall <nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Stretch <nowiki>[May also be found under 'Action/Movement/Deliberate'.]</nowiki>
+** Deliberate
+*** Step
+**** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+**** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+**** Change <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
+***** Faster <nowiki>[Increasing the speed of walking]</nowiki> 
+***** Slower <nowiki>[Decreasing the speed of walking]</nowiki> 
+***** Halt
+*** Drive
+**** Start <nowiki>[Control a vehicle to begin moving]</nowiki> 
+**** Steer
+***** Left
+***** Right
+**** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+**** Accelerate
+**** Brake
+**** Stop
+**** Engage
+***** Turn signal
+***** Headlights
+***** Horn
+***** Radio
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
+*** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
+*** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
+*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+***	Course correct <nowiki>[Change the direction of a Reach, Stretch, Grasp, or other ongoing action.]</nowiki>
+*** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
+*** Hum 
+*** Whistle
+*** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
+*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
+*** Sing
+*** Groan
+*** Scream
+*** Lift
+*** Shrug 
+*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
+**** Deep
+*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Expiration’]</nowiki>
+**** Deep
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
+*** Bend 
+*** Scratch 
+** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
+***	Shrug
+***	Thumb(s) up
+***	Fist pump
+***	Hand spread
+***	Wave
+***	Index up
+***	Shhh
+** Expostulate <nowiki>[Make a expressive vocal sound]</nowiki>
+***	Sigh
+***	Groan
+***	Laugh
+***	Scream
+* Mental
+** Switch attention
+*** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
+*** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
+**** From modality 
+**** To modality 
+** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
+** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+** Evade 
+** Read 
+** Attend
+** Recall
+** Generate
+** Repeat
+** Rest 
+** Count 
+** Detect
+** Name 
+** Discriminate 
+** Track
+** Encode 
 
 '''Participant''' <nowiki>{extensionAllowed}</nowiki> 
 * Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
@@ -286,7 +285,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
 * Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
 **<nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
-* Sensory presentation <nowiki>{requireChild}[Object manifestation]</nowiki>
+* Modality <nowiki>{requireChild}[Presentation modality by which the object was manifested.]</nowiki>
 ** Auditory
 ** Olfactory
 ** Tactile
@@ -412,11 +411,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Virtual world 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
-
-'''HED'''  <nowiki> {requireChild} [Hierarchical Event Descriptor]</nowiki> 
-* <nowiki># {takesValue, isNumeric} [HED specification version number: normally there is no need to specify the version number in the HED string since it will be matched by default to the most recent compliant version, but this tag can be used to specify the exact HED version the HED string was based on.]</nowiki> 
-
-
 
 '''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 

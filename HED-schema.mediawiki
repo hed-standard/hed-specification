@@ -293,7 +293,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki> 
 **** Center 
 ***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
-**** Center displacement 
+**** Center offset 
 ***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [Displacement from screen center, in any direction, in degrees, cm, or other lengths]</nowiki> 
 ***** Horizontal 
 ****** <nowiki># {takesValue, isNumeric, unitClass=angle,  unitClass=physicalLength} [Displacement from screen center in any direction]</nowiki> 
