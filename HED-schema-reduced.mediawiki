@@ -236,32 +236,32 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Smell 
 ** Body part 
 * State <nowiki>{requireChild}</nowiki> 
-** Level of consciousness <nowiki>{requireChild}</nowiki> 
+** Cognitive <nowiki>{requireChild}</nowiki> 
 *** Awake 
 *** Drowsy 
-*** Sleep
+*** Sleeping
 *** Drunk 
-*** Anesthesia 
+*** Anesthetized 
 *** Locked-in 
-*** Coma 
+*** Comatose 
 *** Vegetative 
 *** Brain-dead 
-** Emotion <nowiki>{requireChild}</nowiki> 
-*** Awe 
-*** Frustration 
-*** Joy 
-*** Anger 
-*** Happiness 
-*** Sadness 
-*** Love 
-*** Fear 
-*** Compassion 
-*** Jealousy 
-*** Contentment 
-*** Grief 
-*** Relief 
-*** Excitement 
-*** Disgust 
+** Emotional <nowiki>{requireChild}</nowiki> 
+*** Awed 
+*** Frustrated 
+*** Joyful 
+*** Angry 
+*** Happy
+*** Sad 
+*** Love-filled 
+*** Fearful
+*** Compassionate
+*** Jealous 
+*** Content
+*** Grieving 
+*** Relieved 
+*** Excited 
+*** Disgusted 
 *** Neutral <nowiki>[None of the above]</nowiki> 
 ** Sense of community <nowiki>[Primed to have an emotion such as patriotism]</nowiki> 
 *** <nowiki># {takesValue, isNumeric} [SCI stands for Sense of Community Index]</nowiki> 
