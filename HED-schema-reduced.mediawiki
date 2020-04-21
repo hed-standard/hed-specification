@@ -206,46 +206,35 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Track
 ** Encode 
 
-'''Participant''' <nowiki>{extensionAllowed}</nowiki> 
-
-** Visual 
-** Auditory 
-** TMS 
-** Tactile 
-** Vestibular 
-** Pain 
-** Taste 
-** Smell 
-** Body part 
-* State <nowiki>{requireChild}</nowiki> 
-** Cognitive <nowiki>{requireChild}</nowiki> 
-*** Awake 
-*** Attentive
-*** Drowsy 
-*** Sleeping
-*** Drunk 
-*** Anesthetized 
-*** Locked-in 
-*** Comatose 
-*** Vegetative 
-*** Brain-dead 
-** Emotional <nowiki>{requireChild}</nowiki> 
-*** Awed 
-*** Frustrated 
-*** Joyful 
-*** Angry 
-*** Happy
-*** Sad 
-*** Love-filled 
-*** Fearful
-*** Compassionate
-*** Jealous 
-*** Content
-*** Grieving 
-*** Relieved 
-*** Excited 
-*** Disgusted 
-*** Neutral <nowiki>[None of the above]</nowiki> 
+'''Participant state''' <nowiki>{extensionAllowed, requireChild}</nowiki> 
+* Cognitive <nowiki>{requireChild}</nowiki> 
+** Awake 
+** Attentive
+** Drowsy 
+** Sleeping
+** Drunk 
+** Anesthetized 
+** Locked-in 
+** Comatose 
+** Vegetative 
+** Brain-dead 
+* Emotional <nowiki>{requireChild}</nowiki> 
+** Awed 
+** Frustrated 
+** Joyful 
+** Angry 
+** Happy
+** Sad 
+** Love-filled 
+** Fearful
+** Compassionate
+** Jealous 
+** Content
+** Grieving 
+** Relieved 
+** Excited 
+** Disgusted 
+** Neutral <nowiki>[None of the above]</nowiki> 
 
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
