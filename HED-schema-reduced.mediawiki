@@ -137,20 +137,18 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
 *** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
 ** Incidental
-*** Inspiration <nowiki>[An inbreath. If deliberate, use ‘Movement/Deliberate/Inhale’]</nowiki>
-*** Expiration <nowiki>[An outbreath. If deliberate, use ‘Movement/Deliberate/Exhale’]</nowiki>
 *** Hiccup 
 *** Cough 
 *** Sneeze 
 *** Sniffle
 *** Swallow
-*** Throat clearance
+*** Clear throat
 *** Yawn 
 *** Burp 
 *** Flex
 *** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
 *** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-***	Recovery <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
 *** Fall <nowiki>[Involuntary fall to floor or ground]</nowiki>
 *** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
 *** Bend 
