@@ -154,7 +154,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Bend 
 *** Scratch 
 *** Lift
-*** Shrug 
 * Communaticative
 ** Verbal
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
