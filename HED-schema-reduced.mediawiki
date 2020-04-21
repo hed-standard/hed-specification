@@ -207,25 +207,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Encode 
 
 '''Participant''' <nowiki>{extensionAllowed}</nowiki> 
-* Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
-** Cognitive 
-*** Meaningful 
-*** Not meaningful 
-*** Newly learned meaning 
-*** Reward 
-*** Penalty 
-*** Error 
-*** Threat 
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-*** Congruence 
-*** Feedback 
+
 ** Visual 
 ** Auditory 
 ** TMS 
@@ -290,7 +272,26 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Response end delay <nowiki>[The time interval between this (stimulus) event and the end of the response event specified, usually by grouping with the event ID of the response end event.]</nowiki>
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
-* Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+* Cognitive modifier
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
+*** Meaningful 
+*** Not meaningful 
+*** Newly learned meaning 
+*** Reward 
+*** Penalty 
+*** Error 
+*** Threat 
+*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
+*** Target <nowiki>[Something the subject is looking for]</nowiki> 
+*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
+*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
+*** Congruence 
+*** Feedback 
 * Condition <nowiki>{requireChild} [Specifies the value of an independent variable (number of letters, N, in an N-back task) or function of independent variables that is varied or controlled for in the experiment.  This attribute is often specified at the task level and can be associated with specification of an experimental stimulus or an experiment context (e.g. 1-back, 2-back conditions in an N-back task, or changing the target type from faces to houses in a Rapid Serial Visual Presentation, or RSVP, task.)]</nowiki>
 ** # <nowiki>{takesValue} [the condition]</nowiki> 
 * Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
