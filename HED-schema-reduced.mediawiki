@@ -238,6 +238,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * State <nowiki>{requireChild}</nowiki> 
 ** Cognitive <nowiki>{requireChild}</nowiki> 
 *** Awake 
+*** Attentive
 *** Drowsy 
 *** Sleeping
 *** Drunk 
@@ -263,22 +264,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Excited 
 *** Disgusted 
 *** Neutral <nowiki>[None of the above]</nowiki> 
-** Sense of community <nowiki>[Primed to have an emotion such as patriotism]</nowiki> 
-*** <nowiki># {takesValue, isNumeric} [SCI stands for Sense of Community Index]</nowiki> 
-** Sense of social justice 
-** Stress level <nowiki>{requireChild}</nowiki> 
-*** <nowiki>#  {takesValue, isNumeric} [A number between 0 and 1]</nowiki> 
-** Task load <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric} [A number between 0 and 1]</nowiki> 
-** Under time pressure 
-*** Response window 
-**** <nowiki># {takesValue, isNumeric, unitClass=time} [Default time is seconds]</nowiki> 
-*** Competitive <nowiki> [Subject is competing against an opponent as for example when the faster respondent wins]</nowiki> 
-** Social interaction <nowiki>[Social]</nowiki> 
-*** Pseudo <nowiki>[Instructed so but actually not as when the other person may not exist in real world such as the case of a computer program agent]</nowiki> 
-** Passive <nowiki>[There is a stimulus presentation but no behavioral measurements are collected from the subject. Subject is instructed not to make any behavioral outputs for example when told to carefully watch/listen/sense. The resting state is not considered passive.]</nowiki> 
-** Resting <nowiki>[State when there is no stimulus presentation and no behavioral outputs]</nowiki> 
-** Attention 
 
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
