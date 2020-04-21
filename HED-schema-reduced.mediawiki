@@ -177,7 +177,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
 *** Sing
-
+** Ocular
+*** Saccade
+*** Fixation
+*** Blink
+*** Eye opening
+*** Eye closure
 
 
 * Mental
@@ -201,12 +206,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Discriminate 
 ** Track
 ** Encode 
-** Ocular
-*** Saccade
-*** Fixation
-*** Blink
-*** Eye opening
-*** Eye closure
+
 
 '''Participant state''' <nowiki>{extensionAllowed, requireChild}</nowiki> 
 * Cognitive <nowiki>{requireChild}</nowiki> 
