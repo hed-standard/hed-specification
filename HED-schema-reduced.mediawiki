@@ -101,6 +101,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Motor
+** Ocular
+*** Saccade
+*** Fixation
+*** Blink
+*** Eye opening
+*** Eye closure
 ** Intentional
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
 **** Deep
@@ -174,12 +180,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
 *** Sing
-** Ocular
-*** Saccade
-*** Fixation
-*** Blink
-*** Eye opening
-*** Eye closure
 
 
 * Mental
