@@ -32,17 +32,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
-** Shape
-*** 2D
-**** Pattern
-*** 3D
-** Human
-*** Body part
-**** Face
-**** Finger
-** Animal
-** Plant 
-** Mineral
+** Geometric
+*** Pattern
+*** Shape
 ** Manmade <nowiki>[A manmade object]</nowiki>
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
@@ -72,7 +64,18 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Note
 **** Book
 **** Notebook
-* Scene
+** Natural
+*** Plant 
+*** Mineral
+
+* Agent
+** Human
+*** Body part
+**** Face
+**** Finger
+** Animal
+** Robotic
+* Environment
 ** Home
 ** Town
 ** City
