@@ -101,30 +101,28 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Motor
-** Ocular
-*** Saccade
-*** Fixation
-*** Blink
-*** Eye opening
-*** Eye closure
 ** Intentional
-*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
-**** Deep
-*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Expiration’]</nowiki>
-**** Deep
-*** Step
-**** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
-**** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
-**** Change <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
-***** Faster <nowiki>[Increasing the speed of walking]</nowiki> 
-***** Slower <nowiki>[Decreasing the speed of walking]</nowiki> 
-***** Halt
-*** Drive
-**** Start <nowiki>[Control a vehicle to begin moving]</nowiki> 
+*** Breathe
+**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
+**** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Expiration’]</nowiki>
+**** Hold
+*** Head
+**** Nod
+*** Pedal
+**** Step
+***** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+***** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+**** Run
+**** Walk
+**** Trot
+**** Jog
+**** Jump
+**** Kick
+**** Tab
+**** Press
+**** Dance
+*** Operate
 **** Steer
-***** Left
-***** Right
-**** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
 **** Accelerate
 **** Brake
 **** Stop
@@ -133,15 +131,21 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** Headlights
 ***** Horn
 ***** Radio
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-*** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
-*** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
-*** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-***	Course correct <nowiki>[Change the direction of a Reach, Stretch, Grasp, or other ongoing action.]</nowiki>
-*** Touch <nowiki>[May follow a Reach event]</nowiki> 
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
+*** Manual
+**** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+**** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
+**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
+**** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
+**** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+**** Touch <nowiki>[May follow a Reach event]</nowiki> 
+**** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+**** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
+** Ocular
+*** Saccade
+*** Fixation
+*** Blink
+*** Eye opening
+*** Eye closure
 ** Incidental
 *** Hiccup 
 *** Cough 
@@ -160,13 +164,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Bend 
 *** Scratch 
 *** Lift
-* Communaticative
+* Communicative
 ** Verbal
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Interjective
 *** Groan
 ***	Laugh
 *** Scream
+*** Sigh
 ** Gestural <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
 ***	Shrug
 ***	Thumb(s) up
@@ -180,7 +185,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
 *** Sing
-
+*** Perform
 
 * Mental
 ** Switch attention
@@ -208,15 +213,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Participant state''' <nowiki>{extensionAllowed, requireChild}</nowiki> 
 * Cognitive <nowiki>{requireChild}</nowiki> 
 ** Awake 
-** Attentive
 ** Drowsy 
-** Sleeping
-** Drunk 
+** Asleep
 ** Anesthetized 
 ** Locked-in 
 ** Comatose 
 ** Vegetative 
 ** Brain-dead 
+** Intoxicated 
 * Emotional <nowiki>{requireChild}</nowiki> 
 ** Awed 
 ** Frustrated 
@@ -224,9 +228,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Angry 
 ** Happy
 ** Sad 
-** Love-filled 
+** Loving 
 ** Fearful
 ** Compassionate
+** Empathetic
 ** Jealous 
 ** Content
 ** Grieving 
@@ -357,7 +362,13 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Leader 
 ** Follower 
 ** <nowiki># {takesValue}</nowiki> 
+** Miscellaneous
+* Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
 
+**** Change <nowiki>[Use onset and offset attributes to indicate different walking stride phases]</nowiki> 
+***** Faster <nowiki>[Increasing the speed of walking]</nowiki> 
+***** Slower <nowiki>[Decreasing the speed of walking]</nowiki> 
+***** Halt
 
 '''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
 * With chin rest 
