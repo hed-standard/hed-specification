@@ -125,6 +125,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 **** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
 **** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
+**** Retract
 **** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
 **** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 **** Touch <nowiki>[May follow a Reach event]</nowiki> 
