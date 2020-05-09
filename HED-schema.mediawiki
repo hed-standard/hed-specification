@@ -3,18 +3,18 @@ HED version: 7.1.1
 Changelog
 * 5/9/2020: v. 7.1.1 Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
-* 9/29/2019: v. 7.0.5: Added 'Visual/Rendering type/Screen/Head-mounted display'. Added 'extensionAllowed' to Sensory presentation. Added 'Tone' and 'Genre' under 'Sensory presentation/Auditory/Music'.
-* 8/18/2019: v. 7.0.4: Added 'extensionsAllowed' to 'Custom' and removed 'extensionsAllowed' from nodes under 'Attribute' and 'Item/Object'. Also replaced 'per-sec' with 'per-s' in units.
-* 7/8/2019: v. 7.0.3: Removed the extra 'Action/Turn' node.
+* 9/29/2019: v. 7.0.5: Added Visual/Rendering type/Screen/Head-mounted display. Added extensionAllowed to Sensory presentation. Added Tone and Genre under Sensory presentation/Auditory/Music.
+* 8/18/2019: v. 7.0.4: Added extensionsAllowed to Custom and removed extensionsAllowed from nodes under Attribute and Item/Object. Also replaced per-sec with per-s in units.
+* 7/8/2019: v. 7.0.3: Removed the extra Action/Turn node.
 * 5/18/2019: v. 7.0.2: Added centisecond and millisecond as valid time units.
 * 3/7/2018: v. 7.0.1: Added Paradigm/Psychomotor vigilance task.
 * 2/15/2018: v. 7.0.0: Removed parentheses from some paradigm tags (used hyphens instead)
-* 1/11/2018: v. 6.0.5: Changed unit class for a number of values from 'velocity' to 'speed'.
-* 8/4/2017: v. 6.0.4: Added 'Machine failure detection task' to paradigms list.
-* 7/20/2017: v. 6.0.3: Removed 'Action observation paradigm' since there is already 'Action observation task'.
-* 7/17/2017: v. 6.0.2: Added 'Attribute/Object control/Accelerate' and Attribute/Object control/Decelerate'. Also added a description for extensionAllowed.
-* 7/14/2017: v. 6.0.1: Replaced 'Item/Natural scene/Arial' with 'Item/Natural scene/Aerial'. 
-* 7/13/2017: v. 6.0.0: Replaced XXX in Event/Category/Experimental stimulus/Instruction/XXX with Event/Category/Experimental stimulus plus (Attribute/Instruction, Action/XXX). Moved a number of instructions under Action/. Also added 'Rest eyes open', 'Rest eyes closed' and 'Imagined emotion' paradigms. Removed Action/Imagine and instead one should use Attribute/Imagined.
+* 1/11/2018: v. 6.0.5: Changed unit class for a number of values from velocity to speed.
+* 8/4/2017: v. 6.0.4: Added Machine failure detection task to paradigms list.
+* 7/20/2017: v. 6.0.3: Removed Action observation paradigm since there is already Action observation task.
+* 7/17/2017: v. 6.0.2: Added Attribute/Object control/Accelerate and Attribute/Object control/Decelerate. Also added a description for extensionAllowed.
+* 7/14/2017: v. 6.0.1: Replaced Item/Natural scene/Arial with Item/Natural scene/Aerial. 
+* 7/13/2017: v. 6.0.0: Replaced XXX in Event/Category/Experimental stimulus/Instruction/XXX with Event/Category/Experimental stimulus plus (Attribute/Instruction, Action/XXX). Moved a number of instructions under Action/. Also added Rest eyes open', Rest eyes closed and Imagined emotion paradigms. Removed Action/Imagine and instead one should use Attribute/Imagined.
 * 6/22/2017: v. 5.2.3: Added clarification for Attribute/Background (stimuli to be ignored)
 * 3/22/2017: v. 5.2.2: Fixed the missing [ in Attribute/Imagined.
 * 3/16/2017: v. 5.2.1: Added Action/Interact, Action/Interact/With human, Action/Take survey, Action/Eye blink/Left base, Left zero, Left half height, Right half height, Right zero, right base.
@@ -35,7 +35,7 @@ Changelog
 * 7/21/2016: Added Attribute/Intended effect tag. This can be used e.g. to specify an image in an RSVP experiment where it was intended to be perceived as a target (but it may not have by the subject).
 * 6/22/2016: Added Attribute/Temporal uncertainty tag along with its child nodes. Also required a child for Attribute/Presentation fraction tag.
 * 6/16/2016: Added sleep stages.
-* 5/23/2016: Added more description to Attribute/Probability, allowing text values like 'low' and 'high'  in addition to numerical values between 0 and 1.
+* 5/23/2016: Added more description to Attribute/Probability, allowing text values like low and high in addition to numerical values between 0 and 1.
 * 3/31/2016: Added constant and variable delays under Participant/Effect/Cognitive/Cue.
 * 3/10/2016:  
 ** Added Non-informative under Cognitive/Feedback 
@@ -291,7 +291,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Attribute''' {requireChild, extensionAllowed} 
 * Onset <nowiki>[Default]</nowiki> 
 * Offset
-* Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+* Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 * State ID <nowiki>{requireChild} [This is used to identify a group of events that are changing the state of a variable where the onset means the offset of any other and a change in the state]</nowiki>
 ** # <nowiki>{takesValue} [ID which could be a number or any string]</nowiki> 
 * Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
@@ -539,7 +539,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Backward 
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
-* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
+* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
 * Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 ** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
 ** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
@@ -598,7 +598,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Yawn 
 ** Sniffle 
 ** Burp 
-** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
+** Drop <nowiki>[For example something  drops from the hand of the subject]</nowiki>
 * Make fist
 ** Open and close <nowiki>[Continue to open and close the fist, for example in motor imagery paradigms.]</nowiki>
 * Curl toes
@@ -849,7 +849,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Drowsy 
 *** Sleep
 **** Stage <nowiki>{requireChild}</nowiki>
-***** <nowiki># {takesValue} [a number between 1 to 4, or 'REM']</nowiki>   
+***** <nowiki># {takesValue} [a number between 1 to 4, or REM]</nowiki>   
 *** Drunk 
 *** Anesthesia 
 *** Locked-in 
@@ -928,7 +928,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Walking 
 ** Treadmill 
 * Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctor’s office]</nowiki> 
+** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
 ** Dim Room 
 * Outdoors 
 ** Terrain 
