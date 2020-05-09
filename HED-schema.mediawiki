@@ -1,6 +1,7 @@
-HED version: 7.1.0
+HED version: 7.1.1
 
 Changelog
+* 5/9/2020: v. 7.1.1 Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
 * 9/29/2019: v. 7.0.5: Added 'Visual/Rendering type/Screen/Head-mounted display'. Added 'extensionAllowed' to Sensory presentation. Added 'Tone' and 'Genre' under 'Sensory presentation/Auditory/Music'.
 * 8/18/2019: v. 7.0.4: Added 'extensionsAllowed' to 'Custom' and removed 'extensionsAllowed' from nodes under 'Attribute' and 'Item/Object'. Also replaced 'per-sec' with 'per-s' in units.
@@ -163,7 +164,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Cross <nowiki>[By default a vertical-horizontal cross. For a rotated cross add Attribute/Object orientation/Rotated/ tag]</nowiki> 
 ** Single point 
 ** Clock face <nowiki>[Used to study things like hemispheric neglect. The tag is related to the clock-drawing-test]</nowiki> 
-*** <nowiki># {takesValue, unitClass=time} [Hour:min]</nowiki> 
+*** <nowiki># {takesValue, unitClass=clockTime}</nowiki> 
 * Pattern
 ** Checkerboard 
 ** Abstract 
@@ -597,7 +598,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Yawn 
 ** Sniffle 
 ** Burp 
-** Drop <nowiki>[For example something  drops from subjectâ€™s hand]</nowiki>
+** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
 * Make fist
 ** Open and close <nowiki>[Continue to open and close the fist, for example in motor imagery paradigms.]</nowiki>
 * Curl toes
@@ -927,7 +928,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Walking 
 ** Treadmill 
 * Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctorâ€™s office]</nowiki> 
+** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctor’s office]</nowiki> 
 ** Dim Room 
 * Outdoors 
 ** Terrain 
@@ -1186,10 +1187,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
