@@ -405,10 +405,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:m:s <nowiki>{unitSymbol}</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 

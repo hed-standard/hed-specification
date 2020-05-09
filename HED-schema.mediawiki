@@ -92,7 +92,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Cross <nowiki>[By default a vertical-horizontal cross. For a rotated cross add Attribute/Object orientation/Rotated/ tag]</nowiki> 
 ** Single point 
 ** Clock face <nowiki>[Used to study things like hemispheric neglect. The tag is related to the clock-drawing-test]</nowiki> 
-*** <nowiki># {takesValue, unitClass=time} [Hour:min]</nowiki> 
+*** <nowiki># {takesValue, unitClass=clockTime} [hour:min]</nowiki> 
 * Pattern
 ** Checkerboard 
 ** Abstract 
@@ -1110,10 +1110,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:m:s <nowiki>{unitSymbol}</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
