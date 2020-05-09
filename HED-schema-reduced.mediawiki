@@ -25,7 +25,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Human-readable text description of the event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, 'Event/Label/Accept button press'. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words 'Onset' or 'Offset' in the Event/Label. These should only be placed in {Temporal/Onset} and {Temporal/Offset} attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in {Temporal/Onset} and {Temporal/Offset} attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
@@ -270,7 +270,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 * Cognitive modifier
-** Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
 *** Meaningful 
 *** Not meaningful 
