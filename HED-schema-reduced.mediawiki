@@ -1,8 +1,8 @@
-HED version: v1.6.0-restruct
+HED version: v1.6.1-restruct
 
 '''Syntax'''  
 
-HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  
+HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  Do not use single or double quotes in HED tags.
 From version 2.2, HED adheres to http://semver.org/ versioning. 
 
 !# start hed 
@@ -11,7 +11,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Category <nowiki>{required, requireChild, position=1} [This is meant to designate the basic nature of the event. Every event should have at least one category, but might have multiple categories.] </nowiki> 
 ** Sensory presentation <nowiki> [Something perceivable by the participant.]</nowiki>
 *** Experimental <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
-*** Environmental <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the participant’s environment, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
+*** Environmental <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
 ** Participant action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
 *** Task-related {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
 *** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
@@ -27,7 +27,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** <nowiki># {takesValue}</nowiki> 
 * Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, 'Event/Label/Accept button press'. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words 'Onset' or 'Offset' in the Event/Label. These should only be placed in {Temporal/Onset} and {Temporal/Offset} attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain ‘|’ characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
+* Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
@@ -106,8 +106,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Motor
 ** Intentional
 *** Breathe
-**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Inspiration’]</nowiki>
-**** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use ‘Movement/Incidental/Expiration’]</nowiki>
+**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use �Action/Movement/Incidental/Inspiration]</nowiki>
+**** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Expiration]</nowiki>
 **** Hold
 *** Head
 **** Nod
@@ -126,14 +126,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Dance
 *** Manual
 **** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-**** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with ’Item/Object/Human/Body part’ tag to indicate which part of the body was used to press the button.]</nowiki> 
-**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ‘Participant action’ events unless their timing is task-relevant.]</nowiki>
+**** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with Item/Object/Human/Body part tag to indicate which part of the body was used to press the button.]</nowiki> 
+**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as �Participant action events unless their timing is task-relevant.]</nowiki>
 **** Retract
 **** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
 **** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 **** Touch <nowiki>[May follow a Reach event]</nowiki> 
 **** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-**** Point <nowiki>[Should be grouped with ’Item/Object/Human/Body part/Hand/Finger’ tag to specify which finger was used for the action.]</nowiki> 
+**** Point <nowiki>[Should be grouped with Item/Object/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 *** Operate
 **** Steer
 **** Accelerate
@@ -187,7 +187,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Musical
 *** Hum 
 *** Whistle
-*** Vocalize <nowiki>[Make a sustained vowel sound such as, ‘Ahhh…’]</nowiki>
+*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Sing
 *** Perform
 
@@ -340,7 +340,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Masked 
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
-* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
+* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
 * Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
 ** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
 ** Cued <nowiki>[what is presented is cued to the presentation of something else] </nowiki> 
@@ -383,7 +383,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Walking 
 ** Treadmill 
 * Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctor’s office]</nowiki> 
+** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
 ** Dim Room 
 * Outdoors 
 ** Terrain 
@@ -405,10 +405,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 

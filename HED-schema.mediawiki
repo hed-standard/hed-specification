@@ -1,4 +1,4 @@
-HED version: v1.6.0-restruct
+HED version: v1.6.1-restruct
 
 '''Syntax'''  
 
@@ -92,7 +92,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Cross <nowiki>[By default a vertical-horizontal cross. For a rotated cross add Attribute/Object orientation/Rotated/ tag]</nowiki> 
 ** Single point 
 ** Clock face <nowiki>[Used to study things like hemispheric neglect. The tag is related to the clock-drawing-test]</nowiki> 
-*** <nowiki># {takesValue, unitClass=time} [Hour:min]</nowiki> 
+*** <nowiki># {takesValue, unitClass=clockTime} [hour:min]</nowiki> 
 * Pattern
 ** Checkerboard 
 ** Abstract 
@@ -487,7 +487,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Backward 
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
-* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
+* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
 
 * Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
 ** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
@@ -1110,10 +1110,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
