@@ -3683,7 +3683,7 @@
             <unit unitSymbol="true">hour:min</unit>
             <unit unitSymbol="true">h:m</unit>
             <unit unitSymbol="true">hour:min:sec</unit>
-            <unit unitSymbol="true">h:</unit>
+            <unit unitSymbol="true">h:m:s</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="Hz">
