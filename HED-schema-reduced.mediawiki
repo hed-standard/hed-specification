@@ -330,9 +330,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Leader 
 **** Follower 
 **** <nowiki># {takesValue}</nowiki> 
-** Association <nowiki>{requireChild}</nowiki> 
-*** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-*** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+*** Association <nowiki>{requireChild}</nowiki> 
+**** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+**** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 ** Emotional 
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
