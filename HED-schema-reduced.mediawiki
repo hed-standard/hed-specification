@@ -17,15 +17,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
 ** Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 ** Experiment Control <nowiki>{extensionAllowed} [An event pertaining to the setup and/or control of the experiment.]</nowiki>
-*** Condition <nowiki>[An event used to indicate a shift to a new experimental and/or task condition. Use {Temporal/Onset, Temporal/Duration} or {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify start and end. Use {ID/Index/#} to designate a condition identifier.]</nowiki>
+*** Condition <nowiki>[An event used to indicate a shift to a new experimental and/or task condition. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate a condition identifier.]</nowiki>
 *** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
-*** Pause <nowiki>[An event indicating a stop in recording. Use {Temporal/Onset, Temporal/Duration} or {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify the length of the pause.]</nowiki>    
+*** Pause <nowiki>[An event indicating a stop in recording. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the length of the pause.]</nowiki>    
 *** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-*** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use {Temporal/Onset} and, in another Event, {Temporal/Offset} to specify the start and end of the procedure. Use {ID/Index/#} to designate a procedure identifier.]</nowiki>  
+*** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/Index/# to designate a procedure identifier.]</nowiki>  
 *** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Description <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=3}[Human-readable text description of the event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in {Temporal/Onset} and {Temporal/Offset} attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
+* Label <nowiki>{requireChild, required, unique, predicateType=propertyOf, position=0} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in Attribute/Temporal/Onset and Attribute/Temporal/Offset attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 * Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
@@ -106,15 +106,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Motor
 ** Intentional
 *** Breathe
-**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use ˜Action/Movement/Incidental/Inspiration]</nowiki>
+**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Inspiration]</nowiki>
 **** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Expiration]</nowiki>
 **** Hold
 *** Head
 **** Nod
 *** Pedal
 **** Step
-***** Heel strike <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
-***** Toe off <nowiki>[Takes attribute {Spatial/Object side/Left} or {Spatial/Object side/Right}.]</nowiki>
+***** Heel strike <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+***** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
 **** Run
 **** Walk
 **** Trot
@@ -127,13 +127,13 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Manual
 **** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 **** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with Item/Object/Human/Body part tag to indicate which part of the body was used to press the button.]</nowiki> 
-**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as ˜Participant action events unless their timing is task-relevant.]</nowiki>
+**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as Participant action events unless their timing is task-relevant.]</nowiki>
 **** Retract
 **** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
 **** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 **** Touch <nowiki>[May follow a Reach event]</nowiki> 
 **** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-**** Point <nowiki>[Should be grouped with Item/Object/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+**** Point <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 *** Operate
 **** Steer
 **** Accelerate
@@ -308,9 +308,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Ramp down <nowiki>[Decreasing in amplitude]</nowiki> 
 * Blink
 ** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
-** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>***<nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
-** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki> 
-** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio, in centiseconds]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki>
+** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>
+***<nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
+** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki> 
+** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio, in centiseconds]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki>
 * Visual <nowiki></nowiki>
 ** Bistable 
 ** Background 
@@ -346,7 +349,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Cued <nowiki>[what is presented is cued to the presentation of something else] </nowiki> 
 ** Background <nowiki>[presented in the background such as background music, background image, etc. The main factor here is that background presentations are to be ignored, e.g. ignore math question auditory stimuli.] </nowiki>
 * Intended effect <nowiki>[This tag is to be grouped with Participant/Effect/Cognitive to specify the intended cognitive effect (of the experimenter). This is to differentiate the resulting group with Participant/Effect which specifies the actual effect on the participant. For example, in an RSVP experiment if an image is intended to be perceived as a target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect) group is added. If the image was perceived by the subject as a target (e.g. they pressed a button to indicate so), then the tag Participant/Effect/Cognitive/Target is also added: Participant/Effect/Cognitive/Target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect). otherwise the Participant/Effect/Cognitive/Target tag is not included outside of the group.]</nowiki>
-* Instruction <nowiki> [This tag is placed in events of type Event/Category/Experimental stimulus/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental stimulus/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental stimulus/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
+* Instruction <nowiki> [This tag is placed in events of type Event/Category/Experiment Control/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental Control/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental Control/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
 * Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
 * Path <nowiki>{requireChild}</nowiki> 
 ** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
