@@ -241,13 +241,13 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Informational
 ** ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
-** Parameters <nowiki>{predicateType=propertyOf}</nowiki> 
+** Parameters 
 ***<nowiki># {takesValue} [Experiment parameters in some a string. Do not used quotes.]</nowiki> 
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 ** Label <nowiki>{requireChild} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in Attribute/Temporal/Onset and Attribute/Temporal/Offset attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
-** Long label <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
+** Long label <nowiki>{requireChild} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 ** Condition <nowiki>{requireChild} [Specifies the value of an independent variable (number of letters, N, in an N-back task) or function of independent variables that is varied or controlled for in the experiment.  This attribute is often specified at the task level and can be associated with specification of an experimental stimulus or an experiment context (e.g. 1-back, 2-back conditions in an N-back task, or changing the target type from faces to houses in a Rapid Serial Visual Presentation, or RSVP, task.)]</nowiki>
 *** # <nowiki>{takesValue} [the condition]</nowiki> 
@@ -324,13 +324,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Indeterminate <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
 **** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
 *** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
+
 ** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-
-
-* Communicative
-** Nonlinguistic <nowiki>[Something that conveys meaning without using words such as the iconic pictures of a man or a woman on the doors of restrooms. Another example is a deer crossing sign with just a picture of jumping deer.]</nowiki> 
-** Semantic <nowiki>[Like in priming or in congruence]</nowiki> 
-** Linguistic 
+*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+**** Leader 
+**** Follower 
+**** <nowiki># {takesValue}</nowiki> 
+** Association <nowiki>{requireChild}</nowiki> 
+*** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+*** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 ** Emotional 
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
@@ -346,25 +348,19 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 ** Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
 
-* Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
-** Cued <nowiki>[what is presented is cued to the presentation of something else] </nowiki> 
-** Background <nowiki>[presented in the background such as background music, background image, etc. The main factor here is that background presentations are to be ignored, e.g. ignore math question auditory stimuli.] </nowiki>
-* Intended effect <nowiki>[This tag is to be grouped with Participant/Effect/Cognitive to specify the intended cognitive effect (of the experimenter). This is to differentiate the resulting group with Participant/Effect which specifies the actual effect on the participant. For example, in an RSVP experiment if an image is intended to be perceived as a target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect) group is added. If the image was perceived by the subject as a target (e.g. they pressed a button to indicate so), then the tag Participant/Effect/Cognitive/Target is also added: Participant/Effect/Cognitive/Target, (Participant/Effect/Cognitive/Target, Attribute/Intended effect). otherwise the Participant/Effect/Cognitive/Target tag is not included outside of the group.]</nowiki>
-* Instruction <nowiki> [This tag is placed in events of type Event/Category/Experiment Control/Instruction, grouped with one or more Action/ tags to replace the detailed specification XXX in Event/Category/Experimental Control/Instruction/XXX) in previous versions. Usage example:  Event/Category/Experimental Control/Instruction, (Action/Fixate, Attribute/Instruction) ]</nowiki>
-* Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
+** Communicative
+*** Nonlinguistic <nowiki>[Something that conveys meaning without using words such as the iconic pictures of a man or a woman on the doors of restrooms. Another example is a deer crossing sign with just a picture of jumping deer.]</nowiki> 
+*** Semantic <nowiki>[Like in priming or in congruence]</nowiki> 
+*** Linguistic 
 
-
-* Object control <nowiki>{requireChild} [Specifies control such as for a vehicle]</nowiki> 
-* Association <nowiki>{requireChild}</nowiki> 
-** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-* Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-** Leader 
-** Follower 
-** <nowiki># {takesValue}</nowiki> 
-** Miscellaneous
-* Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+* Miscellaneous
+** Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
+*** Cued <nowiki>[what is presented is cued to the presentation of something else] </nowiki> 
+*** Background <nowiki>[presented in the background such as background music, background image, etc. The main factor here is that background presentations are to be ignored, e.g. ignore math question auditory stimuli.] </nowiki>
+** Participant indication <nowiki> [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]</nowiki>
+** Object control <nowiki>{requireChild} [Specifies control such as for a vehicle]</nowiki> 
+** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
+** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
 
 
 '''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
