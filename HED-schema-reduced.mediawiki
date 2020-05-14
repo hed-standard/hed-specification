@@ -307,7 +307,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Ramp up <nowiki>[Increasing in amplitude]</nowiki> 
 ** Ramp down <nowiki>[Decreasing in amplitude]</nowiki> 
 * Blink
-** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki> *** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
+** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
 ** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>
 ***<nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
 ** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki> 
