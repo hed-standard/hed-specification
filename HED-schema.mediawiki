@@ -1,4 +1,4 @@
-HED version: v1.5.0-restruct
+HED version: v1.6.1-restruct
 
 '''Syntax'''  
 
@@ -92,7 +92,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Cross <nowiki>[By default a vertical-horizontal cross. For a rotated cross add Attribute/Object orientation/Rotated/ tag]</nowiki> 
 ** Single point 
 ** Clock face <nowiki>[Used to study things like hemispheric neglect. The tag is related to the clock-drawing-test]</nowiki> 
-*** <nowiki># {takesValue, unitClass=time} [Hour:min]</nowiki> 
+*** <nowiki># {takesValue, unitClass=clockTime} [hour:min]</nowiki> 
 * Pattern
 ** Checkerboard 
 ** Abstract 
@@ -194,7 +194,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** # <nowiki>{takesValue}</nowiki>
 ** Group <nowiki>[ID that identifies a group of events associated with each other.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
-** Index <nowiki>{requireChild}[Use this tag with a value for IDs that don't fall into another category.]</nowiki>
+** Index <nowiki>{requireChild}[Use this tag with a value for IDs that do not fall into another category.]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
 ** Local <nowiki>[For IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID tag refer to the same object through the whole experiment]</nowiki>
 *** # <nowiki>{takesValue}</nowiki>
@@ -352,7 +352,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
 *** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
-* Imagined <nowiki>[This is used to identity that the (sub)event only happened in participant's imagination, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+* Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 * Condition <nowiki>{requireChild} [Specifies the value of an independent variable (number of letters, N, in an N-back task) or function of independent variables that is varied or controlled for in the experiment.  This attribute is often specified at the task level and can be associated with specification of an experimental stimulus or an experiment context (e.g. 1-back, 2-back conditions in an N-back task, or changing the target type from faces to houses in a Rapid Serial Visual Presentation, or RSVP, task.)]</nowiki>
 ** # <nowiki>{takesValue} [the condition]</nowiki> 
 * Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
@@ -487,7 +487,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Backward 
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
-* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or 'low', 'high', etc.]</nowiki> 
+* Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
 
 * Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
 ** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
@@ -544,7 +544,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Yawn 
 ** Sniffle 
 ** Burp 
-** Drop <nowiki>[For example something  drops from subject’s hand]</nowiki>
+** Drop <nowiki>[For example something  drops from the hand of the subject]</nowiki>
 * Make fist
 ** Open and close <nowiki>[Continue to open and close the fist, for example in motor imagery paradigms.]</nowiki>
 * Curl toes
@@ -779,7 +779,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Drowsy 
 *** Sleep
 **** Stage <nowiki>{requireChild}</nowiki>
-***** <nowiki># {takesValue} [a number between 1 to 4, or 'REM']</nowiki>   
+***** <nowiki># {takesValue} [a number between 1 to 4, or REM]</nowiki>   
 *** Drunk 
 *** Anesthesia 
 *** Locked-in 
@@ -852,7 +852,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Walking 
 ** Treadmill 
 * Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or doctor’s office]</nowiki> 
+** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
 ** Dim Room 
 * Outdoors 
 ** Terrain 
@@ -1107,97 +1107,116 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * <nowiki>[extend here]</nowiki> 
 
 '''Unit classes''' 
-* acceleration <nowiki>{default=cm-per-s2}</nowiki> 
-** m-per-s2 
-** cm-per-s2 
-* currency <nowiki>{default=$}</nowiki> 
-** dollars 
-** $ 
-**points 
-**fraction 
-* angle <nowiki>{default=radians}</nowiki> 
-** degrees 
-** degree 
-** radian 
-** radians 
-* frequency <nowiki>{default=Hz}</nowiki> 
-** Hz 
-** mHz 
-** Hertz 
-** kHz 
-* intensity <nowiki>{default=dB}</nowiki> 
-** dB 
-* jerk <nowiki>{default=cm-per-s3}</nowiki> 
-** m-per-s3 
-** cm-per-s3 
-* luminousIntensity <nowiki>{default=cd}</nowiki> 
-** candela 
-** cd 
-* memorySize <nowiki>{default=mb}</nowiki> 
-** mb 
-** kb 
-** gb 
-** tb 
-* physicalLength <nowiki>{default=cm}</nowiki> 
-** m 
-** cm 
-** km 
-** mm 
-** feet 
-** foot 
-** meter 
-** meters 
-** mile 
-** miles 
-* pixels <nowiki>{default=px}</nowiki> 
-** pixels  
-** px 
-** pixel 
-* speed <nowiki>{default=cm-per-s}</nowiki> 
-** m-per-s 
-** mph 
-** kph 
-** cm-per-s 
-* time <nowiki>{default=s}</nowiki> 
-** s 
-** second 
-** seconds
-** centiseconds
-** centisecond
-** cs
-** hour:min 
+* time <nowiki>{defaultUnits=s}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** day 
-** days 
-** ms 
-** milliseconds
-** millisecond
 ** minute 
-** minutes 
 ** hour 
-** hours 
-* area <nowiki>{default=cm2}</nowiki> 
-**m2 
-** cm2 
-** km2 
-** pixels2 
-** px2 
-** pixel2 
-** mm2 
-* volume <nowiki>{default=cm3}</nowiki> 
-** m3 
-** cm3 
-** mm3 
-** km3 
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
+** hour:min <nowiki>{unitSymbol}</nowiki> 
+** h:m <nowiki>{unitSymbol}</nowiki> 
+** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
+** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
+** hertz  <nowiki>{SIUnit}</nowiki>
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* angle <nowiki>{defaultUnits=radian}</nowiki> 
+** radian <nowiki>{SIUnit}</nowiki> 
+** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** degree 
+* physicalLength <nowiki>{defaultUnits=m}</nowiki> 
+** metre <nowiki>{SIUnit}</nowiki> 
+** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** foot 
+** mile  
+* pixels <nowiki>{defaultUnits=px}</nowiki>  
+** pixel 
+** px <nowiki>{unitSymbol}</nowiki> 
+* area <nowiki>{defaultUnits=m^2}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** px^2 <nowiki>{unitSymbol}</nowiki> 
+** pixel^2
+* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
+** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** mph <nowiki>{unitSymbol}</nowiki> 
+** kph <nowiki>{unitSymbol}</nowiki> 
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
+** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
+* intensity <nowiki>{defaultUnits=dB}</nowiki> 
+** dB <nowiki>{unitSymbol}</nowiki> 
+* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
+** candela <nowiki>{SIUnit}</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* currency <nowiki>{defaultUnits=$}</nowiki> 
+** dollar 
+** $ <nowiki>{unitSymbol}</nowiki> 
+** point 
+** fraction 
+
+'''Unit modifiers''' 
+* deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
+* hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
+* h <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^2]</nowiki>
+* kilo <nowiki>{SIUnitModifier} [SI unit multiple representing 10^3]</nowiki> 
+* k <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^3]</nowiki>
+* mega <nowiki>{SIUnitModifier} [SI unit multiple representing 10^6]</nowiki> 
+* M <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^6]</nowiki>
+* giga <nowiki>{SIUnitModifier} [SI unit multiple representing 10^9]</nowiki> 
+* G <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^9]</nowiki>
+* tera <nowiki>{SIUnitModifier} [SI unit multiple representing 10^12]</nowiki> 
+* T <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^12]</nowiki>
+* peta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^15]</nowiki> 
+* P <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^15]</nowiki> 
+* exa <nowiki>{SIUnitModifier} [SI unit multiple representing 10^18]</nowiki> 
+* E <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^18]</nowiki>
+* zetta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^21]</nowiki> 
+* Z <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^21]</nowiki>
+* yotta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^24]</nowiki> 
+* Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>   
+* deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki> 
+* centi <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-2]</nowiki> 
+* c <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-2]</nowiki>
+* milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki> 
+* m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
+* micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki> 
+* u <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki> 
+* pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki> 
+* p <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-12]</nowiki>
+* femto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-15]</nowiki> 
+* f <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-15]</nowiki>
+* atto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-18]</nowiki> 
+* a <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-18]</nowiki>
+* zepto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-21]</nowiki> 
+* z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
+* yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
+* y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 !# end hed 
 
 '''Attribute Definitions:'''
-* extensionAllowed <nowiki>[users can add (unlimited levels of) child nodes under this tag.]</nowiki> 
+* default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 
+* defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
+* extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
+* isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
+* position <nowiki>[Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.]</nowiki> 
+* predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki>  
+* recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
-* takesValue <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is a string.] </nowiki> 
-* isNumeric <nowiki>[The tag name is the "#" character, and this character will be replaced with the user's input. The input is numerical.]</nowiki>  
-*  required <nowiki>[Shown at the top of the events view in the order given by the position attribute. Checked for at the end if the user chooses "done".]</nowiki> 
-* recommended  <nowiki>[Shown below the required tags in the events view in the order given by the position attribute.]</nowiki> 
-* position <nowiki>[Used to specify the order of the required and recommended tags compared separately from each other. It expects an integer and the order can start at 0 or 1. It just checks for comparison. Required or recommended tags without this attribute or with negative position will be shown after the others.]</nowiki> 
+*  required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
+* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+* SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
+* takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
-* predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki> 
-* default <nowiki>[Default value -- mostly used for unitClasses.]</nowiki> 
+* unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
