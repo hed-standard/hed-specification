@@ -319,16 +319,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Unmasked 
 **** Masked 
 *** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
-*** Liminal 
+*** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
 ** Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
 *** Correct 
 *** Incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
 *** Indeterminate <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
 **** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
 *** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
-** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-t the 75%-25% perception threshold]</nowiki> 
-
+*** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
 ** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 *** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 **** Leader 
