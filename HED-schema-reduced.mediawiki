@@ -319,7 +319,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Unmasked 
 **** Masked 
 *** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
-*** Liminal <nowiki>[A
+*** Liminal 
 ** Action judgment <nowiki>[External judgment (assumed to be ground truth, e.g. from an experiment control software or an annotator) about participant actions such as answering a question, failing to answer in time, etc.]</nowiki> 
 *** Correct 
 *** Incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
