@@ -245,7 +245,12 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Excited 
 ** Disgusted 
 ** Neutral <nowiki>[None of the above]</nowiki> 
-
+* Postural <nowiki>{requireChild}</nowiki> 
+** Crouching
+** Sitting
+** Standing
+** Kneeling
+** Prone
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Informational
