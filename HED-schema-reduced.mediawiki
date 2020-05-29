@@ -216,8 +216,8 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Encode 
 
 
-'''Participant state''' <nowiki>{extensionAllowed, requireChild}</nowiki> 
-* Cognitive <nowiki>{requireChild}</nowiki> 
+'''Participant''' <nowiki>{requireChild}</nowiki> 
+* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Awake 
 ** Drowsy 
 ** Asleep
@@ -227,7 +227,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Vegetative 
 ** Brain-dead 
 ** Intoxicated 
-* Emotional <nowiki>{requireChild}</nowiki> 
+* Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Awed 
 ** Frustrated 
 ** Joyful 
@@ -245,14 +245,20 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Excited 
 ** Disgusted 
 ** Neutral <nowiki>[None of the above]</nowiki> 
-* Postural <nowiki>{requireChild}</nowiki> 
+* Postural state<nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Sitting
 ** Standing
 ** Kneeling
 ** Prone
 ** Supported by chin rest
-
+* Trait<nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Age
+*** <nowiki># {takesValue}</nowiki>
+** Sex
+*** <nowiki># {takesValue}</nowiki> 
+** Handedness
+*** <nowiki># {takesValue}</nowiki> 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Informational
 ** ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
