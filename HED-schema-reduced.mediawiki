@@ -195,8 +195,10 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Switch attention
 *** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
 *** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
-**** From modality 
-**** To modality 
+**** From modality  <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** To modality <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
 ** Evade 
