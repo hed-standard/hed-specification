@@ -252,7 +252,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Kneeling
 ** Prone
 ** Supported by chin rest
-* Trait<nowiki>{extensionAllowed, requireChild}</nowiki> 
+* Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Age
 *** <nowiki># {takesValue}</nowiki>
 ** Sex
