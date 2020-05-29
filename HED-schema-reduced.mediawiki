@@ -304,8 +304,14 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Acceleration 
 ** Jerk 
 
-* Environmental
-*
+* Environmental 
+** Indoors
+** Outdoors
+** Real-world
+** Virtual-world
+** Augmented-reality
+** Motion platform
+
 * Cognitive modifier
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
@@ -356,25 +362,6 @@ There are three ways to define the scope of an event. The simplest way is to spe
 *** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
 *** Negative valence 
 
-'''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
-
-** Treadmill 
-* Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
-** Dim Room 
-* Outdoors 
-** Terrain 
-
-* Motion platform <nowiki> [Subject is on a motion platform such as one that produces simulated car movements]</nowiki> 
-* Fixed screen 
-** Distance <nowiki>[Assuming static subject]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance from subject eyes to the presentation screen for 30 cm from subject eyes to the monitor]</nowiki> 
-** Width resolution  
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels] </nowiki> 
-** Height resolution 
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels ]</nowiki> 
-* Real world 
-* Virtual world 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
 
