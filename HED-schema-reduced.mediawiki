@@ -259,14 +259,12 @@ There are three ways to define the scope of an event. The simplest way is to spe
 *** <nowiki># {takesValue}</nowiki> 
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
+
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Informational
-** ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (i.e., an event code).]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Label <nowiki>{requireChild} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in Attribute/Temporal/Onset and Attribute/Temporal/Offset attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Long label <nowiki>{requireChild} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 
 
