@@ -68,7 +68,12 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Natural
 *** Plant 
 *** Mineral
-
+*** Terrain
+**** Field
+**** Hill
+**** Mountain
+**** River
+**** Waterfall
 * Agent
 ** Human
 *** Body part
@@ -76,15 +81,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 **** Finger
 ** Animal
 ** Robotic
-* Environment
-** Home
-** Town
-** City
-** Field
-** Hill
-** Mountain
-** River
-** Waterfall
+
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Diphthong
 ** Letter
@@ -317,6 +314,8 @@ consumed alcohol, drugs, or other substances that may alter physical or mental s
 ** Virtual-world
 ** Augmented-reality
 ** Motion platform
+** Urban
+** Rural
 
 * Cognitive modifier
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
