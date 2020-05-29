@@ -224,8 +224,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Comatose 
 ** Vegetative 
 ** Brain-dead 
-** Intoxicated <nowiki>{extensionAllowed, requireChild}{Indicates a state in which participant has
-consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
 * Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Awed 
 ** Frustrated 
