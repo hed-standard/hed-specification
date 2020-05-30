@@ -1,6 +1,9 @@
 # hed-specification
 Hierarchical Event Descriptor (HED) specification
 
+### HED Schema
+The [HED-schema.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/HED-schema.mediawiki) file contains the current working version of the schema. For an easy-to-browse version, please see http://www.hedtags.org/display_hed.html
+
 ### HED notes
 The current version of HED is maintained in the wiki associated with
 https://github.com/hed-standard/hed-specification
