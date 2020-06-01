@@ -5,9 +5,9 @@ HED version: v1.6.1-restruct
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  Do not use single or double quotes in HED tags.
 From version 2.2, HED adheres to http://semver.org/ versioning. 
 
-HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and time and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
+HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
 
-There are three ways to define the scope of an event. The simplest way is to specify the Attibute/Temporal/Duration/# tag indicating how long that event scope is in effect. A more common method is to specify the start and end of the scope. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that ends at the end of the dataset. To explicitly specify the start and end of a scope use the Attribute/Temporal/Onset with an Attribute/Information/Label/# tag to name and indicate the start of a scope. Use an Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of the scope.  
+There are four ways to define the scope of an event.  The most common method is to specify the start and end of the scope using Onset and Offset. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that starts at the time associated with the Onset event and ends at the end of the dataset. To explicitly specify both the start and end of a scope gtoup the Attribute/Temporal/Onset with an Attribute/Informational/Label/# tag to identify  and mark the start of the scope along with all of the other tags associated with the scope. Use the Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of that scope. Once a scope has been identified, additional occurences of that scope can be marked with labeled onset-offset pairs without repeating the additional tags associated with the scope. Finally, tags grouped with the Attribute/Temporal/Duration/# tag define a scope that starts at that point and ends  duration time later. One can also combine the /Attribute/Informational/Definition  and the Attribute/Informational/Label/#  with a group of tags. That label tag can then be used anywhere to represent the associated group of tags, much like an event code.
 
 !# start hed 
 
@@ -25,7 +25,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/Index/# to designate a procedure identifier.]</nowiki>  
 ** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-* Experimental organization <nowiki>{extensionAllowed} [An event describing the structure of the experiment.]</nowiki>
+* Experimental structure <nowiki>{extensionAllowed} [An event describing the structure of the experiment.]</nowiki>
 ** Context <nowiki>[An event describing the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
 ** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
@@ -260,15 +260,16 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
 
-'''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
+'''Attribute''' <nowiki>{requireChild}</nowiki>
 * Informational
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (i.e., an event code).]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
+** Definition <nowiki>[Should be used in a tag group with a Label tag to indicate that the label represents that group of tags.]</nowiki> 
 
 
-* Quantitative
+* Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Peak
 ** Item count
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
@@ -276,7 +277,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 
-* Sensory
+* Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
 *** Volume <nowiki>{requireChild}</nowiki> 
@@ -293,13 +294,13 @@ There are three ways to define the scope of an event. The simplest way is to spe
 *** Rendering <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
 ****<nowiki># {takesValue}</nowiki> 
 
-* Spatial <nowiki>{requireChild}</nowiki>
+* Spatial <nowiki>{extensionAllowed}</nowiki>
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 ** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 ** Size <nowiki>{requireChild}</nowiki>
 ** Constrained <nowiki>[For example a path cannot cross some region]</nowiki>  
 
-* Temporal <nowiki>{requireChild}</nowiki>
+* Temporal <nowiki>{extensionAllowed}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 ** Onset <nowiki>[Default]</nowiki> 
 ** Offset
@@ -308,7 +309,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Acceleration 
 ** Jerk 
 
-* Environmental 
+* Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
 ** Real-world
@@ -318,7 +319,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Urban
 ** Rural
 
-* Cognitive modifier
+* Cognitive modifier <nowiki>{extensionAllowed}</nowiki>
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
 *** Meaningful 
