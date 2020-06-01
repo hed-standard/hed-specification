@@ -5,23 +5,31 @@ HED version: v1.6.1-restruct
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  Do not use single or double quotes in HED tags.
 From version 2.2, HED adheres to http://semver.org/ versioning. 
 
+HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and time and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
+
+There are three ways to define the scope of an event. The simplest way is to specify the Attibute/Temporal/Duration/# tag indicating how long that event scope is in effect. A more common method is to specify the start and end of the scope. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that ends at the end of the dataset. To explicitly specify the start and end of a scope use the Attribute/Temporal/Onset with an Attribute/Information/Label/# tag to name and indicate the start of a scope. Use an Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of the scope.  
+
 !# start hed 
 
 '''Event''' 
 * Sensory presentation <nowiki> [Something perceivable by the participant.]</nowiki>
 ** Experimental <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
-** Environmental <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
+** Extraneous <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
 * Participant action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
 ** Task-related {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
 ** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
 * Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
-* Experiment Control <nowiki>{extensionAllowed} [An event pertaining to the setup and/or control of the experiment.]</nowiki>
-** Condition <nowiki>[An event used to indicate a shift to a new experimental and/or task condition. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify start and end. Use Attribute/ID/Index/# to designate a condition identifier.]</nowiki>
+* Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
 ** Pause <nowiki>[An event indicating a stop in recording. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the length of the pause.]</nowiki>    
 ** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/Index/# to designate a procedure identifier.]</nowiki>  
 ** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
+* Experimental organization <nowiki>{extensionAllowed} [An event describing the structure of the experiment.]</nowiki>
+** Context <nowiki>[An event describing the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
+** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
+** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
+
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
@@ -60,7 +68,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Natural
 *** Plant 
 *** Mineral
-
+*** Terrain
+**** Field
+**** Hill
+**** Mountain
+**** River
+**** Waterfall
 * Agent
 ** Human
 *** Body part
@@ -68,15 +81,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Finger
 ** Animal
 ** Robotic
-* Environment
-** Home
-** Town
-** City
-** Field
-** Hill
-** Mountain
-** River
-** Waterfall
+
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Diphthong
 ** Letter
@@ -162,6 +167,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Bend 
 *** Scratch 
 *** Lift
+*** Tic
 * Communicative
 ** Verbal
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
@@ -189,8 +195,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Switch attention
 *** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
 *** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
-**** From modality 
-**** To modality 
+**** From modality  <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** To modality <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
 ** Evade 
@@ -208,8 +216,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Encode 
 
 
-'''Participant state''' <nowiki>{extensionAllowed, requireChild}</nowiki> 
-* Cognitive <nowiki>{requireChild}</nowiki> 
+'''Participant''' <nowiki>{requireChild}</nowiki> 
+* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Awake 
 ** Drowsy 
 ** Asleep
@@ -218,8 +226,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Comatose 
 ** Vegetative 
 ** Brain-dead 
-** Intoxicated 
-* Emotional <nowiki>{requireChild}</nowiki> 
+** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+* Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Awed 
 ** Frustrated 
 ** Joyful 
@@ -237,16 +245,26 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Excited 
 ** Disgusted 
 ** Neutral <nowiki>[None of the above]</nowiki> 
-
+* Postural state<nowiki>{requireChild}</nowiki> 
+** Crouching
+** Sitting
+** Standing
+** Kneeling
+** Prone
+** Supported by chin rest
+* Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Age
+*** <nowiki># {takesValue}</nowiki>
+** Sex
+*** <nowiki># {takesValue}</nowiki> 
+** Handedness
+*** <nowiki># {takesValue}</nowiki> 
 
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Informational
-** ID <nowiki>{requireChild}[Tag to identify any aspect of an event. Use parentheses to group an ID Value tag with an ID Type tag to qualify the kind of ID that the value represents.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (i.e., an event code).]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Label <nowiki>{requireChild} [A label for the event with less than 20 characters, for example, Event/Label/Accept button press. Please note that the information in this tag is provided for analyst guidance in referring to this and similar events in the context of the study, rather than for direct use in the analysis process. Please use tag stem Event/Category/Custom to define custom event description hierarchies not meant for inclusion in this main HED schema. Also, please do not use the words Onset or Offset in the Event/Label. These should only be placed in Attribute/Temporal/Onset and Attribute/Temporal/Offset attribute descriptors. This makes it easier to automatically find onsets and offsets for the same event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Long label <nowiki>{requireChild} [A longer (than 20 characters) label for the event that may contain | characters as separators. Long names are used to encode detailed information in a single string such as Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 
 
@@ -290,6 +308,15 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Acceleration 
 ** Jerk 
 
+* Environmental 
+** Indoors
+** Outdoors
+** Real-world
+** Virtual-world
+** Augmented-reality
+** Motion platform
+** Urban
+** Rural
 
 * Cognitive modifier
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
@@ -341,30 +368,6 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
 *** Negative valence 
 
-'''Experiment context''' <nowiki>{extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki> 
-* With chin rest 
-* Sitting 
-* Standing 
-* Prone  <nowiki> [As in on a bed]</nowiki> 
-* Running 
-* Walking 
-** Treadmill 
-* Indoors <nowiki> [Default]</nowiki> 
-** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
-** Dim Room 
-* Outdoors 
-** Terrain 
-
-* Motion platform <nowiki> [Subject is on a motion platform such as one that produces simulated car movements]</nowiki> 
-* Fixed screen 
-** Distance <nowiki>[Assuming static subject]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance from subject eyes to the presentation screen for 30 cm from subject eyes to the monitor]</nowiki> 
-** Width resolution  
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels] </nowiki> 
-** Height resolution 
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels ]</nowiki> 
-* Real world 
-* Virtual world 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
 
