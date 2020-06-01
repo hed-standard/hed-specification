@@ -5,9 +5,9 @@ HED version: v1.6.1-restruct
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  Do not use single or double quotes in HED tags.
 From version 2.2, HED adheres to http://semver.org/ versioning. 
 
-HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and time and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
+HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
 
-There are three ways to define the scope of an event. The simplest way is to specify the Attibute/Temporal/Duration/# tag indicating how long that event scope is in effect. A more common method is to specify the start and end of the scope. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that ends at the end of the dataset. To explicitly specify the start and end of a scope use the Attribute/Temporal/Onset with an Attribute/Information/Label/# tag to name and indicate the start of a scope. Use an Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of the scope.  
+There are four ways to define the scope of an event.  The most common method is to specify the start and end of the scope using Onset and Offset. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that starts at the time associated with the Onset event and ends at the end of the dataset. To explicitly specify both the start and end of a scope use the Attribute/Temporal/Onset with an Attribute/Informational/Label/# tag to identify  and mark the start of the scope along with all of the other tags in effect for the scope. Use an Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of that scope. Once a scope has been identified, additional occurences of that scope can be marked with labeled offset onset pairs without repeating the additional tags associated with the scope. Finally, tags grouped with the Attibute/Temporal/Duration/# tag define a scope that starts with at that point and ends a duration time later. One can also combine the /Attribute/Informational/Definition  and the Attribute/Informational/Label/#  with a group of tags. The label tag can then be used anywhere to represent that group of tags, much like an event code.
 
 !# start hed 
 
@@ -25,7 +25,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 ** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/Index/# to designate a procedure identifier.]</nowiki>  
 ** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-* Experimental organization <nowiki>{extensionAllowed} [An event describing the structure of the experiment.]</nowiki>
+* Experimental structure <nowiki>{extensionAllowed} [An event describing the structure of the experiment.]</nowiki>
 ** Context <nowiki>[An event describing the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
 ** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
@@ -266,6 +266,7 @@ There are three ways to define the scope of an event. The simplest way is to spe
 *** <nowiki># {takesValue}</nowiki>  
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
+** Definition <nowiki>{requireChild}[Should be used in a tag group with a Label tag to indicate that the label represents that group of tags.]</nowiki> 
 
 
 * Quantitative
