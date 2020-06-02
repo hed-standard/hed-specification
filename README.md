@@ -14,6 +14,10 @@ https://github.com/hed-standard/hed-specification/tree/master/hedxml
 The stable link for the latest version of the HED schema is
 https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml
 
+To browse the latest version of:
+* HED-restruct: http://www.hedtags.org/schema_browser/display_hed_restruct.html
+* HED-reduced: http://www.hedtags.org/schema_browser/display_hed_reduced.html
+
 ### HED restructuring
 HED is undergoing a major reorganization on the HED-restructure branch.
 
