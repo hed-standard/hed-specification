@@ -306,7 +306,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
 ** Acceleration 
-** Jerk 
+** Jerk rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
+*** #{takesValue, isNumeric, unitClass=jerk}
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
