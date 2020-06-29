@@ -119,7 +119,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Jump
 **** Kick
 **** Tab
-**** Press
+**** Depress
 **** Dance
 *** Manual
 **** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
