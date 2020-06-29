@@ -96,7 +96,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Music
 ** Noise
 ** Cocktail party <nowiki>[Multiple speech streams at once]</nowiki>
-** Environmental <nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
+** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
