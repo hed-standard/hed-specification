@@ -84,7 +84,6 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Diphthong
-** Letter
 ** Word
 ** Character
 ** Phrase
