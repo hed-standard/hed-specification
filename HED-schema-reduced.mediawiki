@@ -282,7 +282,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Volume <nowiki>{requireChild}</nowiki> 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
-*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Olfactory
 ** Haptic
