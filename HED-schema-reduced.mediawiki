@@ -237,7 +237,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Relieved 
 ** Excited 
 ** Disgusted 
-** Neutral <nowiki>[None of the above]</nowiki> 
+** Feeking neutral <nowiki>[None of the above]</nowiki> 
 * Postural state<nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Sitting
@@ -314,48 +314,50 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Cognitive modifier <nowiki>{extensionAllowed}</nowiki>
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Reflexive
+** Intentional
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
-*** Meaningful 
-*** Not meaningful 
-*** Newly learned meaning 
-*** Reward 
-*** Penalty 
-*** Error 
-*** Threat 
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-*** Congruent 
-*** Feedback 
-*** Priming 
-**** Motoric 
-**** Emotional 
-**** Perceptual
-*** Subliminal 
-**** Unmasked 
-**** Masked 
+** Meaningful 
+** Not meaningful 
+** Newly learned meaning 
+** Rewarding 
+** Penalizing
+** Error 
+** Threatening
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
+** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
+** Congruent 
+** Feedback 
+** Priming 
+*** Motoric priming
+*** Emotional priming
+*** Perceptual priming
+** Subliminal 
+*** Unmasked subliminal
+*** Masked subliminal
 *** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 *** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
 ** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-*** Correct 
-*** Incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
-*** Indeterminate <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
-**** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
+*** Judged correct 
+*** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
+*** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
+*** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
 *** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
 *** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+** Social interaction <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 *** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 **** Leader 
 **** Follower 
 **** <nowiki># {takesValue}</nowiki> 
 *** Association <nowiki>{requireChild}</nowiki> 
-**** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+**** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 ** Emotional 
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
