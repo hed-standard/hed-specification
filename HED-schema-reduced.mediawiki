@@ -100,14 +100,14 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
-* Motor
+* Move
 ** Breathe
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Inspiration]</nowiki>
 *** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Expiration]</nowiki>
 *** Hold breath
-** Head action
+** Move head
 *** Nod
-** Body action
+** Move body
 *** Step
 **** Heel strike <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
 **** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
@@ -131,7 +131,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Dance
 *** Shudder
 *** Tic?  
-** Hand action
+** Move hand
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with Item/Object/Human/Body part tag to indicate which part of the body was used to press the button.]</nowiki> 
 *** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as Participant action events unless their timing is task-relevant.]</nowiki>
@@ -149,16 +149,16 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Engage mechanism
 **** Turn on signal
 **** Turn on headlights
-***** Sound horn
-***** Turn on radio
+**** Sound horn
+**** Turn on radio
 *** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
-** Eye action
+** Move eye
 *** Saccade
-*** Fixation
+*** Fixate
 *** Blink
 *** Open eye
 *** Close eye
-* Mouth action
+* Move mouth
 *** Hiccup 
 *** Cough 
 *** Sneeze 
