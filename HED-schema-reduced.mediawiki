@@ -168,23 +168,22 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Burp 
 
 
-* Communicative
-** Verbal
+* Communicate
+** Communicate verbally
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
-** Interjective
 *** Groan
 ***	Laugh
 *** Scream
 *** Sigh
-** Gestural <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
+** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
 ***	Shrug
 ***	Thumb(s) up
-***	Fist pump
-***	Hand spread
+***	Pump fist
+***	Spread hand
 ***	Wave
 ***	Index up
 ***	Shhh
-** Musical
+** Communicate musically
 *** Hum 
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
