@@ -108,7 +108,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Move body
 *** Nod
 *** Step
-**** Heel strike <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+**** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
 **** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
 *** Flex
 *** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
@@ -157,7 +157,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Blink
 *** Open eye
 *** Close eye
-* Move mouth
+** Move mouth
 *** Hiccup 
 *** Cough 
 *** Sneeze 
@@ -237,7 +237,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Relieved 
 ** Excited 
 ** Disgusted 
-** Feeking neutral <nowiki>[None of the above]</nowiki> 
+** Feeling neutral <nowiki>[None of the above]</nowiki> 
 * Postural state<nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Sitting
