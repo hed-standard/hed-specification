@@ -12,11 +12,11 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory presentation <nowiki> [Something perceivable by the participant.]</nowiki>
-** Experimental <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
-** Extraneous <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
+* Sensory presentation event<nowiki> [Something perceivable by the participant.]</nowiki>
+** Experimental stimulus <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
+** Incidental stimulus <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
 * Participant action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
-** Task-related {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
+** Task-related  {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
 ** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
 * Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
