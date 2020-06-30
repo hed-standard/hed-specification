@@ -55,7 +55,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Cartoon
 ***** Sketch
 **** Painting
-**** Installation
+**** Art installation
 **** Photograph
 **** Film
 **** Sculpture
