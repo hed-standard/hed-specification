@@ -586,7 +586,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Follower 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Action'''<nowiki>[May or may not be associated with a prior stimulus and can be extended]</nowiki> 
+'''Action'''<nowiki>{extensionAllowed}[May or may not be associated with a prior stimulus and can be extended]</nowiki> 
 * Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki> 
 ** Hiccup 
 ** Cough 
