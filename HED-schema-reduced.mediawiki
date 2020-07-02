@@ -100,11 +100,11 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
-* Move
-** Breathe
-*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Inspiration]</nowiki>
-*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Expiration]</nowiki>
-*** Hold breath
+* Breathe
+** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+** Hold breath
+* Locomote
 ** Move body
 *** Nod
 *** Step
@@ -316,6 +316,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Reflexive
 ** Intentional
+** Incidental
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
 ** Meaningful 
 ** Not meaningful 
