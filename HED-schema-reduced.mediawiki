@@ -12,9 +12,9 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory event<nowiki> [Something perceivable by the participant. An event meant to be experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
-* Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>]</nowiki>
-* Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
+* Sensory event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
 ** Pause <nowiki>[An event indicating a stop in recording. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the length of the pause.]</nowiki>    
