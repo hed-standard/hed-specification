@@ -12,12 +12,8 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory event<nowiki> [Something perceivable by the participant.]</nowiki>
-** Task-related stimulus <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
-** Non-task related stimulus <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
-* Subject action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
-** Task-related action {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
-** Non task-related action {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
+* Sensory event<nowiki> [Something perceivable by the participant. An event meant to be experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>]</nowiki>
 * Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
@@ -245,8 +241,12 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
-** Definition <nowiki>[Should be used in a tag group with a Label tag to indicate that the label represents that group of tags.]</nowiki> 
-
+** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the label represents that group of tags.]</nowiki> 
+** Metadata <nowiki>[A tag used within a tag group indicate to designate tha.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki> 
+* Contextual <nowiki>{extensionAllowed}</nowiki>
+** Task-related
+** Non task-related
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Peak
