@@ -188,7 +188,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Sing
-*** Perform
 
 * Think
 ** Switch attention
