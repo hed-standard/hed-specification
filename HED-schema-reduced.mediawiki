@@ -12,7 +12,7 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory presentation event<nowiki> [Something perceivable by the participant.]</nowiki>
+* Sensory event<nowiki> [Something perceivable by the participant.]</nowiki>
 ** Task-related stimulus <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
 ** Non-task related stimulus <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
 * Subject action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
