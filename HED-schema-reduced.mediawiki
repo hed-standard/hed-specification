@@ -12,12 +12,12 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory presentation <nowiki> [Something perceivable by the participant.]</nowiki>
-** Experimental <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
-** Extraneous <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
+* Sensory presentation event<nowiki> [Something perceivable by the participant.]</nowiki>
+** Task-related stimulus <nowiki>{extensionAllowed} [Primary category for task-or-condition-related stimulus events.]</nowiki>
+** Non-task related stimulus <nowiki>{extensionAllowed}[An unplanned or environment-determined event occurring in the environment of the participant, for example, a change in experimental context such as beginning to walk on dirt versus sidewalk or a loud noise occurring in the next room.]</nowiki> 
 * Participant action <nowiki>[Any motor action engaged in by the participant.]</nowiki>
-** Task-related {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
-** Non task-related {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
+** Task-related action {extensionAllowed} <nowiki>[A task-related action taken by a participant in response to task demands, such as making a button press in response to a Sensory presentation event or tapping out a rhythm following a Condition cue presentation.]</nowiki>
+** Non task-related action {extensionAllowed} <nowiki>[A non-task-related action taken by the participant -- for example yawning, shifting in their chair, or responding to an Environmental event]</nowiki>
 * Data feature <nowiki>{extensionAllowed} [An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
@@ -55,7 +55,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Cartoon
 ***** Sketch
 **** Painting
-**** Installation
+**** Art installation
 **** Photograph
 **** Film
 **** Sculpture
@@ -80,11 +80,10 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Face
 **** Finger
 ** Animal
-** Robotic
+** Robot
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Diphthong
-** Letter
 ** Word
 ** Character
 ** Phrase
@@ -96,60 +95,69 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Siren
 ** Music
 ** Noise
-** Cocktail party <nowiki>[Multiple speech streams at once]</nowiki>
-** Environmental <nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
+** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
-* Motor
-** Intentional
-*** Breathe
-**** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Inspiration]</nowiki>
-**** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, use Action/Movement/Incidental/Expiration]</nowiki>
-**** Hold
-*** Head
-**** Nod
-*** Pedal
-**** Step
-***** Heel strike <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-***** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-**** Run
-**** Walk
-**** Trot
-**** Jog
-**** Jump
-**** Kick
-**** Tab
-**** Press
-**** Dance
-*** Manual
-**** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-**** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with Item/Object/Human/Body part tag to indicate which part of the body was used to press the button.]</nowiki> 
-**** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as Participant action events unless their timing is task-relevant.]</nowiki>
-**** Retract
-**** Tap <nowiki>[A quick press, followed by a quick release]</nowiki>
-**** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-**** Touch <nowiki>[May follow a Reach event]</nowiki> 
-**** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-**** Point <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-*** Operate
-**** Steer
-**** Accelerate
-**** Brake
-**** Stop
-**** Engage
-***** Turn signal
-***** Headlights
-***** Horn
-***** Radio
-**** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
-** Ocular
+* Breathe
+** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+** Hold breath
+* Locomote
+** Move body
+*** Nod
+*** Step
+**** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+**** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
+*** Bend 
+*** Scratch 
+*** Lift
+*** Run
+*** Walk
+*** Trot
+*** Jog
+*** Jump
+*** Kick
+*** Depress pedal
+*** Dance
+*** Shudder
+*** Tic?  
+** Move hand
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Press <nowiki>[As in pressing a button. Release may be quick or delayed. This can be used also for other types of pushing actions and can be grouped with Item/Object/Human/Body part tag to indicate which part of the body was used to press the button.]</nowiki> 
+*** Release <nowiki>[As in releasing a pressed button. Release events are not frequently recorded as Participant action events unless their timing is task-relevant.]</nowiki>
+*** Retract hand
+*** Tap finger <nowiki>[A quick press, followed by a quick release]</nowiki>
+*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+*** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+*** Tab ?
+** Operate
+*** Steer
+*** Accelerate
+*** Brake
+*** Stop
+*** Engage mechanism
+**** Engage turn signal
+**** Switch on headlights
+**** Sound horn
+**** Turn on radio
+*** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+** Move eye
 *** Saccade
-*** Fixation
+*** Fixate
 *** Blink
-*** Eye opening
-*** Eye closure
-** Incidental
+*** Open eye
+*** Close eye
+** Move mouth
 *** Hiccup 
 *** Cough 
 *** Sneeze 
@@ -158,47 +166,32 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Clear throat
 *** Yawn 
 *** Burp 
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntary accommodate or react to it.]</nowiki> 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Fall <nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Bend 
-*** Scratch 
-*** Lift
-*** Tic
-* Communicative
-** Verbal
+
+
+* Communicate
+** Communicate verbally
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
-** Interjective
 *** Groan
 ***	Laugh
 *** Scream
 *** Sigh
-** Gestural <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
+** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
 ***	Shrug
 ***	Thumb(s) up
-***	Fist pump
-***	Hand spread
+***	Pump fist
+***	Spread hand
 ***	Wave
 ***	Index up
 ***	Shhh
-** Musical
+** Communicate musically
 *** Hum 
 *** Whistle
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Sing
 *** Perform
 
-* Mental
+* Think
 ** Switch attention
-*** Intramodal <nowiki>[In the same modality but with a change in details  such as changing from paying attention to red dots and instead of blue dots]</nowiki> 
-*** Intermodal <nowiki>[Between modalities such as changing from audio to visual]</nowiki> 
-**** From modality  <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** To modality <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
 ** Evade 
@@ -244,7 +237,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Relieved 
 ** Excited 
 ** Disgusted 
-** Neutral <nowiki>[None of the above]</nowiki> 
+** Feeling neutral <nowiki>[None of the above]</nowiki> 
 * Postural state<nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Sitting
@@ -283,7 +276,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Volume <nowiki>{requireChild}</nowiki> 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
-*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Olfactory
 ** Haptic
@@ -307,7 +299,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
 ** Acceleration 
-** Jerk 
+** Jerk rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
+*** #{takesValue, isNumeric, unitClass=jerk}
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
@@ -321,48 +314,51 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Cognitive modifier <nowiki>{extensionAllowed}</nowiki>
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Reflexive
+** Intentional
+** Incidental
 ** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
-*** Meaningful 
-*** Not meaningful 
-*** Newly learned meaning 
-*** Reward 
-*** Penalty 
-*** Error 
-*** Threat 
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-*** Congruent 
-*** Feedback 
-*** Priming 
-**** Motoric 
-**** Emotional 
-**** Perceptual
-*** Subliminal 
-**** Unmasked 
-**** Masked 
+** Meaningful 
+** Not meaningful 
+** Newly learned meaning 
+** Rewarding 
+** Penalizing
+** Error 
+** Threatening
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
+** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
+** Congruent 
+** Feedback 
+** Priming 
+*** Motoric priming
+*** Emotional priming
+*** Perceptual priming
+** Subliminal 
+*** Unmasked subliminal
+*** Masked subliminal
 *** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 *** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
 ** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-*** Correct 
-*** Incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
-*** Indeterminate <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
-**** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
+*** Judged correct 
+*** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
+*** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
+*** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
 *** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
 *** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+** Social interaction <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 *** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 **** Leader 
 **** Follower 
 **** <nowiki># {takesValue}</nowiki> 
 *** Association <nowiki>{requireChild}</nowiki> 
-**** Another person <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Same person <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+**** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 ** Emotional 
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
