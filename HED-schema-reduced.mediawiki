@@ -206,7 +206,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Discriminate 
 ** Track
 ** Encode 
-
+** Imagine
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
 * Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki> 
