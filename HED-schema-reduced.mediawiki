@@ -236,8 +236,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Grieving 
 ** Relieved 
 ** Excited 
-** Disgusted 
-** Feeling neutral <nowiki>[None of the above]</nowiki> 
+** Disgusted  
 * Postural state<nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Sitting
