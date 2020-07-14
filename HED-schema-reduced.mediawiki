@@ -258,10 +258,22 @@ There are four ways to define the scope of an event.  The most common method is 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Peak
 ** Item count
-** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
-** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
-** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
-** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Fraction <nowiki>{requireChild} [The fraction of items that are of a particular type. An example use is to
+specify that 0.1 of the stimulus images are targets.] </nowiki>
+*** <nowiki># {takesValue}</nowiki>   
+** Fraction <nowiki>{requireChild} [The fraction of items that are of a particular type. An example use is to
+specify that 0.1 of the stimulus images are targets.] </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Percentage <nowiki>{requireChild} [The percentage of items that are of a particular type. An example use is to
+specify that 10% of the stimulus images are targets.] </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
+*** <nowiki># {takesValue}</nowiki>   
+** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
