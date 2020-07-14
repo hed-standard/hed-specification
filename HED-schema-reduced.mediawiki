@@ -260,9 +260,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-** Fraction <nowiki>{requireChild}</nowiki>
+** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Percentage <nowiki>{requireChild}</nowiki> 
+** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
