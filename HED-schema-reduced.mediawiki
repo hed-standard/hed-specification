@@ -255,12 +255,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject {requireChild}
 **** <nowiki># {takesValue}</nowiki> 
-*** Age {requireChild}
-**** <nowiki># {takesValue}</nowiki> 
-*** Gender {requireChild}
-**** <nowiki># {takesValue}</nowiki> 
-*** Handedness {requireChild}
-**** <nowiki># {takesValue}</nowiki> 
 ** Task <nowiki>[A tag used to indicate the definition of the task ideally with a linkage to the different types of events that accomplish the task as part of the description.]</nowiki>
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
