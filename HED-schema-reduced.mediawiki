@@ -254,9 +254,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.]</nowiki> 
 *** Creation data {requireChild}
 *** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
-* Contextual <nowiki>{extensionAllowed}</nowiki>
-** Task-related
-** Non task-related
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Peak
