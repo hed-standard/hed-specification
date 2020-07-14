@@ -31,7 +31,16 @@ There are four ways to define the scope of an event.  The most common method is 
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Geometric
 *** Pattern
-*** Shape
+*** 2D Shape
+**** Ellipse
+***** Circle
+**** Retangle
+***** Square
+**** Triangle
+**** Single point
+**** Cross
+**** Star
+*** 3D Shape
 ** Manmade <nowiki>[A manmade object]</nowiki>
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
