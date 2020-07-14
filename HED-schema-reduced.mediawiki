@@ -247,13 +247,23 @@ There are four ways to define the scope of an event.  The most common method is 
 '''Attribute''' <nowiki>{requireChild}</nowiki>
 * Informational
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
-*** <nowiki># {takesValue}</nowiki>  
+*** <nowiki># {takesValue}</nowiki> 
+** ID <nowiki>{requireChild, isNumeric} [A numeric code usually used to identify particular objects.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
-** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
 *** Creation data {requireChild}
-*** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
+**** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
+*** Subject {requireChild}
+**** <nowiki># </nowiki> 
+*** Gender {requireChild}
+**** <nowiki># {takesValue}</nowiki> 
+*** Handedness {requireChild}
+**** <nowiki># {takesValue}</nowiki> 
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
