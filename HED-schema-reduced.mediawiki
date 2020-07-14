@@ -282,7 +282,21 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-*** Rendering <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
+**** Red 
+***** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
+**** Blue 
+***** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+**** Green 
+***** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
+**** Hue <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [H value of HSV between 0 and 1]</nowiki> 
+**** Saturation <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [S value of HSV between 0 and 1]</nowiki> 
+**** Value <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [V value of HSV between 0 and 1]</nowiki> 
+**** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki> 
+*** Rendering <nowiki>{requireChild}</nowiki> 
 ****<nowiki># {takesValue}</nowiki> 
 
 * Spatial <nowiki>{extensionAllowed}</nowiki>
