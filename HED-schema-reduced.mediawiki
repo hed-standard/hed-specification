@@ -262,8 +262,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 ** Fraction <nowiki>{requireChild}</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Percentage <nowiki>{requireChild} [The percentage of items that are of a particular type. An example use is to
-specify that 10% of the stimulus images are targets.] </nowiki> 
+** Percentage <nowiki>{requireChild}</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
