@@ -256,7 +256,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Peak
 ** Item count
 *** <nowiki># {takesValue}</nowiki>  
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
@@ -264,9 +263,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Fraction <nowiki>{requireChild} [The fraction of items that are of a particular type. An example use is to
 specify that 0.1 of the stimulus images are targets.] </nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Fraction <nowiki>{requireChild} [The fraction of items that are of a particular type. An example use is to
-specify that 0.1 of the stimulus images are targets.] </nowiki> 
-*** <nowiki># {takesValue}</nowiki>  
 ** Percentage <nowiki>{requireChild} [The percentage of items that are of a particular type. An example use is to
 specify that 10% of the stimulus images are targets.] </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
