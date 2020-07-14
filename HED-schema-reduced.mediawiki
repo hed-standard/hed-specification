@@ -259,7 +259,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Creation data {requireChild}
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject {requireChild}
-**** <nowiki># </nowiki> 
+**** <nowiki># {takesValue}</nowiki> 
 *** Gender {requireChild}
 **** <nowiki># {takesValue}</nowiki> 
 *** Handedness {requireChild}
