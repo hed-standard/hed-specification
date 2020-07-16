@@ -107,52 +107,59 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Hold breath
-* Move body
-** Nod
-** Step
-*** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-*** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-** Flex
-** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
-** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-**	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
-** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-** Bend 
-** Scratch 
-** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-** Run
-** Walk
-** Trot
-** Jog
-** Jump
-** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
-** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-** Dance
-** Shudder 
-** Open <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-** Close <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-** Release <nowiki>[Often grouped with item being released.]</nowiki>
-** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-** Touch <nowiki>[May follow a Reach event]</nowiki> 
-** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-** Move eye
-*** Saccade
-*** Fixate
-*** Blink
-** Hiccup 
-** Cough 
-** Sneeze 
-** Sniffle
-** Swallow
-** Clear throat
-** Yawn 
-** Burp 
+* Move 
+** Move full-body
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
+*** Bend 
+*** Dance
+*** Shudder 
 
+
+
+** Move head
+*** Move eyes
+**** Saccade
+**** Fixate
+**** Blink
+**** Open eyes <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+**** Close eyes<nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+*** Move mouth
+**** Hiccup 
+**** Cough 
+**** Sneeze 
+**** Sniffle
+**** Swallow
+**** Clear throat
+**** Yawn 
+**** Burp 
+*** Nod
+** Move arms-hands
+*** Scratch 
+*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+*** Press with hands <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Release <nowiki>[Often grouped with item being released.]</nowiki>
+*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
+*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+*** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+** Move legs-feet
+*** Step
+**** Heel-strike 
+**** Toe-off
+*** Run
+*** Walk
+*** Trot
+*** Jog
+*** Jump
+*** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
 
 * Communicate
 ** Communicate verbally
