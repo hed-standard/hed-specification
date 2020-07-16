@@ -15,23 +15,30 @@ There are four ways to define the scope of an event.  The most common method is 
 * Sensory event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
 * Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
 * Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
-* Experimental control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
+* Experiment control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
 ** Pause <nowiki>[An event indicating a stop in recording. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the length of the pause.]</nowiki>    
 ** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/Index/# to designate a procedure identifier.]</nowiki>  
 ** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-* Experimental structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
-** Context <nowiki>[An event describing the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
-** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
-** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
+* Experiment structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
+
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Geometric
 *** Pattern
-*** Shape
+*** 2D Shape
+**** Ellipse
+***** Circle
+**** Rectangle
+***** Square
+**** Triangle
+**** Single point
+**** Cross
+**** Star
+*** 3D Shape
 ** Manmade <nowiki>[A manmade object]</nowiki>
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
@@ -53,7 +60,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Painting
 **** Art installation
 **** Photograph
-**** Film
+**** Movie
 **** Sculpture
 ***	Document <nowiki>[A physical, written document]</nowiki>
 **** Manuscript
@@ -100,56 +107,51 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Hold breath
-* Locomote
-** Move body
-*** Nod
-*** Step
-**** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-**** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Bend 
-*** Scratch 
-*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-*** Run
-*** Walk
-*** Trot
-*** Jog
-*** Jump
-*** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
-*** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-*** Dance
-*** Shudder
-*** Tic?  
-*** Move <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Open <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-*** Close <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-*** Release <nowiki>[Often grouped with item being released.]</nowiki>
-*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-*** Touch <nowiki>[May follow a Reach event]</nowiki> 
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-** Operate
-*** Teleoperate <nowiki>[Control an object that you are not aboard]</nowiki> 
+* Move body
+** Nod
+** Step
+*** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+*** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+** Flex
+** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
+** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+**	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
+** Bend 
+** Scratch 
+** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+** Run
+** Walk
+** Trot
+** Jog
+** Jump
+** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
+** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+** Dance
+** Shudder 
+** Open <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+** Close <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+** Release <nowiki>[Often grouped with item being released.]</nowiki>
+** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
+** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+** Touch <nowiki>[May follow a Reach event]</nowiki> 
+** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 ** Move eye
 *** Saccade
 *** Fixate
 *** Blink
-*** Hiccup 
-*** Cough 
-*** Sneeze 
-*** Sniffle
-*** Swallow
-*** Clear throat
-*** Yawn 
-*** Burp 
+** Hiccup 
+** Cough 
+** Sneeze 
+** Sniffle
+** Swallow
+** Clear throat
+** Yawn 
+** Burp 
 
 
 * Communicate
@@ -238,24 +240,36 @@ There are four ways to define the scope of an event.  The most common method is 
 '''Attribute''' <nowiki>{requireChild}</nowiki>
 * Informational
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
-*** <nowiki># {takesValue}</nowiki>  
+*** <nowiki># {takesValue}</nowiki> 
+** ID <nowiki>{requireChild, isNumeric} [A numeric code usually used to identify particular objects.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
-** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.]</nowiki> 
+** Context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
+** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
+** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
+** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
 *** Creation data {requireChild}
-*** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
-* Contextual <nowiki>{extensionAllowed}</nowiki>
-** Task-related
-** Non task-related
+**** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
+*** Subject {requireChild}
+**** <nowiki># {takesValue}</nowiki> 
+** Task <nowiki>[A tag used to indicate the definition of the task ideally with a linkage to the different types of events that accomplish the task as part of the description.]</nowiki>
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Peak
 ** Item count
-** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
-** Fraction <nowiki>{requireChild} [the fraction of presentation of an Oddball or Expected stimuli to the total number of same-class presentations, e.g. 10% of images in an RSVP being targets] </nowiki> 
-** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki> 
-** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>   
+** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
+** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
+*** <nowiki># {takesValue}</nowiki>   
+** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+*** <nowiki># {takesValue}</nowiki>  
 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
@@ -270,14 +284,24 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-*** Rendering <nowiki>{requireChild, predicateType=passThrough}</nowiki> 
-****<nowiki># {takesValue}</nowiki> 
+**** Red 
+***** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
+**** Blue 
+***** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+**** Green 
+***** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
+**** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki> 
+*** Rendering <nowiki>{requireChild}</nowiki> 
+**** Screen 
+***** Head-mounted display
+***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+**** Real-world 
 
 * Spatial <nowiki>{extensionAllowed}</nowiki>
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 ** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-** Size <nowiki>{requireChild}</nowiki>
-** Constrained <nowiki>[For example a path cannot cross some region]</nowiki>  
+** Size <nowiki>{requireChild}</nowiki> 
 
 * Temporal <nowiki>{extensionAllowed}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
