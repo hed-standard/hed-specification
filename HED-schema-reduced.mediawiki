@@ -284,18 +284,31 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-**** Red 
-***** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-**** Blue 
-***** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-**** Green 
-***** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
+**** RGB color
+***** RGB Red 
+****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
+***** RGB Blue 
+****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+***** RGB Green 
+****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
-***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
+**** CSS color <nowiki>[One of 140 colors supported by all browsers.]</nowiki> 
+***** Black <nowiki>[Color #000000]</nowiki> 
+***** Blue <nowiki>[Color #0000FF]</nowiki> 
+***** Cyan <nowiki>[Color #00FFFF]</nowiki> 
+***** Green <nowiki>[Color #00FF00]</nowiki> 
+***** Magenta <nowiki>[Color #FF00FF]</nowiki> 
+***** Red <nowiki>[Color #FF0000]</nowiki>
+***** White <nowiki>[Color #FFFFFF]</nowiki> 
+***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
 *** Rendering <nowiki>{requireChild}</nowiki> 
 **** Screen 
-***** Head-mounted display
-***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+**** Head-mounted display
+**** Window
+**** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+**** 2D view
+**** 3D view
 **** Real-world 
 
 * Spatial <nowiki>{extensionAllowed}</nowiki>
