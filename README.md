@@ -1,40 +1,45 @@
 # hed-specification
-Hierarchical Event Descriptor (HED) specification
+Hierarchical Event Descriptor (HED) specification. 
 
 ### HED notes
-The current version of HED is maintained in the wiki associated with
-https://github.com/hed-standard/hed-specification
- 
-The latest and selected past XML versions of the HED schema are generated
-from this wiki and stored in the hedxml directory of this repository. 
+This branch (HED-restructure) is the development branch of HED (a.k.a. HED-Phase 3). If you are tagging a dataset with
+the current version of HED (a.k.a. HED-Phase 2) you want the Master branch. Human-readable versions of the HED schema
+are presented in `.mediawiki` format. The machine-readable versions are in `.xml`. There is also a `.html` expandable view which
+makes it easier to see what the tags are. 
 
+### HED if you are tagging data (latest release of HED)
+The current version (latest release) of HED is HED 7.0.5 can be found on the Master branch of this repository. However,
+the version in the process of being released is HED 7.1.1. Here are the views of HED 7.1.1 in different forms:
+
+> [**Expandable html view (7.1.1)**](http://www.hedtags.org/display_hed.html?version=7.1.1)  
+
+> [**Readable mediawiki view (7.1.1)**](https://github.com/VisLab/hed-specification/blob/master/HED-schema.mediawiki)
+
+> [**XML view (7.1.1) **](https://github.com/VisLab/hed-specification/blob/master/hedxml/HED7.1.1.xml)
+
+### HED if you are a HED schema developer
+The HED schema developers are working on the HED-restructure branch of the repository and the working version of the HED-phase 3 schema is 
+the reduced schema. Here are the views of the HED restructuring in progress:
+
+> [**Readable mediawiki view **](https://github.com/hed-standard/hed-specification/blob/HED-restructure/HED-schema-reduced.mediawiki) 
+
+> [**Expandable html view (7.1.1)**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
+
+### For HED validation
 The stable link for software requiring the HED schema for validation is
 https://github.com/hed-standard/hed-specification/tree/master/hedxml
 
 The stable link for the latest version of the HED schema is
 https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml
 
-To browse the latest version of:
-* HED-restruct: http://www.hedtags.org/schema_browser/display_hed_restruct.html
-* HED-reduced: http://www.hedtags.org/schema_browser/display_hed_reduced.html
-
-### HED restructuring
-HED is undergoing a major reorganization on the HED-restructure branch.
 
 #### Versioning during restructuring
-
-We will use a variation of semantic versioning to facilitate incremental testing and implementation. Versions will be of the form vreX.Y.Z
+HED is undergoing a major reorganization on the HED-restructure branch.
+We use a variation of semantic versioning during restructuring to facilitate incremental testing and implementation. Versions will be of the form vreX.Y.Z
 
 * X: MAJOR (requires validator or CTAGGER code to be modified) 
 * Y: MINOR (requires data tagged under previous version to be retagged, but validator does not change needs additions to remap file) 
 * PATCH (does not require data tagged under previous version to be retagged nor does it require validator code to be modified) 
-
-#### HEDremap.tsv
-This file two-column, tab-separated file lists the replacement for tags in HED2 with the tags in HED3 if they need to be changed. The purpose of this file is to facilitate retagging datasets that have already been tag.  Use -- in column two to indicate a tag that should simply be deleted.  If a series of changes need to be made for a given tag, then use a -- in column 1 to indicate this line is a continuation.  
-
-**Example 1:**  
-Event/ID/3	(Event, Attribute/ID/3)
-
 
 #### General procedure for releases
 
