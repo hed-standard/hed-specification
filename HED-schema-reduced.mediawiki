@@ -107,11 +107,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 ** Hold breath
-* Move body
-** Nod
-** Step
-*** Strike heel <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
-*** Toe off <nowiki>[Takes attribute Attribute/Spatial/Object side/Left or Attribute/Spatial/Object side/Right.]</nowiki>
+
+* Move full-body
 ** Flex
 ** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
 ** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
@@ -119,19 +116,29 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
 ** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
 ** Bend 
-** Scratch 
-** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-** Run
-** Walk
-** Trot
-** Jog
-** Jump
-** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
-** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
 ** Dance
 ** Shudder 
-** Open <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-** Close <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+* Move head
+** Move eyes
+*** Saccade
+*** Fixate
+*** Blink
+*** Open eyes <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+*** Close eyes<nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+** Move mouth
+*** Hiccup 
+*** Cough 
+*** Sneeze 
+*** Sniffle
+*** Swallow
+*** Clear throat
+*** Yawn 
+*** Burp 
+** Nod
+* Move arms-hands
+** Scratch 
+** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
 ** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 ** Release <nowiki>[Often grouped with item being released.]</nowiki>
 ** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
@@ -140,19 +147,16 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
 ** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-** Move eye
-*** Saccade
-*** Fixate
-*** Blink
-** Hiccup 
-** Cough 
-** Sneeze 
-** Sniffle
-** Swallow
-** Clear throat
-** Yawn 
-** Burp 
-
+* Move legs-feet
+** Step
+*** Heel-strike 
+*** Toe-off
+** Run
+** Walk
+** Trot
+** Jog
+** Jump
+** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
 
 * Communicate
 ** Communicate verbally
@@ -284,18 +288,31 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-**** Red 
-***** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-**** Blue 
-***** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-**** Green 
-***** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
+**** RGB color
+***** RGB Red 
+****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
+***** RGB Blue 
+****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+***** RGB Green 
+****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
-***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki> 
+***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
+**** CSS color <nowiki>[One of 140 colors supported by all browsers.]</nowiki> 
+***** Black <nowiki>[Color #000000]</nowiki> 
+***** Blue <nowiki>[Color #0000FF]</nowiki> 
+***** Cyan <nowiki>[Color #00FFFF]</nowiki> 
+***** Green <nowiki>[Color #00FF00]</nowiki> 
+***** Magenta <nowiki>[Color #FF00FF]</nowiki> 
+***** Red <nowiki>[Color #FF0000]</nowiki>
+***** White <nowiki>[Color #FFFFFF]</nowiki> 
+***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
 *** Rendering <nowiki>{requireChild}</nowiki> 
 **** Screen 
-***** Head-mounted display
-***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+**** Head-mounted display
+**** Window
+**** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+**** 2D view
+**** 3D view
 **** Real-world 
 
 * Spatial <nowiki>{extensionAllowed}</nowiki>
