@@ -15,13 +15,13 @@ the version in the process of being released is HED 7.1.1. Here are the views of
 
 > [**Readable mediawiki view (7.1.1)**](https://github.com/VisLab/hed-specification/blob/master/HED-schema.mediawiki)
 
-> [**XML view (7.1.1) **](https://github.com/VisLab/hed-specification/blob/master/hedxml/HED7.1.1.xml)
+> [**XML view (7.1.1)**](https://github.com/VisLab/hed-specification/blob/master/hedxml/HED7.1.1.xml)  
 
 ### HED if you are a HED schema developer
 The HED schema developers are working on the HED-restructure branch of the repository and the working version of the HED-phase 3 schema is 
 the reduced schema. Here are the views of the HED restructuring in progress:
 
-> [**Readable mediawiki view **](https://github.com/hed-standard/hed-specification/blob/HED-restructure/HED-schema-reduced.mediawiki) 
+> [**Readable mediawiki view**](https://github.com/hed-standard/hed-specification/blob/HED-restructure/HED-schema-reduced.mediawiki) 
 
 > [**Expandable html view (7.1.1)**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
 
