@@ -1,9 +1,7 @@
 HED version: 7.1.1
 
 Changelog
-* 7/27/2020: v. 7.1.1
-Corrected extensionAllowed on several top-level and second-level items. 
-
+* 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m and h:m:s from clockTime. Removed unitSymbol from clockTime.  
 * 5/9/2020:  Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
 * 9/29/2019: v. 7.0.5: Added Visual/Rendering type/Screen/Head-mounted display. Added extensionAllowed to Sensory presentation. Added Tone and Genre under Sensory presentation/Auditory/Music.
@@ -1194,10 +1192,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** minute 
 ** hour 
 * clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
-** h:m <nowiki>{unitSymbol}</nowiki> 
-** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
-** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
+** hour:min <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
+** hour:min:sec <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
