@@ -1190,7 +1190,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** day 
 ** minute 
-** hour 
+** hour <nowiki>[Should be in 24-hour format.]</nowiki>
 * dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
 ** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format.]</nowiki> 
 * clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
