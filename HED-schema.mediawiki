@@ -1,7 +1,7 @@
 HED version: 7.1.1
 
 Changelog
-* 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m and h:m:s from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
+* 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
 * 5/9/2020:  Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
 * 9/29/2019: v. 7.0.5: Added Visual/Rendering type/Screen/Head-mounted display. Added extensionAllowed to Sensory presentation. Added Tone and Genre under Sensory presentation/Auditory/Music.
