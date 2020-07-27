@@ -1,7 +1,8 @@
 HED version: 7.1.1
 
 Changelog
-* 5/9/2020: v. 7.1.1 Added the clockTime unit class
+* 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
+* 5/9/2020:  Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
 * 9/29/2019: v. 7.0.5: Added Visual/Rendering type/Screen/Head-mounted display. Added extensionAllowed to Sensory presentation. Added Tone and Genre under Sensory presentation/Auditory/Music.
 * 8/18/2019: v. 7.0.4: Added extensionsAllowed to Custom and removed extensionsAllowed from nodes under Attribute and Item/Object. Also replaced per-sec with per-s in units.
@@ -723,7 +724,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 '''Participant''' <nowiki>{predicateType=passThrough}</nowiki> 
 * ID <nowiki>{requireChild, predicateType=propertyOf} [If not given assume 1]</nowiki> 
 ** <nowiki># {takesValue, isNumeric} [Numeric value of an ID]</nowiki> 
-* Effect <nowiki> [How the stimulus effects the participants]</nowiki> 
+* Effect <nowiki>{extensionAllowed} [How the stimulus effects the participants]</nowiki> 
 ** Cognitive 
 *** Meaningful 
 *** Not meaningful 
@@ -843,7 +844,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** Chin 
 ***** Cheek 
 *** Torso 
-* State <nowiki>{requireChild}</nowiki> 
+* State <nowiki>{extensionAllowed,requireChild}</nowiki> 
 ** Level of consciousness <nowiki>{requireChild}</nowiki> 
 *** Awake 
 *** Drowsy 
@@ -1189,12 +1190,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** day 
 ** minute 
-** hour 
+** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
+** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format.]</nowiki> 
 * clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
-** h:m <nowiki>{unitSymbol}</nowiki> 
-** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
-** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
+** hour:min <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
+** hour:min:sec <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
