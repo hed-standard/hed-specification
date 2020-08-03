@@ -320,7 +320,16 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 ** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 ** Size <nowiki>{requireChild}</nowiki> 
-
+*** Length<nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [In meters or other units of length ]</nowiki> 
+*** Width
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki><nowiki>[in meters]</nowiki> 
+*** Height
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Default units are meters]</nowiki> 
+*** Area <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+*** Volume <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=volume} [In cubic-meters or other units of volume]</nowiki> 
 * Temporal <nowiki>{extensionAllowed}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 ** Onset
