@@ -322,7 +322,7 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Temporal <nowiki>{extensionAllowed}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
-** Onset <nowiki>[Default]</nowiki> 
+** Onset
 ** Offset
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
