@@ -321,15 +321,15 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 ** Size <nowiki>{requireChild}</nowiki> 
 *** Length<nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [In meters or other units of length ]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Width
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki><nowiki>[in meters]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki>
 *** Height
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Default units are meters]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Area <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
 *** Volume <nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=volume} [In cubic-meters or other units of volume]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 * Temporal <nowiki>{extensionAllowed}</nowiki>
 ** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 ** Onset
