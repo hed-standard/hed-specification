@@ -23,7 +23,9 @@ the reduced schema. Here are the views of the HED restructuring in progress:
 
 > [**Readable mediawiki view**](https://github.com/hed-standard/hed-specification/blob/HED-restructure/HED-schema-reduced.mediawiki) 
 
-> [**Expandable html view (7.1.1)**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
+> [**Expandable html view reduced schema**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
+
+> [**Google doc with mapping of HED 7.1.1 into the restructured version**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing)  
 
 ### For HED validation
 The stable link for software requiring the HED schema for validation is
