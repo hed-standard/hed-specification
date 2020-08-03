@@ -199,7 +199,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Imagine
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
-* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+** Attentive
 ** Awake 
 ** Drowsy 
 ** Asleep
@@ -343,6 +344,7 @@ There are four ways to define the scope of an event.  The most common method is 
 * Experimental <nowiki>{extensionAllowed}</nowiki>
 ** Incidental
 ** Participant-related
+*** Attentional
 *** Emotional 
 **** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 **** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
@@ -356,7 +358,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Masked subliminal
 **** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 **** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
-*** Social interaction <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+*** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 **** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ***** Leader 
 ***** Follower 
@@ -371,6 +373,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Paradigm-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
+*** Expected
 *** Meaningful 
 *** Not meaningful 
 *** Newly learned meaning 
