@@ -54,7 +54,7 @@
                <name>Pattern</name>
             </node>
             <node>
-               <name>2D shape</name>
+               <name>2D Shape</name>
                <node>
                   <name>Ellipse</name>
                   <node>
@@ -81,7 +81,7 @@
                </node>
             </node>
             <node>
-               <name>3D shape</name>
+               <name>3D Shape</name>
             </node>
          </node>
          <node>
@@ -586,9 +586,6 @@
       <node extensionAllowed="true" requireChild="true">
          <name>Cognitive state</name>
          <node>
-            <name>Attentive</name>
-         </node>
-         <node>
             <name>Awake</name>
          </node>
          <node>
@@ -828,7 +825,7 @@
                <name>Frequency</name>
             </node>
             <node requireChild="true">
-               <name>Loudness</name>
+               <name>Volume</name>
             </node>
             <node>
                <name>Ramp-up</name>
@@ -949,67 +946,38 @@
                <node>
                   <name>3D view</name>
                </node>
+               <node>
+                  <name>Real-world</name>
+               </node>
             </node>
          </node>
       </node>
       <node extensionAllowed="true">
-         <name>Spatial-temporal</name>
-         <node>
-            <name>Spatial</name>
-            <node requireChild="true">
-               <name>Direction</name>
-               <description>Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5</description>
-            </node>
-            <node requireChild="true">
-               <name>Location</name>
-               <description>Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city</description>
-            </node>
-            <node requireChild="true">
-               <name>Size</name>
-               <node requireChild="true">
-                  <name>Length</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Width</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Height</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Area</name>
-                  <node isNumeric="true" takesValue="true" unitClass="area">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Volume</name>
-                  <node isNumeric="true" takesValue="true" unitClass="volume">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
+         <name>Spatial</name>
+         <node requireChild="true">
+            <name>Direction</name>
+            <description>Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5</description>
+         </node>
+         <node requireChild="true">
+            <name>Location</name>
+            <description>Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city</description>
+         </node>
+         <node requireChild="true">
+            <name>Size</name>
+         </node>
+      </node>
+      <node extensionAllowed="true">
+         <name>Temporal</name>
+         <node requireChild="true">
+            <name>Duration</name>
+            <description>An offset that is implicit after duration time passed from the onset</description>
          </node>
          <node>
-            <name>Temporal</name>
-            <node requireChild="true">
-               <name>Duration</name>
-               <description>An offset that is implicit after duration time passed from the onset</description>
-            </node>
-            <node>
-               <name>Onset</name>
-            </node>
-            <node>
-               <name>Offset</name>
-            </node>
+            <name>Onset</name>
+            <description>Default</description>
+         </node>
+         <node>
+            <name>Offset</name>
          </node>
          <node>
             <name>Rate</name>
@@ -1017,6 +985,7 @@
          </node>
          <node>
             <name>Velocity</name>
+            <description>Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset</description>
          </node>
          <node>
             <name>Acceleration</name>
@@ -1057,189 +1026,180 @@
          </node>
       </node>
       <node extensionAllowed="true">
-         <name>Experimental</name>
+         <name>Cognitive modifier</name>
          <node>
-            <name>Participant-related</name>
+            <name>Imagined</name>
+            <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
+         </node>
+         <node>
+            <name>Reflexive</name>
+         </node>
+         <node>
+            <name>Intentional</name>
+         </node>
+         <node>
+            <name>Incidental</name>
+         </node>
+         <node>
+            <name>Intended effect</name>
+            <description>How the stimulus is expected to effect the participants</description>
+         </node>
+         <node>
+            <name>Meaningful</name>
+         </node>
+         <node>
+            <name>Not meaningful</name>
+         </node>
+         <node>
+            <name>Newly learned meaning</name>
+         </node>
+         <node>
+            <name>Rewarding</name>
+         </node>
+         <node>
+            <name>Penalizing</name>
+         </node>
+         <node>
+            <name>Error</name>
+         </node>
+         <node>
+            <name>Threatening</name>
+         </node>
+         <node>
+            <name>Warning</name>
+            <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
+         </node>
+         <node>
+            <name>Oddball</name>
+            <description>Unexpected or infrequent</description>
+         </node>
+         <node>
+            <name>Target</name>
+            <description>Something the subject is looking for</description>
+         </node>
+         <node>
+            <name>Non-target</name>
+            <description>Make sure to tag Expected if the Non-target is frequent</description>
+         </node>
+         <node>
+            <name>Novel</name>
+            <description>Genuinely novel such as an event occurring once or so per experiment</description>
+         </node>
+         <node>
+            <name>Expected</name>
+            <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
+         </node>
+         <node>
+            <name>Valid</name>
+            <description>Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information</description>
+         </node>
+         <node>
+            <name>Invalid</name>
+            <description>Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it</description>
+         </node>
+         <node>
+            <name>Congruent</name>
+         </node>
+         <node>
+            <name>Feedback</name>
+         </node>
+         <node>
+            <name>Priming</name>
             <node>
-               <name>Attentional</name>
+               <name>Motoric priming</name>
             </node>
             <node>
-               <name>Emotional</name>
+               <name>Emotional priming</name>
             </node>
             <node>
-               <name>Reflexive</name>
+               <name>Perceptual priming</name>
+            </node>
+         </node>
+         <node>
+            <name>Subliminal</name>
+            <node>
+               <name>Unmasked subliminal</name>
             </node>
             <node>
-               <name>Intentional</name>
-               <node>
-                  <name>Arousal</name>
-                  <description>Only in the context of 2D emotion representation</description>
-               </node>
-               <node>
-                  <name>Positive valence</name>
-                  <description>Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion</description>
-               </node>
-               <node>
-                  <name>Negative valence</name>
-               </node>
+               <name>Masked subliminal</name>
             </node>
             <node>
-               <name>Priming</name>
-               <node>
-                  <name>Motoric priming</name>
-               </node>
-               <node>
-                  <name>Emotional priming</name>
-               </node>
-               <node>
-                  <name>Perceptual priming</name>
-               </node>
+               <name>Supraliminal</name>
+               <description>By default this is assumed about each stimulus</description>
             </node>
             <node>
-               <name>Subliminal</name>
-               <node>
-                  <name>Unmasked subliminal</name>
-               </node>
-               <node>
-                  <name>Masked subliminal</name>
-               </node>
-               <node>
-                  <name>Supraliminal</name>
-                  <description>By default this is assumed about each stimulus</description>
-               </node>
-               <node>
-                  <name>Liminal At the 75</name>
-               </node>
+               <name>Liminal At the 75</name>
+            </node>
+         </node>
+         <node>
+            <name>Action judgment</name>
+            <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
+            <node>
+               <name>Judged correct</name>
             </node>
             <node>
-               <name>Social</name>
-               <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
-               <node requireChild="true">
-                  <name>Role</name>
-                  <description>The role of the agent (participant, character, AI..)</description>
-                  <node>
-                     <name>Leader</name>
-                  </node>
-                  <node>
-                     <name>Follower</name>
-                  </node>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
+               <name>Judged incorrect</name>
+               <description>Wrong choice but not time out</description>
+            </node>
+            <node>
+               <name>Indeterminate outcome</name>
+               <description>It cannot be determined that the action was correct or incorrect.</description>
+            </node>
+            <node>
+               <name>Missed</name>
+               <description>Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible</description>
+            </node>
+            <node>
+               <name>Inappropriate</name>
+               <description>A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules</description>
+            </node>
+            <node>
+               <name>Extraneous</name>
+               <description>Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press</description>
+            </node>
+         </node>
+         <node>
+            <name>Social interaction</name>
+            <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
+            <node requireChild="true">
+               <name>Role</name>
+               <description>The role of the agent (participant, character, AI..)</description>
+               <node>
+                  <name>Leader</name>
                </node>
-               <node requireChild="true">
-                  <name>Association</name>
-                  <node>
-                     <name>Associated with someone else</name>
-                     <description>Item such as a cup belonging to another person</description>
-                  </node>
-                  <node>
-                     <name>Associated with self</name>
-                     <description>Item such as a cup belonging to the participant</description>
-                  </node>
+               <node>
+                  <name>Follower</name>
+               </node>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Association</name>
+               <node>
+                  <name>Associated with someone else</name>
+                  <description>Item such as a cup belonging to another person</description>
+               </node>
+               <node>
+                  <name>Associated with self</name>
+                  <description>Item such as a cup belonging to the participant</description>
                </node>
             </node>
          </node>
          <node>
-            <name>Paradigm-related</name>
+            <name>Emotional</name>
             <node>
-               <name>Imagined</name>
-               <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
+               <name>Arousal</name>
+               <description>Only in the context of 2D emotion representation</description>
             </node>
             <node>
-               <name>Intended effect</name>
-               <description>How the stimulus is expected to effect the participants</description>
+               <name>Positive valence</name>
+               <description>Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion</description>
             </node>
             <node>
-               <name>Meaningful</name>
-            </node>
-            <node>
-               <name>Not meaningful</name>
-            </node>
-            <node>
-               <name>Newly learned meaning</name>
-            </node>
-            <node>
-               <name>Rewarding</name>
-            </node>
-            <node>
-               <name>Penalizing</name>
-            </node>
-            <node>
-               <name>Error</name>
-            </node>
-            <node>
-               <name>Threatening</name>
-            </node>
-            <node>
-               <name>Warning</name>
-               <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
-            </node>
-            <node>
-               <name>Oddball</name>
-               <description>Unexpected or infrequent</description>
-            </node>
-            <node>
-               <name>Target</name>
-               <description>Something the subject is looking for</description>
-            </node>
-            <node>
-               <name>Non-target</name>
-               <description>Make sure to tag Expected if the Non-target is frequent</description>
-            </node>
-            <node>
-               <name>Novel</name>
-               <description>Genuinely novel such as an event occurring once or so per experiment</description>
-            </node>
-            <node>
-               <name>Expected</name>
-               <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
-            </node>
-            <node>
-               <name>Valid</name>
-               <description>Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information</description>
-            </node>
-            <node>
-               <name>Invalid</name>
-               <description>Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it</description>
-            </node>
-            <node>
-               <name>Congruent</name>
-            </node>
-            <node>
-               <name>Feedback</name>
-            </node>
-            <node>
-               <name>Action judgment</name>
-               <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
-               <node>
-                  <name>Judged correct</name>
-               </node>
-               <node>
-                  <name>Judged incorrect</name>
-                  <description>Wrong choice but not time out</description>
-               </node>
-               <node>
-                  <name>Indeterminate outcome</name>
-                  <description>It cannot be determined that the action was correct or incorrect.</description>
-               </node>
-               <node>
-                  <name>Missed</name>
-                  <description>Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible</description>
-               </node>
-               <node>
-                  <name>Inappropriate</name>
-                  <description>A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules</description>
-               </node>
-               <node>
-                  <name>Extraneous</name>
-                  <description>Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press</description>
-               </node>
+               <name>Negative valence</name>
             </node>
          </node>
-      </node>
-      <node>
-         <name>Incidental</name>
       </node>
    </node>
    <node extensionAllowed="true" requireChild="true">
