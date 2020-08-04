@@ -199,7 +199,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Imagine
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
-* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+** Attentive
 ** Awake 
 ** Drowsy 
 ** Asleep
@@ -278,7 +279,7 @@ There are four ways to define the scope of an event.  The most common method is 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
-*** Volume <nowiki>{requireChild}</nowiki> 
+*** Loudness <nowiki>{requireChild}</nowiki> 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
@@ -312,24 +313,31 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Window
 **** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
 **** 2D view
-**** 3D view
-**** Real-world 
-
-* Spatial <nowiki>{extensionAllowed}</nowiki>
-** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
-** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-** Size <nowiki>{requireChild}</nowiki> 
-
-* Temporal <nowiki>{extensionAllowed}</nowiki>
-** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
-** Onset
-** Offset
+**** 3D view 
+* Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
+** Spatial
+*** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
+*** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
+*** Size <nowiki>{requireChild}</nowiki> 
+**** Length<nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Width
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki>
+**** Height
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Area <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+**** Volume <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
+** Temporal
+*** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+*** Onset
+*** Offset
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
-** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
+** Velocity 
 ** Acceleration 
 ** Jerk rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
 *** #{takesValue, isNumeric, unitClass=jerk}
-
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
@@ -339,59 +347,60 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Motion platform
 ** Urban
 ** Rural
-
-* Cognitive modifier <nowiki>{extensionAllowed}</nowiki>
-** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-** Reflexive
-** Intentional
-** Incidental
-** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
-** Meaningful 
-** Not meaningful 
-** Newly learned meaning 
-** Rewarding 
-** Penalizing
-** Error 
-** Threatening
-** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-** Target <nowiki>[Something the subject is looking for]</nowiki> 
-** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-** Congruent 
-** Feedback 
-** Priming 
-*** Motoric priming
-*** Emotional priming
-*** Perceptual priming
-** Subliminal 
-*** Unmasked subliminal
-*** Masked subliminal
-*** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
-*** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
-** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-*** Judged correct 
-*** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
-*** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
-*** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
-*** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
-*** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-** Social interaction <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-**** Leader 
-**** Follower 
-**** <nowiki># {takesValue}</nowiki> 
-*** Association <nowiki>{requireChild}</nowiki> 
-**** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-
-** Emotional 
-*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-*** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
-*** Negative valence 
+* Experimental <nowiki>{extensionAllowed}</nowiki>
+** Participant-related
+*** Attentional
+*** Emotional 
+*** Reflexive
+*** Intentional
+**** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+**** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
+****Negative valence 
+*** Priming 
+**** Motoric priming
+**** Emotional priming
+**** Perceptual priming
+*** Subliminal 
+**** Unmasked subliminal
+**** Masked subliminal
+**** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
+**** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
+*** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+**** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+***** Leader 
+***** Follower 
+***** <nowiki># {takesValue}</nowiki> 
+**** Association <nowiki>{requireChild}</nowiki> 
+***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+** Paradigm-related
+*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
+*** Meaningful 
+*** Not meaningful 
+*** Newly learned meaning 
+*** Rewarding 
+*** Penalizing
+*** Error 
+*** Threatening
+*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
+*** Target <nowiki>[Something the subject is looking for]</nowiki> 
+*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
+*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
+*** Congruent 
+*** Feedback 
+*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+**** Judged correct 
+**** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
+**** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
+**** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
+**** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
+**** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
+* Incidental
 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
