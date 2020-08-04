@@ -350,10 +350,11 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Urban
 ** Rural
 * Experimental <nowiki>{extensionAllowed}</nowiki>
-
 ** Participant-related
 *** Attentional
 *** Emotional 
+*** Reflexive
+*** Intentional
 **** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 **** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
 ****Negative valence 
@@ -374,9 +375,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Association <nowiki>{requireChild}</nowiki> 
 ***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-** Action-related
-*** Reflexive
-*** Intentional
 ** Paradigm-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
