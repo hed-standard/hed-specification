@@ -316,24 +316,25 @@ There are four ways to define the scope of an event.  The most common method is 
 **** 3D view
 **** Real-world 
 
-* Spatial <nowiki>{extensionAllowed}</nowiki>
-** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
-** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-** Size <nowiki>{requireChild}</nowiki> 
-*** Length<nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Width
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki>
-*** Height
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Area <nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
-*** Volume <nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
-* Temporal <nowiki>{extensionAllowed}</nowiki>
-** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
-** Onset
-** Offset
+* Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
+** Spatial
+*** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
+*** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
+*** Size <nowiki>{requireChild}</nowiki> 
+**** Length<nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Width
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki>
+**** Height
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Area <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+**** Volume <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
+** Temporal <nowiki>{extensionAllowed}</nowiki>
+*** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+*** Onset
+*** Offset
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity  <nowiki>[Use Attribute/Temporal/Onset or Attribute/Temporal/Offset to specify onset or offset]</nowiki> 
 ** Acceleration 
@@ -351,7 +352,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rural
 
 * Experimental <nowiki>{extensionAllowed}</nowiki>
-** Incidental
+
 ** Participant-related
 *** Attentional
 *** Emotional 
@@ -375,7 +376,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Association <nowiki>{requireChild}</nowiki> 
 ***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-
 ** Action-related
 *** Reflexive
 *** Intentional
@@ -416,7 +416,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
 *** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
 
-
+* Incidental
 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
