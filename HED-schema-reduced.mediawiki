@@ -53,6 +53,24 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Tool <nowiki>[A hand-held object of single person control]</nowiki>
 ***** Hammer
 ***** Chainsaw
+*** Rendering device
+**** Visual display
+***** Screen 
+***** Head-mounted display
+***** Window
+***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+***** 2D view
+***** 3D view 
+**** Auditory display
+***** Headphones
+***** Screen speaker
+***** Loudspeaker
+**** Haptic display
+***** Keyboard
+***** Keypad
+***** Mouse
+***** Joy stick
+***** Touch screen
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
 *** Vehicle
 **** Bicycle 
@@ -328,12 +346,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** White <nowiki>[Color #FFFFFF]</nowiki> 
 ***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
 *** Rendering <nowiki>{requireChild}</nowiki> 
-**** Screen 
-**** Head-mounted display
-**** Window
-**** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
-**** 2D view
-**** 3D view 
+
 * Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
