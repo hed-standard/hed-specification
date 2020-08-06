@@ -328,6 +328,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
+**** HSV color
+***** Hue 
+****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
+***** Saturation 
+****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+***** HSV value 
+****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** RGB color
 ***** RGB Red 
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
