@@ -47,30 +47,31 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Attic
 **** Basement
 *** Clothing
-*** Instrument
+*** Device
 **** Medical instrument
 **** Musical instrument
 **** Tool <nowiki>[A hand-held object of single person control]</nowiki>
 ***** Hammer
 ***** Chainsaw
-*** Rendering device
-**** Visual display
+*** I/O device
+**** Display device
 ***** Screen 
 ***** Head-mounted display
 ***** Window
 ***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
 ***** 2D view
 ***** 3D view 
-**** Auditory display
+**** Auditory device
 ***** Headphones
 ***** Screen speaker
 ***** Loudspeaker
-**** Haptic display
+**** Haptic device
 ***** Keyboard
 ***** Keypad
 ***** Mouse
 ***** Joy stick
 ***** Touch screen
+**** Recording device
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
 *** Vehicle
 **** Bicycle 
