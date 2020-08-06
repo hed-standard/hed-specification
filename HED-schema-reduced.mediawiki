@@ -53,25 +53,25 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Tool <nowiki>[A hand-held object of single person control]</nowiki>
 ***** Hammer
 ***** Chainsaw
-*** I/O device
-**** Display device
-***** Screen 
-***** Head-mounted display
-***** Window
-***** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
-***** 2D view
-***** 3D view 
-**** Auditory device
-***** Headphones
-***** Screen speaker
-***** Loudspeaker
-**** Haptic device
-***** Keyboard
-***** Keypad
-***** Mouse
-***** Joy stick
-***** Touch screen
-**** Recording device
+**** I/O device
+***** Display device
+****** Screen 
+****** Head-mounted display
+****** Window
+****** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+****** 2D view
+****** 3D view 
+***** Auditory device
+****** Headphones
+****** Screen speaker
+****** Loudspeaker
+***** Haptic device
+****** Keyboard
+****** Keypad
+****** Mouse
+****** Joy stick
+****** Touch screen
+***** Recording device
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
 *** Vehicle
 **** Bicycle 
@@ -353,7 +353,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Red <nowiki>[Color #FF0000]</nowiki>
 ***** White <nowiki>[Color #FFFFFF]</nowiki> 
 ***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
-*** Rendering <nowiki>{requireChild}</nowiki> 
 
 * Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
