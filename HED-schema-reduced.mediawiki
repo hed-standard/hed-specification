@@ -47,12 +47,42 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Attic
 **** Basement
 *** Clothing
-*** Musical instrument
+*** Device
+**** Medical instrument
+**** Musical instrument
+**** Tool <nowiki>[A hand-held object of single person control]</nowiki>
+***** Hammer
+***** Chainsaw
+**** I/O device
+***** Display device
+****** Screen 
+****** Head-mounted display
+****** Window
+****** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
+****** 2D view
+****** 3D view 
+***** Auditory device
+****** Headphones
+****** Screen speaker
+****** Loudspeaker
+***** Haptic device
+****** Keyboard
+****** Keypad
+****** Mouse
+****** Joy stick
+****** Touch screen
+***** Recording device
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
-*** Tool <nowiki>[A hand-held object of single person control]</nowiki>
-**** Hammer
-**** Chainsaw
 *** Vehicle
+**** Bicycle 
+**** Car 
+**** Truck 
+**** Cart 
+**** Boat 
+**** Tractor 
+**** Train 
+**** Aircraft 
+
 *** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
 **** Drawing
 ***** Cartoon
@@ -93,11 +123,20 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Nonword
 ** Sentence
 ** Textblock
-*	Sound
-** Tone
-** Siren
+* Sound
+** Nameable
+*** Alarm
+*** Buzz
+*** Cash register
+*** Click
+*** Ding
+*** Siren
+*** Tone
+*** Noisemaker
 ** Music
 ** Noise
+*** White noise
+*** Colored noise
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
@@ -260,7 +299,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject {requireChild}
 **** <nowiki># {takesValue}</nowiki> 
-** Task <nowiki>[A tag used to indicate the definition of the task ideally with a linkage to the different types of events that accomplish the task as part of the description.]</nowiki>
+** Task-related <nowiki>[A tag used to indicate a linkage to the task.]</nowiki>
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
@@ -289,6 +328,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
+**** HSV color
+***** Hue 
+****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
+***** Saturation 
+****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+***** HSV value 
+****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** RGB color
 ***** RGB Red 
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
@@ -307,13 +353,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Red <nowiki>[Color #FF0000]</nowiki>
 ***** White <nowiki>[Color #FFFFFF]</nowiki> 
 ***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
-*** Rendering <nowiki>{requireChild}</nowiki> 
-**** Screen 
-**** Head-mounted display
-**** Window
-**** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
-**** 2D view
-**** 3D view 
+
 * Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
@@ -368,7 +408,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 **** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ***** Leader 
-***** Follower 
+***** Follower
+***** Parent
+***** Child 
 ***** <nowiki># {takesValue}</nowiki> 
 **** Association <nowiki>{requireChild}</nowiki> 
 ***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
