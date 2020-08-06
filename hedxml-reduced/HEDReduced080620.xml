@@ -110,112 +110,24 @@
                <name>Clothing</name>
             </node>
             <node>
-               <name>Device</name>
-               <node>
-                  <name>Medical instrument</name>
-               </node>
-               <node>
-                  <name>Musical instrument</name>
-               </node>
-               <node>
-                  <name>Tool</name>
-                  <description>A hand-held object of single person control</description>
-                  <node>
-                     <name>Hammer</name>
-                  </node>
-                  <node>
-                     <name>Chainsaw</name>
-                  </node>
-               </node>
-               <node>
-                  <name>I</name>
-                  <node>
-                     <name>Display device</name>
-                     <node>
-                        <name>Screen</name>
-                     </node>
-                     <node>
-                        <name>Head-mounted display</name>
-                     </node>
-                     <node>
-                        <name>Window</name>
-                     </node>
-                     <node>
-                        <name>Viewport</name>
-                        <description>Two or more views on the same scene.</description>
-                     </node>
-                     <node>
-                        <name>2D view</name>
-                     </node>
-                     <node>
-                        <name>3D view</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Auditory device</name>
-                     <node>
-                        <name>Headphones</name>
-                     </node>
-                     <node>
-                        <name>Screen speaker</name>
-                     </node>
-                     <node>
-                        <name>Loudspeaker</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Haptic device</name>
-                     <node>
-                        <name>Keyboard</name>
-                     </node>
-                     <node>
-                        <name>Keypad</name>
-                     </node>
-                     <node>
-                        <name>Mouse</name>
-                     </node>
-                     <node>
-                        <name>Joy stick</name>
-                     </node>
-                     <node>
-                        <name>Touch screen</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Recording device</name>
-                  </node>
-               </node>
+               <name>Musical instrument</name>
             </node>
             <node>
                <name>Furnishing</name>
                <description>The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable</description>
             </node>
             <node>
+               <name>Tool</name>
+               <description>A hand-held object of single person control</description>
+               <node>
+                  <name>Hammer</name>
+               </node>
+               <node>
+                  <name>Chainsaw</name>
+               </node>
+            </node>
+            <node>
                <name>Vehicle</name>
-               <node>
-                  <name>Bicycle</name>
-               </node>
-               <node>
-                  <name>Car</name>
-               </node>
-               <node>
-                  <name>Truck</name>
-               </node>
-               <node>
-                  <name>Cart</name>
-               </node>
-               <node>
-                  <name>Boat</name>
-               </node>
-               <node>
-                  <name>Tractor</name>
-               </node>
-               <node>
-                  <name>Train</name>
-               </node>
-               <node>
-                  <name>Aircraft</name>
-               </node>
             </node>
             <node>
                <name>Artwork</name>
@@ -342,43 +254,16 @@
       <node>
          <name>Sound</name>
          <node>
-            <name>Nameable</name>
-            <node>
-               <name>Alarm</name>
-            </node>
-            <node>
-               <name>Buzz</name>
-            </node>
-            <node>
-               <name>Cash register</name>
-            </node>
-            <node>
-               <name>Click</name>
-            </node>
-            <node>
-               <name>Ding</name>
-            </node>
-            <node>
-               <name>Siren</name>
-            </node>
-            <node>
-               <name>Tone</name>
-            </node>
-            <node>
-               <name>Noisemaker</name>
-            </node>
+            <name>Tone</name>
+         </node>
+         <node>
+            <name>Siren</name>
          </node>
          <node>
             <name>Music</name>
          </node>
          <node>
             <name>Noise</name>
-            <node>
-               <name>White noise</name>
-            </node>
-            <node>
-               <name>Colored noise</name>
-            </node>
          </node>
          <node>
             <name>Crowd sound</name>
@@ -887,8 +772,8 @@
             </node>
          </node>
          <node>
-            <name>Task-related</name>
-            <description>A tag used to indicate a linkage to the task.</description>
+            <name>Task</name>
+            <description>A tag used to indicate the definition of the task ideally with a linkage to the different types of events that accomplish the task as part of the description.</description>
          </node>
       </node>
       <node extensionAllowed="true">
@@ -975,30 +860,6 @@
             <node requireChild="true">
                <name>Color</name>
                <node>
-                  <name>HSV color</name>
-                  <node>
-                     <name>Hue</name>
-                     <node isNumeric="true" takesValue="true">
-                        <name>#</name>
-                        <description>Angular value between 0 and 360</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Saturation</name>
-                     <node isNumeric="true" takesValue="true">
-                        <name>#</name>
-                        <description>B value of RGB between 0 and 1</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>HSV value</name>
-                     <node isNumeric="true" takesValue="true">
-                        <name>#</name>
-                        <description>G value of RGB between 0 and 1</description>
-                     </node>
-                  </node>
-               </node>
-               <node>
                   <name>RGB color</name>
                   <node>
                      <name>RGB Red</name>
@@ -1065,6 +926,28 @@
                      <name>Yellow</name>
                      <description>Color #FFFF00</description>
                   </node>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Rendering</name>
+               <node>
+                  <name>Screen</name>
+               </node>
+               <node>
+                  <name>Head-mounted display</name>
+               </node>
+               <node>
+                  <name>Window</name>
+               </node>
+               <node>
+                  <name>Viewport</name>
+                  <description>Two or more views on the same scene.</description>
+               </node>
+               <node>
+                  <name>2D view</name>
+               </node>
+               <node>
+                  <name>3D view</name>
                </node>
             </node>
          </node>
@@ -1239,12 +1122,6 @@
                   </node>
                   <node>
                      <name>Follower</name>
-                  </node>
-                  <node>
-                     <name>Parent</name>
-                  </node>
-                  <node>
-                     <name>Child</name>
                   </node>
                   <node takesValue="true">
                      <name>#</name>
