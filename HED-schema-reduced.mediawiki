@@ -47,11 +47,13 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Attic
 **** Basement
 *** Clothing
-*** Musical instrument
+*** Instrument
+**** Medical instrument
+**** Musical instrument
+**** Tool <nowiki>[A hand-held object of single person control]</nowiki>
+***** Hammer
+***** Chainsaw
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
-*** Tool <nowiki>[A hand-held object of single person control]</nowiki>
-**** Hammer
-**** Chainsaw
 *** Vehicle
 **** Bicycle 
 **** Car 
@@ -104,12 +106,18 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Textblock
 * Sound
 ** Nameable
-*** Tone
-*** Siren
-*** Buzz
 *** Alarm
+*** Buzz
+*** Cash register
+*** Click
+*** Ding
+*** Siren
+*** Tone
+*** Noisemaker
 ** Music
 ** Noise
+*** White noise
+*** Colored noise
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
