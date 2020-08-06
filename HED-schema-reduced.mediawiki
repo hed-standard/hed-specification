@@ -124,7 +124,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Sentence
 ** Textblock
 * Sound
-** Nameable
+** Named
 *** Alarm
 *** Buzz
 *** Cash register
@@ -138,6 +138,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** White noise
 *** Colored noise
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+** Voice
+** Animal sound
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
