@@ -112,78 +112,58 @@
             <node>
                <name>Device</name>
                <node>
-                  <name>Medical instrument</name>
-               </node>
-               <node>
-                  <name>Musical instrument</name>
-               </node>
-               <node>
                   <name>Tool</name>
-                  <description>A hand-held object of single person control</description>
+               </node>
+               <node>
+                  <name>Display</name>
                   <node>
-                     <name>Hammer</name>
+                     <name>Screen</name>
                   </node>
                   <node>
-                     <name>Chainsaw</name>
+                     <name>Head-mounted display</name>
+                  </node>
+                  <node>
+                     <name>Window</name>
+                  </node>
+                  <node>
+                     <name>2D view</name>
+                  </node>
+                  <node>
+                     <name>3D view</name>
                   </node>
                </node>
                <node>
-                  <name>I</name>
+                  <name>Auditory device</name>
                   <node>
-                     <name>Display device</name>
-                     <node>
-                        <name>Screen</name>
-                     </node>
-                     <node>
-                        <name>Head-mounted display</name>
-                     </node>
-                     <node>
-                        <name>Window</name>
-                     </node>
-                     <node>
-                        <name>Viewport</name>
-                        <description>Two or more views on the same scene.</description>
-                     </node>
-                     <node>
-                        <name>2D view</name>
-                     </node>
-                     <node>
-                        <name>3D view</name>
-                     </node>
+                     <name>Headphones</name>
                   </node>
                   <node>
-                     <name>Auditory device</name>
-                     <node>
-                        <name>Headphones</name>
-                     </node>
-                     <node>
-                        <name>Screen speaker</name>
-                     </node>
-                     <node>
-                        <name>Loudspeaker</name>
-                     </node>
+                     <name>Screen speaker</name>
                   </node>
                   <node>
-                     <name>Haptic device</name>
-                     <node>
-                        <name>Keyboard</name>
-                     </node>
-                     <node>
-                        <name>Keypad</name>
-                     </node>
-                     <node>
-                        <name>Mouse</name>
-                     </node>
-                     <node>
-                        <name>Joy stick</name>
-                     </node>
-                     <node>
-                        <name>Touch screen</name>
-                     </node>
+                     <name>Loudspeaker</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Haptic device</name>
+                  <node>
+                     <name>Keyboard</name>
                   </node>
                   <node>
-                     <name>Recording device</name>
+                     <name>Keypad</name>
                   </node>
+                  <node>
+                     <name>Mouse</name>
+                  </node>
+                  <node>
+                     <name>Joy stick</name>
+                  </node>
+                  <node>
+                     <name>Touch screen</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Recording device</name>
                </node>
             </node>
             <node>
@@ -294,17 +274,35 @@
          </node>
       </node>
       <node>
+         <name>Food</name>
+      </node>
+      <node>
+         <name>Drink</name>
+      </node>
+      <node>
          <name>Agent</name>
          <node>
             <name>Human</name>
             <node>
-               <name>Body part</name>
-               <node>
-                  <name>Face</name>
-               </node>
+               <name>Face</name>
+            </node>
+            <node>
+               <name>Hand</name>
                <node>
                   <name>Finger</name>
                </node>
+            </node>
+            <node>
+               <name>Foot</name>
+            </node>
+            <node>
+               <name>Torso</name>
+            </node>
+            <node>
+               <name>Leg</name>
+            </node>
+            <node>
+               <name>Arm</name>
             </node>
          </node>
          <node>
@@ -342,7 +340,7 @@
       <node>
          <name>Sound</name>
          <node>
-            <name>Nameable</name>
+            <name>Named</name>
             <node>
                <name>Alarm</name>
             </node>
@@ -383,6 +381,12 @@
          <node>
             <name>Crowd sound</name>
             <description>Multiple speech streams at once</description>
+         </node>
+         <node>
+            <name>Voice</name>
+         </node>
+         <node>
+            <name>Animal sound</name>
          </node>
          <node>
             <name>Environmental sound</name>
@@ -885,6 +889,27 @@
                   <name>#</name>
                </node>
             </node>
+         </node>
+      </node>
+      <node extensionAllowed="true">
+         <name>Relational</name>
+         <node>
+            <name>Part of</name>
+         </node>
+         <node>
+            <name>Described by</name>
+         </node>
+         <node>
+            <name>Inside</name>
+         </node>
+         <node>
+            <name>Outside</name>
+         </node>
+         <node>
+            <name>Performed by</name>
+         </node>
+         <node>
+            <name>Connected to</name>
          </node>
          <node>
             <name>Task-related</name>
