@@ -102,9 +102,12 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Nonword
 ** Sentence
 ** Textblock
-*	Sound
-** Tone
-** Siren
+* Sound
+** Nameable
+*** Tone
+*** Siren
+*** Buzz
+*** Alarm
 ** Music
 ** Noise
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
