@@ -48,30 +48,24 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
-**** Medical instrument
-**** Musical instrument
-**** Tool <nowiki>[A hand-held object of single person control]</nowiki>
-***** Hammer
-***** Chainsaw
-**** I/O device
-***** Display device
-****** Screen 
-****** Head-mounted display
-****** Window
-****** Viewport <nowiki> [Two or more views on the same scene.]</nowiki> 
-****** 2D view
-****** 3D view 
-***** Auditory device
-****** Headphones
-****** Screen speaker
-****** Loudspeaker
-***** Haptic device
-****** Keyboard
-****** Keypad
-****** Mouse
-****** Joy stick
-****** Touch screen
-***** Recording device
+**** Tool 
+**** Display
+***** Screen 
+***** Head-mounted display
+***** Window
+***** 2D view
+***** 3D view 
+**** Auditory device
+***** Headphones
+***** Screen speaker
+***** Loudspeaker
+**** Haptic device
+***** Keyboard
+***** Keypad
+***** Mouse
+***** Joy stick
+***** Touch screen
+**** Recording device
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
 *** Vehicle
 **** Bicycle 
@@ -107,11 +101,17 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Mountain
 **** River
 **** Waterfall
+* Food
+* Drink
 * Agent
 ** Human
-*** Body part
-**** Face
+*** Face
+*** Hand
 **** Finger
+*** Foot
+*** Torso
+*** Leg
+*** Arm
 ** Animal
 ** Robot
 
@@ -299,8 +299,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject {requireChild}
 **** <nowiki># {takesValue}</nowiki> 
+* Relational <nowiki>{extensionAllowed}</nowiki>
+** Part of
+** Described by
+** Inside 
+** Outside
+** Performed by
+** Connected to
 ** Task-related <nowiki>[A tag used to indicate a linkage to the task.]</nowiki>
-
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
 *** <nowiki># {takesValue}</nowiki>  
