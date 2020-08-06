@@ -53,6 +53,15 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Hammer
 **** Chainsaw
 *** Vehicle
+**** Bicycle 
+**** Car 
+**** Truck 
+**** Cart 
+**** Boat 
+**** Tractor 
+**** Train 
+**** Aircraft 
+
 *** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
 **** Drawing
 ***** Cartoon
