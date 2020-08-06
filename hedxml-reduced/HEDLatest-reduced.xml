@@ -272,12 +272,12 @@
                </node>
             </node>
          </node>
-      </node>
-      <node>
-         <name>Food</name>
-      </node>
-      <node>
-         <name>Drink</name>
+         <node>
+            <name>Food</name>
+         </node>
+         <node>
+            <name>Drink</name>
+         </node>
       </node>
       <node>
          <name>Agent</name>
