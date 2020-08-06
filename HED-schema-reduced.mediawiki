@@ -377,7 +377,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 **** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ***** Leader 
-***** Follower 
+***** Follower
+***** Parent
+***** Child 
 ***** <nowiki># {takesValue}</nowiki> 
 **** Association <nowiki>{requireChild}</nowiki> 
 ***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
