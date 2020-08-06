@@ -101,8 +101,8 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Mountain
 **** River
 **** Waterfall
-* Food
-* Drink
+** Food
+** Drink
 * Agent
 ** Human
 *** Face
