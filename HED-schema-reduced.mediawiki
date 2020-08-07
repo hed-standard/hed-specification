@@ -142,6 +142,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Cash register
 *** Click
 *** Ding
+*** Horn
 *** Siren
 *** Tone
 *** Noisemaker
