@@ -111,15 +111,18 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Drink
 * Agent
 ** Human
-*** Ear
-*** Face
-**** Cheeks
-**** Chin
-**** Eye
-**** Forehead
-**** Lips
-**** Nose
-**** Mouth
+*** Head
+**** Hair
+**** Ear
+**** Face
+***** Cheek
+***** Chin
+***** Eye
+***** Eyebrow
+***** Forehead
+***** Lip
+***** Nose
+***** Mouth
 *** Hand
 **** Finger
 *** Foot
@@ -131,9 +134,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Robot
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
-** Diphthong
-** Word
 ** Character
+** Phoneme
+** Word
 ** Phrase
 ** Nonword
 ** Sentence
@@ -175,6 +178,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Bend 
 ** Dance
 ** Shudder 
+** Turn
 * Move head
 ** Move eyes
 *** Saccade
@@ -197,6 +201,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Scratch 
 ** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
 ** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+** Push
 ** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 ** Release <nowiki>[Often grouped with item being released.]</nowiki>
 ** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
@@ -204,6 +209,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 ** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+** Grab
+** Push
 ** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 * Move legs-feet
 ** Step
@@ -271,6 +278,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Brain-dead 
 ** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
 * Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Aroused
 ** Awed 
 ** Frustrated 
 ** Joyful 
@@ -333,10 +341,17 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Inside 
 ** Outside
 ** Adjacent
+** Ahead
+** Behind
 ** Above
 ** Below
 ** Left of
 ** Right of
+** Less than
+** Less an or equal to
+** Greater than
+** Greater than or equal to
+** Equal to
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
 *** <nowiki># {takesValue}</nowiki>  
@@ -409,6 +424,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 *** Onset
 *** Offset
+*** Response delay
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
 ** Acceleration 
