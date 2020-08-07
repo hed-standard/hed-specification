@@ -136,7 +136,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Sentence
 ** Textblock
 * Sound
-** Named
+** Named sound
 *** Alarm
 *** Buzz
 *** Cash register
@@ -151,7 +151,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** White noise
 *** Colored noise
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
-** Voice
+** Vocal sound <nowiki>{Sounds made by humans including both speaking, singing, and other sounds.]</nowiki>
 ** Animal sound
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
@@ -180,14 +180,15 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Open eyes <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
 *** Close eyes<nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
 ** Move mouth
-*** Hiccup 
+*** Burp 
+*** Clear throat
 *** Cough 
+*** Gurgle
+*** Hiccup 
 *** Sneeze 
 *** Sniffle
 *** Swallow
-*** Clear throat
 *** Yawn 
-*** Burp 
 ** Nod
 * Move arms-hands
 ** Scratch 
@@ -214,11 +215,13 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Communicate
 ** Communicate verbally
-*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
+*** Cry
 *** Groan
+*** Gulp
 ***	Laugh
 *** Scream
 *** Sigh
+*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
 ***	Shrug
 ***	Thumb(s) up
