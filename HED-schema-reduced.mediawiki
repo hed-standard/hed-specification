@@ -70,6 +70,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Joy stick
 ***** Touch screen
 **** Recording device
+***** Motion capture
+***** Tape recording
+***** File recording
 *** Furnishing <nowiki>[The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable]</nowiki>
 *** Vehicle
 **** Bicycle 
