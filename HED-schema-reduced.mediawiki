@@ -58,6 +58,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Window
 ***** 2D view
 ***** 3D view 
+***** Satellite view
 **** Auditory device
 ***** Headphones
 ***** Screen speaker
@@ -81,9 +82,8 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Aircraft 
 
 *** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Animation
 **** Drawing
-***** Cartoon
-***** Sketch
 **** Painting
 **** Art installation
 **** Photograph
@@ -295,8 +295,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
 
-'''Attribute''' <nowiki>{requireChild}</nowiki>
-* Informational
+'''Attribute''' 
+* Informational <nowiki>{extensionAllowed}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
 ** ID <nowiki>{requireChild, isNumeric} [A numeric code usually used to identify particular objects.]</nowiki>
