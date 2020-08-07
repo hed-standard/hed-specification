@@ -300,15 +300,21 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Creation data {requireChild}
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject {requireChild}
-**** <nowiki># {takesValue}</nowiki> 
+**** <nowiki># {takesValue}</nowiki>
+*** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 * Relational <nowiki>{extensionAllowed}</nowiki>
-** Part of
 ** Described by
-** Inside 
-** Outside
+** Part of
+** Contained in
 ** Performed by
 ** Connected to
-** Task-related <nowiki>[A tag used to indicate a linkage to the task.]</nowiki>
+** Inside 
+** Outside
+** Adjacent
+** Above
+** Below
+** Left of
+** Right of
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
 *** <nowiki># {takesValue}</nowiki>  
