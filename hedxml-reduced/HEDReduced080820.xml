@@ -82,15 +82,6 @@
             </node>
             <node>
                <name>3D shape</name>
-               <node>
-                  <name>Ellipsoid</name>
-               </node>
-               <node>
-                  <name>Box</name>
-               </node>
-               <node>
-                  <name>Cylinder</name>
-               </node>
             </node>
          </node>
          <node>
@@ -140,9 +131,6 @@
                   <node>
                      <name>3D view</name>
                   </node>
-                  <node>
-                     <name>Satellite view</name>
-                  </node>
                </node>
                <node>
                   <name>Auditory device</name>
@@ -176,15 +164,6 @@
                </node>
                <node>
                   <name>Recording device</name>
-                  <node>
-                     <name>Motion capture</name>
-                  </node>
-                  <node>
-                     <name>Tape recording</name>
-                  </node>
-                  <node>
-                     <name>File recording</name>
-                  </node>
                </node>
             </node>
             <node>
@@ -222,10 +201,13 @@
                <name>Artwork</name>
                <description>A work of art that is primarily visual in character</description>
                <node>
-                  <name>Animation</name>
-               </node>
-               <node>
                   <name>Drawing</name>
+                  <node>
+                     <name>Cartoon</name>
+                  </node>
+                  <node>
+                     <name>Sketch</name>
+                  </node>
                </node>
                <node>
                   <name>Painting</name>
@@ -302,40 +284,7 @@
          <node>
             <name>Human</name>
             <node>
-               <name>Head</name>
-               <node>
-                  <name>Hair</name>
-               </node>
-               <node>
-                  <name>Ear</name>
-               </node>
-               <node>
-                  <name>Face</name>
-                  <node>
-                     <name>Cheek</name>
-                  </node>
-                  <node>
-                     <name>Chin</name>
-                  </node>
-                  <node>
-                     <name>Eye</name>
-                  </node>
-                  <node>
-                     <name>Eyebrow</name>
-                  </node>
-                  <node>
-                     <name>Forehead</name>
-                  </node>
-                  <node>
-                     <name>Lip</name>
-                  </node>
-                  <node>
-                     <name>Nose</name>
-                  </node>
-                  <node>
-                     <name>Mouth</name>
-                  </node>
-               </node>
+               <name>Face</name>
             </node>
             <node>
                <name>Hand</name>
@@ -345,9 +294,6 @@
             </node>
             <node>
                <name>Foot</name>
-               <node>
-                  <name>Toe</name>
-               </node>
             </node>
             <node>
                <name>Torso</name>
@@ -370,13 +316,13 @@
          <name>Language</name>
          <description>Perceivable in a visual or auditory (spoken) sensory presentation</description>
          <node>
-            <name>Character</name>
-         </node>
-         <node>
-            <name>Phoneme</name>
+            <name>Diphthong</name>
          </node>
          <node>
             <name>Word</name>
+         </node>
+         <node>
+            <name>Character</name>
          </node>
          <node>
             <name>Phrase</name>
@@ -394,7 +340,7 @@
       <node>
          <name>Sound</name>
          <node>
-            <name>Named sound</name>
+            <name>Named</name>
             <node>
                <name>Alarm</name>
             </node>
@@ -409,9 +355,6 @@
             </node>
             <node>
                <name>Ding</name>
-            </node>
-            <node>
-               <name>Horn</name>
             </node>
             <node>
                <name>Siren</name>
@@ -440,7 +383,7 @@
             <description>Multiple speech streams at once</description>
          </node>
          <node>
-            <name>Vocal sound</name>
+            <name>Voice</name>
          </node>
          <node>
             <name>Animal sound</name>
@@ -473,209 +416,180 @@
          </node>
       </node>
       <node>
-         <name>Move</name>
+         <name>Move full-body</name>
          <node>
-            <name>Move full-body</name>
-            <node>
-               <name>Flex</name>
-            </node>
-            <node>
-               <name>Jerk</name>
-               <description>When some force applied to the participant causes them to involuntarily accommodate or react to it.</description>
-            </node>
-            <node>
-               <name>Stumble</name>
-               <description>Temporary and involuntary loss of balance</description>
-            </node>
-            <node>
-               <name>Recover balance</name>
-               <description>A movement made in response to a stumble or unforeseen loss of balance</description>
-            </node>
-            <node>
-               <name>Fall down</name>
-               <description>Involuntary fall to floor or ground</description>
-            </node>
-            <node>
-               <name>Stretch</name>
-               <description>Stretching the body or body part</description>
-            </node>
-            <node>
-               <name>Bend</name>
-            </node>
-            <node>
-               <name>Dance</name>
-            </node>
-            <node>
-               <name>Shudder</name>
-            </node>
-            <node>
-               <name>Turn</name>
-            </node>
+            <name>Flex</name>
          </node>
          <node>
-            <name>Move head</name>
-            <node>
-               <name>Move eyes</name>
-               <node>
-                  <name>Saccade</name>
-               </node>
-               <node>
-                  <name>Fixate</name>
-               </node>
-               <node>
-                  <name>Blink</name>
-               </node>
-               <node>
-                  <name>Open eyes</name>
-                  <description>Often grouped with body part doing action such as eyes or mouth.</description>
-               </node>
-               <node>
-                  <name>Close eyes</name>
-                  <description>Often grouped with body part doing action such as eyes or mouth.</description>
-               </node>
-            </node>
-            <node>
-               <name>Move mouth</name>
-               <node>
-                  <name>Burp</name>
-               </node>
-               <node>
-                  <name>Clear throat</name>
-               </node>
-               <node>
-                  <name>Cough</name>
-               </node>
-               <node>
-                  <name>Gurgle</name>
-               </node>
-               <node>
-                  <name>Hiccup</name>
-               </node>
-               <node>
-                  <name>Smile</name>
-               </node>
-               <node>
-                  <name>Sneeze</name>
-               </node>
-               <node>
-                  <name>Sniffle</name>
-               </node>
-               <node>
-                  <name>Swallow</name>
-               </node>
-               <node>
-                  <name>Yawn</name>
-               </node>
-            </node>
-            <node>
-               <name>Nod</name>
-            </node>
+            <name>Jerk</name>
+            <description>When some force applied to the participant causes them to involuntarily accommodate or react to it.</description>
          </node>
          <node>
-            <name>Move arm-hand</name>
-            <node>
-               <name>Drop</name>
-               <description>For example the participant drops a handheld ball</description>
-            </node>
-            <node>
-               <name>Grab</name>
-            </node>
-            <node>
-               <name>Grasp</name>
-               <description>Grasp an object in one or both hands</description>
-            </node>
-            <node>
-               <name>Lift</name>
-               <description>Often grouped with item being lifted.</description>
-            </node>
-            <node>
-               <name>Make fist</name>
-            </node>
-            <node>
-               <name>Point</name>
-               <description>Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.</description>
-            </node>
-            <node>
-               <name>Press</name>
-               <description>Often grouped with body part doing action and item being pressed.</description>
-            </node>
-            <node>
-               <name>Push</name>
-            </node>
-            <node>
-               <name>Reach</name>
-               <description>Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.</description>
-            </node>
-            <node>
-               <name>Release</name>
-               <description>Often grouped with item being released.</description>
-            </node>
-            <node>
-               <name>Retract</name>
-               <description>Often grouped with body part doing action and item being retracted.</description>
-            </node>
-            <node>
-               <name>Scratch</name>
-            </node>
-            <node>
-               <name>Tap</name>
-               <description>Often grouped with body part doing action.</description>
-            </node>
-            <node>
-               <name>Touch</name>
-               <description>May follow a Reach event</description>
-            </node>
+            <name>Stumble</name>
+            <description>Temporary and involuntary loss of balance</description>
          </node>
          <node>
-            <name>Move leg-foot</name>
-            <node>
-               <name>Step</name>
-               <node>
-                  <name>Heel-strike</name>
-               </node>
-               <node>
-                  <name>Toe-off</name>
-               </node>
-            </node>
-            <node>
-               <name>Run</name>
-            </node>
-            <node>
-               <name>Walk</name>
-            </node>
-            <node>
-               <name>Trot</name>
-            </node>
-            <node>
-               <name>Jog</name>
-            </node>
-            <node>
-               <name>Jump</name>
-            </node>
-            <node>
-               <name>Kick</name>
-               <description>Often grouped with body part doing action and item being kicked.</description>
-            </node>
-            <node>
-               <name>Curl toes</name>
-            </node>
+            <name>Recover balance</name>
+            <description>A movement made in response to a stumble or unforeseen loss of balance</description>
+         </node>
+         <node>
+            <name>Fall down</name>
+            <description>Involuntary fall to floor or ground</description>
+         </node>
+         <node>
+            <name>Stretch</name>
+            <description>Stretching the body or body part</description>
+         </node>
+         <node>
+            <name>Bend</name>
+         </node>
+         <node>
+            <name>Dance</name>
+         </node>
+         <node>
+            <name>Shudder</name>
          </node>
       </node>
       <node>
-         <name>Operate</name>
+         <name>Move head</name>
+         <node>
+            <name>Move eyes</name>
+            <node>
+               <name>Saccade</name>
+            </node>
+            <node>
+               <name>Fixate</name>
+            </node>
+            <node>
+               <name>Blink</name>
+            </node>
+            <node>
+               <name>Open eyes</name>
+               <description>Often grouped with body part doing action such as eyes or mouth.</description>
+            </node>
+            <node>
+               <name>Close eyes</name>
+               <description>Often grouped with body part doing action such as eyes or mouth.</description>
+            </node>
+         </node>
+         <node>
+            <name>Move mouth</name>
+            <node>
+               <name>Hiccup</name>
+            </node>
+            <node>
+               <name>Cough</name>
+            </node>
+            <node>
+               <name>Sneeze</name>
+            </node>
+            <node>
+               <name>Sniffle</name>
+            </node>
+            <node>
+               <name>Swallow</name>
+            </node>
+            <node>
+               <name>Clear throat</name>
+            </node>
+            <node>
+               <name>Yawn</name>
+            </node>
+            <node>
+               <name>Burp</name>
+            </node>
+         </node>
+         <node>
+            <name>Nod</name>
+         </node>
+      </node>
+      <node>
+         <name>Move arms-hands</name>
+         <node>
+            <name>Scratch</name>
+         </node>
+         <node>
+            <name>Lift</name>
+            <description>Often grouped with item being lifted.</description>
+         </node>
+         <node>
+            <name>Press</name>
+            <description>Often grouped with body part doing action and item being pressed.</description>
+         </node>
+         <node>
+            <name>Drop</name>
+            <description>For example the participant drops a handheld ball</description>
+         </node>
+         <node>
+            <name>Release</name>
+            <description>Often grouped with item being released.</description>
+         </node>
+         <node>
+            <name>Retract</name>
+            <description>Often grouped with body part doing action and item being retracted.</description>
+         </node>
+         <node>
+            <name>Tap</name>
+            <description>Often grouped with body part doing action.</description>
+         </node>
+         <node>
+            <name>Reach</name>
+            <description>Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.</description>
+         </node>
+         <node>
+            <name>Touch</name>
+            <description>May follow a Reach event</description>
+         </node>
+         <node>
+            <name>Grasp</name>
+            <description>Grasp an object in one or both hands</description>
+         </node>
+         <node>
+            <name>Point</name>
+            <description>Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.</description>
+         </node>
+      </node>
+      <node>
+         <name>Move legs-feet</name>
+         <node>
+            <name>Step</name>
+            <node>
+               <name>Heel-strike</name>
+            </node>
+            <node>
+               <name>Toe-off</name>
+            </node>
+         </node>
+         <node>
+            <name>Run</name>
+         </node>
+         <node>
+            <name>Walk</name>
+         </node>
+         <node>
+            <name>Trot</name>
+         </node>
+         <node>
+            <name>Jog</name>
+         </node>
+         <node>
+            <name>Jump</name>
+         </node>
+         <node>
+            <name>Kick</name>
+            <description>Often grouped with body part doing action and item being kicked.</description>
+         </node>
       </node>
       <node>
          <name>Communicate</name>
          <node>
             <name>Communicate verbally</name>
             <node>
-               <name>Cry</name>
+               <name>Speak</name>
+               <description>Communicate using spoken language.</description>
             </node>
             <node>
                <name>Groan</name>
-            </node>
-            <node>
-               <name>Gulp</name>
             </node>
             <node>
                <name>Laugh</name>
@@ -685,10 +599,6 @@
             </node>
             <node>
                <name>Sigh</name>
-            </node>
-            <node>
-               <name>Speak</name>
-               <description>Communicate using spoken language.</description>
             </node>
          </node>
          <node>
@@ -829,9 +739,6 @@
       <node extensionAllowed="true" requireChild="true">
          <name>Emotional state</name>
          <node>
-            <name>Aroused</name>
-         </node>
-         <node>
             <name>Awed</name>
          </node>
          <node>
@@ -923,9 +830,9 @@
          </node>
       </node>
    </node>
-   <node>
+   <node requireChild="true">
       <name>Attribute</name>
-      <node extensionAllowed="true">
+      <node>
          <name>Informational</name>
          <node requireChild="true">
             <name>Label</name>
@@ -965,24 +872,14 @@
             <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
          </node>
          <node>
-            <name>Trial</name>
-            <description>An event used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
-         </node>
-         <node>
             <name>Metadata</name>
             <description>A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
             <node requireChild="true">
-               <name>Creation date</name>
+               <name>Creation data</name>
                <node takesValue="true" unitClass="datetime">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Parameter</name>
-               <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
@@ -992,31 +889,15 @@
                   <name>#</name>
                </node>
             </node>
-            <node>
-               <name>Task</name>
-               <description>A tag used to indicate a linkage to the task.</description>
-            </node>
          </node>
       </node>
       <node extensionAllowed="true">
          <name>Relational</name>
          <node>
-            <name>From-to</name>
-         </node>
-         <node>
-            <name>Described by</name>
-         </node>
-         <node>
             <name>Part of</name>
          </node>
          <node>
-            <name>Contained in</name>
-         </node>
-         <node>
-            <name>Performed by</name>
-         </node>
-         <node>
-            <name>Connected to</name>
+            <name>Described by</name>
          </node>
          <node>
             <name>Inside</name>
@@ -1025,49 +906,14 @@
             <name>Outside</name>
          </node>
          <node>
-            <name>Adjacent</name>
+            <name>Performed by</name>
          </node>
          <node>
-            <name>Ahead</name>
+            <name>Connected to</name>
          </node>
          <node>
-            <name>Behind</name>
-         </node>
-         <node>
-            <name>Above</name>
-         </node>
-         <node>
-            <name>Below</name>
-         </node>
-         <node>
-            <name>Over</name>
-         </node>
-         <node>
-            <name>Under</name>
-         </node>
-         <node>
-            <name>Around</name>
-         </node>
-         <node>
-            <name>Left of</name>
-         </node>
-         <node>
-            <name>Right of</name>
-         </node>
-         <node>
-            <name>Less than</name>
-         </node>
-         <node>
-            <name>Less an or equal to</name>
-         </node>
-         <node>
-            <name>Greater than</name>
-         </node>
-         <node>
-            <name>Greater than or equal to</name>
-         </node>
-         <node>
-            <name>Equal to</name>
+            <name>Task-related</name>
+            <description>A tag used to indicate a linkage to the task.</description>
          </node>
       </node>
       <node extensionAllowed="true">
@@ -1306,9 +1152,6 @@
             <node>
                <name>Offset</name>
             </node>
-            <node>
-               <name>Response delay</name>
-            </node>
          </node>
          <node>
             <name>Rate</name>
@@ -1427,18 +1270,6 @@
                   </node>
                   <node>
                      <name>Child</name>
-                  </node>
-                  <node>
-                     <name>Teacher</name>
-                  </node>
-                  <node>
-                     <name>Student</name>
-                  </node>
-                  <node>
-                     <name>Experimental subject</name>
-                  </node>
-                  <node>
-                     <name>Experimenter</name>
                   </node>
                   <node takesValue="true">
                      <name>#</name>
