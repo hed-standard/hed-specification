@@ -42,7 +42,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Ellipsoid
 **** Box
 **** Cylinder
-** Manmade <nowiki>[A manmade object]</nowiki>
+** Man-made <nowiki>[A manmade object]</nowiki>
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -274,16 +274,19 @@ There are four ways to define the scope of an event.  The most common method is 
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
 * Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+** Anesthetized 
+** Asleep
 ** Attentive
 ** Awake 
-** Drowsy 
-** Asleep
-** Anesthetized 
-** Locked-in 
-** Comatose 
-** Vegetative 
 ** Brain-dead 
+** Comatose 
+** Drowsy 
 ** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+** Locked-in 
+** Resting
+** Vegetative 
+
+
 * Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 ** Aroused
 ** Awed 
@@ -480,6 +483,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Motion platform
 ** Urban
 ** Rural
+** Treadmill
 * Experimental <nowiki>{extensionAllowed}</nowiki>
 ** Participant-related
 *** Attentional
