@@ -159,6 +159,12 @@
                <node>
                   <name>Haptic device</name>
                   <node>
+                     <name>Button</name>
+                  </node>
+                  <node>
+                     <name>Joystick</name>
+                  </node>
+                  <node>
                      <name>Keyboard</name>
                   </node>
                   <node>
@@ -166,9 +172,6 @@
                   </node>
                   <node>
                      <name>Mouse</name>
-                  </node>
-                  <node>
-                     <name>Joy stick</name>
                   </node>
                   <node>
                      <name>Touch screen</name>
@@ -585,6 +588,9 @@
                <description>Grasp an object in one or both hands</description>
             </node>
             <node>
+               <name>Hold down</name>
+            </node>
+            <node>
                <name>Lift</name>
                <description>Often grouped with item being lifted.</description>
             </node>
@@ -722,44 +728,59 @@
                <name>Hum</name>
             </node>
             <node>
-               <name>Whistle</name>
+               <name>Sing</name>
             </node>
             <node>
                <name>Vocalize</name>
                <description>Make a sustained vowel sound such as, Ahhh</description>
             </node>
             <node>
-               <name>Sing</name>
+               <name>Whistle</name>
             </node>
          </node>
       </node>
       <node>
          <name>Think</name>
          <node>
-            <name>Switch attention</name>
-         </node>
-         <node>
             <name>Allow</name>
             <description>Allow access to something such as allowing a car to pass</description>
+         </node>
+         <node>
+            <name>Attend</name>
+         </node>
+         <node>
+            <name>Count</name>
          </node>
          <node>
             <name>Deny</name>
             <description>Deny access to something such as preventing someone to pass</description>
          </node>
          <node>
+            <name>Detect</name>
+         </node>
+         <node>
+            <name>Discriminate</name>
+         </node>
+         <node>
+            <name>Encode</name>
+         </node>
+         <node>
             <name>Evade</name>
+         </node>
+         <node>
+            <name>Generate</name>
+         </node>
+         <node>
+            <name>Imagine</name>
+         </node>
+         <node>
+            <name>Name</name>
          </node>
          <node>
             <name>Read</name>
          </node>
          <node>
-            <name>Attend</name>
-         </node>
-         <node>
             <name>Recall</name>
-         </node>
-         <node>
-            <name>Generate</name>
          </node>
          <node>
             <name>Repeat</name>
@@ -768,25 +789,10 @@
             <name>Rest</name>
          </node>
          <node>
-            <name>Count</name>
-         </node>
-         <node>
-            <name>Detect</name>
-         </node>
-         <node>
-            <name>Name</name>
-         </node>
-         <node>
-            <name>Discriminate</name>
+            <name>Switch attention</name>
          </node>
          <node>
             <name>Track</name>
-         </node>
-         <node>
-            <name>Encode</name>
-         </node>
-         <node>
-            <name>Imagine</name>
          </node>
       </node>
    </node>
@@ -1115,6 +1121,93 @@
          </node>
       </node>
       <node extensionAllowed="true">
+         <name>Categorical</name>
+         <node>
+            <name>Positive</name>
+         </node>
+         <node>
+            <name>Negative</name>
+         </node>
+         <node>
+            <name>Fast</name>
+         </node>
+         <node>
+            <name>Slow</name>
+         </node>
+         <node>
+            <name>High</name>
+         </node>
+         <node>
+            <name>Low</name>
+         </node>
+         <node>
+            <name>Normal</name>
+         </node>
+         <node>
+            <name>Increasing</name>
+         </node>
+         <node>
+            <name>Decreasing</name>
+         </node>
+         <node>
+            <name>Steady</name>
+         </node>
+         <node>
+            <name>Opening</name>
+         </node>
+         <node>
+            <name>Closing</name>
+         </node>
+         <node>
+            <name>Continuous</name>
+         </node>
+         <node>
+            <name>Repetitive</name>
+         </node>
+         <node>
+            <name>Discrete</name>
+         </node>
+         <node>
+            <name>Valid</name>
+         </node>
+         <node>
+            <name>Invalid</name>
+         </node>
+         <node>
+            <name>Correct</name>
+         </node>
+         <node>
+            <name>Incorrect</name>
+         </node>
+         <node>
+            <name>Non-informative</name>
+         </node>
+         <node>
+            <name>Missed</name>
+         </node>
+         <node>
+            <name>Appropriate</name>
+         </node>
+         <node>
+            <name>Inappropriate</name>
+         </node>
+         <node>
+            <name>Indeterminate</name>
+         </node>
+         <node>
+            <name>Extraneous</name>
+         </node>
+         <node>
+            <name>Subliminal</name>
+         </node>
+         <node>
+            <name>Liminal</name>
+         </node>
+         <node>
+            <name>Supraliminal</name>
+         </node>
+      </node>
+      <node extensionAllowed="true">
          <name>Sensory</name>
          <node>
             <name>Auditory</name>
@@ -1309,6 +1402,12 @@
             <node>
                <name>Response delay</name>
             </node>
+            <node>
+               <name>Sychnronous</name>
+            </node>
+            <node>
+               <name>Asynchronous</name>
+            </node>
          </node>
          <node>
             <name>Rate</name>
@@ -1370,38 +1469,13 @@
             </node>
             <node>
                <name>Intentional</name>
-               <node>
-                  <name>Arousal</name>
-                  <description>Only in the context of 2D emotion representation</description>
-               </node>
-               <node>
-                  <name>Positive valence</name>
-                  <description>Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion</description>
-               </node>
-               <node>
-                  <name>Negative valence</name>
-               </node>
             </node>
             <node>
-               <name>Priming</name>
-               <node>
-                  <name>Motoric priming</name>
-               </node>
-               <node>
-                  <name>Emotional priming</name>
-               </node>
-               <node>
-                  <name>Perceptual priming</name>
-               </node>
+               <name>Arousal</name>
+               <description>Only in the context of 2D emotion representation</description>
             </node>
             <node>
                <name>Subliminal</name>
-               <node>
-                  <name>Unmasked subliminal</name>
-               </node>
-               <node>
-                  <name>Masked subliminal</name>
-               </node>
                <node>
                   <name>Supraliminal</name>
                   <description>By default this is assumed about each stimulus</description>
@@ -1468,6 +1542,18 @@
                <description>How the stimulus is expected to effect the participants</description>
             </node>
             <node>
+               <name>Instructional</name>
+            </node>
+            <node>
+               <name>Priming</name>
+            </node>
+            <node>
+               <name>Masked</name>
+            </node>
+            <node>
+               <name>Unmasked</name>
+            </node>
+            <node>
                <name>Meaningful</name>
             </node>
             <node>
@@ -1483,10 +1569,13 @@
                <name>Penalizing</name>
             </node>
             <node>
-               <name>Error</name>
+               <name>Erroroneous</name>
             </node>
             <node>
                <name>Threatening</name>
+            </node>
+            <node>
+               <name>Planned</name>
             </node>
             <node>
                <name>Warning</name>
@@ -1513,15 +1602,13 @@
                <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
             </node>
             <node>
-               <name>Valid</name>
-               <description>Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information</description>
-            </node>
-            <node>
-               <name>Invalid</name>
-               <description>Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it</description>
+               <name>Distractor</name>
             </node>
             <node>
                <name>Congruent</name>
+            </node>
+            <node>
+               <name>Incongruent</name>
             </node>
             <node>
                <name>Feedback</name>
@@ -1529,34 +1616,8 @@
             <node>
                <name>Action judgment</name>
                <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
-               <node>
-                  <name>Judged correct</name>
-               </node>
-               <node>
-                  <name>Judged incorrect</name>
-                  <description>Wrong choice but not time out</description>
-               </node>
-               <node>
-                  <name>Indeterminate outcome</name>
-                  <description>It cannot be determined that the action was correct or incorrect.</description>
-               </node>
-               <node>
-                  <name>Missed</name>
-                  <description>Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible</description>
-               </node>
-               <node>
-                  <name>Inappropriate</name>
-                  <description>A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules</description>
-               </node>
-               <node>
-                  <name>Extraneous</name>
-                  <description>Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press</description>
-               </node>
             </node>
          </node>
-      </node>
-      <node>
-         <name>Incidental</name>
       </node>
    </node>
    <node extensionAllowed="true" requireChild="true">

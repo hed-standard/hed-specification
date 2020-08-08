@@ -63,6 +63,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Headphones
 ***** Screen speaker
 ***** Loudspeaker
+**** Communication device
+**** Computing device
 **** Haptic device
 ***** Button
 ***** Joystick
@@ -143,6 +145,11 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Sentence
 ** Textblock
 * Sound
+** Animal sound
+** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
+*** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
+** Music
 ** Named sound
 *** Alarm
 *** Buzz
@@ -153,15 +160,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Siren
 *** Tone
 *** Noisemaker
-** Music
 ** Noise
 *** White noise
 *** Colored noise
-** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Vocal sound <nowiki>{Sounds made by humans including both speaking, singing, and other sounds.]</nowiki>
-** Animal sound
-** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
-*** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Breathe
@@ -394,6 +396,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Invalid
 ** Correct
 ** Incorrect
+** Non-informative
 ** Missed
 ** Appropriate
 ** Inappropriate
