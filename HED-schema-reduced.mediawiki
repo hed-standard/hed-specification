@@ -67,7 +67,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Keyboard
 ***** Keypad
 ***** Mouse
-***** Joy stick
+***** Joystick
 ***** Touch screen
 **** Recording device
 ***** Motion capture
@@ -243,29 +243,30 @@ There are four ways to define the scope of an event.  The most common method is 
 ***	Index up
 ***	Shhh
 ** Communicate musically
-*** Hum 
-*** Whistle
-*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Hum
 *** Sing
+*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Whistle
 
 * Think
-** Switch attention
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-** Evade 
-** Read 
 ** Attend
-** Recall
+** Count 
+** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+** Detect
+** Discriminate
+** Encode 
+** Evade 
 ** Generate
+** Imagine
+** Name 
+** Read 
+** Recall
 ** Repeat
 ** Rest 
-** Count 
-** Detect
-** Name 
-** Discriminate 
+** Switch attention
 ** Track
-** Encode 
-** Imagine
+
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
 * Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
