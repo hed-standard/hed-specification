@@ -398,6 +398,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Appropriate
 ** Inappropriate
 ** Indeterminate
+** Extraneous
+** Subliminal
+** Liminal
+** Supraliminal
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
@@ -519,19 +523,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 *** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
 *** Distractor 
-*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
 *** Congruent
 *** Incongruent 
 *** Feedback 
 *** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-**** Judged correct 
-**** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
-**** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
-**** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
-**** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
-**** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-* Incidental
 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
