@@ -40,6 +40,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Star
 *** 3D shape
 **** Ellipsoid
+***** Sphere
 **** Box
 **** Cylinder
 ** Man-made <nowiki>[A manmade object]</nowiki>
@@ -421,7 +422,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory
-** Haptic
+** Tactile
 ** Olfactory
 ** Vestibular
 ** Visual
@@ -516,6 +517,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 ** Paradigm-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+*** Background
+*** Cued
 *** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
 *** Instructional 
 *** Priming
