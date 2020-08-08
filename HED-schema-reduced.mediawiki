@@ -386,6 +386,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Slow
 ** High
 ** Low
+** Medium
 ** Normal
 ** Increasing
 ** Decreasing
@@ -408,6 +409,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Subliminal
 ** Liminal
 ** Supraliminal
+** Nearby
+** Distant
+** True
+** False
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
@@ -415,9 +420,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
-** Olfactory
-** Haptic
 ** Gustatory
+** Haptic
+** Olfactory
+** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
