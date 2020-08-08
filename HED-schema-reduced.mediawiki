@@ -374,7 +374,30 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>   
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-
+* Categorical <nowiki>{extensionAllowed}</nowiki>
+** Positive
+** Negative
+** Fast
+** Slow
+** High
+** Low
+** Normal
+** Increasing
+** Decreasing
+** Steady
+** Opening
+** Closing
+** Continuous
+** Repetitive
+** Discrete
+** Valid
+** Invalid
+** Correct
+** Incorrect
+** Missed
+** Appropriate
+** Inappropriate
+** Indeterminate
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
@@ -434,6 +457,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Onset
 *** Offset
 *** Response delay
+*** Sychnronous
+*** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
 ** Acceleration 
@@ -491,15 +516,18 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Penalizing
 *** Erroroneous
 *** Threatening
+*** Planned
 *** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 *** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
 *** Target <nowiki>[Something the subject is looking for]</nowiki> 
 *** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
 *** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 *** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
+*** Distractor 
 *** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
 *** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-*** Congruent 
+*** Congruent
+*** Incongruent 
 *** Feedback 
 *** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 **** Judged correct 
