@@ -64,10 +64,11 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Screen speaker
 ***** Loudspeaker
 **** Haptic device
+***** Button
+***** Joystick
 ***** Keyboard
 ***** Keypad
 ***** Mouse
-***** Joystick
 ***** Touch screen
 **** Recording device
 ***** Motion capture
