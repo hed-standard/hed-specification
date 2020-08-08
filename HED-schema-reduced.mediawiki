@@ -64,10 +64,11 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Screen speaker
 ***** Loudspeaker
 **** Haptic device
+***** Button
+***** Joystick
 ***** Keyboard
 ***** Keypad
 ***** Mouse
-***** Joy stick
 ***** Touch screen
 **** Recording device
 ***** Motion capture
@@ -202,6 +203,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Grab
 *** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Hold down
 *** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
 *** Make fist
 *** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
@@ -243,29 +245,30 @@ There are four ways to define the scope of an event.  The most common method is 
 ***	Index up
 ***	Shhh
 ** Communicate musically
-*** Hum 
-*** Whistle
-*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Hum
 *** Sing
+*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Whistle
 
 * Think
-** Switch attention
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-** Evade 
-** Read 
 ** Attend
-** Recall
+** Count 
+** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+** Detect
+** Discriminate
+** Encode 
+** Evade 
 ** Generate
+** Imagine
+** Name 
+** Read 
+** Recall
 ** Repeat
 ** Rest 
-** Count 
-** Detect
-** Name 
-** Discriminate 
+** Switch attention
 ** Track
-** Encode 
-** Imagine
+
 
 '''Participant''' <nowiki>{requireChild}</nowiki> 
 * Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
@@ -371,7 +374,34 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>   
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-
+* Categorical <nowiki>{extensionAllowed}</nowiki>
+** Positive
+** Negative
+** Fast
+** Slow
+** High
+** Low
+** Normal
+** Increasing
+** Decreasing
+** Steady
+** Opening
+** Closing
+** Continuous
+** Repetitive
+** Discrete
+** Valid
+** Invalid
+** Correct
+** Incorrect
+** Missed
+** Appropriate
+** Inappropriate
+** Indeterminate
+** Extraneous
+** Subliminal
+** Liminal
+** Supraliminal
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
@@ -431,6 +461,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Onset
 *** Offset
 *** Response delay
+*** Sychnronous
+*** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
 ** Acceleration 
@@ -451,16 +483,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Emotional 
 *** Reflexive
 *** Intentional
-**** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-**** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
-****Negative valence 
-*** Priming 
-**** Motoric priming
-**** Emotional priming
-**** Perceptual priming
+*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 *** Subliminal 
-**** Unmasked subliminal
-**** Masked subliminal
 **** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 **** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
@@ -479,32 +503,30 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 ** Paradigm-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
+*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+*** Instructional 
+*** Priming
+*** Masked
+*** Unmasked
 *** Meaningful 
 *** Not meaningful 
 *** Newly learned meaning 
 *** Rewarding 
 *** Penalizing
-*** Error 
+*** Erroroneous
 *** Threatening
+*** Planned
 *** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 *** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
 *** Target <nowiki>[Something the subject is looking for]</nowiki> 
 *** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
 *** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 *** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-*** Valid <nowiki>[Something that is understood to be valid such as an ID matches the person being displayed and it has all the  correct information]</nowiki> 
-*** Invalid <nowiki>[Something that is understood to not be valid such as like an ID with an impossible date-of-birth, or a photo not matching the person presenting it]</nowiki> 
-*** Congruent 
+*** Distractor 
+*** Congruent
+*** Incongruent 
 *** Feedback 
 *** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-**** Judged correct 
-**** Judged incorrect <nowiki>[Wrong choice but not time out]</nowiki> 
-**** Indeterminate outcome <nowiki>[It cannot be determined that the action was correct or incorrect.]</nowiki> 
-**** Missed <nowiki>[Participant failed or could not have perceived the instruction due to their eyes being off-screen or a similar reason. Not easy to deduce this but it is possible]</nowiki> 
-**** Inappropriate <nowiki>[A choice that is not allowed such as moving a chess piece to a location it should not go based on game rules]</nowiki>
-**** Extraneous <nowiki>[Button presses that are not meaningful for example due to intrinsic mechanical causes after a meaningful press]</nowiki>
-* Incidental
 
 
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki> 
