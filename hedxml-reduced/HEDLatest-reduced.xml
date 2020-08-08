@@ -157,6 +157,12 @@
                   </node>
                </node>
                <node>
+                  <name>Communication device</name>
+               </node>
+               <node>
+                  <name>Computing device</name>
+               </node>
+               <node>
                   <name>Haptic device</name>
                   <node>
                      <name>Button</name>
@@ -397,6 +403,24 @@
       <node>
          <name>Sound</name>
          <node>
+            <name>Animal sound</name>
+         </node>
+         <node>
+            <name>Crowd sound</name>
+            <description>Multiple speech streams at once</description>
+         </node>
+         <node>
+            <name>Environmental sound</name>
+            <description>A background sound from the surrounding environment. For example machine operating or people walking</description>
+            <node takesValue="true">
+               <name>#</name>
+               <description>A text-description of a complex environmental sound</description>
+            </node>
+         </node>
+         <node>
+            <name>Music</name>
+         </node>
+         <node>
             <name>Named sound</name>
             <node>
                <name>Alarm</name>
@@ -427,9 +451,6 @@
             </node>
          </node>
          <node>
-            <name>Music</name>
-         </node>
-         <node>
             <name>Noise</name>
             <node>
                <name>White noise</name>
@@ -439,22 +460,7 @@
             </node>
          </node>
          <node>
-            <name>Crowd sound</name>
-            <description>Multiple speech streams at once</description>
-         </node>
-         <node>
             <name>Vocal sound</name>
-         </node>
-         <node>
-            <name>Animal sound</name>
-         </node>
-         <node>
-            <name>Environmental sound</name>
-            <description>A background sound from the surrounding environment. For example machine operating or people walking</description>
-            <node takesValue="true">
-               <name>#</name>
-               <description>A text-description of a complex environmental sound</description>
-            </node>
          </node>
       </node>
    </node>
