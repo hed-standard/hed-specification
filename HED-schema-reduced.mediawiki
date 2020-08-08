@@ -203,6 +203,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Grab
 *** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Hold down
 *** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
 *** Make fist
 *** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
@@ -455,7 +456,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Intentional
 **** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 **** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
-****Negative valence 
+**** Negative valence 
 *** Priming 
 **** Motoric priming
 **** Emotional priming
@@ -481,13 +482,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 ** Paradigm-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki>  
+*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+*** Instructional 
 *** Meaningful 
 *** Not meaningful 
 *** Newly learned meaning 
 *** Rewarding 
 *** Penalizing
-*** Error 
+*** Erroroneous
 *** Threatening
 *** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 *** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
