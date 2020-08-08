@@ -84,6 +84,9 @@
                <name>3D shape</name>
                <node>
                   <name>Ellipsoid</name>
+                  <node>
+                     <name>Sphere</name>
+                  </node>
                </node>
                <node>
                   <name>Box</name>
@@ -94,7 +97,7 @@
             </node>
          </node>
          <node>
-            <name>Manmade</name>
+            <name>Man-made</name>
             <description>A manmade object</description>
             <node>
                <name>Building</name>
@@ -807,35 +810,38 @@
       <node extensionAllowed="true" requireChild="true">
          <name>Cognitive state</name>
          <node>
+            <name>Anesthetized</name>
+         </node>
+         <node>
+            <name>Asleep</name>
+         </node>
+         <node>
             <name>Attentive</name>
          </node>
          <node>
             <name>Awake</name>
          </node>
          <node>
-            <name>Drowsy</name>
-         </node>
-         <node>
-            <name>Asleep</name>
-         </node>
-         <node>
-            <name>Anesthetized</name>
-         </node>
-         <node>
-            <name>Locked-in</name>
+            <name>Brain-dead</name>
          </node>
          <node>
             <name>Comatose</name>
          </node>
          <node>
-            <name>Vegetative</name>
-         </node>
-         <node>
-            <name>Brain-dead</name>
+            <name>Drowsy</name>
          </node>
          <node extensionAllowed="true" requireChild="true">
             <name>Intoxicated</name>
             <description>Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.</description>
+         </node>
+         <node>
+            <name>Locked-in</name>
+         </node>
+         <node>
+            <name>Resting</name>
+         </node>
+         <node>
+            <name>Vegetative</name>
          </node>
       </node>
       <node extensionAllowed="true" requireChild="true">
@@ -1147,6 +1153,9 @@
             <name>Low</name>
          </node>
          <node>
+            <name>Medium</name>
+         </node>
+         <node>
             <name>Normal</name>
          </node>
          <node>
@@ -1212,6 +1221,18 @@
          <node>
             <name>Supraliminal</name>
          </node>
+         <node>
+            <name>Nearby</name>
+         </node>
+         <node>
+            <name>Distant</name>
+         </node>
+         <node>
+            <name>True</name>
+         </node>
+         <node>
+            <name>False</name>
+         </node>
       </node>
       <node extensionAllowed="true">
          <name>Sensory</name>
@@ -1237,13 +1258,16 @@
             </node>
          </node>
          <node>
+            <name>Gustatory</name>
+         </node>
+         <node>
+            <name>Tactile</name>
+         </node>
+         <node>
             <name>Olfactory</name>
          </node>
          <node>
-            <name>Haptic</name>
-         </node>
-         <node>
-            <name>Gustatory</name>
+            <name>Vestibular</name>
          </node>
          <node>
             <name>Visual</name>
@@ -1459,6 +1483,9 @@
          <node>
             <name>Rural</name>
          </node>
+         <node>
+            <name>Treadmill</name>
+         </node>
       </node>
       <node extensionAllowed="true">
          <name>Experimental</name>
@@ -1542,6 +1569,12 @@
             <node>
                <name>Imagined</name>
                <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
+            </node>
+            <node>
+               <name>Background</name>
+            </node>
+            <node>
+               <name>Cued</name>
             </node>
             <node>
                <name>Intended effect</name>
