@@ -192,27 +192,28 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Cough 
 **** Gurgle
 **** Hiccup 
+**** Smile
 **** Sneeze 
 **** Sniffle
 **** Swallow
 **** Yawn 
 *** Nod
-** Move arms-hands
-*** Scratch 
+** Move arm-hand
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Grab
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
 *** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+*** Make fist
+*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 *** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
 *** Push
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 *** Release <nowiki>[Often grouped with item being released.]</nowiki>
 *** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+*** Scratch 
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Grab
-*** Push
-*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-** Move legs-feet
+** Move leg-foot
 *** Step
 **** Heel-strike 
 **** Toe-off
@@ -222,6 +223,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Jog
 *** Jump
 *** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
+*** Curl toes
 * Operate
 * Communicate
 ** Communicate verbally
@@ -469,7 +471,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Child 
 ***** Teacher
 ***** Student
-***** Subject
+***** Experimental subject
 ***** Experimenter
 ***** <nowiki># {takesValue}</nowiki> 
 **** Association <nowiki>{requireChild}</nowiki> 
