@@ -479,13 +479,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Emotional 
 *** Reflexive
 *** Intentional
-**** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-**** Positive valence <nowiki> [Valence by itself can be the name of an emotion such as sadness so this tag distinguishes the type of emotion]</nowiki> 
-**** Negative valence 
-*** Priming 
-**** Motoric priming
-**** Emotional priming
-**** Perceptual priming
+*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 *** Subliminal 
 **** Unmasked subliminal
 **** Masked subliminal
@@ -509,6 +503,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
 *** Instructional 
+*** Priming 
 *** Meaningful 
 *** Not meaningful 
 *** Newly learned meaning 
