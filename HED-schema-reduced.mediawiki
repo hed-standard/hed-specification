@@ -44,6 +44,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Box
 ***** Cube
 **** Cylinder
+**** Cone
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
 *** Building <nowiki>[Whole building or building feature]</nowiki>

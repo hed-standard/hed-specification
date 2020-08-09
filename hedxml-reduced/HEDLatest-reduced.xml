@@ -98,6 +98,9 @@
                   <name>Cylinder</name>
                </node>
                <node>
+                  <name>Cone</name>
+               </node>
+               <node>
                   <name>Pyradmid</name>
                </node>
             </node>
