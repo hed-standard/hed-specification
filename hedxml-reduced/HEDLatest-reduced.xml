@@ -979,6 +979,19 @@
             <description>Human-readable text description of the event.</description>
             <node takesValue="true">
                <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Metadata</name>
+            <description>A tag used within a tag group indicate to designate information about the data such as file size or author.</description>
+            <node requireChild="true">
+               <name>Creation date</name>
+               <node takesValue="true" unitClass="datetime">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Subject</name>
                <node takesValue="true">
                   <name>#</name>
                </node>
@@ -1006,21 +1019,8 @@
          <node requireChild="true">
             <name>Feature</name>
             <description>As a Name:Value</description>
-         </node>
-         <node>
-            <name>Metadata</name>
-            <description>A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.</description>
-            <node requireChild="true">
-               <name>Creation date</name>
-               <node takesValue="true" unitClass="datetime">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Subject</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
+            <node takesValue="true">
+               <name>#</name>
             </node>
             <node requireChild="true">
                <name>Parameter</name>
@@ -1036,7 +1036,7 @@
          </node>
          <node>
             <name>Trial</name>
-            <description>An event used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
+            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
          </node>
       </node>
       <node extensionAllowed="true">
