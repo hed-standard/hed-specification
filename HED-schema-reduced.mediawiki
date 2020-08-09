@@ -358,7 +358,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Greater than or equal to
 *** Equal to
 *** Not equal to
-** Informational predicate
+** Connective predicate
 *** Connected to
 *** Contained in
 *** Described by
