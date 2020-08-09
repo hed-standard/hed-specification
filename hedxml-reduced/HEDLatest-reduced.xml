@@ -1063,7 +1063,7 @@
             </node>
          </node>
          <node>
-            <name>Informational predicate</name>
+            <name>Connective predicate</name>
             <node>
                <name>Connected to</name>
             </node>
