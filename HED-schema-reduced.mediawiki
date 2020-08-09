@@ -513,9 +513,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Reflexive
 *** Intentional
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-*** Subliminal 
-**** Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
-**** Liminal <nowiki>At the 75%-25% perception threshold]</nowiki> 
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 **** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ***** Leader 

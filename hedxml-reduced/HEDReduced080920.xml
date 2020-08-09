@@ -201,7 +201,7 @@
             </node>
             <node>
                <name>Furnishing</name>
-               <description>Furniture and appliances and other movable accessories including curtains and rugs</description>
+               <description>The instrumentalities (furniture and appliances and other movable accessories including curtains and rugs) that make a home (or other area) livable</description>
             </node>
             <node>
                <name>Vehicle</name>
@@ -279,12 +279,6 @@
             <name>Natural</name>
             <node>
                <name>Plant</name>
-               <node>
-                  <name>Tree</name>
-               </node>
-               <node>
-                  <name>Shrub</name>
-               </node>
             </node>
             <node>
                <name>Mineral</name>
@@ -995,6 +989,9 @@
          <node>
             <name>Metadata</name>
             <description>A tag used within a tag group indicate to designate information about the data such as file size or author. May also be used directly with a value.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
             <node requireChild="true">
                <name>Creation date</name>
                <node takesValue="true" unitClass="datetime">
@@ -1003,7 +1000,6 @@
             </node>
             <node requireChild="true">
                <name>Parameter</name>
-               <description>As a Name:Value</description>
                <node takesValue="true">
                   <name>#</name>
                </node>
@@ -1023,112 +1019,73 @@
       <node extensionAllowed="true">
          <name>Relational</name>
          <node>
-            <name>Comparative predicate</name>
-            <node>
-               <name>Less than</name>
-            </node>
-            <node>
-               <name>Less an or equal to</name>
-            </node>
-            <node>
-               <name>Greater than</name>
-            </node>
-            <node>
-               <name>Greater than or equal to</name>
-            </node>
-            <node>
-               <name>Equal to</name>
-            </node>
-            <node>
-               <name>Not equal to</name>
-            </node>
+            <name>From-to</name>
          </node>
          <node>
-            <name>Informational predicate</name>
-            <node>
-               <name>Connected to</name>
-            </node>
-            <node>
-               <name>Contained in</name>
-            </node>
-            <node>
-               <name>Described by</name>
-            </node>
-            <node>
-               <name>From-to</name>
-            </node>
-            <node>
-               <name>Group of</name>
-            </node>
-            <node>
-               <name>Implied by</name>
-            </node>
-            <node>
-               <name>Part of</name>
-            </node>
-            <node>
-               <name>Performed by</name>
-            </node>
+            <name>Described by</name>
          </node>
          <node>
-            <name>Positional predicate</name>
-            <node>
-               <name>Above</name>
-            </node>
-            <node>
-               <name>Adjacent to</name>
-            </node>
-            <node>
-               <name>Ahead of</name>
-            </node>
-            <node>
-               <name>Around</name>
-            </node>
-            <node>
-               <name>Behind</name>
-            </node>
-            <node>
-               <name>Below</name>
-            </node>
-            <node>
-               <name>Close to</name>
-            </node>
-            <node>
-               <name>Far from</name>
-            </node>
-            <node>
-               <name>Inside of</name>
-            </node>
-            <node>
-               <name>Left of</name>
-            </node>
-            <node>
-               <name>Outside of</name>
-            </node>
-            <node>
-               <name>Over</name>
-            </node>
-            <node>
-               <name>Right of</name>
-            </node>
-            <node>
-               <name>Under</name>
-            </node>
+            <name>Part of</name>
          </node>
          <node>
-            <name>Temporal predicate</name>
-            <node>
-               <name>After</name>
-            </node>
-            <node>
-               <name>Before</name>
-            </node>
-            <node>
-               <name>During</name>
-            </node>
-            <node>
-               <name>Finishes with</name>
-            </node>
+            <name>Contained in</name>
+         </node>
+         <node>
+            <name>Performed by</name>
+         </node>
+         <node>
+            <name>Connected to</name>
+         </node>
+         <node>
+            <name>Inside</name>
+         </node>
+         <node>
+            <name>Outside</name>
+         </node>
+         <node>
+            <name>Adjacent</name>
+         </node>
+         <node>
+            <name>Ahead</name>
+         </node>
+         <node>
+            <name>Behind</name>
+         </node>
+         <node>
+            <name>Above</name>
+         </node>
+         <node>
+            <name>Below</name>
+         </node>
+         <node>
+            <name>Over</name>
+         </node>
+         <node>
+            <name>Under</name>
+         </node>
+         <node>
+            <name>Around</name>
+         </node>
+         <node>
+            <name>Left of</name>
+         </node>
+         <node>
+            <name>Right of</name>
+         </node>
+         <node>
+            <name>Less than</name>
+         </node>
+         <node>
+            <name>Less an or equal to</name>
+         </node>
+         <node>
+            <name>Greater than</name>
+         </node>
+         <node>
+            <name>Greater than or equal to</name>
+         </node>
+         <node>
+            <name>Equal to</name>
          </node>
       </node>
       <node extensionAllowed="true">
@@ -1178,103 +1135,103 @@
       <node extensionAllowed="true">
          <name>Categorical</name>
          <node>
-            <name>Nominal</name>
-            <node>
-               <name>Congruent</name>
-            </node>
-            <node>
-               <name>Incongruent</name>
-            </node>
-            <node>
-               <name>Positive</name>
-            </node>
-            <node>
-               <name>Negative</name>
-            </node>
-            <node>
-               <name>High</name>
-            </node>
-            <node>
-               <name>Low</name>
-            </node>
-            <node>
-               <name>Medium</name>
-            </node>
-            <node>
-               <name>Normal</name>
-            </node>
-            <node>
-               <name>Valid</name>
-            </node>
-            <node>
-               <name>Invalid</name>
-            </node>
-            <node>
-               <name>Correct</name>
-            </node>
-            <node>
-               <name>Incorrect</name>
-            </node>
-            <node>
-               <name>Non-informative</name>
-            </node>
-            <node>
-               <name>Missed</name>
-            </node>
-            <node>
-               <name>Appropriate</name>
-            </node>
-            <node>
-               <name>Inappropriate</name>
-            </node>
-            <node>
-               <name>Indeterminate</name>
-            </node>
-            <node>
-               <name>Extraneous</name>
-            </node>
-            <node>
-               <name>Subliminal</name>
-            </node>
-            <node>
-               <name>Liminal</name>
-            </node>
-            <node>
-               <name>Supraliminal</name>
-            </node>
-            <node>
-               <name>True</name>
-            </node>
-            <node>
-               <name>False</name>
-            </node>
+            <name>Positive</name>
          </node>
          <node>
-            <name>Directional</name>
-            <node>
-               <name>Increasing</name>
-            </node>
-            <node>
-               <name>Decreasing</name>
-            </node>
-            <node>
-               <name>Steady</name>
-            </node>
-            <node>
-               <name>Opening</name>
-            </node>
-            <node>
-               <name>Closing</name>
-            </node>
-            <node>
-               <name>Continuous</name>
-            </node>
-            <node>
-               <name>Repetitive</name>
-            </node>
-            <node>
-               <name>Discrete</name>
-            </node>
+            <name>Negative</name>
+         </node>
+         <node>
+            <name>Fast</name>
+         </node>
+         <node>
+            <name>Slow</name>
+         </node>
+         <node>
+            <name>High</name>
+         </node>
+         <node>
+            <name>Low</name>
+         </node>
+         <node>
+            <name>Medium</name>
+         </node>
+         <node>
+            <name>Normal</name>
+         </node>
+         <node>
+            <name>Increasing</name>
+         </node>
+         <node>
+            <name>Decreasing</name>
+         </node>
+         <node>
+            <name>Steady</name>
+         </node>
+         <node>
+            <name>Opening</name>
+         </node>
+         <node>
+            <name>Closing</name>
+         </node>
+         <node>
+            <name>Continuous</name>
+         </node>
+         <node>
+            <name>Repetitive</name>
+         </node>
+         <node>
+            <name>Discrete</name>
+         </node>
+         <node>
+            <name>Valid</name>
+         </node>
+         <node>
+            <name>Invalid</name>
+         </node>
+         <node>
+            <name>Correct</name>
+         </node>
+         <node>
+            <name>Incorrect</name>
+         </node>
+         <node>
+            <name>Non-informative</name>
+         </node>
+         <node>
+            <name>Missed</name>
+         </node>
+         <node>
+            <name>Appropriate</name>
+         </node>
+         <node>
+            <name>Inappropriate</name>
+         </node>
+         <node>
+            <name>Indeterminate</name>
+         </node>
+         <node>
+            <name>Extraneous</name>
+         </node>
+         <node>
+            <name>Subliminal</name>
+         </node>
+         <node>
+            <name>Liminal</name>
+         </node>
+         <node>
+            <name>Supraliminal</name>
+         </node>
+         <node>
+            <name>Nearby</name>
+         </node>
+         <node>
+            <name>Distant</name>
+         </node>
+         <node>
+            <name>True</name>
+         </node>
+         <node>
+            <name>False</name>
          </node>
       </node>
       <node extensionAllowed="true">
@@ -1551,6 +1508,16 @@
                <description>Only in the context of 2D emotion representation</description>
             </node>
             <node>
+               <name>Subliminal</name>
+               <node>
+                  <name>Supraliminal</name>
+                  <description>By default this is assumed about each stimulus</description>
+               </node>
+               <node>
+                  <name>Liminal At the 75</name>
+               </node>
+            </node>
+            <node>
                <name>Social</name>
                <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
                <node requireChild="true">
@@ -1675,6 +1642,12 @@
             </node>
             <node>
                <name>Distractor</name>
+            </node>
+            <node>
+               <name>Congruent</name>
+            </node>
+            <node>
+               <name>Incongruent</name>
             </node>
             <node>
                <name>Feedback</name>
