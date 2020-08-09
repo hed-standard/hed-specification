@@ -1022,12 +1022,12 @@
             <node takesValue="true">
                <name>#</name>
             </node>
-            <node requireChild="true">
-               <name>Parameter</name>
-               <description>As a Name:Value</description>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
+         </node>
+         <node requireChild="true">
+            <name>Parameter</name>
+            <description>As a Name:Value</description>
+            <node takesValue="true">
+               <name>#</name>
             </node>
          </node>
          <node>

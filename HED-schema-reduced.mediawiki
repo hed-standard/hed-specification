@@ -346,8 +346,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 ** Feature <nowiki>{requireChild} [As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
-*** Parameter <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-**** <nowiki># {takesValue}</nowiki> 
+** Parameter <nowiki>{requireChild} [As a Name:Value]</nowiki> 
+*** <nowiki># {takesValue}</nowiki> 
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
