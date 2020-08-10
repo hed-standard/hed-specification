@@ -517,27 +517,26 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rural
 ** Treadmill
 * Experimental <nowiki>{extensionAllowed}</nowiki>
-** Participant-related
+** Agent-related
 *** Attentional
 *** Emotional 
 *** Reflexive
 *** Intentional
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-**** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-***** Leader 
-***** Follower
-***** Parent
-***** Child 
-***** Teacher
-***** Student
-***** Experimental subject
-***** Experimenter
-***** <nowiki># {takesValue}</nowiki> 
-**** Association <nowiki>{requireChild}</nowiki> 
-***** Associated with someone else <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-***** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-** Paradigm-related
+*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+**** Leader 
+**** Follower
+**** Parent
+**** Child 
+**** Teacher
+**** Student
+**** Experimental subject
+**** Experimenter
+*** Association <nowiki>{requireChild}</nowiki> 
+**** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+** Task-related
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Background
 *** Cued
