@@ -353,7 +353,7 @@ There are four ways to define the scope of an event.  The most common method is 
 * Relational <nowiki>{extensionAllowed}</nowiki>
 ** Comparative predicate
 *** Less than
-*** Less an or equal to
+*** Less than or equal to
 *** Greater than
 *** Greater than or equal to
 *** Equal to
