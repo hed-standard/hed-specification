@@ -386,7 +386,19 @@ There are four ways to define the scope of an event.  The most common method is 
 *** After
 *** Before
 *** During
-*** Finishes with
+** Spatiotemporal predicate
+*** Away from
+*** Towards
+*** Increasing
+*** Decreasing
+*** Steady
+*** Opening
+*** Closing
+*** Continuous
+*** Repetitive
+*** Discrete
+*** Deterministic
+*** Stochastic
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item count
 *** <nowiki># {takesValue}</nowiki>  
@@ -401,41 +413,21 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
-** Nominal
-*** Congruent
-*** Incongruent 
-*** Positive
-*** Negative
-*** High
-*** Low
-*** Medium
-*** Normal
-*** Valid
-*** Invalid
-*** Correct
-*** Incorrect
-*** Non-informative
-*** Missed
-*** Appropriate
-*** Inappropriate
-*** Indeterminate
-*** Extraneous
-*** Subliminal
-*** Liminal
-*** Supraliminal
-*** True
-*** False
-** Directional
-*** Increasing
-*** Decreasing
-*** Steady
-*** Opening
-*** Closing
-*** Continuous
-*** Repetitive
-*** Discrete
-*** Deterministic
-*** Stochastic
+** Congruent
+** Incongruent 
+** Positive
+** Negative
+** High
+** Low
+** Medium
+** Normal
+** Valid
+** Invalid
+** Correct
+** Incorrect
+
+** True
+** False
 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
@@ -523,6 +515,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Reflexive
 *** Intentional
 *** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+*** Subliminal
+*** Liminal
+*** Supraliminal
 *** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 *** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 **** Leader 
@@ -537,6 +532,12 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 **** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 ** Task-related
+*** Non-informative
+*** Missed
+*** Appropriate
+*** Inappropriate
+*** Indeterminate
+*** Extraneous
 *** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Background
 *** Cued
