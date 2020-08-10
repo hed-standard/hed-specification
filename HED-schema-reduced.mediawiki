@@ -23,6 +23,29 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Mishap <nowiki> {extensionAllowed} [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Experiment structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
+'''Agent''' <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
+* Human
+** Head
+*** Hair
+*** Ear
+*** Face
+**** Cheek
+**** Chin
+**** Eye
+**** Eyebrow
+**** Forehead
+**** Lip
+**** Nose
+**** Mouth
+** Hand
+*** Finger
+** Foot
+*** Toe
+** Torso
+** Leg
+** Arm
+* Animal
+* Robot
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
@@ -118,29 +141,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Waterfall
 ** Food
 ** Drink
-* Agent
-** Human
-*** Head
-**** Hair
-**** Ear
-**** Face
-***** Cheek
-***** Chin
-***** Eye
-***** Eyebrow
-***** Forehead
-***** Lip
-***** Nose
-***** Mouth
-*** Hand
-**** Finger
-*** Foot
-**** Toe
-*** Torso
-*** Leg
-*** Arm
-** Animal
-** Robot
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Character
