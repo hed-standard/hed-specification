@@ -477,7 +477,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** White <nowiki>[Color #FFFFFF]</nowiki> 
 ***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
 
-* Spatial-temporal <nowiki>{extensionAllowed}</nowiki>
+* Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
 *** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
