@@ -7,8 +7,8 @@ the current version of HED (a.k.a. HED-Phase 2) you want the Master branch. Huma
 are presented in `.mediawiki` format. The machine-readable versions are in `.xml`. There is also a `.html` expandable view which
 makes it easier to see what the tags are. You can read a white paper on the development of HED-Phase 3 at:
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1). 
-> Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).  
+> Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
 > https://doi.org/10.31219/osf.io/5fg73
 
 ### HED if you are tagging data (latest release of HED)
