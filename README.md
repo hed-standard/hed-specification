@@ -5,7 +5,11 @@ Hierarchical Event Descriptor (HED) specification.
 This branch (HED-restructure) is the development branch of HED (a.k.a. HED-Phase 3). If you are tagging a dataset with
 the current version of HED (a.k.a. HED-Phase 2) you want the Master branch. Human-readable versions of the HED schema
 are presented in `.mediawiki` format. The machine-readable versions are in `.xml`. There is also a `.html` expandable view which
-makes it easier to see what the tags are. 
+makes it easier to see what the tags are. You can read a white paper on the development of HED-Phase 3 at:
+
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).  
+> Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
+> https://doi.org/10.31219/osf.io/5fg73
 
 ### HED if you are tagging data (latest release of HED)
 The current version (latest release) of HED is HED 7.0.5 can be found on the Master branch of this repository. However,
@@ -25,7 +29,8 @@ the reduced schema. Here are the views of the HED restructuring in progress:
 
 > [**Expandable html view reduced schema**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
 
-> [**Google doc with mapping of HED 7.1.1 into the restructured version**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing)  
+> [**Google doc with mapping of HED 7.1.1 into the restructured version**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing) 
+
 
 ### For HED validation
 The stable link for software requiring the HED schema for validation is
