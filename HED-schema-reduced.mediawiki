@@ -155,11 +155,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 *** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
+** Human sound <nowiki>[Often used with an action to indicate that it makes a sound.]</nowiki>
+*** Vocal
 ** Music
 ** Named sound
 *** Alarm
 *** Buzz
-*** Cash register
+*** Ka-ching <nowiki>[Cash register sound]</nowiki>
 *** Click
 *** Ding
 *** Horn
@@ -169,6 +171,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Noise
 *** White noise
 *** Colored noise
+** Object sound  <nowiki>[Used with a specific object.]</nowiki>
 ** Vocal sound <nowiki>{Sounds made by humans including both speaking, singing, and other sounds.]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
@@ -664,7 +667,6 @@ There are four ways to define the scope of an event.  The most common method is 
 !# end hed 
 
 '''Attribute Definitions:'''
-* default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
