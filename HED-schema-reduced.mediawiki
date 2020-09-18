@@ -210,6 +210,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Yawn 
 *** Nod
 ** Move arm-hand
+*** Clap
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Grab
 *** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
@@ -222,7 +223,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
 *** Release <nowiki>[Often grouped with item being released.]</nowiki>
 *** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-*** Scratch 
+*** Scratch
+*** Snap fingers
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move leg-foot
