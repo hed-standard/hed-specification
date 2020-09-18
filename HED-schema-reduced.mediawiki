@@ -172,7 +172,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** White noise
 *** Colored noise
 ** Object sound  <nowiki>[Used with a specific object.]</nowiki>
-** Vocal sound <nowiki>{Sounds made by humans including both speaking, singing, and other sounds.]</nowiki>
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
