@@ -154,7 +154,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Animal sound
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
-*** <nowiki># {takesValue} [A text-description of a complex environmental sound]</nowiki>
 ** Human sound <nowiki>[Often used with an action to indicate that it makes a sound.]</nowiki>
 *** Vocal
 ** Music
