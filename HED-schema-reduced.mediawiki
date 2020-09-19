@@ -82,13 +82,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Machine
 **** IO device
 ***** Input device
-***** Haptic device
 ****** Button
 ****** Joystick
 ****** Keyboard
 ****** Keypad
+****** Microphone
 ****** Mouse
 ****** Touch screen
+***** Network device
 ***** Output device
 ****** Display
 ******* Screen 
@@ -102,8 +103,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ******* Tape recording
 ******* File recording
 **** Computing device
-
-
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
 *** Vehicle
 **** Bicycle 
