@@ -44,6 +44,76 @@
       </node>
    </node>
    <node extensionAllowed="true">
+      <name>Agent</name>
+      <description>Something that acts during the experiment (either living or inanimate).</description>
+      <node>
+         <name>Human</name>
+         <node>
+            <name>Head</name>
+            <node>
+               <name>Hair</name>
+            </node>
+            <node>
+               <name>Ear</name>
+            </node>
+            <node>
+               <name>Face</name>
+               <node>
+                  <name>Cheek</name>
+               </node>
+               <node>
+                  <name>Chin</name>
+               </node>
+               <node>
+                  <name>Eye</name>
+               </node>
+               <node>
+                  <name>Eyebrow</name>
+               </node>
+               <node>
+                  <name>Forehead</name>
+               </node>
+               <node>
+                  <name>Lip</name>
+               </node>
+               <node>
+                  <name>Nose</name>
+               </node>
+               <node>
+                  <name>Mouth</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Hand</name>
+            <node>
+               <name>Finger</name>
+            </node>
+         </node>
+         <node>
+            <name>Foot</name>
+            <node>
+               <name>Toe</name>
+            </node>
+         </node>
+         <node>
+            <name>Torso</name>
+         </node>
+         <node>
+            <name>Leg</name>
+         </node>
+         <node>
+            <name>Arm</name>
+         </node>
+      </node>
+      <node>
+         <name>Animal</name>
+      </node>
+      <node>
+         <name>Robot</name>
+      </node>
+   </node>
+   <node extensionAllowed="true">
       <name>Item</name>
       <node extensionAllowed="true">
          <name>Object</name>
@@ -325,75 +395,6 @@
          </node>
       </node>
       <node>
-         <name>Agent</name>
-         <node>
-            <name>Human</name>
-            <node>
-               <name>Head</name>
-               <node>
-                  <name>Hair</name>
-               </node>
-               <node>
-                  <name>Ear</name>
-               </node>
-               <node>
-                  <name>Face</name>
-                  <node>
-                     <name>Cheek</name>
-                  </node>
-                  <node>
-                     <name>Chin</name>
-                  </node>
-                  <node>
-                     <name>Eye</name>
-                  </node>
-                  <node>
-                     <name>Eyebrow</name>
-                  </node>
-                  <node>
-                     <name>Forehead</name>
-                  </node>
-                  <node>
-                     <name>Lip</name>
-                  </node>
-                  <node>
-                     <name>Nose</name>
-                  </node>
-                  <node>
-                     <name>Mouth</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Hand</name>
-               <node>
-                  <name>Finger</name>
-               </node>
-            </node>
-            <node>
-               <name>Foot</name>
-               <node>
-                  <name>Toe</name>
-               </node>
-            </node>
-            <node>
-               <name>Torso</name>
-            </node>
-            <node>
-               <name>Leg</name>
-            </node>
-            <node>
-               <name>Arm</name>
-            </node>
-         </node>
-         <node>
-            <name>Animal</name>
-         </node>
-         <node>
-            <name>Robot</name>
-         </node>
-      </node>
-      <node>
          <name>Language</name>
          <description>Perceivable in a visual or auditory (spoken) sensory presentation</description>
          <node>
@@ -486,21 +487,21 @@
       <name>Action</name>
       <description>May or may not be in response to a previous Sensory presentation event.</description>
       <node>
-         <name>Breathe</name>
-         <node>
-            <name>Inhale</name>
-            <description>A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).</description>
-         </node>
-         <node>
-            <name>Exhale</name>
-            <description>A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).</description>
-         </node>
-         <node>
-            <name>Hold breath</name>
-         </node>
-      </node>
-      <node>
          <name>Move</name>
+         <node>
+            <name>Breathe</name>
+            <node>
+               <name>Inhale</name>
+               <description>A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).</description>
+            </node>
+            <node>
+               <name>Exhale</name>
+               <description>A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).</description>
+            </node>
+            <node>
+               <name>Hold breath</name>
+            </node>
+         </node>
          <node>
             <name>Move full-body</name>
             <node>
@@ -822,6 +823,7 @@
    </node>
    <node requireChild="true">
       <name>Participant</name>
+      <description>Participant is an agent being monitored by the experiment in some way.</description>
       <node extensionAllowed="true" requireChild="true">
          <name>Cognitive state</name>
          <node>
@@ -997,9 +999,23 @@
                </node>
             </node>
          </node>
+         <node requireChild="true">
+            <name>Feature</name>
+            <description>As a Name:Value</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Parameter</name>
+            <description>As a Name:Value</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
       </node>
       <node>
-         <name>Annotational</name>
+         <name>Organizational</name>
          <node>
             <name>Block</name>
             <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
@@ -1015,20 +1031,6 @@
          <node>
             <name>Definition</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
-         </node>
-         <node requireChild="true">
-            <name>Feature</name>
-            <description>As a Name:Value</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Parameter</name>
-            <description>As a Name:Value</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
          </node>
          <node>
             <name>Task</name>
@@ -1145,8 +1147,44 @@
             <node>
                <name>During</name>
             </node>
+         </node>
+         <node>
+            <name>Spatiotemporal predicate</name>
             <node>
-               <name>Finishes with</name>
+               <name>Away from</name>
+            </node>
+            <node>
+               <name>Towards</name>
+            </node>
+            <node>
+               <name>Increasing</name>
+            </node>
+            <node>
+               <name>Decreasing</name>
+            </node>
+            <node>
+               <name>Steady</name>
+            </node>
+            <node>
+               <name>Opening</name>
+            </node>
+            <node>
+               <name>Closing</name>
+            </node>
+            <node>
+               <name>Continuous</name>
+            </node>
+            <node>
+               <name>Repetitive</name>
+            </node>
+            <node>
+               <name>Discrete</name>
+            </node>
+            <node>
+               <name>Deterministic</name>
+            </node>
+            <node>
+               <name>Stochastic</name>
             </node>
          </node>
       </node>
@@ -1197,109 +1235,46 @@
       <node extensionAllowed="true">
          <name>Categorical</name>
          <node>
-            <name>Nominal</name>
-            <node>
-               <name>Congruent</name>
-            </node>
-            <node>
-               <name>Incongruent</name>
-            </node>
-            <node>
-               <name>Positive</name>
-            </node>
-            <node>
-               <name>Negative</name>
-            </node>
-            <node>
-               <name>High</name>
-            </node>
-            <node>
-               <name>Low</name>
-            </node>
-            <node>
-               <name>Medium</name>
-            </node>
-            <node>
-               <name>Normal</name>
-            </node>
-            <node>
-               <name>Valid</name>
-            </node>
-            <node>
-               <name>Invalid</name>
-            </node>
-            <node>
-               <name>Correct</name>
-            </node>
-            <node>
-               <name>Incorrect</name>
-            </node>
-            <node>
-               <name>Non-informative</name>
-            </node>
-            <node>
-               <name>Missed</name>
-            </node>
-            <node>
-               <name>Appropriate</name>
-            </node>
-            <node>
-               <name>Inappropriate</name>
-            </node>
-            <node>
-               <name>Indeterminate</name>
-            </node>
-            <node>
-               <name>Extraneous</name>
-            </node>
-            <node>
-               <name>Subliminal</name>
-            </node>
-            <node>
-               <name>Liminal</name>
-            </node>
-            <node>
-               <name>Supraliminal</name>
-            </node>
-            <node>
-               <name>True</name>
-            </node>
-            <node>
-               <name>False</name>
-            </node>
+            <name>Congruent</name>
          </node>
          <node>
-            <name>Directional</name>
-            <node>
-               <name>Increasing</name>
-            </node>
-            <node>
-               <name>Decreasing</name>
-            </node>
-            <node>
-               <name>Steady</name>
-            </node>
-            <node>
-               <name>Opening</name>
-            </node>
-            <node>
-               <name>Closing</name>
-            </node>
-            <node>
-               <name>Continuous</name>
-            </node>
-            <node>
-               <name>Repetitive</name>
-            </node>
-            <node>
-               <name>Discrete</name>
-            </node>
-            <node>
-               <name>Deterministic</name>
-            </node>
-            <node>
-               <name>Stochastic</name>
-            </node>
+            <name>Incongruent</name>
+         </node>
+         <node>
+            <name>Positive</name>
+         </node>
+         <node>
+            <name>Negative</name>
+         </node>
+         <node>
+            <name>High</name>
+         </node>
+         <node>
+            <name>Low</name>
+         </node>
+         <node>
+            <name>Medium</name>
+         </node>
+         <node>
+            <name>Normal</name>
+         </node>
+         <node>
+            <name>Valid</name>
+         </node>
+         <node>
+            <name>Invalid</name>
+         </node>
+         <node>
+            <name>Correct</name>
+         </node>
+         <node>
+            <name>Incorrect</name>
+         </node>
+         <node>
+            <name>True</name>
+         </node>
+         <node>
+            <name>False</name>
          </node>
       </node>
       <node extensionAllowed="true">
@@ -1440,7 +1415,7 @@
          </node>
       </node>
       <node extensionAllowed="true">
-         <name>Spatial-temporal</name>
+         <name>Spatiotemporal</name>
          <node>
             <name>Spatial</name>
             <node requireChild="true">
@@ -1564,7 +1539,7 @@
       <node extensionAllowed="true">
          <name>Experimental</name>
          <node>
-            <name>Participant-related</name>
+            <name>Agent-related</name>
             <node>
                <name>Attentional</name>
             </node>
@@ -1582,54 +1557,78 @@
                <description>Only in the context of 2D emotion representation</description>
             </node>
             <node>
+               <name>Subliminal</name>
+            </node>
+            <node>
+               <name>Liminal</name>
+            </node>
+            <node>
+               <name>Supraliminal</name>
+            </node>
+            <node>
                <name>Social</name>
                <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
-               <node requireChild="true">
-                  <name>Role</name>
-                  <description>The role of the agent (participant, character, AI..)</description>
-                  <node>
-                     <name>Leader</name>
-                  </node>
-                  <node>
-                     <name>Follower</name>
-                  </node>
-                  <node>
-                     <name>Parent</name>
-                  </node>
-                  <node>
-                     <name>Child</name>
-                  </node>
-                  <node>
-                     <name>Teacher</name>
-                  </node>
-                  <node>
-                     <name>Student</name>
-                  </node>
-                  <node>
-                     <name>Experimental subject</name>
-                  </node>
-                  <node>
-                     <name>Experimenter</name>
-                  </node>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
+            </node>
+            <node requireChild="true">
+               <name>Role</name>
+               <description>The role of the agent (participant, character, AI..)</description>
+               <node>
+                  <name>Leader</name>
                </node>
-               <node requireChild="true">
-                  <name>Association</name>
-                  <node>
-                     <name>Associated with someone else</name>
-                     <description>Item such as a cup belonging to another person</description>
-                  </node>
-                  <node>
-                     <name>Associated with self</name>
-                     <description>Item such as a cup belonging to the participant</description>
-                  </node>
+               <node>
+                  <name>Follower</name>
+               </node>
+               <node>
+                  <name>Parent</name>
+               </node>
+               <node>
+                  <name>Child</name>
+               </node>
+               <node>
+                  <name>Teacher</name>
+               </node>
+               <node>
+                  <name>Student</name>
+               </node>
+               <node>
+                  <name>Experimental subject</name>
+               </node>
+               <node>
+                  <name>Experimenter</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Association</name>
+               <node>
+                  <name>Associated with others</name>
+                  <description>Item such as a cup belonging to another person</description>
+               </node>
+               <node>
+                  <name>Associated with self</name>
+                  <description>Item such as a cup belonging to the participant</description>
                </node>
             </node>
          </node>
          <node>
-            <name>Paradigm-related</name>
+            <name>Task-related</name>
+            <node>
+               <name>Non-informative</name>
+            </node>
+            <node>
+               <name>Missed</name>
+            </node>
+            <node>
+               <name>Appropriate</name>
+            </node>
+            <node>
+               <name>Inappropriate</name>
+            </node>
+            <node>
+               <name>Indeterminate</name>
+            </node>
+            <node>
+               <name>Extraneous</name>
+            </node>
             <node>
                <name>Imagined</name>
                <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
@@ -1716,10 +1715,6 @@
             </node>
          </node>
       </node>
-   </node>
-   <node extensionAllowed="true" requireChild="true">
-      <name>Custom</name>
-      <description>This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.</description>
    </node>
    <unitClasses>
       <unitClass defaultUnits="s">
