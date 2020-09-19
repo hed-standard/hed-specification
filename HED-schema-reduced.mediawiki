@@ -78,7 +78,8 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
-**** Tool 
+**** Tool
+**** Machine
 **** Display
 ***** Screen 
 ***** Head-mounted display
@@ -152,6 +153,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Textblock
 * Sound
 ** Animal sound
+*** Bark
+*** Bleat
+*** Crow
+*** Chirp
+*** Meow
+*** Moo
+*** Roar
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
 ** Human sound <nowiki>[Often used with an action to indicate that it makes a sound.]</nowiki>
@@ -494,7 +502,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Onset
 *** Offset
 *** Response delay
-*** Sychnronous
+*** Synchronous
 *** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
