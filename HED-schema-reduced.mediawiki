@@ -157,8 +157,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Bleat
 *** Crow
 *** Chirp
+*** Growl
 *** Meow
 *** Moo
+*** Purr
 *** Roar
 ** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 ** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
@@ -359,6 +361,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki> 
+** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki> 
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
