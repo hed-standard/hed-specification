@@ -80,30 +80,30 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Device
 **** Tool
 **** Machine
-**** Display
-***** Screen 
-***** Head-mounted display
-***** Window
-***** 2D view
-***** 3D view 
-***** Satellite view
-**** Auditory device
-***** Headphones
-***** Screen speaker
-***** Loudspeaker
-**** Communication device
+**** IO device
+***** Input device
+***** Haptic device
+****** Button
+****** Joystick
+****** Keyboard
+****** Keypad
+****** Mouse
+****** Touch screen
+***** Output device
+****** Display
+******* Screen 
+******* Head-mounted display
+****** Auditory device
+******* Headphones
+******* Screen speaker
+******* Loudspeaker
+****** Recording device
+******* Motion capture
+******* Tape recording
+******* File recording
 **** Computing device
-**** Haptic device
-***** Button
-***** Joystick
-***** Keyboard
-***** Keypad
-***** Mouse
-***** Touch screen
-**** Recording device
-***** Motion capture
-***** Tape recording
-***** File recording
+
+
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
 *** Vehicle
 **** Bicycle 
@@ -440,7 +440,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Invalid
 ** Correct
 ** Incorrect
-
 ** True
 ** False
 
@@ -483,7 +482,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Red <nowiki>[Color #FF0000]</nowiki>
 ***** White <nowiki>[Color #FFFFFF]</nowiki> 
 ***** Yellow <nowiki>[Color #FFFF00]</nowiki>  
-
+* Presentation
+** Window
+*** 2D view
+*** 3D view 
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
