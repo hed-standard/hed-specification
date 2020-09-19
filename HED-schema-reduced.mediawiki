@@ -78,8 +78,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
-**** Tool
-**** Machine
+**** Engine
 **** IO device
 ***** Input device
 ****** Button
@@ -98,11 +97,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ******* Headphones
 ******* Screen speaker
 ******* Loudspeaker
-****** Recording device
-******* Motion capture
-******* Tape recording
-******* File recording
+***** Recording device
+****** Motion capture
+****** Tape recording
+****** File recording
 **** Computing device
+**** Machine
+**** Tool
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
 *** Vehicle
 **** Bicycle 
