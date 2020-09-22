@@ -70,6 +70,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Cone
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
+*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Animation
+**** Drawing
+**** Painting
+**** Art installation
+**** Photograph
+**** Movie
+**** Sculpture
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -105,7 +113,18 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Machine
 ***** Noisemaker
 **** Tool
+***	Document <nowiki>[A physical, written document]</nowiki>
+**** Manuscript
+**** Letter
+**** Note
+**** Book
+**** Notebook
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
+*** Navigational object
+**** Path
+**** Road
+**** Runway
+**** Sign
 *** Vehicle
 **** Bicycle 
 **** Car 
@@ -115,21 +134,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Tractor 
 **** Train 
 **** Aircraft 
-
-*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
-**** Animation
-**** Drawing
-**** Painting
-**** Art installation
-**** Photograph
-**** Movie
-**** Sculpture
-***	Document <nowiki>[A physical, written document]</nowiki>
-**** Manuscript
-**** Letter
-**** Note
-**** Book
-**** Notebook
 ** Natural
 *** Plant
 **** Tree
@@ -236,6 +240,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move leg-foot
+*** Cycle
 *** Step
 **** Heel-strike 
 **** Toe-off
@@ -374,12 +379,14 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Equal to
 *** Not equal to
 ** Connective predicate
+*** Belongs to   [As in owned by]
 *** Connected to
 *** Contained in
 *** Described by
 *** From-to
 *** Group of
 *** Implied by
+*** Member of
 *** Part of
 *** Performed by
 ** Positional predicate
