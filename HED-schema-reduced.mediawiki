@@ -52,6 +52,8 @@ There are four ways to define the scope of an event.  The most common method is 
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Geometric
 *** Pattern
+**** Dots
+**** Led pattern
 *** 2D shape
 **** Ellipse
 ***** Circle
@@ -150,6 +152,7 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Character
+** Glyph
 ** Phoneme
 ** Word
 ** Phrase
@@ -454,9 +457,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Biological
 ** Clinical
 ** Complex
+** Composite
 ** Electrical
+** Fractal
 ** Mechanical
 ** Magnetic
+** Numerical
+** Random
+** Symbolic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
