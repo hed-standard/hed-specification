@@ -1,4 +1,4 @@
-HED version: v1.6.4-reduced
+HED version: v1.6.5-reduced
 
 '''Syntax'''  
 
@@ -52,6 +52,8 @@ There are four ways to define the scope of an event.  The most common method is 
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Geometric
 *** Pattern
+**** Dots
+**** Led pattern
 *** 2D shape
 **** Ellipse
 ***** Circle
@@ -70,6 +72,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Cone
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
+*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Animation
+**** Drawing
+**** Painting
+**** Art installation
+**** Photograph
+**** Movie
+**** Sculpture
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -105,7 +115,18 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Machine
 ***** Noisemaker
 **** Tool
+***	Document <nowiki>[A physical, written document]</nowiki>
+**** Manuscript
+**** Letter
+**** Note
+**** Book
+**** Notebook
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
+*** Navigational object
+**** Path
+**** Road
+**** Runway
+**** Sign
 *** Vehicle
 **** Bicycle 
 **** Car 
@@ -115,21 +136,6 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Tractor 
 **** Train 
 **** Aircraft 
-
-*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
-**** Animation
-**** Drawing
-**** Painting
-**** Art installation
-**** Photograph
-**** Movie
-**** Sculpture
-***	Document <nowiki>[A physical, written document]</nowiki>
-**** Manuscript
-**** Letter
-**** Note
-**** Book
-**** Notebook
 ** Natural
 *** Plant
 **** Tree
@@ -146,6 +152,7 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Character
+** Glyph
 ** Phoneme
 ** Word
 ** Phrase
@@ -236,6 +243,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move leg-foot
+*** Cycle
 *** Step
 **** Heel-strike 
 **** Toe-off
@@ -374,12 +382,14 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Equal to
 *** Not equal to
 ** Connective predicate
+*** Belongs to   [As in owned by]
 *** Connected to
 *** Contained in
 *** Described by
 *** From-to
 *** Group of
 *** Implied by
+*** Member of
 *** Part of
 *** Performed by
 ** Positional predicate
@@ -442,7 +452,19 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Incorrect
 ** True
 ** False
-
+* Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
+** Abstract
+** Biological
+** Clinical
+** Complex
+** Composite
+** Electrical
+** Fractal
+** Mechanical
+** Magnetic
+** Numerical
+** Random
+** Symbolic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
