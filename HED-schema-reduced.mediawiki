@@ -449,7 +449,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Incorrect
 ** True
 ** False
-
+* Descriptive property <nowiki>[Indicate the type of thing.]</nowiki>
+** Abstract
+** Biological
+** Clinical
+** Complex
+** Electrical
+** Mechanical
+** Magnetic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
