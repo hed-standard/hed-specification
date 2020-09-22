@@ -151,8 +151,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Nonword
 ** Sentence
 ** Textblock
-* Sound
-** Animal sound
+* Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+** Named animal sound
 *** Bark
 *** Bleat
 *** Crow
@@ -162,12 +162,12 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Moo
 *** Purr
 *** Roar
-** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
-** Environmental sound<nowiki>[A background sound from the surrounding environment. For example machine operating or people walking]</nowiki>
-** Human sound <nowiki>[Often used with an action to indicate that it makes a sound.]</nowiki>
-*** Vocal
-** Music
-** Named sound
+** Named environmental sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
+*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+*** Noise
+**** White noise
+**** Colored noise
+** Named object sound
 *** Alarm
 *** Buzz
 *** Ka-ching <nowiki>[Cash register sound]</nowiki>
@@ -175,12 +175,11 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Ding
 *** Horn
 *** Siren
+** Unsure-what-category
 *** Tone
+*** Music
 *** Noisemaker
-** Noise
-*** White noise
-*** Colored noise
-** Object sound  <nowiki>[Used with a specific object.]</nowiki>
+
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
