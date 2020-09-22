@@ -1,4 +1,4 @@
-HED version: v1.6.1-restruct
+HED version: v1.6.2-restruct
 
 '''Syntax'''  
 
@@ -1112,12 +1112,12 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** day 
 ** minute 
-** hour 
+** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
+** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format.]</nowiki> 
 * clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
-** hour:min <nowiki>{unitSymbol}</nowiki> 
-** h:m <nowiki>{unitSymbol}</nowiki> 
-** hour:min:sec <nowiki>{unitSymbol}</nowiki> 
-** h:&#8203;m:s <nowiki>{unitSymbol}</nowiki> 
+** hour:min <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
+** hour:min:sec <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
