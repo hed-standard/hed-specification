@@ -251,7 +251,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Communicate vocally
 *** Cry
 *** Groan
-*** Gulp
+*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
 ***	Laugh
 *** Scream
 *** Sigh
