@@ -103,6 +103,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** File recording
 **** Computing device
 **** Machine
+***** Noisemaker
 **** Tool
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
 *** Vehicle
@@ -178,7 +179,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Unsure-what-category
 *** Tone
 *** Music
-*** Noisemaker
 
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
