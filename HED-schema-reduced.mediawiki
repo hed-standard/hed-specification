@@ -1,4 +1,4 @@
-HED version: v1.6.3-reduced
+HED version: v1.6.4-reduced
 
 '''Syntax'''  
 
@@ -13,7 +13,7 @@ There are four ways to define the scope of an event.  The most common method is 
 
 '''Event''' 
 * Sensory event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
-* Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Participant action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
 * Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experiment control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
@@ -251,7 +251,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Communicate vocally
 *** Cry
 *** Groan
-*** Gulp
+*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
 ***	Laugh
 *** Scream
 *** Sigh
