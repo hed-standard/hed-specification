@@ -1,4 +1,4 @@
-HED version: v1.6.5-reduced
+HED version: v1.6.6-reduced
 
 '''Syntax'''  
 
@@ -195,23 +195,23 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Hold breath
 ** Move full-body
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Bend 
+*** Bend
 *** Dance
+*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
+***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
 *** Shudder 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
 *** Turn
 ** Move head
 *** Move eyes
-**** Saccade
-**** Fixate
 **** Blink
-**** Open eyes <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-**** Close eyes<nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
+**** Close eyes
+**** Fixate
+**** Open eyes 
+**** Saccade
 *** Move mouth
 **** Burp 
 **** Clear throat
@@ -243,17 +243,17 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move leg-foot
+*** Curl toes
 *** Cycle
+*** Jog
+*** Jump
+*** Kick 
 *** Step
 **** Heel-strike 
 **** Toe-off
 *** Run
-*** Walk
 *** Trot
-*** Jog
-*** Jump
-*** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
-*** Curl toes
+*** Walk
 * Operate
 * Communicate
 ** Communicate vocally
@@ -265,19 +265,19 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sigh
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
-***	Shrug
-***	Thumb(s) up
+***	Index up
 ***	Pump fist
 ***	Spread hand
-***	Wave
-***	Index up
 ***	Shhh
+***	Shrug
+***	Thumb(s) up
+***	Wave
 ** Communicate musically
 *** Hum
 *** Sing
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
-
+* Rest 
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend
@@ -293,7 +293,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Read 
 ** Recall
 ** Repeat
-** Rest 
 ** Switch attention
 ** Track
 
@@ -389,6 +388,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** From-to
 *** Group of
 *** Implied by
+*** Interacts with
 *** Member of
 *** Part of
 *** Performed by
@@ -403,6 +403,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Far from
 *** Inside of
 *** Left of
+*** On top of
 *** Outside of
 *** Over
 *** Right of
@@ -460,6 +461,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Composite
 ** Electrical
 ** Fractal
+** Involuntary
 ** Mechanical
 ** Magnetic
 ** Numerical
