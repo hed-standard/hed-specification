@@ -23,29 +23,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Experiment structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
-'''Agent''' <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-* Human
-** Head
-*** Hair
-*** Ear
-*** Face
-**** Cheek
-**** Chin
-**** Eye
-**** Eyebrow
-**** Forehead
-**** Lip
-**** Nose
-**** Mouth
-** Hand
-*** Finger
-** Foot
-*** Toe
-** Torso
-** Leg
-** Arm
-* Animal
-* Robot
+
+
+
+
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
@@ -88,6 +69,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
+**** Computing device
 **** Engine
 **** IO device
 ***** Input device
@@ -111,9 +93,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Motion capture
 ****** Tape recording
 ****** File recording
-**** Computing device
 **** Machine
 ***** Noisemaker
+**** Robot
 **** Tool
 ***	Document <nowiki>[A physical, written document]</nowiki>
 **** Manuscript
@@ -137,9 +119,28 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Train 
 **** Aircraft 
 ** Natural
+*** Animal
+*** Human
+**** Head
+***** Hair
+***** Ear
+***** Face
+****** Cheek
+****** Chin
+****** Eye
+****** Eyebrow
+****** Forehead
+****** Lip
+****** Nose
+****** Mouth
+**** Hand
+***** Finger
+**** Foot
+***** Toe
+**** Torso
+**** Leg
+**** Arm
 *** Plant
-**** Tree
-**** Shrub
 *** Mineral
 *** Terrain
 **** Field
@@ -705,9 +706,12 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Supraliminal
 ** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 ** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+*** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
 *** Leader 
 *** Follower
 *** Parent
+**** Father
+**** Mother
 *** Child 
 *** Teacher
 *** Student
