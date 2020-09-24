@@ -455,6 +455,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Incorrect
 ** True
 ** False
+** Subliminal
+** Liminal
+** Supraliminal
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Biological
@@ -701,9 +704,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Reflexive
 ** Intentional
 ** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-** Subliminal
-** Liminal
-** Supraliminal
+
 ** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
 ** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 *** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
