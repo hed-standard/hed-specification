@@ -1,4 +1,4 @@
-HED version: v1.6.7-reduced
+HED version: v1.6.8-reduced
 
 '''Syntax'''  
 
@@ -23,29 +23,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Experiment structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
-'''Agent''' <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-* Human
-** Head
-*** Hair
-*** Ear
-*** Face
-**** Cheek
-**** Chin
-**** Eye
-**** Eyebrow
-**** Forehead
-**** Lip
-**** Nose
-**** Mouth
-** Hand
-*** Finger
-** Foot
-*** Toe
-** Torso
-** Leg
-** Arm
-* Animal
-* Robot
+
+
+
+
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
@@ -88,6 +69,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
+**** Computing device
 **** Engine
 **** IO device
 ***** Input device
@@ -111,9 +93,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Motion capture
 ****** Tape recording
 ****** File recording
-**** Computing device
 **** Machine
 ***** Noisemaker
+**** Robot
 **** Tool
 ***	Document <nowiki>[A physical, written document]</nowiki>
 **** Manuscript
@@ -137,9 +119,28 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Train 
 **** Aircraft 
 ** Natural
+*** Animal
+*** Human
+**** Head
+***** Hair
+***** Ear
+***** Face
+****** Cheek
+****** Chin
+****** Eye
+****** Eyebrow
+****** Forehead
+****** Lip
+****** Nose
+****** Mouth
+**** Hand
+***** Finger
+**** Foot
+***** Toe
+**** Torso
+**** Leg
+**** Arm
 *** Plant
-**** Tree
-**** Shrub
 *** Mineral
 *** Terrain
 **** Field
@@ -297,55 +298,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Switch attention
 ** Track
 
-
-'''Participant''' <nowiki>{requireChild}[Participant is an agent being monitored by the experiment in some way.]</nowiki> 
-* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
-** Anesthetized 
-** Asleep
-** Attentive
-** Awake 
-** Brain-dead 
-** Comatose 
-** Drowsy 
-** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
-** Locked-in 
-** Resting
-** Vegetative 
-
-
-* Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Aroused
-** Awed 
-** Frustrated 
-** Joyful 
-** Angry 
-** Happy
-** Sad 
-** Loving 
-** Fearful
-** Compassionate
-** Empathetic
-** Jealous 
-** Content
-** Grieving 
-** Relieved 
-** Excited 
-** Disgusted  
-* Postural state<nowiki>{requireChild}</nowiki> 
-** Crouching
-** Sitting
-** Standing
-** Kneeling
-** Prone
-** Supported by chin rest
-* Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Age
-*** <nowiki># {takesValue}</nowiki>
-** Sex
-*** <nowiki># {takesValue}</nowiki> 
-** Handedness
-*** <nowiki># {takesValue}</nowiki> 
-
 '''Attribute''' 
 * Informational <nowiki>{extensionAllowed}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
@@ -374,14 +326,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
-** Comparative predicate
+** Comparative relation
 *** Less than
 *** Less than or equal to
 *** Greater than
 *** Greater than or equal to
 *** Equal to
 *** Not equal to
-** Connective predicate
+** Connective relation
 *** Belongs to   [As in owned by]
 *** Connected to
 *** Contained in
@@ -393,7 +345,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Member of
 *** Part of
 *** Performed by
-** Positional predicate
+** Positional relation
 *** Above
 *** Adjacent to
 *** Ahead of
@@ -409,11 +361,11 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Over
 *** Right of
 *** Under
-** Temporal predicate
+** Temporal relation
 *** After
 *** Before
 *** During
-** Spatiotemporal predicate
+** Spatiotemporal relation
 *** Away from
 *** Towards
 *** Increasing
@@ -454,6 +406,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Incorrect
 ** True
 ** False
+** Subliminal
+** Liminal
+** Supraliminal
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Biological
@@ -694,61 +649,106 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Urban
 ** Rural
 ** Treadmill
-* Experimental <nowiki>{extensionAllowed}</nowiki>
-** Agent-related
-*** Attentional
-*** Emotional 
-*** Reflexive
-*** Intentional
-*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-*** Subliminal
-*** Liminal
-*** Supraliminal
-*** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-**** Leader 
-**** Follower
-**** Parent
-**** Child 
-**** Teacher
-**** Student
-**** Experimental subject
-**** Experimenter
-*** Association <nowiki>{requireChild}</nowiki> 
-**** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-** Task-related
-*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-*** Appropriate
-*** Background
-*** Cued
-*** Distractor 
-*** Erroroneous
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
-*** Extraneous
-*** Feedback 
-*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-*** Inappropriate
-*** Indeterminate
-*** Instructional 
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
-*** Masked
-*** Missed
-*** Meaningful
-*** Newly learned meaning 
-*** Non-informative
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Not meaningful 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-*** Planned
-*** Penalizing
-*** Priming
-*** Rewarding 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Threatening
-*** Unmasked
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+* Agent-related
+** Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+*** Anesthetized 
+*** Asleep
+*** Attentive
+*** Awake 
+*** Brain-dead 
+*** Comatose 
+*** Drowsy 
+*** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+*** Locked-in 
+*** Resting
+*** Vegetative 
+** Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Aroused
+*** Awed 
+*** Frustrated 
+*** Joyful 
+*** Angry 
+*** Happy
+*** Sad 
+*** Loving 
+*** Fearful
+*** Compassionate
+*** Empathetic
+*** Jealous 
+*** Content
+*** Grieving 
+*** Relieved 
+*** Excited 
+*** Disgusted  
+** Postural state<nowiki>{requireChild}</nowiki> 
+*** Crouching
+*** Sitting
+*** Standing
+*** Kneeling
+*** Prone
+*** Supported by chin rest
+** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Age
+**** <nowiki># {takesValue}</nowiki>
+*** Sex
+**** <nowiki># {takesValue}</nowiki> 
+*** Handedness
+**** <nowiki># {takesValue}</nowiki> 
+
+** Attentional
+** Emotional 
+** Reflexive
+** Intentional
+** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki>
+
+* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
+** Leader 
+** Follower
+** Parent
+*** Father
+*** Mother
+** Child 
+** Teacher
+** Student
+** Experimental subject
+** Experimenter
+** Association <nowiki>{requireChild}</nowiki> 
+*** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+*** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+* Task-related
+** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Appropriate
+** Background
+** Cued
+** Distractor 
+** Erroroneous
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Extraneous
+** Feedback 
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate
+** Indeterminate
+** Instructional 
+** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+** Masked
+** Missed
+** Meaningful
+** Newly learned meaning 
+** Non-informative
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Not meaningful 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+** Planned
+** Penalizing
+** Priming
+** Rewarding 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Threatening
+** Unmasked
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
 
 '''Unit classes''' 
