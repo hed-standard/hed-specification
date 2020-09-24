@@ -498,7 +498,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
 **** CSS color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
-***** Blue colors
+***** Blue color
 ****** CadetBlue
 ****** SteelBlue
 ****** LightSteelBlue
@@ -515,7 +515,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkBlue
 ****** Navy
 ****** MidnightBlue
-***** Brown colors
+***** Brown color
 ****** Cornsilk 
 ****** BlanchedAlmond 
 ****** Bisque 
@@ -534,7 +534,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Sienna 
 ****** Brown 
 ****** Maroon 
-***** Cyan colors
+***** Cyan color
 ****** Aqua
 ****** Cyan
 ****** LightCyan
@@ -543,7 +543,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Turquoise
 ****** MediumTurquoise
 ****** DarkTurquoise
-***** Green colors
+***** Green color
 ****** GreenYellow
 ****** Chartreuse
 ****** LawnGreen
@@ -566,7 +566,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** LightSeaGreen
 ****** DarkCyan
 ****** Teal
-***** Grey colors
+***** Grey color
 ****** Gainsboro
 ****** LightGray
 ****** Silver
@@ -577,20 +577,20 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** SlateGray
 ****** DarkSlateGray
 ****** Black
-***** Orange colors
+***** Orange color
 ****** Orange
 ****** DarkOrange
 ****** Coral
 ****** Tomato
 ****** OrangeRed
-***** Pink colors
+***** Pink color
 ****** Pink
 ****** LightPink
 ****** HotPink
 ****** DeepPink
 ****** PaleVioletRed
 ****** MediumVioletRed
-***** Purple colors
+***** Purple color
 ****** Lavender
 ****** Thistle
 ****** Plum
@@ -610,8 +610,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkSlateBlue
 ****** RebeccaPurple
 ****** Indigo
-
-***** Red colors
+***** Red color
 ****** LightSalmon
 ****** Salmon
 ****** DarkSalmon
@@ -621,8 +620,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Red
 ****** FireBrick
 ****** DarkRed
-
-***** Yellow colors
+***** Yellow color
 ****** Gold
 ****** Yellow
 ****** LightYellow
@@ -634,7 +632,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** PaleGoldenRod
 ****** Khaki
 ****** DarkKhaki
-***** White colors
+***** White color
 ****** White
 ****** Snow
 ****** HoneyDew
