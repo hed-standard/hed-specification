@@ -566,7 +566,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** LightSeaGreen
 ****** DarkCyan
 ****** Teal
-***** Grey color
+***** Gray color
 ****** Gainsboro
 ****** LightGray
 ****** Silver
