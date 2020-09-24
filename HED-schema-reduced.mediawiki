@@ -694,61 +694,60 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Urban
 ** Rural
 ** Treadmill
-* Experimental <nowiki>{extensionAllowed}</nowiki>
-** Agent-related
-*** Attentional
-*** Emotional 
-*** Reflexive
-*** Intentional
-*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-*** Subliminal
-*** Liminal
-*** Supraliminal
-*** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-**** Leader 
-**** Follower
-**** Parent
-**** Child 
-**** Teacher
-**** Student
-**** Experimental subject
-**** Experimenter
-*** Association <nowiki>{requireChild}</nowiki> 
-**** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-** Task-related
-*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-*** Appropriate
-*** Background
-*** Cued
-*** Distractor 
-*** Erroroneous
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
-*** Extraneous
-*** Feedback 
-*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-*** Inappropriate
-*** Indeterminate
-*** Instructional 
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
-*** Masked
-*** Missed
-*** Meaningful
-*** Newly learned meaning 
-*** Non-informative
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Not meaningful 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-*** Planned
-*** Penalizing
-*** Priming
-*** Rewarding 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Threatening
-*** Unmasked
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+* Agent-related
+** Attentional
+** Emotional 
+** Reflexive
+** Intentional
+** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+** Subliminal
+** Liminal
+** Supraliminal
+** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
+** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+*** Leader 
+*** Follower
+*** Parent
+*** Child 
+*** Teacher
+*** Student
+*** Experimental subject
+*** Experimenter
+** Association <nowiki>{requireChild}</nowiki> 
+*** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+*** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+* Task-related
+** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Appropriate
+** Background
+** Cued
+** Distractor 
+** Erroroneous
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Extraneous
+** Feedback 
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate
+** Indeterminate
+** Instructional 
+** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+** Masked
+** Missed
+** Meaningful
+** Newly learned meaning 
+** Non-informative
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Not meaningful 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+** Planned
+** Penalizing
+** Priming
+** Rewarding 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Threatening
+** Unmasked
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
 
 '''Unit classes''' 
