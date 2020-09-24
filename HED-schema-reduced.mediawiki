@@ -1,4 +1,4 @@
-HED version: v1.6.6-reduced
+HED version: v1.6.7-reduced
 
 '''Syntax'''  
 
@@ -153,12 +153,13 @@ There are four ways to define the scope of an event.  The most common method is 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Character
 ** Glyph
-** Phoneme
-** Word
-** Phrase
 ** Nonword
+** Phoneme
+** Phrase
 ** Sentence
+** Syllable
 ** Textblock
+** Word
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Named animal sound
 *** Bark
@@ -498,7 +499,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
 **** CSS color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
-***** Blue colors
+***** Blue color
 ****** CadetBlue
 ****** SteelBlue
 ****** LightSteelBlue
@@ -515,7 +516,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkBlue
 ****** Navy
 ****** MidnightBlue
-***** Brown colors
+***** Brown color
 ****** Cornsilk 
 ****** BlanchedAlmond 
 ****** Bisque 
@@ -534,7 +535,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Sienna 
 ****** Brown 
 ****** Maroon 
-***** Cyan colors
+***** Cyan color
 ****** Aqua
 ****** Cyan
 ****** LightCyan
@@ -543,7 +544,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Turquoise
 ****** MediumTurquoise
 ****** DarkTurquoise
-***** Green colors
+***** Green color
 ****** GreenYellow
 ****** Chartreuse
 ****** LawnGreen
@@ -566,7 +567,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** LightSeaGreen
 ****** DarkCyan
 ****** Teal
-***** Grey colors
+***** Gray color
 ****** Gainsboro
 ****** LightGray
 ****** Silver
@@ -577,20 +578,20 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** SlateGray
 ****** DarkSlateGray
 ****** Black
-***** Orange colors
+***** Orange color
 ****** Orange
 ****** DarkOrange
 ****** Coral
 ****** Tomato
 ****** OrangeRed
-***** Pink colors
+***** Pink color
 ****** Pink
 ****** LightPink
 ****** HotPink
 ****** DeepPink
 ****** PaleVioletRed
 ****** MediumVioletRed
-***** Purple colors
+***** Purple color
 ****** Lavender
 ****** Thistle
 ****** Plum
@@ -610,8 +611,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkSlateBlue
 ****** RebeccaPurple
 ****** Indigo
-
-***** Red colors
+***** Red color
 ****** LightSalmon
 ****** Salmon
 ****** DarkSalmon
@@ -621,8 +621,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Red
 ****** FireBrick
 ****** DarkRed
-
-***** Yellow colors
+***** Yellow color
 ****** Gold
 ****** Yellow
 ****** LightYellow
@@ -634,7 +633,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** PaleGoldenRod
 ****** Khaki
 ****** DarkKhaki
-***** White colors
+***** White color
 ****** White
 ****** Snow
 ****** HoneyDew
@@ -719,37 +718,37 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 **** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 ** Task-related
-*** Non-informative
-*** Missed
+*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 *** Appropriate
-*** Inappropriate
-*** Indeterminate
-*** Extraneous
-*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 *** Background
 *** Cued
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
-*** Instructional 
-*** Priming
-*** Masked
-*** Unmasked
-*** Meaningful 
-*** Not meaningful 
-*** Newly learned meaning 
-*** Rewarding 
-*** Penalizing
-*** Erroroneous
-*** Threatening
-*** Planned
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
 *** Distractor 
+*** Erroroneous
+*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+*** Extraneous
 *** Feedback 
-*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+*** Inappropriate
+*** Indeterminate
+*** Instructional 
+*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+*** Masked
+*** Missed
+*** Meaningful
+*** Newly learned meaning 
+*** Non-informative
+*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+*** Not meaningful 
+*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+*** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+*** Planned
+*** Penalizing
+*** Priming
+*** Rewarding 
+*** Target <nowiki>[Something the subject is looking for]</nowiki> 
+*** Threatening
+*** Unmasked
+*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
 
 '''Unit classes''' 
