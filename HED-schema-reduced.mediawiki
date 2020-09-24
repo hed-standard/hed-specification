@@ -298,55 +298,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Switch attention
 ** Track
 
-
-'''Participant''' <nowiki>{requireChild}[Participant is an agent being monitored by the experiment in some way.]</nowiki> 
-* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
-** Anesthetized 
-** Asleep
-** Attentive
-** Awake 
-** Brain-dead 
-** Comatose 
-** Drowsy 
-** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
-** Locked-in 
-** Resting
-** Vegetative 
-
-
-* Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Aroused
-** Awed 
-** Frustrated 
-** Joyful 
-** Angry 
-** Happy
-** Sad 
-** Loving 
-** Fearful
-** Compassionate
-** Empathetic
-** Jealous 
-** Content
-** Grieving 
-** Relieved 
-** Excited 
-** Disgusted  
-* Postural state<nowiki>{requireChild}</nowiki> 
-** Crouching
-** Sitting
-** Standing
-** Kneeling
-** Prone
-** Supported by chin rest
-* Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Age
-*** <nowiki># {takesValue}</nowiki>
-** Sex
-*** <nowiki># {takesValue}</nowiki> 
-** Handedness
-*** <nowiki># {takesValue}</nowiki> 
-
 '''Attribute''' 
 * Informational <nowiki>{extensionAllowed}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
@@ -699,25 +650,70 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rural
 ** Treadmill
 * Agent-related
+** Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+*** Anesthetized 
+*** Asleep
+*** Attentive
+*** Awake 
+*** Brain-dead 
+*** Comatose 
+*** Drowsy 
+*** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+*** Locked-in 
+*** Resting
+*** Vegetative 
+** Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Aroused
+*** Awed 
+*** Frustrated 
+*** Joyful 
+*** Angry 
+*** Happy
+*** Sad 
+*** Loving 
+*** Fearful
+*** Compassionate
+*** Empathetic
+*** Jealous 
+*** Content
+*** Grieving 
+*** Relieved 
+*** Excited 
+*** Disgusted  
+** Postural state<nowiki>{requireChild}</nowiki> 
+*** Crouching
+*** Sitting
+*** Standing
+*** Kneeling
+*** Prone
+*** Supported by chin rest
+** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Age
+**** <nowiki># {takesValue}</nowiki>
+*** Sex
+**** <nowiki># {takesValue}</nowiki> 
+*** Handedness
+**** <nowiki># {takesValue}</nowiki> 
+
 ** Attentional
 ** Emotional 
 ** Reflexive
 ** Intentional
 ** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki>
 
-** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-*** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-*** Leader 
-*** Follower
-*** Parent
-**** Father
-**** Mother
-*** Child 
-*** Teacher
-*** Student
-*** Experimental subject
-*** Experimenter
+* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
+** Leader 
+** Follower
+** Parent
+*** Father
+*** Mother
+** Child 
+** Teacher
+** Student
+** Experimental subject
+** Experimenter
 ** Association <nowiki>{requireChild}</nowiki> 
 *** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
