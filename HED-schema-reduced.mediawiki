@@ -13,7 +13,7 @@ There are four ways to define the scope of an event.  The most common method is 
 
 '''Event''' 
 * Sensory event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
-* Participant action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Agent action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
 * Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experiment control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
@@ -133,13 +133,19 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Lip
 ****** Nose
 ****** Mouth
-**** Hand
-***** Finger
-**** Foot
-***** Toe
-**** Torso
-**** Leg
-**** Arm
+**** Body
+***** Hand
+****** Finger
+******* Index finger
+******* Little finger
+******* Middle finger
+******* Ring finger
+******* Thumb finger
+***** Foot
+****** Toe
+***** Torso
+***** Leg
+***** Arm
 *** Plant
 *** Mineral
 *** Terrain
