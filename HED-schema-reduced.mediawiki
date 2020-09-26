@@ -385,7 +385,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Deterministic
 *** Stochastic
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Item count
+** Item-count
 *** <nowiki># {takesValue}</nowiki>  
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
@@ -443,23 +443,23 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-**** HSV color
+**** HSV-color
 ***** Hue 
 ****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
 ***** Saturation 
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-***** HSV value 
+***** HSV-value 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
-**** RGB color
-***** RGB Red 
+**** RGB-color
+***** RGB-red 
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-***** RGB Blue 
+***** RGB-blue 
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-***** RGB Green 
+***** RGB-green 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
-**** CSS color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
+**** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
 ***** Blue-color
 ****** CadetBlue
 ****** SteelBlue
@@ -656,7 +656,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rural
 ** Treadmill
 * Agent-related
-** Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
+** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Anesthetized 
 *** Asleep
 *** Attentive
@@ -668,7 +668,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Locked-in 
 *** Resting
 *** Vegetative 
-** Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki> 
 *** Aroused
 *** Awed 
 *** Frustrated 
@@ -686,13 +686,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Relieved 
 *** Excited 
 *** Disgusted  
-** Postural state<nowiki>{requireChild}</nowiki> 
+** Postural-state<nowiki>{requireChild}</nowiki> 
 *** Crouching
 *** Sitting
 *** Standing
 *** Kneeling
 *** Prone
-*** Supported by chin rest
+*** Supported-by-chin-rest
 ** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
 *** Age
 **** <nowiki># {takesValue}</nowiki>
@@ -737,7 +737,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Inappropriate
 ** Indeterminate
 ** Instructional 
-** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+** Intended-effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
 ** Masked
 ** Missed
 ** Meaningful
