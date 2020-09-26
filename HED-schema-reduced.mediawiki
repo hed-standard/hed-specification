@@ -657,6 +657,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Treadmill
 * Agent-related
 ** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
+*** Alert
 *** Anesthetized 
 *** Asleep
 *** Attentive
@@ -668,30 +669,31 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Locked-in 
 *** Resting
 *** Vegetative 
-** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki> 
-*** Aroused
-*** Awed 
-*** Frustrated 
-*** Joyful 
+** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Angry 
-*** Happy
-*** Sad 
-*** Loving 
-*** Fearful
+*** Aroused
+*** Awed
 *** Compassionate
-*** Empathetic
-*** Jealous 
 *** Content
-*** Grieving 
-*** Relieved 
+*** Disgusted 
+*** Emotionally-neutral
+*** Empathetic
 *** Excited 
-*** Disgusted  
+*** Fearful
+*** Frustrated
+*** Grieving
+*** Happy
+*** Jealous 
+*** Joyful 
+*** Loving 
+*** Relieved
+*** Sad 
 ** Postural-state<nowiki>{requireChild}</nowiki> 
 *** Crouching
-*** Sitting
-*** Standing
 *** Kneeling
 *** Prone
+*** Sitting
+*** Standing
 *** Supported-by-chin-rest
 ** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
 *** Age
