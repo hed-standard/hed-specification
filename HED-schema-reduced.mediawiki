@@ -168,7 +168,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Textblock
 ** Word
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
-** Named animal sound
+** Named-animal-sound
 *** Bark
 *** Bleat
 *** Crow
@@ -237,9 +237,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Grab
 *** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Hold down
+*** Hold-down
 *** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-*** Make fist
+*** Make-fist
 *** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
 *** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
 *** Push
