@@ -1148,7 +1148,7 @@
       <node extensionAllowed="true">
          <name>Quantitative</name>
          <node>
-            <name>Item count</name>
+            <name>Item-count</name>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1329,7 +1329,7 @@
             <node requireChild="true">
                <name>Color</name>
                <node>
-                  <name>HSV color</name>
+                  <name>HSV-color</name>
                   <node>
                      <name>Hue</name>
                      <node isNumeric="true" takesValue="true">
@@ -1345,7 +1345,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>HSV value</name>
+                     <name>HSV-value</name>
                      <node isNumeric="true" takesValue="true">
                         <name>#</name>
                         <description>G value of RGB between 0 and 1</description>
@@ -1353,23 +1353,23 @@
                   </node>
                </node>
                <node>
-                  <name>RGB color</name>
+                  <name>RGB-color</name>
                   <node>
-                     <name>RGB Red</name>
+                     <name>RGB-red</name>
                      <node isNumeric="true" takesValue="true">
                         <name>#</name>
                         <description>R value of RGB between 0 and 1</description>
                      </node>
                   </node>
                   <node>
-                     <name>RGB Blue</name>
+                     <name>RGB-blue</name>
                      <node isNumeric="true" takesValue="true">
                         <name>#</name>
                         <description>B value of RGB between 0 and 1</description>
                      </node>
                   </node>
                   <node>
-                     <name>RGB Green</name>
+                     <name>RGB-green</name>
                      <node isNumeric="true" takesValue="true">
                         <name>#</name>
                         <description>G value of RGB between 0 and 1</description>
@@ -1385,7 +1385,7 @@
                   </node>
                </node>
                <node>
-                  <name>CSS color</name>
+                  <name>CSS-color</name>
                   <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
                   <node>
                      <name>Blue-color</name>
@@ -1984,7 +1984,10 @@
       <node>
          <name>Agent-related</name>
          <node extensionAllowed="true" requireChild="true">
-            <name>Cognitive state</name>
+            <name>Cognitive-state</name>
+            <node>
+               <name>Alert</name>
+            </node>
             <node>
                <name>Anesthetized</name>
             </node>
@@ -2021,7 +2024,10 @@
             </node>
          </node>
          <node extensionAllowed="true" requireChild="true">
-            <name>Emotional state</name>
+            <name>Emotional-state</name>
+            <node>
+               <name>Angry</name>
+            </node>
             <node>
                <name>Aroused</name>
             </node>
@@ -2029,61 +2035,55 @@
                <name>Awed</name>
             </node>
             <node>
-               <name>Frustrated</name>
-            </node>
-            <node>
-               <name>Joyful</name>
-            </node>
-            <node>
-               <name>Angry</name>
-            </node>
-            <node>
-               <name>Happy</name>
-            </node>
-            <node>
-               <name>Sad</name>
-            </node>
-            <node>
-               <name>Loving</name>
-            </node>
-            <node>
-               <name>Fearful</name>
-            </node>
-            <node>
                <name>Compassionate</name>
-            </node>
-            <node>
-               <name>Empathetic</name>
-            </node>
-            <node>
-               <name>Jealous</name>
             </node>
             <node>
                <name>Content</name>
             </node>
             <node>
-               <name>Grieving</name>
+               <name>Disgusted</name>
             </node>
             <node>
-               <name>Relieved</name>
+               <name>Emotionally-neutral</name>
+            </node>
+            <node>
+               <name>Empathetic</name>
             </node>
             <node>
                <name>Excited</name>
             </node>
             <node>
-               <name>Disgusted</name>
+               <name>Fearful</name>
+            </node>
+            <node>
+               <name>Frustrated</name>
+            </node>
+            <node>
+               <name>Grieving</name>
+            </node>
+            <node>
+               <name>Happy</name>
+            </node>
+            <node>
+               <name>Jealous</name>
+            </node>
+            <node>
+               <name>Joyful</name>
+            </node>
+            <node>
+               <name>Loving</name>
+            </node>
+            <node>
+               <name>Relieved</name>
+            </node>
+            <node>
+               <name>Sad</name>
             </node>
          </node>
          <node requireChild="true">
-            <name>Postural state</name>
+            <name>Postural-state</name>
             <node>
                <name>Crouching</name>
-            </node>
-            <node>
-               <name>Sitting</name>
-            </node>
-            <node>
-               <name>Standing</name>
             </node>
             <node>
                <name>Kneeling</name>
@@ -2092,7 +2092,13 @@
                <name>Prone</name>
             </node>
             <node>
-               <name>Supported by chin rest</name>
+               <name>Sitting</name>
+            </node>
+            <node>
+               <name>Standing</name>
+            </node>
+            <node>
+               <name>Supported-by-chin-rest</name>
             </node>
          </node>
          <node extensionAllowed="true" requireChild="true">
@@ -2199,7 +2205,7 @@
             <name>Background</name>
          </node>
          <node>
-            <name>Cued</name>
+            <name>Cue</name>
          </node>
          <node>
             <name>Distractor</name>
@@ -2231,7 +2237,7 @@
             <name>Instructional</name>
          </node>
          <node>
-            <name>Intended effect</name>
+            <name>Intended-effect</name>
             <description>How the stimulus is expected to effect the participants</description>
          </node>
          <node>
