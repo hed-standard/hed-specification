@@ -1,21 +1,21 @@
 <?xml version="1.0" ?>
-<HED version="v1.6.9-reduced">
+<HED version="v1.6.6-reduced">
    <node>
       <name>Event</name>
       <node>
-         <name>Sensory-event</name>
+         <name>Sensory event</name>
          <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.</description>
       </node>
       <node>
-         <name>Agent-action</name>
-         <description>Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.</description>
+         <name>Participant action</name>
+         <description>Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.</description>
       </node>
       <node>
-         <name>Data-feature</name>
+         <name>Data feature</name>
          <description>An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.</description>
       </node>
       <node extensionAllowed="true">
-         <name>Experiment-control</name>
+         <name>Experiment control</name>
          <description>An event pertaining to the control of the experiment during its operation.</description>
          <node>
             <name>Instruction</name>
@@ -39,8 +39,78 @@
          </node>
       </node>
       <node extensionAllowed="true">
-         <name>Experiment-structure</name>
+         <name>Experiment structure</name>
          <description>An event specifying the structure of the experiment.</description>
+      </node>
+   </node>
+   <node extensionAllowed="true">
+      <name>Agent</name>
+      <description>Something that acts during the experiment (either living or inanimate).</description>
+      <node>
+         <name>Human</name>
+         <node>
+            <name>Head</name>
+            <node>
+               <name>Hair</name>
+            </node>
+            <node>
+               <name>Ear</name>
+            </node>
+            <node>
+               <name>Face</name>
+               <node>
+                  <name>Cheek</name>
+               </node>
+               <node>
+                  <name>Chin</name>
+               </node>
+               <node>
+                  <name>Eye</name>
+               </node>
+               <node>
+                  <name>Eyebrow</name>
+               </node>
+               <node>
+                  <name>Forehead</name>
+               </node>
+               <node>
+                  <name>Lip</name>
+               </node>
+               <node>
+                  <name>Nose</name>
+               </node>
+               <node>
+                  <name>Mouth</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Hand</name>
+            <node>
+               <name>Finger</name>
+            </node>
+         </node>
+         <node>
+            <name>Foot</name>
+            <node>
+               <name>Toe</name>
+            </node>
+         </node>
+         <node>
+            <name>Torso</name>
+         </node>
+         <node>
+            <name>Leg</name>
+         </node>
+         <node>
+            <name>Arm</name>
+         </node>
+      </node>
+      <node>
+         <name>Animal</name>
+      </node>
+      <node>
+         <name>Robot</name>
       </node>
    </node>
    <node extensionAllowed="true">
@@ -56,11 +126,11 @@
                   <name>Dots</name>
                </node>
                <node>
-                  <name>Led-pattern</name>
+                  <name>Led pattern</name>
                </node>
             </node>
             <node>
-               <name>2D-shape</name>
+               <name>2D shape</name>
                <node>
                   <name>Ellipse</name>
                   <node>
@@ -77,7 +147,7 @@
                   <name>Triangle</name>
                </node>
                <node>
-                  <name>Single-point</name>
+                  <name>Single point</name>
                </node>
                <node>
                   <name>Cross</name>
@@ -87,7 +157,7 @@
                </node>
             </node>
             <node>
-               <name>3D-shape</name>
+               <name>3D shape</name>
                <node>
                   <name>Ellipsoid</name>
                   <node>
@@ -127,7 +197,7 @@
                   <name>Painting</name>
                </node>
                <node>
-                  <name>Art-installation</name>
+                  <name>Art installation</name>
                </node>
                <node>
                   <name>Photograph</name>
@@ -164,15 +234,12 @@
             <node>
                <name>Device</name>
                <node>
-                  <name>Computing-device</name>
-               </node>
-               <node>
                   <name>Engine</name>
                </node>
                <node>
-                  <name>IO-device</name>
+                  <name>IO device</name>
                   <node>
-                     <name>Input-device</name>
+                     <name>Input device</name>
                      <node>
                         <name>Button</name>
                      </node>
@@ -192,30 +259,30 @@
                         <name>Mouse</name>
                      </node>
                      <node>
-                        <name>Touch-screen</name>
+                        <name>Touch screen</name>
                      </node>
                   </node>
                   <node>
-                     <name>Network-device</name>
+                     <name>Network device</name>
                   </node>
                   <node>
-                     <name>Output-device</name>
+                     <name>Output device</name>
                      <node>
                         <name>Display</name>
                         <node>
                            <name>Screen</name>
                         </node>
                         <node>
-                           <name>Head-mounted-display</name>
+                           <name>Head-mounted display</name>
                         </node>
                      </node>
                      <node>
-                        <name>Auditory-device</name>
+                        <name>Auditory device</name>
                         <node>
                            <name>Headphones</name>
                         </node>
                         <node>
-                           <name>Screen-speaker</name>
+                           <name>Screen speaker</name>
                         </node>
                         <node>
                            <name>Loudspeaker</name>
@@ -223,26 +290,26 @@
                      </node>
                   </node>
                   <node>
-                     <name>Recording-device</name>
+                     <name>Recording device</name>
                      <node>
-                        <name>Motion-capture</name>
+                        <name>Motion capture</name>
                      </node>
                      <node>
-                        <name>Tape-recording</name>
+                        <name>Tape recording</name>
                      </node>
                      <node>
-                        <name>File-recording</name>
+                        <name>File recording</name>
                      </node>
                   </node>
+               </node>
+               <node>
+                  <name>Computing device</name>
                </node>
                <node>
                   <name>Machine</name>
                   <node>
                      <name>Noisemaker</name>
                   </node>
-               </node>
-               <node>
-                  <name>Robot</name>
                </node>
                <node>
                   <name>Tool</name>
@@ -317,88 +384,13 @@
          <node>
             <name>Natural</name>
             <node>
-               <name>Animal</name>
-            </node>
-            <node>
-               <name>Human</name>
-               <node>
-                  <name>Head</name>
-                  <node>
-                     <name>Hair</name>
-                  </node>
-                  <node>
-                     <name>Ear</name>
-                  </node>
-                  <node>
-                     <name>Face</name>
-                     <node>
-                        <name>Cheek</name>
-                     </node>
-                     <node>
-                        <name>Chin</name>
-                     </node>
-                     <node>
-                        <name>Eye</name>
-                     </node>
-                     <node>
-                        <name>Eyebrow</name>
-                     </node>
-                     <node>
-                        <name>Forehead</name>
-                     </node>
-                     <node>
-                        <name>Lip</name>
-                     </node>
-                     <node>
-                        <name>Nose</name>
-                     </node>
-                     <node>
-                        <name>Mouth</name>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Body</name>
-                  <node>
-                     <name>Hand</name>
-                     <node>
-                        <name>Finger</name>
-                        <node>
-                           <name>Index-finger</name>
-                        </node>
-                        <node>
-                           <name>Little-finger</name>
-                        </node>
-                        <node>
-                           <name>Middle-finger</name>
-                        </node>
-                        <node>
-                           <name>Ring-finger</name>
-                        </node>
-                        <node>
-                           <name>Thumb-finger</name>
-                        </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Foot</name>
-                     <node>
-                        <name>Toe</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Torso</name>
-                  </node>
-                  <node>
-                     <name>Leg</name>
-                  </node>
-                  <node>
-                     <name>Arm</name>
-                  </node>
-               </node>
-            </node>
-            <node>
                <name>Plant</name>
+               <node>
+                  <name>Tree</name>
+               </node>
+               <node>
+                  <name>Shrub</name>
+               </node>
             </node>
             <node>
                <name>Mineral</name>
@@ -439,25 +431,22 @@
             <name>Glyph</name>
          </node>
          <node>
-            <name>Nonword</name>
+            <name>Phoneme</name>
          </node>
          <node>
-            <name>Phoneme</name>
+            <name>Word</name>
          </node>
          <node>
             <name>Phrase</name>
          </node>
          <node>
+            <name>Nonword</name>
+         </node>
+         <node>
             <name>Sentence</name>
          </node>
          <node>
-            <name>Syllable</name>
-         </node>
-         <node>
             <name>Textblock</name>
-         </node>
-         <node>
-            <name>Word</name>
          </node>
       </node>
       <node>
@@ -494,7 +483,7 @@
             </node>
          </node>
          <node>
-            <name>Named-environmental-sound</name>
+            <name>Named environmental sound</name>
             <description>A background sound from the surrounding environment.</description>
             <node>
                <name>Crowd sound</name>
@@ -503,15 +492,15 @@
             <node>
                <name>Noise</name>
                <node>
-                  <name>White-noise</name>
+                  <name>White noise</name>
                </node>
                <node>
-                  <name>Colored-noise</name>
+                  <name>Colored noise</name>
                </node>
             </node>
          </node>
          <node>
-            <name>Named-object-sound</name>
+            <name>Named object sound</name>
             <node>
                <name>Alarm</name>
             </node>
@@ -566,7 +555,7 @@
             </node>
          </node>
          <node>
-            <name>Move-full-body</name>
+            <name>Move full-body</name>
             <node>
                <name>Bend</name>
             </node>
@@ -574,7 +563,7 @@
                <name>Dance</name>
             </node>
             <node>
-               <name>Fall-down</name>
+               <name>Fall down</name>
                <description>Involuntary fall to floor or ground</description>
             </node>
             <node>
@@ -585,7 +574,7 @@
                <description>When some force applied to the participant causes them to involuntarily accommodate or react to it.</description>
             </node>
             <node>
-               <name>Recover-balance</name>
+               <name>Recover balance</name>
                <description>A movement made in response to a stumble or unforeseen loss of balance</description>
             </node>
             <node>
@@ -604,32 +593,32 @@
             </node>
          </node>
          <node>
-            <name>Move-head</name>
+            <name>Move head</name>
             <node>
-               <name>Move-eyes</name>
+               <name>Move eyes</name>
                <node>
                   <name>Blink</name>
                </node>
                <node>
-                  <name>Close-eyes</name>
+                  <name>Close eyes</name>
                </node>
                <node>
                   <name>Fixate</name>
                </node>
                <node>
-                  <name>Open-eyes</name>
+                  <name>Open eyes</name>
                </node>
                <node>
                   <name>Saccade</name>
                </node>
             </node>
             <node>
-               <name>Move-mouth</name>
+               <name>Move mouth</name>
                <node>
                   <name>Burp</name>
                </node>
                <node>
-                  <name>Clear-throat</name>
+                  <name>Clear throat</name>
                </node>
                <node>
                   <name>Cough</name>
@@ -661,7 +650,7 @@
             </node>
          </node>
          <node>
-            <name>Move-arm-hand</name>
+            <name>Move arm-hand</name>
             <node>
                <name>Clap</name>
             </node>
@@ -713,7 +702,7 @@
                <name>Scratch</name>
             </node>
             <node>
-               <name>Snap-fingers</name>
+               <name>Snap fingers</name>
             </node>
             <node>
                <name>Tap</name>
@@ -725,9 +714,9 @@
             </node>
          </node>
          <node>
-            <name>Move-leg-foot</name>
+            <name>Move leg-foot</name>
             <node>
-               <name>Curl-toes</name>
+               <name>Curl toes</name>
             </node>
             <node>
                <name>Cycle</name>
@@ -767,7 +756,7 @@
       <node>
          <name>Communicate</name>
          <node>
-            <name>Communicate-vocally</name>
+            <name>Communicate vocally</name>
             <node>
                <name>Cry</name>
             </node>
@@ -796,13 +785,13 @@
             <name>Gesture</name>
             <description>Make a expressive communicative movement of hands/arms and, often, face</description>
             <node>
-               <name>Index-up</name>
+               <name>Index up</name>
             </node>
             <node>
-               <name>Pump-fist</name>
+               <name>Pump fist</name>
             </node>
             <node>
-               <name>Spread-hand</name>
+               <name>Spread hand</name>
             </node>
             <node>
                <name>Shhh</name>
@@ -811,14 +800,14 @@
                <name>Shrug</name>
             </node>
             <node>
-               <name>Thumb-up</name>
+               <name>Thumb(s) up</name>
             </node>
             <node>
                <name>Wave</name>
             </node>
          </node>
          <node>
-            <name>Communicate-musically</name>
+            <name>Communicate musically</name>
             <node>
                <name>Hum</name>
             </node>
@@ -884,10 +873,147 @@
             <name>Repeat</name>
          </node>
          <node>
-            <name>Switch-attention</name>
+            <name>Switch attention</name>
          </node>
          <node>
             <name>Track</name>
+         </node>
+      </node>
+   </node>
+   <node requireChild="true">
+      <name>Participant</name>
+      <description>Participant is an agent being monitored by the experiment in some way.</description>
+      <node extensionAllowed="true" requireChild="true">
+         <name>Cognitive state</name>
+         <node>
+            <name>Anesthetized</name>
+         </node>
+         <node>
+            <name>Asleep</name>
+         </node>
+         <node>
+            <name>Attentive</name>
+         </node>
+         <node>
+            <name>Awake</name>
+         </node>
+         <node>
+            <name>Brain-dead</name>
+         </node>
+         <node>
+            <name>Comatose</name>
+         </node>
+         <node>
+            <name>Drowsy</name>
+         </node>
+         <node extensionAllowed="true" requireChild="true">
+            <name>Intoxicated</name>
+            <description>Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.</description>
+         </node>
+         <node>
+            <name>Locked-in</name>
+         </node>
+         <node>
+            <name>Resting</name>
+         </node>
+         <node>
+            <name>Vegetative</name>
+         </node>
+      </node>
+      <node extensionAllowed="true" requireChild="true">
+         <name>Emotional state</name>
+         <node>
+            <name>Aroused</name>
+         </node>
+         <node>
+            <name>Awed</name>
+         </node>
+         <node>
+            <name>Frustrated</name>
+         </node>
+         <node>
+            <name>Joyful</name>
+         </node>
+         <node>
+            <name>Angry</name>
+         </node>
+         <node>
+            <name>Happy</name>
+         </node>
+         <node>
+            <name>Sad</name>
+         </node>
+         <node>
+            <name>Loving</name>
+         </node>
+         <node>
+            <name>Fearful</name>
+         </node>
+         <node>
+            <name>Compassionate</name>
+         </node>
+         <node>
+            <name>Empathetic</name>
+         </node>
+         <node>
+            <name>Jealous</name>
+         </node>
+         <node>
+            <name>Content</name>
+         </node>
+         <node>
+            <name>Grieving</name>
+         </node>
+         <node>
+            <name>Relieved</name>
+         </node>
+         <node>
+            <name>Excited</name>
+         </node>
+         <node>
+            <name>Disgusted</name>
+         </node>
+      </node>
+      <node requireChild="true">
+         <name>Postural state</name>
+         <node>
+            <name>Crouching</name>
+         </node>
+         <node>
+            <name>Sitting</name>
+         </node>
+         <node>
+            <name>Standing</name>
+         </node>
+         <node>
+            <name>Kneeling</name>
+         </node>
+         <node>
+            <name>Prone</name>
+         </node>
+         <node>
+            <name>Supported by chin rest</name>
+         </node>
+      </node>
+      <node extensionAllowed="true" requireChild="true">
+         <name>Trait</name>
+         <node>
+            <name>Age</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Sex</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Handedness</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
          </node>
       </node>
    </node>
@@ -920,7 +1046,7 @@
             <name>Metadata</name>
             <description>A tag used within a tag group indicate to designate information about the data such as file size or author.</description>
             <node requireChild="true">
-               <name>Creation-date</name>
+               <name>Creation date</name>
                <node takesValue="true" unitClass="datetime">
                   <name>#</name>
                </node>
@@ -988,73 +1114,73 @@
       <node extensionAllowed="true">
          <name>Relational</name>
          <node>
-            <name>Comparative-relation</name>
+            <name>Comparative predicate</name>
             <node>
-               <name>Less-than</name>
+               <name>Less than</name>
             </node>
             <node>
-               <name>Less-than-or-equal-to</name>
+               <name>Less than or equal to</name>
             </node>
             <node>
-               <name>Greater-than</name>
+               <name>Greater than</name>
             </node>
             <node>
-               <name>Greater-than-or-equal-to</name>
+               <name>Greater than or equal to</name>
             </node>
             <node>
-               <name>Equal-to</name>
+               <name>Equal to</name>
             </node>
             <node>
-               <name>Not-equal-to</name>
+               <name>Not equal to</name>
             </node>
          </node>
          <node>
-            <name>Connective-relation</name>
+            <name>Connective predicate</name>
             <node>
-               <name>Belongs-to</name>
+               <name>Belongs to</name>
                <description>As in owned by</description>
             </node>
             <node>
-               <name>Connected-to</name>
+               <name>Connected to</name>
             </node>
             <node>
-               <name>Contained-in</name>
+               <name>Contained in</name>
             </node>
             <node>
-               <name>Described-by</name>
+               <name>Described by</name>
             </node>
             <node>
                <name>From-to</name>
             </node>
             <node>
-               <name>Group-of</name>
+               <name>Group of</name>
             </node>
             <node>
-               <name>Implied-by</name>
+               <name>Implied by</name>
             </node>
             <node>
-               <name>Interacts-with</name>
+               <name>Interacts with</name>
             </node>
             <node>
-               <name>Member-of</name>
+               <name>Member of</name>
             </node>
             <node>
-               <name>Part-of</name>
+               <name>Part of</name>
             </node>
             <node>
-               <name>Performed-by</name>
+               <name>Performed by</name>
             </node>
          </node>
          <node>
-            <name>Positional-relation</name>
+            <name>Positional predicate</name>
             <node>
                <name>Above</name>
             </node>
             <node>
-               <name>Adjacent-to</name>
+               <name>Adjacent to</name>
             </node>
             <node>
-               <name>Ahead-of</name>
+               <name>Ahead of</name>
             </node>
             <node>
                <name>Around</name>
@@ -1066,35 +1192,35 @@
                <name>Below</name>
             </node>
             <node>
-               <name>Close-to</name>
+               <name>Close to</name>
             </node>
             <node>
-               <name>Far-from</name>
+               <name>Far from</name>
             </node>
             <node>
-               <name>Inside-of</name>
+               <name>Inside of</name>
             </node>
             <node>
-               <name>Left-of</name>
+               <name>Left of</name>
             </node>
             <node>
-               <name>On-top-of</name>
+               <name>On top of</name>
             </node>
             <node>
-               <name>Outside-of</name>
+               <name>Outside of</name>
             </node>
             <node>
                <name>Over</name>
             </node>
             <node>
-               <name>Right-of</name>
+               <name>Right of</name>
             </node>
             <node>
                <name>Under</name>
             </node>
          </node>
          <node>
-            <name>Temporal-relation</name>
+            <name>Temporal predicate</name>
             <node>
                <name>After</name>
             </node>
@@ -1106,9 +1232,9 @@
             </node>
          </node>
          <node>
-            <name>Spatiotemporal-relation</name>
+            <name>Spatiotemporal predicate</name>
             <node>
-               <name>Away-from</name>
+               <name>Away from</name>
             </node>
             <node>
                <name>Towards</name>
@@ -1232,15 +1358,6 @@
          </node>
          <node>
             <name>False</name>
-         </node>
-         <node>
-            <name>Subliminal</name>
-         </node>
-         <node>
-            <name>Liminal</name>
-         </node>
-         <node>
-            <name>Supraliminal</name>
          </node>
       </node>
       <node>
@@ -1388,7 +1505,7 @@
                   <name>CSS color</name>
                   <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
                   <node>
-                     <name>Blue-color</name>
+                     <name>Blue colors</name>
                      <node>
                         <name>CadetBlue</name>
                      </node>
@@ -1439,7 +1556,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Brown-color</name>
+                     <name>Brown colors</name>
                      <node>
                         <name>Cornsilk</name>
                      </node>
@@ -1496,7 +1613,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Cyan-color</name>
+                     <name>Cyan colors</name>
                      <node>
                         <name>Aqua</name>
                      </node>
@@ -1523,7 +1640,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Green-color</name>
+                     <name>Green colors</name>
                      <node>
                         <name>GreenYellow</name>
                      </node>
@@ -1592,7 +1709,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Gray-color</name>
+                     <name>Grey colors</name>
                      <node>
                         <name>Gainsboro</name>
                      </node>
@@ -1625,7 +1742,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Orange-color</name>
+                     <name>Orange colors</name>
                      <node>
                         <name>Orange</name>
                      </node>
@@ -1643,7 +1760,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Pink-color</name>
+                     <name>Pink colors</name>
                      <node>
                         <name>Pink</name>
                      </node>
@@ -1664,7 +1781,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Purple-color</name>
+                     <name>Purple colors</name>
                      <node>
                         <name>Lavender</name>
                      </node>
@@ -1724,7 +1841,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Red-color</name>
+                     <name>Red colors</name>
                      <node>
                         <name>LightSalmon</name>
                      </node>
@@ -1754,7 +1871,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>Yellow-color</name>
+                     <name>Yellow colors</name>
                      <node>
                         <name>Gold</name>
                      </node>
@@ -1790,7 +1907,7 @@
                      </node>
                   </node>
                   <node>
-                     <name>White-color</name>
+                     <name>White colors</name>
                      <node>
                         <name>White</name>
                      </node>
@@ -1852,10 +1969,10 @@
          <node>
             <name>Window</name>
             <node>
-               <name>2D-view</name>
+               <name>2D view</name>
             </node>
             <node>
-               <name>3D-view</name>
+               <name>3D view</name>
             </node>
          </node>
       </node>
@@ -1924,7 +2041,7 @@
                <name>Offset</name>
             </node>
             <node>
-               <name>Response-delay</name>
+               <name>Response delay</name>
             </node>
             <node>
                <name>Synchronous</name>
@@ -1944,7 +2061,7 @@
             <name>Acceleration</name>
          </node>
          <node>
-            <name>Jerk-rate</name>
+            <name>Jerk rate</name>
             <description>Rate at which an object's acceleration changes with respect to time.</description>
             <node isNumeric="true" takesValue="true" unitClass="jerk">
                <name>#</name>
@@ -1969,7 +2086,7 @@
             <name>Augmented-reality</name>
          </node>
          <node>
-            <name>Motion-platform</name>
+            <name>Motion platform</name>
          </node>
          <node>
             <name>Urban</name>
@@ -1981,314 +2098,183 @@
             <name>Treadmill</name>
          </node>
       </node>
-      <node>
-         <name>Agent-related</name>
-         <node extensionAllowed="true" requireChild="true">
-            <name>Cognitive state</name>
+      <node extensionAllowed="true">
+         <name>Experimental</name>
+         <node>
+            <name>Agent-related</name>
             <node>
-               <name>Anesthetized</name>
+               <name>Attentional</name>
             </node>
             <node>
-               <name>Asleep</name>
+               <name>Emotional</name>
             </node>
             <node>
-               <name>Attentive</name>
+               <name>Reflexive</name>
             </node>
             <node>
-               <name>Awake</name>
+               <name>Intentional</name>
             </node>
             <node>
-               <name>Brain-dead</name>
+               <name>Arousal</name>
+               <description>Only in the context of 2D emotion representation</description>
             </node>
             <node>
-               <name>Comatose</name>
+               <name>Subliminal</name>
             </node>
             <node>
-               <name>Drowsy</name>
-            </node>
-            <node extensionAllowed="true" requireChild="true">
-               <name>Intoxicated</name>
-               <description>Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.</description>
+               <name>Liminal</name>
             </node>
             <node>
-               <name>Locked-in</name>
+               <name>Supraliminal</name>
             </node>
             <node>
-               <name>Resting</name>
+               <name>Social</name>
+               <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
             </node>
-            <node>
-               <name>Vegetative</name>
-            </node>
-         </node>
-         <node extensionAllowed="true" requireChild="true">
-            <name>Emotional state</name>
-            <node>
-               <name>Aroused</name>
-            </node>
-            <node>
-               <name>Awed</name>
-            </node>
-            <node>
-               <name>Frustrated</name>
-            </node>
-            <node>
-               <name>Joyful</name>
-            </node>
-            <node>
-               <name>Angry</name>
-            </node>
-            <node>
-               <name>Happy</name>
-            </node>
-            <node>
-               <name>Sad</name>
-            </node>
-            <node>
-               <name>Loving</name>
-            </node>
-            <node>
-               <name>Fearful</name>
-            </node>
-            <node>
-               <name>Compassionate</name>
-            </node>
-            <node>
-               <name>Empathetic</name>
-            </node>
-            <node>
-               <name>Jealous</name>
-            </node>
-            <node>
-               <name>Content</name>
-            </node>
-            <node>
-               <name>Grieving</name>
-            </node>
-            <node>
-               <name>Relieved</name>
-            </node>
-            <node>
-               <name>Excited</name>
-            </node>
-            <node>
-               <name>Disgusted</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Postural state</name>
-            <node>
-               <name>Crouching</name>
-            </node>
-            <node>
-               <name>Sitting</name>
-            </node>
-            <node>
-               <name>Standing</name>
-            </node>
-            <node>
-               <name>Kneeling</name>
-            </node>
-            <node>
-               <name>Prone</name>
-            </node>
-            <node>
-               <name>Supported by chin rest</name>
-            </node>
-         </node>
-         <node extensionAllowed="true" requireChild="true">
-            <name>Trait</name>
-            <node>
-               <name>Age</name>
-               <node takesValue="true">
-                  <name>#</name>
+            <node requireChild="true">
+               <name>Role</name>
+               <description>The role of the agent (participant, character, AI..)</description>
+               <node>
+                  <name>Leader</name>
+               </node>
+               <node>
+                  <name>Follower</name>
+               </node>
+               <node>
+                  <name>Parent</name>
+               </node>
+               <node>
+                  <name>Child</name>
+               </node>
+               <node>
+                  <name>Teacher</name>
+               </node>
+               <node>
+                  <name>Student</name>
+               </node>
+               <node>
+                  <name>Experimental subject</name>
+               </node>
+               <node>
+                  <name>Experimenter</name>
                </node>
             </node>
-            <node>
-               <name>Sex</name>
-               <node takesValue="true">
-                  <name>#</name>
+            <node requireChild="true">
+               <name>Association</name>
+               <node>
+                  <name>Associated with others</name>
+                  <description>Item such as a cup belonging to another person</description>
                </node>
-            </node>
-            <node>
-               <name>Handedness</name>
-               <node takesValue="true">
-                  <name>#</name>
+               <node>
+                  <name>Associated with self</name>
+                  <description>Item such as a cup belonging to the participant</description>
                </node>
             </node>
          </node>
          <node>
-            <name>Attentional</name>
-         </node>
-         <node>
-            <name>Emotional</name>
-         </node>
-         <node>
-            <name>Reflexive</name>
-         </node>
-         <node>
-            <name>Intentional</name>
-         </node>
-         <node>
-            <name>Arousal</name>
-            <description>Only in the context of 2D emotion representation</description>
-         </node>
-         <node>
-            <name>Social</name>
-            <description>Involving interactions among multiple agents such as humans or dogs or robots</description>
-         </node>
-      </node>
-      <node requireChild="true">
-         <name>Role</name>
-         <description>The role of the agent (participant, character, AI..)</description>
-         <node extensionAllowed="true">
-            <name>Agent</name>
-            <description>Something that acts during the experiment (either living or inanimate).</description>
-         </node>
-         <node>
-            <name>Leader</name>
-         </node>
-         <node>
-            <name>Follower</name>
-         </node>
-         <node>
-            <name>Parent</name>
+            <name>Task-related</name>
             <node>
-               <name>Father</name>
+               <name>Non-informative</name>
             </node>
             <node>
-               <name>Mother</name>
-            </node>
-         </node>
-         <node>
-            <name>Child</name>
-         </node>
-         <node>
-            <name>Teacher</name>
-         </node>
-         <node>
-            <name>Student</name>
-         </node>
-         <node>
-            <name>Experimental-subject</name>
-         </node>
-         <node>
-            <name>Experimenter</name>
-         </node>
-         <node requireChild="true">
-            <name>Association</name>
-            <node>
-               <name>Associated-with-others</name>
-               <description>Item such as a cup belonging to another person</description>
+               <name>Missed</name>
             </node>
             <node>
-               <name>Associated-with-self</name>
-               <description>Item such as a cup belonging to the participant</description>
+               <name>Appropriate</name>
             </node>
-         </node>
-      </node>
-      <node>
-         <name>Task-related</name>
-         <node>
-            <name>Action-judgment</name>
-            <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
-         </node>
-         <node>
-            <name>Appropriate</name>
-         </node>
-         <node>
-            <name>Background</name>
-         </node>
-         <node>
-            <name>Cued</name>
-         </node>
-         <node>
-            <name>Distractor</name>
-         </node>
-         <node>
-            <name>Erroroneous</name>
-         </node>
-         <node>
-            <name>Expected</name>
-            <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
-         </node>
-         <node>
-            <name>Extraneous</name>
-         </node>
-         <node>
-            <name>Feedback</name>
-         </node>
-         <node>
-            <name>Imagined</name>
-            <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
-         </node>
-         <node>
-            <name>Inappropriate</name>
-         </node>
-         <node>
-            <name>Indeterminate</name>
-         </node>
-         <node>
-            <name>Instructional</name>
-         </node>
-         <node>
-            <name>Intended effect</name>
-            <description>How the stimulus is expected to effect the participants</description>
-         </node>
-         <node>
-            <name>Masked</name>
-         </node>
-         <node>
-            <name>Missed</name>
-         </node>
-         <node>
-            <name>Meaningful</name>
-         </node>
-         <node>
-            <name>Newly learned meaning</name>
-         </node>
-         <node>
-            <name>Non-informative</name>
-         </node>
-         <node>
-            <name>Non-target</name>
-            <description>Make sure to tag Expected if the Non-target is frequent</description>
-         </node>
-         <node>
-            <name>Not-meaningful</name>
-         </node>
-         <node>
-            <name>Novel</name>
-            <description>Genuinely novel such as an event occurring once or so per experiment</description>
-         </node>
-         <node>
-            <name>Oddball</name>
-            <description>Unexpected or infrequent</description>
-         </node>
-         <node>
-            <name>Planned</name>
-         </node>
-         <node>
-            <name>Penalizing</name>
-         </node>
-         <node>
-            <name>Priming</name>
-         </node>
-         <node>
-            <name>Rewarding</name>
-         </node>
-         <node>
-            <name>Target</name>
-            <description>Something the subject is looking for</description>
-         </node>
-         <node>
-            <name>Threatening</name>
-         </node>
-         <node>
-            <name>Unmasked</name>
-         </node>
-         <node>
-            <name>Warning</name>
-            <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
+            <node>
+               <name>Inappropriate</name>
+            </node>
+            <node>
+               <name>Indeterminate</name>
+            </node>
+            <node>
+               <name>Extraneous</name>
+            </node>
+            <node>
+               <name>Imagined</name>
+               <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
+            </node>
+            <node>
+               <name>Background</name>
+            </node>
+            <node>
+               <name>Cued</name>
+            </node>
+            <node>
+               <name>Intended effect</name>
+               <description>How the stimulus is expected to effect the participants</description>
+            </node>
+            <node>
+               <name>Instructional</name>
+            </node>
+            <node>
+               <name>Priming</name>
+            </node>
+            <node>
+               <name>Masked</name>
+            </node>
+            <node>
+               <name>Unmasked</name>
+            </node>
+            <node>
+               <name>Meaningful</name>
+            </node>
+            <node>
+               <name>Not meaningful</name>
+            </node>
+            <node>
+               <name>Newly learned meaning</name>
+            </node>
+            <node>
+               <name>Rewarding</name>
+            </node>
+            <node>
+               <name>Penalizing</name>
+            </node>
+            <node>
+               <name>Erroroneous</name>
+            </node>
+            <node>
+               <name>Threatening</name>
+            </node>
+            <node>
+               <name>Planned</name>
+            </node>
+            <node>
+               <name>Warning</name>
+               <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
+            </node>
+            <node>
+               <name>Oddball</name>
+               <description>Unexpected or infrequent</description>
+            </node>
+            <node>
+               <name>Target</name>
+               <description>Something the subject is looking for</description>
+            </node>
+            <node>
+               <name>Non-target</name>
+               <description>Make sure to tag Expected if the Non-target is frequent</description>
+            </node>
+            <node>
+               <name>Novel</name>
+               <description>Genuinely novel such as an event occurring once or so per experiment</description>
+            </node>
+            <node>
+               <name>Expected</name>
+               <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
+            </node>
+            <node>
+               <name>Distractor</name>
+            </node>
+            <node>
+               <name>Feedback</name>
+            </node>
+            <node>
+               <name>Action judgment</name>
+               <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
+            </node>
          </node>
       </node>
    </node>

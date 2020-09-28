@@ -1,4 +1,4 @@
-HED version: v1.6.3-reduced
+HED version: v1.6.9-reduced
 
 '''Syntax'''  
 
@@ -12,56 +12,39 @@ There are four ways to define the scope of an event.  The most common method is 
 !# start hed 
 
 '''Event''' 
-* Sensory event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
-* Subject action <nowiki>[Any action engaged in by the participant. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
-* Data feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
-* Experiment control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
+* Sensory-event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
+* Data-feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
+* Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 ** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
 ** Pause <nowiki>[An event indicating a stop in recording. Use (Attribute/Temporal/Onset, Attribute/Temporal/Duration) or Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the length of the pause.]</nowiki>    
 ** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/#]</nowiki>  
 ** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-* Experiment structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
+* Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
-'''Agent''' <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-* Human
-** Head
-*** Hair
-*** Ear
-*** Face
-**** Cheek
-**** Chin
-**** Eye
-**** Eyebrow
-**** Forehead
-**** Lip
-**** Nose
-**** Mouth
-** Hand
-*** Finger
-** Foot
-*** Toe
-** Torso
-** Leg
-** Arm
-* Animal
-* Robot
+
+
+
+
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
 ** Geometric
 *** Pattern
-*** 2D shape
+**** Dots
+**** Led-pattern
+*** 2D-shape
 **** Ellipse
 ***** Circle
 **** Rectangle
 ***** Square
 **** Triangle
-**** Single point
+**** Single-point
 **** Cross
 **** Star
-*** 3D shape
+*** 3D-shape
 **** Ellipsoid
 ***** Sphere
 **** Box
@@ -70,6 +53,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Cone
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
+*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+**** Animation
+**** Drawing
+**** Painting
+**** Art-installation
+**** Photograph
+**** Movie
+**** Sculpture
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -78,34 +69,46 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Basement
 *** Clothing
 *** Device
+**** Computing-device
 **** Engine
-**** IO device
-***** Input device
+**** IO-device
+***** Input-device
 ****** Button
 ****** Joystick
 ****** Keyboard
 ****** Keypad
 ****** Microphone
 ****** Mouse
-****** Touch screen
-***** Network device
-***** Output device
+****** Touch-screen
+***** Network-device
+***** Output-device
 ****** Display
 ******* Screen 
-******* Head-mounted display
-****** Auditory device
+******* Head-mounted-display
+****** Auditory-device
 ******* Headphones
-******* Screen speaker
+******* Screen-speaker
 ******* Loudspeaker
-***** Recording device
-****** Motion capture
-****** Tape recording
-****** File recording
-**** Computing device
+***** Recording-device
+****** Motion-capture
+****** Tape-recording
+****** File-recording
 **** Machine
 ***** Noisemaker
+**** Robot
 **** Tool
+***	Document <nowiki>[A physical, written document]</nowiki>
+**** Manuscript
+**** Letter
+**** Note
+**** Book
+**** Notebook
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
+*** Navigational object
+**** Path
+**** Road
+**** Runway
+**** Sign
 *** Vehicle
 **** Bicycle 
 **** Car 
@@ -115,25 +118,35 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Tractor 
 **** Train 
 **** Aircraft 
-
-*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
-**** Animation
-**** Drawing
-**** Painting
-**** Art installation
-**** Photograph
-**** Movie
-**** Sculpture
-***	Document <nowiki>[A physical, written document]</nowiki>
-**** Manuscript
-**** Letter
-**** Note
-**** Book
-**** Notebook
 ** Natural
+*** Animal
+*** Human
+**** Head
+***** Hair
+***** Ear
+***** Face
+****** Cheek
+****** Chin
+****** Eye
+****** Eyebrow
+****** Forehead
+****** Lip
+****** Nose
+****** Mouth
+**** Body
+***** Hand
+****** Finger
+******* Index-finger
+******* Little-finger
+******* Middle-finger
+******* Ring-finger
+******* Thumb-finger
+***** Foot
+****** Toe
+***** Torso
+***** Leg
+***** Arm
 *** Plant
-**** Tree
-**** Shrub
 *** Mineral
 *** Terrain
 **** Field
@@ -146,12 +159,14 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
 ** Character
-** Phoneme
-** Word
-** Phrase
+** Glyph
 ** Nonword
+** Phoneme
+** Phrase
 ** Sentence
+** Syllable
 ** Textblock
+** Word
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Named animal sound
 *** Bark
@@ -163,12 +178,12 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Moo
 *** Purr
 *** Roar
-** Named environmental sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
+** Named-environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
 *** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 *** Noise
-**** White noise
-**** Colored noise
-** Named object sound
+**** White-noise
+**** Colored-noise
+** Named-object-sound
 *** Alarm
 *** Buzz
 *** Ka-ching <nowiki>[Cash register sound]</nowiki>
@@ -187,27 +202,27 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Hold breath
-** Move full-body
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki> 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-***	Recover balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Fall down<nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Bend 
+** Move-full-body
+*** Bend
 *** Dance
+*** Fall-down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
+***	Recover-balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
 *** Shudder 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
 *** Turn
-** Move head
-*** Move eyes
-**** Saccade
-**** Fixate
+** Move-head
+*** Move-eyes
 **** Blink
-**** Open eyes <nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-**** Close eyes<nowiki>[Often grouped with body part doing action such as eyes or mouth.]</nowiki>
-*** Move mouth
+**** Close-eyes
+**** Fixate
+**** Open-eyes 
+**** Saccade
+*** Move-mouth
 **** Burp 
-**** Clear throat
+**** Clear-throat
 **** Cough 
 **** Gurgle
 **** Hiccup 
@@ -217,7 +232,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Swallow
 **** Yawn 
 *** Nod
-** Move arm-hand
+** Move-arm-hand
 *** Clap
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
 *** Grab
@@ -232,44 +247,45 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Release <nowiki>[Often grouped with item being released.]</nowiki>
 *** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
 *** Scratch
-*** Snap fingers
+*** Snap-fingers
 *** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
-** Move leg-foot
+** Move-leg-foot
+*** Curl-toes
+*** Cycle
+*** Jog
+*** Jump
+*** Kick 
 *** Step
 **** Heel-strike 
 **** Toe-off
 *** Run
-*** Walk
 *** Trot
-*** Jog
-*** Jump
-*** Kick <nowiki>[Often grouped with body part doing action and item being kicked.]</nowiki>
-*** Curl toes
+*** Walk
 * Operate
 * Communicate
-** Communicate vocally
+** Communicate-vocally
 *** Cry
 *** Groan
-*** Gulp
+*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
 ***	Laugh
 *** Scream
 *** Sigh
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
-***	Shrug
-***	Thumb(s) up
-***	Pump fist
-***	Spread hand
-***	Wave
-***	Index up
+***	Index-up
+***	Pump-fist
+***	Spread-hand
 ***	Shhh
-** Communicate musically
+***	Shrug
+***	Thumb-up
+***	Wave
+** Communicate-musically
 *** Hum
 *** Sing
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
-
+* Rest 
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend
@@ -285,58 +301,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Read 
 ** Recall
 ** Repeat
-** Rest 
-** Switch attention
+** Switch-attention
 ** Track
-
-
-'''Participant''' <nowiki>{requireChild}[Participant is an agent being monitored by the experiment in some way.]</nowiki> 
-* Cognitive state<nowiki>{extensionAllowed, requireChild}</nowiki>
-** Anesthetized 
-** Asleep
-** Attentive
-** Awake 
-** Brain-dead 
-** Comatose 
-** Drowsy 
-** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
-** Locked-in 
-** Resting
-** Vegetative 
-
-
-* Emotional state<nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Aroused
-** Awed 
-** Frustrated 
-** Joyful 
-** Angry 
-** Happy
-** Sad 
-** Loving 
-** Fearful
-** Compassionate
-** Empathetic
-** Jealous 
-** Content
-** Grieving 
-** Relieved 
-** Excited 
-** Disgusted  
-* Postural state<nowiki>{requireChild}</nowiki> 
-** Crouching
-** Sitting
-** Standing
-** Kneeling
-** Prone
-** Supported by chin rest
-* Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Age
-*** <nowiki># {takesValue}</nowiki>
-** Sex
-*** <nowiki># {takesValue}</nowiki> 
-** Handedness
-*** <nowiki># {takesValue}</nowiki> 
 
 '''Attribute''' 
 * Informational <nowiki>{extensionAllowed}</nowiki>
@@ -347,7 +313,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
-*** Creation date <nowiki>{requireChild}</nowiki> 
+*** Creation-date <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject <nowiki>{requireChild} </nowiki>
 **** <nowiki># {takesValue}</nowiki>
@@ -366,43 +332,47 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
-** Comparative predicate
-*** Less than
-*** Less than or equal to
-*** Greater than
-*** Greater than or equal to
-*** Equal to
-*** Not equal to
-** Connective predicate
-*** Connected to
-*** Contained in
-*** Described by
+** Comparative-relation
+*** Less-than
+*** Less-than-or-equal-to
+*** Greater-than
+*** Greater-than-or-equal-to
+*** Equal-to
+*** Not-equal-to
+** Connective-relation
+*** Belongs-to   [As in owned by]
+*** Connected-to
+*** Contained-in
+*** Described-by
 *** From-to
-*** Group of
-*** Implied by
-*** Part of
-*** Performed by
-** Positional predicate
+*** Group-of
+*** Implied-by
+*** Interacts-with
+*** Member-of
+*** Part-of
+*** Performed-by
+** Positional-relation
 *** Above
-*** Adjacent to
-*** Ahead of
+*** Adjacent-to
+*** Ahead-of
 *** Around
 *** Behind
 *** Below
-*** Close to
-*** Far from
-*** Inside of
-*** Left of
-*** Outside of
+*** Close-to
+*** Far-from
+*** Inside-of
+*** Left-of
+*** On-top-of
+*** Outside-of
 *** Over
-*** Right of
+*** Right-of
 *** Under
-** Temporal predicate
+** Temporal-relation
 *** After
 *** Before
 *** During
-** Spatiotemporal predicate
-*** Away from
+** Spatiotemporal-relation
+*** Away-from
 *** Towards
 *** Increasing
 *** Decreasing
@@ -415,7 +385,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Deterministic
 *** Stochastic
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Item count
+** Item-count
 *** <nowiki># {takesValue}</nowiki>  
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
@@ -442,7 +412,23 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Incorrect
 ** True
 ** False
-
+** Subliminal
+** Liminal
+** Supraliminal
+* Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
+** Abstract
+** Biological
+** Clinical
+** Complex
+** Composite
+** Electrical
+** Fractal
+** Involuntary
+** Mechanical
+** Magnetic
+** Numerical
+** Random
+** Symbolic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Frequency <nowiki>{requireChild}</nowiki> 
@@ -457,24 +443,24 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
 *** Color <nowiki>{requireChild}</nowiki> 
-**** HSV color
+**** HSV-color
 ***** Hue 
 ****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
 ***** Saturation 
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-***** HSV value 
+***** HSV-value 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
-**** RGB color
-***** RGB Red 
+**** RGB-color
+***** RGB-red 
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-***** RGB Blue 
+***** RGB-blue 
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-***** RGB Green 
+***** RGB-green 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Indicates gray scale]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
-**** CSS color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
-***** Blue colors
+**** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
+***** Blue-color
 ****** CadetBlue
 ****** SteelBlue
 ****** LightSteelBlue
@@ -491,7 +477,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkBlue
 ****** Navy
 ****** MidnightBlue
-***** Brown colors
+***** Brown-color
 ****** Cornsilk 
 ****** BlanchedAlmond 
 ****** Bisque 
@@ -510,7 +496,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Sienna 
 ****** Brown 
 ****** Maroon 
-***** Cyan colors
+***** Cyan-color
 ****** Aqua
 ****** Cyan
 ****** LightCyan
@@ -519,7 +505,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Turquoise
 ****** MediumTurquoise
 ****** DarkTurquoise
-***** Green colors
+***** Green-color
 ****** GreenYellow
 ****** Chartreuse
 ****** LawnGreen
@@ -542,7 +528,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** LightSeaGreen
 ****** DarkCyan
 ****** Teal
-***** Grey colors
+***** Gray-color
 ****** Gainsboro
 ****** LightGray
 ****** Silver
@@ -553,20 +539,20 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** SlateGray
 ****** DarkSlateGray
 ****** Black
-***** Orange colors
+***** Orange-color
 ****** Orange
 ****** DarkOrange
 ****** Coral
 ****** Tomato
 ****** OrangeRed
-***** Pink colors
+***** Pink-color
 ****** Pink
 ****** LightPink
 ****** HotPink
 ****** DeepPink
 ****** PaleVioletRed
 ****** MediumVioletRed
-***** Purple colors
+***** Purple-color
 ****** Lavender
 ****** Thistle
 ****** Plum
@@ -586,8 +572,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** DarkSlateBlue
 ****** RebeccaPurple
 ****** Indigo
-
-***** Red colors
+***** Red-color
 ****** LightSalmon
 ****** Salmon
 ****** DarkSalmon
@@ -597,8 +582,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Red
 ****** FireBrick
 ****** DarkRed
-
-***** Yellow colors
+***** Yellow-color
 ****** Gold
 ****** Yellow
 ****** LightYellow
@@ -610,7 +594,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** PaleGoldenRod
 ****** Khaki
 ****** DarkKhaki
-***** White colors
+***** White-color
 ****** White
 ****** Snow
 ****** HoneyDew
@@ -630,8 +614,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** MistyRose
 * Presentation
 ** Window
-*** 2D view
-*** 3D view 
+*** 2D-view
+*** 3D-view 
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
@@ -653,13 +637,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 *** Onset
 *** Offset
-*** Response delay
+*** Response-delay
 *** Synchronous
 *** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
 ** Acceleration 
-** Jerk rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
+** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
 *** #{takesValue, isNumeric, unitClass=jerk}
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
@@ -667,65 +651,110 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Real-world
 ** Virtual-world
 ** Augmented-reality
-** Motion platform
+** Motion-platform
 ** Urban
 ** Rural
 ** Treadmill
-* Experimental <nowiki>{extensionAllowed}</nowiki>
-** Agent-related
-*** Attentional
-*** Emotional 
-*** Reflexive
-*** Intentional
-*** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-*** Subliminal
-*** Liminal
-*** Supraliminal
-*** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki> 
-*** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-**** Leader 
-**** Follower
-**** Parent
-**** Child 
-**** Teacher
-**** Student
-**** Experimental subject
-**** Experimenter
-*** Association <nowiki>{requireChild}</nowiki> 
-**** Associated with others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-**** Associated with self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-** Task-related
-*** Non-informative
-*** Missed
-*** Appropriate
-*** Inappropriate
-*** Indeterminate
-*** Extraneous
-*** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-*** Background
-*** Cued
-*** Intended effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
-*** Instructional 
-*** Priming
-*** Masked
-*** Unmasked
-*** Meaningful 
-*** Not meaningful 
-*** Newly learned meaning 
-*** Rewarding 
-*** Penalizing
-*** Erroroneous
-*** Threatening
-*** Planned
-*** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-*** Oddball <nowiki> [Unexpected or infrequent]</nowiki> 
-*** Target <nowiki>[Something the subject is looking for]</nowiki> 
-*** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-*** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-*** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki> 
-*** Distractor 
-*** Feedback 
-*** Action judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+* Agent-related
+** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
+*** Anesthetized 
+*** Asleep
+*** Attentive
+*** Awake 
+*** Brain-dead 
+*** Comatose 
+*** Drowsy 
+*** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+*** Locked-in 
+*** Resting
+*** Vegetative 
+** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Aroused
+*** Awed 
+*** Frustrated 
+*** Joyful 
+*** Angry 
+*** Happy
+*** Sad 
+*** Loving 
+*** Fearful
+*** Compassionate
+*** Empathetic
+*** Jealous 
+*** Content
+*** Grieving 
+*** Relieved 
+*** Excited 
+*** Disgusted  
+** Postural-state<nowiki>{requireChild}</nowiki> 
+*** Crouching
+*** Sitting
+*** Standing
+*** Kneeling
+*** Prone
+*** Supported-by-chin-rest
+** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+*** Age
+**** <nowiki># {takesValue}</nowiki>
+*** Sex
+**** <nowiki># {takesValue}</nowiki> 
+*** Handedness
+**** <nowiki># {takesValue}</nowiki> 
+
+** Attentional
+** Emotional 
+** Reflexive
+** Intentional
+** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
+** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki>
+
+* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
+** Leader 
+** Follower
+** Parent
+*** Father
+*** Mother
+** Child 
+** Teacher
+** Student
+** Experimental-subject
+** Experimenter
+** Association <nowiki>{requireChild}</nowiki> 
+*** Associated-with-others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+*** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+* Task-related
+** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Appropriate
+** Background
+** Cued
+** Distractor 
+** Erroroneous
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Extraneous
+** Feedback 
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate
+** Indeterminate
+** Instructional 
+** Intended-effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
+** Masked
+** Missed
+** Meaningful
+** Newly learned meaning 
+** Non-informative
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Not-meaningful 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+** Planned
+** Penalizing
+** Priming
+** Rewarding 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Threatening
+** Unmasked
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
 
 '''Unit classes''' 
