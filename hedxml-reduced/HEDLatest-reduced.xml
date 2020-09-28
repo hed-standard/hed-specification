@@ -464,7 +464,7 @@
          <name>Sound</name>
          <description>Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
          <node>
-            <name>Named animal sound</name>
+            <name>Named-animal-sound</name>
             <node>
                <name>Bark</name>
             </node>
@@ -677,14 +677,14 @@
                <description>Grasp an object in one or both hands</description>
             </node>
             <node>
-               <name>Hold down</name>
+               <name>Hold-down</name>
             </node>
             <node>
                <name>Lift</name>
                <description>Often grouped with item being lifted.</description>
             </node>
             <node>
-               <name>Make fist</name>
+               <name>Make-fist</name>
             </node>
             <node>
                <name>Point</name>
