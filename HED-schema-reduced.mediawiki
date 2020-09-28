@@ -729,7 +729,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Appropriate
 ** Background
-** Cued
+** Cue
 ** Distractor 
 ** Erroroneous
 ** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
