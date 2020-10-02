@@ -113,14 +113,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Runway
 **** Sign
 *** Vehicle
-**** Bicycle 
-**** Car 
-**** Truck 
-**** Cart 
-**** Boat 
-**** Tractor 
-**** Train 
 **** Aircraft 
+**** Bicycle
+**** Boat 
+**** Car
+**** Cart
+**** Tractor
+**** Train 
+**** Truck 
 ** Natural
 *** Animal
 *** Human
@@ -255,14 +255,14 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move-leg-foot
 *** Curl-toes
-*** Cycle
 *** Jog
 *** Jump
 *** Kick 
+*** Pedal
+*** Run
 *** Step
 **** Heel-strike 
 **** Toe-off
-*** Run
 *** Trot
 *** Walk
 * Operate
@@ -638,9 +638,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 ** Temporal
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
-*** Response-delay
+*** Response-start-delay <nowiki>{requireChild} [How long the start of the response is delayed from the stimulus onset.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+*** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Synchronous
 *** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
