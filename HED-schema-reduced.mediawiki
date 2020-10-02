@@ -90,9 +90,12 @@ There are four ways to define the scope of an event.  The most common method is 
 ******* Screen-speaker
 ******* Loudspeaker
 ***** Recording-device
+****** EEG-recording
+****** File-recording
+****** MEG-recording
 ****** Motion-capture
 ****** Tape-recording
-****** File-recording
+
 **** Machine
 ***** Noisemaker
 **** Robot
@@ -735,6 +738,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
 ** Extraneous
 ** Feedback 
+** Failure
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Inappropriate
 ** Indeterminate
@@ -753,6 +757,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Penalizing
 ** Priming
 ** Rewarding 
+** Success
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
 ** Unmasked
