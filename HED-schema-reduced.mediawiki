@@ -36,31 +36,43 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Dots
 **** Led-pattern
 *** 2D-shape
+**** Cross
 **** Ellipse
 ***** Circle
 **** Rectangle
 ***** Square
-**** Triangle
 **** Single-point
-**** Cross
 **** Star
+**** Triangle
 *** 3D-shape
-**** Ellipsoid
-***** Sphere
 **** Box
 ***** Cube
-**** Cylinder
 **** Cone
+**** Cylinder
+**** Ellipsoid
+***** Sphere
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
-*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+*** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data. This also encompasses different modalities such as representing a texture by the pitch of an audio tone.]</nowiki>
 **** Animation
-**** Drawing
-**** Painting
 **** Art-installation
-**** Photograph
+**** Aerial-view
+**** Braille
+**** Cutout
+**** Image
+***** Cartoon
+***** Drawing
+***** Painting
+***** Photograph
+**** Point-light-visualization
 **** Movie
+**** Outline-visualization
+**** Satellite-view
 **** Sculpture
+**** Sound-clip
+**** Stick-figure-visualization
+**** Street-view
+
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -90,11 +102,17 @@ There are four ways to define the scope of an event.  The most common method is 
 ******* Screen-speaker
 ******* Loudspeaker
 ***** Recording-device
+****** EEG-recording
+****** File-recording
+****** MEG-recording
 ****** Motion-capture
 ****** Tape-recording
-****** File-recording
+
 **** Machine
 ***** Noisemaker
+**** Measurement-device
+***** Clock
+****** Clock-face
 **** Robot
 **** Tool
 ***	Document <nowiki>[A physical, written document]</nowiki>
@@ -110,14 +128,14 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Runway
 **** Sign
 *** Vehicle
-**** Bicycle 
-**** Car 
-**** Truck 
-**** Cart 
-**** Boat 
-**** Tractor 
-**** Train 
 **** Aircraft 
+**** Bicycle
+**** Boat 
+**** Car
+**** Cart
+**** Tractor
+**** Train 
+**** Truck 
 ** Natural
 *** Animal
 *** Human
@@ -168,6 +186,15 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Textblock
 ** Word
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
+*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+*** Noise
+**** White-noise
+**** Colored-noise
+** Musical-sound <nowiki>Any tone or combination of tones with characteristics such as controlled pitch and timbre that can be controlled by an agent.</nowiki>
+*** Tone
+*** Instrument-sound
+*** Vocalized-sound
 ** Named-animal-sound
 *** Bark
 *** Bleat
@@ -178,11 +205,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Moo
 *** Purr
 *** Roar
-** Named-environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
-*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
-*** Noise
-**** White-noise
-**** Colored-noise
+
 ** Named-object-sound
 *** Alarm
 *** Buzz
@@ -191,10 +214,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Ding
 *** Horn
 *** Siren
-** Unsure-what-category
-*** Tone
-*** Music
-
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
@@ -252,14 +271,14 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Touch <nowiki>[May follow a Reach event]</nowiki> 
 ** Move-leg-foot
 *** Curl-toes
-*** Cycle
 *** Jog
 *** Jump
 *** Kick 
+*** Pedal
+*** Run
 *** Step
 **** Heel-strike 
 **** Toe-off
-*** Run
 *** Trot
 *** Walk
 * Operate
@@ -351,6 +370,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Member-of
 *** Part-of
 *** Performed-by
+*** Related-to
 ** Positional-relation
 *** Above
 *** Adjacent-to
@@ -373,17 +393,18 @@ There are four ways to define the scope of an event.  The most common method is 
 *** During
 ** Spatiotemporal-relation
 *** Away-from
-*** Towards
-*** Increasing
-*** Decreasing
-*** Steady
-*** Opening
 *** Closing
+*** Constant
 *** Continuous
-*** Repetitive
-*** Discrete
+*** Decreasing
 *** Deterministic
+*** Discrete
+*** Flickering <nowiki>Irregular changes in time or space</nowiki>
+*** Increasing
+*** Opening
+*** Repetitive
 *** Stochastic
+*** Towards
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item-count
 *** <nowiki># {takesValue}</nowiki>  
@@ -635,9 +656,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 ** Temporal
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
-*** Response-delay
+*** Response-start-delay <nowiki>{requireChild} [How long the start of the response is delayed from the stimulus onset.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+*** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Synchronous
 *** Asynchronous
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
@@ -712,16 +737,19 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-** Leader 
+** Child 
+** Experimental-subject
+** Experimenter
 ** Follower
+** Leader 
 ** Parent
 *** Father
 *** Mother
-** Child 
+** Sibling
+*** Brother
+*** Sister
 ** Teacher
 ** Student
-** Experimental-subject
-** Experimenter
 ** Association <nowiki>{requireChild}</nowiki> 
 *** Associated-with-others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
@@ -735,6 +763,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
 ** Extraneous
 ** Feedback 
+** Failure
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Inappropriate
 ** Indeterminate
@@ -743,7 +772,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Masked
 ** Missed
 ** Meaningful
-** Newly learned meaning 
+** Newly-learned-meaning 
 ** Non-informative
 ** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
 ** Not-meaningful 
@@ -753,6 +782,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Penalizing
 ** Priming
 ** Rewarding 
+** Success
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
 ** Unmasked
