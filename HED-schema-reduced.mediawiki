@@ -53,18 +53,22 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Sphere
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
-*** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data]</nowiki>
+*** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data. This also encompasses different modalities such as representing a texture by the pitch of an audio tone.]</nowiki>
 **** Animation
 **** Art-installation
 **** Aerial-view
 **** Braille
 **** Cutout
-**** Drawing
+**** Image
+***** Cartoon
+***** Drawing
+***** Painting
+***** Photograph
 **** Movie
-**** Painting
-**** Photograph
+**** Outline
 **** Satellite-view
 **** Sculpture
+**** Sound-clip
 **** Stick-figure
 **** Street-view
 
@@ -181,6 +185,15 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Textblock
 ** Word
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
+*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+*** Noise
+**** White-noise
+**** Colored-noise
+** Musical-sound <nowiki>Any tone or combination of tones with characteristics such as controlled pitch and timbre that can be controlled by an agent.</nowiki>
+*** Tone
+*** Instrument-sound
+*** Vocalized-sound
 ** Named-animal-sound
 *** Bark
 *** Bleat
@@ -191,11 +204,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Moo
 *** Purr
 *** Roar
-** Named-environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
-*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
-*** Noise
-**** White-noise
-**** Colored-noise
+
 ** Named-object-sound
 *** Alarm
 *** Buzz
@@ -204,10 +213,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Ding
 *** Horn
 *** Siren
-** Unsure-what-category
-*** Tone
-*** Music
-
 
 '''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
@@ -730,16 +735,19 @@ There are four ways to define the scope of an event.  The most common method is 
 
 * Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
 ** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-** Leader 
+** Child 
+** Experimental-subject
+** Experimenter
 ** Follower
+** Leader 
 ** Parent
 *** Father
 *** Mother
-** Child 
+** Sibling
+*** Brother
+*** Sister
 ** Teacher
 ** Student
-** Experimental-subject
-** Experimenter
 ** Association <nowiki>{requireChild}</nowiki> 
 *** Associated-with-others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
