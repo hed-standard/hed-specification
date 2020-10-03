@@ -36,31 +36,38 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Dots
 **** Led-pattern
 *** 2D-shape
+**** Cross
 **** Ellipse
 ***** Circle
 **** Rectangle
 ***** Square
-**** Triangle
 **** Single-point
-**** Cross
 **** Star
+**** Triangle
 *** 3D-shape
-**** Ellipsoid
-***** Sphere
 **** Box
 ***** Cube
-**** Cylinder
 **** Cone
+**** Cylinder
+**** Ellipsoid
+***** Sphere
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
-*** Artwork <nowiki>[A work of art that is primarily visual in character]</nowiki>
+*** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data]</nowiki>
 **** Animation
-**** Drawing
-**** Painting
 **** Art-installation
-**** Photograph
+**** Aerial-view
+**** Braille
+**** Cutout
+**** Drawing
 **** Movie
+**** Painting
+**** Photograph
+**** Satellite-view
 **** Sculpture
+**** Stick-figure
+**** Street-view
+
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -98,6 +105,9 @@ There are four ways to define the scope of an event.  The most common method is 
 
 **** Machine
 ***** Noisemaker
+**** Measurement-device
+***** Clock
+****** Clock-face
 **** Robot
 **** Tool
 ***	Document <nowiki>[A physical, written document]</nowiki>
@@ -354,6 +364,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Member-of
 *** Part-of
 *** Performed-by
+*** Related-to
 ** Positional-relation
 *** Above
 *** Adjacent-to
@@ -751,7 +762,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Masked
 ** Missed
 ** Meaningful
-** Newly learned meaning 
+** Newly-learned-meaning 
 ** Non-informative
 ** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
 ** Not-meaningful 
