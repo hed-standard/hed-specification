@@ -655,6 +655,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Volume <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 ** Temporal
+*** Asynchronous
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
@@ -664,7 +665,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Synchronous
-*** Asynchronous
+*** Time-out
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
 ** Velocity 
 ** Acceleration 
