@@ -64,12 +64,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Drawing
 ***** Painting
 ***** Photograph
+**** Point-light-visualization
 **** Movie
-**** Outline
+**** Outline-visualization
 **** Satellite-view
 **** Sculpture
 **** Sound-clip
-**** Stick-figure
+**** Stick-figure-visualization
 **** Street-view
 
 *** Building <nowiki>[Whole building or building feature]</nowiki>
@@ -392,17 +393,18 @@ There are four ways to define the scope of an event.  The most common method is 
 *** During
 ** Spatiotemporal-relation
 *** Away-from
-*** Towards
-*** Increasing
-*** Decreasing
-*** Steady
-*** Opening
 *** Closing
+*** Constant
 *** Continuous
-*** Repetitive
-*** Discrete
+*** Decreasing
 *** Deterministic
+*** Discrete
+*** Flickering <nowiki>Irregular changes in time or space</nowiki>
+*** Increasing
+*** Opening
+*** Repetitive
 *** Stochastic
+*** Towards
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Item-count
 *** <nowiki># {takesValue}</nowiki>  
