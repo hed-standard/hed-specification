@@ -237,6 +237,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Blink
 **** Close-eyes
 **** Fixate
+**** Inhibit-blinks
 **** Open-eyes 
 **** Saccade
 *** Move-mouth
@@ -762,8 +763,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sister
 ** Teacher
 ** Student
-** Association <nowiki>{requireChild}</nowiki> 
-*** Associated-with-others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+** Association <nowiki>{requireChild}</nowiki>
+*** Associated-with-non-agents 
+*** Associated-with-other-agents <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 * Task-related
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
