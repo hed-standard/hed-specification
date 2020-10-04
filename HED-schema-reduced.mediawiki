@@ -1,4 +1,4 @@
-HED version: v1.6.10-reduced
+HED version: v1.6.11-reduced
 
 '''Syntax'''  
 
@@ -166,7 +166,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Arm
 *** Plant
 *** Mineral
-*** Terrain
+*** Natural-feature
 **** Field
 **** Hill
 **** Mountain
@@ -220,7 +220,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Breathe
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Hold breath
+*** Hold-breath
 ** Move-full-body
 *** Bend
 *** Dance
@@ -237,6 +237,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Blink
 **** Close-eyes
 **** Fixate
+**** Inhibit-blinks
 **** Open-eyes 
 **** Saccade
 *** Move-mouth
@@ -406,13 +407,15 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Stochastic
 *** Towards
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Item-count
+** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
+** Item-count <nowiki>{requireChild}</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
+** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>   
-** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
+** Ratio <nowiki>{requireChild}</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
@@ -420,22 +423,24 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Congruent
-** Incongruent 
-** Positive
-** Negative
+** Correct
+** Deep
+** False
 ** High
+** Incongruent
+** Incorrect
+** Invalid
+** Liminal
 ** Low
 ** Medium
 ** Normal
-** Valid
-** Invalid
-** Correct
-** Incorrect
-** True
-** False
+** Negative
+** Positive
+** Shallow
 ** Subliminal
-** Liminal
 ** Supraliminal
+** True
+** Valid
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Biological
@@ -452,10 +457,12 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Symbolic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
+*** Audible
 *** Frequency <nowiki>{requireChild}</nowiki> 
 *** Loudness <nowiki>{requireChild}</nowiki> 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
-*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
+*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
+*** Silent 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory
 ** Tactile
@@ -463,7 +470,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
-*** Color <nowiki>{requireChild}</nowiki> 
+*** Color <nowiki>{requireChild}</nowiki>
+**** Color-shade 
+***** Dark-shade
+***** Light-shade 
 **** HSV-color
 ***** Hue 
 ****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
@@ -655,6 +665,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Volume <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 ** Temporal
+*** Asynchronous
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
@@ -664,12 +675,16 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Synchronous
-*** Asynchronous
-** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
-** Velocity 
+*** Temporal-value
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+*** Time-out
 ** Acceleration 
+** Direction-change
 ** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
 *** #{takesValue, isNumeric, unitClass=jerk}
+** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+** Velocity 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
@@ -679,7 +694,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Motion-platform
 ** Urban
 ** Rural
-** Treadmill
+** Terrain
+*** Composite-terrain
+*** Grassy-terrain
+*** Gravel-terrain
+*** Paved-terrain
+*** Rocky-terrain
+*** Smooth-terrain
 * Agent-related
 ** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Alert
@@ -716,6 +737,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Postural-state<nowiki>{requireChild}</nowiki> 
 *** Crouching
 *** Kneeling
+*** On-treadmill
 *** Prone
 *** Sitting
 *** Standing
@@ -750,8 +772,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sister
 ** Teacher
 ** Student
-** Association <nowiki>{requireChild}</nowiki> 
-*** Associated-with-others <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+** Association <nowiki>{requireChild}</nowiki>
+*** Associated-with-non-agents 
+*** Associated-with-other-agents <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 * Task-related
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
