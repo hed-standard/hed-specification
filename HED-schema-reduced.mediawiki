@@ -1,4 +1,4 @@
-HED version: v1.6.10-reduced
+HED version: v1.6.11-reduced
 
 '''Syntax'''  
 
@@ -166,7 +166,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Arm
 *** Plant
 *** Mineral
-*** Terrain
+*** Natural-feature
 **** Field
 **** Hill
 **** Mountain
@@ -457,10 +457,12 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Symbolic
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
+*** Audible
 *** Frequency <nowiki>{requireChild}</nowiki> 
 *** Loudness <nowiki>{requireChild}</nowiki> 
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
-*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki> 
+*** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
+*** Silent 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory
 ** Tactile
@@ -692,7 +694,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Motion-platform
 ** Urban
 ** Rural
-** Treadmill
+** Terrain
+*** Composite-terrain
+*** Grassy-terrain
+*** Gravel-terrain
+*** Paved-terrain
+*** Rocky-terrain
+*** Smooth-terrain
 * Agent-related
 ** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Alert
@@ -729,6 +737,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Postural-state<nowiki>{requireChild}</nowiki> 
 *** Crouching
 *** Kneeling
+*** On-treadmill
 *** Prone
 *** Sitting
 *** Standing
