@@ -220,7 +220,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Breathe
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Hold breath
+*** Hold-breath
 ** Move-full-body
 *** Bend
 *** Dance
@@ -422,22 +422,24 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Congruent
-** Incongruent 
-** Positive
-** Negative
+** Correct
+** Deep
+** False
 ** High
+** Incongruent
+** Incorrect
+** Invalid
+** Liminal
 ** Low
 ** Medium
 ** Normal
-** Valid
-** Invalid
-** Correct
-** Incorrect
-** True
-** False
+** Negative
+** Positive
+** Shallow
 ** Subliminal
-** Liminal
 ** Supraliminal
+** True
+** Valid
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Biological
@@ -465,7 +467,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
-*** Color <nowiki>{requireChild}</nowiki> 
+*** Color <nowiki>{requireChild}</nowiki>
+**** Color-shade 
+***** Dark-shade
+***** Light-shade 
 **** HSV-color
 ***** Hue 
 ****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
@@ -670,11 +675,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Temporal-value
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
-** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki> 
-** Velocity 
 ** Acceleration 
+** Direction-change
 ** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
 *** #{takesValue, isNumeric, unitClass=jerk}
+** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+** Velocity 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
