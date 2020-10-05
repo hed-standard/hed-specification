@@ -533,8 +533,7 @@
             </node>
          </node>
          <node>
-            <name>Musical-sound</name>
-            <description>Any tone or combination of tones with characteristics such as controlled pitch and timbre that can be controlled by an agent</description>
+            <name>Musical-sound Any tone or combination of tones with characteristics such as controlled pitch and timbre that can be controlled by an agent</name>
             <node>
                <name>Tone</name>
             </node>

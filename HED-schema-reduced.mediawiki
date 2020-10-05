@@ -1,4 +1,4 @@
-HED version: v1.6.12-reduced
+HED version: v1.6.13-reduced
 
 '''Syntax'''  
 
@@ -59,7 +59,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Aerial-view
 **** Braille
 **** Cutout
-**** Image
+**** Image <nowiki>[A still 2-D representation.]</nowiki>
 ***** Cartoon
 ***** Drawing
 ***** Painting
@@ -95,8 +95,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Network-device
 ***** Output-device
 ****** Display
-******* Screen 
 ******* Head-mounted-display
+******* LED-display
+******* Screen 
 ****** Auditory-device
 ******* Headphones
 ******* Screen-speaker
@@ -107,7 +108,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** MEG-recording
 ****** Motion-capture
 ****** Tape-recording
-
 **** Machine
 ***** Noisemaker
 **** Measurement-device
