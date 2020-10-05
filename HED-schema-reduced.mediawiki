@@ -1,4 +1,4 @@
-HED version: v1.6.11-reduced
+HED version: v1.6.12-reduced
 
 '''Syntax'''  
 
@@ -388,24 +388,27 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Over
 *** Right-of
 *** Under
+** Directional-relation
+*** Away-from
+*** Closing
+*** Decreasing
+*** Downhill
+*** Increasing
+*** Opening
+*** Towards
+*** Uphill
 ** Temporal-relation
 *** After
 *** Before
 *** During
 ** Spatiotemporal-relation
-*** Away-from
-*** Closing
 *** Constant
 *** Continuous
-*** Decreasing
 *** Deterministic
 *** Discrete
-*** Flickering <nowiki>Irregular changes in time or space</nowiki>
-*** Increasing
-*** Opening
+*** Flickering <nowiki>[Irregular changes in time]</nowiki>
 *** Repetitive
 *** Stochastic
-*** Towards
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -696,11 +699,17 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rural
 ** Terrain
 *** Composite-terrain
+*** Dirt-terrain
 *** Grassy-terrain
 *** Gravel-terrain
+*** Leaf-covered-terrain
+*** Muddy-terrain
 *** Paved-terrain
 *** Rocky-terrain
+*** Sloped-terrain
 *** Smooth-terrain
+*** Uneven-terrain
+*** Wooden-walkway
 * Agent-related
 ** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Alert
@@ -757,24 +766,23 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 ** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki>
 
-* Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-** Agent <nowiki>{extensionAllowed}[Something that acts during the experiment (either living or inanimate).]</nowiki>
-** Child 
-** Experimental-subject
-** Experimenter
-** Follower
-** Leader 
-** Parent
-*** Father
-*** Mother
-** Sibling
-*** Brother
-*** Sister
-** Teacher
-** Student
+** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
+*** Child 
+*** Experimental-subject
+*** Experimenter
+*** Follower
+*** Leader 
+*** Parent
+**** Father
+**** Mother
+*** Sibling
+**** Brother
+**** Sister
+*** Teacher
+*** Student
 ** Association <nowiki>{requireChild}</nowiki>
-*** Associated-with-non-agents 
-*** Associated-with-other-agents <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+*** Associated-with-non-agent 
+*** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 * Task-related
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
