@@ -681,13 +681,15 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Temporal-value
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
-** Acceleration 
+** Acceleration
+*** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
 ** Direction-change
 ** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
-*** #{takesValue, isNumeric, unitClass=jerk}
+*** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki> 
 ** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-** Velocity 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
+** Velocity
+*** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
