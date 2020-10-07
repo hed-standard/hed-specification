@@ -1,4 +1,4 @@
-HED version: v1.6.13-reduced
+HED version: v1.6.14-reduced
 
 '''Syntax'''  
 
@@ -372,7 +372,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Part-of
 *** Performed-by
 *** Related-to
-** Positional-relation
+** Positional-relation <nowiki>[Should be grouped with what it is positionally related to.]</nowiki>
 *** Above
 *** Adjacent-to
 *** Ahead-of
@@ -380,6 +380,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Behind
 *** Below
 *** Close-to
+*** Distance-from
 *** Far-from
 *** Inside-of
 *** Left-of
@@ -461,11 +462,15 @@ There are four ways to define the scope of an event.  The most common method is 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Audible
-*** Frequency <nowiki>{requireChild}</nowiki> 
-*** Loudness <nowiki>{requireChild}</nowiki> 
+*** Frequency <nowiki>{requireChild}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=frequency}</nowiki>  
+*** Loudness <nowiki>{requireChild}</nowiki>
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+*** Monophonic <nowiki> [Consisting of one independent audio channel</nowiki>  
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
-*** Silent 
+*** Silent
+*** Stereophonic <nowiki> [Consisting of more than one independent audio channel</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory
 ** Tactile
@@ -652,19 +657,22 @@ There are four ways to define the scope of an event.  The most common method is 
 *** 3D-view 
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
-*** Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki> 
+*** Bearing <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki>
+*** Orientation  
 *** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-*** Distance
+*** Distance <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Resolution
+***** <nowiki># {takesValue}</nowiki> 
 *** Size <nowiki>{requireChild}</nowiki> 
-**** Length<nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Width
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} </nowiki>
-**** Height
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+**** Length <nowiki>{requireChild} [A measurement of the size along the longest dimension.]</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
+**** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to the Length.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Volume <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
 ** Temporal
@@ -722,8 +730,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Brain-dead 
 *** Comatose 
 *** Drowsy 
-*** Intoxicated <nowiki>{extensionAllowed, requireChild}[Indicates a state in which participant has consumed alcohol, drugs, or other substances that may alter physical or mental state.]</nowiki> 
+*** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
 *** Locked-in 
+*** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
 *** Resting
 *** Vegetative 
 ** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki>
@@ -737,12 +746,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Empathetic
 *** Excited 
 *** Fearful
+*** Feeling-stress
 *** Frustrated
 *** Grieving
 *** Happy
 *** Jealous 
 *** Joyful 
-*** Loving 
+*** Loving
 *** Relieved
 *** Sad 
 ** Postural-state<nowiki>{requireChild}</nowiki> 
