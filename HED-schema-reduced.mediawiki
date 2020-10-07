@@ -760,28 +760,26 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue}</nowiki> 
 *** Handedness
 **** <nowiki># {takesValue}</nowiki> 
-
 ** Attentional
 ** Emotional 
 ** Reflexive
 ** Intentional
 ** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
-** Social <nowiki>[Involving interactions among multiple agents such as humans or dogs or robots]</nowiki>
-
-** Role <nowiki> {requireChild} [The role of the agent (participant, character, AI..)]</nowiki> 
-*** Child 
+** Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
+*** Brother
+*** Child
+*** Father
+*** Mother
+*** Sister
+** Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>  
 *** Experimental-subject
 *** Experimenter
 *** Follower
-*** Leader 
-*** Parent
-**** Father
-**** Mother
-*** Sibling
-**** Brother
-**** Sister
-*** Teacher
+*** Friend
+*** Leader
+*** Stranger
 *** Student
+*** Teacher
 ** Association <nowiki>{requireChild}</nowiki>
 *** Associated-with-non-agent 
 *** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
