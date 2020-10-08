@@ -1327,7 +1327,6 @@
          </node>
          <node requireChild="true">
             <name>Uncertainty</name>
-            <description>Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty</description>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -2212,18 +2211,18 @@
                   <name>#</name>
                </node>
             </node>
-         </node>
-         <node>
-            <name>Temporal-rate</name>
-            <description>Number of occurrences in a unit of time.</description>
-            <node isNumeric="true" takesValue="true">
-               <name>#</name>
+            <node>
+               <name>Temporal-rate</name>
+               <description>Number of occurrences in a unit of time.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
             </node>
-         </node>
-         <node>
-            <name>Velocity</name>
-            <node isNumeric="true" takesValue="true" unitClass="speed">
-               <name>#</name>
+            <node>
+               <name>Velocity</name>
+               <node isNumeric="true" takesValue="true" unitClass="speed">
+                  <name>#</name>
+               </node>
             </node>
          </node>
       </node>

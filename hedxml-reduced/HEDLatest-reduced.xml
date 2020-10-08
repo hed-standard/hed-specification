@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="v1.6.14-reduced">
+<HED version="v1.6.15-reduced">
    <node>
       <name>Event</name>
       <node>
@@ -514,7 +514,7 @@
       </node>
       <node>
          <name>Sound</name>
-         <description>Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
+         <description>Item/Sound can be used in a tag group to describe, for example, sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
          <node>
             <name>Environmental-sound</name>
             <description>A background sound from the surrounding environment.</description>
@@ -819,9 +819,18 @@
                <name>Walk</name>
             </node>
          </node>
-      </node>
-      <node>
-         <name>Operate</name>
+         <node>
+            <name>Collide</name>
+         </node>
+         <node>
+            <name>Halt</name>
+         </node>
+         <node>
+            <name>Operate</name>
+         </node>
+         <node>
+            <name>Rest</name>
+         </node>
       </node>
       <node>
          <name>Communicate</name>
@@ -894,9 +903,6 @@
          </node>
       </node>
       <node>
-         <name>Rest</name>
-      </node>
-      <node>
          <name>Think</name>
          <node>
             <name>Allow</name>
@@ -928,10 +934,10 @@
             <name>Generate</name>
          </node>
          <node>
-            <name>Imagine</name>
+            <name>Identify</name>
          </node>
          <node>
-            <name>Name</name>
+            <name>Imagine</name>
          </node>
          <node>
             <name>Read</name>
@@ -993,9 +999,56 @@
          </node>
          <node requireChild="true">
             <name>Feature</name>
-            <description>As a Name:Value</description>
-            <node takesValue="true">
-               <name>#</name>
+            <node requireChild="true">
+               <name>Statistical-feature</name>
+               <node requireChild="true">
+                  <name>Accuracy</name>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Data-mean</name>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Data-median</name>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Precision</name>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Recall</name>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Standard-deviation</name>
+                  <description>As a Name:Value</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Observational-feature</name>
+               <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
+            </node>
+            <node requireChild="true">
+               <name>Computed-feature</name>
+               <description>Feature computed by tool. Should be grouped with a label of the form Toolname_featureName</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
             </node>
          </node>
          <node requireChild="true">
@@ -1114,6 +1167,9 @@
                <name>Above</name>
             </node>
             <node>
+               <name>Across</name>
+            </node>
+            <node>
                <name>Adjacent-to</name>
             </node>
             <node>
@@ -1144,7 +1200,10 @@
                <name>Left-of</name>
             </node>
             <node>
-               <name>On-top-of</name>
+               <name>On-bottom</name>
+            </node>
+            <node>
+               <name>On-top</name>
             </node>
             <node>
                <name>Outside-of</name>
@@ -1268,7 +1327,6 @@
          </node>
          <node requireChild="true">
             <name>Uncertainty</name>
-            <description>Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty</description>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1398,6 +1456,7 @@
             </node>
             <node>
                <name>Monophonic</name>
+               <description>Consisting of one independent audio channel</description>
             </node>
             <node>
                <name>Ramp-up</name>
@@ -1412,6 +1471,7 @@
             </node>
             <node>
                <name>Stereophonic</name>
+               <description>Consisting of more than one independent audio channel</description>
             </node>
             <node>
                <name>Timbre</name>
@@ -1961,12 +2021,6 @@
                         <name>MistyRose</name>
                      </node>
                   </node>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
                </node>
             </node>
          </node>
@@ -2000,9 +2054,9 @@
             </node>
             <node requireChild="true">
                <name>Distance</name>
-            </node>
-            <node>
-               <name>Resolution</name>
+               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <name>#</name>
+               </node>
             </node>
             <node requireChild="true">
                <name>Size</name>
@@ -2028,7 +2082,7 @@
                </node>
                <node>
                   <name>Height</name>
-                  <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to the Length.</description>
+                  <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
                   </node>
@@ -2038,6 +2092,45 @@
                   <node isNumeric="true" takesValue="true" unitClass="volume">
                      <name>#</name>
                   </node>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Resolution</name>
+            <node requireChild="true">
+               <name>IO-resolution</name>
+               <node requireChild="true">
+                  <name>Screen-resolution</name>
+                  <description>Number of pixels in each dimension for a digital display device.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Printer-resolution</name>
+                  <description>Number of dots-per-inch for a printer.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Spatial-resolution</name>
+               <description>Linear spacing of a spatial measurement.</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Spectral-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Temporal-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
                </node>
             </node>
          </node>
@@ -2087,32 +2180,49 @@
             </node>
          </node>
          <node>
-            <name>Acceleration</name>
-            <node isNumeric="true" takesValue="true" unitClass="acceleration">
-               <name>#</name>
+            <name>Rate-of-change</name>
+            <node>
+               <name>Acceleration</name>
+               <node isNumeric="true" takesValue="true" unitClass="acceleration">
+                  <name>#</name>
+               </node>
             </node>
-         </node>
-         <node>
-            <name>Direction-change</name>
-         </node>
-         <node>
-            <name>Jerk-rate</name>
-            <description>Rate at which an object's acceleration changes with respect to time.</description>
-            <node isNumeric="true" takesValue="true" unitClass="jerk">
-               <name>#</name>
+            <node>
+               <name>Direction-change</name>
             </node>
-         </node>
-         <node>
-            <name>Rate</name>
-            <description>Number of occurrences in a unit of time.</description>
-            <node isNumeric="true" takesValue="true">
-               <name>#</name>
+            <node>
+               <name>Jerk-rate</name>
+               <description>Rate at which an object's acceleration changes with respect to time.</description>
+               <node isNumeric="true" takesValue="true" unitClass="jerk">
+                  <name>#</name>
+               </node>
             </node>
-         </node>
-         <node>
-            <name>Velocity</name>
-            <node isNumeric="true" takesValue="true" unitClass="speed">
-               <name>#</name>
+            <node requireChild="true">
+               <name>Sampling-rate</name>
+               <description>Number of measurements per unit time.</description>
+               <node takesValue="true" unitClass="frequency">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Refresh-rate</name>
+               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-rate</name>
+               <description>Number of occurrences in a unit of time.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Velocity</name>
+               <node isNumeric="true" takesValue="true" unitClass="speed">
+                  <name>#</name>
+               </node>
             </node>
          </node>
       </node>
@@ -2144,6 +2254,9 @@
          </node>
          <node>
             <name>Terrain</name>
+            <node>
+               <name>Boundary</name>
+            </node>
             <node>
                <name>Composite-terrain</name>
             </node>
@@ -2423,13 +2536,16 @@
             <name>Background</name>
          </node>
          <node>
+            <name>Correction</name>
+         </node>
+         <node>
             <name>Cue</name>
          </node>
          <node>
             <name>Distractor</name>
          </node>
          <node>
-            <name>Erroroneous</name>
+            <name>Erroneous</name>
          </node>
          <node>
             <name>Expected</name>
@@ -2469,6 +2585,9 @@
          </node>
          <node>
             <name>Meaningful</name>
+         </node>
+         <node>
+            <name>Near-miss</name>
          </node>
          <node>
             <name>Newly-learned-meaning</name>

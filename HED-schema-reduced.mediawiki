@@ -440,7 +440,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+** Uncertainty <nowiki> {requireChild} </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Congruent
@@ -726,11 +726,10 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
 *** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
-** Velocity
-*** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
-
+*** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+**** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** Velocity
+**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
