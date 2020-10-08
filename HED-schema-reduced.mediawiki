@@ -1,4 +1,4 @@
-HED version: v1.6.14-reduced
+HED version: v1.6.15-reduced
 
 '''Syntax'''  
 
@@ -7,7 +7,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 HED 3 introduces the notion of the scope of an event. Events are assumed to occur at a single point in time unless they have an explicit scope. Events with a scope have a starting point and an ending point. Tools treat tags associated with scoped events as being applicable during the entire scope of that event and will automatically apply those tags to every event within the scope during analysis.  
 
-There are four ways to define the scope of an event.  The most common method is to specify the start and end of the scope using Onset and Offset. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that starts at the time associated with the Onset event and ends at the end of the dataset. To explicitly specify both the start and end of a scope gtoup the Attribute/Temporal/Onset with an Attribute/Informational/Label/# tag to identify  and mark the start of the scope along with all of the other tags associated with the scope. Use the Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of that scope. Once a scope has been identified, additional occurences of that scope can be marked with labeled onset-offset pairs without repeating the additional tags associated with the scope. Finally, tags grouped with the Attribute/Temporal/Duration/# tag define a scope that starts at that point and ends  duration time later. One can also combine the /Attribute/Informational/Definition  and the Attribute/Informational/Label/#  with a group of tags. That label tag can then be used anywhere to represent the associated group of tags, much like an event code.
+There are four ways to define the scope of an event.  The most common method is to specify the start and end of the scope using Onset and Offset. An event tagged with Attribute/Temporal/Onset is assumed to have a scope that starts at the time associated with the Onset event and ends at the end of the dataset. To explicitly specify both the start and end of a scope gtoup the Attribute/Temporal/Onset with an Attribute/Informational/Label/# tag to identify  and mark the start of the scope along with all of the other tags associated with the scope. Use the Attribute/Temporal/Offset with the same Attribute/Informational/Label/# to indicate the end of that scope. Once a scope has been identified, additional occurrences of that scope can be marked with labeled onset-offset pairs without repeating the additional tags associated with the scope. Finally, tags grouped with the Attribute/Temporal/Duration/# tag define a scope that starts at that point and ends  duration time later. One can also combine the /Attribute/Informational/Definition  and the Attribute/Informational/Label/#  with a group of tags. That label tag can then be used anywhere to represent the associated group of tags, much like an event code.
 
 !# start hed 
 
@@ -22,10 +22,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/#]</nowiki>  
 ** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
-
-
-
-
 
 
 
@@ -185,7 +181,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Syllable
 ** Textblock
 ** Word
-* Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action (e.g. Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human) or an object (e.g. Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+* Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
 *** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 *** Noise
@@ -282,7 +278,10 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Toe-off
 *** Trot
 *** Walk
-* Operate
+** Collide
+** Halt
+** Operate
+** Rest 
 * Communicate
 ** Communicate-vocally
 *** Cry
@@ -305,7 +304,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sing
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
-* Rest 
+
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend
@@ -316,13 +315,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Encode 
 ** Evade 
 ** Generate
+** Identify
 ** Imagine
-** Name 
 ** Read 
 ** Recall
 ** Repeat
 ** Switch-attention
 ** Track
+
 
 '''Attribute''' 
 * Informational <nowiki>{extensionAllowed}</nowiki>
@@ -337,10 +337,25 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
 *** Subject <nowiki>{requireChild} </nowiki>
 **** <nowiki># {takesValue}</nowiki>
-** Feature <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
+** Feature <nowiki>{requireChild}</nowiki>
+*** Statistical-feature <nowiki>{requireChild}</nowiki>
+**** Accuracy <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Data-mean <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Data-median <nowiki>{requireChild} </nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Precision <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki> 
+**** Recall <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue}</nowiki> 
+**** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+*** Observational-feature <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+*** Computed-feature <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_featureName]</nowiki>
+**** <nowiki># {takesValue}</nowiki>
 ** Parameter <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
 * Organizational
 ** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
 ** Collection
@@ -374,6 +389,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Related-to
 ** Positional-relation <nowiki>[Should be grouped with what it is positionally related to.]</nowiki>
 *** Above
+*** Across
 *** Adjacent-to
 *** Ahead-of
 *** Around
@@ -384,7 +400,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Far-from
 *** Inside-of
 *** Left-of
-*** On-top-of
+*** On-bottom
+*** On-top
 *** Outside-of
 *** Over
 *** Right-of
@@ -423,7 +440,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event or other item such as a data features. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
+** Uncertainty <nowiki> {requireChild} </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Congruent
@@ -466,11 +483,11 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, isNumeric, unitClass=frequency}</nowiki>  
 *** Loudness <nowiki>{requireChild}</nowiki>
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Monophonic <nowiki> [Consisting of one independent audio channel</nowiki>  
+*** Monophonic <nowiki> [Consisting of one independent audio channel]</nowiki>  
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
 *** Silent
-*** Stereophonic <nowiki> [Consisting of more than one independent audio channel</nowiki> 
+*** Stereophonic <nowiki> [Consisting of more than one independent audio channel]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory
 ** Tactile
@@ -661,9 +678,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Orientation  
 *** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 *** Distance <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Resolution
-***** <nowiki># {takesValue}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
@@ -671,10 +686,22 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
-**** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to the Length.]</nowiki>
+**** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Volume <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+** Resolution
+*** IO-resolution <nowiki>{requireChild}</nowiki> 
+**** Screen-resolution <nowiki>{requireChild}[Number of pixels in each dimension for a digital display device.]</nowiki> 
+***** <nowiki># {takesValue} </nowiki>
+**** Printer-resolution <nowiki>{requireChild}[Number of dots-per-inch for a printer.]</nowiki> 
+***** <nowiki># {takesValue} </nowiki>
+*** Spatial-resolution <nowiki>{requireChild}[Linear spacing of a spatial measurement.]</nowiki> 
+**** <nowiki># {takesValue}</nowiki>
+*** Spectral-resolution <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue}</nowiki> 
+*** Temporal-resolution <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue} </nowiki> 
 ** Temporal
 *** Asynchronous
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
@@ -689,15 +716,21 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Temporal-value
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
-** Acceleration
-*** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
-** Direction-change
-** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki> 
-** Rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
-** Velocity
-*** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
+** Rate-of-change
+*** Acceleration
+**** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
+*** Direction-change
+*** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
+*** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
+**** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
+*** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+*** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+**** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** Velocity
+**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
+
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
@@ -708,6 +741,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Urban
 ** Rural
 ** Terrain
+*** Boundary
 *** Composite-terrain
 *** Dirt-terrain
 *** Grassy-terrain
@@ -798,9 +832,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Appropriate
 ** Background
+** Correction
 ** Cue
 ** Distractor 
-** Erroroneous
+** Erroneous
 ** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
 ** Extraneous
 ** Feedback 
@@ -813,6 +848,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Masked
 ** Missed
 ** Meaningful
+** Near-miss
 ** Newly-learned-meaning 
 ** Non-informative
 ** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
@@ -828,6 +864,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Threatening
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+
 
 
 '''Unit classes''' 
