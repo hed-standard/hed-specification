@@ -662,8 +662,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
 *** Distance <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Resolution
-***** <nowiki># {takesValue}</nowiki> 
+
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
@@ -674,7 +673,21 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to the Length.]</nowiki>
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Volume <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+** Resolution
+*** Display-resolution <nowiki>{requireChild}</nowiki> 
+**** Screen-resolution <nowiki>{requireChild}[Number of pixels in each dimension for a digital display device.]</nowiki> 
+***** <nowiki># {takesValue} [Give as A x B for example 1920×1080] </nowiki>
+**** Printer-resolution <nowiki>{requireChild}[Number of dots-per-inch for a printer.]</nowiki> 
+***** <nowiki># {takesValue} [Give as A x B for example 1920×1080] </nowiki>
+*** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+*** Spatial-resolution <nowiki>{requireChild}[linear spacing of a spatial measurement.]</nowiki> 
+**** <nowiki># {takesValue}</nowiki>
+*** Spectral-resolution <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue}</nowiki> 
+*** Temporal-resolution <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue} </nowiki>  
 ** Temporal
 *** Asynchronous
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
