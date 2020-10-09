@@ -1,4 +1,4 @@
-HED version: v1.6.15-reduced
+HED version: v1.6.16-reduced
 
 '''Syntax'''  
 
@@ -22,6 +22,13 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Procedure <nowiki>[An event marking the Onset or Offset of an experimental procedure, for example doing a saliva swab on the person, during the experiment. Use Attribute/Temporal/Onset and, in another Event, Attribute/Temporal/Offset to specify the start and end of the procedure. Use Attribute/ID/#]</nowiki>  
 ** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
+
+
+'''Agent''' <nowiki>{extensionAllowed}</nowiki>
+* Animal-agent 
+* Computational-agent 
+* Human-agent 
+* Robotic-agent 
 
 
 
@@ -133,34 +140,11 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Train 
 **** Truck 
 ** Natural
-*** Animal
-*** Human
-**** Head
-***** Hair
-***** Ear
-***** Face
-****** Cheek
-****** Chin
-****** Eye
-****** Eyebrow
-****** Forehead
-****** Lip
-****** Nose
-****** Mouth
-**** Body
-***** Hand
-****** Finger
-******* Index-finger
-******* Little-finger
-******* Middle-finger
-******* Ring-finger
-******* Thumb-finger
-***** Foot
-****** Toe
-***** Torso
-***** Leg
-***** Arm
-*** Plant
+*** Organism
+**** Animal
+**** Human
+**** Plant
+
 *** Mineral
 *** Natural-feature
 **** Field
@@ -345,6 +329,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** <nowiki># {takesValue}</nowiki>
 **** Data-median <nowiki>{requireChild} </nowiki> 
 ***** <nowiki># {takesValue}</nowiki>
+**** Data-minimum <nowiki>{requireChild} </nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Data-maximum <nowiki>{requireChild} </nowiki> 
+***** <nowiki># {takesValue}</nowiki>
 **** Precision <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue}</nowiki> 
 **** Recall <nowiki>{requireChild}</nowiki> 
@@ -358,9 +346,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki>
 * Organizational
 ** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
-** Collection
+** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
 ** Context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
-** Condition <nowiki>[An event used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
+** Condition <nowiki>[A tag used to indicate a shift to a new experimental or task condition, usually as the result of the change of a control variable or the participant state.]</nowiki>
+** Data-acquisition <nowiki>[A tag used to indicate data acquisition usually used to define an event with temporal scope.]</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki> 
 ** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki>
@@ -375,7 +364,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Equal-to
 *** Not-equal-to
 ** Connective-relation
-*** Belongs-to   [As in owned by]
+*** Belongs-to <nowiki>[As in owned by]</nowiki>
 *** Connected-to
 *** Contained-in
 *** Described-by
@@ -395,8 +384,10 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Around
 *** Behind
 *** Below
+*** Boundary-between
 *** Close-to
 *** Distance-from
+*** Edge-of
 *** Far-from
 *** Inside-of
 *** Left-of
@@ -419,6 +410,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** After
 *** Before
 *** During
+*** Waiting-for
 ** Spatiotemporal-relation
 *** Constant
 *** Continuous
@@ -690,6 +682,10 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Volume <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+*** Surface-properties
+**** Rough
+**** Smooth
+
 ** Resolution
 *** IO-resolution <nowiki>{requireChild}</nowiki> 
 **** Screen-resolution <nowiki>{requireChild}[Number of pixels in each dimension for a digital display device.]</nowiki> 
@@ -740,8 +736,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Motion-platform
 ** Urban
 ** Rural
+*** Wooden-walkway
 ** Terrain
-*** Boundary
+
 *** Composite-terrain
 *** Dirt-terrain
 *** Grassy-terrain
@@ -751,9 +748,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Paved-terrain
 *** Rocky-terrain
 *** Sloped-terrain
-*** Smooth-terrain
 *** Uneven-terrain
-*** Wooden-walkway
+
 * Agent-related
 ** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
 *** Alert
@@ -865,6 +861,33 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
+** Anatomical
+*** Body-part
+**** Head
+***** Hair
+***** Ear
+***** Face
+****** Cheek
+****** Chin
+****** Eye
+****** Eyebrow
+****** Forehead
+****** Lip
+****** Nose
+****** Mouth
+****** Teeth
+**** Hand
+***** Finger
+****** Index-finger
+****** Little-finger
+****** Middle-finger
+****** Ring-finger
+****** Thumb-finger
+**** Foot
+***** Toe
+**** Torso
+**** Leg
+**** Arm
 
 
 '''Unit classes''' 
