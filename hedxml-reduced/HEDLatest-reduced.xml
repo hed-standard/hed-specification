@@ -2611,85 +2611,85 @@
             <name>Warning</name>
             <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
          </node>
+      </node>
+      <node>
+         <name>Anatomical</name>
          <node>
-            <name>Anatomical</name>
+            <name>Body-part</name>
             <node>
-               <name>Body-part</name>
+               <name>Head</name>
                <node>
-                  <name>Head</name>
+                  <name>Hair</name>
+               </node>
+               <node>
+                  <name>Ear</name>
+               </node>
+               <node>
+                  <name>Face</name>
                   <node>
-                     <name>Hair</name>
+                     <name>Cheek</name>
                   </node>
                   <node>
-                     <name>Ear</name>
+                     <name>Chin</name>
                   </node>
                   <node>
-                     <name>Face</name>
-                     <node>
-                        <name>Cheek</name>
-                     </node>
-                     <node>
-                        <name>Chin</name>
-                     </node>
-                     <node>
-                        <name>Eye</name>
-                     </node>
-                     <node>
-                        <name>Eyebrow</name>
-                     </node>
-                     <node>
-                        <name>Forehead</name>
-                     </node>
-                     <node>
-                        <name>Lip</name>
-                     </node>
-                     <node>
-                        <name>Nose</name>
-                     </node>
-                     <node>
-                        <name>Mouth</name>
-                     </node>
-                     <node>
-                        <name>Teeth</name>
-                     </node>
+                     <name>Eye</name>
                   </node>
-               </node>
-               <node>
-                  <name>Hand</name>
                   <node>
-                     <name>Finger</name>
-                     <node>
-                        <name>Index-finger</name>
-                     </node>
-                     <node>
-                        <name>Little-finger</name>
-                     </node>
-                     <node>
-                        <name>Middle-finger</name>
-                     </node>
-                     <node>
-                        <name>Ring-finger</name>
-                     </node>
-                     <node>
-                        <name>Thumb-finger</name>
-                     </node>
+                     <name>Eyebrow</name>
                   </node>
-               </node>
-               <node>
-                  <name>Foot</name>
                   <node>
-                     <name>Toe</name>
+                     <name>Forehead</name>
+                  </node>
+                  <node>
+                     <name>Lip</name>
+                  </node>
+                  <node>
+                     <name>Nose</name>
+                  </node>
+                  <node>
+                     <name>Mouth</name>
+                  </node>
+                  <node>
+                     <name>Teeth</name>
                   </node>
                </node>
+            </node>
+            <node>
+               <name>Hand</name>
                <node>
-                  <name>Torso</name>
+                  <name>Finger</name>
+                  <node>
+                     <name>Index-finger</name>
+                  </node>
+                  <node>
+                     <name>Little-finger</name>
+                  </node>
+                  <node>
+                     <name>Middle-finger</name>
+                  </node>
+                  <node>
+                     <name>Ring-finger</name>
+                  </node>
+                  <node>
+                     <name>Thumb-finger</name>
+                  </node>
                </node>
+            </node>
+            <node>
+               <name>Foot</name>
                <node>
-                  <name>Leg</name>
+                  <name>Toe</name>
                </node>
-               <node>
-                  <name>Arm</name>
-               </node>
+            </node>
+            <node>
+               <name>Torso</name>
+            </node>
+            <node>
+               <name>Leg</name>
+            </node>
+            <node>
+               <name>Arm</name>
             </node>
          </node>
       </node>

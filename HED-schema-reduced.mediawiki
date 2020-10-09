@@ -860,7 +860,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Threatening
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-
 * Anatomical
 ** Body-part
 *** Head
