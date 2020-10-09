@@ -793,18 +793,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sitting
 *** Standing
 *** Supported-by-chin-rest
-** Trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
 *** Age
 **** <nowiki># {takesValue}</nowiki>
 *** Sex
 **** <nowiki># {takesValue}</nowiki> 
 *** Handedness
 **** <nowiki># {takesValue}</nowiki> 
-** Attentional
-** Emotional 
-** Reflexive
-** Intentional
-** Arousal <nowiki>[Only in the context of 2D emotion representation]</nowiki> 
 ** Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
 *** Brother
 *** Child
