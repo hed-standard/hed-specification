@@ -1,4 +1,4 @@
-HED version: v1.6.15-reduced
+HED version: v1.6.16-reduced
 
 '''Syntax'''  
 
