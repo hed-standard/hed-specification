@@ -48,6 +48,9 @@
       <node>
          <name>Animal-agent</name>
       </node>
+	  <node>
+         <name>Avatar</name>
+      </node>
       <node>
          <name>Computational-agent</name>
       </node>
@@ -62,7 +65,7 @@
       <name>Item</name>
       <node extensionAllowed="true">
          <name>Object</name>
-         <description>Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities</description>
+         <description>Physical object perceptible to an agent via visual or other sensory modality. </description>
          <node>
             <name>Geometric</name>
             <node>
