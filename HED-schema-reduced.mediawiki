@@ -1,4 +1,4 @@
-HED version: v1.6.16-reduced
+HED version: v1.6.17-reduced
 
 '''Syntax'''  
 
@@ -353,8 +353,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
 ** Context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
-** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied
-during the experiment. Condition-variables are sometimes called independent variables.]</nowiki>
+** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Condition-variables are sometimes called independent variables.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Data-acquisition <nowiki>[A tag used to indicate data acquisition usually used to define an event with temporal scope.]</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
