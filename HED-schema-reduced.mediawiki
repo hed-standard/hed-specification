@@ -859,7 +859,7 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Not-meaningful 
 ** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 ** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-** Participant-indication <nowiki>  [This tag is placed in events of type Event/Category/Participant response and grouped with Participant/Effect/Cognitive/.. tags to specify the type of cognitive effect the participant has experienced. For example, in an RSVP paradigm, the subject can indicate the detection of a target with a button press. The HED string associated with this button press must include (Attribute/Participant indication, Participant/Effect/Cognitive/Target,...)]
+** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 ** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
 ** Planned
 ** Penalizing
