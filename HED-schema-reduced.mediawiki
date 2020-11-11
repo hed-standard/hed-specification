@@ -22,13 +22,14 @@ There are four ways to define the scope of an event.  The most common method is 
 
 '''Agent''' <nowiki>{extensionAllowed}</nowiki>
 * Animal-agent 
+* Avatar-agent
 * Computational-agent 
 * Human-agent 
 * Robotic-agent 
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities]</nowiki>
+* Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
 ** Geometric
 *** Pattern
 **** Dots
