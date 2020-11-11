@@ -16,11 +16,7 @@ There are four ways to define the scope of an event.  The most common method is 
 * Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
 * Data-feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
-** Instruction <nowiki>[Experimenter (or experimental control application) gives an instruction to the participant.]</nowiki>
-** Pause <nowiki>[An event indicating a stop in recording. .]</nowiki>    
-** Timesync <nowiki>[A marker value or pattern inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-** Procedure <nowiki>[An event indicating an experimental procedureas in doing a saliva swab on the person during the experiment.]</nowiki>  
-** Mishap <nowiki> [Unplanned disruptive event such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
+* Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on the person during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
 
@@ -29,7 +25,6 @@ There are four ways to define the scope of an event.  The most common method is 
 * Computational-agent 
 * Human-agent 
 * Robotic-agent 
-
 
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
@@ -323,9 +318,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** <nowiki># {takesValue}</nowiki> 
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
 *** Creation-date <nowiki>{requireChild}</nowiki> 
-**** <nowiki># {takesValue, unitClass=datetime}</nowiki> 
+**** <nowiki># {takesValue, unitClass=datetime}</nowiki>
+*** Library-name <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue}</nowiki>  
 *** Subject <nowiki>{requireChild} </nowiki>
 **** <nowiki># {takesValue}</nowiki>
+*** Version <nowiki>{requireChild}</nowiki> 
+**** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
 ** Feature <nowiki>{requireChild}</nowiki>
 *** Statistical-feature <nowiki>{requireChild}</nowiki>
 **** Accuracy <nowiki>{requireChild}</nowiki> 
@@ -357,9 +356,9 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Data-acquisition <nowiki>[A tag used to indicate data acquisition usually used to define an event with temporal scope.]</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
-** Response-variable <nowiki>[An aspect of the experiment or task that is measured as control-variables are varied
-during the experiment. Response-variables are sometimes called dependent variables.]</nowiki>
+** Response-variable <nowiki>[An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.]</nowiki>
 ** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
@@ -712,6 +711,8 @@ during the experiment. Response-variables are sometimes called dependent variabl
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
+*** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
+
 *** Response-start-delay <nowiki>{requireChild} [How long the start of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
@@ -720,6 +721,7 @@ during the experiment. Response-variables are sometimes called dependent variabl
 *** Temporal-value
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
+*** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Rate-of-change
 *** Acceleration
 **** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
@@ -842,10 +844,12 @@ during the experiment. Response-variables are sometimes called dependent variabl
 ** Failure
 ** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 ** Inappropriate
+** Incidental 
 ** Indeterminate
 ** Instructional 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
 ** Masked
+** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 ** Missed
 ** Meaningful
 ** Near-miss
