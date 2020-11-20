@@ -55,7 +55,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data. This also encompasses different modalities such as representing a texture by the pitch of an audio tone.]</nowiki>
 **** Animation
 **** Art-installation
-**** Aerial-view
 **** Braille
 **** Cutout
 **** Image <nowiki>[A still 2-D representation.]</nowiki>
@@ -63,14 +62,19 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Drawing
 ***** Painting
 ***** Photograph
-**** Point-light-visualization
+**** Map <nowiki>[A representation of a geographical location.]</nowiki>
+***** Aerial-view <nowiki>[A representation from an overhead view such as captured by a drone.]</nowiki>
+***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
+***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Movie
 **** Outline-visualization
-**** Satellite-view
+**** Point-light-visualization
 **** Sculpture
 **** Sound-clip
 **** Stick-figure-visualization
-**** Street-view
+**** View
+***** 2D-view
+***** 3D-view
 
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
@@ -101,7 +105,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Display-device
 ******* Head-mounted-display
 ******* LED-display
-******* Screen 
+******* Screen
+******* Screen-window
 ****** Auditory-device
 ******* Headphones
 ******* Screen-speaker
@@ -316,7 +321,8 @@ There are four ways to define the scope of an event.  The most common method is 
 ** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify particular objects.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
 *** Creation-date <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
@@ -355,10 +361,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Condition-variables are sometimes called independent variables.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Data-acquisition <nowiki>[A tag used to indicate data acquisition usually used to define an event with temporal scope.]</nowiki>
-** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Data-acquisition <nowiki>[An activity related to data acquisition.]</nowiki>
+** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
 ** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
+** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
+*** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
+*** Subject-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
+*** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
 ** Response-variable <nowiki>[An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.]</nowiki>
 ** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
@@ -399,11 +409,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Far-from
 *** Inside-of
 *** Left-of
+*** Left-side
 *** On-bottom
 *** On-top
 *** Outside-of
 *** Over
 *** Right-of
+*** Right-side
 *** Under
 ** Directional-relation
 *** Away-from
@@ -668,10 +680,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Linen
 ****** LavenderBlush
 ****** MistyRose
-* Presentation
-** Window
-*** 2D-view
-*** 3D-view 
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Bearing <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki>
@@ -1006,10 +1014,11 @@ There are four ways to define the scope of an event.  The most common method is 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki>  
 * recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
 * requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
-*  required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
+* required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
 * SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
 * SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
-* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
+* suggestedTags <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
 * takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
