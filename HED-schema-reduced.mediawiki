@@ -402,7 +402,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Around
 *** Behind
 *** Below
-*** Boundary-between
+*** Bottom <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+*** Boundary-of
+*** Center <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Close-to
 *** Distance-from
 *** Edge-of
@@ -410,22 +412,25 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Inside-of
 *** Left-of
 *** Left-side
-*** On-bottom
-*** On-top
 *** Outside-of
 *** Over
 *** Right-of
 *** Right-side
+*** Top
 *** Under
 ** Directional-relation
 *** Away-from
+*** Backward
 *** Closing
 *** Decreasing
-*** Downhill
+*** Downward
+*** Forward
 *** Increasing
+*** Leftward
+*** Rightward
 *** Opening
 *** Towards
-*** Uphill
+*** Upward
 ** Temporal-relation
 *** After
 *** Before
@@ -440,6 +445,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Repetitive
 *** Stochastic
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
+** Angle<nowiki>{requireChild}[Angle clockwise from verticle.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>  
 ** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Item-count <nowiki>{requireChild}</nowiki>
