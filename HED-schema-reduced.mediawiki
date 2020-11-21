@@ -73,9 +73,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Sculpture
 **** Sound-clip
 **** Stick-figure-visualization
-**** View
-***** 2D-view
-***** 3D-view
+
 
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
@@ -406,11 +404,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Around
 *** Behind
 *** Below
+*** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
+*** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
 *** Bottom <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Boundary-of
 *** Center <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Close-to
-*** Distance-from
+*** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
 *** Edge-of
 *** Far-from
 *** Inside-of
@@ -452,7 +452,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Repetitive
 *** Stochastic
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Angle<nowiki>{requireChild}[Angle clockwise from verticle.]</nowiki>
+** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -694,6 +694,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ****** Linen
 ****** LavenderBlush
 ****** MistyRose
+*** View
+**** 2D-view
+**** 3D-view
+**** Background
+**** Bistable-view <nowiki>[Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.]</nowiki>
+**** Foreground
+**** Foveal-view <nowiki>[Visual presentation directly on the fovea.]</nowiki>
+**** Peripheral-view
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
 *** Bearing <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki>
@@ -721,7 +729,6 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Surface-properties
 **** Rough
 **** Smooth
-
 ** Resolution
 *** IO-resolution <nowiki>{requireChild}</nowiki> 
 **** Screen-resolution <nowiki>{requireChild}[Number of pixels in each dimension for a digital display device.]</nowiki> 
@@ -746,6 +753,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+*** Sudden
 *** Synchronous
 *** Temporal-value
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
@@ -754,7 +762,6 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Rate-of-change
 *** Acceleration
 **** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
-*** Direction-change
 *** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
 *** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
