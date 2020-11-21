@@ -52,29 +52,24 @@ There are four ways to define the scope of an event.  The most common method is 
 ***** Sphere
 **** Pyradmid
 ** Man-made <nowiki>[A manmade object]</nowiki>
-*** Visualization <nowiki>[A representation of something else -- such as using a stick-figure to represent motion capture data. This also encompasses different modalities such as representing a texture by the pitch of an audio tone.]</nowiki>
-**** Animation
-**** Art-installation
-**** Braille
-**** Cutout
-**** Image <nowiki>[A still 2-D representation.]</nowiki>
-***** Cartoon
-***** Drawing
-***** Icon
-***** Painting
-***** Photograph
-**** Map <nowiki>[A representation of a geographical location.]</nowiki>
-***** Aerial-view <nowiki>[A representation from an overhead view such as captured by a drone.]</nowiki>
-***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
-***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
-**** Movie
-**** Outline-visualization
-**** Point-light-visualization
-**** Sculpture
+*** Media
 **** Sound-clip
-**** Stick-figure-visualization
-
-
+**** Visualization <nowiki>[A visual representation of something else -- such as using a stick-figure to represent motion capture data.]</nowiki>
+***** Animation
+***** Art-installation
+***** Braille
+***** Cutout
+***** Image <nowiki>[A still 2-D representation.]</nowiki>
+****** Cartoon
+****** Drawing
+****** Icon
+****** Painting
+****** Photograph
+***** Movie
+***** Outline-visualization
+***** Point-light-visualization
+***** Sculpture
+***** Stick-figure-visualization
 *** Building <nowiki>[Whole building or building feature]</nowiki>
 **** Room
 **** Roof
@@ -294,7 +289,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sing
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
-* Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
+* Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>'
+** Fill-out-survey
 ** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
@@ -705,6 +701,10 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Bistable-view <nowiki>[Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.]</nowiki>
 **** Foreground
 **** Foveal-view <nowiki>[Visual presentation directly on the fovea.]</nowiki>
+**** Map-view <nowiki>[A representation of a geographical location.]</nowiki>
+***** Aerial-view <nowiki>[A representation from an overhead view such as captured by a drone.]</nowiki>
+***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
+***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
