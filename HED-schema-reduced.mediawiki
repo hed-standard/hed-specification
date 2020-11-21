@@ -60,6 +60,7 @@ There are four ways to define the scope of an event.  The most common method is 
 **** Image <nowiki>[A still 2-D representation.]</nowiki>
 ***** Cartoon
 ***** Drawing
+***** Icon
 ***** Painting
 ***** Photograph
 **** Map <nowiki>[A representation of a geographical location.]</nowiki>
@@ -134,6 +135,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Navigational object
 **** Path
 **** Road
+***** Lane
 **** Runway
 **** Sign
 *** Vehicle
@@ -366,9 +368,11 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
 ** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
+*** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+*** Room-frame
 *** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
 *** Subject-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
-*** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+*** World-frame
 ** Response-variable <nowiki>[An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.]</nowiki>
 ** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
@@ -431,6 +435,9 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Opening
 *** Towards
 *** Upward
+** Orientational-relation
+*** Horizontally
+*** Vertically
 ** Temporal-relation
 *** After
 *** Before
@@ -691,8 +698,14 @@ There are four ways to define the scope of an event.  The most common method is 
 ** Spatial
 *** Bearing <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki>
 *** Orientation  
-*** Location {requireChild} <nowiki>[Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki> 
-*** Distance <nowiki>{requireChild}</nowiki> 
+*** Position {requireChild} <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+**** X-position <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** Y-position <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
+**** Z-position <nowiki>{requireChild}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
+*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
