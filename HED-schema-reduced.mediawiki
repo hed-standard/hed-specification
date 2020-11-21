@@ -294,7 +294,8 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Sing
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
-
+* Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
+** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend
@@ -451,10 +452,13 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Flickering <nowiki>[Irregular changes in time]</nowiki>
 *** Repetitive
 *** Stochastic
+*** Varying
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
+*** <nowiki># {takesValue}</nowiki> 
+** Interval <nowiki></nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Item-count <nowiki>{requireChild}</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -743,19 +747,19 @@ There are four ways to define the scope of an event.  The most common method is 
 **** <nowiki># {takesValue} </nowiki> 
 ** Temporal
 *** Asynchronous
+*** Delay <nowiki>[Indicator of some amount of time elapsed before something happens.]</nowiki>
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
 *** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
-
 *** Response-start-delay <nowiki>{requireChild} [How long the start of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Sudden
 *** Synchronous
-*** Temporal-value
+*** Temporal-value <nowiki>{requireChild}</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
 *** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
@@ -867,6 +871,7 @@ There are four ways to define the scope of an event.  The most common method is 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 * Task-related
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Activity
 ** Appropriate
 ** Background
 ** Correction
