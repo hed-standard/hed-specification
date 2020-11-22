@@ -22,7 +22,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 The latest version is of HED-generation2 is 7.1.2:
 > [**Expandable html view of HEDv7.1.2**](http://www.hedtags.org/display_hed.html?version=7.1.2)  
 
-> [**Readable mediawiki view of HEDv7.1.2**](https://github.com/VisLab/hed-specification/blob/master/HED-generation2-schema.mediawiki)
+> [**Readable mediawiki view of HEDv7.1.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema.mediawiki)
 
 > [**XML view of HEDv7.1.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.1.2.xml)  
 
@@ -30,7 +30,7 @@ The latest version is of HED-generation2 is 7.1.2:
 
 The documentation on this page refers specifically to the HED vocabulary and supporting tools. Additional documentataion is available on:
 
-> [**HED organization website**](http://hedtags.org)
+> [**HED organization website**](http://www.hedtags.org)
 
 All of the HED software is open-source and organized into various repositories on the HED standards organization website:
 
@@ -45,7 +45,7 @@ The following white paper gives the history of HED development and the goals for
 
 ### HED-generation3 specification document
 
->[**Google doc with mapping of HED generation3 specification**](https://docs.google.com/document/d/1icp4fJyCqngSfYy1kPe7FJ-bqA8_Ei67oqn5--0vrDo/edit?usp=sharing)
+>[**Google doc with current version of the HED generation3 specification**](https://docs.google.com/document/d/1icp4fJyCqngSfYy1kPe7FJ-bqA8_Ei67oqn5--0vrDo/edit?usp=sharing)
 
 ### Mapping of HED-generation2 tags into HED-generation3 tags
 
