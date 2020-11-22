@@ -43,16 +43,16 @@ The following white paper gives the history of HED development and the goals for
 > Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
 > https://doi.org/10.31219/osf.io/5fg73
 
-### HED-generation3 specification document:
+### HED-generation3 specification document
 
 >[**Google doc with mapping of HED generation3 specification**](https://docs.google.com/document/d/1icp4fJyCqngSfYy1kPe7FJ-bqA8_Ei67oqn5--0vrDo/edit?usp=sharing)
 
-### Mapping of HED-generation2 tags into HED-generation3 tags:
+### Mapping of HED-generation2 tags into HED-generation3 tags
 
 > [**Google doc with mapping of HED 7.1.1 into the restructured version**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing) 
 
 
-## Online tools:
+## Online tools
 
 > [**HED-generation2 online spreadsheet validator**](http://visual.cs.utsa.edu/hed) 
 
@@ -60,7 +60,7 @@ The following white paper gives the history of HED development and the goals for
 
 > [**HED schema format converter**](http://visual.cs.utsa.edu/hedschema) 
 
-## For HED validation:
+## For HED validation
 
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-specification/tree/master/hedxml)
 
