@@ -11,7 +11,7 @@ The current version of HED (referred to as HED2 or HED-generation2) has semantic
 ### HED-generation3 vocabulary views
 The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a prerelease version pending community comments:
 
-> [**Expandable html view of HEDv8.0.0-alpha.1**](http://www.hedtags.org/display_hed_restruct.html?version=reduced) 
+> [**Expandable html view of HEDv8.0.0-alpha.1**](http://www.hedtags.org/display_hed.html?version=8.0.0-alpha.1) 
 
 > [**Readable mediawiki view of HEDv8.0.0-alpha.1**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema.mediawiki) 
 
