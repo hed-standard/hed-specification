@@ -1,6 +1,7 @@
-HED version: 7.1.1
+HED version: 7.1.2
 
 Changelog
+* 11/22/2020: v. 7.1.2 Add extensionAllowed to top-level Item subtree.
 * 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
 * 5/9/2020:  Added the clockTime unit class
 * 4/25/2020: v. 7.1.0 Added unit modifiers and updated unit classes to support SI units.
@@ -110,14 +111,14 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset].</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 
-'''Item''' 
+'''Item''' <nowiki>{extensionAllowed}</nowiki>
 * ID <nowiki>{requireChild, predicateType=propertyOf} [Optional] </nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
 ** Local <nowiki> [For IDs with local scope --- that is IDs only defined in the scope of a single event. The local ID 5 in events 1 and 2 may refer to two different objects. The global IDs  directly under ID/ tag refer to the same object through the whole experiment]</nowiki> 
 *** <nowiki># {takesValue}</nowiki> 
 * Group ID <nowiki>{requireChild, predicateType=propertyOf} [Optional]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Object <nowiki> {extensionAllowed} [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
+* Object <nowiki> [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
 ** Vehicle 
 *** Bicycle 
 *** Car 
