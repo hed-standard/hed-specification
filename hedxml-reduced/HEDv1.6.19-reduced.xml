@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="v1.6.18-reduced">
+<HED version="v1.6.19-reduced">
    <node>
       <name>Event</name>
       <node>
@@ -39,6 +39,10 @@
          <name>Computational-agent</name>
       </node>
       <node>
+         <name>Controller-agent</name>
+         <description>An outside controller such as the experimental control software.</description>
+      </node>
+      <node>
          <name>Human-agent</name>
       </node>
       <node>
@@ -63,6 +67,9 @@
             </node>
             <node>
                <name>2D-shape</name>
+               <node>
+                  <name>Clockface</name>
+               </node>
                <node>
                   <name>Cross</name>
                </node>
@@ -117,62 +124,59 @@
             <name>Man-made</name>
             <description>A manmade object</description>
             <node>
-               <name>Visualization</name>
-               <description>A representation of something else -- such as using a stick-figure to represent motion capture data. This also encompasses different modalities such as representing a texture by the pitch of an audio tone.</description>
-               <node>
-                  <name>Animation</name>
-               </node>
-               <node>
-                  <name>Art-installation</name>
-               </node>
-               <node>
-                  <name>Aerial-view</name>
-               </node>
-               <node>
-                  <name>Braille</name>
-               </node>
-               <node>
-                  <name>Cutout</name>
-               </node>
-               <node>
-                  <name>Image</name>
-                  <description>A still 2-D representation.</description>
-                  <node>
-                     <name>Cartoon</name>
-                  </node>
-                  <node>
-                     <name>Drawing</name>
-                  </node>
-                  <node>
-                     <name>Painting</name>
-                  </node>
-                  <node>
-                     <name>Photograph</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Point-light-visualization</name>
-               </node>
-               <node>
-                  <name>Movie</name>
-               </node>
-               <node>
-                  <name>Outline-visualization</name>
-               </node>
-               <node>
-                  <name>Satellite-view</name>
-               </node>
-               <node>
-                  <name>Sculpture</name>
-               </node>
+               <name>Media</name>
                <node>
                   <name>Sound-clip</name>
                </node>
                <node>
-                  <name>Stick-figure-visualization</name>
-               </node>
-               <node>
-                  <name>Street-view</name>
+                  <name>Visualization</name>
+                  <description>A visual representation of something else -- such as using a stick-figure to represent motion capture data.</description>
+                  <node>
+                     <name>Animation</name>
+                  </node>
+                  <node>
+                     <name>Art-installation</name>
+                  </node>
+                  <node>
+                     <name>Braille</name>
+                  </node>
+                  <node>
+                     <name>Cutout</name>
+                  </node>
+                  <node>
+                     <name>Image</name>
+                     <description>A still 2-D representation.</description>
+                     <node>
+                        <name>Cartoon</name>
+                     </node>
+                     <node>
+                        <name>Drawing</name>
+                     </node>
+                     <node>
+                        <name>Icon</name>
+                     </node>
+                     <node>
+                        <name>Painting</name>
+                     </node>
+                     <node>
+                        <name>Photograph</name>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Movie</name>
+                  </node>
+                  <node>
+                     <name>Outline-visualization</name>
+                  </node>
+                  <node>
+                     <name>Point-light-visualization</name>
+                  </node>
+                  <node>
+                     <name>Sculpture</name>
+                  </node>
+                  <node>
+                     <name>Stick-figure-visualization</name>
+                  </node>
                </node>
             </node>
             <node>
@@ -264,6 +268,9 @@
                         <node>
                            <name>Screen</name>
                         </node>
+                        <node>
+                           <name>Screen-window</name>
+                        </node>
                      </node>
                      <node>
                         <name>Auditory-device</name>
@@ -349,6 +356,9 @@
                </node>
                <node>
                   <name>Road</name>
+                  <node>
+                     <name>Lane</name>
+                  </node>
                </node>
                <node>
                   <name>Runway</name>
@@ -766,18 +776,6 @@
                <name>Walk</name>
             </node>
          </node>
-         <node>
-            <name>Collide</name>
-         </node>
-         <node>
-            <name>Halt</name>
-         </node>
-         <node>
-            <name>Operate</name>
-         </node>
-         <node>
-            <name>Rest</name>
-         </node>
       </node>
       <node>
          <name>Communicate</name>
@@ -847,6 +845,40 @@
             <node>
                <name>Whistle</name>
             </node>
+         </node>
+      </node>
+      <node>
+         <name>Perform</name>
+         <description>Carry out or accomplish an action or task or function.</description>
+         <node>
+            <name>Change</name>
+         </node>
+         <node>
+            <name>Collide</name>
+         </node>
+         <node>
+            <name>Fill-out-survey</name>
+         </node>
+         <node>
+            <name>Operate</name>
+            <description>Control something else.</description>
+            <node>
+               <name>Drive</name>
+               <description>Control something that moves.</description>
+            </node>
+            <node>
+               <name>Halt</name>
+            </node>
+            <node>
+               <name>Steer</name>
+            </node>
+         </node>
+         <node>
+            <name>Play</name>
+            <description>As a musical instrument or a game.</description>
+         </node>
+         <node>
+            <name>Rest</name>
          </node>
       </node>
       <node>
@@ -1078,6 +1110,13 @@
             <name>Reference-frame</name>
             <description>A frame of reference used to express spatial attributes.</description>
             <node>
+               <name>Custom-frame</name>
+               <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
+            </node>
+            <node>
+               <name>Room-frame</name>
+            </node>
+            <node>
                <name>Screen-frame</name>
                <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
             </node>
@@ -1086,8 +1125,7 @@
                <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
             </node>
             <node>
-               <name>Custom-frame</name>
-               <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
+               <name>World-frame</name>
             </node>
          </node>
          <node>
@@ -1195,13 +1233,29 @@
                <name>Below</name>
             </node>
             <node>
-               <name>Boundary-between</name>
+               <name>Between</name>
+               <description>Should be grouped with the items between designates.</description>
+            </node>
+            <node>
+               <name>Bilateral</name>
+            </node>
+            <node>
+               <name>Bottom</name>
+               <description>At the bottom of something. Should be grouped with the item that it is positionally related to.</description>
+            </node>
+            <node>
+               <name>Boundary-of</name>
+            </node>
+            <node>
+               <name>Center</name>
+               <description>At the center of something. Should be grouped with the item that it is positionally related to.</description>
             </node>
             <node>
                <name>Close-to</name>
             </node>
             <node>
                <name>Distance-from</name>
+               <description>Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.</description>
             </node>
             <node>
                <name>Edge-of</name>
@@ -1216,10 +1270,7 @@
                <name>Left-of</name>
             </node>
             <node>
-               <name>On-bottom</name>
-            </node>
-            <node>
-               <name>On-top</name>
+               <name>Left-side</name>
             </node>
             <node>
                <name>Outside-of</name>
@@ -1231,6 +1282,12 @@
                <name>Right-of</name>
             </node>
             <node>
+               <name>Right-side</name>
+            </node>
+            <node>
+               <name>Top</name>
+            </node>
+            <node>
                <name>Under</name>
             </node>
          </node>
@@ -1240,16 +1297,28 @@
                <name>Away-from</name>
             </node>
             <node>
+               <name>Backward</name>
+            </node>
+            <node>
                <name>Closing</name>
             </node>
             <node>
                <name>Decreasing</name>
             </node>
             <node>
-               <name>Downhill</name>
+               <name>Downward</name>
+            </node>
+            <node>
+               <name>Forward</name>
             </node>
             <node>
                <name>Increasing</name>
+            </node>
+            <node>
+               <name>Leftward</name>
+            </node>
+            <node>
+               <name>Rightward</name>
             </node>
             <node>
                <name>Opening</name>
@@ -1258,7 +1327,22 @@
                <name>Towards</name>
             </node>
             <node>
-               <name>Uphill</name>
+               <name>Upward</name>
+            </node>
+         </node>
+         <node>
+            <name>Orientational-relation</name>
+            <node>
+               <name>Horizontally</name>
+            </node>
+            <node>
+               <name>Oblique</name>
+            </node>
+            <node>
+               <name>Rotated</name>
+            </node>
+            <node>
+               <name>Vertically</name>
             </node>
          </node>
          <node>
@@ -1300,13 +1384,29 @@
             <node>
                <name>Stochastic</name>
             </node>
+            <node>
+               <name>Varying</name>
+            </node>
          </node>
       </node>
       <node extensionAllowed="true">
          <name>Quantitative</name>
          <node requireChild="true">
+            <name>Angle</name>
+            <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
             <name>Fraction</name>
             <description>Fraction of items of a particular type.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Interval</name>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1353,8 +1453,11 @@
       </node>
       <node extensionAllowed="true">
          <name>Categorical</name>
-         <node>
+         <node relatedTag="Incongruent">
             <name>Congruent</name>
+         </node>
+         <node relatedTag="Unconstrained">
+            <name>Constrained</name>
          </node>
          <node>
             <name>Correct</name>
@@ -1406,6 +1509,9 @@
          </node>
          <node>
             <name>True</name>
+         </node>
+         <node relatedTag="Constrained">
+            <name>Unconstrained</name>
          </node>
          <node>
             <name>Valid</name>
@@ -2042,17 +2148,47 @@
                   </node>
                </node>
             </node>
-         </node>
-      </node>
-      <node>
-         <name>Presentation</name>
-         <node>
-            <name>Window</name>
             <node>
-               <name>2D-view</name>
-            </node>
-            <node>
-               <name>3D-view</name>
+               <name>View</name>
+               <node>
+                  <name>2D-view</name>
+               </node>
+               <node>
+                  <name>3D-view</name>
+               </node>
+               <node>
+                  <name>Background-view</name>
+               </node>
+               <node>
+                  <name>Bistable-view</name>
+                  <description>Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.</description>
+               </node>
+               <node>
+                  <name>Foreground-view</name>
+               </node>
+               <node>
+                  <name>Foveal-view</name>
+                  <description>Visual presentation directly on the fovea.</description>
+               </node>
+               <node>
+                  <name>Map-view</name>
+                  <description>A representation of a geographical location.</description>
+                  <node>
+                     <name>Aerial-view</name>
+                     <description>A representation from an overhead view such as captured by a drone.</description>
+                  </node>
+                  <node>
+                     <name>Satellite-view</name>
+                     <description>A representation as captured by technology such as a satellite.</description>
+                  </node>
+                  <node>
+                     <name>Street-view</name>
+                     <description>A panoramic view from a position on the ground.</description>
+                  </node>
+               </node>
+               <node>
+                  <name>Peripheral-view</name>
+               </node>
             </node>
          </node>
       </node>
@@ -2060,19 +2196,34 @@
          <name>Spatiotemporal</name>
          <node>
             <name>Spatial</name>
-            <node requireChild="true">
-               <name>Bearing</name>
-               <description>Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5</description>
-            </node>
             <node>
                <name>Orientation</name>
             </node>
             <node requireChild="true">
-               <name>Location</name>
-               <description>Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city</description>
+               <name>Position</name>
+               <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
+               <node requireChild="true">
+                  <name>X-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Y-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Z-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
             </node>
             <node requireChild="true">
                <name>Distance</name>
+               <description>Distance from a specified position in a specified Direction</description>
                <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                   <name>#</name>
                </node>
@@ -2167,6 +2318,10 @@
             <node>
                <name>Asynchronous</name>
             </node>
+            <node>
+               <name>Delay</name>
+               <description>Indicator of some amount of time elapsed before something happens.</description>
+            </node>
             <node requireChild="true">
                <name>Duration</name>
                <description>An offset that is implicit after duration time passed from the onset</description>
@@ -2199,9 +2354,12 @@
                </node>
             </node>
             <node>
-               <name>Synchronous</name>
+               <name>Sudden</name>
             </node>
             <node>
+               <name>Synchronous</name>
+            </node>
+            <node requireChild="true">
                <name>Temporal-value</name>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
@@ -2222,9 +2380,6 @@
                <node isNumeric="true" takesValue="true" unitClass="acceleration">
                   <name>#</name>
                </node>
-            </node>
-            <node>
-               <name>Direction-change</name>
             </node>
             <node>
                <name>Jerk-rate</name>
@@ -2498,6 +2653,9 @@
             <name>Task-role</name>
             <description>The role of the agent in the task.</description>
             <node>
+               <name>Experiment-controller</name>
+            </node>
+            <node>
                <name>Experiment-subject</name>
             </node>
             <node>
@@ -2544,10 +2702,13 @@
             <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
          </node>
          <node>
+            <name>Activity</name>
+         </node>
+         <node>
             <name>Appropriate</name>
          </node>
          <node>
-            <name>Background</name>
+            <name>Background-task</name>
          </node>
          <node>
             <name>Correction</name>
@@ -2647,6 +2808,9 @@
          </node>
          <node>
             <name>Penalizing</name>
+         </node>
+         <node>
+            <name>Primary-task</name>
          </node>
          <node>
             <name>Priming</name>
