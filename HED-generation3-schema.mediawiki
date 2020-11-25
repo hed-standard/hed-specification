@@ -396,17 +396,19 @@ HED version: 8.0.0-alpha.1
 *** Adjacent-to
 *** Ahead-of
 *** Around
+*** Back-of
 *** Behind
 *** Below
 *** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
 *** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
-*** Bottom <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+*** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Boundary-of
-*** Center <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+*** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Close-to
 *** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
 *** Edge-of
 *** Far-from
+*** Front-of
 *** Inside-of
 *** Left-of
 *** Left-side
@@ -414,7 +416,7 @@ HED version: 8.0.0-alpha.1
 *** Over
 *** Right-of
 *** Right-side
-*** Top
+*** Top-of
 *** Under
 ** Directional-relation
 *** Away-from
@@ -434,11 +436,11 @@ HED version: 8.0.0-alpha.1
 *** Oblique
 *** Rotated
 *** Vertically
-** Temporal-relation
-*** After
-*** Before
-*** During
-*** Waiting-for
+** Thermal-relation
+*** Cold
+*** Colder-than
+*** Hot
+*** Hotter-than
 ** Spatiotemporal-relation
 *** Constant
 *** Continuous
@@ -448,6 +450,12 @@ HED version: 8.0.0-alpha.1
 *** Repetitive
 *** Stochastic
 *** Varying
+** Temporal-relation
+*** After
+*** Before
+*** During
+*** Waiting-for
+
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -516,9 +524,14 @@ HED version: 8.0.0-alpha.1
 *** Silent
 *** Stereophonic <nowiki> [Consisting of more than one independent audio channel]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
-** Gustatory
-** Tactile
-** Olfactory
+** Gustatory <nowiki>[Pertaining to sensations of relating to taste.]</nowiki>
+** Tactile <nowiki>[Pertaining to sensations of relating to touch.]</nowiki>
+*** Tactile-pressure
+*** Texture
+*** Vibration
+** Olfactory <nowiki>[Pertaining to sensations of relating to smell.]</nowiki>
+** Somatic <nowiki>[Pertaining to sensations of nervous system such as pain.]</nowiki>
+*** Pain
 ** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
@@ -776,6 +789,11 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
 *** Velocity
 **** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
+* Thermodynamic
+** Energy
+** Pressure
+** Temperature
+*** <nowiki># {takesValue, isNumeric}</nowiki>
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
