@@ -945,18 +945,27 @@ HED version: 8.0.0-alpha.1
 ***** Nose
 ***** Mouth
 ***** Teeth
-*** Hand
-**** Finger
-***** Index-finger
-***** Little-finger
-***** Middle-finger
-***** Ring-finger
-***** Thumb-finger
-*** Foot
-**** Toe
-*** Torso
-*** Leg
 *** Arm
+**** Elbow
+**** Hand
+***** Finger
+****** Index-finger
+****** Little-finger
+****** Middle-finger
+****** Ring-finger
+****** Thumb-finger
+**** Wrist
+*** Leg
+**** Ankle
+**** Foot
+***** Toe
+**** Knee
+*** Torso
+**** Chest
+**** Hips
+**** Waist
+
+
 
 
 '''Unit classes''' 
