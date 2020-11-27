@@ -44,7 +44,7 @@ HED version: 8.0.0-alpha.1
 **** Ellipsoid
 ***** Sphere
 **** Pyradmid
-** Man-made <nowiki>[A manmade object]</nowiki>
+** Man-made-object <nowiki>[A manmade object]</nowiki>
 *** Media
 **** Sound-clip
 **** Visualization <nowiki>[A visual representation of something else -- such as using a stick-figure to represent motion capture data.]</nowiki>
@@ -93,7 +93,7 @@ HED version: 8.0.0-alpha.1
 ******* Head-mounted-display
 ******* LED-display
 ******* Screen
-******* Screen-window
+******** Screen-window
 ****** Auditory-device
 ******* Headphones
 ******* Screen-speaker
@@ -133,7 +133,7 @@ HED version: 8.0.0-alpha.1
 **** Tractor
 **** Train 
 **** Truck 
-** Natural
+** Natural-object
 *** Organism
 **** Animal
 **** Human
@@ -226,6 +226,7 @@ HED version: 8.0.0-alpha.1
 **** Swallow
 **** Yawn 
 *** Nod
+*** Shake-head
 ** Move-arm-hand
 *** Clap
 *** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
@@ -390,74 +391,77 @@ HED version: 8.0.0-alpha.1
 *** Part-of
 *** Performed-by
 *** Related-to
-** Positional-relation <nowiki>[Should be grouped with what it is positionally related to.]</nowiki>
-*** Above
-*** Across
-*** Adjacent-to
-*** Ahead-of
-*** Around
-*** Back-of
-*** Behind
-*** Below
-*** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
-*** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
-*** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
-*** Boundary-of
-*** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
-*** Close-to
-*** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
-*** Edge-of
-*** Far-from
-*** Front-of
-*** Inside-of
-*** Left-of
-*** Left-side
-*** Outside-of
-*** Over
-*** Right-of
-*** Right-side
-*** Top-of
-*** Under
-** Directional-relation
-*** Away-from
-*** Backward
-*** Closing
-*** Decreasing
-*** Downward
-*** Forward
-*** Increasing
-*** Leftward
-*** Rightward
-*** Opening
-*** Towards
-*** Upward
-** Orientational-relation
-*** Horizontally
-*** Oblique
-*** Rotated
-*** Vertically
+
+** Spatiotemporal-relation
+*** Directional-relation
+**** Away-from
+**** Backward
+**** Closing
+**** Decreasing
+**** Downward
+**** Forward
+**** Increasing
+**** Leftward
+**** Rightward
+**** Opening
+**** Towards
+**** Upward
+*** Orientational-relation
+**** Horizontally-oriented
+**** Oblique
+**** Rotated
+**** Vertically-oriented
+*** Positional-relation <nowiki>[Should be grouped with what it is positionally related to.]</nowiki>
+**** Above
+**** Across
+**** Adjacent-to
+**** Ahead-of
+**** Around
+**** Back-of
+**** Behind
+**** Below
+**** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
+**** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
+**** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+**** Boundary-of
+**** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+**** Close-to
+**** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
+**** Edge-of
+**** Far-from
+**** Front-of
+**** Inside-of
+**** Left-of
+**** Left-side
+**** Outside-of
+**** Over
+**** Right-of
+**** Right-side
+**** Top-of
+**** Under
+*** Temporal-relation
+**** After
+**** Asynchronous-with
+**** Before
+**** During
+**** Synchronous-with
+**** Waiting-for
+*** Variability-relation
+**** Constant
+**** Continuous
+**** Deterministic
+**** Discrete
+**** Flickering <nowiki>[Irregular changes in time]</nowiki>
+**** Repetitive
+**** Stochastic
+**** Sudden
+**** Varying
+
 ** Thermal-relation
 *** Cold
 *** Colder-than
 *** Hot
 *** Hotter-than
-** Spatiotemporal-relation
-*** Constant
-*** Continuous
-*** Deterministic
-*** Discrete
-*** Flickering <nowiki>[Irregular changes in time]</nowiki>
-*** Repetitive
-*** Stochastic
-*** Varying
-** Temporal-relation
-*** After
-*** Asynchronous
-*** Before
-*** During
-*** Sudden
-*** Synchronous
-*** Waiting-for
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
