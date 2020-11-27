@@ -118,7 +118,7 @@ HED version: 8.0.0-alpha.1
 **** Book
 **** Notebook
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
-*** Navigational object
+*** Navigational-object
 **** Path
 **** Road
 ***** Lane
@@ -285,13 +285,13 @@ HED version: 8.0.0-alpha.1
 ** Fill-out-survey
 ** Operate <nowiki>[Control something else.]</nowiki>
 *** Drive <nowiki>[Control something that moves.]</nowiki>
-*** Halt
+*** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
 *** Steer
 ** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
 ** Rest 
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Attend
+** Attend-to
 ** Count 
 ** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
 ** Detect
@@ -396,17 +396,19 @@ HED version: 8.0.0-alpha.1
 *** Adjacent-to
 *** Ahead-of
 *** Around
+*** Back-of
 *** Behind
 *** Below
 *** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
 *** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
-*** Bottom <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+*** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Boundary-of
-*** Center <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
+*** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 *** Close-to
 *** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
 *** Edge-of
 *** Far-from
+*** Front-of
 *** Inside-of
 *** Left-of
 *** Left-side
@@ -414,7 +416,7 @@ HED version: 8.0.0-alpha.1
 *** Over
 *** Right-of
 *** Right-side
-*** Top
+*** Top-of
 *** Under
 ** Directional-relation
 *** Away-from
@@ -434,11 +436,11 @@ HED version: 8.0.0-alpha.1
 *** Oblique
 *** Rotated
 *** Vertically
-** Temporal-relation
-*** After
-*** Before
-*** During
-*** Waiting-for
+** Thermal-relation
+*** Cold
+*** Colder-than
+*** Hot
+*** Hotter-than
 ** Spatiotemporal-relation
 *** Constant
 *** Continuous
@@ -448,6 +450,15 @@ HED version: 8.0.0-alpha.1
 *** Repetitive
 *** Stochastic
 *** Varying
+** Temporal-relation
+*** After
+*** Asynchronous
+*** Before
+*** During
+*** Sudden
+*** Synchronous
+*** Waiting-for
+
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -468,6 +479,7 @@ HED version: 8.0.0-alpha.1
 ** Uncertainty <nowiki> {requireChild} </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
+** All
 ** Congruent <nowiki>{relatedTag=Incongruent}</nowiki>
 ** Constrained <nowiki>{relatedTag=Unconstrained}</nowiki>
 ** Correct
@@ -480,10 +492,12 @@ HED version: 8.0.0-alpha.1
 ** Liminal
 ** Low
 ** Medium
+** None
 ** Normal
 ** Negative
 ** Positive
 ** Shallow
+** Some
 ** Subliminal
 ** Supraliminal
 ** True
@@ -516,9 +530,20 @@ HED version: 8.0.0-alpha.1
 *** Silent
 *** Stereophonic <nowiki> [Consisting of more than one independent audio channel]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
-** Gustatory
-** Tactile
-** Olfactory
+** Gustatory <nowiki>[Pertaining to sensations of relating to taste.]</nowiki>
+*** Bitter
+*** Salty
+*** Savory
+*** Sour
+*** Sweet
+** Tactile <nowiki>[Pertaining to sensations of relating to touch.]</nowiki>
+*** Tactile-pressure
+*** Tactile-texture
+*** Tactile-vibration
+** Olfactory <nowiki>[Pertaining to sensations of relating to smell.]</nowiki>
+** Somatic <nowiki>[Pertaining to sensations of nervous system such as pain.]</nowiki>
+*** Pain
+*** Stress
 ** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
@@ -709,7 +734,12 @@ HED version: 8.0.0-alpha.1
 **** Peripheral-view
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
-*** Orientation  
+*** Direction
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+*** Orientation 
+**** <nowiki># {takesValue, isNumeric}</nowiki> 
 *** Position {requireChild} <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
@@ -717,8 +747,7 @@ HED version: 8.0.0-alpha.1
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
 **** Z-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
@@ -746,8 +775,8 @@ HED version: 8.0.0-alpha.1
 *** Temporal-resolution <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue} </nowiki> 
 ** Temporal
-*** Asynchronous
 *** Delay <nowiki>[Indicator of some amount of time elapsed before something happens.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
@@ -757,8 +786,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Sudden
-*** Synchronous
+
 *** Temporal-value <nowiki>{requireChild}</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
@@ -776,6 +804,11 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
 *** Velocity
 **** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>  
+* Thermodynamic
+** Energy
+** Pressure
+** Temperature
+*** <nowiki># {takesValue, isNumeric}</nowiki>
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
@@ -870,6 +903,15 @@ HED version: 8.0.0-alpha.1
 *** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 *** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 * Task-related
+** Attentional-strategy
+*** Bottom-up-attention
+*** Covert-attention
+*** Divided-attention
+*** Focused-attention
+*** Orienting-attention
+*** Overt-attention
+*** Sustained-attention
+*** Top-down-attention
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Activity
 ** Appropriate
@@ -910,8 +952,11 @@ HED version: 8.0.0-alpha.1
 ** Success
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
+** Timed
+** Unexpected
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+
 * Anatomical
 ** Body-part
 *** Head
@@ -927,18 +972,29 @@ HED version: 8.0.0-alpha.1
 ***** Nose
 ***** Mouth
 ***** Teeth
-*** Hand
-**** Finger
-***** Index-finger
-***** Little-finger
-***** Middle-finger
-***** Ring-finger
-***** Thumb-finger
-*** Foot
-**** Toe
-*** Torso
-*** Leg
 *** Arm
+**** Elbow
+**** Hand
+***** Finger
+****** Index-finger
+****** Little-finger
+****** Middle-finger
+****** Ring-finger
+****** Thumb-finger
+**** Wrist
+*** Leg
+**** Ankle
+**** Foot
+***** Toe
+**** Knee
+*** Torso
+**** Upper-torso
+***** Chest
+**** Lower-torso
+***** Hips
+**** Waist
+
+
 
 
 '''Unit classes''' 
