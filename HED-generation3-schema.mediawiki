@@ -19,6 +19,124 @@ HED version: 8.0.0-alpha.1
 * Human-agent 
 * Robotic-agent 
 
+'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
+* Move
+** Breathe
+*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+*** Hold-breath
+** Move-full-body
+*** Bend
+*** Dance
+*** Fall-down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Flex
+*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
+***	Recover-balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
+*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
+*** Shudder 
+*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
+*** Turn
+** Move-head
+*** Move-eyes
+**** Blink
+**** Close-eyes
+**** Fixate
+**** Inhibit-blinks
+**** Open-eyes 
+**** Saccade
+*** Move-mouth
+**** Burp 
+**** Clear-throat
+**** Cough 
+**** Gurgle
+**** Hiccup 
+**** Smile
+**** Sneeze 
+**** Sniffle
+**** Swallow
+**** Yawn 
+*** Nod
+*** Shake-head
+** Move-arm-hand
+*** Clap
+*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+*** Grab
+*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+*** Hold-down
+*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+*** Make-fist
+*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+*** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+*** Push
+*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+*** Release <nowiki>[Often grouped with item being released.]</nowiki>
+*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+*** Scratch
+*** Snap-fingers
+*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
+*** Touch <nowiki>[May follow a Reach event]</nowiki> 
+** Move-leg-foot
+*** Curl-toes
+*** Jog
+*** Jump
+*** Kick 
+*** Pedal
+*** Run
+*** Step
+**** Heel-strike 
+**** Toe-off
+*** Trot
+*** Walk
+
+* Communicate
+** Communicate-vocally
+*** Cry
+*** Groan
+*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
+***	Laugh
+*** Scream
+*** Sigh
+*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
+** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
+***	Index-up
+***	Pump-fist
+***	Spread-hand
+***	Shhh
+***	Shrug
+***	Thumb-up
+***	Wave
+** Communicate-musically
+*** Hum
+*** Sing
+*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Whistle
+* Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
+** Change
+** Collide
+** Fill-out-survey
+** Operate <nowiki>[Control something else.]</nowiki>
+*** Drive <nowiki>[Control something that moves.]</nowiki>
+*** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
+*** Steer
+** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
+** Rest 
+* Think
+** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
+** Attend-to
+** Count 
+** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
+** Detect
+** Discriminate
+** Encode 
+** Evade 
+** Generate
+** Identify
+** Imagine
+** Read 
+** Recall
+** Repeat
+** Switch-attention
+** Track
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
@@ -188,125 +306,6 @@ HED version: 8.0.0-alpha.1
 *** Ding
 *** Horn
 *** Siren
-
-'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
-* Move
-** Breathe
-*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Hold-breath
-** Move-full-body
-*** Bend
-*** Dance
-*** Fall-down<nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
-***	Recover-balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Shudder 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-*** Turn
-** Move-head
-*** Move-eyes
-**** Blink
-**** Close-eyes
-**** Fixate
-**** Inhibit-blinks
-**** Open-eyes 
-**** Saccade
-*** Move-mouth
-**** Burp 
-**** Clear-throat
-**** Cough 
-**** Gurgle
-**** Hiccup 
-**** Smile
-**** Sneeze 
-**** Sniffle
-**** Swallow
-**** Yawn 
-*** Nod
-*** Shake-head
-** Move-arm-hand
-*** Clap
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-*** Grab
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Hold-down
-*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-*** Make-fist
-*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-*** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-*** Push
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-*** Release <nowiki>[Often grouped with item being released.]</nowiki>
-*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-*** Scratch
-*** Snap-fingers
-*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Touch <nowiki>[May follow a Reach event]</nowiki> 
-** Move-leg-foot
-*** Curl-toes
-*** Jog
-*** Jump
-*** Kick 
-*** Pedal
-*** Run
-*** Step
-**** Heel-strike 
-**** Toe-off
-*** Trot
-*** Walk
-
-* Communicate
-** Communicate-vocally
-*** Cry
-*** Groan
-*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
-***	Laugh
-*** Scream
-*** Sigh
-*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
-** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
-***	Index-up
-***	Pump-fist
-***	Spread-hand
-***	Shhh
-***	Shrug
-***	Thumb-up
-***	Wave
-** Communicate-musically
-*** Hum
-*** Sing
-*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
-*** Whistle
-* Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
-** Change
-** Collide
-** Fill-out-survey
-** Operate <nowiki>[Control something else.]</nowiki>
-*** Drive <nowiki>[Control something that moves.]</nowiki>
-*** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
-*** Steer
-** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
-** Rest 
-* Think
-** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Attend-to
-** Count 
-** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-** Detect
-** Discriminate
-** Encode 
-** Evade 
-** Generate
-** Identify
-** Imagine
-** Read 
-** Recall
-** Repeat
-** Switch-attention
-** Track
 
 
 '''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
@@ -495,6 +494,7 @@ HED version: 8.0.0-alpha.1
 ** Invalid
 ** Liminal
 ** Low
+** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
 ** Medium
 ** None
 ** Normal
@@ -506,6 +506,7 @@ HED version: 8.0.0-alpha.1
 ** Supraliminal
 ** True
 ** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
+** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
 ** Valid
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
@@ -836,131 +837,6 @@ HED version: 8.0.0-alpha.1
 *** Sloped-terrain
 *** Uneven-terrain
 
-* Agent-related
-** Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
-*** Alert
-*** Anesthetized 
-*** Asleep
-*** Attentive
-*** Awake 
-*** Brain-dead 
-*** Comatose 
-*** Drowsy 
-*** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
-*** Locked-in 
-*** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
-*** Resting
-*** Vegetative 
-** Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki>
-*** Angry 
-*** Aroused
-*** Awed
-*** Compassionate
-*** Content
-*** Disgusted 
-*** Emotionally-neutral
-*** Empathetic
-*** Excited 
-*** Fearful
-*** Feeling-stress
-*** Frustrated
-*** Grieving
-*** Happy
-*** Jealous 
-*** Joyful 
-*** Loving
-*** Relieved
-*** Sad 
-** Postural-state<nowiki>{requireChild}</nowiki> 
-*** Crouching
-*** Kneeling
-*** On-treadmill
-*** Prone
-*** Sitting
-*** Standing
-*** Supported-by-chin-rest
-** Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
-*** Age
-**** <nowiki># {takesValue}</nowiki>
-*** Sex
-**** <nowiki># {takesValue}</nowiki> 
-*** Handedness
-**** <nowiki># {takesValue}</nowiki> 
-** Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
-*** Brother
-*** Child
-*** Father
-*** Mother
-*** Sister
-** Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
-*** Experiment-controller
-*** Experiment-subject
-*** Experimenter
-*** Follower
-*** Friend
-*** Leader
-*** Stranger
-*** Student
-*** Teacher
-** Association <nowiki>{requireChild}</nowiki>
-*** Associated-with-non-agent 
-*** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-*** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-* Task-related
-** Attentional-strategy
-*** Bottom-up-attention
-*** Covert-attention
-*** Divided-attention
-*** Focused-attention
-*** Orienting-attention
-*** Overt-attention
-*** Sustained-attention
-*** Top-down-attention
-** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-** Activity
-** Appropriate
-** Background-task
-** Correction
-** Cue
-** Distractor 
-** Erroneous
-** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
-** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-** Extraneous
-** Feedback 
-** Failure
-** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate
-** Incidental 
-** Indeterminate
-** Instructional 
-** Intended-effect <nowiki> [How the stimulus is expected to effect the participants]</nowiki> 
-** Masked
-** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-** Missed
-** Meaningful
-** Near-miss
-** Newly-learned-meaning 
-** Non-informative
-** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-** Not-meaningful 
-** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
-** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
-** Planned
-** Penalizing
-** Primary-task
-** Priming
-** Rewarding 
-** Success
-** Target <nowiki>[Something the subject is looking for]</nowiki> 
-** Threatening
-** Timed
-** Unexpected
-** Unmasked
-** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-
 * Anatomical
 ** Body-part
 *** Head
@@ -998,7 +874,137 @@ HED version: 8.0.0-alpha.1
 ***** Hips
 **** Waist
 
+'''Agent-related-property''' 
+* Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+** Alert
+** Anesthetized 
+** Asleep
+** Attentive
+** Awake 
+** Brain-dead 
+** Comatose 
+** Drowsy 
+** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
+** Locked-in 
+** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
+** Resting
+** Vegetative 
+* Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+** Angry 
+** Aroused
+** Awed
+** Compassionate
+** Content
+** Disgusted 
+** Emotionally-neutral
+** Empathetic
+** Excited 
+** Fearful
+** Feeling-stress
+** Frustrated
+** Grieving
+** Happy
+** Jealous 
+** Joyful 
+** Loving
+** Relieved
+** Sad 
+* Postural-state <nowiki>{requireChild}</nowiki> 
+** Crouching
+** Kneeling
+** On-treadmill
+** Prone
+** Sitting
+** Standing
+** Supported-by-chin-rest
+* Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Age
+*** <nowiki># {takesValue}</nowiki>
+** Sex
+*** <nowiki># {takesValue}</nowiki> 
+** Handedness
+*** <nowiki># {takesValue}</nowiki> 
+* Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
+** Brother
+** Child
+** Father
+** Mother
+** Sister
+* Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
+** Experiment-controller
+** Experiment-subject
+** Experimenter
+** Follower
+** Friend
+** Leader
+** Stranger
+** Student
+** Teacher
+* Association <nowiki>{requireChild}</nowiki>
+** Associated-with-non-agent 
+** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
+'''Task-related-property'''
+* Attentional-strategy
+** Bottom-up-attention
+** Covert-attention
+** Divided-attention
+** Focused-attention
+** Orienting-attention
+** Overt-attention
+** Sustained-attention
+** Top-down-attention
+
+* Event-task-role
+** Activity
+** Background-task
+** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
+** Failure
+** Feedback 
+** Incidental 
+** Instructional 
+** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
+** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
+** Primary-task
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+
+* Task-effect-judgment
+** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
+** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
+
+* Task-response-type
+** Appropriate
+** Correction
+** Erroneous
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate
+** Indeterminate
+** Missed
+** Near-miss
+** Successful
+
+* Task-stimulus-type
+** Cue
+** Distractor 
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Extraneous
+** Meaningful
+** Newly-learned
+** Non-informative
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Not-meaningful 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+** Planned
+** Penalizing
+** Priming
+** Rewarding 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Threatening
+** Timed
+** Unexpected
 
 
 '''Unit classes''' 
