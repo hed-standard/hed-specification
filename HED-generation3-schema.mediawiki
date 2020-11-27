@@ -118,7 +118,7 @@ HED version: 8.0.0-alpha.1
 **** Book
 **** Notebook
 *** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
-*** Navigational object
+*** Navigational-object
 **** Path
 **** Road
 ***** Lane
@@ -285,13 +285,13 @@ HED version: 8.0.0-alpha.1
 ** Fill-out-survey
 ** Operate <nowiki>[Control something else.]</nowiki>
 *** Drive <nowiki>[Control something that moves.]</nowiki>
-*** Halt
+*** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
 *** Steer
 ** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
 ** Rest 
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Attend
+** Attend-to
 ** Count 
 ** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
 ** Detect
@@ -452,8 +452,11 @@ HED version: 8.0.0-alpha.1
 *** Varying
 ** Temporal-relation
 *** After
+*** Asynchronous
 *** Before
 *** During
+*** Sudden
+*** Synchronous
 *** Waiting-for
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
@@ -532,6 +535,7 @@ HED version: 8.0.0-alpha.1
 ** Olfactory <nowiki>[Pertaining to sensations of relating to smell.]</nowiki>
 ** Somatic <nowiki>[Pertaining to sensations of nervous system such as pain.]</nowiki>
 *** Pain
+*** Stress
 ** Vestibular
 ** Visual
 *** Luminance <nowiki>{requireChild}</nowiki> 
@@ -722,7 +726,12 @@ HED version: 8.0.0-alpha.1
 **** Peripheral-view
 * Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
 ** Spatial
-*** Orientation  
+*** Direction
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+*** Orientation 
+**** <nowiki># {takesValue, isNumeric}</nowiki> 
 *** Position {requireChild} <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
@@ -730,8 +739,7 @@ HED version: 8.0.0-alpha.1
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
 **** Z-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
@@ -759,8 +767,8 @@ HED version: 8.0.0-alpha.1
 *** Temporal-resolution <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue} </nowiki> 
 ** Temporal
-*** Asynchronous
 *** Delay <nowiki>[Indicator of some amount of time elapsed before something happens.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
@@ -770,8 +778,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Response-end-delay <nowiki>{requireChild} [How long the end of the response is delayed from the stimulus onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Sudden
-*** Synchronous
+
 *** Temporal-value <nowiki>{requireChild}</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
@@ -928,6 +935,7 @@ HED version: 8.0.0-alpha.1
 ** Success
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
+** Timed
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 * Anatomical
