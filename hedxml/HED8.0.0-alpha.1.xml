@@ -350,7 +350,7 @@
                <description>Furniture and appliances and other movable accessories including curtains and rugs</description>
             </node>
             <node>
-               <name>Navigational object</name>
+               <name>Navigational-object</name>
                <node>
                   <name>Path</name>
                </node>
@@ -867,7 +867,8 @@
                <description>Control something that moves.</description>
             </node>
             <node>
-               <name>Halt</name>
+               <name>Brake</name>
+               <description>Apply brakes to stop something.</description>
             </node>
             <node>
                <name>Steer</name>
@@ -888,7 +889,7 @@
             <description>Allow access to something such as allowing a car to pass</description>
          </node>
          <node>
-            <name>Attend</name>
+            <name>Attend-to</name>
          </node>
          <node>
             <name>Count</name>
@@ -1227,6 +1228,9 @@
                <name>Around</name>
             </node>
             <node>
+               <name>Back-of</name>
+            </node>
+            <node>
                <name>Behind</name>
             </node>
             <node>
@@ -1240,14 +1244,14 @@
                <name>Bilateral</name>
             </node>
             <node>
-               <name>Bottom</name>
+               <name>Bottom-of</name>
                <description>At the bottom of something. Should be grouped with the item that it is positionally related to.</description>
             </node>
             <node>
                <name>Boundary-of</name>
             </node>
             <node>
-               <name>Center</name>
+               <name>Center-of</name>
                <description>At the center of something. Should be grouped with the item that it is positionally related to.</description>
             </node>
             <node>
@@ -1262,6 +1266,9 @@
             </node>
             <node>
                <name>Far-from</name>
+            </node>
+            <node>
+               <name>Front-of</name>
             </node>
             <node>
                <name>Inside-of</name>
@@ -1285,7 +1292,7 @@
                <name>Right-side</name>
             </node>
             <node>
-               <name>Top</name>
+               <name>Top-of</name>
             </node>
             <node>
                <name>Under</name>
@@ -1346,18 +1353,18 @@
             </node>
          </node>
          <node>
-            <name>Temporal-relation</name>
+            <name>Thermal-relation</name>
             <node>
-               <name>After</name>
+               <name>Cold</name>
             </node>
             <node>
-               <name>Before</name>
+               <name>Colder-than</name>
             </node>
             <node>
-               <name>During</name>
+               <name>Hot</name>
             </node>
             <node>
-               <name>Waiting-for</name>
+               <name>Hotter-than</name>
             </node>
          </node>
          <node>
@@ -1386,6 +1393,30 @@
             </node>
             <node>
                <name>Varying</name>
+            </node>
+         </node>
+         <node>
+            <name>Temporal-relation</name>
+            <node>
+               <name>After</name>
+            </node>
+            <node>
+               <name>Asynchronous</name>
+            </node>
+            <node>
+               <name>Before</name>
+            </node>
+            <node>
+               <name>During</name>
+            </node>
+            <node>
+               <name>Sudden</name>
+            </node>
+            <node>
+               <name>Synchronous</name>
+            </node>
+            <node>
+               <name>Waiting-for</name>
             </node>
          </node>
       </node>
@@ -1453,6 +1484,9 @@
       </node>
       <node extensionAllowed="true">
          <name>Categorical</name>
+         <node>
+            <name>All</name>
+         </node>
          <node relatedTag="Incongruent">
             <name>Congruent</name>
          </node>
@@ -1490,6 +1524,9 @@
             <name>Medium</name>
          </node>
          <node>
+            <name>None</name>
+         </node>
+         <node>
             <name>Normal</name>
          </node>
          <node>
@@ -1500,6 +1537,9 @@
          </node>
          <node>
             <name>Shallow</name>
+         </node>
+         <node>
+            <name>Some</name>
          </node>
          <node>
             <name>Subliminal</name>
@@ -1605,12 +1645,49 @@
          </node>
          <node>
             <name>Gustatory</name>
+            <description>Pertaining to sensations of relating to taste.</description>
+            <node>
+               <name>Bitter</name>
+            </node>
+            <node>
+               <name>Salty</name>
+            </node>
+            <node>
+               <name>Savory</name>
+            </node>
+            <node>
+               <name>Sour</name>
+            </node>
+            <node>
+               <name>Sweet</name>
+            </node>
          </node>
          <node>
             <name>Tactile</name>
+            <description>Pertaining to sensations of relating to touch.</description>
+            <node>
+               <name>Tactile-pressure</name>
+            </node>
+            <node>
+               <name>Tactile-texture</name>
+            </node>
+            <node>
+               <name>Tactile-vibration</name>
+            </node>
          </node>
          <node>
             <name>Olfactory</name>
+            <description>Pertaining to sensations of relating to smell.</description>
+         </node>
+         <node>
+            <name>Somatic</name>
+            <description>Pertaining to sensations of nervous system such as pain.</description>
+            <node>
+               <name>Pain</name>
+            </node>
+            <node>
+               <name>Stress</name>
+            </node>
          </node>
          <node>
             <name>Vestibular</name>
@@ -2197,7 +2274,23 @@
          <node>
             <name>Spatial</name>
             <node>
+               <name>Direction</name>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Distance</name>
+               <description>Distance from a specified position in a specified Direction</description>
+               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
                <name>Orientation</name>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
             </node>
             <node requireChild="true">
                <name>Position</name>
@@ -2219,13 +2312,6 @@
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
                   </node>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Distance</name>
-               <description>Distance from a specified position in a specified Direction</description>
-               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                  <name>#</name>
                </node>
             </node>
             <node requireChild="true">
@@ -2316,11 +2402,11 @@
          <node>
             <name>Temporal</name>
             <node>
-               <name>Asynchronous</name>
-            </node>
-            <node>
                <name>Delay</name>
                <description>Indicator of some amount of time elapsed before something happens.</description>
+               <node isNumeric="true" takesValue="true" unitClass="time">
+                  <name>#</name>
+               </node>
             </node>
             <node requireChild="true">
                <name>Duration</name>
@@ -2352,12 +2438,6 @@
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
-            </node>
-            <node>
-               <name>Sudden</name>
-            </node>
-            <node>
-               <name>Synchronous</name>
             </node>
             <node requireChild="true">
                <name>Temporal-value</name>
@@ -2414,6 +2494,21 @@
                <node isNumeric="true" takesValue="true" unitClass="speed">
                   <name>#</name>
                </node>
+            </node>
+         </node>
+      </node>
+      <node>
+         <name>Thermodynamic</name>
+         <node>
+            <name>Energy</name>
+         </node>
+         <node>
+            <name>Pressure</name>
+         </node>
+         <node>
+            <name>Temperature</name>
+            <node isNumeric="true" takesValue="true">
+               <name>#</name>
             </node>
          </node>
       </node>
@@ -2698,6 +2793,33 @@
       <node>
          <name>Task-related</name>
          <node>
+            <name>Attentional-strategy</name>
+            <node>
+               <name>Bottom-up-attention</name>
+            </node>
+            <node>
+               <name>Covert-attention</name>
+            </node>
+            <node>
+               <name>Divided-attention</name>
+            </node>
+            <node>
+               <name>Focused-attention</name>
+            </node>
+            <node>
+               <name>Orienting-attention</name>
+            </node>
+            <node>
+               <name>Overt-attention</name>
+            </node>
+            <node>
+               <name>Sustained-attention</name>
+            </node>
+            <node>
+               <name>Top-down-attention</name>
+            </node>
+         </node>
+         <node>
             <name>Action-judgment</name>
             <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
          </node>
@@ -2829,6 +2951,12 @@
             <name>Threatening</name>
          </node>
          <node>
+            <name>Timed</name>
+         </node>
+         <node>
+            <name>Unexpected</name>
+         </node>
+         <node>
             <name>Unmasked</name>
          </node>
          <node>
@@ -2880,40 +3008,67 @@
                </node>
             </node>
             <node>
-               <name>Hand</name>
+               <name>Arm</name>
                <node>
-                  <name>Finger</name>
+                  <name>Elbow</name>
+               </node>
+               <node>
+                  <name>Hand</name>
                   <node>
-                     <name>Index-finger</name>
+                     <name>Finger</name>
+                     <node>
+                        <name>Index-finger</name>
+                     </node>
+                     <node>
+                        <name>Little-finger</name>
+                     </node>
+                     <node>
+                        <name>Middle-finger</name>
+                     </node>
+                     <node>
+                        <name>Ring-finger</name>
+                     </node>
+                     <node>
+                        <name>Thumb-finger</name>
+                     </node>
                   </node>
-                  <node>
-                     <name>Little-finger</name>
-                  </node>
-                  <node>
-                     <name>Middle-finger</name>
-                  </node>
-                  <node>
-                     <name>Ring-finger</name>
-                  </node>
-                  <node>
-                     <name>Thumb-finger</name>
-                  </node>
+               </node>
+               <node>
+                  <name>Wrist</name>
                </node>
             </node>
             <node>
-               <name>Foot</name>
+               <name>Leg</name>
                <node>
-                  <name>Toe</name>
+                  <name>Ankle</name>
+               </node>
+               <node>
+                  <name>Foot</name>
+                  <node>
+                     <name>Toe</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Knee</name>
                </node>
             </node>
             <node>
                <name>Torso</name>
-            </node>
-            <node>
-               <name>Leg</name>
-            </node>
-            <node>
-               <name>Arm</name>
+               <node>
+                  <name>Upper-torso</name>
+                  <node>
+                     <name>Chest</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Lower-torso</name>
+                  <node>
+                     <name>Hips</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Waist</name>
+               </node>
             </node>
          </node>
       </node>
