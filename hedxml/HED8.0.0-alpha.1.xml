@@ -121,7 +121,7 @@
             </node>
          </node>
          <node>
-            <name>Man-made</name>
+            <name>Man-made-object</name>
             <description>A manmade object</description>
             <node>
                <name>Media</name>
@@ -267,9 +267,9 @@
                         </node>
                         <node>
                            <name>Screen</name>
-                        </node>
-                        <node>
-                           <name>Screen-window</name>
+                           <node>
+                              <name>Screen-window</name>
+                           </node>
                         </node>
                      </node>
                      <node>
@@ -396,7 +396,7 @@
             </node>
          </node>
          <node>
-            <name>Natural</name>
+            <name>Natural-object</name>
             <node>
                <name>Organism</name>
                <node>
@@ -674,6 +674,9 @@
             </node>
             <node>
                <name>Nod</name>
+            </node>
+            <node>
+               <name>Shake-head</name>
             </node>
          </node>
          <node>
@@ -1210,146 +1213,201 @@
             </node>
          </node>
          <node>
-            <name>Positional-relation</name>
-            <description>Should be grouped with what it is positionally related to.</description>
+            <name>Spatiotemporal-relation</name>
             <node>
-               <name>Above</name>
+               <name>Directional-relation</name>
+               <node>
+                  <name>Away-from</name>
+               </node>
+               <node>
+                  <name>Backward</name>
+               </node>
+               <node>
+                  <name>Closing</name>
+               </node>
+               <node>
+                  <name>Decreasing</name>
+               </node>
+               <node>
+                  <name>Downward</name>
+               </node>
+               <node>
+                  <name>Forward</name>
+               </node>
+               <node>
+                  <name>Increasing</name>
+               </node>
+               <node>
+                  <name>Leftward</name>
+               </node>
+               <node>
+                  <name>Rightward</name>
+               </node>
+               <node>
+                  <name>Opening</name>
+               </node>
+               <node>
+                  <name>Towards</name>
+               </node>
+               <node>
+                  <name>Upward</name>
+               </node>
             </node>
             <node>
-               <name>Across</name>
+               <name>Orientational-relation</name>
+               <node>
+                  <name>Horizontally-oriented</name>
+               </node>
+               <node>
+                  <name>Oblique</name>
+               </node>
+               <node>
+                  <name>Rotated</name>
+               </node>
+               <node>
+                  <name>Vertically-oriented</name>
+               </node>
             </node>
             <node>
-               <name>Adjacent-to</name>
+               <name>Positional-relation</name>
+               <description>Should be grouped with what it is positionally related to.</description>
+               <node>
+                  <name>Above</name>
+               </node>
+               <node>
+                  <name>Across</name>
+               </node>
+               <node>
+                  <name>Adjacent-to</name>
+               </node>
+               <node>
+                  <name>Ahead-of</name>
+               </node>
+               <node>
+                  <name>Around</name>
+               </node>
+               <node>
+                  <name>Back-of</name>
+               </node>
+               <node>
+                  <name>Behind</name>
+               </node>
+               <node>
+                  <name>Below</name>
+               </node>
+               <node>
+                  <name>Between</name>
+                  <description>Should be grouped with the items between designates.</description>
+               </node>
+               <node>
+                  <name>Bilateral</name>
+               </node>
+               <node>
+                  <name>Bottom-of</name>
+                  <description>At the bottom of something. Should be grouped with the item that it is positionally related to.</description>
+               </node>
+               <node>
+                  <name>Boundary-of</name>
+               </node>
+               <node>
+                  <name>Center-of</name>
+                  <description>At the center of something. Should be grouped with the item that it is positionally related to.</description>
+               </node>
+               <node>
+                  <name>Close-to</name>
+               </node>
+               <node>
+                  <name>Distance-from</name>
+                  <description>Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.</description>
+               </node>
+               <node>
+                  <name>Edge-of</name>
+               </node>
+               <node>
+                  <name>Far-from</name>
+               </node>
+               <node>
+                  <name>Front-of</name>
+               </node>
+               <node>
+                  <name>Inside-of</name>
+               </node>
+               <node>
+                  <name>Left-of</name>
+               </node>
+               <node>
+                  <name>Left-side</name>
+               </node>
+               <node>
+                  <name>Outside-of</name>
+               </node>
+               <node>
+                  <name>Over</name>
+               </node>
+               <node>
+                  <name>Right-of</name>
+               </node>
+               <node>
+                  <name>Right-side</name>
+               </node>
+               <node>
+                  <name>Top-of</name>
+               </node>
+               <node>
+                  <name>Under</name>
+               </node>
             </node>
             <node>
-               <name>Ahead-of</name>
+               <name>Temporal-relation</name>
+               <node>
+                  <name>After</name>
+               </node>
+               <node>
+                  <name>Asynchronous-with</name>
+               </node>
+               <node>
+                  <name>Before</name>
+               </node>
+               <node>
+                  <name>During</name>
+               </node>
+               <node>
+                  <name>Synchronous-with</name>
+               </node>
+               <node>
+                  <name>Waiting-for</name>
+               </node>
             </node>
             <node>
-               <name>Around</name>
-            </node>
-            <node>
-               <name>Back-of</name>
-            </node>
-            <node>
-               <name>Behind</name>
-            </node>
-            <node>
-               <name>Below</name>
-            </node>
-            <node>
-               <name>Between</name>
-               <description>Should be grouped with the items between designates.</description>
-            </node>
-            <node>
-               <name>Bilateral</name>
-            </node>
-            <node>
-               <name>Bottom-of</name>
-               <description>At the bottom of something. Should be grouped with the item that it is positionally related to.</description>
-            </node>
-            <node>
-               <name>Boundary-of</name>
-            </node>
-            <node>
-               <name>Center-of</name>
-               <description>At the center of something. Should be grouped with the item that it is positionally related to.</description>
-            </node>
-            <node>
-               <name>Close-to</name>
-            </node>
-            <node>
-               <name>Distance-from</name>
-               <description>Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.</description>
-            </node>
-            <node>
-               <name>Edge-of</name>
-            </node>
-            <node>
-               <name>Far-from</name>
-            </node>
-            <node>
-               <name>Front-of</name>
-            </node>
-            <node>
-               <name>Inside-of</name>
-            </node>
-            <node>
-               <name>Left-of</name>
-            </node>
-            <node>
-               <name>Left-side</name>
-            </node>
-            <node>
-               <name>Outside-of</name>
-            </node>
-            <node>
-               <name>Over</name>
-            </node>
-            <node>
-               <name>Right-of</name>
-            </node>
-            <node>
-               <name>Right-side</name>
-            </node>
-            <node>
-               <name>Top-of</name>
-            </node>
-            <node>
-               <name>Under</name>
-            </node>
-         </node>
-         <node>
-            <name>Directional-relation</name>
-            <node>
-               <name>Away-from</name>
-            </node>
-            <node>
-               <name>Backward</name>
-            </node>
-            <node>
-               <name>Closing</name>
-            </node>
-            <node>
-               <name>Decreasing</name>
-            </node>
-            <node>
-               <name>Downward</name>
-            </node>
-            <node>
-               <name>Forward</name>
-            </node>
-            <node>
-               <name>Increasing</name>
-            </node>
-            <node>
-               <name>Leftward</name>
-            </node>
-            <node>
-               <name>Rightward</name>
-            </node>
-            <node>
-               <name>Opening</name>
-            </node>
-            <node>
-               <name>Towards</name>
-            </node>
-            <node>
-               <name>Upward</name>
-            </node>
-         </node>
-         <node>
-            <name>Orientational-relation</name>
-            <node>
-               <name>Horizontally</name>
-            </node>
-            <node>
-               <name>Oblique</name>
-            </node>
-            <node>
-               <name>Rotated</name>
-            </node>
-            <node>
-               <name>Vertically</name>
+               <name>Variability-relation</name>
+               <node>
+                  <name>Constant</name>
+               </node>
+               <node>
+                  <name>Continuous</name>
+               </node>
+               <node>
+                  <name>Deterministic</name>
+               </node>
+               <node>
+                  <name>Discrete</name>
+               </node>
+               <node>
+                  <name>Flickering</name>
+                  <description>Irregular changes in time</description>
+               </node>
+               <node>
+                  <name>Repetitive</name>
+               </node>
+               <node>
+                  <name>Stochastic</name>
+               </node>
+               <node>
+                  <name>Sudden</name>
+               </node>
+               <node>
+                  <name>Varying</name>
+               </node>
             </node>
          </node>
          <node>
@@ -1365,58 +1423,6 @@
             </node>
             <node>
                <name>Hotter-than</name>
-            </node>
-         </node>
-         <node>
-            <name>Spatiotemporal-relation</name>
-            <node>
-               <name>Constant</name>
-            </node>
-            <node>
-               <name>Continuous</name>
-            </node>
-            <node>
-               <name>Deterministic</name>
-            </node>
-            <node>
-               <name>Discrete</name>
-            </node>
-            <node>
-               <name>Flickering</name>
-               <description>Irregular changes in time</description>
-            </node>
-            <node>
-               <name>Repetitive</name>
-            </node>
-            <node>
-               <name>Stochastic</name>
-            </node>
-            <node>
-               <name>Varying</name>
-            </node>
-         </node>
-         <node>
-            <name>Temporal-relation</name>
-            <node>
-               <name>After</name>
-            </node>
-            <node>
-               <name>Asynchronous</name>
-            </node>
-            <node>
-               <name>Before</name>
-            </node>
-            <node>
-               <name>During</name>
-            </node>
-            <node>
-               <name>Sudden</name>
-            </node>
-            <node>
-               <name>Synchronous</name>
-            </node>
-            <node>
-               <name>Waiting-for</name>
             </node>
          </node>
       </node>
