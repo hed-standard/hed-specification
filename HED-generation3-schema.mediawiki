@@ -936,6 +936,7 @@ HED version: 8.0.0-alpha.1
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
 ** Timed
+** Unexpected
 ** Unmasked
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 * Anatomical
@@ -969,8 +970,10 @@ HED version: 8.0.0-alpha.1
 ***** Toe
 **** Knee
 *** Torso
-**** Chest
-**** Hips
+**** Upper-torso
+***** Chest
+**** Lower-torso
+***** Hips
 **** Waist
 
 
