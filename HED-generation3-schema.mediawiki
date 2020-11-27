@@ -913,7 +913,7 @@ HED version: 8.0.0-alpha.1
 ** Loving
 ** Relieved
 ** Sad 
-* Postural-state<nowiki>{requireChild}</nowiki> 
+* Postural-state <nowiki>{requireChild}</nowiki> 
 ** Crouching
 ** Kneeling
 ** On-treadmill
@@ -973,7 +973,7 @@ HED version: 8.0.0-alpha.1
 ** Primary-task
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
-* Task-jeffect-judgment
+* Task-effect-judgment
 ** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
@@ -995,7 +995,7 @@ HED version: 8.0.0-alpha.1
 ** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
 ** Extraneous
 ** Meaningful
-** Newly-learned-meaning 
+** Newly-learned
 ** Non-informative
 ** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
 ** Not-meaningful 
