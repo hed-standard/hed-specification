@@ -528,10 +528,15 @@ HED version: 8.0.0-alpha.1
 *** Stereophonic <nowiki> [Consisting of more than one independent audio channel]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory <nowiki>[Pertaining to sensations of relating to taste.]</nowiki>
+*** Bitter
+*** Salty
+*** Savory
+*** Sour
+*** Sweet
 ** Tactile <nowiki>[Pertaining to sensations of relating to touch.]</nowiki>
 *** Tactile-pressure
-*** Texture
-*** Vibration
+*** Tactile-texture
+*** Tactile-vibration
 ** Olfactory <nowiki>[Pertaining to sensations of relating to smell.]</nowiki>
 ** Somatic <nowiki>[Pertaining to sensations of nervous system such as pain.]</nowiki>
 *** Pain
