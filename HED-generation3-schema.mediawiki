@@ -138,8 +138,6 @@ HED version: 8.0.0-alpha.1
 ** Switch-attention
 ** Track
 
-
-
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
 ** Geometric
@@ -496,7 +494,7 @@ HED version: 8.0.0-alpha.1
 ** Invalid
 ** Liminal
 ** Low
-** Masked <nowiki>{Ability to perceive influenced by presence of another stimulus}</nowiki>
+** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
 ** Medium
 ** None
 ** Normal
@@ -508,7 +506,7 @@ HED version: 8.0.0-alpha.1
 ** Supraliminal
 ** True
 ** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
-** Unmasked <nowiki>{Ability to perceive not influenced by presence of another stimulus}</nowiki>
+** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
 ** Valid
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
@@ -839,7 +837,6 @@ HED version: 8.0.0-alpha.1
 *** Sloped-terrain
 *** Uneven-terrain
 
-
 * Anatomical
 ** Body-part
 *** Head
@@ -878,8 +875,7 @@ HED version: 8.0.0-alpha.1
 **** Waist
 
 '''Agent-related-property''' 
-
-* Cognitive-state<nowiki>{extensionAllowed, requireChild}</nowiki>
+* Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
 ** Alert
 ** Anesthetized 
 ** Asleep
@@ -893,7 +889,7 @@ HED version: 8.0.0-alpha.1
 ** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
 ** Resting
 ** Vegetative 
-* Emotional-state<nowiki>{extensionAllowed, requireChild}</nowiki>
+* Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
 ** Angry 
 ** Aroused
 ** Awed
