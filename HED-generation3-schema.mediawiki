@@ -874,7 +874,7 @@ HED version: 8.0.0-alpha.1
 ***** Hips
 **** Waist
 
-'''Agent-related-property''' 
+'''Agent-property''' 
 * Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
 ** Alert
 ** Anesthetized 
@@ -945,7 +945,7 @@ HED version: 8.0.0-alpha.1
 ** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
-'''Task-related-property'''
+'''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
 ** Covert-attention
