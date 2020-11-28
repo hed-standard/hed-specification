@@ -2943,7 +2943,7 @@
          </node>
       </node>
       <node>
-         <name>Event-task-role</name>
+         <name>Task-event-type</name>
          <node>
             <name>Activity</name>
          </node>

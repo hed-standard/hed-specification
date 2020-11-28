@@ -326,7 +326,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue}</nowiki>
 *** Version <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
-** Feature <nowiki>{requireChild}</nowiki>
+** Data-feature <nowiki>{requireChild}</nowiki>
 *** Statistical-feature <nowiki>{requireChild}</nowiki>
 **** Accuracy <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>
@@ -860,7 +860,7 @@ HED version: 8.0.0-alpha.1
 ****** Little-finger
 ****** Middle-finger
 ****** Ring-finger
-****** Thumb-finger
+****** Thumb
 **** Wrist
 *** Leg
 **** Ankle
@@ -953,10 +953,11 @@ HED version: 8.0.0-alpha.1
 ** Focused-attention
 ** Orienting-attention
 ** Overt-attention
+** Selective-attention
 ** Sustained-attention
 ** Top-down-attention
 
-* Event-task-role
+* Task-event-type
 ** Activity
 ** Background-task
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
