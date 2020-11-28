@@ -860,7 +860,7 @@ HED version: 8.0.0-alpha.1
 ****** Little-finger
 ****** Middle-finger
 ****** Ring-finger
-****** Thumb-finger
+****** Thumb
 **** Wrist
 *** Leg
 **** Ankle
@@ -953,6 +953,7 @@ HED version: 8.0.0-alpha.1
 ** Focused-attention
 ** Orienting-attention
 ** Overt-attention
+** Selective-attention
 ** Sustained-attention
 ** Top-down-attention
 
