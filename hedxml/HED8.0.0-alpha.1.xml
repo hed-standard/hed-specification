@@ -999,7 +999,7 @@
             </node>
          </node>
          <node requireChild="true">
-            <name>Feature</name>
+            <name>Data-feature</name>
             <node requireChild="true">
                <name>Statistical-feature</name>
                <node requireChild="true">
@@ -2654,7 +2654,7 @@
                         <name>Ring-finger</name>
                      </node>
                      <node>
-                        <name>Thumb-finger</name>
+                        <name>Thumb</name>
                      </node>
                   </node>
                </node>
@@ -2699,7 +2699,7 @@
       </node>
    </node>
    <node>
-      <name>Agent-related-property</name>
+      <name>Agent-property</name>
       <node extensionAllowed="true" requireChild="true">
          <name>Cognitive-state</name>
          <node>
@@ -2914,7 +2914,7 @@
       </node>
    </node>
    <node>
-      <name>Task-related-property</name>
+      <name>Task-property</name>
       <node>
          <name>Attentional-strategy</name>
          <node>
@@ -2934,6 +2934,9 @@
          </node>
          <node>
             <name>Overt-attention</name>
+         </node>
+         <node>
+            <name>Selective-attention</name>
          </node>
          <node>
             <name>Sustained-attention</name>
