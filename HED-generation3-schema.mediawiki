@@ -3,7 +3,7 @@ HED version: 8.0.0-alpha.1
 !# start hed 
 
 '''Event''' 
-* Sensory-event<nowiki> [Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Sensory-event <nowiki>[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
 * Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
 * Data-feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
@@ -19,7 +19,7 @@ HED version: 8.0.0-alpha.1
 * Human-agent 
 * Robotic-agent 
 
-'''Action'''<nowiki> {extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
+'''Action''' <nowiki>{extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
 ** Breathe
 *** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
@@ -28,7 +28,7 @@ HED version: 8.0.0-alpha.1
 ** Move-full-body
 *** Bend
 *** Dance
-*** Fall-down<nowiki>[Involuntary fall to floor or ground]</nowiki>
+*** Fall-down <nowiki>[Involuntary fall to floor or ground]</nowiki>
 *** Flex
 *** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
 ***	Recover-balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
@@ -306,6 +306,139 @@ HED version: 8.0.0-alpha.1
 *** Ding
 *** Horn
 *** Siren
+
+'''Agent-property''' 
+* Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+** Alert
+** Anesthetized 
+** Asleep
+** Attentive
+** Awake 
+** Brain-dead 
+** Comatose 
+** Drowsy 
+** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
+** Locked-in 
+** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
+** Resting
+** Vegetative 
+* Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+** Angry 
+** Aroused
+** Awed
+** Compassionate
+** Content
+** Disgusted 
+** Emotionally-neutral
+** Empathetic
+** Excited 
+** Fearful
+** Feeling-stress
+** Frustrated
+** Grieving
+** Happy
+** Jealous 
+** Joyful 
+** Loving
+** Relieved
+** Sad 
+* Postural-state <nowiki>{requireChild}</nowiki> 
+** Crouching
+** Kneeling
+** On-treadmill
+** Prone
+** Sitting
+** Standing
+** Supported-by-chin-rest
+* Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+** Age
+*** <nowiki># {takesValue}</nowiki>
+** Sex
+*** <nowiki># {takesValue}</nowiki> 
+** Handedness
+*** <nowiki># {takesValue}</nowiki> 
+* Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
+** Brother
+** Child
+** Father
+** Mother
+** Sister
+* Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
+** Experiment-controller
+** Experiment-subject
+** Experimenter
+** Follower
+** Friend
+** Leader
+** Stranger
+** Student
+** Teacher
+* Association <nowiki>{requireChild}</nowiki>
+** Associated-with-non-agent 
+** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
+** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
+
+'''Task-property'''
+* Attentional-strategy
+** Bottom-up-attention
+** Covert-attention
+** Divided-attention
+** Focused-attention
+** Orienting-attention
+** Overt-attention
+** Selective-attention
+** Sustained-attention
+** Top-down-attention
+
+* Task-event-type
+** Activity
+** Background-task
+** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
+** Failure
+** Feedback 
+** Incidental 
+** Instructional 
+** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
+** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
+** Primary-task
+** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+
+* Task-effect-judgment
+** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
+** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
+
+* Task-response-type
+** Appropriate
+** Correction
+** Erroneous
+** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate
+** Indeterminate
+** Missed
+** Near-miss
+** Successful
+
+* Task-stimulus-type
+** Cue
+** Distractor 
+** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Extraneous
+** Meaningful
+** Newly-learned
+** Non-informative
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Not-meaningful 
+** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
+** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
+** Planned
+** Penalizing
+** Priming
+** Rewarding 
+** Target <nowiki>[Something the subject is looking for]</nowiki> 
+** Threatening
+** Timed
+** Unexpected
 
 
 '''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
@@ -873,139 +1006,6 @@ HED version: 8.0.0-alpha.1
 **** Lower-torso
 ***** Hips
 **** Waist
-
-'''Agent-property''' 
-* Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
-** Alert
-** Anesthetized 
-** Asleep
-** Attentive
-** Awake 
-** Brain-dead 
-** Comatose 
-** Drowsy 
-** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
-** Locked-in 
-** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
-** Resting
-** Vegetative 
-* Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
-** Angry 
-** Aroused
-** Awed
-** Compassionate
-** Content
-** Disgusted 
-** Emotionally-neutral
-** Empathetic
-** Excited 
-** Fearful
-** Feeling-stress
-** Frustrated
-** Grieving
-** Happy
-** Jealous 
-** Joyful 
-** Loving
-** Relieved
-** Sad 
-* Postural-state <nowiki>{requireChild}</nowiki> 
-** Crouching
-** Kneeling
-** On-treadmill
-** Prone
-** Sitting
-** Standing
-** Supported-by-chin-rest
-* Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
-** Age
-*** <nowiki># {takesValue}</nowiki>
-** Sex
-*** <nowiki># {takesValue}</nowiki> 
-** Handedness
-*** <nowiki># {takesValue}</nowiki> 
-* Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
-** Brother
-** Child
-** Father
-** Mother
-** Sister
-* Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
-** Experiment-controller
-** Experiment-subject
-** Experimenter
-** Follower
-** Friend
-** Leader
-** Stranger
-** Student
-** Teacher
-* Association <nowiki>{requireChild}</nowiki>
-** Associated-with-non-agent 
-** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
-
-'''Task-property'''
-* Attentional-strategy
-** Bottom-up-attention
-** Covert-attention
-** Divided-attention
-** Focused-attention
-** Orienting-attention
-** Overt-attention
-** Selective-attention
-** Sustained-attention
-** Top-down-attention
-
-* Task-event-type
-** Activity
-** Background-task
-** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-** Failure
-** Feedback 
-** Incidental 
-** Instructional 
-** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
-** Primary-task
-** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
-
-* Task-effect-judgment
-** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
-** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
-
-* Task-response-type
-** Appropriate
-** Correction
-** Erroneous
-** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate
-** Indeterminate
-** Missed
-** Near-miss
-** Successful
-
-* Task-stimulus-type
-** Cue
-** Distractor 
-** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
-** Extraneous
-** Meaningful
-** Newly-learned
-** Non-informative
-** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
-** Not-meaningful 
-** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-** Planned
-** Penalizing
-** Priming
-** Rewarding 
-** Target <nowiki>[Something the subject is looking for]</nowiki> 
-** Threatening
-** Timed
-** Unexpected
 
 
 '''Unit classes''' 
