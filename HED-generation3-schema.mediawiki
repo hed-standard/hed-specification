@@ -459,7 +459,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue}</nowiki>
 *** Version <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
-** Data-feature <nowiki>{requireChild}</nowiki>
+** Data-feature-type <nowiki>{requireChild}</nowiki>
 *** Statistical-feature <nowiki>{requireChild}</nowiki>
 **** Accuracy <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>

@@ -1397,7 +1397,7 @@
             </node>
          </node>
          <node requireChild="true">
-            <name>Data-feature</name>
+            <name>Data-feature-type</name>
             <node requireChild="true">
                <name>Statistical-feature</name>
                <node requireChild="true">
