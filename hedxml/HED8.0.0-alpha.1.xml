@@ -1211,12 +1211,15 @@
       <node requireChild="true">
          <name>Observational-property</name>
          <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-         <node requireChild="true">
-            <name>Computed-property</name>
-            <description>Feature computed by tool. Should be grouped with a label of the form Toolname_featureName</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
+         <node takesValue="true">
+            <name>#</name>
+         </node>
+      </node>
+      <node requireChild="true">
+         <name>Computed-property</name>
+         <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
+         <node takesValue="true">
+            <name>#</name>
          </node>
       </node>
    </node>

@@ -397,8 +397,9 @@ HED version: 8.0.0-alpha.1
 ** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 * Observational-property <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
-** Computed-property <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_featureName]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
+** <nowiki># {takesValue}</nowiki>
+* Computed-property <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** <nowiki># {takesValue}</nowiki>
 
 '''Task-property'''
 * Attentional-strategy
