@@ -1155,6 +1155,72 @@
       </node>
    </node>
    <node>
+      <name>Data-property</name>
+      <node requireChild="true">
+         <name>Statistical-property</name>
+         <node requireChild="true">
+            <name>Accuracy</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Data-mean</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Data-median</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Data-minimum</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Data-maximum</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Statistical-precision</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Statistical-recall</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Standard-deviation</name>
+            <description>As a Name:Value</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+      </node>
+      <node requireChild="true">
+         <name>Observational-property</name>
+         <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
+         <node requireChild="true">
+            <name>Computed-property</name>
+            <description>Feature computed by tool. Should be grouped with a label of the form Toolname_featureName</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+      </node>
+   </node>
+   <node>
       <name>Task-property</name>
       <node>
          <name>Attentional-strategy</name>
@@ -1227,9 +1293,9 @@
          </node>
       </node>
       <node>
-         <name>Task-effect-judgment</name>
+         <name>Task-effect-evidence</name>
          <node>
-            <name>Action-judgment</name>
+            <name>External-evidence</name>
             <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
          </node>
          <node>
@@ -1237,7 +1303,7 @@
             <description>How the stimulus is expected to effect the participants based on the experimental design.</description>
          </node>
          <node>
-            <name>Participant-indication</name>
+            <name>Behavioral-evidence</name>
          </node>
       </node>
       <node>
@@ -1367,6 +1433,9 @@
          <node>
             <name>Definition</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
          </node>
          <node>
             <name>Metadata</name>
@@ -1391,72 +1460,6 @@
             </node>
             <node requireChild="true">
                <name>Version</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Data-feature-type</name>
-            <node requireChild="true">
-               <name>Statistical-feature</name>
-               <node requireChild="true">
-                  <name>Accuracy</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Data-mean</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Data-median</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Data-minimum</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Data-maximum</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Statistical-precision</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Statistical-recall</name>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Standard-deviation</name>
-                  <description>As a Name:Value</description>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Observational-feature</name>
-               <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-            </node>
-            <node requireChild="true">
-               <name>Computed-feature</name>
-               <description>Feature computed by tool. Should be grouped with a label of the form Toolname_featureName</description>
                <node takesValue="true">
                   <name>#</name>
                </node>
@@ -1509,34 +1512,15 @@
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
          </node>
          <node>
-            <name>Reference-frame</name>
-            <description>A frame of reference used to express spatial attributes.</description>
-            <node>
-               <name>Custom-frame</name>
-               <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
-            </node>
-            <node>
-               <name>Room-frame</name>
-            </node>
-            <node>
-               <name>Screen-frame</name>
-               <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
-            </node>
-            <node>
-               <name>Subject-frame</name>
-               <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
-            </node>
-            <node>
-               <name>World-frame</name>
-            </node>
-         </node>
-         <node>
             <name>Response-variable</name>
             <description>An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.</description>
          </node>
          <node>
             <name>Sequence</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.</description>
+         </node>
+         <node>
+            <name>Session</name>
          </node>
          <node>
             <name>Task</name>
@@ -1955,6 +1939,9 @@
          <node>
             <name>Supraliminal</name>
          </node>
+         <node relatedTag="Unsymmetric">
+            <name>Symmetric</name>
+         </node>
          <node>
             <name>True</name>
          </node>
@@ -1964,6 +1951,9 @@
          <node>
             <name>Unmasked</name>
             <description>Ability to perceive not influenced by presence of another stimulus</description>
+         </node>
+         <node relatedTag="Symmetric">
+            <name>Unsymmetric</name>
          </node>
          <node>
             <name>Valid</name>
@@ -2724,6 +2714,28 @@
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
                   </node>
+               </node>
+            </node>
+            <node>
+               <name>Reference-frame</name>
+               <description>A frame of reference used to express spatial attributes.</description>
+               <node>
+                  <name>Custom-frame</name>
+                  <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
+               </node>
+               <node>
+                  <name>Room-frame</name>
+               </node>
+               <node>
+                  <name>Screen-frame</name>
+                  <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
+               </node>
+               <node>
+                  <name>Screen-facing-frame</name>
+                  <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
+               </node>
+               <node>
+                  <name>World-frame</name>
                </node>
             </node>
             <node requireChild="true">
