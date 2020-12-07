@@ -378,6 +378,28 @@ HED version: 8.0.0-alpha.1
 ** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
+'''Data-property'''
+* Statistical-property <nowiki>{requireChild}</nowiki>
+** Accuracy <nowiki>{requireChild}</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Data-mean <nowiki>{requireChild}</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Data-median <nowiki>{requireChild} </nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Data-minimum <nowiki>{requireChild} </nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Data-maximum <nowiki>{requireChild} </nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Statistical-precision <nowiki>{requireChild}</nowiki> 
+*** <nowiki># {takesValue}</nowiki> 
+** Statistical-recall <nowiki>{requireChild}</nowiki> 
+*** <nowiki># {takesValue}</nowiki> 
+** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+* Observational-property <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+** Computed-property <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_featureName]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+
 '''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
@@ -403,10 +425,10 @@ HED version: 8.0.0-alpha.1
 ** Primary-task
 ** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
 
-* Task-effect-judgment
-** Action-judgment <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+* Task-effect-evidence
+**  External-evidence<nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
-** Participant-indication <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
+** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
 * Task-response-type
 ** Appropriate
@@ -450,6 +472,7 @@ HED version: 8.0.0-alpha.1
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
 *** Creation-date <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
@@ -459,27 +482,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue}</nowiki>
 *** Version <nowiki>{requireChild}</nowiki> 
 **** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
-** Data-feature-type <nowiki>{requireChild}</nowiki>
-*** Statistical-feature <nowiki>{requireChild}</nowiki>
-**** Accuracy <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Data-mean <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Data-median <nowiki>{requireChild} </nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Data-minimum <nowiki>{requireChild} </nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Data-maximum <nowiki>{requireChild} </nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Statistical-precision <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
-**** Statistical-recall <nowiki>{requireChild}</nowiki> 
-***** <nowiki># {takesValue}</nowiki> 
-**** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-*** Observational-feature <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
-*** Computed-feature <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_featureName]</nowiki>
-**** <nowiki># {takesValue}</nowiki>
+
 ** Parameter <nowiki>{requireChild} [As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 * Organizational
@@ -492,14 +495,10 @@ HED version: 8.0.0-alpha.1
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
 ** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
-** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
-*** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
-*** Room-frame
-*** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
-*** Subject-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
-*** World-frame
+
 ** Response-variable <nowiki>[An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.]</nowiki>
 ** Sequence <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.]</nowiki>
+** Session
 ** Task <nowiki>[A tag used to indicate a linkage to the task.]</nowiki> 
 ** Trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
@@ -637,9 +636,11 @@ HED version: 8.0.0-alpha.1
 ** Some
 ** Subliminal
 ** Supraliminal
+** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
 ** True
 ** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
 ** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
+** Unsymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
 ** Valid
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
@@ -885,7 +886,12 @@ HED version: 8.0.0-alpha.1
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
 **** Z-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-
+*** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
+**** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+**** Room-frame
+**** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
+**** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
+**** World-frame
 *** Size <nowiki>{requireChild}</nowiki> 
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
