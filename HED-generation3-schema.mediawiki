@@ -615,34 +615,41 @@ HED version: 8.0.0-alpha.1
 ** Uncertainty <nowiki> {requireChild} </nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 * Categorical <nowiki>{extensionAllowed}</nowiki>
-** All
+** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
+** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
+** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
 ** Congruent <nowiki>{relatedTag=Incongruent}</nowiki>
 ** Constrained <nowiki>{relatedTag=Unconstrained}</nowiki>
-** Correct
-** Deep
-** False
-** High
-** Incongruent
-** Incorrect
-** Invalid
-** Liminal
-** Low
+** Correct <nowiki>{relatedTag=Incorrect}</nowiki>
+** Deep <nowiki>{relatedTag=Shallow}</nowiki>
+** Disordered <nowiki>{relatedTag=Ordered}</nowiki>
+** False <nowiki>{relatedTag=True}</nowiki>
+** Familiar <nowiki>{relatedTag=Unfamiliar}</nowiki>
+** High <nowiki>{relatedTag=Low, relatedTag=Medium}</nowiki>
+** Incongruent <nowiki>{relatedTag=Congruent}</nowiki>
+** Incorrect <nowiki>{relatedTag=Correct}</nowiki>
+** Invalid <nowiki>{relatedTag=Valid}</nowiki>
+** Involuntary <nowiki>{relatedTag=Voluntary}</nowiki>
+** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}</nowiki>
+** Low <nowiki>{relatedTag=High}</nowiki>
 ** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
-** Medium
-** None
-** Normal
-** Negative
-** Positive
-** Shallow
-** Some
-** Subliminal
-** Supraliminal
+** Medium <nowiki>{relatedTag=Low, relatedTag=High}</nowiki>
+** None <nowiki>{relatedTag=All, relatedTag=Some}</nowiki>
+** Normal <nowiki>{relatedTag=Abnormal}</nowiki>
+** Negative <nowiki>{relatedTag=Positive}</nowiki>
+** Ordered <nowiki>{relatedTag=Disordered}</nowiki>
+** Positive <nowiki>{relatedTag=Negative}</nowiki>
+** Shallow <nowiki>{relatedTag=Deep}</nowiki>
+** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
+** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}</nowiki>
+** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
 ** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
-** True
+** True <nowiki>{relatedTag=False}</nowiki>
 ** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
+** Unfamiliar <nowiki>{relatedTag=Familiar}</nowiki>
 ** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
-** Unsymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
-** Valid
+** Valid <nowiki>{relatedTag=Invalid}</nowiki>
+** Voluntary <nowiki>{relatedTag=Involuntary}</nowiki>
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Biological
@@ -651,7 +658,6 @@ HED version: 8.0.0-alpha.1
 ** Composite
 ** Electrical
 ** Fractal
-** Involuntary
 ** Mechanical
 ** Magnetic
 ** Numerical
