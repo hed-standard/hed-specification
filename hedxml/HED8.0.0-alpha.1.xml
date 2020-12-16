@@ -1875,8 +1875,14 @@
       </node>
       <node extensionAllowed="true">
          <name>Categorical</name>
-         <node>
+         <node relatedTag="Normal">
+            <name>Abnormal</name>
+         </node>
+         <node relatedTag="None">
             <name>All</name>
+         </node>
+         <node relatedTag="Symmetric">
+            <name>Asymmetric</name>
          </node>
          <node relatedTag="Incongruent">
             <name>Congruent</name>
@@ -1884,82 +1890,97 @@
          <node relatedTag="Unconstrained">
             <name>Constrained</name>
          </node>
-         <node>
+         <node relatedTag="Incorrect">
             <name>Correct</name>
          </node>
-         <node>
+         <node relatedTag="Shallow">
             <name>Deep</name>
          </node>
-         <node>
+         <node relatedTag="Ordered">
+            <name>Disordered</name>
+         </node>
+         <node relatedTag="True">
             <name>False</name>
          </node>
-         <node>
+         <node relatedTag="Unfamiliar">
+            <name>Familiar</name>
+         </node>
+         <node relatedTag="Medium">
             <name>High</name>
          </node>
-         <node>
+         <node relatedTag="Congruent">
             <name>Incongruent</name>
          </node>
-         <node>
+         <node relatedTag="Correct">
             <name>Incorrect</name>
          </node>
-         <node>
+         <node relatedTag="Valid">
             <name>Invalid</name>
          </node>
-         <node>
+         <node relatedTag="Voluntary">
+            <name>Involuntary</name>
+         </node>
+         <node relatedTag="Supraliminal">
             <name>Liminal</name>
          </node>
-         <node>
+         <node relatedTag="High">
             <name>Low</name>
          </node>
          <node>
             <name>Masked</name>
             <description>Ability to perceive influenced by presence of another stimulus</description>
          </node>
-         <node>
+         <node relatedTag="High">
             <name>Medium</name>
          </node>
-         <node>
+         <node relatedTag="Some">
             <name>None</name>
          </node>
-         <node>
+         <node relatedTag="Abnormal">
             <name>Normal</name>
          </node>
-         <node>
+         <node relatedTag="Positive">
             <name>Negative</name>
          </node>
-         <node>
+         <node relatedTag="Disordered">
+            <name>Ordered</name>
+         </node>
+         <node relatedTag="Negative">
             <name>Positive</name>
          </node>
-         <node>
+         <node relatedTag="Deep">
             <name>Shallow</name>
          </node>
-         <node>
+         <node relatedTag="None">
             <name>Some</name>
          </node>
-         <node>
+         <node relatedTag="Supraliminal">
             <name>Subliminal</name>
          </node>
-         <node>
+         <node relatedTag="Subliminal">
             <name>Supraliminal</name>
          </node>
          <node relatedTag="Unsymmetric">
             <name>Symmetric</name>
          </node>
-         <node>
+         <node relatedTag="False">
             <name>True</name>
          </node>
          <node relatedTag="Constrained">
             <name>Unconstrained</name>
          </node>
+         <node relatedTag="Familiar">
+            <name>Unfamiliar</name>
+         </node>
          <node>
             <name>Unmasked</name>
             <description>Ability to perceive not influenced by presence of another stimulus</description>
          </node>
-         <node relatedTag="Symmetric">
-            <name>Unsymmetric</name>
-         </node>
-         <node>
+         <node relatedTag="Invalid">
             <name>Valid</name>
+         </node>
+         <node relatedTag="Involuntary">
+            <name>Voluntary</name>
          </node>
       </node>
       <node>
@@ -1985,9 +2006,6 @@
          </node>
          <node>
             <name>Fractal</name>
-         </node>
-         <node>
-            <name>Involuntary</name>
          </node>
          <node>
             <name>Mechanical</name>
