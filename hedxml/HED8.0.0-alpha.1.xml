@@ -2914,14 +2914,14 @@
             <name>Temporal</name>
             <node requireChild="true">
                <name>Delay</name>
-               <description>An indicator that this tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
+               <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
             </node>
             <node requireChild="true">
                <name>Duration</name>
-               <description>An offset that is implicit after duration time passed from the onset</description>
+               <description>An offset that is implicit after duration time passed from the onset.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
