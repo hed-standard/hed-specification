@@ -1256,6 +1256,20 @@
          </node>
       </node>
       <node>
+         <name>Task-effect-evidence</name>
+         <node>
+            <name>External-evidence</name>
+            <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
+         </node>
+         <node>
+            <name>Intended-effect</name>
+            <description>How the stimulus is expected to effect the participants based on the experimental design.</description>
+         </node>
+         <node>
+            <name>Behavioral-evidence</name>
+         </node>
+      </node>
+      <node>
          <name>Task-event-type</name>
          <node>
             <name>Activity</name>
@@ -1293,20 +1307,6 @@
          <node>
             <name>Warning</name>
             <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
-         </node>
-      </node>
-      <node>
-         <name>Task-effect-evidence</name>
-         <node>
-            <name>External-evidence</name>
-            <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
-         </node>
-         <node>
-            <name>Intended-effect</name>
-            <description>How the stimulus is expected to effect the participants based on the experimental design.</description>
-         </node>
-         <node>
-            <name>Behavioral-evidence</name>
          </node>
       </node>
       <node>
@@ -1595,6 +1595,29 @@
             </node>
             <node>
                <name>Related-to</name>
+            </node>
+         </node>
+         <node>
+            <name>Ordering-relation</name>
+            <node>
+               <name>Early-item</name>
+               <description>Indication that this item appears early in a sequence.</description>
+            </node>
+            <node>
+               <name>First-item</name>
+               <description>Indication that this is the first item in a sequence.</description>
+            </node>
+            <node>
+               <name>Next-item</name>
+               <description>Indication that this item appears immediately after the previous item in a sequence.</description>
+            </node>
+            <node>
+               <name>Later-item</name>
+               <description>Indication that this item appears later in a sequence.</description>
+            </node>
+            <node>
+               <name>Last-item</name>
+               <description>Indication that this is the last item in a sequence.</description>
             </node>
          </node>
          <node>
@@ -2695,6 +2718,88 @@
       <node extensionAllowed="true">
          <name>Spatiotemporal</name>
          <node>
+            <name>Rate-of-change</name>
+            <node>
+               <name>Acceleration</name>
+               <node isNumeric="true" takesValue="true" unitClass="acceleration">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Jerk-rate</name>
+               <description>Rate at which an object's acceleration changes with respect to time.</description>
+               <node isNumeric="true" takesValue="true" unitClass="jerk">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Sampling-rate</name>
+               <description>Number of measurements per unit time.</description>
+               <node takesValue="true" unitClass="frequency">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Refresh-rate</name>
+               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-rate</name>
+               <description>Number of occurrences in a unit of time.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Velocity</name>
+               <node isNumeric="true" takesValue="true" unitClass="speed">
+                  <name>#</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Resolution</name>
+            <node requireChild="true">
+               <name>IO-resolution</name>
+               <node requireChild="true">
+                  <name>Screen-resolution</name>
+                  <description>Number of pixels in each dimension for a digital display device.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node requireChild="true">
+                  <name>Printer-resolution</name>
+                  <description>Number of dots-per-inch for a printer.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Spatial-resolution</name>
+               <description>Linear spacing of a spatial measurement.</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Spectral-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Temporal-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+         </node>
+         <node>
             <name>Spatial</name>
             <node>
                <name>Direction</name>
@@ -2806,49 +2911,9 @@
             </node>
          </node>
          <node>
-            <name>Resolution</name>
-            <node requireChild="true">
-               <name>IO-resolution</name>
-               <node requireChild="true">
-                  <name>Screen-resolution</name>
-                  <description>Number of pixels in each dimension for a digital display device.</description>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node requireChild="true">
-                  <name>Printer-resolution</name>
-                  <description>Number of dots-per-inch for a printer.</description>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Spatial-resolution</name>
-               <description>Linear spacing of a spatial measurement.</description>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Spectral-resolution</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Temporal-resolution</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-         </node>
-         <node>
             <name>Temporal</name>
-            <node>
+            <node requireChild="true">
                <name>Delay</name>
-               <description>Indicator of some amount of time elapsed before something happens.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
@@ -2871,20 +2936,6 @@
                <description>Indicating something stopped such as a break or waiting for input.</description>
             </node>
             <node requireChild="true">
-               <name>Response-start-delay</name>
-               <description>How long the start of the response is delayed from the stimulus onset.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Response-end-delay</name>
-               <description>How long the end of the response is delayed from the stimulus onset.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
                <name>Temporal-value</name>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
@@ -2898,49 +2949,9 @@
                <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
             </node>
          </node>
-         <node>
-            <name>Rate-of-change</name>
-            <node>
-               <name>Acceleration</name>
-               <node isNumeric="true" takesValue="true" unitClass="acceleration">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Jerk-rate</name>
-               <description>Rate at which an object's acceleration changes with respect to time.</description>
-               <node isNumeric="true" takesValue="true" unitClass="jerk">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Sampling-rate</name>
-               <description>Number of measurements per unit time.</description>
-               <node takesValue="true" unitClass="frequency">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Refresh-rate</name>
-               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Temporal-rate</name>
-               <description>Number of occurrences in a unit of time.</description>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Velocity</name>
-               <node isNumeric="true" takesValue="true" unitClass="speed">
-                  <name>#</name>
-               </node>
-            </node>
-         </node>
+      </node>
+      <node>
+         <name>current event</name>
       </node>
       <node>
          <name>Thermodynamic</name>
