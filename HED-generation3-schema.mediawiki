@@ -950,7 +950,7 @@ HED version: 8.0.0-alpha.1
 **** Smooth
 
 ** Temporal
-*** Delay <nowiki>{requireChild} [An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</nowiki>
+*** Delay <nowiki>{requireChild} [An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
