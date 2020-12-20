@@ -344,13 +344,22 @@
          <name>Perform</name>
          <description>Carry out or accomplish an action or task or function.</description>
          <node>
+            <name>Appear</name>
+         </node>
+         <node>
             <name>Change</name>
          </node>
          <node>
             <name>Collide</name>
          </node>
          <node>
+            <name>Disappear</name>
+         </node>
+         <node>
             <name>Fill-out-survey</name>
+         </node>
+         <node>
+            <name>Halt</name>
          </node>
          <node>
             <name>Operate</name>
@@ -411,6 +420,9 @@
          </node>
          <node>
             <name>Imagine</name>
+         </node>
+         <node>
+            <name>Predict</name>
          </node>
          <node>
             <name>Read</name>
@@ -1157,69 +1169,53 @@
    <node>
       <name>Data-property</name>
       <node requireChild="true">
-         <name>Statistical-property</name>
-         <node requireChild="true">
-            <name>Accuracy</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Data-mean</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Data-median</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Data-minimum</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Data-maximum</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Statistical-precision</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Statistical-recall</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Standard-deviation</name>
-            <description>As a Name:Value</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
+         <name>Data-property-value</name>
+         <node takesValue="true">
+            <name>#</name>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
+         <name>Statistical-property</name>
+         <node>
+            <name>Accuracy</name>
+         </node>
+         <node>
+            <name>Data-mean</name>
+         </node>
+         <node>
+            <name>Data-median</name>
+         </node>
+         <node>
+            <name>Data-minimum</name>
+         </node>
+         <node>
+            <name>Data-maximum</name>
+         </node>
+         <node>
+            <name>Statistical-precision</name>
+         </node>
+         <node>
+            <name>Statistical-recall</name>
+         </node>
+         <node>
+            <name>Standard-deviation</name>
+         </node>
+      </node>
+      <node>
          <name>Observational-property</name>
          <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-         <node takesValue="true">
-            <name>#</name>
+         <node>
+            <name>Expert-annotation</name>
+         </node>
+         <node>
+            <name>Instrument-measurement</name>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
          <name>Computed-property</name>
          <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
-         <node takesValue="true">
-            <name>#</name>
+         <node>
+            <name>Computed-prediction</name>
          </node>
       </node>
    </node>
@@ -1257,6 +1253,10 @@
       </node>
       <node>
          <name>Task-effect-evidence</name>
+         <node>
+            <name>Computational-evidence</name>
+            <description>Prediction made by computer program.</description>
+         </node>
          <node>
             <name>External-evidence</name>
             <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
@@ -1392,6 +1392,12 @@
             <name>Rewarding</name>
          </node>
          <node>
+            <name>Signal-go</name>
+         </node>
+         <node>
+            <name>Signal-stop</name>
+         </node>
+         <node>
             <name>Target</name>
             <description>Something the subject is looking for</description>
          </node>
@@ -1414,14 +1420,28 @@
          <description>Informational properties.</description>
          <node requireChild="true">
             <name>Label</name>
-            <description>A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).</description>
+            <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Label-def</name>
+            <description>A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node requireChild="true">
+            <name>Label-exp</name>
+            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
          <node requireChild="true">
             <name>ID</name>
-            <description>An alphanumeric code usually used to identify particular objects.</description>
+            <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1725,10 +1745,6 @@
                   <name>Close-to</name>
                </node>
                <node>
-                  <name>Distance-from</name>
-                  <description>Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.</description>
-               </node>
-               <node>
                   <name>Edge-of</name>
                </node>
                <node>
@@ -1805,10 +1821,13 @@
                   <description>Irregular changes in time</description>
                </node>
                <node>
-                  <name>Repetitive</name>
+                  <name>Fractal</name>
                </node>
                <node>
-                  <name>Stochastic</name>
+                  <name>Random</name>
+               </node>
+               <node>
+                  <name>Repetitive</name>
                </node>
                <node>
                   <name>Sudden</name>
@@ -2025,10 +2044,13 @@
             <name>Composite</name>
          </node>
          <node>
+            <name>Deterministic</name>
+         </node>
+         <node>
             <name>Electrical</name>
          </node>
          <node>
-            <name>Fractal</name>
+            <name>Estimated</name>
          </node>
          <node>
             <name>Mechanical</name>
@@ -2038,9 +2060,6 @@
          </node>
          <node>
             <name>Numerical</name>
-         </node>
-         <node>
-            <name>Random</name>
          </node>
          <node>
             <name>Symbolic</name>
@@ -2809,7 +2828,7 @@
             </node>
             <node requireChild="true">
                <name>Distance</name>
-               <description>Distance from a specified position in a specified Direction</description>
+               <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
                <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                   <name>#</name>
                </node>
