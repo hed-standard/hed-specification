@@ -111,9 +111,12 @@ HED version: 8.0.0-alpha.1
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
+** Appear
 ** Change
 ** Collide
+** Disappear
 ** Fill-out-survey
+** Halt
 ** Operate <nowiki>[Control something else.]</nowiki>
 *** Drive <nowiki>[Control something that moves.]</nowiki>
 *** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
@@ -132,6 +135,7 @@ HED version: 8.0.0-alpha.1
 ** Generate
 ** Identify
 ** Imagine
+** Predict
 ** Read 
 ** Recall
 ** Repeat
@@ -379,27 +383,22 @@ HED version: 8.0.0-alpha.1
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property'''
-* Statistical-property <nowiki>{requireChild}</nowiki>
-** Accuracy <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-mean <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-median <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-minimum <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-maximum <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Statistical-precision <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Statistical-recall <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-* Observational-property <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+* Data-property-value <nowiki>{requireChild}</nowiki>
 ** <nowiki># {takesValue}</nowiki>
-* Computed-property <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** <nowiki># {takesValue}</nowiki>
+* Statistical-property 
+** Accuracy 
+** Data-mean 
+** Data-median 
+** Data-minimum 
+** Data-maximum 
+** Statistical-precision 
+** Statistical-recall 
+** Standard-deviation 
+* Observational-property <nowiki>[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+** Expert-annotation
+** Instrument-measurement
+* Computed-property <nowiki>[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** Computed-prediction
 
 '''Task-property'''
 * Attentional-strategy
@@ -414,7 +413,8 @@ HED version: 8.0.0-alpha.1
 ** Top-down-attention
 
 * Task-effect-evidence
-**  External-evidence<nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
+**  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
@@ -457,7 +457,9 @@ HED version: 8.0.0-alpha.1
 ** Planned
 ** Penalizing
 ** Priming
-** Rewarding 
+** Rewarding
+** Signal-go
+** Signal-stop 
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
 ** Timed
@@ -466,9 +468,13 @@ HED version: 8.0.0-alpha.1
 
 '''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
 * Informational <nowiki>[Informational properties.]</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
-*** <nowiki># {takesValue}</nowiki> 
-** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify particular objects.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+** Label-def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+** Label-exp <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>    
+** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -565,7 +571,7 @@ HED version: 8.0.0-alpha.1
 **** Boundary-of
 **** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 **** Close-to
-**** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
+
 **** Edge-of
 **** Far-from
 **** Front-of
@@ -591,8 +597,9 @@ HED version: 8.0.0-alpha.1
 **** Deterministic
 **** Discrete
 **** Flickering <nowiki>[Irregular changes in time]</nowiki>
+**** Fractal
+**** Random
 **** Repetitive
-**** Stochastic
 **** Sudden
 **** Varying
 
@@ -664,12 +671,12 @@ HED version: 8.0.0-alpha.1
 ** Clinical
 ** Complex
 ** Composite
+** Deterministic
 ** Electrical
-** Fractal
+** Estimated
 ** Mechanical
 ** Magnetic
 ** Numerical
-** Random
 ** Symbolic
 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
@@ -917,7 +924,7 @@ HED version: 8.0.0-alpha.1
 ** Spatial
 *** Direction
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
+*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Orientation 
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
