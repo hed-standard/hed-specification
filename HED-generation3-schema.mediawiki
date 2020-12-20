@@ -111,9 +111,12 @@ HED version: 8.0.0-alpha.1
 *** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
+** Appear
 ** Change
 ** Collide
+** Disappear
 ** Fill-out-survey
+** Halt
 ** Operate <nowiki>[Control something else.]</nowiki>
 *** Drive <nowiki>[Control something that moves.]</nowiki>
 *** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
@@ -132,6 +135,7 @@ HED version: 8.0.0-alpha.1
 ** Generate
 ** Identify
 ** Imagine
+** Predict
 ** Read 
 ** Recall
 ** Repeat
@@ -414,7 +418,8 @@ HED version: 8.0.0-alpha.1
 ** Top-down-attention
 
 * Task-effect-evidence
-**  External-evidence<nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
+**  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
@@ -565,7 +570,7 @@ HED version: 8.0.0-alpha.1
 **** Boundary-of
 **** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 **** Close-to
-**** Distance-from <nowiki>[Should be grouped with an item from which the distance is measured. The resulting group will usually be grouped with an actual Distance or Angle value.]</nowiki>
+
 **** Edge-of
 **** Far-from
 **** Front-of
@@ -917,7 +922,7 @@ HED version: 8.0.0-alpha.1
 ** Spatial
 *** Direction
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction]</nowiki> 
+*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Orientation 
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
