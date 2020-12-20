@@ -383,27 +383,22 @@ HED version: 8.0.0-alpha.1
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property'''
-* Statistical-property <nowiki>{requireChild}</nowiki>
-** Accuracy <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-mean <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-median <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-minimum <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Data-maximum <nowiki>{requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Statistical-precision <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Statistical-recall <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue}</nowiki> 
-** Standard-deviation <nowiki>{requireChild} [As a Name:Value]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-* Observational-property <nowiki>{requireChild}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+* Data-property-value <nowiki>{requireChild}</nowiki>
 ** <nowiki># {takesValue}</nowiki>
-* Computed-property <nowiki>{requireChild}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** <nowiki># {takesValue}</nowiki>
+* Statistical-property 
+** Accuracy 
+** Data-mean 
+** Data-median 
+** Data-minimum 
+** Data-maximum 
+** Statistical-precision 
+** Statistical-recall 
+** Standard-deviation 
+* Observational-property <nowiki>[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+** Expert-annotation
+** Instrument-measurement
+* Computed-property <nowiki>[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** Computed-prediction
 
 '''Task-property'''
 * Attentional-strategy
@@ -462,7 +457,9 @@ HED version: 8.0.0-alpha.1
 ** Planned
 ** Penalizing
 ** Priming
-** Rewarding 
+** Rewarding
+** Signal-go
+** Signal-stop 
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
 ** Threatening
 ** Timed
@@ -471,9 +468,13 @@ HED version: 8.0.0-alpha.1
 
 '''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
 * Informational <nowiki>[Informational properties.]</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters. Labels are used to define scopes or can be assigned to several events sharing the same characteristic (an event code).]</nowiki>
-*** <nowiki># {takesValue}</nowiki> 
-** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify particular objects.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+** Label-def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+** Label-exp <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>    
+** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -596,8 +597,9 @@ HED version: 8.0.0-alpha.1
 **** Deterministic
 **** Discrete
 **** Flickering <nowiki>[Irregular changes in time]</nowiki>
+**** Fractal
+**** Random
 **** Repetitive
-**** Stochastic
 **** Sudden
 **** Varying
 
@@ -669,12 +671,12 @@ HED version: 8.0.0-alpha.1
 ** Clinical
 ** Complex
 ** Composite
+** Deterministic
 ** Electrical
-** Fractal
+** Estimated
 ** Mechanical
 ** Magnetic
 ** Numerical
-** Random
 ** Symbolic
 
 * Sensory <nowiki>{extensionAllowed}</nowiki>
