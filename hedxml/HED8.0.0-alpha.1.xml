@@ -2044,9 +2044,6 @@
             <name>Composite</name>
          </node>
          <node>
-            <name>Deterministic</name>
-         </node>
-         <node>
             <name>Electrical</name>
          </node>
          <node>

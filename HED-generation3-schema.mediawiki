@@ -671,7 +671,6 @@ HED version: 8.0.0-alpha.1
 ** Clinical
 ** Complex
 ** Composite
-** Deterministic
 ** Electrical
 ** Estimated
 ** Mechanical
