@@ -391,9 +391,11 @@ HED version: 8.0.0-alpha.1
 ** Data-median 
 ** Data-minimum 
 ** Data-maximum 
+** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>  
 ** Statistical-precision 
 ** Statistical-recall 
 ** Standard-deviation 
+** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
 * Observational-property <nowiki>[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
 ** Expert-annotation
 ** Instrument-measurement
@@ -537,6 +539,11 @@ HED version: 8.0.0-alpha.1
 *** Later-item <nowiki>[Indication that this item appears later in a sequence.]</nowiki>
 *** Last-item <nowiki>[Indication that this is the last item in a sequence.]</nowiki>
 
+** Quantitative-relation
+*** Estimated
+*** Approximated
+*** Exact
+
 ** Spatiotemporal-relation
 *** Directional-relation
 **** Away-from
@@ -620,14 +627,11 @@ HED version: 8.0.0-alpha.1
 *** <nowiki># {takesValue}</nowiki>  
 ** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>  
 ** Ratio <nowiki>{requireChild}</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Uncertainty <nowiki> {requireChild} </nowiki> 
-*** <nowiki># {takesValue}</nowiki>  
+
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
 ** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
@@ -672,7 +676,7 @@ HED version: 8.0.0-alpha.1
 ** Complex
 ** Composite
 ** Electrical
-** Estimated
+
 ** Mechanical
 ** Magnetic
 ** Numerical

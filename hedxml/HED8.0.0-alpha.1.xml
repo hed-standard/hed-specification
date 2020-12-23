@@ -1192,6 +1192,10 @@
             <name>Data-maximum</name>
          </node>
          <node>
+            <name>Probability</name>
+            <description>Use to specify the level of certainty about the occurrence of the event.</description>
+         </node>
+         <node>
             <name>Statistical-precision</name>
          </node>
          <node>
@@ -1199,6 +1203,10 @@
          </node>
          <node>
             <name>Standard-deviation</name>
+         </node>
+         <node>
+            <name>Uncertainty</name>
+            <description>Use to specify the level of error.</description>
          </node>
       </node>
       <node>
@@ -1641,6 +1649,18 @@
             </node>
          </node>
          <node>
+            <name>Quantitative-relation</name>
+            <node>
+               <name>Estimated</name>
+            </node>
+            <node>
+               <name>Approximated</name>
+            </node>
+            <node>
+               <name>Exact</name>
+            </node>
+         </node>
+         <node>
             <name>Spatiotemporal-relation</name>
             <node>
                <name>Directional-relation</name>
@@ -1888,13 +1908,6 @@
                <name>#</name>
             </node>
          </node>
-         <node>
-            <name>Probability</name>
-            <description>Use to specify the level of certainty about the occurrence of the event.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
          <node requireChild="true">
             <name>Ratio</name>
             <node takesValue="true">
@@ -1904,12 +1917,6 @@
          <node requireChild="true">
             <name>Repetition</name>
             <description>When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Uncertainty</name>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -2045,9 +2052,6 @@
          </node>
          <node>
             <name>Electrical</name>
-         </node>
-         <node>
-            <name>Estimated</name>
          </node>
          <node>
             <name>Mechanical</name>
