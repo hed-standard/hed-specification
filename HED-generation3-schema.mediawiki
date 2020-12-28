@@ -457,13 +457,13 @@ HED version: 8.0.0-alpha.1
 ** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 ** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
 ** Planned
-** Penalizing
+** Penalty
 ** Priming
-** Rewarding
+** Reward
 ** Signal-go
 ** Signal-stop 
 ** Target <nowiki>[Something the subject is looking for]</nowiki> 
-** Threatening
+** Threat
 ** Timed
 ** Unexpected
 
@@ -931,7 +931,7 @@ HED version: 8.0.0-alpha.1
 **** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Orientation 
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
-*** Position {requireChild} <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+*** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Y-position <nowiki>{requireChild}</nowiki> 
@@ -944,7 +944,7 @@ HED version: 8.0.0-alpha.1
 **** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
 **** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
 **** World-frame
-*** Size <nowiki>{requireChild}</nowiki> 
+*** Size
 **** Area <nowiki>{requireChild}</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
 **** Length <nowiki>{requireChild} [A measurement of the size along the longest dimension.]</nowiki> 
