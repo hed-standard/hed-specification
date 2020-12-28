@@ -1391,13 +1391,13 @@
             <name>Planned</name>
          </node>
          <node>
-            <name>Penalizing</name>
+            <name>Penalty</name>
          </node>
          <node>
             <name>Priming</name>
          </node>
          <node>
-            <name>Rewarding</name>
+            <name>Reward</name>
          </node>
          <node>
             <name>Signal-go</name>
@@ -1410,7 +1410,7 @@
             <description>Something the subject is looking for</description>
          </node>
          <node>
-            <name>Threatening</name>
+            <name>Threat</name>
          </node>
          <node>
             <name>Timed</name>
@@ -2840,7 +2840,7 @@
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Position</name>
                <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
                <node requireChild="true">
@@ -2884,7 +2884,7 @@
                   <name>World-frame</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Size</name>
                <node requireChild="true">
                   <name>Area</name>
