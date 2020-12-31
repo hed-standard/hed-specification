@@ -369,7 +369,7 @@ HED version: 8.0.0-alpha.1
 ** Sister
 * Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
 ** Experiment-controller
-** Experiment-subject
+** Experiment-participant
 ** Experimenter
 ** Follower
 ** Friend
@@ -385,7 +385,7 @@ HED version: 8.0.0-alpha.1
 '''Data-property'''
 * Data-property-value <nowiki>{requireChild}</nowiki>
 ** <nowiki># {takesValue}</nowiki>
-* Statistical-property 
+* Statistical-property <nowiki>{extensionAllowed}</nowiki>
 ** Accuracy 
 ** Data-mean 
 ** Data-median 
@@ -396,10 +396,10 @@ HED version: 8.0.0-alpha.1
 ** Statistical-recall 
 ** Standard-deviation 
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
-* Observational-property <nowiki>[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
-** Expert-annotation
-** Instrument-measurement
-* Computed-property <nowiki>[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+* Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
+** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
+* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
 ** Computed-prediction
 
 '''Task-property'''
