@@ -1127,7 +1127,7 @@
             <name>Experiment-controller</name>
          </node>
          <node>
-            <name>Experiment-subject</name>
+            <name>Experiment-participant</name>
          </node>
          <node>
             <name>Experimenter</name>
@@ -1174,7 +1174,7 @@
             <name>#</name>
          </node>
       </node>
-      <node>
+      <node extensionAllowed="true">
          <name>Statistical-property</name>
          <node>
             <name>Accuracy</name>
@@ -1209,17 +1209,17 @@
             <description>Use to specify the level of error.</description>
          </node>
       </node>
-      <node>
+      <node extensionAllowed="true">
          <name>Observational-property</name>
          <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-         <node>
+         <node extensionAllowed="true">
             <name>Expert-annotation</name>
          </node>
-         <node>
+         <node extensionAllowed="true">
             <name>Instrument-measurement</name>
          </node>
       </node>
-      <node>
+      <node extensionAllowed="true">
          <name>Computed-property</name>
          <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
          <node>
