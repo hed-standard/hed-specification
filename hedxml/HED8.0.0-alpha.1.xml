@@ -1507,28 +1507,16 @@
       <node>
          <name>Organizational</name>
          <node>
-            <name>Block</name>
-            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
-         </node>
-         <node>
             <name>Collection</name>
             <description>A tag designating a grouping of items such as in a set or list.</description>
          </node>
          <node>
-            <name>Context</name>
-            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
-         </node>
-         <node>
-            <name>Condition-variable</name>
-            <description>An aspect of the experiment or task that is to be varied during the experiment. Condition-variables are sometimes called independent variables.</description>
-         </node>
-         <node>
-            <name>Control-variable</name>
-            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
-         </node>
-         <node>
             <name>Data-acquisition</name>
-            <description>An activity related to data acquisition.</description>
+            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.</description>
+         </node>
+         <node>
+            <name>Event-context</name>
+            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
          </node>
          <node>
             <name>Event-stream</name>
@@ -1543,22 +1531,27 @@
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
          </node>
          <node>
-            <name>Response-variable</name>
-            <description>An aspect of the experiment or task that is measured as control-variables are varied during the experiment. Response-variables are sometimes called dependent variables.</description>
-         </node>
-         <node>
-            <name>Sequence</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events related in a sequential order.</description>
-         </node>
-         <node>
-            <name>Session</name>
-         </node>
-         <node>
             <name>Task</name>
-            <description>A tag used to indicate a linkage to the task.</description>
+            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
          </node>
          <node>
-            <name>Trial</name>
+            <name>Task-block</name>
+            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
+         </node>
+         <node>
+            <name>Task-condition</name>
+            <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
+         </node>
+         <node>
+            <name>Task-control</name>
+            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
+         </node>
+         <node>
+            <name>Task-response</name>
+            <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.</description>
+         </node>
+         <node>
+            <name>Task-trial</name>
             <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
          </node>
       </node>
