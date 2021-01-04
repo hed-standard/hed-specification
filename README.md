@@ -49,18 +49,29 @@ The following white paper gives the history of HED development and the goals for
 
 ### Mapping of HED-2G tags into HED-3G tags
 
-> [**Google doc with mapping of HED 7.1.1 into the restructured version**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing) 
+> [**Google doc with mapping of HED 7.1.2 into HED 8.0.0-alpha.1**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing) 
 
 
 ## Web-based HED tools
+
+The current web-based HED tools include an online validator of spreadsheets (Excel or tsv)
+containing HED tags. Schema tools are available for converting HED schema specifications between `.mediawiki` and
+`.xml` formats. Also available is a tool for checking for duplicate nodes in schema.  
 
 The current web-based HED tools are in the process of being migrated to the 
 San Diego Supercomputer Center (Jan 2021) and are currently not available online.
 The tools can be run locally using the `runserver.py` function the the hedweb repository
 of the [hed-python](https://github.com/hed-standard/hed-python) repository of hed-standard.
 
-## For HED validation
+## Stable links for HED validation
 
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-specification/tree/master/hedxml)
 
 > [**Stable  link for the latest version of the HED-generation2 schema**](https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml)
+
+## HED-3G library schema
+
+HED-3G supports library schema, which are specialized vocabularies used in conjunction with the
+base vocabulary to support specialized datasets. Communities may develop and submit library
+schema.  HED library schema are hosted on the repository 
+[https://github.com/hed-standard/hed-schema-library](https://github.com/hed-standard/hed-schema-library)
