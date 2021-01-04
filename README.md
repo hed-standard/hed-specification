@@ -19,7 +19,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 ### HED-2G vocabulary views
 
-The latest version is of HED-generation2 is 7.1.2:
+The latest version is of HED-2G is 7.1.2:
 > [**Expandable html view of HED7.1.2**](http://www.hedtags.org/display_hed.html?version=7.1.2)  
 
 > [**Readable mediawiki view of HED7.1.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema.mediawiki)
@@ -60,8 +60,9 @@ containing HED tags. Schema tools are available for converting HED schema specif
 
 The current web-based HED tools are in the process of being migrated to the 
 San Diego Supercomputer Center (Jan 2021) and are currently not available online.
-The tools can be run locally using the `runserver.py` function the the hedweb repository
-of the [hed-python](https://github.com/hed-standard/hed-python) repository of hed-standard.
+The tools can be run locally using the `runserver.py` function the hedweb module
+of the [hed-python](https://github.com/hed-standard/hed-python) repository of 
+[hed-standard](https://github.com/hed-standard).
 
 ## Stable links for HED validation
 
@@ -72,6 +73,6 @@ of the [hed-python](https://github.com/hed-standard/hed-python) repository of he
 ## HED-3G library schema
 
 HED-3G supports library schema, which are specialized vocabularies used in conjunction with the
-base vocabulary to support specialized datasets. Communities may develop and submit library
-schema.  HED library schema are hosted on the repository 
+base vocabulary to support annotation of specialized datasets. Communities may develop and submit
+library schema.  HED library schema are hosted on the repository 
 [https://github.com/hed-standard/hed-schema-library](https://github.com/hed-standard/hed-schema-library)
