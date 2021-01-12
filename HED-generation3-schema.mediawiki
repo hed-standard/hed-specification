@@ -3,16 +3,16 @@ HED version: 8.0.0-alpha.1
 !# start hed 
 
 '''Event''' 
-* Sensory-event <nowiki>[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-property/Task-event-type}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
 * Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
 * Data-feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
-* Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on the person during the experiment or administering a survey.]</nowiki>  
+* Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
 
-'''Agent''' <nowiki>{extensionAllowed}</nowiki>
-* Animal-agent 
+'''Agent''' <nowiki>[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive, performing an activity such as a computation, or appearing to simulate something else may qualify something to be an agent.]</nowiki>
+* Animal-agent <nowiki>[An animal that is present.]</nowiki>
 * Avatar-agent
 * Computational-agent
 * Controller-agent <nowiki>[An outside controller such as the experimental control software.]</nowiki> 
@@ -255,33 +255,33 @@ HED version: 8.0.0-alpha.1
 **** Tractor
 **** Train 
 **** Truck 
-** Natural-object
-*** Organism
-**** Animal
-**** Human
+** Natural-object <nowiki>[An object occuring naturally in contrast to a man-made object.]</nowiki>
+*** Organism <nowiki>[Something that is living.]</nowiki>
+**** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
+***** Human
 **** Plant
 
-*** Mineral
-*** Natural-feature
+*** Mineral <nowiki>[An inorganic substance]</nowiki>
+*** Natural-feature <nowiki>[Some terrain occuring in the outdoors.]</nowiki>
 **** Field
 **** Hill
 **** Mountain
 **** River
 **** Waterfall
-** Food
-** Drink
+** Food <nowiki>[Something that is usually solid and can be consumed by an organism.]</nowiki>
+** Drink <nowiki>[Something that is liquid and can be consumed by an organism.]</nowiki>
 
-* Language <nowiki>[Perceivable in a visual or auditory (spoken) sensory presentation]</nowiki>
-** Character
-** Glyph
-** Nonword
-** Phoneme
-** Phrase
-** Sentence
-** Syllable
-** Textblock
-** Word
-* Sound <nowiki>[Item/Sound can be used in a tag group to describe, for example, sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+* Language <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
+** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
+** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
+** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
+** Phoneme <nowiki>[A sound or a group of different sounds perceived to have the same function by speakers of the language.]</nowiki>
+** Phrase <nowiki>[A small group of words standing together as a conceptual unit.]</nowiki>
+** Sentence <nowiki>[A set of words that is complete in itself.]</nowiki>
+** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
+** Textblock <nowiki>[A block of text.]</nowiki>
+** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
+* Sound <nowiki>[Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
 *** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
 *** Noise
@@ -420,35 +420,36 @@ HED version: 8.0.0-alpha.1
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
-* Task-event-type
-** Activity
-** Background-task
+* Task-event-role <nowiki>[The purpose of this event in the task.]</nowiki>
+** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample. .]</nowiki>
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
 ** Failure
-** Feedback 
-** Incidental 
-** Instructional 
+** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
+** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
-** Participant-response <nowiki> [Something related to a participant's actions in performing the task.]</nowiki>
-** Primary-task
-** Warning <nowiki>[As in a warning message that you are getting too close to the shoulder in a driving task]</nowiki> 
+** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
+** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
 
-* Task-response-type
+* Task-priority <nowiki>[Indication of importance within the task.]</nowiki>
+** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
+** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
+* Task-response-role <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
 ** Appropriate
 ** Correction
 ** Erroneous
-** Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
+** Imagined <nowiki>[This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
 ** Inappropriate
 ** Indeterminate
 ** Missed
 ** Near-miss
 ** Successful
 
-* Task-stimulus-type
+* Task-stimulus-role <nowiki> [The stimulus purpose in the task.]</nowiki>
 ** Cue
 ** Distractor 
-** Expected <nowiki>[Of low information value, for example frequent Non-targets in an RSVP paradigm]</nowiki>
+** Expected <nowiki>[Of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
 ** Extraneous
+** Feedback 
 ** Meaningful
 ** Newly-learned
 ** Non-informative

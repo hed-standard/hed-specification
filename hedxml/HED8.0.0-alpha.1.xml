@@ -2,7 +2,7 @@
 <HED version="8.0.0-alpha.1">
    <node>
       <name>Event</name>
-      <node>
+      <node suggestedTag="Task-property/Task-event-type">
          <name>Sensory-event</name>
          <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.</description>
       </node>
@@ -20,17 +20,19 @@
       </node>
       <node>
          <name>Experiment-procedure</name>
-         <description>An event indicating an experimental procedure as in doing a saliva swab on the person during the experiment or administering a survey.</description>
+         <description>An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.</description>
       </node>
       <node extensionAllowed="true">
          <name>Experiment-structure</name>
          <description>An event specifying the structure of the experiment.</description>
       </node>
    </node>
-   <node extensionAllowed="true">
+   <node>
       <name>Agent</name>
+      <description>Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive, performing an activity such as a computation, or appearing to simulate something else may qualify something to be an agent.</description>
       <node>
          <name>Animal-agent</name>
+         <description>An animal that is present.</description>
       </node>
       <node>
          <name>Avatar-agent</name>
@@ -789,13 +791,16 @@
          </node>
          <node>
             <name>Natural-object</name>
+            <description>An object occuring naturally in contrast to a man-made object.</description>
             <node>
                <name>Organism</name>
+               <description>Something that is living.</description>
                <node>
                   <name>Animal</name>
-               </node>
-               <node>
-                  <name>Human</name>
+                  <description>Any multicellular or eukaryotic organism.</description>
+                  <node>
+                     <name>Human</name>
+                  </node>
                </node>
                <node>
                   <name>Plant</name>
@@ -803,9 +808,11 @@
             </node>
             <node>
                <name>Mineral</name>
+               <description>An inorganic substance</description>
             </node>
             <node>
                <name>Natural-feature</name>
+               <description>Some terrain occuring in the outdoors.</description>
                <node>
                   <name>Field</name>
                </node>
@@ -825,45 +832,56 @@
          </node>
          <node>
             <name>Food</name>
+            <description>Something that is usually solid and can be consumed by an organism.</description>
          </node>
          <node>
             <name>Drink</name>
+            <description>Something that is liquid and can be consumed by an organism.</description>
          </node>
       </node>
       <node>
          <name>Language</name>
-         <description>Perceivable in a visual or auditory (spoken) sensory presentation</description>
+         <description>An  system of communication that is receivable in a sensory presentation.</description>
          <node>
             <name>Character</name>
+            <description>A mark, sign or symbol used as part of language.</description>
          </node>
          <node>
             <name>Glyph</name>
+            <description>A symbol or pictograph.</description>
          </node>
          <node>
             <name>Nonword</name>
+            <description>A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.</description>
          </node>
          <node>
             <name>Phoneme</name>
+            <description>A sound or a group of different sounds perceived to have the same function by speakers of the language.</description>
          </node>
          <node>
             <name>Phrase</name>
+            <description>A small group of words standing together as a conceptual unit.</description>
          </node>
          <node>
             <name>Sentence</name>
+            <description>A set of words that is complete in itself.</description>
          </node>
          <node>
             <name>Syllable</name>
+            <description>A unit of pronunciation having one vowel sound.</description>
          </node>
          <node>
             <name>Textblock</name>
+            <description>A block of text.</description>
          </node>
          <node>
             <name>Word</name>
+            <description>A single distinct meaningful element of a language.</description>
          </node>
       </node>
       <node>
          <name>Sound</name>
-         <description>Item/Sound can be used in a tag group to describe, for example, sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
+         <description>Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
          <node>
             <name>Environmental-sound</name>
             <description>A background sound from the surrounding environment.</description>
@@ -1278,12 +1296,11 @@
          </node>
       </node>
       <node>
-         <name>Task-event-type</name>
+         <name>Task-event-role</name>
+         <description>The purpose of this event in the task.</description>
          <node>
             <name>Activity</name>
-         </node>
-         <node>
-            <name>Background-task</name>
+            <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample. .</description>
          </node>
          <node>
             <name>Experimental-stimulus</name>
@@ -1293,13 +1310,12 @@
             <name>Failure</name>
          </node>
          <node>
-            <name>Feedback</name>
-         </node>
-         <node>
             <name>Incidental</name>
+            <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
          </node>
          <node>
             <name>Instructional</name>
+            <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
          </node>
          <node>
             <name>Mishap</name>
@@ -1307,18 +1323,28 @@
          </node>
          <node>
             <name>Participant-response</name>
-            <description>Something related to a participant's actions in performing the task.</description>
-         </node>
-         <node>
-            <name>Primary-task</name>
+            <description>Something related to a participant actions in performing the task.</description>
          </node>
          <node>
             <name>Warning</name>
-            <description>As in a warning message that you are getting too close to the shoulder in a driving task</description>
+            <description>Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.</description>
          </node>
       </node>
       <node>
-         <name>Task-response-type</name>
+         <name>Task-priority</name>
+         <description>Indication of importance within the task.</description>
+         <node>
+            <name>Background-subtask</name>
+            <description>A part of the task which should be performed in the background.</description>
+         </node>
+         <node>
+            <name>Primary-subtask</name>
+            <description>A part of the task which should be the primary focus of the participant.</description>
+         </node>
+      </node>
+      <node>
+         <name>Task-response-role</name>
+         <description>How the participant response should be interpreted in terms of the task specification.</description>
          <node>
             <name>Appropriate</name>
          </node>
@@ -1330,7 +1356,7 @@
          </node>
          <node>
             <name>Imagined</name>
-            <description>This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.</description>
+            <description>This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
          </node>
          <node>
             <name>Inappropriate</name>
@@ -1349,7 +1375,8 @@
          </node>
       </node>
       <node>
-         <name>Task-stimulus-type</name>
+         <name>Task-stimulus-role</name>
+         <description>The stimulus purpose in the task.</description>
          <node>
             <name>Cue</name>
          </node>
@@ -1358,10 +1385,13 @@
          </node>
          <node>
             <name>Expected</name>
-            <description>Of low information value, for example frequent Non-targets in an RSVP paradigm</description>
+            <description>Of low information value as in frequent non-targets in an RSVP paradigm.</description>
          </node>
          <node>
             <name>Extraneous</name>
+         </node>
+         <node>
+            <name>Feedback</name>
          </node>
          <node>
             <name>Meaningful</name>
