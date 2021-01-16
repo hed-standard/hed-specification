@@ -335,7 +335,7 @@
             </node>
             <node>
                <name>Vocalize</name>
-               <description>Make a sustained vowel sound such as, Ahhh</description>
+               <description>Make a sustained vowel sound such as Ahhh.</description>
             </node>
             <node>
                <name>Whistle</name>
@@ -1074,8 +1074,9 @@
             <name>Sad</name>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
          <name>Postural-state</name>
+         <description>Indicates the position of an agent. Usually this position or posture is static for some length of time rather than being part of a motion.</description>
          <node>
             <name>Crouching</name>
          </node>
@@ -1098,7 +1099,7 @@
             <name>Supported-by-chin-rest</name>
          </node>
       </node>
-      <node extensionAllowed="true" requireChild="true">
+      <node extensionAllowed="true">
          <name>Agent-trait</name>
          <node>
             <name>Age</name>
@@ -1119,7 +1120,7 @@
             </node>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
          <name>Social-role</name>
          <description>The role of the agent not particular to the task.</description>
          <node>
@@ -1138,7 +1139,7 @@
             <name>Sister</name>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
          <name>Task-role</name>
          <description>The role of the agent in the task.</description>
          <node>
@@ -1169,7 +1170,7 @@
             <name>Teacher</name>
          </node>
       </node>
-      <node requireChild="true">
+      <node>
          <name>Association</name>
          <node>
             <name>Associated-with-non-agent</name>
@@ -1186,7 +1187,7 @@
    </node>
    <node>
       <name>Data-property</name>
-      <node requireChild="true">
+      <node>
          <name>Data-property-value</name>
          <node takesValue="true">
             <name>#</name>
@@ -1300,7 +1301,7 @@
          <description>The purpose of this event in the task.</description>
          <node>
             <name>Activity</name>
-            <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample. .</description>
+            <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
          </node>
          <node>
             <name>Experimental-stimulus</name>
@@ -1345,10 +1346,10 @@
       <node>
          <name>Task-response-role</name>
          <description>How the participant response should be interpreted in terms of the task specification.</description>
-         <node>
+         <node relatedTag="Inappropriate">
             <name>Appropriate</name>
          </node>
-         <node>
+         <node relatedTag="Successful">
             <name>Correction</name>
          </node>
          <node>
@@ -1358,19 +1359,19 @@
             <name>Imagined</name>
             <description>This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
          </node>
-         <node>
+         <node relatedTag="Appropriate">
             <name>Inappropriate</name>
          </node>
-         <node>
+         <node relatedTag="Near-miss">
             <name>Indeterminate</name>
          </node>
-         <node>
+         <node relatedTag="Near-miss">
             <name>Missed</name>
          </node>
-         <node>
+         <node relatedTag="Miss">
             <name>Near-miss</name>
          </node>
-         <node>
+         <node relatedTag="Correction">
             <name>Successful</name>
          </node>
       </node>
@@ -1470,21 +1471,21 @@
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Label-exp</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>ID</name>
             <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Description</name>
             <description>Human-readable text description of the event.</description>
             <node takesValue="true">
@@ -1501,32 +1502,32 @@
          <node>
             <name>Metadata</name>
             <description>A tag used within a tag group indicate to designate information about the data such as file size or author.</description>
-            <node requireChild="true">
+            <node>
                <name>Creation-date</name>
                <node takesValue="true" unitClass="datetime">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Library-name</name>
                <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Subject</name>
                <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Version</name>
                <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Parameter</name>
             <description>As a Name:Value</description>
             <node takesValue="true">
@@ -1861,7 +1862,7 @@
                </node>
                <node>
                   <name>Flickering</name>
-                  <description>Irregular changes in time</description>
+                  <description>Irregular changes in time.</description>
                </node>
                <node>
                   <name>Fractal</name>
@@ -1898,14 +1899,14 @@
       </node>
       <node extensionAllowed="true">
          <name>Quantitative</name>
-         <node requireChild="true">
+         <node>
             <name>Angle</name>
             <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Fraction</name>
             <description>Fraction of items of a particular type.</description>
             <node takesValue="true">
@@ -1918,26 +1919,26 @@
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Item-count</name>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Percentage</name>
             <description>Percentage of items of a particular type.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Ratio</name>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Repetition</name>
             <description>When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others</description>
             <node takesValue="true">
@@ -1974,8 +1975,13 @@
          <node relatedTag="True">
             <name>False</name>
          </node>
-         <node relatedTag="Unfamiliar">
+         <node relatedTag="Famous">
             <name>Familiar</name>
+            <description>Something known or encountered before.</description>
+         </node>
+         <node relatedTag="Unfamiliar">
+            <name>Famous</name>
+            <description>Something known by many people but necessarily because of direct contact.</description>
          </node>
          <node relatedTag="Medium">
             <name>High</name>
@@ -2041,8 +2047,9 @@
          <node relatedTag="Constrained">
             <name>Unconstrained</name>
          </node>
-         <node relatedTag="Familiar">
+         <node relatedTag="Famous">
             <name>Unfamiliar</name>
+            <description>Something not known or encountered before.</description>
          </node>
          <node>
             <name>Unmasked</name>
@@ -2096,13 +2103,13 @@
             <node>
                <name>Audible</name>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Frequency</name>
                <node isNumeric="true" takesValue="true" unitClass="frequency">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Loudness</name>
                <node isNumeric="true" takesValue="true">
                   <name>#</name>
@@ -2183,10 +2190,10 @@
          </node>
          <node>
             <name>Visual</name>
-            <node requireChild="true">
+            <node>
                <name>Luminance</name>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Color</name>
                <node>
                   <name>Color-shade</name>
@@ -2805,16 +2812,16 @@
          </node>
          <node>
             <name>Resolution</name>
-            <node requireChild="true">
+            <node>
                <name>IO-resolution</name>
-               <node requireChild="true">
+               <node>
                   <name>Screen-resolution</name>
                   <description>Number of pixels in each dimension for a digital display device.</description>
                   <node takesValue="true">
                      <name>#</name>
                   </node>
                </node>
-               <node requireChild="true">
+               <node>
                   <name>Printer-resolution</name>
                   <description>Number of dots-per-inch for a printer.</description>
                   <node takesValue="true">
@@ -2822,20 +2829,20 @@
                   </node>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Spatial-resolution</name>
                <description>Linear spacing of a spatial measurement.</description>
                <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Spectral-resolution</name>
                <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Temporal-resolution</name>
                <node takesValue="true">
                   <name>#</name>
@@ -2850,7 +2857,7 @@
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Distance</name>
                <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
                <node isNumeric="true" takesValue="true" unitClass="physicalLength">
@@ -2866,19 +2873,19 @@
             <node>
                <name>Position</name>
                <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
-               <node requireChild="true">
+               <node>
                   <name>X-position</name>
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
                   </node>
                </node>
-               <node requireChild="true">
+               <node>
                   <name>Y-position</name>
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
                   </node>
                </node>
-               <node requireChild="true">
+               <node>
                   <name>Z-position</name>
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
                      <name>#</name>
@@ -2909,13 +2916,13 @@
             </node>
             <node>
                <name>Size</name>
-               <node requireChild="true">
+               <node>
                   <name>Area</name>
                   <node isNumeric="true" takesValue="true" unitClass="area">
                      <name>#</name>
                   </node>
                </node>
-               <node requireChild="true">
+               <node>
                   <name>Length</name>
                   <description>A measurement of the size along the longest dimension.</description>
                   <node isNumeric="true" takesValue="true" unitClass="physicalLength">
@@ -2936,7 +2943,7 @@
                      <name>#</name>
                   </node>
                </node>
-               <node requireChild="true">
+               <node>
                   <name>Volume</name>
                   <node isNumeric="true" takesValue="true" unitClass="volume">
                      <name>#</name>
@@ -2955,14 +2962,14 @@
          </node>
          <node>
             <name>Temporal</name>
-            <node requireChild="true">
+            <node>
                <name>Delay</name>
                <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Duration</name>
                <description>An offset that is implicit after duration time passed from the onset.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
@@ -2979,7 +2986,7 @@
                <name>Pause</name>
                <description>Indicating something stopped such as a break or waiting for input.</description>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Temporal-value</name>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>

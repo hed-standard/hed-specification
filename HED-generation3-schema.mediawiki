@@ -108,7 +108,7 @@ HED version: 8.0.0-alpha.1
 ** Communicate-musically
 *** Hum
 *** Sing
-*** Vocalize <nowiki>[Make a sustained vowel sound such as, Ahhh]</nowiki>
+*** Vocalize <nowiki>[Make a sustained vowel sound such as Ahhh.]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
 ** Appear
@@ -346,7 +346,7 @@ HED version: 8.0.0-alpha.1
 ** Loving
 ** Relieved
 ** Sad 
-* Postural-state <nowiki>{requireChild}</nowiki> 
+* Postural-state <nowiki>[Indicates the position of an agent. Usually this position or posture is static for some length of time rather than being part of a motion.]</nowiki> 
 ** Crouching
 ** Kneeling
 ** On-treadmill
@@ -354,20 +354,20 @@ HED version: 8.0.0-alpha.1
 ** Sitting
 ** Standing
 ** Supported-by-chin-rest
-* Agent-trait <nowiki>{extensionAllowed, requireChild}</nowiki> 
+* Agent-trait <nowiki>{extensionAllowed}</nowiki> 
 ** Age
 *** <nowiki># {takesValue}</nowiki>
 ** Sex
 *** <nowiki># {takesValue}</nowiki> 
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
-* Social-role <nowiki> {requireChild} [The role of the agent not particular to the task.]</nowiki>
+* Social-role <nowiki> [The role of the agent not particular to the task.]</nowiki>
 ** Brother
 ** Child
 ** Father
 ** Mother
 ** Sister
-* Task-role <nowiki> {requireChild} [The role of the agent in the task.]</nowiki>
+* Task-role <nowiki> [The role of the agent in the task.]</nowiki>
 ** Experiment-controller
 ** Experiment-participant
 ** Experimenter
@@ -377,13 +377,13 @@ HED version: 8.0.0-alpha.1
 ** Stranger
 ** Student
 ** Teacher
-* Association <nowiki>{requireChild}</nowiki>
+* Association 
 ** Associated-with-non-agent 
 ** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property'''
-* Data-property-value <nowiki>{requireChild}</nowiki>
+* Data-property-value
 ** <nowiki># {takesValue}</nowiki>
 * Statistical-property <nowiki>{extensionAllowed}</nowiki>
 ** Accuracy 
@@ -421,7 +421,7 @@ HED version: 8.0.0-alpha.1
 ** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
 * Task-event-role <nowiki>[The purpose of this event in the task.]</nowiki>
-** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample. .]</nowiki>
+** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
 ** Failure
 ** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
@@ -434,15 +434,15 @@ HED version: 8.0.0-alpha.1
 ** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 * Task-response-role <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
-** Appropriate
-** Correction
+** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
+** Correction <nowiki>{relatedTag=Successful}</nowiki>
 ** Erroneous
 ** Imagined <nowiki>[This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate
-** Indeterminate
-** Missed
-** Near-miss
-** Successful
+** Inappropriate <nowiki>{relatedTag=Appropriate}</nowiki>
+** Indeterminate <nowiki>{relatedTag=Missed,relatedTag=Near-miss}</nowiki>
+** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
+** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
+** Successful <nowiki>{relatedTag=Correction}</nowiki>
 
 * Task-stimulus-role <nowiki> [The stimulus purpose in the task.]</nowiki>
 ** Cue
@@ -475,25 +475,25 @@ HED version: 8.0.0-alpha.1
 *** <nowiki># {takesValue}</nowiki>
 ** Label-def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Label-exp <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.]</nowiki>
+** Label-exp <nowiki> [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>    
-** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
+** ID <nowiki>[An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Description <nowiki>{requireChild}[Human-readable text description of the event.]</nowiki> 
+** Description <nowiki>[Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 ** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
-*** Creation-date <nowiki>{requireChild}</nowiki> 
+*** Creation-date 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
-*** Library-name <nowiki>{requireChild}</nowiki> 
+*** Library-name 
 **** <nowiki># {takesValue}</nowiki>  
-*** Subject <nowiki>{requireChild} </nowiki>
+*** Subject 
 **** <nowiki># {takesValue}</nowiki>
-*** Version <nowiki>{requireChild}</nowiki> 
+*** Version 
 **** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
 
-** Parameter <nowiki>{requireChild} [As a Name:Value]</nowiki> 
+** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 * Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
@@ -601,7 +601,7 @@ HED version: 8.0.0-alpha.1
 **** Continuous
 **** Deterministic
 **** Discrete
-**** Flickering <nowiki>[Irregular changes in time]</nowiki>
+**** Flickering <nowiki>[Irregular changes in time.]</nowiki>
 **** Fractal
 **** Random
 **** Repetitive
@@ -615,19 +615,19 @@ HED version: 8.0.0-alpha.1
 *** Hotter-than
 
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
-** Angle<nowiki>{requireChild}[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
+** Angle<nowiki>[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
-** Fraction <nowiki>{requireChild}[Fraction of items of a particular type.]</nowiki>
+** Fraction <nowiki>[Fraction of items of a particular type.]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
-** Interval <nowiki></nowiki>
+** Interval 
 *** <nowiki># {takesValue}</nowiki>  
-** Item-count <nowiki>{requireChild}</nowiki>
+** Item-count 
 *** <nowiki># {takesValue}</nowiki>  
-** Percentage <nowiki>{requireChild}[Percentage of items of a particular type.]</nowiki> 
+** Percentage <nowiki>[Percentage of items of a particular type.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>  
-** Ratio <nowiki>{requireChild}</nowiki> 
+** Ratio 
 *** <nowiki># {takesValue}</nowiki>  
-** Repetition <nowiki>{requireChild} [When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
+** Repetition <nowiki>[When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
 
 * Categorical <nowiki>{extensionAllowed}</nowiki>
@@ -640,7 +640,8 @@ HED version: 8.0.0-alpha.1
 ** Deep <nowiki>{relatedTag=Shallow}</nowiki>
 ** Disordered <nowiki>{relatedTag=Ordered}</nowiki>
 ** False <nowiki>{relatedTag=True}</nowiki>
-** Familiar <nowiki>{relatedTag=Unfamiliar}</nowiki>
+** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Something known or encountered before.]</nowiki>
+** Famous <nowiki>{relatedTag=Familiar, relatedTag=Unfamiliar}[Something known by many people but necessarily because of direct contact.]</nowiki>
 ** High <nowiki>{relatedTag=Low, relatedTag=Medium}</nowiki>
 ** Incongruent <nowiki>{relatedTag=Congruent}</nowiki>
 ** Incorrect <nowiki>{relatedTag=Correct}</nowiki>
@@ -662,7 +663,7 @@ HED version: 8.0.0-alpha.1
 ** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
 ** True <nowiki>{relatedTag=False}</nowiki>
 ** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
-** Unfamiliar <nowiki>{relatedTag=Familiar}</nowiki>
+** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Something not known or encountered before.]</nowiki>
 ** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
 ** Valid <nowiki>{relatedTag=Invalid}</nowiki>
 ** Voluntary <nowiki>{relatedTag=Involuntary}</nowiki>
@@ -683,9 +684,9 @@ HED version: 8.0.0-alpha.1
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Audible
-*** Frequency <nowiki>{requireChild}</nowiki>
+*** Frequency 
 **** <nowiki># {takesValue, isNumeric, unitClass=frequency}</nowiki>  
-*** Loudness <nowiki>{requireChild}</nowiki>
+*** Loudness 
 **** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Monophonic <nowiki> [Consisting of one independent audio channel]</nowiki>  
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
@@ -709,8 +710,8 @@ HED version: 8.0.0-alpha.1
 *** Stress
 ** Vestibular
 ** Visual
-*** Luminance <nowiki>{requireChild}</nowiki> 
-*** Color <nowiki>{requireChild}</nowiki>
+*** Luminance 
+*** Color 
 **** Color-shade 
 ***** Dark-shade
 ***** Light-shade 
@@ -911,30 +912,30 @@ HED version: 8.0.0-alpha.1
 *** Velocity
 **** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
 ** Resolution
-*** IO-resolution <nowiki>{requireChild}</nowiki> 
-**** Screen-resolution <nowiki>{requireChild}[Number of pixels in each dimension for a digital display device.]</nowiki> 
+*** IO-resolution 
+**** Screen-resolution <nowiki>[Number of pixels in each dimension for a digital display device.]</nowiki> 
 ***** <nowiki># {takesValue} </nowiki>
-**** Printer-resolution <nowiki>{requireChild}[Number of dots-per-inch for a printer.]</nowiki> 
+**** Printer-resolution <nowiki>[Number of dots-per-inch for a printer.]</nowiki> 
 ***** <nowiki># {takesValue} </nowiki>
-*** Spatial-resolution <nowiki>{requireChild}[Linear spacing of a spatial measurement.]</nowiki> 
+*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
 **** <nowiki># {takesValue}</nowiki>
-*** Spectral-resolution <nowiki>{requireChild}</nowiki> 
+*** Spectral-resolution 
 **** <nowiki># {takesValue}</nowiki> 
-*** Temporal-resolution <nowiki>{requireChild}</nowiki> 
+*** Temporal-resolution 
 **** <nowiki># {takesValue} </nowiki>  
 ** Spatial
 *** Direction
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Distance <nowiki>{requireChild}[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
+*** Distance <nowiki>[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 *** Orientation 
 **** <nowiki># {takesValue, isNumeric}</nowiki> 
 *** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
-**** X-position <nowiki>{requireChild}</nowiki> 
+**** X-position 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Y-position <nowiki>{requireChild}</nowiki> 
+**** Y-position 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
-**** Z-position <nowiki>{requireChild}</nowiki> 
+**** Z-position 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
 *** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
 **** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
@@ -943,29 +944,29 @@ HED version: 8.0.0-alpha.1
 **** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
 **** World-frame
 *** Size
-**** Area <nowiki>{requireChild}</nowiki> 
+**** Area 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
-**** Length <nowiki>{requireChild} [A measurement of the size along the longest dimension.]</nowiki> 
+**** Length <nowiki>[A measurement of the size along the longest dimension.]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
 **** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
 **** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Volume <nowiki>{requireChild}</nowiki> 
+**** Volume 
 ***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
 *** Surface-properties
 **** Rough
 **** Smooth
 
 ** Temporal
-*** Delay <nowiki>{requireChild} [An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
+*** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Duration <nowiki>{requireChild} [An offset that is implicit after duration time passed from the onset.]</nowiki>
+*** Duration <nowiki>[An offset that is implicit after duration time passed from the onset.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
 *** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
-*** Temporal-value <nowiki>{requireChild}</nowiki>
+*** Temporal-value 
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
 *** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
