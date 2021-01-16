@@ -58,8 +58,8 @@ The current web-based HED tools include an online validator of spreadsheets (Exc
 containing HED tags. Schema tools are available for converting HED schema specifications between `.mediawiki` and
 `.xml` formats. Also available is a tool for checking for duplicate nodes in schema.  
 
-The current web-based HED tools are in the process of being migrated to the 
-San Diego Supercomputer Center (Jan 2021) and are currently not available online.
+The current web-based HED tools are located at [https://hedtags.ucsd.edu/hed](https://hedtags.ucsd.edu/hed).  
+
 The tools can be run locally using the `runserver.py` function the hedweb module
 of the [hed-python](https://github.com/hed-standard/hed-python) repository of 
 [hed-standard](https://github.com/hed-standard).
