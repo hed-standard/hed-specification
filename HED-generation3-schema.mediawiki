@@ -486,13 +486,14 @@ HED version: 8.0.0-alpha.1
 * Informational <nowiki>[Informational properties.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Definition <nowiki>{requireChild}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-** Def-expand <nowiki> [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
-** Description <nowiki>[Human-readable text description of the event.]</nowiki> 
+** Defexp <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>   
+** Description <nowiki>{requireChild} [Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-*** <nowiki># {takesValue}</nowiki>    
-** ID <nowiki>[An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
+ 
+** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
