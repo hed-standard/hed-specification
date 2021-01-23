@@ -2,9 +2,9 @@
 <HED version="8.0.0-alpha.1">
    <node>
       <name>Event</name>
-      <node suggestedTag="Task-property/Task-event-type">
+      <node suggestedTag="Task-property/Task-event-role">
          <name>Sensory-event</name>
-         <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.</description>
+         <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-event-role/Experimental-stimulus.</description>
       </node>
       <node>
          <name>Agent-action</name>
@@ -12,7 +12,7 @@
       </node>
       <node>
          <name>Data-feature</name>
-         <description>An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.</description>
+         <description>An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.</description>
       </node>
       <node extensionAllowed="true">
          <name>Experiment-control</name>
@@ -29,7 +29,7 @@
    </node>
    <node>
       <name>Agent</name>
-      <description>Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive, performing an activity such as a computation, or appearing to simulate something else may qualify something to be an agent.</description>
+      <description>Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be soething that simulates something else.</description>
       <node>
          <name>Animal-agent</name>
          <description>An animal that is present.</description>
@@ -60,11 +60,11 @@
             <name>Breathe</name>
             <node>
                <name>Inhale</name>
-               <description>A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).</description>
+               <description>A deliberate in-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental if the inhalation is incidental to the task (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).</description>
             </node>
             <node>
                <name>Exhale</name>
-               <description>A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).</description>
+               <description>A deliberate out-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental: (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).</description>
             </node>
             <node>
                <name>Hold-breath</name>
@@ -886,7 +886,7 @@
             <name>Environmental-sound</name>
             <description>A background sound from the surrounding environment.</description>
             <node>
-               <name>Crowd sound</name>
+               <name>Crowd-sound</name>
                <description>Multiple speech streams at once</description>
             </node>
             <node>
@@ -1247,6 +1247,36 @@
       </node>
    </node>
    <node>
+      <name>Physical-property</name>
+      <node>
+         <name>Electrical-property</name>
+      </node>
+      <node>
+         <name>Magnetic-property</name>
+      </node>
+      <node>
+         <name>Mechanical-property</name>
+      </node>
+      <node>
+         <name>Organic-property</name>
+      </node>
+      <node>
+         <name>Thermodynamic-property</name>
+         <node>
+            <name>Energy</name>
+         </node>
+         <node>
+            <name>Pressure</name>
+         </node>
+         <node>
+            <name>Temperature</name>
+            <node isNumeric="true" takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+      </node>
+   </node>
+   <node>
       <name>Task-property</name>
       <node>
          <name>Attentional-strategy</name>
@@ -1458,22 +1488,29 @@
          <name>Informational</name>
          <description>Informational properties.</description>
          <node requireChild="true">
-            <name>Label</name>
-            <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node requireChild="true">
-            <name>Label-def</name>
+            <name>Def</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
          <node>
-            <name>Label-exp</name>
-            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.</description>
+            <name>Definition</name>
+            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Def-expand</name>
+            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
+         </node>
+         <node>
+            <name>Description</name>
+            <description>Human-readable text description of the event.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1485,16 +1522,9 @@
                <name>#</name>
             </node>
          </node>
-         <node>
-            <name>Description</name>
-            <description>Human-readable text description of the event.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Definition</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
+         <node requireChild="true">
+            <name>Label</name>
+            <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -2069,9 +2099,6 @@
             <name>Abstract</name>
          </node>
          <node>
-            <name>Biological</name>
-         </node>
-         <node>
             <name>Clinical</name>
          </node>
          <node>
@@ -2079,15 +2106,6 @@
          </node>
          <node>
             <name>Composite</name>
-         </node>
-         <node>
-            <name>Electrical</name>
-         </node>
-         <node>
-            <name>Mechanical</name>
-         </node>
-         <node>
-            <name>Magnetic</name>
          </node>
          <node>
             <name>Numerical</name>
@@ -2998,21 +3016,6 @@
             <node>
                <name>Time-sync</name>
                <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
-            </node>
-         </node>
-      </node>
-      <node>
-         <name>Thermodynamic</name>
-         <node>
-            <name>Energy</name>
-         </node>
-         <node>
-            <name>Pressure</name>
-         </node>
-         <node>
-            <name>Temperature</name>
-            <node isNumeric="true" takesValue="true">
-               <name>#</name>
             </node>
          </node>
       </node>
