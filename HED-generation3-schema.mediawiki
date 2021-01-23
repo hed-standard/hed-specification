@@ -910,7 +910,7 @@ HED version: 8.0.0-alpha.1
 ** Rate-of-change
 *** Acceleration
 **** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
-*** Jerk-rate <nowiki>[Rate at which an object's acceleration changes with respect to time.]</nowiki> 
+*** Jerk-rate <nowiki>[Rate at which the acceleration of an object changes with respect to time.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
 *** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
 **** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
