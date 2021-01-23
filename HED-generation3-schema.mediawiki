@@ -3,15 +3,15 @@ HED version: 8.0.0-alpha.1
 !# start hed 
 
 '''Event''' 
-* Sensory-event <nowiki>{suggestedTag=Task-property/Task-event-type}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Attribute/Contextual/Task-related. Other events may be tagged with Attribute/Contextual/Non task-related.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-property/Task-event-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-event-role/Experimental-stimulus.]</nowiki>
 * Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
-* Data-feature <nowiki>[An event derived from the data itself, possibly inserted in a post-hoc fashion, for example an interictal spike or alpha burst.]</nowiki>
+* Data-feature <nowiki>[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
 
-'''Agent''' <nowiki>[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive, performing an activity such as a computation, or appearing to simulate something else may qualify something to be an agent.]</nowiki>
+'''Agent''' <nowiki>[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be soething that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present.]</nowiki>
 * Avatar-agent
 * Computational-agent
@@ -22,8 +22,8 @@ HED version: 8.0.0-alpha.1
 '''Action''' <nowiki>{extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
 ** Breathe
-*** Inhale <nowiki>[A deliberate inbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Exhale <nowiki>[A deliberate outbreath, e.g. in response to a task instruction. If incidental, group it with Attribute/Cognitive modifier/Incidental. E.g. (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+*** Inhale <nowiki>[A deliberate in-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental if the inhalation is incidental to the task (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
+*** Exhale <nowiki>[A deliberate out-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental: (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Hold-breath
 ** Move-full-body
 *** Bend
@@ -283,7 +283,7 @@ HED version: 8.0.0-alpha.1
 ** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
-*** Crowd sound <nowiki>[Multiple speech streams at once]</nowiki>
+*** Crowd-sound <nowiki>[Multiple speech streams at once]</nowiki>
 *** Noise
 **** White-noise
 **** Colored-noise
@@ -402,6 +402,19 @@ HED version: 8.0.0-alpha.1
 * Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
 ** Computed-prediction
 
+'''Physical-property'''
+
+* Electrical-property
+* Magnetic-property
+* Mechanical-property
+* Organic-property
+* Thermodynamic-property
+** Energy
+** Pressure
+** Temperature
+*** <nowiki># {takesValue, isNumeric}</nowiki>
+
+
 '''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
@@ -471,17 +484,17 @@ HED version: 8.0.0-alpha.1
 
 '''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
 * Informational <nowiki>[Informational properties.]</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
+** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Label-def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
+** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-** Label-exp <nowiki> [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition.]</nowiki>
+** Def-expand <nowiki> [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+** Description <nowiki>[Human-readable text description of the event.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
 *** <nowiki># {takesValue}</nowiki>    
 ** ID <nowiki>[An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Description <nowiki>[Human-readable text description of the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Definition <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
 *** Creation-date 
@@ -670,14 +683,9 @@ HED version: 8.0.0-alpha.1
 
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
-** Biological
 ** Clinical
 ** Complex
 ** Composite
-** Electrical
-
-** Mechanical
-** Magnetic
 ** Numerical
 ** Symbolic
 
@@ -971,11 +979,6 @@ HED version: 8.0.0-alpha.1
 *** Time-out
 *** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 
-* Thermodynamic
-** Energy
-** Pressure
-** Temperature
-*** <nowiki># {takesValue, isNumeric}</nowiki>
 
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
