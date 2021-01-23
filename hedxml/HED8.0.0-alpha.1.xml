@@ -1494,28 +1494,28 @@
                <name>#</name>
             </node>
          </node>
-         <node>
+         <node requireChild="true">
             <name>Definition</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
-         <node>
-            <name>Def-expand</name>
+         <node requireChild="true">
+            <name>Defexp</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
          </node>
-         <node>
+         <node requireChild="true">
             <name>Description</name>
             <description>Human-readable text description of the event.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
          </node>
-         <node>
+         <node requireChild="true">
             <name>ID</name>
             <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
             <node takesValue="true">
@@ -2795,7 +2795,7 @@
             </node>
             <node>
                <name>Jerk-rate</name>
-               <description>Rate at which an object's acceleration changes with respect to time.</description>
+               <description>Rate at which the acceleration of an object changes with respect to time.</description>
                <node isNumeric="true" takesValue="true" unitClass="jerk">
                   <name>#</name>
                </node>
