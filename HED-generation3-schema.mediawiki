@@ -385,6 +385,38 @@ HED version: 8.0.0-alpha.1
 '''Data-property'''
 * Data-property-value
 ** <nowiki># {takesValue}</nowiki>
+
+* Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
+** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
+** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
+* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** Computed-prediction
+* Organizational-property
+** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
+** Data-acquisition <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.]</nowiki>
+** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
+** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
+** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
+** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
+** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
+** Task-block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
+** Task-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+** Task-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+** Task-response <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.]</nowiki>
+** Task-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
+
+* Physical-property'''
+
+** Electrical-property
+** Magnetic-property
+** Mechanical-property
+** Organic-property
+** Thermodynamic-property
+*** Energy
+*** Pressure
+*** Temperature
+**** <nowiki># {takesValue, isNumeric}</nowiki>
+
 * Statistical-property <nowiki>{extensionAllowed}</nowiki>
 ** Accuracy 
 ** Data-mean 
@@ -396,24 +428,6 @@ HED version: 8.0.0-alpha.1
 ** Statistical-recall 
 ** Standard-deviation 
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
-* Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
-** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
-** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
-* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** Computed-prediction
-
-'''Physical-property'''
-
-* Electrical-property
-* Magnetic-property
-* Mechanical-property
-* Organic-property
-* Thermodynamic-property
-** Energy
-** Pressure
-** Temperature
-*** <nowiki># {takesValue, isNumeric}</nowiki>
-
 
 '''Task-property'''
 * Attentional-strategy
@@ -486,10 +500,10 @@ HED version: 8.0.0-alpha.1
 * Informational <nowiki>[Informational properties.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Definition <nowiki>{requireChild}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
 ** Defexp <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
+** Definition <nowiki>{requireChild}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild} [Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
  
@@ -509,19 +523,7 @@ HED version: 8.0.0-alpha.1
 
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-* Organizational
-** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
-** Data-acquisition <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.]</nowiki>
-** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
-** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
-** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
-** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
-** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
-** Task-block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
-** Task-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-** Task-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Task-response <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.]</nowiki>
-** Task-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
+
 * Relational <nowiki>{extensionAllowed}</nowiki>
 ** Comparative-relation
 *** Less-than

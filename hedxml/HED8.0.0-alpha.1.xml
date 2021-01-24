@@ -1194,6 +1194,104 @@
          </node>
       </node>
       <node extensionAllowed="true">
+         <name>Observational-property</name>
+         <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
+         <node extensionAllowed="true">
+            <name>Expert-annotation</name>
+         </node>
+         <node extensionAllowed="true">
+            <name>Instrument-measurement</name>
+         </node>
+      </node>
+      <node extensionAllowed="true">
+         <name>Computed-property</name>
+         <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
+         <node>
+            <name>Computed-prediction</name>
+         </node>
+      </node>
+      <node>
+         <name>Organizational-property</name>
+         <node>
+            <name>Collection</name>
+            <description>A tag designating a grouping of items such as in a set or list.</description>
+         </node>
+         <node>
+            <name>Data-acquisition</name>
+            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.</description>
+         </node>
+         <node>
+            <name>Event-context</name>
+            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
+         </node>
+         <node>
+            <name>Event-stream</name>
+            <description>An ordered list of events</description>
+         </node>
+         <node>
+            <name>Namespace</name>
+            <description>Tag used to indicate a namespace type of definition.</description>
+         </node>
+         <node>
+            <name>Permutation</name>
+            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
+         </node>
+         <node>
+            <name>Task</name>
+            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
+         </node>
+         <node>
+            <name>Task-block</name>
+            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
+         </node>
+         <node>
+            <name>Task-condition</name>
+            <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
+         </node>
+         <node>
+            <name>Task-control</name>
+            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
+         </node>
+         <node>
+            <name>Task-response</name>
+            <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.</description>
+         </node>
+         <node>
+            <name>Task-trial</name>
+            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
+         </node>
+      </node>
+      <node>
+         <name>Physical-property</name>
+         <node>
+            <name>Electrical-property</name>
+         </node>
+         <node>
+            <name>Magnetic-property</name>
+         </node>
+         <node>
+            <name>Mechanical-property</name>
+         </node>
+         <node>
+            <name>Organic-property</name>
+         </node>
+         <node>
+            <name>Thermodynamic-property</name>
+            <node>
+               <name>Energy</name>
+            </node>
+            <node>
+               <name>Pressure</name>
+            </node>
+            <node>
+               <name>Temperature</name>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+         </node>
+      </node>
+      <node extensionAllowed="true">
          <name>Statistical-property</name>
          <node>
             <name>Accuracy</name>
@@ -1226,53 +1324,6 @@
          <node>
             <name>Uncertainty</name>
             <description>Use to specify the level of error.</description>
-         </node>
-      </node>
-      <node extensionAllowed="true">
-         <name>Observational-property</name>
-         <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-         <node extensionAllowed="true">
-            <name>Expert-annotation</name>
-         </node>
-         <node extensionAllowed="true">
-            <name>Instrument-measurement</name>
-         </node>
-      </node>
-      <node extensionAllowed="true">
-         <name>Computed-property</name>
-         <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
-         <node>
-            <name>Computed-prediction</name>
-         </node>
-      </node>
-   </node>
-   <node>
-      <name>Physical-property</name>
-      <node>
-         <name>Electrical-property</name>
-      </node>
-      <node>
-         <name>Magnetic-property</name>
-      </node>
-      <node>
-         <name>Mechanical-property</name>
-      </node>
-      <node>
-         <name>Organic-property</name>
-      </node>
-      <node>
-         <name>Thermodynamic-property</name>
-         <node>
-            <name>Energy</name>
-         </node>
-         <node>
-            <name>Pressure</name>
-         </node>
-         <node>
-            <name>Temperature</name>
-            <node isNumeric="true" takesValue="true">
-               <name>#</name>
-            </node>
          </node>
       </node>
    </node>
@@ -1495,15 +1546,15 @@
             </node>
          </node>
          <node requireChild="true">
-            <name>Definition</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
+            <name>Defexp</name>
+            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
          </node>
          <node requireChild="true">
-            <name>Defexp</name>
-            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
+            <name>Definition</name>
+            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
             <node takesValue="true">
                <name>#</name>
             </node>
@@ -1563,57 +1614,6 @@
             <node takesValue="true">
                <name>#</name>
             </node>
-         </node>
-      </node>
-      <node>
-         <name>Organizational</name>
-         <node>
-            <name>Collection</name>
-            <description>A tag designating a grouping of items such as in a set or list.</description>
-         </node>
-         <node>
-            <name>Data-acquisition</name>
-            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.</description>
-         </node>
-         <node>
-            <name>Event-context</name>
-            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
-         </node>
-         <node>
-            <name>Event-stream</name>
-            <description>An ordered list of events</description>
-         </node>
-         <node>
-            <name>Namespace</name>
-            <description>Tag used to indicate a namespace type of definition.</description>
-         </node>
-         <node>
-            <name>Permutation</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
-         </node>
-         <node>
-            <name>Task</name>
-            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
-         </node>
-         <node>
-            <name>Task-block</name>
-            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
-         </node>
-         <node>
-            <name>Task-condition</name>
-            <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
-         </node>
-         <node>
-            <name>Task-control</name>
-            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
-         </node>
-         <node>
-            <name>Task-response</name>
-            <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.</description>
-         </node>
-         <node>
-            <name>Task-trial</name>
-            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
          </node>
       </node>
       <node extensionAllowed="true">
