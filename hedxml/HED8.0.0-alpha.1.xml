@@ -445,6 +445,46 @@
    </node>
    <node extensionAllowed="true">
       <name>Item</name>
+      <node>
+         <name>Language</name>
+         <description>An  system of communication that is receivable in a sensory presentation.</description>
+         <node>
+            <name>Character</name>
+            <description>A mark, sign or symbol used as part of language.</description>
+         </node>
+         <node>
+            <name>Glyph</name>
+            <description>A symbol or pictograph.</description>
+         </node>
+         <node>
+            <name>Nonword</name>
+            <description>A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.</description>
+         </node>
+         <node>
+            <name>Phoneme</name>
+            <description>A sound or a group of different sounds perceived to have the same function by speakers of the language.</description>
+         </node>
+         <node>
+            <name>Phrase</name>
+            <description>A small group of words standing together as a conceptual unit.</description>
+         </node>
+         <node>
+            <name>Sentence</name>
+            <description>A set of words that is complete in itself.</description>
+         </node>
+         <node>
+            <name>Syllable</name>
+            <description>A unit of pronunciation having one vowel sound.</description>
+         </node>
+         <node>
+            <name>Textblock</name>
+            <description>A block of text.</description>
+         </node>
+         <node>
+            <name>Word</name>
+            <description>A single distinct meaningful element of a language.</description>
+         </node>
+      </node>
       <node extensionAllowed="true">
          <name>Object</name>
          <description>Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.</description>
@@ -826,46 +866,6 @@
          </node>
       </node>
       <node>
-         <name>Language</name>
-         <description>An  system of communication that is receivable in a sensory presentation.</description>
-         <node>
-            <name>Character</name>
-            <description>A mark, sign or symbol used as part of language.</description>
-         </node>
-         <node>
-            <name>Glyph</name>
-            <description>A symbol or pictograph.</description>
-         </node>
-         <node>
-            <name>Nonword</name>
-            <description>A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.</description>
-         </node>
-         <node>
-            <name>Phoneme</name>
-            <description>A sound or a group of different sounds perceived to have the same function by speakers of the language.</description>
-         </node>
-         <node>
-            <name>Phrase</name>
-            <description>A small group of words standing together as a conceptual unit.</description>
-         </node>
-         <node>
-            <name>Sentence</name>
-            <description>A set of words that is complete in itself.</description>
-         </node>
-         <node>
-            <name>Syllable</name>
-            <description>A unit of pronunciation having one vowel sound.</description>
-         </node>
-         <node>
-            <name>Textblock</name>
-            <description>A block of text.</description>
-         </node>
-         <node>
-            <name>Word</name>
-            <description>A single distinct meaningful element of a language.</description>
-         </node>
-      </node>
-      <node>
          <name>Organism</name>
          <description>Something living or part of something living.</description>
          <node>
@@ -874,9 +874,9 @@
             <node>
                <name>Human</name>
             </node>
-            <node>
-               <name>Plant</name>
-            </node>
+         </node>
+         <node>
+            <name>Plant</name>
          </node>
          <node>
             <name>Body-part</name>
@@ -1245,7 +1245,7 @@
          </node>
       </node>
       <node>
-         <name>Task-role</name>
+         <name>Agent-task-role</name>
          <description>The role of the agent in the task.</description>
          <node>
             <name>Experiment-controller</name>

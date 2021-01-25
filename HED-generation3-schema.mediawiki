@@ -143,6 +143,16 @@ HED version: 8.0.0-alpha.1
 ** Track
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
+* Language <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
+** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
+** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
+** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
+** Phoneme <nowiki>[A sound or a group of different sounds perceived to have the same function by speakers of the language.]</nowiki>
+** Phrase <nowiki>[A small group of words standing together as a conceptual unit.]</nowiki>
+** Sentence <nowiki>[A set of words that is complete in itself.]</nowiki>
+** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
+** Textblock <nowiki>[A block of text.]</nowiki>
+** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
 ** Geometric
 *** Pattern
@@ -268,20 +278,11 @@ HED version: 8.0.0-alpha.1
 ** Food <nowiki>[Something that is usually solid and can be consumed by an organism.]</nowiki>
 ** Drink <nowiki>[Something that is liquid and can be consumed by an organism.]</nowiki>
 
-* Language <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
-** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
-** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
-** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
-** Phoneme <nowiki>[A sound or a group of different sounds perceived to have the same function by speakers of the language.]</nowiki>
-** Phrase <nowiki>[A small group of words standing together as a conceptual unit.]</nowiki>
-** Sentence <nowiki>[A set of words that is complete in itself.]</nowiki>
-** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
-** Textblock <nowiki>[A block of text.]</nowiki>
-** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
+
 * Organism <nowiki>[Something living or part of something living.]</nowiki>
 ** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
 *** Human
-*** Plant
+** Plant
 ** Body-part
 *** Head
 **** Hair
@@ -403,7 +404,7 @@ HED version: 8.0.0-alpha.1
 ** Father
 ** Mother
 ** Sister
-* Task-role <nowiki> [The role of the agent in the task.]</nowiki>
+* Agent-task-role <nowiki> [The role of the agent in the task.]</nowiki>
 ** Experiment-controller
 ** Experiment-participant
 ** Experimenter
