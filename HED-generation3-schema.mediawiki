@@ -256,10 +256,7 @@ HED version: 8.0.0-alpha.1
 **** Train 
 **** Truck 
 ** Natural-object <nowiki>[An object occuring naturally in contrast to a man-made object.]</nowiki>
-*** Organism <nowiki>[Something that is living.]</nowiki>
-**** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
-***** Human
-**** Plant
+
 
 *** Mineral <nowiki>[An inorganic substance]</nowiki>
 *** Natural-feature <nowiki>[Some terrain occuring in the outdoors.]</nowiki>
@@ -281,6 +278,45 @@ HED version: 8.0.0-alpha.1
 ** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
 ** Textblock <nowiki>[A block of text.]</nowiki>
 ** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
+* Organism <nowiki>[Something living or part of something living.]</nowiki>
+** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
+*** Human
+*** Plant
+** Body-part
+*** Head
+**** Hair
+**** Ear
+**** Face
+***** Cheek
+***** Chin
+***** Eye
+***** Eyebrow
+***** Forehead
+***** Lip
+***** Nose
+***** Mouth
+***** Teeth
+*** Arm
+**** Elbow
+**** Hand
+***** Finger
+****** Index-finger
+****** Little-finger
+****** Middle-finger
+****** Ring-finger
+****** Thumb
+**** Wrist
+*** Leg
+**** Ankle
+**** Foot
+***** Toe
+**** Knee
+*** Torso
+**** Upper-torso
+***** Chest
+**** Lower-torso
+***** Hips
+**** Waist
 * Sound <nowiki>[Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
 ** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
 *** Crowd-sound <nowiki>[Multiple speech streams at once]</nowiki>
@@ -385,7 +421,6 @@ HED version: 8.0.0-alpha.1
 '''Data-property'''
 * Data-property-value
 ** <nowiki># {takesValue}</nowiki>
-
 * Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
 ** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
@@ -393,11 +428,10 @@ HED version: 8.0.0-alpha.1
 ** Computed-prediction
 * Organizational-property
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
-** Data-acquisition <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
-** Namespace <nowiki>[Tag used to indicate a namespace type of definition.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
+** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Task-block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
 ** Task-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
@@ -1006,41 +1040,7 @@ HED version: 8.0.0-alpha.1
 *** Uneven-terrain
 
 * Anatomical
-** Body-part
-*** Head
-**** Hair
-**** Ear
-**** Face
-***** Cheek
-***** Chin
-***** Eye
-***** Eyebrow
-***** Forehead
-***** Lip
-***** Nose
-***** Mouth
-***** Teeth
-*** Arm
-**** Elbow
-**** Hand
-***** Finger
-****** Index-finger
-****** Little-finger
-****** Middle-finger
-****** Ring-finger
-****** Thumb
-**** Wrist
-*** Leg
-**** Ankle
-**** Foot
-***** Toe
-**** Knee
-*** Torso
-**** Upper-torso
-***** Chest
-**** Lower-torso
-***** Hips
-**** Waist
+
 
 
 '''Unit classes''' 
