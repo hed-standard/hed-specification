@@ -793,20 +793,6 @@
             <name>Natural-object</name>
             <description>An object occuring naturally in contrast to a man-made object.</description>
             <node>
-               <name>Organism</name>
-               <description>Something that is living.</description>
-               <node>
-                  <name>Animal</name>
-                  <description>Any multicellular or eukaryotic organism.</description>
-                  <node>
-                     <name>Human</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Plant</name>
-               </node>
-            </node>
-            <node>
                <name>Mineral</name>
                <description>An inorganic substance</description>
             </node>
@@ -877,6 +863,125 @@
          <node>
             <name>Word</name>
             <description>A single distinct meaningful element of a language.</description>
+         </node>
+      </node>
+      <node>
+         <name>Organism</name>
+         <description>Something living or part of something living.</description>
+         <node>
+            <name>Animal</name>
+            <description>Any multicellular or eukaryotic organism.</description>
+            <node>
+               <name>Human</name>
+            </node>
+            <node>
+               <name>Plant</name>
+            </node>
+         </node>
+         <node>
+            <name>Body-part</name>
+            <node>
+               <name>Head</name>
+               <node>
+                  <name>Hair</name>
+               </node>
+               <node>
+                  <name>Ear</name>
+               </node>
+               <node>
+                  <name>Face</name>
+                  <node>
+                     <name>Cheek</name>
+                  </node>
+                  <node>
+                     <name>Chin</name>
+                  </node>
+                  <node>
+                     <name>Eye</name>
+                  </node>
+                  <node>
+                     <name>Eyebrow</name>
+                  </node>
+                  <node>
+                     <name>Forehead</name>
+                  </node>
+                  <node>
+                     <name>Lip</name>
+                  </node>
+                  <node>
+                     <name>Nose</name>
+                  </node>
+                  <node>
+                     <name>Mouth</name>
+                  </node>
+                  <node>
+                     <name>Teeth</name>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Arm</name>
+               <node>
+                  <name>Elbow</name>
+               </node>
+               <node>
+                  <name>Hand</name>
+                  <node>
+                     <name>Finger</name>
+                     <node>
+                        <name>Index-finger</name>
+                     </node>
+                     <node>
+                        <name>Little-finger</name>
+                     </node>
+                     <node>
+                        <name>Middle-finger</name>
+                     </node>
+                     <node>
+                        <name>Ring-finger</name>
+                     </node>
+                     <node>
+                        <name>Thumb</name>
+                     </node>
+                  </node>
+               </node>
+               <node>
+                  <name>Wrist</name>
+               </node>
+            </node>
+            <node>
+               <name>Leg</name>
+               <node>
+                  <name>Ankle</name>
+               </node>
+               <node>
+                  <name>Foot</name>
+                  <node>
+                     <name>Toe</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Knee</name>
+               </node>
+            </node>
+            <node>
+               <name>Torso</name>
+               <node>
+                  <name>Upper-torso</name>
+                  <node>
+                     <name>Chest</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Lower-torso</name>
+                  <node>
+                     <name>Hips</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Waist</name>
+               </node>
+            </node>
          </node>
       </node>
       <node>
@@ -1217,10 +1322,6 @@
             <description>A tag designating a grouping of items such as in a set or list.</description>
          </node>
          <node>
-            <name>Data-acquisition</name>
-            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Data-acquistion tags are usually have temporal scope which is the entire recording.</description>
-         </node>
-         <node>
             <name>Event-context</name>
             <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
          </node>
@@ -1229,12 +1330,12 @@
             <description>An ordered list of events</description>
          </node>
          <node>
-            <name>Namespace</name>
-            <description>Tag used to indicate a namespace type of definition.</description>
-         </node>
-         <node>
             <name>Permutation</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
+         </node>
+         <node>
+            <name>Recording</name>
+            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.</description>
          </node>
          <node>
             <name>Task</name>
@@ -3084,111 +3185,6 @@
       </node>
       <node>
          <name>Anatomical</name>
-         <node>
-            <name>Body-part</name>
-            <node>
-               <name>Head</name>
-               <node>
-                  <name>Hair</name>
-               </node>
-               <node>
-                  <name>Ear</name>
-               </node>
-               <node>
-                  <name>Face</name>
-                  <node>
-                     <name>Cheek</name>
-                  </node>
-                  <node>
-                     <name>Chin</name>
-                  </node>
-                  <node>
-                     <name>Eye</name>
-                  </node>
-                  <node>
-                     <name>Eyebrow</name>
-                  </node>
-                  <node>
-                     <name>Forehead</name>
-                  </node>
-                  <node>
-                     <name>Lip</name>
-                  </node>
-                  <node>
-                     <name>Nose</name>
-                  </node>
-                  <node>
-                     <name>Mouth</name>
-                  </node>
-                  <node>
-                     <name>Teeth</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Arm</name>
-               <node>
-                  <name>Elbow</name>
-               </node>
-               <node>
-                  <name>Hand</name>
-                  <node>
-                     <name>Finger</name>
-                     <node>
-                        <name>Index-finger</name>
-                     </node>
-                     <node>
-                        <name>Little-finger</name>
-                     </node>
-                     <node>
-                        <name>Middle-finger</name>
-                     </node>
-                     <node>
-                        <name>Ring-finger</name>
-                     </node>
-                     <node>
-                        <name>Thumb</name>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Wrist</name>
-               </node>
-            </node>
-            <node>
-               <name>Leg</name>
-               <node>
-                  <name>Ankle</name>
-               </node>
-               <node>
-                  <name>Foot</name>
-                  <node>
-                     <name>Toe</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Knee</name>
-               </node>
-            </node>
-            <node>
-               <name>Torso</name>
-               <node>
-                  <name>Upper-torso</name>
-                  <node>
-                     <name>Chest</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Lower-torso</name>
-                  <node>
-                     <name>Hips</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Waist</name>
-               </node>
-            </node>
-         </node>
       </node>
    </node>
    <unitClasses>
