@@ -1316,53 +1316,6 @@
          </node>
       </node>
       <node>
-         <name>Organizational-property</name>
-         <node>
-            <name>Collection</name>
-            <description>A tag designating a grouping of items such as in a set or list.</description>
-         </node>
-         <node>
-            <name>Event-context</name>
-            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
-         </node>
-         <node>
-            <name>Event-stream</name>
-            <description>An ordered list of events</description>
-         </node>
-         <node>
-            <name>Permutation</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
-         </node>
-         <node>
-            <name>Recording</name>
-            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.</description>
-         </node>
-         <node>
-            <name>Task</name>
-            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
-         </node>
-         <node>
-            <name>Task-block</name>
-            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
-         </node>
-         <node>
-            <name>Task-condition</name>
-            <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
-         </node>
-         <node>
-            <name>Task-control</name>
-            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
-         </node>
-         <node>
-            <name>Task-response</name>
-            <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.</description>
-         </node>
-         <node>
-            <name>Task-trial</name>
-            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
-         </node>
-      </node>
-      <node>
          <name>Physical-property</name>
          <node>
             <name>Electrical-property</name>
@@ -1389,6 +1342,291 @@
                <node isNumeric="true" takesValue="true">
                   <name>#</name>
                </node>
+            </node>
+         </node>
+      </node>
+      <node extensionAllowed="true">
+         <name>Quantitative</name>
+         <node>
+            <name>Angle</name>
+            <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Fraction</name>
+            <description>Fraction of items of a particular type.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Interval</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Item-count</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Percentage</name>
+            <description>Percentage of items of a particular type.</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Ratio</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+         <node>
+            <name>Repetition</name>
+            <description>When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others</description>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
+      </node>
+      <node extensionAllowed="true">
+         <name>Spatiotemporal</name>
+         <node>
+            <name>Rate-of-change</name>
+            <node>
+               <name>Acceleration</name>
+               <node isNumeric="true" takesValue="true" unitClass="acceleration">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Jerk-rate</name>
+               <description>Rate at which the acceleration of an object changes with respect to time.</description>
+               <node isNumeric="true" takesValue="true" unitClass="jerk">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Sampling-rate</name>
+               <description>Number of measurements per unit time.</description>
+               <node takesValue="true" unitClass="frequency">
+                  <name>#</name>
+               </node>
+            </node>
+            <node requireChild="true">
+               <name>Refresh-rate</name>
+               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-rate</name>
+               <description>Number of occurrences in a unit of time.</description>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Velocity</name>
+               <node isNumeric="true" takesValue="true" unitClass="speed">
+                  <name>#</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Resolution</name>
+            <node>
+               <name>IO-resolution</name>
+               <node>
+                  <name>Screen-resolution</name>
+                  <description>Number of pixels in each dimension for a digital display device.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Printer-resolution</name>
+                  <description>Number of dots-per-inch for a printer.</description>
+                  <node takesValue="true">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Spatial-resolution</name>
+               <description>Linear spacing of a spatial measurement.</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Spectral-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-resolution</name>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Spatial</name>
+            <node>
+               <name>Direction</name>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Distance</name>
+               <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
+               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Orientation</name>
+               <node isNumeric="true" takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Position</name>
+               <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
+               <node>
+                  <name>X-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Y-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Z-position</name>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Reference-frame</name>
+               <description>A frame of reference used to express spatial attributes.</description>
+               <node>
+                  <name>Custom-frame</name>
+                  <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
+               </node>
+               <node>
+                  <name>Room-frame</name>
+               </node>
+               <node>
+                  <name>Screen-frame</name>
+                  <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
+               </node>
+               <node>
+                  <name>Screen-facing-frame</name>
+                  <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
+               </node>
+               <node>
+                  <name>World-frame</name>
+               </node>
+            </node>
+            <node>
+               <name>Size</name>
+               <node>
+                  <name>Area</name>
+                  <node isNumeric="true" takesValue="true" unitClass="area">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Length</name>
+                  <description>A measurement of the size along the longest dimension.</description>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Width</name>
+                  <description>A measurement along the shortest of two or three dimensions.</description>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Height</name>
+                  <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
+                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                     <name>#</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Volume</name>
+                  <node isNumeric="true" takesValue="true" unitClass="volume">
+                     <name>#</name>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Surface-properties</name>
+               <node>
+                  <name>Rough</name>
+               </node>
+               <node>
+                  <name>Smooth</name>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Temporal</name>
+            <node>
+               <name>Delay</name>
+               <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
+               <node isNumeric="true" takesValue="true" unitClass="time">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Duration</name>
+               <description>An offset that is implicit after duration time passed from the onset.</description>
+               <node isNumeric="true" takesValue="true" unitClass="time">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Onset</name>
+            </node>
+            <node>
+               <name>Offset</name>
+            </node>
+            <node>
+               <name>Pause</name>
+               <description>Indicating something stopped such as a break or waiting for input.</description>
+            </node>
+            <node>
+               <name>Temporal-value</name>
+               <node isNumeric="true" takesValue="true" unitClass="time">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Time-out</name>
+            </node>
+            <node>
+               <name>Time-sync</name>
+               <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
             </node>
          </node>
       </node>
@@ -1717,6 +1955,53 @@
             </node>
          </node>
       </node>
+      <node>
+         <name>Organizational-property</name>
+         <node>
+            <name>Collection</name>
+            <description>A tag designating a grouping of items such as in a set or list.</description>
+         </node>
+         <node>
+            <name>Event-context</name>
+            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
+         </node>
+         <node>
+            <name>Event-stream</name>
+            <description>An ordered list of events</description>
+         </node>
+         <node>
+            <name>Permutation</name>
+            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
+         </node>
+         <node>
+            <name>Recording</name>
+            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.</description>
+         </node>
+         <node>
+            <name>Task</name>
+            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
+         </node>
+         <node>
+            <name>Task-block</name>
+            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
+         </node>
+         <node>
+            <name>Task-condition</name>
+            <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
+         </node>
+         <node>
+            <name>Task-control</name>
+            <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
+         </node>
+         <node>
+            <name>Task-response</name>
+            <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.</description>
+         </node>
+         <node>
+            <name>Task-trial</name>
+            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
+         </node>
+      </node>
       <node extensionAllowed="true">
          <name>Relational</name>
          <node>
@@ -2025,55 +2310,6 @@
             </node>
             <node>
                <name>Hotter-than</name>
-            </node>
-         </node>
-      </node>
-      <node extensionAllowed="true">
-         <name>Quantitative</name>
-         <node>
-            <name>Angle</name>
-            <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Fraction</name>
-            <description>Fraction of items of a particular type.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Interval</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Item-count</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Percentage</name>
-            <description>Percentage of items of a particular type.</description>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Ratio</name>
-            <node takesValue="true">
-               <name>#</name>
-            </node>
-         </node>
-         <node>
-            <name>Repetition</name>
-            <description>When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others</description>
-            <node takesValue="true">
-               <name>#</name>
             </node>
          </node>
       </node>
@@ -2881,242 +3117,6 @@
                <node>
                   <name>Peripheral-view</name>
                </node>
-            </node>
-         </node>
-      </node>
-      <node extensionAllowed="true">
-         <name>Spatiotemporal</name>
-         <node>
-            <name>Rate-of-change</name>
-            <node>
-               <name>Acceleration</name>
-               <node isNumeric="true" takesValue="true" unitClass="acceleration">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Jerk-rate</name>
-               <description>Rate at which the acceleration of an object changes with respect to time.</description>
-               <node isNumeric="true" takesValue="true" unitClass="jerk">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Sampling-rate</name>
-               <description>Number of measurements per unit time.</description>
-               <node takesValue="true" unitClass="frequency">
-                  <name>#</name>
-               </node>
-            </node>
-            <node requireChild="true">
-               <name>Refresh-rate</name>
-               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Temporal-rate</name>
-               <description>Number of occurrences in a unit of time.</description>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Velocity</name>
-               <node isNumeric="true" takesValue="true" unitClass="speed">
-                  <name>#</name>
-               </node>
-            </node>
-         </node>
-         <node>
-            <name>Resolution</name>
-            <node>
-               <name>IO-resolution</name>
-               <node>
-                  <name>Screen-resolution</name>
-                  <description>Number of pixels in each dimension for a digital display device.</description>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Printer-resolution</name>
-                  <description>Number of dots-per-inch for a printer.</description>
-                  <node takesValue="true">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Spatial-resolution</name>
-               <description>Linear spacing of a spatial measurement.</description>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Spectral-resolution</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Temporal-resolution</name>
-               <node takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-         </node>
-         <node>
-            <name>Spatial</name>
-            <node>
-               <name>Direction</name>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Distance</name>
-               <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
-               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Orientation</name>
-               <node isNumeric="true" takesValue="true">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Position</name>
-               <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
-               <node>
-                  <name>X-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Y-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Z-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Reference-frame</name>
-               <description>A frame of reference used to express spatial attributes.</description>
-               <node>
-                  <name>Custom-frame</name>
-                  <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
-               </node>
-               <node>
-                  <name>Room-frame</name>
-               </node>
-               <node>
-                  <name>Screen-frame</name>
-                  <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
-               </node>
-               <node>
-                  <name>Screen-facing-frame</name>
-                  <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
-               </node>
-               <node>
-                  <name>World-frame</name>
-               </node>
-            </node>
-            <node>
-               <name>Size</name>
-               <node>
-                  <name>Area</name>
-                  <node isNumeric="true" takesValue="true" unitClass="area">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Length</name>
-                  <description>A measurement of the size along the longest dimension.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Width</name>
-                  <description>A measurement along the shortest of two or three dimensions.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Height</name>
-                  <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
-                     <name>#</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Volume</name>
-                  <node isNumeric="true" takesValue="true" unitClass="volume">
-                     <name>#</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Surface-properties</name>
-               <node>
-                  <name>Rough</name>
-               </node>
-               <node>
-                  <name>Smooth</name>
-               </node>
-            </node>
-         </node>
-         <node>
-            <name>Temporal</name>
-            <node>
-               <name>Delay</name>
-               <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Duration</name>
-               <description>An offset that is implicit after duration time passed from the onset.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Onset</name>
-            </node>
-            <node>
-               <name>Offset</name>
-            </node>
-            <node>
-               <name>Pause</name>
-               <description>Indicating something stopped such as a break or waiting for input.</description>
-            </node>
-            <node>
-               <name>Temporal-value</name>
-               <node isNumeric="true" takesValue="true" unitClass="time">
-                  <name>#</name>
-               </node>
-            </node>
-            <node>
-               <name>Time-out</name>
-            </node>
-            <node>
-               <name>Time-sync</name>
-               <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
             </node>
          </node>
       </node>
