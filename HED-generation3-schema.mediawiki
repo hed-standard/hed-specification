@@ -420,17 +420,14 @@ HED version: 8.0.0-alpha.1
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property'''
+* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** Computed-prediction
 * Data-property-value
 ** <nowiki># {takesValue}</nowiki>
 * Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
 ** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
-* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** Computed-prediction
-
-
 * Physical-property'''
-
 ** Electrical-property
 ** Magnetic-property
 ** Mechanical-property
@@ -637,7 +634,7 @@ HED version: 8.0.0-alpha.1
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
 
-* Organizational-property
+* Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
 ** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki>

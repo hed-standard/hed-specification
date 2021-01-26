@@ -1292,6 +1292,13 @@
    </node>
    <node>
       <name>Data-property</name>
+      <node extensionAllowed="true">
+         <name>Computed-property</name>
+         <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
+         <node>
+            <name>Computed-prediction</name>
+         </node>
+      </node>
       <node>
          <name>Data-property-value</name>
          <node takesValue="true">
@@ -1306,13 +1313,6 @@
          </node>
          <node extensionAllowed="true">
             <name>Instrument-measurement</name>
-         </node>
-      </node>
-      <node extensionAllowed="true">
-         <name>Computed-property</name>
-         <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
-         <node>
-            <name>Computed-prediction</name>
          </node>
       </node>
       <node>
@@ -1956,7 +1956,7 @@
          </node>
       </node>
       <node>
-         <name>Organizational-property</name>
+         <name>Organizational</name>
          <node>
             <name>Collection</name>
             <description>A tag designating a grouping of items such as in a set or list.</description>
