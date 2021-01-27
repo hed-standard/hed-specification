@@ -422,7 +422,7 @@ HED version: 8.0.0-alpha.1
 '''Data-property'''
 * Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
 ** Computed-prediction
-* Data-property-value
+* Data-value
 ** <nowiki># {takesValue}</nowiki>
 * Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
@@ -557,19 +557,18 @@ HED version: 8.0.0-alpha.1
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
 
-* Task-event-role <nowiki>[The purpose of this event in the task.]</nowiki>
+* Task-role <nowiki>[The purpose with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
+** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
 ** Failure
 ** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 ** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
+** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
 
-* Task-priority <nowiki>[Indication of importance within the task.]</nowiki>
-** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
-** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 * Task-response-role <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
 ** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
 ** Correction <nowiki>{relatedTag=Successful}</nowiki>
