@@ -1300,7 +1300,7 @@
          </node>
       </node>
       <node>
-         <name>Data-property-value</name>
+         <name>Data-value</name>
          <node takesValue="true">
             <name>#</name>
          </node>
@@ -1717,11 +1717,15 @@
          </node>
       </node>
       <node>
-         <name>Task-event-role</name>
-         <description>The purpose of this event in the task.</description>
+         <name>Task-role</name>
+         <description>The purpose with respect to the task.</description>
          <node>
             <name>Activity</name>
             <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
+         </node>
+         <node>
+            <name>Background-subtask</name>
+            <description>A part of the task which should be performed in the background.</description>
          </node>
          <node>
             <name>Experimental-stimulus</name>
@@ -1747,20 +1751,12 @@
             <description>Something related to a participant actions in performing the task.</description>
          </node>
          <node>
-            <name>Warning</name>
-            <description>Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.</description>
-         </node>
-      </node>
-      <node>
-         <name>Task-priority</name>
-         <description>Indication of importance within the task.</description>
-         <node>
-            <name>Background-subtask</name>
-            <description>A part of the task which should be performed in the background.</description>
-         </node>
-         <node>
             <name>Primary-subtask</name>
             <description>A part of the task which should be the primary focus of the participant.</description>
+         </node>
+         <node>
+            <name>Warning</name>
+            <description>Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.</description>
          </node>
       </node>
       <node>
