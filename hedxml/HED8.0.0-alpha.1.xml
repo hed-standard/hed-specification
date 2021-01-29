@@ -346,13 +346,15 @@
          <name>Perform</name>
          <description>Carry out or accomplish an action or task or function.</description>
          <node>
-            <name>Change</name>
-         </node>
-         <node>
             <name>Collide</name>
          </node>
          <node>
             <name>Halt</name>
+            <description>Stop action.</description>
+         </node>
+         <node>
+            <name>Modify</name>
+            <description>Deliberately make a change in something.</description>
          </node>
          <node>
             <name>Operate</name>
@@ -381,10 +383,13 @@
             <description>As a musical instrument or a game.</description>
          </node>
          <node>
+            <name>Read</name>
+         </node>
+         <node>
             <name>Rest</name>
          </node>
          <node>
-            <name>Take-survey</name>
+            <name>Write</name>
          </node>
       </node>
       <node>
@@ -428,7 +433,7 @@
             <name>Predict</name>
          </node>
          <node>
-            <name>Read</name>
+            <name>Respond</name>
          </node>
          <node>
             <name>Recall</name>
