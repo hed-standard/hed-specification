@@ -1761,7 +1761,7 @@
          </node>
       </node>
       <node>
-         <name>Task-response-role</name>
+         <name>Task-response-type</name>
          <description>How the participant response should be interpreted in terms of the task specification.</description>
          <node relatedTag="Inappropriate">
             <name>Appropriate</name>
@@ -1793,7 +1793,7 @@
          </node>
       </node>
       <node>
-         <name>Task-stimulus-role</name>
+         <name>Task-stimulus-type</name>
          <description>The stimulus purpose in the task.</description>
          <node>
             <name>Cue</name>
