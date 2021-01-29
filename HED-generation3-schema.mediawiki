@@ -3,8 +3,8 @@ HED version: 8.0.0-alpha.1
 !# start hed 
 
 '''Event''' 
-* Sensory-event <nowiki>{suggestedTag=Task-property/Task-event-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-event-role/Experimental-stimulus.]</nowiki>
-* Agent-action <nowiki>[Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
+* Agent-action <nowiki>[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
@@ -111,18 +111,19 @@ HED version: 8.0.0-alpha.1
 *** Vocalize <nowiki>[Make a sustained vowel sound such as Ahhh.]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
-** Appear
 ** Change
 ** Collide
-** Disappear
-** Fill-out-survey
 ** Halt
 ** Operate <nowiki>[Control something else.]</nowiki>
-*** Drive <nowiki>[Control something that moves.]</nowiki>
-*** Brake <nowiki>[Apply brakes to stop something.]</nowiki>
-*** Steer
+** Perceive
+*** Feel
+*** Listen
+*** Look
+*** Smell
+*** Taste
 ** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
 ** Rest 
+** Take-survey
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend-to
@@ -621,6 +622,10 @@ HED version: 8.0.0-alpha.1
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
+*** CogAtlas <nowiki>[A tag used within a tag group indicate a relationship to the CognitiveAtlas terminology.]</nowiki>
+**** <nowiki># {takesValue}</nowiki>
+*** CogPo <nowiki>[A tag used within a tag group indicate a relationship to the CogPO terminology.]</nowiki>
+**** <nowiki># {takesValue}</nowiki>
 *** Creation-date 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
 *** Library-name 
@@ -640,11 +645,11 @@ HED version: 8.0.0-alpha.1
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
 ** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
-** Task-block <nowiki>[An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.]</nowiki>
 ** Task-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Task-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Task-response <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.]</nowiki>
 ** Task-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
+** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
 ** Comparative-relation
 *** Less-than

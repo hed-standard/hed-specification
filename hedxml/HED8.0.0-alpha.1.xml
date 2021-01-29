@@ -2,13 +2,13 @@
 <HED version="8.0.0-alpha.1">
    <node>
       <name>Event</name>
-      <node suggestedTag="Task-property/Task-event-role">
+      <node suggestedTag="Task-property/Task-role">
          <name>Sensory-event</name>
-         <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-event-role/Experimental-stimulus.</description>
+         <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
       </node>
       <node>
          <name>Agent-action</name>
-         <description>Any action engaged in by an agent. An event which is a participant response to an experimental stimulus should also be tagged with Attribute/Task-related and Attribute/Role/Experimental subject.</description>
+         <description>Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.</description>
       </node>
       <node>
          <name>Data-feature</name>
@@ -346,19 +346,10 @@
          <name>Perform</name>
          <description>Carry out or accomplish an action or task or function.</description>
          <node>
-            <name>Appear</name>
-         </node>
-         <node>
             <name>Change</name>
          </node>
          <node>
             <name>Collide</name>
-         </node>
-         <node>
-            <name>Disappear</name>
-         </node>
-         <node>
-            <name>Fill-out-survey</name>
          </node>
          <node>
             <name>Halt</name>
@@ -366,16 +357,23 @@
          <node>
             <name>Operate</name>
             <description>Control something else.</description>
+         </node>
+         <node>
+            <name>Perceive</name>
             <node>
-               <name>Drive</name>
-               <description>Control something that moves.</description>
+               <name>Feel</name>
             </node>
             <node>
-               <name>Brake</name>
-               <description>Apply brakes to stop something.</description>
+               <name>Listen</name>
             </node>
             <node>
-               <name>Steer</name>
+               <name>Look</name>
+            </node>
+            <node>
+               <name>Smell</name>
+            </node>
+            <node>
+               <name>Taste</name>
             </node>
          </node>
          <node>
@@ -384,6 +382,9 @@
          </node>
          <node>
             <name>Rest</name>
+         </node>
+         <node>
+            <name>Take-survey</name>
          </node>
       </node>
       <node>
@@ -1919,6 +1920,20 @@
             <name>Metadata</name>
             <description>A tag used within a tag group indicate to designate information about the data such as file size or author.</description>
             <node>
+               <name>CogAtlas</name>
+               <description>A tag used within a tag group indicate a relationship to the CognitiveAtlas terminology.</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>CogPo</name>
+               <description>A tag used within a tag group indicate a relationship to the CogPO terminology.</description>
+               <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
                <name>Creation-date</name>
                <node takesValue="true" unitClass="datetime">
                   <name>#</name>
@@ -1978,10 +1993,6 @@
             <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
          </node>
          <node>
-            <name>Task-block</name>
-            <description>An event used to indicate a particular organizational part in the experimental design or plan. Usually the Task-block tag is used with scoping tags as well as tags describing what the block represents to assist with downstream analysis.</description>
-         </node>
-         <node>
             <name>Task-condition</name>
             <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
          </node>
@@ -1996,6 +2007,10 @@
          <node>
             <name>Task-trial</name>
             <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
+         </node>
+         <node>
+            <name>Time-block</name>
+            <description>A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.</description>
          </node>
       </node>
       <node extensionAllowed="true">
