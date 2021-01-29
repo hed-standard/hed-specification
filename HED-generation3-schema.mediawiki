@@ -111,9 +111,9 @@ HED version: 8.0.0-alpha.1
 *** Vocalize <nowiki>[Make a sustained vowel sound such as Ahhh.]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
-** Change
 ** Collide
-** Halt
+** Halt <nowiki>[Stop action.]</nowiki>
+** Modify <nowiki>[Deliberately make a change in something.]</nowiki>
 ** Operate <nowiki>[Control something else.]</nowiki>
 ** Perceive
 *** Feel
@@ -122,8 +122,9 @@ HED version: 8.0.0-alpha.1
 *** Smell
 *** Taste
 ** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
+** Read
 ** Rest 
-** Take-survey
+** Write
 * Think
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
 ** Attend-to
@@ -137,7 +138,7 @@ HED version: 8.0.0-alpha.1
 ** Identify
 ** Imagine
 ** Predict
-** Read 
+** Respond
 ** Recall
 ** Repeat
 ** Switch-attention
