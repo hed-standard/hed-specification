@@ -661,17 +661,17 @@
                      </node>
                      <node>
                         <name>Keyboard</name>
-                        <node takesValue="true">
+                        <node>
                            <name>Key</name>
-                           <node>
+                           <node takesValue="true">
                               <name>#</name>
                               <description>Value of key.</description>
                            </node>
                         </node>
                      </node>
-                     <node takesValue="true">
+                     <node>
                         <name>Keypad</name>
-                        <node>
+                        <node takesValue="true">
                            <name>#</name>
                            <description>Value of keypad key.</description>
                         </node>
@@ -1606,7 +1606,7 @@
             </node>
             <node>
                <name>Duration</name>
-               <description>An offset that is implicit after duration time passed from the onset.</description>
+               <description>Time extent of something.</description>
                <node isNumeric="true" takesValue="true" unitClass="time">
                   <name>#</name>
                </node>
@@ -1875,7 +1875,7 @@
    </node>
    <node extensionAllowed="true">
       <name>Attribute</name>
-      <description>Vocabulary tree for properties.</description>
+      <description>Subtree tree for general properties.</description>
       <node>
          <name>Informational</name>
          <description>Informational properties.</description>

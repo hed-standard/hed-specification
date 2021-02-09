@@ -212,10 +212,10 @@ HED version: 8.0.0-alpha.1
 ****** Button
 ****** Joystick
 ****** Keyboard
-******* Key <nowiki>{takesValue}</nowiki>
-******** <nowiki># [Value of key.]</nowiki>
-****** Keypad <nowiki>{takesValue}</nowiki>
-******* <nowiki># [Value of keypad key.]</nowiki>
+******* Key
+******** <nowiki># {takesValue}[Value of key.]</nowiki>
+****** Keypad 
+******* <nowiki># {takesValue}[Value of keypad key.]</nowiki>
 ****** Microphone
 ****** Mouse
 ******* Mouse-button
@@ -519,7 +519,7 @@ HED version: 8.0.0-alpha.1
 ** Temporal
 *** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Duration <nowiki>[An offset that is implicit after duration time passed from the onset.]</nowiki>
+*** Duration <nowiki>[Time extent of something.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Onset
 *** Offset
@@ -607,7 +607,7 @@ HED version: 8.0.0-alpha.1
 ** Unexpected
 
 
-'''Attribute''' <nowiki>{extensionAllowed} [Vocabulary tree for properties.]</nowiki>
+'''Attribute''' <nowiki>{extensionAllowed} [Subtree tree for general properties.]</nowiki>
 * Informational <nowiki>[Informational properties.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
