@@ -1188,7 +1188,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 !# end schema
 
 
-'''Schema unit classes''' 
+'''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1244,7 +1244,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** fraction 
 
 
-'''Schema unit modifiers''' 
+'''Unit modifiers''' 
 * deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
 * hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
@@ -1285,7 +1285,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
 * yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
-!# end hed 
+
 
 '''Schema attributes'''
 * default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 

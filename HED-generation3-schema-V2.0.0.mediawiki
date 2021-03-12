@@ -180,7 +180,9 @@ HED version: 8.0.0-alpha.1
 **** Pyradmid
 ** Man-made-object <nowiki>[A manmade object]</nowiki>
 *** Media
-**** Sound-clip
+**** Media-clip
+***** Audio-clip
+***** Video-clip
 **** Visualization <nowiki>[A visual representation of something else -- such as using a stick-figure to represent motion capture data.]</nowiki>
 ***** Animation
 ***** Art-installation
@@ -212,10 +214,10 @@ HED version: 8.0.0-alpha.1
 ****** Button
 ****** Joystick
 ****** Keyboard
-******* Key
-******** <nowiki># {takesValue}[Value of key.]</nowiki>
-****** Keypad 
-******* <nowiki># {takesValue}[Value of keypad key.]</nowiki>
+******* Keyboard-key
+******** <nowiki># {takesValue}[Value of a keyboard key.]</nowiki>
+******* Keypad-key 
+******** <nowiki># {takesValue}[Value of keypad key.]</nowiki>
 ****** Microphone
 ****** Mouse
 ******* Mouse-button
@@ -617,7 +619,8 @@ HED version: 8.0.0-alpha.1
 *** <nowiki># {takesValue}</nowiki>
 ** Description <nowiki>{requireChild} [Human-readable text description of the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
- 
+** Experimental-note
+*** <nowiki># {takesValue}</nowiki>
 ** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
@@ -630,7 +633,9 @@ HED version: 8.0.0-alpha.1
 *** Creation-date 
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
 *** Library-name 
-**** <nowiki># {takesValue}</nowiki>  
+**** <nowiki># {takesValue}</nowiki>
+*** Path-name
+**** <nowiki># {takesValue, unitClass=posixPath}</nowiki> 
 *** Subject 
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
@@ -1047,28 +1052,39 @@ HED version: 8.0.0-alpha.1
 
 * Anatomical
 
-!# end schema
+!# end schema 
 
-
-'''Schema unit classes''' 
-* time <nowiki>{defaultUnits=s}</nowiki> 
-** second <nowiki>{SIUnit}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** day 
-** minute 
-** hour <nowiki>[Should be in 24-hour format.]</nowiki>
-* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
-** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format.]</nowiki> 
-* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
-** hour:min <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
-** hour:min:sec <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
-* frequency <nowiki>{defaultUnits=Hz}</nowiki>
-** hertz  <nowiki>{SIUnit}</nowiki>
-** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+'''Unit classes''' 
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
 ** radian <nowiki>{SIUnit}</nowiki> 
 ** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** degree 
+* area <nowiki>{defaultUnits=m^2}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** px^2 <nowiki>{unitSymbol}</nowiki> 
+** pixel^2
+* currency <nowiki>{defaultUnits=$, allowedCharacter=$}</nowiki> 
+** dollar 
+** $ <nowiki>{unitSymbol}</nowiki> 
+** point 
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:, allowedCharacter=-}</nowiki> 
+** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.]</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
+** hertz  <nowiki>{SIUnit}</nowiki>
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* intensity <nowiki>{defaultUnits=dB}</nowiki> 
+** dB <nowiki>{unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
+** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
+* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
+** candela <nowiki>{SIUnit}</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* posixPath <nowiki>{allowedCharacter=/, allowedCharacter=:}[Posix path specification.]</nowiki> 
 * physicalLength <nowiki>{defaultUnits=m}</nowiki> 
 ** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1077,35 +1093,27 @@ HED version: 8.0.0-alpha.1
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** pixel 
 ** px <nowiki>{unitSymbol}</nowiki> 
-* area <nowiki>{defaultUnits=m^2}</nowiki> 
-** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** px^2 <nowiki>{unitSymbol}</nowiki> 
-** pixel^2
-* volume <nowiki>{defaultUnits=m^3}</nowiki> 
-** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
-* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
-** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
-** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
-* intensity <nowiki>{defaultUnits=dB}</nowiki> 
-** dB <nowiki>{unitSymbol}</nowiki> 
-* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
-** candela <nowiki>{SIUnit}</nowiki> 
-** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{defaultUnits=B}</nowiki> 
-** byte <nowiki>{SIUnit}</nowiki>
-** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* currency <nowiki>{defaultUnits=$}</nowiki> 
-** dollar 
-** $ <nowiki>{unitSymbol}</nowiki> 
-** point 
-** fraction 
+* time <nowiki>{defaultUnits=s}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** day 
+** minute 
+** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
-'''Schema unit modifiers''' 
+
+
+
+
+
+
+
+'''Unit modifiers''' 
 * deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
 * hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
@@ -1148,7 +1156,10 @@ HED version: 8.0.0-alpha.1
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 
 
-'''Schema Attributes'''
+'''Schema attributes'''
+
+
+* allowedCharacter <nowiki>[An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.]</nowiki>
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
@@ -1166,4 +1177,6 @@ HED version: 8.0.0-alpha.1
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
-!# end hed
+!# end hed 
+
+This is the new format for the mediawiki schema

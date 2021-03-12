@@ -1,6 +1,6 @@
 HED version: 8.0.0-alpha.1
 
-!# start hed
+!# start hed 
 
 '''Event''' 
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
@@ -1048,6 +1048,7 @@ HED version: 8.0.0-alpha.1
 * Anatomical
 
 
+
 '''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
@@ -1144,8 +1145,7 @@ HED version: 8.0.0-alpha.1
 * z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
 * yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
-
-!# end hed
+!# end hed 
 
 '''Attribute Definitions:'''
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
