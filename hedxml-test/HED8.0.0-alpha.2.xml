@@ -566,7 +566,13 @@
             <node>
                <name>Media</name>
                <node>
-                  <name>Sound-clip</name>
+                  <name>Media-clip</name>
+                  <node>
+                     <name>Audio-clip</name>
+                  </node>
+                  <node>
+                     <name>Video-clip</name>
+                  </node>
                </node>
                <node>
                   <name>Visualization</name>
@@ -662,18 +668,18 @@
                      <node>
                         <name>Keyboard</name>
                         <node>
-                           <name>Key</name>
+                           <name>Keyboard-key</name>
                            <node takesValue="true">
                               <name>#</name>
-                              <description>Value of key.</description>
+                              <description>Value of a keyboard key.</description>
                            </node>
                         </node>
-                     </node>
-                     <node>
-                        <name>Keypad</name>
-                        <node takesValue="true">
-                           <name>#</name>
-                           <description>Value of keypad key.</description>
+                        <node>
+                           <name>Keypad-key</name>
+                           <node takesValue="true">
+                              <name>#</name>
+                              <description>Value of keypad key.</description>
+                           </node>
                         </node>
                      </node>
                      <node>
@@ -1907,6 +1913,12 @@
                <name>#</name>
             </node>
          </node>
+         <node>
+            <name>Experimental-note</name>
+            <node takesValue="true">
+               <name>#</name>
+            </node>
+         </node>
          <node requireChild="true">
             <name>ID</name>
             <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
@@ -1947,6 +1959,12 @@
             <node>
                <name>Library-name</name>
                <node takesValue="true">
+                  <name>#</name>
+               </node>
+            </node>
+            <node>
+               <name>Path-name</name>
+               <node takesValue="true" unitClass="posixPath">
                   <name>#</name>
                </node>
             </node>
@@ -3204,27 +3222,40 @@
       </node>
    </node>
    <unitClasses>
-      <unitClass defaultUnits="s">
-         <name>time</name>
+      <unitClass defaultUnits="m-per-s^2">
+         <name>acceleration</name>
          <units>
-            <unit SIUnit="true">second</unit>
-            <unit SIUnit="true" unitSymbol="true">s</unit>
-            <unit>day</unit>
-            <unit>minute</unit>
-            <unit>hour</unit>
+            <unit SIUnit="true" unitSymbol="true">m-per-s^2</unit>
+         </units>
+      </unitClass>
+      <unitClass defaultUnits="radian">
+         <name>angle</name>
+         <units>
+            <unit SIUnit="true">radian</unit>
+            <unit SIUnit="true" unitSymbol="true">rad</unit>
+            <unit>degree</unit>
+         </units>
+      </unitClass>
+      <unitClass defaultUnits="m^2">
+         <name>area</name>
+         <units>
+            <unit SIUnit="true" unitSymbol="true">m^2</unit>
+            <unit unitSymbol="true">px^2</unit>
+            <unit>pixel^2</unit>
+         </units>
+      </unitClass>
+      <unitClass allowedCharacter="$" defaultUnits="$">
+         <name>currency</name>
+         <units>
+            <unit>dollar</unit>
+            <unit unitSymbol="true">$</unit>
+            <unit>point</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="YYYY-MM-DDThh:mm:ss">
          <name>dateTime</name>
          <units>
             <unit>YYYY-MM-DDThh:mm:ss</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="hour:min">
-         <name>clockTime</name>
-         <units>
-            <unit>hour:min</unit>
-            <unit>hour:min:sec</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="Hz">
@@ -3234,12 +3265,30 @@
             <unit SIUnit="true" unitSymbol="true">Hz</unit>
          </units>
       </unitClass>
-      <unitClass defaultUnits="radian">
-         <name>angle</name>
+      <unitClass defaultUnits="dB">
+         <name>intensity</name>
          <units>
-            <unit SIUnit="true">radian</unit>
-            <unit SIUnit="true" unitSymbol="true">rad</unit>
-            <unit>degree</unit>
+            <unit unitSymbol="true">dB</unit>
+         </units>
+      </unitClass>
+      <unitClass defaultUnits="m-per-s^3">
+         <name>jerk</name>
+         <units>
+            <unit unitSymbol="true">m-per-s^3</unit>
+         </units>
+      </unitClass>
+      <unitClass defaultUnits="cd">
+         <name>luminousIntensity</name>
+         <units>
+            <unit SIUnit="true">candela</unit>
+            <unit SIUnit="true" unitSymbol="true">cd</unit>
+         </units>
+      </unitClass>
+      <unitClass defaultUnits="B">
+         <name>memorySize</name>
+         <units>
+            <unit SIUnit="true">byte</unit>
+            <unit SIUnit="true" unitSymbol="true">B</unit>
          </units>
       </unitClass>
       <unitClass defaultUnits="m">
@@ -3258,20 +3307,6 @@
             <unit unitSymbol="true">px</unit>
          </units>
       </unitClass>
-      <unitClass defaultUnits="m^2">
-         <name>area</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m^2</unit>
-            <unit unitSymbol="true">px^2</unit>
-            <unit>pixel^2</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m^3">
-         <name>volume</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m^3</unit>
-         </units>
-      </unitClass>
       <unitClass defaultUnits="m-per-s">
          <name>speed</name>
          <units>
@@ -3280,45 +3315,20 @@
             <unit unitSymbol="true">kph</unit>
          </units>
       </unitClass>
-      <unitClass defaultUnits="m-per-s^2">
-         <name>acceleration</name>
+      <unitClass defaultUnits="s">
+         <name>time</name>
          <units>
-            <unit SIUnit="true" unitSymbol="true">m-per-s^2</unit>
+            <unit SIUnit="true">second</unit>
+            <unit SIUnit="true" unitSymbol="true">s</unit>
+            <unit>day</unit>
+            <unit>minute</unit>
+            <unit>hour</unit>
          </units>
       </unitClass>
-      <unitClass defaultUnits="m-per-s^3">
-         <name>jerk</name>
+      <unitClass defaultUnits="m^3">
+         <name>volume</name>
          <units>
-            <unit unitSymbol="true">m-per-s^3</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="dB">
-         <name>intensity</name>
-         <units>
-            <unit unitSymbol="true">dB</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="cd">
-         <name>luminousIntensity</name>
-         <units>
-            <unit SIUnit="true">candela</unit>
-            <unit SIUnit="true" unitSymbol="true">cd</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="B">
-         <name>memorySize</name>
-         <units>
-            <unit SIUnit="true">byte</unit>
-            <unit SIUnit="true" unitSymbol="true">B</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="$">
-         <name>currency</name>
-         <units>
-            <unit>dollar</unit>
-            <unit unitSymbol="true">$</unit>
-            <unit>point</unit>
-            <unit>fraction</unit>
+            <unit SIUnit="true" unitSymbol="true">m^3</unit>
          </units>
       </unitClass>
    </unitClasses>
@@ -3482,6 +3492,77 @@
       <unitModifier SIUnitSymbolModifier="true">
          <name>y</name>
          <description>SI unit submultiple representing 10^-24</description>
+      </unitModifier>
+      <unitModifier>
+         <name>Schema attributes</name>
+      </unitModifier>
+      <unitModifier>
+         <name>allowedCharacter</name>
+         <description>An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>defaultUnits</name>
+         <description>Default units for a tag.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>extensionAllowed</name>
+         <description>Users can add unlimited levels of child nodes under this tag.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>isNumeric</name>
+         <description>The tag hashtag placeholder must be replaced by a numerical value.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>position</name>
+         <description>Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>predicateType</name>
+         <description>One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>recommended</name>
+         <description>A HED string tagging an event is recommended to include this tag.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>relatedTag</name>
+         <description>Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>requireChild</name>
+         <description>One of its descendants must be chosen to tag an event.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>required</name>
+         <description>Every HED string tagging an event should include this tag.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>SIUnit</name>
+         <description>Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>SIUnitModifier</name>
+         <description>SI unit modifier indicating a multiple or submultiple of a base unit.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>SIUnitSymbolModifier</name>
+         <description>SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>suggestedTag</name>
+         <description>Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>takesValue</name>
+         <description>This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>unique</name>
+         <description>Only one of this tag or its descendants can be used within a single tag group or event.</description>
+      </unitModifier>
+      <unitModifier>
+         <name>unitSymbol</name>
+         <description>Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.</description>
       </unitModifier>
    </unitModifiers>
    <epilogue>This is the new format for the mediawiki schema</epilogue>

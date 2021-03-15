@@ -645,16 +645,16 @@ HED version: 8.0.0-alpha.1
 *** <nowiki># {takesValue}</nowiki>
 
 * Organizational
-** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki> 
+** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
-** Event-stream <nowiki>[An ordered list of events  ]</nowiki>
+** Event-stream <nowiki>[An ordered list of events  ]</nowiki> 
+** Experiment-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+** Experiment-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+** Experiment-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+** Experiment-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
 ** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
-** Task-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-** Task-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Task-response <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Task-responses are sometimes called dependent variables.]</nowiki>
-** Task-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Relational <nowiki>{extensionAllowed}</nowiki>
 ** Comparative-relation
@@ -1069,7 +1069,7 @@ HED version: 8.0.0-alpha.1
 ** dollar 
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
-* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:, allowedCharacter=-}</nowiki> 
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:,allowedCharacter=-}</nowiki> 
 ** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.]</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
@@ -1084,7 +1084,7 @@ HED version: 8.0.0-alpha.1
 * memorySize <nowiki>{defaultUnits=B}</nowiki> 
 ** byte <nowiki>{SIUnit}</nowiki>
 ** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* posixPath <nowiki>{allowedCharacter=/, allowedCharacter=:}[Posix path specification.]</nowiki> 
+* posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 * physicalLength <nowiki>{defaultUnits=m}</nowiki> 
 ** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1162,7 +1162,7 @@ HED version: 8.0.0-alpha.1
 * allowedCharacter <nowiki>[An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.]</nowiki>
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
-* isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
+* isNumeric <nowiki>[The tag hashtag placeholder must be replaced by a numerical value.]</nowiki> 
 * position <nowiki>[Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki>  
 * recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
@@ -1173,7 +1173,7 @@ HED version: 8.0.0-alpha.1
 * SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
 * SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
 * suggestedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
-* takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
+* takesValue <nowiki>[This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
