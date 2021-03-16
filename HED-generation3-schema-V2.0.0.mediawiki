@@ -409,8 +409,8 @@ HED version: 8.0.0-alpha.1
 ** Mother
 ** Sister
 * Agent-task-role <nowiki> [The role of the agent in the task.]</nowiki>
-** Experiment-controller
-** Experiment-participant
+** Experimental-controller
+** Experimental-participant
 ** Experimenter
 ** Follower
 ** Friend
@@ -646,12 +646,12 @@ HED version: 8.0.0-alpha.1
 
 * Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Event-context <nowiki>[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki> 
-** Experiment-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-** Experiment-control <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Experiment-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
-** Experiment-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
+** Experimental-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+** Experimental-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+** Experimental-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
 ** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
