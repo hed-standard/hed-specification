@@ -1,6 +1,7 @@
-HED version: 7.1.2
+HED version: 7.2.0
 
 Changelog
+* 3/16/2021: v.7.1.3 Adopted the new format for mediawiki files.
 * 11/22/2020: v. 7.1.2 Add extensionAllowed to top-level Item subtree.
 * 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
 * 5/9/2020:  Added the clockTime unit class
@@ -1188,7 +1189,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 !# end schema
 
 
-'''Schema unit classes''' 
+'''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1244,7 +1245,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** fraction 
 
 
-'''Schema unit modifiers''' 
+'''Unit modifiers''' 
 * deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
 * hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
@@ -1285,7 +1286,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
 * yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
-!# end hed 
+
 
 '''Schema attributes'''
 * default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 
