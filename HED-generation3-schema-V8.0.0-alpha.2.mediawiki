@@ -398,8 +398,11 @@ HED version: 8.0.0-alpha.1
 * Agent-trait <nowiki>{extensionAllowed}</nowiki> 
 ** Age
 *** <nowiki># {takesValue}</nowiki>
+** Gender
 ** Sex
-*** <nowiki># {takesValue}</nowiki> 
+*** Female
+*** Male
+*** Intersex 
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
 * Social-role <nowiki> [The role of the agent not particular to the task.]</nowiki>
@@ -651,7 +654,8 @@ HED version: 8.0.0-alpha.1
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki> 
 ** Experimental-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Experimental-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
-** Experimental-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.]</nowiki>
+** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
+** Experimental-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
 ** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
 ** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 

@@ -1,7 +1,7 @@
 HED version: 7.2.0
 
 Changelog
-* 3/16/2021: v.7.1.3 Adopted the new format for mediawiki files.
+* 3/16/2021: v.7.2.0 Adopted the new format for mediawiki files.
 * 11/22/2020: v. 7.1.2 Add extensionAllowed to top-level Item subtree.
 * 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
 * 5/9/2020:  Added the clockTime unit class
