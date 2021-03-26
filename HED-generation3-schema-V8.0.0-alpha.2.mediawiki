@@ -1,4 +1,4 @@
-HED version: 8.0.0-alpha.1
+HED version: 8.0.0-alpha.2
 
 !# start schema 
 
@@ -616,7 +616,7 @@ HED version: 8.0.0-alpha.1
 * Informational <nowiki>[Informational properties.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Defexp <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+** Def-expand <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
 ** Definition <nowiki>{requireChild}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -1112,11 +1112,6 @@ HED version: 8.0.0-alpha.1
 
 
 
-
-
-
-
-
 '''Unit modifiers''' 
 * deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
@@ -1163,7 +1158,7 @@ HED version: 8.0.0-alpha.1
 '''Schema attributes'''
 
 
-* allowedCharacter <nowiki>[An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.]</nowiki>
+* allowedCharacter <nowiki>[An attribute of unit classes schema value placeholders indicating a special character that is allowed in expressing the value of that placeholder.]</nowiki>
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag hashtag placeholder must be replaced by a numerical value.]</nowiki> 
