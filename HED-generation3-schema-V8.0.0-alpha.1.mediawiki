@@ -638,7 +638,7 @@ HED version: 8.0.0-alpha.1
 *** Library-name 
 **** <nowiki># {takesValue}</nowiki>
 *** Path-name
-**** <nowiki># {takesValue, unitClass=posixPath}</nowiki> 
+**** <nowiki># {takesValue}</nowiki> 
 *** Subject 
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
@@ -1096,7 +1096,6 @@ HED version: 8.0.0-alpha.1
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** pixel 
 ** px <nowiki>{unitSymbol}</nowiki> 
-* posixPath <nowiki>[Posix path specification.]</nowiki> 
 * speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
