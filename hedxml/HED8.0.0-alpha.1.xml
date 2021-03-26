@@ -1225,9 +1225,18 @@
             </node>
          </node>
          <node>
+            <name>Gender</name>
+         </node>
+         <node>
             <name>Sex</name>
-            <node takesValue="true">
-               <name>#</name>
+            <node>
+               <name>Female</name>
+            </node>
+            <node>
+               <name>Male</name>
+            </node>
+            <node>
+               <name>Intersex</name>
             </node>
          </node>
          <node>
@@ -1893,7 +1902,7 @@
             </node>
          </node>
          <node requireChild="true">
-            <name>Defexp</name>
+            <name>Def-expand</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
             <node takesValue="true">
                <name>#</name>
@@ -2016,8 +2025,12 @@
             <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.</description>
          </node>
          <node>
+            <name>Experimental-intertrial</name>
+            <description>A tag used to indicate a part of the experiment between trials usually where nothing is happening.</description>
+         </node>
+         <node>
             <name>Experimental-trial</name>
-            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair.</description>
+            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.</description>
          </node>
          <node>
             <name>Permutation</name>
@@ -3244,7 +3257,7 @@
             <unit>pixel^2</unit>
          </units>
       </unitClass>
-      <unitClass defaultUnits="$" allowedCharacter="$">
+      <unitClass defaultUnits="$">
          <name>currency</name>
          <units>
             <unit>dollar</unit>
@@ -3495,10 +3508,6 @@
       </unitModifier>
       <unitModifier>
          <name>Schema attributes</name>
-      </unitModifier>
-      <unitModifier>
-         <name>allowedCharacter</name>
-         <description>An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.</description>
       </unitModifier>
       <unitModifier>
          <name>defaultUnits</name>

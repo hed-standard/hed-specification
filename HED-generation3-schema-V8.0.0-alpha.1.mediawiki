@@ -1,4 +1,4 @@
-HED version: 8.0.0-alpha.3
+HED version: 8.0.0-alpha.1
 
 !# start schema 
 
@@ -616,7 +616,7 @@ HED version: 8.0.0-alpha.3
 * Informational <nowiki>[Informational properties.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Defexp <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+** Def-expand <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
 ** Definition <nowiki>{requireChild}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -638,7 +638,7 @@ HED version: 8.0.0-alpha.3
 *** Library-name 
 **** <nowiki># {takesValue}</nowiki>
 *** Path-name
-**** <nowiki># {takesValue}</nowiki> 
+**** <nowiki># {takesValue, unitClass=posixPath}</nowiki> 
 *** Subject 
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
@@ -1073,7 +1073,7 @@ HED version: 8.0.0-alpha.3
 ** dollar 
 ** $ <nowiki>{unitSymbol}</nowiki> 
 ** point 
-* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:,allowedCharacter=-}</nowiki> 
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
 ** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.]</nowiki> 
 * frequency <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
@@ -1096,6 +1096,7 @@ HED version: 8.0.0-alpha.3
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** pixel 
 ** px <nowiki>{unitSymbol}</nowiki> 
+* posixPath <nowiki>[Posix path specification.]</nowiki> 
 * speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
@@ -1160,9 +1161,6 @@ HED version: 8.0.0-alpha.3
 
 
 '''Schema attributes'''
-
-
-* allowedCharacter <nowiki>[An attribute of unit classes or schema value placeholders indicating a special character that is allowed in expressing values of that unit class.]</nowiki>
 * defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
 * isNumeric <nowiki>[The tag hashtag placeholder must be replaced by a numerical value.]</nowiki> 
