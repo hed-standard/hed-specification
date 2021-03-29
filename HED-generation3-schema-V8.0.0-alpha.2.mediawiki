@@ -364,7 +364,7 @@ HED version: 8.0.0-alpha.2
 ** Drowsy 
 ** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
 ** Locked-in 
-** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.</nowiki>
+** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.]</nowiki>
 ** Resting
 ** Vegetative 
 * Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
@@ -434,7 +434,7 @@ HED version: 8.0.0-alpha.2
 * Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
 ** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
-* Physical-property'''
+* Physical-property
 ** Electrical-property
 ** Magnetic-property
 ** Mechanical-property
@@ -501,7 +501,7 @@ HED version: 8.0.0-alpha.2
 **** Z-position 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
 *** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
-**** Custom-frame <nowiki><nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+**** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
 **** Room-frame
 **** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
 **** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
@@ -562,7 +562,7 @@ HED version: 8.0.0-alpha.2
 ** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
 **  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
-** Behavioral-evidence <nowiki>  [This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</nowiki>
+** Behavioral-evidence <nowiki>[This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.]</nowiki>
 
 * Task-role <nowiki>[The purpose with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
@@ -642,7 +642,7 @@ HED version: 8.0.0-alpha.2
 *** Subject 
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
-**** <nowiki># {takesValue}{Usually is a semantic version.]</nowiki> 
+**** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
 
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -723,7 +723,7 @@ HED version: 8.0.0-alpha.2
 **** Behind
 **** Below
 **** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
-**** Bilateral <nowiki>{Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
+**** Bilateral <nowiki>[Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
 **** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 **** Boundary-of
 **** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
