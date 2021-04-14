@@ -138,6 +138,7 @@ HED version: 8.0.0-alpha.2
 ** Identify
 ** Imagine
 ** Predict
+** Recognize
 ** Respond
 ** Recall
 ** Repeat
