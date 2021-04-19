@@ -138,6 +138,7 @@ HED version: 8.0.0-alpha.2
 ** Identify
 ** Imagine
 ** Predict
+** Recognize
 ** Respond
 ** Recall
 ** Repeat
@@ -769,42 +770,50 @@ HED version: 8.0.0-alpha.2
 
 
 * Categorical <nowiki>{extensionAllowed}</nowiki>
-** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
-** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
-** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
-** Congruent <nowiki>{relatedTag=Incongruent}</nowiki>
-** Constrained <nowiki>{relatedTag=Unconstrained}</nowiki>
-** Correct <nowiki>{relatedTag=Incorrect}</nowiki>
-** Deep <nowiki>{relatedTag=Shallow}</nowiki>
-** Disordered <nowiki>{relatedTag=Ordered}</nowiki>
-** False <nowiki>{relatedTag=True}</nowiki>
-** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Something known or encountered before.]</nowiki>
-** Famous <nowiki>{relatedTag=Familiar, relatedTag=Unfamiliar}[Something known by many people but necessarily because of direct contact.]</nowiki>
-** High <nowiki>{relatedTag=Low, relatedTag=Medium}</nowiki>
-** Incongruent <nowiki>{relatedTag=Congruent}</nowiki>
-** Incorrect <nowiki>{relatedTag=Correct}</nowiki>
-** Invalid <nowiki>{relatedTag=Valid}</nowiki>
-** Involuntary <nowiki>{relatedTag=Voluntary}</nowiki>
-** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}</nowiki>
-** Low <nowiki>{relatedTag=High}</nowiki>
-** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
-** Medium <nowiki>{relatedTag=Low, relatedTag=High}</nowiki>
-** None <nowiki>{relatedTag=All, relatedTag=Some}</nowiki>
-** Normal <nowiki>{relatedTag=Abnormal}</nowiki>
-** Negative <nowiki>{relatedTag=Positive}</nowiki>
-** Ordered <nowiki>{relatedTag=Disordered}</nowiki>
-** Positive <nowiki>{relatedTag=Negative}</nowiki>
-** Shallow <nowiki>{relatedTag=Deep}</nowiki>
-** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
-** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}</nowiki>
-** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
-** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
-** True <nowiki>{relatedTag=False}</nowiki>
-** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
-** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Something not known or encountered before.]</nowiki>
-** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
-** Valid <nowiki>{relatedTag=Invalid}</nowiki>
-** Voluntary <nowiki>{relatedTag=Involuntary}</nowiki>
+** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
+*** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
+*** Correct <nowiki>{relatedTag=Incorrect}</nowiki>
+*** Explicit <nowiki>{relatedTag=Implicit}</nowiki>
+*** False <nowiki>{relatedTag=True}</nowiki>
+*** Implicit <nowiki>{relatedTag=Explicit}</nowiki>
+*** Incorrect <nowiki>{relatedTag=Correct}</nowiki>
+*** Invalid <nowiki>{relatedTag=Valid}</nowiki>
+*** None <nowiki>{relatedTag=All, relatedTag=Some}</nowiki>
+*** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
+*** True <nowiki>{relatedTag=False}</nowiki>
+*** Valid <nowiki>{relatedTag=Invalid}</nowiki>
+
+** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
+*** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
+*** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
+*** Congruent <nowiki>{relatedTag=Incongruent}</nowiki>
+*** Constrained <nowiki>{relatedTag=Unconstrained}</nowiki>
+*** Disordered <nowiki>{relatedTag=Ordered}</nowiki>
+*** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Something known or encountered before.]</nowiki>
+*** Famous <nowiki>{relatedTag=Familiar, relatedTag=Unfamiliar}[Something known by many people but necessarily because of direct contact.]</nowiki>
+*** Incongruent <nowiki>{relatedTag=Congruent}</nowiki>
+*** Involuntary <nowiki>{relatedTag=Voluntary}</nowiki>
+*** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
+*** Normal <nowiki>{relatedTag=Abnormal}</nowiki>
+*** Ordered <nowiki>{relatedTag=Disordered}</nowiki>
+*** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
+*** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
+*** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Something not known or encountered before.]</nowiki>
+*** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
+*** Voluntary <nowiki>{relatedTag=Involuntary}</nowiki>
+** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
+*** Deep <nowiki>{relatedTag=Shallow}</nowiki>
+*** High <nowiki>{relatedTag=Low, relatedTag=Medium}</nowiki>
+*** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}</nowiki>
+*** Low <nowiki>{relatedTag=High}</nowiki>
+*** Medium <nowiki>{relatedTag=Low, relatedTag=High}</nowiki>
+*** Negative <nowiki>{relatedTag=Positive}</nowiki>
+*** Positive <nowiki>{relatedTag=Negative}</nowiki>
+*** Shallow <nowiki>{relatedTag=Deep}</nowiki>
+*** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}</nowiki>
+*** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
+*** Thick <nowiki>{relatedTag=Thin}</nowiki>
+*** Thin <nowiki>{relatedTag=Thick}</nowiki>
 
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
