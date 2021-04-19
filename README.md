@@ -20,9 +20,9 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 ### HED-2G vocabulary views
 
 The latest version is of HED-2G is 7.2.0:
-> [**Expandable html view of HED7.1.2**](http://www.hedtags.org/display_hed.html?version=7.1.2)  
+> [**Expandable html view of HED7.2.0**](http://www.hedtags.org/display_hed.html?version=7.2.0)  
 
-> [**Readable mediawiki view of HED7.1.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-V7.2.0.mediawiki)
+> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-V7.2.0.mediawiki)
 
 > [**XML view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml)  
 
