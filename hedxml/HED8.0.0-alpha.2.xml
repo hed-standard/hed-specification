@@ -1978,7 +1978,7 @@
             </node>
             <node>
                <name>Path-name</name>
-               <node takesValue="true" unitClass="posixPath">
+               <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
@@ -3555,14 +3555,6 @@
       <unitModifier>
          <name>isNumeric</name>
          <description>The tag hashtag placeholder must be replaced by a numerical value.</description>
-      </unitModifier>
-      <unitModifier>
-         <name>position</name>
-         <description>Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.</description>
-      </unitModifier>
-      <unitModifier>
-         <name>predicateType</name>
-         <description>One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.</description>
       </unitModifier>
       <unitModifier>
          <name>recommended</name>

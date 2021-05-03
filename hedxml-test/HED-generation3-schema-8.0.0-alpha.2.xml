@@ -1978,7 +1978,7 @@
             </node>
             <node>
                <name>Path-name</name>
-               <node takesValue="true" unitClass="posixPath">
+               <node takesValue="true">
                   <name>#</name>
                </node>
             </node>
