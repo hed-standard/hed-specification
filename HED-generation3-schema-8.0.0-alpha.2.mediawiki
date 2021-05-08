@@ -1181,6 +1181,7 @@ HED version: 8.0.0-alpha.2
 * suggestedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
 * takesValue <nowiki>{boolProperty}[This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
 * unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
+* unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitClassProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
 !# end hed 

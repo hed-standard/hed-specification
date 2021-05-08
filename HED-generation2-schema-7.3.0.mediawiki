@@ -1,6 +1,7 @@
 HED version: 7.3.0
 
 Changelog
+* 5/08/2021: v7.3.0 Added unitClass as an attribute
 * 4/20/2021: v.7.3.0 Removed default as a valid attribute. Added schema attribute properties.
 * 3/16/2021: v.7.2.0 Adopted the new format for mediawiki files.
 * 11/22/2020: v. 7.1.2 Add extensionAllowed to top-level Item subtree.
@@ -1302,7 +1303,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
 * SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
 * takesValue <nowiki>{boolProperty}[This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
-* unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
+* unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki>
+* unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitClassProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
 !# end hed 
