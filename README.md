@@ -13,7 +13,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 > [**Expandable html view of HED8.0.0-alpha.2**](http://www.hedtags.org/display_hed.html?version=8.0.0-alpha.2) 
 
-> [**Readable mediawiki view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-V8.0.0-alpha.2.mediawiki) 
+> [**Readable mediawiki view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-alpha.2.mediawiki) 
 
 > [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
 
@@ -22,7 +22,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 The latest version is of HED-2G is 7.2.0:
 > [**Expandable html view of HED7.2.0**](http://www.hedtags.org/display_hed.html?version=7.2.0)  
 
-> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-V7.2.0.mediawiki)
+> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-7.2.0.mediawiki)
 
 > [**XML view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml)  
 
