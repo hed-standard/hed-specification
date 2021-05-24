@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-alpha.2">
+<HED version="8.0.0-alpha.3">
    <node>
       <name>Event</name>
       <node>
@@ -1918,9 +1918,15 @@
             </node>
             <node>
                <name>Onset</name>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
             </node>
             <node>
                <name>Offset</name>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
             </node>
             <node>
                <name>Pause</name>
@@ -2264,6 +2270,9 @@
             <attribute>
                <name>requireChild</name>
             </attribute>
+            <attribute>
+               <name>topLevelTagGroup</name>
+            </attribute>
             <node>
                <name>#</name>
                <attribute>
@@ -2417,6 +2426,9 @@
          <node>
             <name>Event-context</name>
             <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
+            <attribute>
+               <name>topLevelTagGroup</name>
+            </attribute>
          </node>
          <node>
             <name>Event-stream</name>
@@ -4599,6 +4611,13 @@
       <schemaAttributeDefinition>
          <name>takesValue</name>
          <description>This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.</description>
+         <property>
+            <name>boolProperty</name>
+         </property>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
+         <name>topLevelTagGroup</name>
+         <description>This tag can only appear in a top-level tag group.</description>
          <property>
             <name>boolProperty</name>
          </property>
