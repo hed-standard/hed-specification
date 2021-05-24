@@ -5,6 +5,10 @@
       <node>
          <name>Sensory-event</name>
          <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
+         <attribute>
+            <name>suggestedTag</name>
+            <value>Task-property/Task-role</value>
+         </attribute>
       </node>
       <node>
          <name>Agent-action</name>
@@ -14,17 +18,23 @@
          <name>Data-feature</name>
          <description>An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.</description>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Experiment-control</name>
          <description>An event pertaining to the control of the experiment during its operation.</description>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
       </node>
       <node>
          <name>Experiment-procedure</name>
          <description>An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.</description>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Experiment-structure</name>
          <description>An event specifying the structure of the experiment.</description>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
       </node>
    </node>
    <node>
@@ -51,9 +61,12 @@
          <name>Robotic-agent</name>
       </node>
    </node>
-   <node extensionAllowed="true">
+   <node>
       <name>Action</name>
       <description>May or may not be in response to a previous Sensory presentation event.</description>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Move</name>
          <node>
@@ -449,8 +462,11 @@
          </node>
       </node>
    </node>
-   <node extensionAllowed="true">
+   <node>
       <name>Item</name>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Language</name>
          <description>An  system of communication that is receivable in a sensory presentation.</description>
@@ -491,9 +507,12 @@
             <description>A single distinct meaningful element of a language.</description>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Object</name>
          <description>Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.</description>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Geometric</name>
             <node>
@@ -669,16 +688,22 @@
                         <name>Keyboard</name>
                         <node>
                            <name>Keyboard-key</name>
-                           <node takesValue="true">
+                           <node>
                               <name>#</name>
                               <description>Value of a keyboard key.</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
                            </node>
                         </node>
                         <node>
                            <name>Keypad-key</name>
-                           <node takesValue="true">
+                           <node>
                               <name>#</name>
                               <description>Value of keypad key.</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
                            </node>
                         </node>
                      </node>
@@ -1088,8 +1113,14 @@
    </node>
    <node>
       <name>Agent-property</name>
-      <node extensionAllowed="true" requireChild="true">
+      <node>
          <name>Cognitive-state</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
+         <attribute>
+            <name>requireChild</name>
+         </attribute>
          <node>
             <name>Alert</name>
          </node>
@@ -1132,8 +1163,14 @@
             <name>Vegetative</name>
          </node>
       </node>
-      <node extensionAllowed="true" requireChild="true">
+      <node>
          <name>Emotional-state</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
+         <attribute>
+            <name>requireChild</name>
+         </attribute>
          <node>
             <name>Angry</name>
          </node>
@@ -1217,12 +1254,18 @@
             <name>Supported-by-chin-rest</name>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Agent-trait</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Age</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
@@ -1242,8 +1285,11 @@
          </node>
          <node>
             <name>Handedness</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
       </node>
@@ -1314,27 +1360,42 @@
    </node>
    <node>
       <name>Data-property</name>
-      <node extensionAllowed="true">
+      <node>
          <name>Computed-property</name>
          <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Computed-prediction</name>
          </node>
       </node>
       <node>
          <name>Data-value</name>
-         <node takesValue="true">
+         <node>
             <name>#</name>
+            <attribute>
+               <name>takesValue</name>
+            </attribute>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Observational-property</name>
          <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName</description>
-         <node extensionAllowed="true">
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
+         <node>
             <name>Expert-annotation</name>
+            <attribute>
+               <name>extensionAllowed</name>
+            </attribute>
          </node>
-         <node extensionAllowed="true">
+         <node>
             <name>Instrument-measurement</name>
+            <attribute>
+               <name>extensionAllowed</name>
+            </attribute>
          </node>
       </node>
       <node>
@@ -1361,103 +1422,191 @@
             </node>
             <node>
                <name>Temperature</name>
-               <node isNumeric="true" takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Quantitative</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Angle</name>
             <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Fraction</name>
             <description>Fraction of items of a particular type.</description>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Interval</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Item-count</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Percentage</name>
             <description>Percentage of items of a particular type.</description>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Ratio</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Repetition</name>
             <description>When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others</description>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Spatiotemporal</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Rate-of-change</name>
             <node>
                <name>Acceleration</name>
-               <node isNumeric="true" takesValue="true" unitClass="acceleration">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>acceleration</value>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Jerk-rate</name>
                <description>Rate at which the acceleration of an object changes with respect to time.</description>
-               <node isNumeric="true" takesValue="true" unitClass="jerk">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>jerk</value>
+                  </attribute>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Sampling-rate</name>
                <description>Number of measurements per unit time.</description>
-               <node takesValue="true" unitClass="frequency">
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>frequency</value>
+                  </attribute>
                </node>
             </node>
-            <node requireChild="true">
+            <node>
                <name>Refresh-rate</name>
                <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
-               <node isNumeric="true" takesValue="true">
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Temporal-rate</name>
                <description>Number of occurrences in a unit of time.</description>
-               <node isNumeric="true" takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Velocity</name>
-               <node isNumeric="true" takesValue="true" unitClass="speed">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>speed</value>
+                  </attribute>
                </node>
             </node>
          </node>
@@ -1468,35 +1617,50 @@
                <node>
                   <name>Screen-resolution</name>
                   <description>Number of pixels in each dimension for a digital display device.</description>
-                  <node takesValue="true">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Printer-resolution</name>
                   <description>Number of dots-per-inch for a printer.</description>
-                  <node takesValue="true">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
                   </node>
                </node>
             </node>
             <node>
                <name>Spatial-resolution</name>
                <description>Linear spacing of a spatial measurement.</description>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Spectral-resolution</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Temporal-resolution</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
          </node>
@@ -1504,21 +1668,43 @@
             <name>Spatial</name>
             <node>
                <name>Direction</name>
-               <node isNumeric="true" takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Distance</name>
                <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
-               <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>physicalLength</value>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Orientation</name>
-               <node isNumeric="true" takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
@@ -1526,20 +1712,50 @@
                <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
                <node>
                   <name>X-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Y-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Z-position</name>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
             </node>
@@ -1569,35 +1785,85 @@
                <name>Size</name>
                <node>
                   <name>Area</name>
-                  <node isNumeric="true" takesValue="true" unitClass="area">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>area</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Length</name>
                   <description>A measurement of the size along the longest dimension.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Width</name>
                   <description>A measurement along the shortest of two or three dimensions.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Height</name>
                   <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
-                  <node isNumeric="true" takesValue="true" unitClass="physicalLength">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
                   <name>Volume</name>
-                  <node isNumeric="true" takesValue="true" unitClass="volume">
+                  <node>
                      <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>volume</value>
+                     </attribute>
                   </node>
                </node>
             </node>
@@ -1616,15 +1882,35 @@
             <node>
                <name>Delay</name>
                <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Duration</name>
                <description>Time extent of something.</description>
-               <node isNumeric="true" takesValue="true" unitClass="time">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
                </node>
             </node>
             <node>
@@ -1639,8 +1925,18 @@
             </node>
             <node>
                <name>Temporal-value</name>
-               <node isNumeric="true" takesValue="true" unitClass="time">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
                </node>
             </node>
             <node>
@@ -1652,8 +1948,11 @@
             </node>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Statistical-property</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Accuracy</name>
          </node>
@@ -1787,9 +2086,17 @@
          <description>How the participant response should be interpreted in terms of the task specification.</description>
          <node>
             <name>Appropriate</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Inappropriate</value>
+            </attribute>
          </node>
          <node>
             <name>Correction</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Successful</value>
+            </attribute>
          </node>
          <node>
             <name>Erroneous</name>
@@ -1800,18 +2107,41 @@
          </node>
          <node>
             <name>Inappropriate</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Appropriate</value>
+            </attribute>
          </node>
          <node>
             <name>Indeterminate</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Missed</value>
+               <value>Near-miss</value>
+            </attribute>
          </node>
          <node>
             <name>Missed</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Indeterminate</value>
+               <value>Near-miss</value>
+            </attribute>
          </node>
          <node>
             <name>Near-miss</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Indeterminate</value>
+               <value>Miss</value>
+            </attribute>
          </node>
          <node>
             <name>Successful</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Correction</value>
+            </attribute>
          </node>
       </node>
       <node>
@@ -1890,58 +2220,100 @@
          </node>
       </node>
    </node>
-   <node extensionAllowed="true">
+   <node>
       <name>Attribute</name>
       <description>Subtree tree for general properties.</description>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Informational</name>
          <description>Informational properties.</description>
-         <node requireChild="true">
+         <node>
             <name>Def</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Def-expand</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Definition</name>
             <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Description</name>
             <description>Human-readable text description of the event.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
             <name>Experimental-note</name>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>ID</name>
             <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
-         <node requireChild="true">
+         <node>
             <name>Label</name>
             <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.</description>
-            <node takesValue="true">
+            <attribute>
+               <name>requireChild</name>
+            </attribute>
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
          <node>
@@ -1950,54 +2322,82 @@
             <node>
                <name>CogAtlas</name>
                <description>A tag used within a tag group indicate a relationship to the CognitiveAtlas terminology.</description>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>CogPo</name>
                <description>A tag used within a tag group indicate a relationship to the CogPO terminology.</description>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Creation-date</name>
-               <node takesValue="true" unitClass="datetime">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>datetime</value>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Library-name</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Path-name</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Subject</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Version</name>
-               <node takesValue="true">
+               <node>
                   <name>#</name>
                   <description>Usually is a semantic version.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
          </node>
          <node>
             <name>Parameter</name>
             <description>As a Name:Value</description>
-            <node takesValue="true">
+            <node>
                <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
          </node>
       </node>
@@ -2052,8 +2452,11 @@
             <description>A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.</description>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Relational</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Comparative-relation</name>
             <node>
@@ -2364,63 +2767,143 @@
             </node>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Categorical</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Abnormal</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Normal</value>
+            </attribute>
          </node>
          <node>
             <name>All</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Some</value>
+               <value>None</value>
+            </attribute>
          </node>
          <node>
             <name>Asymmetric</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Symmetric</value>
+            </attribute>
          </node>
          <node>
             <name>Congruent</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Incongruent</value>
+            </attribute>
          </node>
          <node>
             <name>Constrained</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Unconstrained</value>
+            </attribute>
          </node>
          <node>
             <name>Correct</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Incorrect</value>
+            </attribute>
          </node>
          <node>
             <name>Deep</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Shallow</value>
+            </attribute>
          </node>
          <node>
             <name>Disordered</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Ordered</value>
+            </attribute>
          </node>
          <node>
             <name>False</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>True</value>
+            </attribute>
          </node>
          <node>
             <name>Familiar</name>
             <description>Something known or encountered before.</description>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Unfamiliar</value>
+               <value>Famous</value>
+            </attribute>
          </node>
          <node>
             <name>Famous</name>
             <description>Something known by many people but necessarily because of direct contact.</description>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Familiar</value>
+               <value>Unfamiliar</value>
+            </attribute>
          </node>
          <node>
             <name>High</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Low</value>
+               <value>Medium</value>
+            </attribute>
          </node>
          <node>
             <name>Incongruent</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Congruent</value>
+            </attribute>
          </node>
          <node>
             <name>Incorrect</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Correct</value>
+            </attribute>
          </node>
          <node>
             <name>Invalid</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Valid</value>
+            </attribute>
          </node>
          <node>
             <name>Involuntary</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Voluntary</value>
+            </attribute>
          </node>
          <node>
             <name>Liminal</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Subliminal</value>
+               <value>Supraliminal</value>
+            </attribute>
          </node>
          <node>
             <name>Low</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>High</value>
+            </attribute>
          </node>
          <node>
             <name>Masked</name>
@@ -2428,46 +2911,108 @@
          </node>
          <node>
             <name>Medium</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Low</value>
+               <value>High</value>
+            </attribute>
          </node>
          <node>
             <name>None</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>All</value>
+               <value>Some</value>
+            </attribute>
          </node>
          <node>
             <name>Normal</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Abnormal</value>
+            </attribute>
          </node>
          <node>
             <name>Negative</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Positive</value>
+            </attribute>
          </node>
          <node>
             <name>Ordered</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Disordered</value>
+            </attribute>
          </node>
          <node>
             <name>Positive</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Negative</value>
+            </attribute>
          </node>
          <node>
             <name>Shallow</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Deep</value>
+            </attribute>
          </node>
          <node>
             <name>Some</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>All</value>
+               <value>None</value>
+            </attribute>
          </node>
          <node>
             <name>Subliminal</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Liminal</value>
+               <value>Supraliminal</value>
+            </attribute>
          </node>
          <node>
             <name>Supraliminal</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Liminal</value>
+               <value>Subliminal</value>
+            </attribute>
          </node>
          <node>
             <name>Symmetric</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Unsymmetric</value>
+            </attribute>
          </node>
          <node>
             <name>True</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>False</value>
+            </attribute>
          </node>
          <node>
             <name>Unconstrained</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Constrained</value>
+            </attribute>
          </node>
          <node>
             <name>Unfamiliar</name>
             <description>Something not known or encountered before.</description>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Familiar</value>
+               <value>Famous</value>
+            </attribute>
          </node>
          <node>
             <name>Unmasked</name>
@@ -2475,9 +3020,17 @@
          </node>
          <node>
             <name>Valid</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Invalid</value>
+            </attribute>
          </node>
          <node>
             <name>Voluntary</name>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Involuntary</value>
+            </attribute>
          </node>
       </node>
       <node>
@@ -2502,8 +3055,11 @@
             <name>Symbolic</name>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Sensory</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Auditory</name>
             <node>
@@ -2511,14 +3067,30 @@
             </node>
             <node>
                <name>Frequency</name>
-               <node isNumeric="true" takesValue="true" unitClass="frequency">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>frequency</value>
+                  </attribute>
                </node>
             </node>
             <node>
                <name>Loudness</name>
-               <node isNumeric="true" takesValue="true">
+               <node>
                   <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
             </node>
             <node>
@@ -2614,23 +3186,41 @@
                   <name>HSV-color</name>
                   <node>
                      <name>Hue</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>Angular value between 0 and 360</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                   <node>
                      <name>Saturation</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>B value of RGB between 0 and 1</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                   <node>
                      <name>HSV-value</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>G value of RGB between 0 and 1</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                </node>
@@ -2638,32 +3228,56 @@
                   <name>RGB-color</name>
                   <node>
                      <name>RGB-red</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>R value of RGB between 0 and 1</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                   <node>
                      <name>RGB-blue</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>B value of RGB between 0 and 1</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                   <node>
                      <name>RGB-green</name>
-                     <node isNumeric="true" takesValue="true">
+                     <node>
                         <name>#</name>
                         <description>G value of RGB between 0 and 1</description>
+                        <attribute>
+                           <name>isNumeric</name>
+                        </attribute>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
                      </node>
                   </node>
                </node>
                <node>
                   <name>Grayscale</name>
                   <description>Indicates gray scale</description>
-                  <node isNumeric="true" takesValue="true">
+                  <node>
                      <name>#</name>
                      <description>White intensity between 0 and 1</description>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
                   </node>
                </node>
                <node>
@@ -3171,8 +3785,11 @@
             </node>
          </node>
       </node>
-      <node extensionAllowed="true">
+      <node>
          <name>Environmental</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Indoors</name>
          </node>
@@ -3238,345 +3855,388 @@
          <name>Anatomical</name>
       </node>
    </node>
-   <unitClasses>
-      <unitClass defaultUnits="m-per-s^2">
+   <unitClassDefinitions>
+      <unitClassDefinition>
          <name>acceleration</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m-per-s^2</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="radian">
+         <unit>
+            <name>m-per-s^2</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>angle</name>
-         <units>
-            <unit SIUnit="true">radian</unit>
-            <unit SIUnit="true" unitSymbol="true">rad</unit>
-            <unit>degree</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m^2">
+         <unit>
+            <name>radian</name>
+         </unit>
+         <unit>
+            <name>rad</name>
+         </unit>
+         <unit>
+            <name>degree</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>area</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m^2</unit>
-            <unit unitSymbol="true">px^2</unit>
-            <unit>pixel^2</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="$">
+         <unit>
+            <name>m^2</name>
+         </unit>
+         <unit>
+            <name>px^2</name>
+         </unit>
+         <unit>
+            <name>pixel^2</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>currency</name>
-         <units>
-            <unit>dollar</unit>
-            <unit unitSymbol="true">$</unit>
-            <unit>point</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="YYYY-MM-DDThh:mm:ss">
+         <unit>
+            <name>dollar</name>
+         </unit>
+         <unit>
+            <name>$</name>
+         </unit>
+         <unit>
+            <name>point</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>dateTime</name>
-         <units>
-            <unit>YYYY-MM-DDThh:mm:ss</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="Hz">
+         <unit>
+            <name>YYYY-MM-DDThh:mm:ss</name>
+            <description>Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.</description>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>frequency</name>
-         <units>
-            <unit SIUnit="true">hertz</unit>
-            <unit SIUnit="true" unitSymbol="true">Hz</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="dB">
+         <unit>
+            <name>hertz</name>
+         </unit>
+         <unit>
+            <name>Hz</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>intensity</name>
-         <units>
-            <unit unitSymbol="true">dB</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m-per-s^3">
+         <unit>
+            <name>dB</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>jerk</name>
-         <units>
-            <unit unitSymbol="true">m-per-s^3</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="cd">
+         <unit>
+            <name>m-per-s^3</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>luminousIntensity</name>
-         <units>
-            <unit SIUnit="true">candela</unit>
-            <unit SIUnit="true" unitSymbol="true">cd</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="B">
+         <unit>
+            <name>candela</name>
+         </unit>
+         <unit>
+            <name>cd</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>memorySize</name>
-         <units>
-            <unit SIUnit="true">byte</unit>
-            <unit SIUnit="true" unitSymbol="true">B</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m">
+         <unit>
+            <name>byte</name>
+         </unit>
+         <unit>
+            <name>B</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>physicalLength</name>
-         <units>
-            <unit SIUnit="true">metre</unit>
-            <unit SIUnit="true" unitSymbol="true">m</unit>
-            <unit>foot</unit>
-            <unit>mile</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="px">
+         <unit>
+            <name>metre</name>
+         </unit>
+         <unit>
+            <name>m</name>
+         </unit>
+         <unit>
+            <name>foot</name>
+         </unit>
+         <unit>
+            <name>mile</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>pixels</name>
-         <units>
-            <unit>pixel</unit>
-            <unit unitSymbol="true">px</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m-per-s">
+         <unit>
+            <name>pixel</name>
+         </unit>
+         <unit>
+            <name>px</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>speed</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m-per-s</unit>
-            <unit unitSymbol="true">mph</unit>
-            <unit unitSymbol="true">kph</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="s">
+         <unit>
+            <name>m-per-s</name>
+         </unit>
+         <unit>
+            <name>mph</name>
+         </unit>
+         <unit>
+            <name>kph</name>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>time</name>
-         <units>
-            <unit SIUnit="true">second</unit>
-            <unit SIUnit="true" unitSymbol="true">s</unit>
-            <unit>day</unit>
-            <unit>minute</unit>
-            <unit>hour</unit>
-         </units>
-      </unitClass>
-      <unitClass defaultUnits="m^3">
+         <unit>
+            <name>second</name>
+         </unit>
+         <unit>
+            <name>s</name>
+         </unit>
+         <unit>
+            <name>day</name>
+         </unit>
+         <unit>
+            <name>minute</name>
+         </unit>
+         <unit>
+            <name>hour</name>
+            <description>Should be in 24-hour format.</description>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>volume</name>
-         <units>
-            <unit SIUnit="true" unitSymbol="true">m^3</unit>
-         </units>
-      </unitClass>
-   </unitClasses>
-   <unitModifiers>
-      <unitModifier SIUnitModifier="true">
+         <unit>
+            <name>m^3</name>
+         </unit>
+      </unitClassDefinition>
+   </unitClassDefinitions>
+   <unitModifierDefinitions>
+      <unitModifierDefinition>
          <name>deca</name>
          <description>SI unit multiple representing 10^1</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>da</name>
          <description>SI unit multiple representing 10^1</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>hecto</name>
          <description>SI unit multiple representing 10^2</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>h</name>
          <description>SI unit multiple representing 10^2</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>kilo</name>
          <description>SI unit multiple representing 10^3</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>k</name>
          <description>SI unit multiple representing 10^3</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>mega</name>
          <description>SI unit multiple representing 10^6</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>M</name>
          <description>SI unit multiple representing 10^6</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>giga</name>
          <description>SI unit multiple representing 10^9</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>G</name>
          <description>SI unit multiple representing 10^9</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>tera</name>
          <description>SI unit multiple representing 10^12</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>T</name>
          <description>SI unit multiple representing 10^12</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>peta</name>
          <description>SI unit multiple representing 10^15</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>P</name>
          <description>SI unit multiple representing 10^15</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>exa</name>
          <description>SI unit multiple representing 10^18</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>E</name>
          <description>SI unit multiple representing 10^18</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>zetta</name>
          <description>SI unit multiple representing 10^21</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>Z</name>
          <description>SI unit multiple representing 10^21</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>yotta</name>
          <description>SI unit multiple representing 10^24</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>Y</name>
          <description>SI unit multiple representing 10^24</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>deci</name>
          <description>SI unit submultiple representing 10^-1</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>d</name>
          <description>SI unit submultiple representing 10^-1</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>centi</name>
          <description>SI unit submultiple representing 10^-2</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>c</name>
          <description>SI unit submultiple representing 10^-2</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>milli</name>
          <description>SI unit submultiple representing 10^-3</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>m</name>
          <description>SI unit submultiple representing 10^-3</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>micro</name>
          <description>SI unit submultiple representing 10^-6</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>u</name>
          <description>SI unit submultiple representing 10^-6</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>nano</name>
          <description>SI unit submultiple representing 10^-9</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>n</name>
          <description>SI unit submultiple representing 10^-9</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>pico</name>
          <description>SI unit submultiple representing 10^-12</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>p</name>
          <description>SI unit submultiple representing 10^-12</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>femto</name>
          <description>SI unit submultiple representing 10^-15</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>f</name>
          <description>SI unit submultiple representing 10^-15</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>atto</name>
          <description>SI unit submultiple representing 10^-18</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>a</name>
          <description>SI unit submultiple representing 10^-18</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>zepto</name>
          <description>SI unit submultiple representing 10^-21</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>z</name>
          <description>SI unit submultiple representing 10^-21</description>
-      </unitModifier>
-      <unitModifier SIUnitModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>yocto</name>
          <description>SI unit submultiple representing 10^-24</description>
-      </unitModifier>
-      <unitModifier SIUnitSymbolModifier="true">
+      </unitModifierDefinition>
+      <unitModifierDefinition>
          <name>y</name>
          <description>SI unit submultiple representing 10^-24</description>
-      </unitModifier>
-      <unitModifier>
-         <name>Schema attributes</name>
-      </unitModifier>
-      <unitModifier>
+      </unitModifierDefinition>
+   </unitModifierDefinitions>
+   <schemaAttributeDefinitions>
+      <schemaAttributeDefinition>
          <name>defaultUnits</name>
          <description>Default units for a tag.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>extensionAllowed</name>
          <description>Users can add unlimited levels of child nodes under this tag.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>isNumeric</name>
          <description>The tag hashtag placeholder must be replaced by a numerical value.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>position</name>
          <description>Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>predicateType</name>
          <description>One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>recommended</name>
          <description>A HED string tagging an event is recommended to include this tag.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>relatedTag</name>
          <description>Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>requireChild</name>
          <description>One of its descendants must be chosen to tag an event.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>required</name>
          <description>Every HED string tagging an event should include this tag.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>SIUnit</name>
          <description>Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>SIUnitModifier</name>
          <description>SI unit modifier indicating a multiple or submultiple of a base unit.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>SIUnitSymbolModifier</name>
          <description>SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>suggestedTag</name>
          <description>Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>takesValue</name>
          <description>This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>unique</name>
          <description>Only one of this tag or its descendants can be used within a single tag group or event.</description>
-      </unitModifier>
-      <unitModifier>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
+         <name>unitClass</name>
+         <description>Schema attribute specifying which unit class this value tag belongs to.</description>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
          <name>unitSymbol</name>
          <description>Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.</description>
-      </unitModifier>
-   </unitModifiers>
+      </schemaAttributeDefinition>
+   </schemaAttributeDefinitions>
    <epilogue>This is the new format for the mediawiki schema</epilogue>
 </HED>
