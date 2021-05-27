@@ -2,10 +2,10 @@ HED version: 8.0.0-alpha.3
 
 !# start schema 
 
-'''Event''' 
+'''Event''' <nowiki>[Elements of this tree designate the general category in which an event falls. ]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
-* Agent-action <nowiki>[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
-* Data-feature <nowiki>[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
+* Data-feature <nowiki>{suggestedTag=DataProperty}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
@@ -14,10 +14,11 @@ HED version: 8.0.0-alpha.3
 '''Agent''' <nowiki>[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be soething that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present.]</nowiki>
 * Avatar-agent
-* Computational-agent
-* Controller-agent <nowiki>[An outside controller such as the experimental control software.]</nowiki> 
+* Computational-agent <nowiki>[An agent whose decisions about its actions can be explained in terms of computation.]</nowiki>
+* Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
 * Human-agent 
-* Robotic-agent 
+* Robotic-agent
+* Software-agent  
 
 '''Action''' <nowiki>{extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
@@ -36,57 +37,60 @@ HED version: 8.0.0-alpha.3
 *** Shudder 
 *** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
 *** Turn
-** Move-head
-*** Move-eyes
-**** Blink
-**** Close-eyes
-**** Fixate
-**** Inhibit-blinks
-**** Open-eyes 
-**** Saccade
-*** Move-mouth
-**** Burp 
-**** Clear-throat
-**** Cough 
-**** Gurgle
-**** Hiccup 
-**** Smile
-**** Sneeze 
-**** Sniffle
-**** Swallow
-**** Yawn 
-*** Nod
-*** Shake-head
-** Move-arm-hand
-*** Clap
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-*** Grab
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Hold-down
-*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-*** Make-fist
-*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-*** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-*** Push
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-*** Release <nowiki>[Often grouped with item being released.]</nowiki>
-*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-*** Scratch
-*** Snap-fingers
-*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Touch <nowiki>[May follow a Reach event]</nowiki> 
-** Move-leg-foot
-*** Curl-toes
-*** Jog
-*** Jump
-*** Kick 
-*** Pedal
-*** Run
-*** Step
-**** Heel-strike 
-**** Toe-off
-*** Trot
-*** Walk
+** Move-body-part
+*** Move-head
+**** Move-eyes
+***** Blink
+***** Close-eyes
+***** Fixate
+***** Inhibit-blinks
+***** Open-eyes 
+***** Saccade
+**** Move-jaw
+***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]
+***** Burp 
+***** Chew <nowiki>[Repeated grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
+***** Clear-throat
+***** Cough 
+***** Gurgle
+***** Hiccup 
+***** Smile
+***** Sneeze 
+***** Sniffle
+***** Swallow
+***** Yawn <nowiki>[An involuntary deep inhalation with the mouth open often a sign of drowsiness or boredom.]</nowiki>
+**** Nod
+**** Shake-head
+*** Move-arm-hand
+**** Clap
+**** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+**** Grab
+**** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+**** Hold-down
+**** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+**** Make-fist
+**** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+**** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+**** Push
+**** Reach <nowiki>[Stretching out arm in order to get or touch something. The requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+**** Release <nowiki>[Often grouped with item being released.]</nowiki>
+**** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+**** Scratch
+**** Snap-fingers
+**** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
+**** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Move-leg-foot
+**** Curl-toes
+**** Jog
+**** Jump
+**** Kick 
+**** Pedal
+**** Run
+**** Step
+***** Heel-strike 
+***** Toe-off
+**** Trot
+**** Walk
 
 * Communicate
 ** Communicate-vocally
