@@ -89,7 +89,7 @@ HED version: 8.0.0-alpha.3
 ***** Heel-strike 
 ***** Toe-off
 **** Trot
-**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</wiki>
+**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Communicate
 ** Communicate-vocally
 *** Cry
