@@ -47,7 +47,7 @@ HED version: 8.0.0-alpha.3
 ***** Open-eyes 
 ***** Saccade
 **** Move-jaw
-***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]
+***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
 ***** Burp 
 ***** Chew <nowiki>[Repeated grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
 ***** Clear-throat
