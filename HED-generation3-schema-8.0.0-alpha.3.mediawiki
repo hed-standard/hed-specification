@@ -10,7 +10,6 @@ HED version: 8.0.0-alpha.3
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
-
 '''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present.]</nowiki>
 * Avatar-agent <nowiki>[An agent associated with an icon or figure representing a particular person in venues such as video games or internet forums.]</nowiki>
@@ -350,6 +349,7 @@ HED version: 8.0.0-alpha.3
 *** Ding
 *** Horn
 *** Siren
+
 '''Agent-property''' 
 * Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
 ** Alert
