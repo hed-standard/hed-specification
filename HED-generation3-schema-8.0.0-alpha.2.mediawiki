@@ -87,7 +87,6 @@ HED version: 8.0.0-alpha.2
 **** Toe-off
 *** Trot
 *** Walk
-
 * Communicate
 ** Communicate-vocally
 *** Cry
@@ -271,8 +270,6 @@ HED version: 8.0.0-alpha.2
 **** Train 
 **** Truck 
 ** Natural-object <nowiki>[An object occuring naturally in contrast to a man-made object.]</nowiki>
-
-
 *** Mineral <nowiki>[An inorganic substance]</nowiki>
 *** Natural-feature <nowiki>[Some terrain occuring in the outdoors.]</nowiki>
 **** Field
@@ -282,8 +279,6 @@ HED version: 8.0.0-alpha.2
 **** Waterfall
 ** Food <nowiki>[Something that is usually solid and can be consumed by an organism.]</nowiki>
 ** Drink <nowiki>[Something that is liquid and can be consumed by an organism.]</nowiki>
-
-
 * Organism <nowiki>[Something living or part of something living.]</nowiki>
 ** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
 *** Human
@@ -343,7 +338,6 @@ HED version: 8.0.0-alpha.2
 *** Moo
 *** Purr
 *** Roar
-
 ** Named-object-sound
 *** Alarm
 *** Buzz
@@ -445,7 +439,6 @@ HED version: 8.0.0-alpha.2
 *** Pressure
 *** Temperature
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-
 * Quantitative <nowiki>{extensionAllowed}</nowiki>
 ** Angle<nowiki>[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -521,7 +514,6 @@ HED version: 8.0.0-alpha.2
 *** Surface-properties
 **** Rough
 **** Smooth
-
 ** Temporal
 *** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
@@ -534,7 +526,6 @@ HED version: 8.0.0-alpha.2
 **** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 *** Time-out
 *** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-  
 * Statistical-property <nowiki>{extensionAllowed}</nowiki>
 ** Accuracy 
 ** Data-mean 
@@ -558,13 +549,11 @@ HED version: 8.0.0-alpha.2
 ** Selective-attention
 ** Sustained-attention
 ** Top-down-attention
-
 * Task-effect-evidence
 ** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
 **  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>[This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.]</nowiki>
-
 * Task-role <nowiki>[The purpose with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
@@ -576,7 +565,6 @@ HED version: 8.0.0-alpha.2
 ** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
-
 * Task-response-type <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
 ** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
 ** Correction <nowiki>{relatedTag=Successful}</nowiki>
@@ -587,7 +575,6 @@ HED version: 8.0.0-alpha.2
 ** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
 ** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
 ** Successful <nowiki>{relatedTag=Correction}</nowiki>
-
 * Task-stimulus-type <nowiki> [The stimulus purpose in the task.]</nowiki>
 ** Cue
 ** Distractor 
@@ -611,7 +598,6 @@ HED version: 8.0.0-alpha.2
 ** Threat
 ** Timed
 ** Unexpected
-
 
 '''Attribute''' <nowiki>{extensionAllowed} [Subtree tree for general properties.]</nowiki>
 * Informational <nowiki>[Informational properties.]</nowiki>
@@ -644,10 +630,8 @@ HED version: 8.0.0-alpha.2
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
-
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-
 * Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
@@ -682,19 +666,16 @@ HED version: 8.0.0-alpha.2
 *** Part-of
 *** Performed-by
 *** Related-to
-
 ** Ordering-relation
 *** Early-item <nowiki>[Indication that this item appears early in a sequence.]</nowiki>
 *** First-item <nowiki>[Indication that this is the first item in a sequence.]</nowiki>
 *** Next-item <nowiki>[Indication that this item appears immediately after the previous item in a sequence.]</nowiki> 
 *** Later-item <nowiki>[Indication that this item appears later in a sequence.]</nowiki>
 *** Last-item <nowiki>[Indication that this is the last item in a sequence.]</nowiki>
-
 ** Quantitative-relation
 *** Estimated
 *** Approximated
 *** Exact
-
 ** Spatiotemporal-relation
 *** Directional-relation
 **** Away-from
@@ -729,7 +710,6 @@ HED version: 8.0.0-alpha.2
 **** Boundary-of
 **** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 **** Close-to
-
 **** Edge-of
 **** Far-from
 **** Front-of
@@ -760,15 +740,11 @@ HED version: 8.0.0-alpha.2
 **** Repetitive
 **** Sudden
 **** Varying
-
 ** Thermal-relation
 *** Cold
 *** Colder-than
 *** Hot
 *** Hotter-than
-
-
-
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 *** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
@@ -782,7 +758,6 @@ HED version: 8.0.0-alpha.2
 *** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
 *** True <nowiki>{relatedTag=False}</nowiki>
 *** Valid <nowiki>{relatedTag=Invalid}</nowiki>
-
 ** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
 *** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
 *** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
@@ -814,7 +789,6 @@ HED version: 8.0.0-alpha.2
 *** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
 *** Thick <nowiki>{relatedTag=Thin}</nowiki>
 *** Thin <nowiki>{relatedTag=Thick}</nowiki>
-
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Clinical
@@ -822,7 +796,6 @@ HED version: 8.0.0-alpha.2
 ** Composite
 ** Numerical
 ** Symbolic
-
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Audible
@@ -1038,9 +1011,6 @@ HED version: 8.0.0-alpha.2
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view
-
-
-
 * Environmental <nowiki>{extensionAllowed}</nowiki>
 ** Indoors
 ** Outdoors
@@ -1062,9 +1032,7 @@ HED version: 8.0.0-alpha.2
 *** Rocky-terrain
 *** Sloped-terrain
 *** Uneven-terrain
-
 * Anatomical
-
 !# end schema 
 
 '''Unit classes''' 

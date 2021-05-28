@@ -2,26 +2,26 @@ HED version: 8.0.0-alpha.3
 
 !# start schema 
 
-'''Event''' 
+'''Event''' <nowiki>[Elements of this tree designate the general category in which an event falls. ]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
-* Agent-action <nowiki>[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
-* Data-feature <nowiki>[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
+* Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
 
-
-'''Agent''' <nowiki>[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be soething that simulates something else.]</nowiki>
+'''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present.]</nowiki>
-* Avatar-agent
-* Computational-agent
-* Controller-agent <nowiki>[An outside controller such as the experimental control software.]</nowiki> 
-* Human-agent 
-* Robotic-agent 
+* Avatar-agent <nowiki>[An agent associated with an icon or figure representing a particular person in venues such as video games or internet forums.]</nowiki>
+* Computational-agent <nowiki>[An agent whose decisions about its actions can be explained in terms of computation.]</nowiki>
+* Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
+* Human-agent <nowiki>[A person who takes an active role or produces a specified effect.]</nowiki>
+* Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
+* Software-agent <nowiki>[A computer program that acts for a user or other program in a relationship of agency.]</nowiki>
 
 '''Action''' <nowiki>{extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
 * Move
-** Breathe
+** Breathe <nowiki>[Inhale and exhale air into the body during respiration.]</nowiki>
 *** Inhale <nowiki>[A deliberate in-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental if the inhalation is incidental to the task (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Exhale <nowiki>[A deliberate out-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental: (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
 *** Hold-breath
@@ -36,58 +36,60 @@ HED version: 8.0.0-alpha.3
 *** Shudder 
 *** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
 *** Turn
-** Move-head
-*** Move-eyes
-**** Blink
-**** Close-eyes
-**** Fixate
-**** Inhibit-blinks
-**** Open-eyes 
-**** Saccade
-*** Move-mouth
-**** Burp 
-**** Clear-throat
-**** Cough 
-**** Gurgle
-**** Hiccup 
-**** Smile
-**** Sneeze 
-**** Sniffle
-**** Swallow
-**** Yawn 
-*** Nod
-*** Shake-head
-** Move-arm-hand
-*** Clap
-*** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-*** Grab
-*** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-*** Hold-down
-*** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-*** Make-fist
-*** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-*** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-*** Push
-*** Reach <nowiki>[Requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-*** Release <nowiki>[Often grouped with item being released.]</nowiki>
-*** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-*** Scratch
-*** Snap-fingers
-*** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-*** Touch <nowiki>[May follow a Reach event]</nowiki> 
-** Move-leg-foot
-*** Curl-toes
-*** Jog
-*** Jump
-*** Kick 
-*** Pedal
-*** Run
-*** Step
-**** Heel-strike 
-**** Toe-off
-*** Trot
-*** Walk
-
+** Move-body-part
+*** Move-head
+**** Move-eyes
+***** Blink
+***** Close-eyes
+***** Fixate
+***** Inhibit-blinks
+***** Open-eyes 
+***** Saccade
+**** Move-jaw
+***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
+***** Burp 
+***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
+***** Clear-throat
+***** Cough 
+***** Gurgle
+***** Hiccup 
+***** Smile
+***** Sneeze 
+***** Sniffle
+***** Swallow
+***** Yawn <nowiki>[An involuntary deep inhalation with the mouth open often a sign of drowsiness or boredom.]</nowiki>
+**** Nod-head
+**** Shake-head
+*** Move-arm-hand
+**** Clap
+**** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
+**** Grab
+**** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
+**** Hold-down
+**** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
+**** Make-fist
+**** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
+**** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
+**** Push
+**** Reach <nowiki>[Stretching out arm in order to get or touch something. The requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
+**** Release <nowiki>[Often grouped with item being released.]</nowiki>
+**** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
+**** Scratch
+**** Snap-fingers
+**** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
+**** Touch <nowiki>[May follow a Reach event]</nowiki> 
+*** Move-leg-foot
+**** Curl-toes
+**** Jog
+**** Jump
+**** Kick 
+**** Pedal
+**** Run
+**** Step
+***** Heel-strike 
+***** Toe-off
+**** Trot
+**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Communicate
 ** Communicate-vocally
 *** Cry
@@ -271,8 +273,6 @@ HED version: 8.0.0-alpha.3
 **** Train 
 **** Truck 
 ** Natural-object <nowiki>[An object occuring naturally in contrast to a man-made object.]</nowiki>
-
-
 *** Mineral <nowiki>[An inorganic substance]</nowiki>
 *** Natural-feature <nowiki>[Some terrain occuring in the outdoors.]</nowiki>
 **** Field
@@ -282,8 +282,6 @@ HED version: 8.0.0-alpha.3
 **** Waterfall
 ** Food <nowiki>[Something that is usually solid and can be consumed by an organism.]</nowiki>
 ** Drink <nowiki>[Something that is liquid and can be consumed by an organism.]</nowiki>
-
-
 * Organism <nowiki>[Something living or part of something living.]</nowiki>
 ** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
 *** Human
@@ -343,7 +341,6 @@ HED version: 8.0.0-alpha.3
 *** Moo
 *** Purr
 *** Roar
-
 ** Named-object-sound
 *** Alarm
 *** Buzz
@@ -427,14 +424,13 @@ HED version: 8.0.0-alpha.3
 ** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
-'''Data-property'''
-* Computed-property<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** Computed-prediction
-* Data-value
-** <nowiki># {takesValue}</nowiki>
-* Observational-property <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName]</nowiki>
-** Expert-annotation <nowiki>{extensionAllowed}</nowiki>
-** Instrument-measurement <nowiki>{extensionAllowed}</nowiki>
+'''Data-property''' <nowiki>[Something that pertains to data or information.]</nowiki>
+* Data-source-type <nowiki>[The place, person, or thing from which the data comes or can be obtained.]</nowiki>
+** Computed-data<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+*** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
+** Observational-data <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
+*** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment, or other in-context information provided by an authority.]</nowiki>
+*** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from an electronic device that is used to measure material properties.]</nowiki>
 * Physical-property
 ** Electrical-property
 ** Magnetic-property
@@ -445,8 +441,9 @@ HED version: 8.0.0-alpha.3
 *** Pressure
 *** Temperature
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-
-* Quantitative <nowiki>{extensionAllowed}</nowiki>
+* Data-value
+** <nowiki># {takesValue}</nowiki>
+* Quantitative-property <nowiki>{extensionAllowed}[Something capable of being estimated or expressed with numeric values.] </nowiki>
 ** Angle<nowiki>[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
 ** Fraction <nowiki>[Fraction of items of a particular type.]</nowiki>
@@ -461,92 +458,89 @@ HED version: 8.0.0-alpha.3
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>[When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
-* Spatiotemporal <nowiki>{extensionAllowed}</nowiki>
-** Rate-of-change
-*** Acceleration
-**** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
-*** Jerk-rate <nowiki>[Rate at which the acceleration of an object changes with respect to time.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
-*** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
-*** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki> 
-*** Velocity
-**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
-** Resolution
-*** IO-resolution 
-**** Screen-resolution <nowiki>[Number of pixels in each dimension for a digital display device.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-**** Printer-resolution <nowiki>[Number of dots-per-inch for a printer.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
-**** <nowiki># {takesValue}</nowiki>
-*** Spectral-resolution 
-**** <nowiki># {takesValue}</nowiki> 
-*** Temporal-resolution 
-**** <nowiki># {takesValue} </nowiki>  
-** Spatial
-*** Direction
-**** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Distance <nowiki>[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Orientation 
-**** <nowiki># {takesValue, isNumeric}</nowiki> 
-*** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
-**** X-position 
+** Spatiotemporal-property <nowiki>{extensionAllowed}</nowiki>
+*** Rate-of-change
+**** Acceleration
+***** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
+**** Jerk-rate <nowiki>[Rate at which the acceleration of an object changes with respect to time.]</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
+**** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
+***** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
+**** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
+***** <nowiki># {takesValue, isNumeric}</nowiki>
+**** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+***** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** Velocity
+***** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
+*** Resolution
+**** IO-resolution 
+***** Screen-resolution <nowiki>[Number of pixels in each dimension for a digital display device.]</nowiki> 
+****** <nowiki># {takesValue} </nowiki>
+***** Printer-resolution <nowiki>[Number of dots-per-inch for a printer.]</nowiki> 
+****** <nowiki># {takesValue} </nowiki>
+**** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Spectral-resolution 
+***** <nowiki># {takesValue}</nowiki> 
+**** Temporal-resolution 
+***** <nowiki># {takesValue} </nowiki>  
+*** Spatial-property
+**** Direction
+***** <nowiki># {takesValue, isNumeric}</nowiki>
+**** Distance <nowiki>[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Y-position 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
-**** Z-position 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-*** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
-**** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
-**** Room-frame
-**** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
-**** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
-**** World-frame
-*** Size
-**** Area 
-***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
-**** Length <nowiki>[A measurement of the size along the longest dimension.]</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
-**** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Volume 
-***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
-*** Surface-properties
-**** Rough
-**** Smooth
-
-** Temporal
-*** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Duration <nowiki>[Time extent of something.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Onset <nowiki>{topLevelTagGroup}</nowiki>
-*** Offset <nowiki>{topLevelTagGroup}</nowiki>
-*** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
-*** Temporal-value 
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Time-out
-*** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-  
-* Statistical-property <nowiki>{extensionAllowed}</nowiki>
-** Accuracy 
-** Data-mean 
-** Data-median 
-** Data-minimum 
-** Data-maximum 
-** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>  
-** Statistical-precision 
-** Statistical-recall 
-** Standard-deviation 
-** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
-
+**** Orientation 
+***** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+***** X-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Y-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
+***** Z-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
+**** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
+***** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+***** Room-frame
+***** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
+***** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
+***** World-frame
+**** Size
+***** Area 
+****** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+***** Length <nowiki>[A measurement of the size along the longest dimension.]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
+***** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Volume 
+****** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+**** Surface-properties
+***** Rough
+***** Smooth
+*** Temporal-property
+**** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Duration <nowiki>[Time extent of something.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Onset <nowiki>{topLevelTagGroup}</nowiki>
+**** Offset <nowiki>{topLevelTagGroup}</nowiki>
+**** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
+**** Temporal-value 
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Time-out
+**** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+** Statistical-property <nowiki>{extensionAllowed}</nowiki>
+*** Accuracy 
+*** Data-mean 
+*** Data-median 
+*** Data-minimum 
+*** Data-maximum 
+*** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>  
+*** Statistical-precision 
+*** Statistical-recall 
+*** Standard-deviation 
+*** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
 '''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
@@ -558,13 +552,11 @@ HED version: 8.0.0-alpha.3
 ** Selective-attention
 ** Sustained-attention
 ** Top-down-attention
-
 * Task-effect-evidence
 ** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
 **  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>[This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.]</nowiki>
-
 * Task-role <nowiki>[The purpose with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
@@ -576,7 +568,6 @@ HED version: 8.0.0-alpha.3
 ** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
-
 * Task-response-type <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
 ** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
 ** Correction <nowiki>{relatedTag=Successful}</nowiki>
@@ -587,7 +578,6 @@ HED version: 8.0.0-alpha.3
 ** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
 ** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
 ** Successful <nowiki>{relatedTag=Correction}</nowiki>
-
 * Task-stimulus-type <nowiki> [The stimulus purpose in the task.]</nowiki>
 ** Cue
 ** Distractor 
@@ -644,10 +634,8 @@ HED version: 8.0.0-alpha.3
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
-
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-
 * Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
@@ -682,19 +670,16 @@ HED version: 8.0.0-alpha.3
 *** Part-of
 *** Performed-by
 *** Related-to
-
 ** Ordering-relation
 *** Early-item <nowiki>[Indication that this item appears early in a sequence.]</nowiki>
 *** First-item <nowiki>[Indication that this is the first item in a sequence.]</nowiki>
 *** Next-item <nowiki>[Indication that this item appears immediately after the previous item in a sequence.]</nowiki> 
 *** Later-item <nowiki>[Indication that this item appears later in a sequence.]</nowiki>
 *** Last-item <nowiki>[Indication that this is the last item in a sequence.]</nowiki>
-
 ** Quantitative-relation
 *** Estimated
 *** Approximated
 *** Exact
-
 ** Spatiotemporal-relation
 *** Directional-relation
 **** Away-from
@@ -729,7 +714,6 @@ HED version: 8.0.0-alpha.3
 **** Boundary-of
 **** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
 **** Close-to
-
 **** Edge-of
 **** Far-from
 **** Front-of
@@ -760,15 +744,11 @@ HED version: 8.0.0-alpha.3
 **** Repetitive
 **** Sudden
 **** Varying
-
 ** Thermal-relation
 *** Cold
 *** Colder-than
 *** Hot
 *** Hotter-than
-
-
-
 * Categorical <nowiki>{extensionAllowed}</nowiki>
 ** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 *** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
@@ -782,7 +762,6 @@ HED version: 8.0.0-alpha.3
 *** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
 *** True <nowiki>{relatedTag=False}</nowiki>
 *** Valid <nowiki>{relatedTag=Invalid}</nowiki>
-
 ** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
 *** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
 *** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
@@ -814,7 +793,6 @@ HED version: 8.0.0-alpha.3
 *** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
 *** Thick <nowiki>{relatedTag=Thin}</nowiki>
 *** Thin <nowiki>{relatedTag=Thick}</nowiki>
-
 * Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
 ** Abstract
 ** Clinical
@@ -822,7 +800,6 @@ HED version: 8.0.0-alpha.3
 ** Composite
 ** Numerical
 ** Symbolic
-
 * Sensory <nowiki>{extensionAllowed}</nowiki>
 ** Auditory
 *** Audible
@@ -1062,7 +1039,6 @@ HED version: 8.0.0-alpha.3
 *** Rocky-terrain
 *** Sloped-terrain
 *** Uneven-terrain
-
 * Anatomical
 
 !# end schema 
@@ -1165,8 +1141,6 @@ HED version: 8.0.0-alpha.3
 
 
 '''Schema attributes'''
-
-
 * allowedCharacter <nowiki>{unitClassProperty}[An attribute of unit classes schema value placeholders indicating a special character that is allowed in expressing the value of that placeholder.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[An attribute of unit classes specifying the default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>{boolProperty}[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
