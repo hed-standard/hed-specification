@@ -431,13 +431,12 @@ HED version: 8.0.0-alpha.3
 ** Observational-data <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
 *** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment, or other in-context information provided by an authority.]</nowiki>
 *** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from an electronic device that is used to measure material properties.]</nowiki>
-* Physical-property
-** Electrical-property
-** Magnetic-property
+* Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
+** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property
 ** Organic-property
 ** Thermodynamic-property
-*** Energy
+*** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
 *** Pressure
 *** Temperature
 **** <nowiki># {takesValue, isNumeric}</nowiki>
@@ -531,7 +530,7 @@ HED version: 8.0.0-alpha.3
 **** Time-out
 **** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Statistical-property <nowiki>{extensionAllowed}</nowiki>
-*** Accuracy 
+*** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 *** Data-mean 
 *** Data-median 
 *** Data-minimum 
