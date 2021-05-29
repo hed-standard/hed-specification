@@ -17,7 +17,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 > [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
 
-> [**XML view of HED8.0.0-alpha.3a**](https://github.com/VisLab/hed-specification/blob/master/hedxml-test/HED8.0.0-alpha.3a.xml)  under development
+> [**HTML view of HED8.0.0-alpha.3a**](https://github.com/VisLab/hed-standard.github.io/blob/temp-viewer/display_hed_test.html?version=8.0.0-alpha.3a)  under development
 
 ### HED-2G vocabulary views
 
