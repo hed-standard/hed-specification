@@ -1403,8 +1403,8 @@
          <name>Data-source-type</name>
          <description>The place, person, or thing from which the data comes or can be obtained.</description>
          <node>
-            <name>Computed-feathre</name>
-            <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
+            <name>Computed-feature</name>
+            <description>Feature computed from the data by tool. Should be grouped with a label of the form Toolname_propertyName.</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
@@ -1414,22 +1414,22 @@
             <description>A computed extrapolation of known data.</description>
          </node>
          <node>
-            <name>Observed-feature</name>
-            <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.</description>
+            <name>Expert-annotation</name>
+            <description>An explanatory or critical comment or other in-context information provided by an authority.</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
-            <node>
-               <name>Expert-annotation</name>
-               <description>An explanatory or critical comment or other in-context information provided by an authority.</description>
-               <attribute>
-                  <name>extensionAllowed</name>
-               </attribute>
-            </node>
          </node>
          <node>
             <name>Instrument-measurement</name>
             <description>Information obtained from a device that is used to measure material properties or make other observations.</description>
+            <attribute>
+               <name>extensionAllowed</name>
+            </attribute>
+         </node>
+         <node>
+            <name>Observation</name>
+            <description>Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
@@ -2030,41 +2030,113 @@
          </node>
          <node>
             <name>Data-mean</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
-      </node>
-      <node>
-         <name>#</name>
-         <attribute>
-            <name>isNumeric</name>
-         </attribute>
-         <attribute>
-            <name>takesValue</name>
-         </attribute>
          <node>
             <name>Data-median</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Data-minimum</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Data-maximum</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Probability</name>
             <description>Use to specify the level of certainty about the occurrence of the event.</description>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Statistical-precision</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Statistical-recall</name>
+            <node>
+               <name>&lt;</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Standard-deviation</name>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Uncertainty</name>
             <description>Use to specify the level of error.</description>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
       </node>
    </node>
