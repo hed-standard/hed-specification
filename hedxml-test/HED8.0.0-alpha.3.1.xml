@@ -1437,11 +1437,10 @@
       </node>
       <node>
          <name>Physical-property</name>
+         <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
          <node>
-            <name>Electrical-property</name>
-         </node>
-         <node>
-            <name>Magnetic-property</name>
+            <name>Electromagnetic-property</name>
+            <description>A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.</description>
          </node>
          <node>
             <name>Mechanical-property</name>
@@ -1453,6 +1452,7 @@
             <name>Thermodynamic-property</name>
             <node>
                <name>Energy</name>
+               <description>The capacity of a physical system to do work.</description>
             </node>
             <node>
                <name>Pressure</name>
@@ -2007,6 +2007,7 @@
             </attribute>
             <node>
                <name>Accuracy</name>
+               <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
             </node>
             <node>
                <name>Data-mean</name>
@@ -3963,12 +3964,6 @@
          </attribute>
          <unit>
             <name>m-per-s^2</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -3979,18 +3974,9 @@
          </attribute>
          <unit>
             <name>radian</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>rad</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>degree</name>
@@ -4004,18 +3990,9 @@
          </attribute>
          <unit>
             <name>m^2</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>px^2</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>pixel^2</name>
@@ -4036,9 +4013,6 @@
          </unit>
          <unit>
             <name>$</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>point</name>
@@ -4068,18 +4042,9 @@
          </attribute>
          <unit>
             <name>hertz</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>Hz</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4090,9 +4055,6 @@
          </attribute>
          <unit>
             <name>dB</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4103,9 +4065,6 @@
          </attribute>
          <unit>
             <name>m-per-s^3</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4116,18 +4075,9 @@
          </attribute>
          <unit>
             <name>candela</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>cd</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4138,18 +4088,9 @@
          </attribute>
          <unit>
             <name>byte</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>B</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4169,18 +4110,9 @@
          </attribute>
          <unit>
             <name>metre</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>m</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>foot</name>
@@ -4200,9 +4132,6 @@
          </unit>
          <unit>
             <name>px</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4213,24 +4142,12 @@
          </attribute>
          <unit>
             <name>m-per-s</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>mph</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>kph</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4241,18 +4158,9 @@
          </attribute>
          <unit>
             <name>second</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>s</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>day</name>
@@ -4273,12 +4181,6 @@
          </attribute>
          <unit>
             <name>m^3</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
    </unitClassDefinitions>
@@ -4624,9 +4526,6 @@
          <property>
             <name>boolProperty</name>
          </property>
-         <property>
-            <name>unitClassProperty</name>
-         </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>SIUnitModifier</name>
@@ -4683,10 +4582,10 @@
          <property>
             <name>boolProperty</name>
          </property>
-         <property>
-            <name>unitClassProperty</name>
-         </property>
       </schemaAttributeDefinition>
    </schemaAttributeDefinitions>
-   <epilogue>This is the new format for the mediawiki schema</epilogue>
+   <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
+* boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
+* unitClassProperty - indicates that this property is designed to be applied to unit classes.
+* unitProperty - indicates that this property applies to units within a unit class. </epilogue>
 </HED>
