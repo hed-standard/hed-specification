@@ -506,7 +506,7 @@
          <name>extensionAllowed</name>
       </attribute>
       <node>
-         <name>Language</name>
+         <name>Language=item</name>
          <description>An  system of communication that is receivable in a sensory presentation.</description>
          <node>
             <name>Character</name>
@@ -552,7 +552,7 @@
             <name>extensionAllowed</name>
          </attribute>
          <node>
-            <name>Geometric</name>
+            <name>Geometric-object</name>
             <node>
                <name>Pattern</name>
                <node>
@@ -932,12 +932,7 @@
             </node>
          </node>
          <node>
-            <name>Food</name>
-            <description>Something that is usually solid and can be consumed by an organism.</description>
-         </node>
-         <node>
-            <name>Drink</name>
-            <description>Something that is liquid and can be consumed by an organism.</description>
+            <name>Ingestible-object</name>
          </node>
       </node>
       <node>
@@ -1332,7 +1327,7 @@
          </node>
       </node>
       <node>
-         <name>Social-role</name>
+         <name>Agent-social-role</name>
          <description>The role of the agent not particular to the task.</description>
          <node>
             <name>Brother</name>
@@ -1382,7 +1377,7 @@
          </node>
       </node>
       <node>
-         <name>Association</name>
+         <name>Agent-association</name>
          <node>
             <name>Associated-with-non-agent</name>
          </node>
@@ -1404,7 +1399,7 @@
          <description>The place, person, or thing from which the data comes or can be obtained.</description>
          <node>
             <name>Computed-feature</name>
-            <description>Feature computed from the data by tool. Should be grouped with a label of the form Toolname_propertyName.</description>
+            <description>A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
@@ -1440,7 +1435,7 @@
          <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
          <node>
             <name>Electromagnetic-property</name>
-            <description>A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.</description>
+            <description>A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.</description>
          </node>
          <node>
             <name>Mechanical-property</name>
@@ -1816,28 +1811,6 @@
                </node>
             </node>
             <node>
-               <name>Reference-frame</name>
-               <description>A frame of reference used to express spatial attributes.</description>
-               <node>
-                  <name>Custom-frame</name>
-                  <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
-               </node>
-               <node>
-                  <name>Room-frame</name>
-               </node>
-               <node>
-                  <name>Screen-frame</name>
-                  <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
-               </node>
-               <node>
-                  <name>Screen-facing-frame</name>
-                  <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
-               </node>
-               <node>
-                  <name>World-frame</name>
-               </node>
-            </node>
-            <node>
                <name>Size</name>
                <node>
                   <name>Area</name>
@@ -2143,7 +2116,7 @@
    <node>
       <name>Task-property</name>
       <node>
-         <name>Attentional-strategy</name>
+         <name>Task-attentional-strategy</name>
          <node>
             <name>Bottom-up-attention</name>
          </node>
@@ -2174,6 +2147,7 @@
       </node>
       <node>
          <name>Task-effect-evidence</name>
+         <description>The evidence supporting the conclusion that the event had the specified effect.</description>
          <node>
             <name>Computational-evidence</name>
             <description>Prediction made by computer program.</description>
@@ -2192,15 +2166,15 @@
          </node>
       </node>
       <node>
-         <name>Task-role</name>
-         <description>The purpose with respect to the task.</description>
+         <name>Task-event-role</name>
+         <description>The purpose of an event with respect to the task.</description>
          <node>
             <name>Activity</name>
             <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
          </node>
          <node>
             <name>Background-subtask</name>
-            <description>A part of the task which should be performed in the background.</description>
+            <description>A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.</description>
          </node>
          <node>
             <name>Experimental-stimulus</name>
@@ -2208,6 +2182,7 @@
          </node>
          <node>
             <name>Failure</name>
+            <description>A descriptor indicating a failure.</description>
          </node>
          <node>
             <name>Incidental</name>
