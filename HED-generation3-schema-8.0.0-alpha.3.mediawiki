@@ -426,11 +426,12 @@ HED version: 8.0.0-alpha.3
 
 '''Data-property''' <nowiki>[Something that pertains to data or information.]</nowiki>
 * Data-source-type <nowiki>[The place, person, or thing from which the data comes or can be obtained.]</nowiki>
-** Computed-feathre<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+** Computed-feature<nowiki>{extensionAllowed}[Feature computed from the data by tool. Should be grouped with a label of the form Toolname_propertyName.]</nowiki>
 ** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
-** Observed-feature <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
-*** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
+** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
 ** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
+** Observation <nowiki>{extensionAllowed}[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
+
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property
@@ -534,23 +535,23 @@ HED version: 8.0.0-alpha.3
 ** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 *** <nowiki># {takesValue, isNumeric}</nowiki>
 ** Data-mean 
-<nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric}</nowiki>
 ** Data-median
-<nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Data-minimum
-<nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric}</nowiki>
 ** Data-maximum
-<nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>
-<nowiki># {takesValue, isNumeric}</nowiki>  
+*** <nowiki># {takesValue, isNumeric}</nowiki>  
 ** Statistical-precision
-<nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Statistical-recall
-<nowiki># {takesValue, isNumeric}</nowiki> 
+<*** nowiki># {takesValue, isNumeric}</nowiki> 
 ** Standard-deviation
-<nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
-<nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric}</nowiki>
 '''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
