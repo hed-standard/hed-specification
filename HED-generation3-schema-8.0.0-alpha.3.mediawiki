@@ -148,7 +148,7 @@ HED version: 8.0.0-alpha.3
 ** Track
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Language=item <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
+* Language-item <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
 ** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
 ** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
