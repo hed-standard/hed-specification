@@ -506,7 +506,7 @@
          <name>extensionAllowed</name>
       </attribute>
       <node>
-         <name>Language=item</name>
+         <name>Language-item</name>
          <description>An  system of communication that is receivable in a sensory presentation.</description>
          <node>
             <name>Character</name>
