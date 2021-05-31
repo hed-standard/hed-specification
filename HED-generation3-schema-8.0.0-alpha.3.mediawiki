@@ -148,7 +148,7 @@ HED version: 8.0.0-alpha.3
 ** Track
 
 '''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Language <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
+* Language=item <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
 ** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
 ** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
@@ -159,7 +159,7 @@ HED version: 8.0.0-alpha.3
 ** Textblock <nowiki>[A block of text.]</nowiki>
 ** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
 * Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
-** Geometric
+** Geometric-object
 *** Pattern
 **** Dots
 **** Led-pattern
@@ -280,8 +280,7 @@ HED version: 8.0.0-alpha.3
 **** Mountain
 **** River
 **** Waterfall
-** Food <nowiki>[Something that is usually solid and can be consumed by an organism.]</nowiki>
-** Drink <nowiki>[Something that is liquid and can be consumed by an organism.]</nowiki>
+** Ingestible-object <nowiki>[An item designed to be consumed by an organism.</nowiki>
 * Organism <nowiki>[Something living or part of something living.]</nowiki>
 ** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
 *** Human
@@ -403,7 +402,7 @@ HED version: 8.0.0-alpha.3
 *** Intersex 
 ** Handedness
 *** <nowiki># {takesValue}</nowiki> 
-* Social-role <nowiki> [The role of the agent not particular to the task.]</nowiki>
+* Agent-social-role <nowiki> [The role of the agent not particular to the task.]</nowiki>
 ** Brother
 ** Child
 ** Father
@@ -419,21 +418,20 @@ HED version: 8.0.0-alpha.3
 ** Stranger
 ** Student
 ** Teacher
-* Association 
+* Agent-association 
 ** Associated-with-non-agent 
 ** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
 ** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property''' <nowiki>[Something that pertains to data or information.]</nowiki>
 * Data-source-type <nowiki>[The place, person, or thing from which the data comes or can be obtained.]</nowiki>
-** Computed-feature<nowiki>{extensionAllowed}[Feature computed from the data by tool. Should be grouped with a label of the form Toolname_propertyName.]</nowiki>
+** Computed-feature<nowiki>{extensionAllowed}[A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.]</nowiki>
 ** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
 ** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
 ** Observation <nowiki>{extensionAllowed}[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
-
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
-** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.]</nowiki>
+** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property
 ** Organic-property
 ** Thermodynamic-property
@@ -443,7 +441,6 @@ HED version: 8.0.0-alpha.3
 **** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Temperature
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-
 * Quantitative-property <nowiki>{extensionAllowed}[Something capable of being estimated or expressed with numeric values.] </nowiki>
 ** Angle<nowiki>[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -547,7 +544,7 @@ HED version: 8.0.0-alpha.3
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
 *** <nowiki># {takesValue, isNumeric}</nowiki>
 '''Task-property'''
-* Attentional-strategy
+* Task-attentional-strategy
 ** Bottom-up-attention
 ** Covert-attention
 ** Divided-attention
@@ -557,16 +554,16 @@ HED version: 8.0.0-alpha.3
 ** Selective-attention
 ** Sustained-attention
 ** Top-down-attention
-* Task-effect-evidence
+* Task-effect-evidence <nowiki>[The evidence supporting the conclusion that the event had the specified effect.]</nowiki>
 ** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
-**  External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
+** External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
 ** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
 ** Behavioral-evidence <nowiki>[This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.]</nowiki>
-* Task-role <nowiki>[The purpose with respect to the task.]</nowiki>
+* Task-event-role <nowiki>[The purpose of an event with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
-** Background-subtask <nowiki>[A part of the task which should be performed in the background.]</nowiki>
+** Background-subtask <nowiki>[A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.]</nowiki>
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-** Failure
+** Failure <nowiki>[A descriptor indicating a failure.]</nowiki>
 ** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
