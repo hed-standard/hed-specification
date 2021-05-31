@@ -1437,11 +1437,10 @@
       </node>
       <node>
          <name>Physical-property</name>
+         <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
          <node>
-            <name>Electrical-property</name>
-         </node>
-         <node>
-            <name>Magnetic-property</name>
+            <name>Electromagnetic-property</name>
+            <description>A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.</description>
          </node>
          <node>
             <name>Mechanical-property</name>
@@ -1453,6 +1452,7 @@
             <name>Thermodynamic-property</name>
             <node>
                <name>Energy</name>
+               <description>The capacity of a physical system to do work.</description>
             </node>
             <node>
                <name>Pressure</name>
@@ -2007,6 +2007,7 @@
             </attribute>
             <node>
                <name>Accuracy</name>
+               <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
             </node>
             <node>
                <name>Data-mean</name>
@@ -4688,5 +4689,7 @@
          </property>
       </schemaAttributeDefinition>
    </schemaAttributeDefinitions>
-   <epilogue>This is the new format for the mediawiki schema</epilogue>
+   <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
+* boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
+* unitClassProperty - indicates that this property is designed to be applied to unit classes.</epilogue>
 </HED>
