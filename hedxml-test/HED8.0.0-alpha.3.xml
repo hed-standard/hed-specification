@@ -1403,36 +1403,36 @@
          <name>Data-source-type</name>
          <description>The place, person, or thing from which the data comes or can be obtained.</description>
          <node>
-            <name>Computed-data</name>
+            <name>Computed-feathre</name>
             <description>Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
-            <node>
-               <name>Computed-prediction</name>
-               <description>A computed extrapolation of known data.</description>
-            </node>
          </node>
          <node>
-            <name>Observational-data</name>
+            <name>Computed-prediction</name>
+            <description>A computed extrapolation of known data.</description>
+         </node>
+         <node>
+            <name>Observed-feature</name>
             <description>Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.</description>
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
             <node>
                <name>Expert-annotation</name>
-               <description>An explanatory or critical comment, or other in-context information provided by an authority.</description>
+               <description>An explanatory or critical comment or other in-context information provided by an authority.</description>
                <attribute>
                   <name>extensionAllowed</name>
                </attribute>
             </node>
-            <node>
-               <name>Instrument-measurement</name>
-               <description>Information obtained from an electronic device that is used to measure material properties.</description>
-               <attribute>
-                  <name>extensionAllowed</name>
-               </attribute>
-            </node>
+         </node>
+         <node>
+            <name>Instrument-measurement</name>
+            <description>Information obtained from a device that is used to measure material properties or make other observations.</description>
+            <attribute>
+               <name>extensionAllowed</name>
+            </attribute>
          </node>
       </node>
       <node>
@@ -1453,9 +1453,27 @@
             <node>
                <name>Energy</name>
                <description>The capacity of a physical system to do work.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Pressure</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Temperature</name>
@@ -1469,15 +1487,6 @@
                   </attribute>
                </node>
             </node>
-         </node>
-      </node>
-      <node>
-         <name>Data-value</name>
-         <node>
-            <name>#</name>
-            <attribute>
-               <name>takesValue</name>
-            </attribute>
          </node>
       </node>
       <node>
@@ -1553,137 +1562,117 @@
                </attribute>
             </node>
          </node>
+      </node>
+      <node>
+         <name>Spatiotemporal-property</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
-            <name>Spatiotemporal-property</name>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
+            <name>Rate-of-change</name>
             <node>
-               <name>Rate-of-change</name>
+               <name>Acceleration</name>
                <node>
-                  <name>Acceleration</name>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>unitClass</name>
-                        <value>acceleration</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Jerk-rate</name>
-                  <description>Rate at which the acceleration of an object changes with respect to time.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>unitClass</name>
-                        <value>jerk</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Sampling-rate</name>
-                  <description>Number of measurements per unit time.</description>
+                  <name>#</name>
                   <attribute>
-                     <name>requireChild</name>
+                     <name>isNumeric</name>
                   </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>unitClass</name>
-                        <value>frequency</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Refresh-rate</name>
-                  <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
                   <attribute>
-                     <name>requireChild</name>
+                     <name>takesValue</name>
                   </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Temporal-rate</name>
-                  <description>Number of occurrences in a unit of time.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Velocity</name>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>unitClass</name>
-                        <value>speed</value>
-                     </attribute>
-                  </node>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>acceleration</value>
+                  </attribute>
                </node>
             </node>
             <node>
-               <name>Resolution</name>
+               <name>Jerk-rate</name>
+               <description>Rate at which the acceleration of an object changes with respect to time.</description>
                <node>
-                  <name>IO-resolution</name>
-                  <node>
-                     <name>Screen-resolution</name>
-                     <description>Number of pixels in each dimension for a digital display device.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Printer-resolution</name>
-                     <description>Number of dots-per-inch for a printer.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>jerk</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Sampling-rate</name>
+               <description>Number of measurements per unit time.</description>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
                <node>
-                  <name>Spatial-resolution</name>
-                  <description>Linear spacing of a spatial measurement.</description>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>frequency</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Refresh-rate</name>
+               <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-rate</name>
+               <description>Number of occurrences in a unit of time.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Velocity</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>speed</value>
+                  </attribute>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Resolution</name>
+            <node>
+               <name>IO-resolution</name>
+               <node>
+                  <name>Screen-resolution</name>
+                  <description>Number of pixels in each dimension for a digital display device.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1692,16 +1681,8 @@
                   </node>
                </node>
                <node>
-                  <name>Spectral-resolution</name>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Temporal-resolution</name>
+                  <name>Printer-resolution</name>
+                  <description>Number of dots-per-inch for a printer.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1711,22 +1692,82 @@
                </node>
             </node>
             <node>
-               <name>Spatial-property</name>
+               <name>Spatial-resolution</name>
+               <description>Linear spacing of a spatial measurement.</description>
                <node>
-                  <name>Direction</name>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>isNumeric</name>
-                     </attribute>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Spectral-resolution</name>
                <node>
-                  <name>Distance</name>
-                  <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-resolution</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Spatial-property</name>
+            <node>
+               <name>Direction</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Distance</name>
+               <description>Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>physicalLength</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Orientation</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Position</name>
+               <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
+               <node>
+                  <name>X-position</name>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1742,7 +1783,7 @@
                   </node>
                </node>
                <node>
-                  <name>Orientation</name>
+                  <name>Y-position</name>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1751,183 +1792,55 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
                <node>
-                  <name>Position</name>
-                  <description>Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
+                  <name>Z-position</name>
                   <node>
-                     <name>X-position</name>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Y-position</name>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Z-position</name>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Reference-frame</name>
-                  <description>A frame of reference used to express spatial attributes.</description>
-                  <node>
-                     <name>Custom-frame</name>
-                     <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
-                  </node>
-                  <node>
-                     <name>Room-frame</name>
-                  </node>
-                  <node>
-                     <name>Screen-frame</name>
-                     <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
-                  </node>
-                  <node>
-                     <name>Screen-facing-frame</name>
-                     <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
-                  </node>
-                  <node>
-                     <name>World-frame</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Size</name>
-                  <node>
-                     <name>Area</name>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>area</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Length</name>
-                     <description>A measurement of the size along the longest dimension.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Width</name>
-                     <description>A measurement along the shortest of two or three dimensions.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Height</name>
-                     <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLength</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Volume</name>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>isNumeric</name>
-                        </attribute>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>volume</value>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Surface-properties</name>
-                  <node>
-                     <name>Rough</name>
-                  </node>
-                  <node>
-                     <name>Smooth</name>
+                     <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
                   </node>
                </node>
             </node>
             <node>
-               <name>Temporal-property</name>
+               <name>Reference-frame</name>
+               <description>A frame of reference used to express spatial attributes.</description>
                <node>
-                  <name>Delay</name>
-                  <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
+                  <name>Custom-frame</name>
+                  <description>A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.</description>
+               </node>
+               <node>
+                  <name>Room-frame</name>
+               </node>
+               <node>
+                  <name>Screen-frame</name>
+                  <description>HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.</description>
+               </node>
+               <node>
+                  <name>Screen-facing-frame</name>
+                  <description>HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.</description>
+               </node>
+               <node>
+                  <name>World-frame</name>
+               </node>
+            </node>
+            <node>
+               <name>Size</name>
+               <node>
+                  <name>Area</name>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1938,13 +1851,13 @@
                      </attribute>
                      <attribute>
                         <name>unitClass</name>
-                        <value>time</value>
+                        <value>area</value>
                      </attribute>
                   </node>
                </node>
                <node>
-                  <name>Duration</name>
-                  <description>Time extent of something.</description>
+                  <name>Length</name>
+                  <description>A measurement of the size along the longest dimension.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1955,28 +1868,13 @@
                      </attribute>
                      <attribute>
                         <name>unitClass</name>
-                        <value>time</value>
+                        <value>physicalLength</value>
                      </attribute>
                   </node>
                </node>
                <node>
-                  <name>Onset</name>
-                  <attribute>
-                     <name>topLevelTagGroup</name>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Offset</name>
-                  <attribute>
-                     <name>topLevelTagGroup</name>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Pause</name>
-                  <description>Indicating something stopped such as a break or waiting for input.</description>
-               </node>
-               <node>
-                  <name>Temporal-value</name>
+                  <name>Width</name>
+                  <description>A measurement along the shortest of two or three dimensions.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -1987,57 +1885,186 @@
                      </attribute>
                      <attribute>
                         <name>unitClass</name>
-                        <value>time</value>
+                        <value>physicalLength</value>
                      </attribute>
                   </node>
                </node>
                <node>
-                  <name>Time-out</name>
+                  <name>Height</name>
+                  <description>A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLength</value>
+                     </attribute>
+                  </node>
                </node>
                <node>
-                  <name>Time-sync</name>
-                  <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
+                  <name>Volume</name>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>isNumeric</name>
+                     </attribute>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>volume</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Surface-properties</name>
+               <node>
+                  <name>Rough</name>
+               </node>
+               <node>
+                  <name>Smooth</name>
                </node>
             </node>
          </node>
          <node>
-            <name>Statistical-property</name>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
+            <name>Temporal-property</name>
             <node>
-               <name>Accuracy</name>
-               <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
+               <name>Delay</name>
+               <description>An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
+               </node>
             </node>
             <node>
-               <name>Data-mean</name>
+               <name>Duration</name>
+               <description>Time extent of something.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
+               </node>
             </node>
             <node>
-               <name>Data-median</name>
+               <name>Onset</name>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
             </node>
             <node>
-               <name>Data-minimum</name>
+               <name>Offset</name>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
             </node>
             <node>
-               <name>Data-maximum</name>
+               <name>Pause</name>
+               <description>Indicating something stopped such as a break or waiting for input.</description>
             </node>
             <node>
-               <name>Probability</name>
-               <description>Use to specify the level of certainty about the occurrence of the event.</description>
+               <name>Temporal-value</name>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>isNumeric</name>
+                  </attribute>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>time</value>
+                  </attribute>
+               </node>
             </node>
             <node>
-               <name>Statistical-precision</name>
+               <name>Time-out</name>
             </node>
             <node>
-               <name>Statistical-recall</name>
+               <name>Time-sync</name>
+               <description>Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
             </node>
+         </node>
+      </node>
+      <node>
+         <name>Statistical-property</name>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
+         <node>
+            <name>Accuracy</name>
+            <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
             <node>
-               <name>Standard-deviation</name>
+               <name>#</name>
+               <attribute>
+                  <name>isNumeric</name>
+               </attribute>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
             </node>
-            <node>
-               <name>Uncertainty</name>
-               <description>Use to specify the level of error.</description>
-            </node>
+         </node>
+         <node>
+            <name>Data-mean</name>
+         </node>
+      </node>
+      <node>
+         <name>#</name>
+         <attribute>
+            <name>isNumeric</name>
+         </attribute>
+         <attribute>
+            <name>takesValue</name>
+         </attribute>
+         <node>
+            <name>Data-median</name>
+         </node>
+         <node>
+            <name>Data-minimum</name>
+         </node>
+         <node>
+            <name>Data-maximum</name>
+         </node>
+         <node>
+            <name>Probability</name>
+            <description>Use to specify the level of certainty about the occurrence of the event.</description>
+         </node>
+         <node>
+            <name>Statistical-precision</name>
+         </node>
+         <node>
+            <name>Statistical-recall</name>
+         </node>
+         <node>
+            <name>Standard-deviation</name>
+         </node>
+         <node>
+            <name>Uncertainty</name>
+            <description>Use to specify the level of error.</description>
          </node>
       </node>
    </node>
@@ -2450,6 +2477,15 @@
          <node>
             <name>Parameter</name>
             <description>As a Name:Value</description>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
+         </node>
+         <node>
+            <name>Value</name>
             <node>
                <name>#</name>
                <attribute>
@@ -3964,12 +4000,6 @@
          </attribute>
          <unit>
             <name>m-per-s^2</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -3980,18 +4010,9 @@
          </attribute>
          <unit>
             <name>radian</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>rad</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>degree</name>
@@ -4005,18 +4026,9 @@
          </attribute>
          <unit>
             <name>m^2</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>px^2</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>pixel^2</name>
@@ -4037,9 +4049,6 @@
          </unit>
          <unit>
             <name>$</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>point</name>
@@ -4069,18 +4078,9 @@
          </attribute>
          <unit>
             <name>hertz</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>Hz</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4091,9 +4091,6 @@
          </attribute>
          <unit>
             <name>dB</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4104,9 +4101,6 @@
          </attribute>
          <unit>
             <name>m-per-s^3</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4117,18 +4111,9 @@
          </attribute>
          <unit>
             <name>candela</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>cd</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4139,18 +4124,9 @@
          </attribute>
          <unit>
             <name>byte</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>B</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4170,18 +4146,9 @@
          </attribute>
          <unit>
             <name>metre</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>m</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>foot</name>
@@ -4201,9 +4168,6 @@
          </unit>
          <unit>
             <name>px</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4214,24 +4178,12 @@
          </attribute>
          <unit>
             <name>m-per-s</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>mph</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>kph</name>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4242,18 +4194,9 @@
          </attribute>
          <unit>
             <name>second</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
          </unit>
          <unit>
             <name>s</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
          <unit>
             <name>day</name>
@@ -4274,12 +4217,6 @@
          </attribute>
          <unit>
             <name>m^3</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
    </unitClassDefinitions>
@@ -4625,9 +4562,6 @@
          <property>
             <name>boolProperty</name>
          </property>
-         <property>
-            <name>unitClassProperty</name>
-         </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>SIUnitModifier</name>
@@ -4684,12 +4618,10 @@
          <property>
             <name>boolProperty</name>
          </property>
-         <property>
-            <name>unitClassProperty</name>
-         </property>
       </schemaAttributeDefinition>
    </schemaAttributeDefinitions>
    <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
 * boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - indicates that this property is designed to be applied to unit classes.</epilogue>
+* unitClassProperty - indicates that this property is designed to be applied to unit classes.
+* unitProperty - indicates that this property applies to units within a unit class. </epilogue>
 </HED>
