@@ -2104,7 +2104,7 @@
          <node>
             <name>Statistical-recall</name>
             <node>
-               <name>&lt;</name>
+               <name>#</name>
                <attribute>
                   <name>isNumeric</name>
                </attribute>
