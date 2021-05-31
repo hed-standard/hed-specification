@@ -426,23 +426,22 @@ HED version: 8.0.0-alpha.3
 
 '''Data-property''' <nowiki>[Something that pertains to data or information.]</nowiki>
 * Data-source-type <nowiki>[The place, person, or thing from which the data comes or can be obtained.]</nowiki>
-** Computed-feathre<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
-** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
-** Observed-feature <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
-*** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
-** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
+** Computed-data<nowiki>{extensionAllowed}[Feature computed by tool. Should be grouped with a label of the form Toolname_propertyName]</nowiki>
+*** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
+** Observational-data <nowiki>{extensionAllowed}[Manually identified data feature. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
+*** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment, or other in-context information provided by an authority.]</nowiki>
+*** Instrument-measurement <nowiki>{extensionAllowed}[Information obtained from an electronic device that is used to measure material properties.]</nowiki>
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conducitivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property
 ** Organic-property
 ** Thermodynamic-property
 *** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Pressure
-**** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Temperature
 **** <nowiki># {takesValue, isNumeric}</nowiki>
-
+* Data-value
+** <nowiki># {takesValue}</nowiki>
 * Quantitative-property <nowiki>{extensionAllowed}[Something capable of being estimated or expressed with numeric values.] </nowiki>
 ** Angle<nowiki>[Angle assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -458,99 +457,89 @@ HED version: 8.0.0-alpha.3
 *** <nowiki># {takesValue}</nowiki>  
 ** Repetition <nowiki>[When the same type of event such as a fixation on the exact same object happens multiple times and it might be necessary to distinguish the first look vs. others]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
-* Spatiotemporal-property <nowiki>{extensionAllowed}</nowiki>
-** Rate-of-change
-*** Acceleration
-**** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
-*** Jerk-rate <nowiki>[Rate at which the acceleration of an object changes with respect to time.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
-*** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
-*** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki> 
-*** Velocity
-**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
-** Resolution
-*** IO-resolution 
-**** Screen-resolution <nowiki>[Number of pixels in each dimension for a digital display device.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-**** Printer-resolution <nowiki>[Number of dots-per-inch for a printer.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
-**** <nowiki># {takesValue}</nowiki>
-*** Spectral-resolution 
-**** <nowiki># {takesValue}</nowiki> 
-*** Temporal-resolution 
-**** <nowiki># {takesValue} </nowiki>  
-** Spatial-property
-*** Direction
-**** <nowiki># {takesValue, isNumeric}</nowiki>
-*** Distance <nowiki>[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-*** Orientation 
-**** <nowiki># {takesValue, isNumeric}</nowiki> 
-*** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
-**** X-position 
+** Spatiotemporal-property <nowiki>{extensionAllowed}</nowiki>
+*** Rate-of-change
+**** Acceleration
+***** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
+**** Jerk-rate <nowiki>[Rate at which the acceleration of an object changes with respect to time.]</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
+**** Sampling-rate <nowiki>{requireChild}[Number of measurements per unit time.]</nowiki> 
+***** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
+**** Refresh-rate <nowiki>{requireChild}[Number of times per second a device displays an image. Also known as the frame rate.]</nowiki> 
+***** <nowiki># {takesValue, isNumeric}</nowiki>
+**** Temporal-rate <nowiki>[Number of occurrences in a unit of time.]</nowiki>
+***** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** Velocity
+***** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
+*** Resolution
+**** IO-resolution 
+***** Screen-resolution <nowiki>[Number of pixels in each dimension for a digital display device.]</nowiki> 
+****** <nowiki># {takesValue} </nowiki>
+***** Printer-resolution <nowiki>[Number of dots-per-inch for a printer.]</nowiki> 
+****** <nowiki># {takesValue} </nowiki>
+**** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
+***** <nowiki># {takesValue}</nowiki>
+**** Spectral-resolution 
+***** <nowiki># {takesValue}</nowiki> 
+**** Temporal-resolution 
+***** <nowiki># {takesValue} </nowiki>  
+*** Spatial-property
+**** Direction
+***** <nowiki># {takesValue, isNumeric}</nowiki>
+**** Distance <nowiki>[Distance from a specified position in a specified Direction or grouped with an item from which the distance is measured.]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Y-position 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
-**** Z-position 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-*** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
-**** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
-**** Room-frame
-**** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
-**** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
-**** World-frame
-*** Size
-**** Area 
-***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
-**** Length <nowiki>[A measurement of the size along the longest dimension.]</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
-**** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
-**** Volume 
-***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
-*** Surface-properties
-**** Rough
-**** Smooth
-** Temporal-property
-*** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Duration <nowiki>[Time extent of something.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Onset <nowiki>{topLevelTagGroup}</nowiki>
-*** Offset <nowiki>{topLevelTagGroup}</nowiki>
-*** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
-*** Temporal-value 
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
-*** Time-out
-*** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-* Statistical-property <nowiki>{extensionAllowed}</nowiki>
-** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>
-** Data-mean 
-<nowiki># {takesValue, isNumeric}</nowiki>
-** Data-median
-<nowiki># {takesValue, isNumeric}</nowiki> 
-** Data-minimum
-<nowiki># {takesValue, isNumeric}</nowiki>
-** Data-maximum
-<nowiki># {takesValue, isNumeric}</nowiki> 
-** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>
-<nowiki># {takesValue, isNumeric}</nowiki>  
-** Statistical-precision
-<nowiki># {takesValue, isNumeric}</nowiki> 
-** Statistical-recall
-<nowiki># {takesValue, isNumeric}</nowiki> 
-** Standard-deviation
-<nowiki># {takesValue, isNumeric}</nowiki> 
-** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
-<nowiki># {takesValue, isNumeric}</nowiki>
+**** Orientation 
+***** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** Position <nowiki>[Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+***** X-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Y-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
+***** Z-position 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
+**** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
+***** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
+***** Room-frame
+***** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
+***** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
+***** World-frame
+**** Size
+***** Area 
+****** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+***** Length <nowiki>[A measurement of the size along the longest dimension.]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Width <nowiki>[A measurement along the shortest of two or three dimensions.]</nowiki>
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
+***** Height <nowiki>[A measurement in a direction perpendicular to Length and Width in 3D. In 2D, it is perpendicular to both the Length and Height.]</nowiki>
+****** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** Volume 
+****** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+**** Surface-properties
+***** Rough
+***** Smooth
+*** Temporal-property
+**** Delay <nowiki>[An indicator that the associated tag group represents something temporally offset from the current event. The delay value can be positive or negative and should always appear in a tag group indicating what is delayed.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Duration <nowiki>[Time extent of something.]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Onset <nowiki>{topLevelTagGroup}</nowiki>
+**** Offset <nowiki>{topLevelTagGroup}</nowiki>
+**** Pause <nowiki>[Indicating something stopped such as a break or waiting for input.]</nowiki>    
+**** Temporal-value 
+***** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** Time-out
+**** Time-sync <nowiki>[Indicates a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+** Statistical-property <nowiki>{extensionAllowed}</nowiki>
+*** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
+*** Data-mean 
+*** Data-median 
+*** Data-minimum 
+*** Data-maximum 
+*** Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event.]</nowiki>  
+*** Statistical-precision 
+*** Statistical-recall 
+*** Standard-deviation 
+*** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
 '''Task-property'''
 * Attentional-strategy
 ** Bottom-up-attention
@@ -645,8 +634,6 @@ HED version: 8.0.0-alpha.3
 *** Version 
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
 ** Parameter <nowiki>[As a Name:Value]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Value
 *** <nowiki># {takesValue}</nowiki>
 * Organizational
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
@@ -1161,7 +1148,7 @@ HED version: 8.0.0-alpha.3
 * relatedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
 * requireChild  <nowiki>{boolProperty}[One of its descendants must be chosen to tag an event.]</nowiki> 
 * required <nowiki>{boolProperty}[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>{boolProperty, unitProperty}[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+* SIUnit  <nowiki>{boolProperty, unitClassProperty}[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
 * SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
 * SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
 * suggestedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
@@ -1169,7 +1156,7 @@ HED version: 8.0.0-alpha.3
 * topLevelTagGroup <nowiki>{boolProperty}[This tag can only appear in a top-level tag group.] </nowiki> 
 * unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
 * unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
-* unitSymbol <nowiki>{boolProperty, unitProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
+* unitSymbol <nowiki>{boolProperty, unitClassProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
 !# end hed 
 
@@ -1177,4 +1164,3 @@ This is the new format for the mediawiki schema. The schema attributes are desig
 
 * boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
 * unitClassProperty - indicates that this property is designed to be applied to unit classes.
-* unitProperty - indicates that this property applies to units within a unit class. 
