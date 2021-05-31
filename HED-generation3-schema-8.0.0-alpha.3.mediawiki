@@ -547,7 +547,7 @@ HED version: 8.0.0-alpha.3
 ** Statistical-precision
 *** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Statistical-recall
-<*** nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Standard-deviation
 *** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
