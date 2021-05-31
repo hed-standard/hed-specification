@@ -499,12 +499,6 @@ HED version: 8.0.0-alpha.3
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
 **** Z-position 
 ***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
-*** Reference-frame <nowiki>[A frame of reference used to express spatial attributes.]</nowiki>
-**** Custom-frame <nowiki>[A custom frame of reference which should be defined in terms of one of the default frames of reference or by a library.]</nowiki> 
-**** Room-frame
-**** Screen-frame <nowiki>[HED default frame of reference with origin at center of screen used to display experimental stimuli. Looking out of the screen has +X is horizontal to the right. +Y is up and +Z is out of the front of the screen.]</nowiki>
-**** Screen-facing-frame <nowiki>[HED default frame of reference with origin at the subject Nasion. +X is horizontal to the subject right. +Y is to the subject front and +Z is vertical upward.]</nowiki>
-**** World-frame
 *** Size
 **** Area 
 ***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
