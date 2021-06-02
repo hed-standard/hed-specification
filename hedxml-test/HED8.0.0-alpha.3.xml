@@ -118,7 +118,7 @@
             </node>
             <node>
                <name>Fall-down</name>
-               <description>ILose one's balance and collapse.</description>
+               <description>Lose one's balance and collapse.</description>
             </node>
             <node>
                <name>Flex</name>
@@ -342,7 +342,7 @@
             </node>
             <node>
                <name>Gulp</name>
-               <description>Swallow drink or food quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.</description>
+               <description>Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.</description>
             </node>
             <node>
                <name>Laugh</name>
@@ -363,7 +363,7 @@
          </node>
          <node>
             <name>Gesture</name>
-            <description>Make a expressive communicative movement of hands/arms and, often, face</description>
+            <description>Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.</description>
             <node>
                <name>Index-up</name>
             </node>
@@ -405,7 +405,7 @@
       </node>
       <node>
          <name>Perform</name>
-         <description>Carry out or accomplish an action or task or function.</description>
+         <description>Carry out or accomplish an action, task, or function.</description>
          <node>
             <name>Collide</name>
             <description>Hit with force when moving.</description>
@@ -432,7 +432,7 @@
          </node>
          <node>
             <name>Repeat</name>
-            <description>Make or do or perform again.</description>
+            <description>Make, do, or perform again.</description>
          </node>
          <node>
             <name>Rest</name>
@@ -444,7 +444,8 @@
          </node>
       </node>
       <node>
-         <name>Think Direct one</name>
+         <name>Think</name>
+         <description>Direct one's mind toward someone or something or use one's mind actively to form connected ideas.</description>
          <node>
             <name>Allow</name>
             <description>Allow access to something such as allowing a car to pass.</description>
