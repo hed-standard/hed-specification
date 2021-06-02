@@ -2,13 +2,13 @@ HED version: 8.0.0-alpha.3
 
 !# start schema 
 
-'''Event''' <nowiki>[Elements of this tree designate the general category in which an event falls. ]</nowiki>
+'''Event''' <nowiki>{suggestedTag=Task-property}[Elements of this tree designate the general category in which an event falls.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
 * Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
-* Experiment-control <nowiki>{extensionAllowed} [An event pertaining to the control of the experiment during its operation.]</nowiki>
+* Experiment-control <nowiki>[An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
-* Experiment-structure <nowiki>{extensionAllowed} [An event specifying the structure of the experiment.]</nowiki>
+* Experiment-structure <nowiki>[An event specifying the structure of the experiment.]</nowiki>
 
 '''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present.]</nowiki>
@@ -127,18 +127,19 @@ HED version: 8.0.0-alpha.3
 ** Read
 ** Rest 
 ** Write
-* Think
-** Allow <nowiki>[Allow access to something such as allowing a car to pass]</nowiki> 
-** Attend-to
-** Count 
-** Deny <nowiki> [Deny access to something such as preventing someone to pass]</nowiki> 
-** Detect
-** Discriminate
-** Encode 
-** Evade 
-** Generate
-** Identify
-** Imagine
+* Think <nowiki>Direct one's mind toward someone or something or use one's mind actively to form connected ideas.</nowiki>
+** Allow <nowiki>[Allow access to something such as allowing a car to pass.]</nowiki> 
+** Attend-to <nowiki>[Focusing mental experience on specific targets.]</nowiki>
+** Count <nowiki>[Tally items.]</nowiki>
+** Deny <nowiki> [Refuse to give or grant something requested or desired by someone.]</nowiki> 
+** Detect <nowiki>[Discover or identify the presence or existence of something.]</nowiki>
+** Discriminate <nowiki>[Recognize a distinction.]</nowiki>
+** Encode <nowiki>[Convert information or an instruction into a particular form.]</nowiki>
+** Evade <nowiki>[Escape or avoid, especially by cleverness or trickery.]</nowiki>
+** Generate <nowiki>[Cause something, especially an emotion or situation to arise or come about.]</nowiki>
+** Identify <nowiki>[Establish or indicate who or what someone or something is.]</nowiki>
+** Imagine <nowiki>[Form a mental image or concept of.]</nowiki>
+** Plan
 ** Predict
 ** Recognize
 ** Respond
@@ -147,8 +148,8 @@ HED version: 8.0.0-alpha.3
 ** Switch-attention
 ** Track
 
-'''Item''' <nowiki>{extensionAllowed}</nowiki>
-* Language-item <nowiki>[An  system of communication that is receivable in a sensory presentation.]</nowiki>
+'''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
+* Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An item that is part of systematic means of communicating by the use of sounds, symbols, or gestures. The presentation of this item is usually visual, auditory or tactile.]</nowiki>
 ** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
 ** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
@@ -158,7 +159,7 @@ HED version: 8.0.0-alpha.3
 ** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
 ** Textblock <nowiki>[A block of text.]</nowiki>
 ** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
-* Object <nowiki> {extensionAllowed} [Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.]</nowiki>
+* Object <nowiki>{suggestedTag=Attribute/Sensory}[Something perceptible by one or more of the senses, especially by vision or touch; a material thing.]</nowiki>
 ** Geometric-object
 *** Pattern
 **** Dots
@@ -281,48 +282,52 @@ HED version: 8.0.0-alpha.3
 **** River
 **** Waterfall
 ** Ingestible-object <nowiki>[An item designed to be consumed by an organism.</nowiki>
-* Organism <nowiki>[Something living or part of something living.]</nowiki>
-** Animal <nowiki>[Any multicellular or eukaryotic organism.]</nowiki>
-*** Human
-** Plant
-** Body-part
-*** Head
-**** Hair
-**** Ear
-**** Face
-***** Cheek
-***** Chin
-***** Eye
-***** Eyebrow
-***** Forehead
-***** Lip
-***** Nose
-***** Mouth
-***** Teeth
-*** Arm
-**** Elbow
-**** Hand
-***** Finger
-****** Index-finger
-****** Little-finger
-****** Middle-finger
-****** Ring-finger
-****** Thumb
-**** Wrist
-*** Leg
-**** Ankle
-**** Foot
-***** Toe
-**** Knee
-*** Torso
-**** Upper-torso
-***** Chest
-**** Lower-torso
-***** Hips
-**** Waist
-* Sound <nowiki>[Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car]</nowiki>
+* Biological-item <nowiki>[An entity that is biological, that is related to living organisms.]</nowiki>
+** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
+*** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
+**** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
+*** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]<nowiki>
+** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
+*** Body-part <nowiki>[Any part of an organism.]</nowiki>
+**** Head <nowiki>[The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.]</nowiki>
+***** Hair
+***** Ear
+***** Face
+****** Cheek
+****** Chin
+****** Eye
+****** Eyebrow
+****** Forehead
+****** Lip
+****** Nose
+****** Mouth
+****** Teeth
+**** Arm
+***** Elbow
+***** Hand
+****** Finger
+******* Index-finger
+******* Little-finger
+******* Middle-finger
+******* Ring-finger
+******* Thumb
+***** Wrist
+**** Leg
+***** Ankle
+***** Foot
+****** Toe
+***** Knee
+**** Torso
+***** Upper-torso
+****** Chest
+***** Lower-torso
+****** Hips
+***** Waist
+*** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
+*** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
+* Sound <nowiki>[Mechanical vibrations transmitted by an elastic medium; something that can be heard.]</nowiki>
 ** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
-*** Crowd-sound <nowiki>[Multiple speech streams at once]</nowiki>
+*** Crowd-sound <nowiki>[Multiple speech streams at once.]</nowiki>
 *** Noise
 **** White-noise
 **** Colored-noise
@@ -349,8 +354,8 @@ HED version: 8.0.0-alpha.3
 *** Horn
 *** Siren
 
-'''Agent-property''' 
-* Cognitive-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+'''Agent-property''' <nowiki>[Something that pertains to an agent.]</nowiki>
+* Cognitive-state <nowiki>{extensionAllowed, requireChild}[The state of an agent's cognitive processes or state of mind.]</nowiki>
 ** Alert
 ** Anesthetized 
 ** Asleep
@@ -364,7 +369,7 @@ HED version: 8.0.0-alpha.3
 ** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.]</nowiki>
 ** Resting
 ** Vegetative 
-* Emotional-state <nowiki>{extensionAllowed, requireChild}</nowiki>
+* Emotional-state <nowiki>{extensionAllowed, requireChild}[The status of an agent's general temperament and outlook.]</nowiki>
 ** Angry 
 ** Aroused
 ** Awed
@@ -384,7 +389,7 @@ HED version: 8.0.0-alpha.3
 ** Loving
 ** Relieved
 ** Sad 
-* Postural-state <nowiki>[Indicates the position of an agent. Usually this position or posture is static for some length of time rather than being part of a motion.]</nowiki> 
+* Postural-state <nowiki>[Pertaining to the position in which agent holds their body.]</nowiki> 
 ** Crouching
 ** Kneeling
 ** On-treadmill
@@ -392,7 +397,7 @@ HED version: 8.0.0-alpha.3
 ** Sitting
 ** Standing
 ** Supported-by-chin-rest
-* Agent-trait <nowiki>{extensionAllowed}</nowiki> 
+* Agent-trait <nowiki>{extensionAllowed}[A genetically determined characteristic of an agent.]</nowiki> 
 ** Age
 *** <nowiki># {takesValue}</nowiki>
 ** Gender
@@ -401,14 +406,16 @@ HED version: 8.0.0-alpha.3
 *** Male
 *** Intersex 
 ** Handedness
-*** <nowiki># {takesValue}</nowiki> 
-* Agent-social-role <nowiki> [The role of the agent not particular to the task.]</nowiki>
+*** Left-handed
+*** Right-handed
+*** Ambidextrous 
+* Agent-social-role <nowiki>[The function or part that is ascribed to an individual agent with respect to in a community.]</nowiki>
 ** Brother
 ** Child
 ** Father
 ** Mother
 ** Sister
-* Agent-task-role <nowiki> [The role of the agent in the task.]</nowiki>
+* Agent-task-role <nowiki>[The function or part that is ascribed to an agent in performing the task.]</nowiki>
 ** Experimental-controller
 ** Experimental-participant
 ** Experimenter
@@ -418,13 +425,9 @@ HED version: 8.0.0-alpha.3
 ** Stranger
 ** Student
 ** Teacher
-* Agent-association 
-** Associated-with-non-agent 
-** Associated-with-other <nowiki>[Item such as a cup belonging to another person]</nowiki> 
-** Associated-with-self <nowiki>[Item such as a cup belonging to the participant]</nowiki> 
 
 '''Data-property''' <nowiki>[Something that pertains to data or information.]</nowiki>
-* Data-source-type <nowiki>[The place, person, or thing from which the data comes or can be obtained.]</nowiki>
+* Data-source-type <nowiki>[The type of place, person, or thing from which the data comes or can be obtained.]</nowiki>
 ** Computed-feature<nowiki>{extensionAllowed}[A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.]</nowiki>
 ** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
 ** Expert-annotation <nowiki>{extensionAllowed}[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
@@ -543,8 +546,9 @@ HED version: 8.0.0-alpha.3
 *** <nowiki># {takesValue, isNumeric}</nowiki> 
 ** Uncertainty <nowiki> [Use to specify the level of error.]</nowiki>
 *** <nowiki># {takesValue, isNumeric}</nowiki>
-'''Task-property'''
-* Task-attentional-strategy
+
+'''Task-property''' <nowiki>[Something that pertains to a task.]</nowiki>
+* Task-attentional-strategy <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
 ** Bottom-up-attention
 ** Covert-attention
 ** Divided-attention
@@ -570,7 +574,7 @@ HED version: 8.0.0-alpha.3
 ** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
-* Task-response-type <nowiki> [How the participant response should be interpreted in terms of the task specification.]</nowiki>
+* Task-response-type <nowiki>[How the participant response should be interpreted in terms of the task specification.]</nowiki>
 ** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
 ** Correction <nowiki>{relatedTag=Successful}</nowiki>
 ** Erroneous
@@ -580,7 +584,7 @@ HED version: 8.0.0-alpha.3
 ** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
 ** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
 ** Successful <nowiki>{relatedTag=Correction}</nowiki>
-* Task-stimulus-type <nowiki> [The stimulus purpose in the task.]</nowiki>
+* Task-stimulus-role <nowiki>[The role of the stimulus plays in the task.]</nowiki>
 ** Cue
 ** Distractor 
 ** Expected <nowiki>[Of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
@@ -589,7 +593,7 @@ HED version: 8.0.0-alpha.3
 ** Meaningful
 ** Newly-learned
 ** Non-informative
-** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent] </nowiki> 
+** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent.] </nowiki> 
 ** Not-meaningful 
 ** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
 ** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
@@ -605,8 +609,8 @@ HED version: 8.0.0-alpha.3
 ** Unexpected
 
 
-'''Attribute''' <nowiki>{extensionAllowed} [Subtree tree for general properties.]</nowiki>
-* Informational <nowiki>[Informational properties.]</nowiki>
+'''Attribute''' <nowiki>{extensionAllowed} [A quality or feature regarded as a characteristic or inherent part of someone or something. In HED attributes are adjectives or adverbs.]</nowiki>
+* Informational <nowiki>[Relating to or characterized by facts about something; providing information.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Def-expand <nowiki> {requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
@@ -640,7 +644,7 @@ HED version: 8.0.0-alpha.3
 *** <nowiki># {takesValue}</nowiki>
 ** Value
 *** <nowiki># {takesValue}</nowiki>
-* Organizational
+* Organizational <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Event-context <nowiki>{topLevelTagGroup}[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
@@ -653,7 +657,7 @@ HED version: 8.0.0-alpha.3
 ** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
-* Relational <nowiki>{extensionAllowed}</nowiki>
+* Relational <nowiki>{extensionAllowed}[Concerns the way in which two or more people or things are connected.]</nowiki>
 ** Comparative-relation
 *** Less-than
 *** Less-than-or-equal-to
@@ -753,7 +757,7 @@ HED version: 8.0.0-alpha.3
 *** Colder-than
 *** Hot
 *** Hotter-than
-* Categorical <nowiki>{extensionAllowed}</nowiki>
+* Categorical <nowiki>{extensionAllowed}[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 ** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 *** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
 *** Correct <nowiki>{relatedTag=Incorrect}</nowiki>
@@ -797,14 +801,14 @@ HED version: 8.0.0-alpha.3
 *** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
 *** Thick <nowiki>{relatedTag=Thin}</nowiki>
 *** Thin <nowiki>{relatedTag=Thick}</nowiki>
-* Descriptive <nowiki>[Indicate the type of thing.]</nowiki>
+* Descriptive <nowiki>[Presenting observations about the characteristics of someone or something.]</nowiki>
 ** Abstract
 ** Clinical
 ** Complex
 ** Composite
 ** Numerical
 ** Symbolic
-* Sensory <nowiki>{extensionAllowed}</nowiki>
+* Sensory <nowiki>{extensionAllowed}[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
 ** Auditory
 *** Audible
 *** Frequency 
@@ -1019,10 +1023,7 @@ HED version: 8.0.0-alpha.3
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view
-
-
-
-* Environmental <nowiki>{extensionAllowed}</nowiki>
+* Environmental <nowiki>{extensionAllowed}[Relating to or arising from an agent's surroundings.]</nowiki>
 ** Indoors
 ** Outdoors
 ** Real-world
@@ -1043,7 +1044,7 @@ HED version: 8.0.0-alpha.3
 *** Rocky-terrain
 *** Sloped-terrain
 *** Uneven-terrain
-* Anatomical
+* Anatomical <nowiki>[Relating to bodily structure.]</nowiki>
 
 !# end schema 
 
@@ -1168,5 +1169,6 @@ HED version: 8.0.0-alpha.3
 This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
 
 * boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - indicates that this property is designed to be applied to unit classes.
-* unitProperty - indicates that this property applies to units within a unit class. 
+* unitClassProperty - indicates that this attribute is designed to be applied to unit classes.
+* unitModifierProperty - indicates that this attribute is designed to be applied to unit classes.
+* unitProperty - indicates that this a applies to units within a unit class. 

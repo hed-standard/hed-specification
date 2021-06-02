@@ -3,6 +3,10 @@
    <node>
       <name>Event</name>
       <description>Elements of this tree designate the general category in which an event falls.</description>
+      <attribute>
+         <name>suggestedTag</name>
+         <value>Task-property</value>
+      </attribute>
       <node>
          <name>Sensory-event</name>
          <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
@@ -30,9 +34,6 @@
       <node>
          <name>Experiment-control</name>
          <description>An event pertaining to the control of the experiment during its operation.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
       </node>
       <node>
          <name>Experiment-procedure</name>
@@ -41,9 +42,6 @@
       <node>
          <name>Experiment-structure</name>
          <description>An event specifying the structure of the experiment.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
       </node>
    </node>
    <node>
@@ -441,41 +439,53 @@
          </node>
       </node>
       <node>
-         <name>Think</name>
+         <name>Think Direct one</name>
          <node>
             <name>Allow</name>
-            <description>Allow access to something such as allowing a car to pass</description>
+            <description>Allow access to something such as allowing a car to pass.</description>
          </node>
          <node>
             <name>Attend-to</name>
+            <description>Focusing mental experience on specific targets.</description>
          </node>
          <node>
             <name>Count</name>
+            <description>Tally items.</description>
          </node>
          <node>
             <name>Deny</name>
-            <description>Deny access to something such as preventing someone to pass</description>
+            <description>Refuse to give or grant something requested or desired by someone.</description>
          </node>
          <node>
             <name>Detect</name>
+            <description>Discover or identify the presence or existence of something.</description>
          </node>
          <node>
             <name>Discriminate</name>
+            <description>Recognize a distinction.</description>
          </node>
          <node>
             <name>Encode</name>
+            <description>Convert information or an instruction into a particular form.</description>
          </node>
          <node>
             <name>Evade</name>
+            <description>Escape or avoid, especially by cleverness or trickery.</description>
          </node>
          <node>
             <name>Generate</name>
+            <description>Cause something, especially an emotion or situation to arise or come about.</description>
          </node>
          <node>
             <name>Identify</name>
+            <description>Establish or indicate who or what someone or something is.</description>
          </node>
          <node>
             <name>Imagine</name>
+            <description>Form a mental image or concept of.</description>
+         </node>
+         <node>
+            <name>Plan</name>
          </node>
          <node>
             <name>Predict</name>
@@ -502,12 +512,17 @@
    </node>
    <node>
       <name>Item</name>
+      <description>An independently existing thing (living or nonliving).</description>
       <attribute>
          <name>extensionAllowed</name>
       </attribute>
       <node>
          <name>Language-item</name>
-         <description>An  system of communication that is receivable in a sensory presentation.</description>
+         <description>An item that is part of systematic means of communicating by the use of sounds, symbols, or gestures. The presentation of this item is usually visual, auditory or tactile.</description>
+         <attribute>
+            <name>suggestedTag</name>
+            <value>Attribute/Sensory</value>
+         </attribute>
          <node>
             <name>Character</name>
             <description>A mark, sign or symbol used as part of language.</description>
@@ -547,9 +562,10 @@
       </node>
       <node>
          <name>Object</name>
-         <description>Physical object perceptible via Visual, Auditory, Olfactory, and/or Tactile modalities.</description>
+         <description>Something perceptible by one or more of the senses, especially by vision or touch; a material thing.</description>
          <attribute>
-            <name>extensionAllowed</name>
+            <name>suggestedTag</name>
+            <value>Attribute/Sensory</value>
          </attribute>
          <node>
             <name>Geometric-object</name>
@@ -936,133 +952,152 @@
          </node>
       </node>
       <node>
-         <name>Organism</name>
-         <description>Something living or part of something living.</description>
+         <name>Biological-item</name>
+         <description>An entity that is biological, that is related to living organisms.</description>
          <node>
-            <name>Animal</name>
-            <description>Any multicellular or eukaryotic organism.</description>
+            <name>Organism</name>
+            <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
             <node>
-               <name>Human</name>
+               <name>Animal</name>
+               <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
+               <node>
+                  <name>Human</name>
+                  <description>The bipedal primate mammal Homo sapiens.</description>
+               </node>
+            </node>
+            <node>
+               <name>Plant</name>
+               <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
             </node>
          </node>
          <node>
-            <name>Plant</name>
-         </node>
-         <node>
-            <name>Body-part</name>
+            <name>Anatomical-item</name>
+            <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
             <node>
-               <name>Head</name>
+               <name>Body-part</name>
+               <description>Any part of an organism.</description>
                <node>
-                  <name>Hair</name>
+                  <name>Head</name>
+                  <node>
+                     <name>Hair</name>
+                  </node>
+                  <node>
+                     <name>Ear</name>
+                  </node>
+                  <node>
+                     <name>Face</name>
+                     <node>
+                        <name>Cheek</name>
+                     </node>
+                     <node>
+                        <name>Chin</name>
+                     </node>
+                     <node>
+                        <name>Eye</name>
+                     </node>
+                     <node>
+                        <name>Eyebrow</name>
+                     </node>
+                     <node>
+                        <name>Forehead</name>
+                     </node>
+                     <node>
+                        <name>Lip</name>
+                     </node>
+                     <node>
+                        <name>Nose</name>
+                     </node>
+                     <node>
+                        <name>Mouth</name>
+                     </node>
+                     <node>
+                        <name>Teeth</name>
+                     </node>
+                  </node>
                </node>
                <node>
-                  <name>Ear</name>
+                  <name>Arm</name>
+                  <node>
+                     <name>Elbow</name>
+                  </node>
+                  <node>
+                     <name>Hand</name>
+                     <node>
+                        <name>Finger</name>
+                        <node>
+                           <name>Index-finger</name>
+                        </node>
+                        <node>
+                           <name>Little-finger</name>
+                        </node>
+                        <node>
+                           <name>Middle-finger</name>
+                        </node>
+                        <node>
+                           <name>Ring-finger</name>
+                        </node>
+                        <node>
+                           <name>Thumb</name>
+                        </node>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Wrist</name>
+                  </node>
                </node>
                <node>
-                  <name>Face</name>
+                  <name>Leg</name>
                   <node>
-                     <name>Cheek</name>
+                     <name>Ankle</name>
                   </node>
                   <node>
-                     <name>Chin</name>
+                     <name>Foot</name>
+                     <node>
+                        <name>Toe</name>
+                     </node>
                   </node>
                   <node>
-                     <name>Eye</name>
+                     <name>Knee</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Torso</name>
+                  <node>
+                     <name>Upper-torso</name>
+                     <node>
+                        <name>Chest</name>
+                     </node>
                   </node>
                   <node>
-                     <name>Eyebrow</name>
+                     <name>Lower-torso</name>
+                     <node>
+                        <name>Hips</name>
+                     </node>
                   </node>
                   <node>
-                     <name>Forehead</name>
-                  </node>
-                  <node>
-                     <name>Lip</name>
-                  </node>
-                  <node>
-                     <name>Nose</name>
-                  </node>
-                  <node>
-                     <name>Mouth</name>
-                  </node>
-                  <node>
-                     <name>Teeth</name>
+                     <name>Waist</name>
                   </node>
                </node>
             </node>
             <node>
-               <name>Arm</name>
-               <node>
-                  <name>Elbow</name>
-               </node>
-               <node>
-                  <name>Hand</name>
-                  <node>
-                     <name>Finger</name>
-                     <node>
-                        <name>Index-finger</name>
-                     </node>
-                     <node>
-                        <name>Little-finger</name>
-                     </node>
-                     <node>
-                        <name>Middle-finger</name>
-                     </node>
-                     <node>
-                        <name>Ring-finger</name>
-                     </node>
-                     <node>
-                        <name>Thumb</name>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Wrist</name>
-               </node>
+               <name>Organ</name>
+               <description>A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.</description>
             </node>
             <node>
-               <name>Leg</name>
-               <node>
-                  <name>Ankle</name>
-               </node>
-               <node>
-                  <name>Foot</name>
-                  <node>
-                     <name>Toe</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Knee</name>
-               </node>
-            </node>
-            <node>
-               <name>Torso</name>
-               <node>
-                  <name>Upper-torso</name>
-                  <node>
-                     <name>Chest</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Lower-torso</name>
-                  <node>
-                     <name>Hips</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Waist</name>
-               </node>
+               <name>Tissue</name>
+               <description>An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</description>
             </node>
          </node>
       </node>
       <node>
          <name>Sound</name>
-         <description>Item/Sound can be used in a tag group to describe a sound created by an action Item/Sound, Action/Move/Move leg-foot/Walk, Agent/Human or an object or Item/Sound, Item/Object/Man-made/Vehicle/Car</description>
+         <description>Mechanical vibrations transmitted by an elastic medium; something that can be heard.</description>
          <node>
             <name>Environmental-sound</name>
             <description>A background sound from the surrounding environment.</description>
             <node>
                <name>Crowd-sound</name>
-               <description>Multiple speech streams at once</description>
+               <description>Multiple speech streams at once.</description>
             </node>
             <node>
                <name>Noise</name>
@@ -1146,8 +1181,10 @@
    </node>
    <node>
       <name>Agent-property</name>
+      <description>Something that pertains to an agent.</description>
       <node>
          <name>Cognitive-state</name>
+         <description>The state of an agent's cognitive processes or state of mind.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -1198,6 +1235,7 @@
       </node>
       <node>
          <name>Emotional-state</name>
+         <description>The status of an agent's general temperament and outlook.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -1264,7 +1302,7 @@
       </node>
       <node>
          <name>Postural-state</name>
-         <description>Indicates the position of an agent. Usually this position or posture is static for some length of time rather than being part of a motion.</description>
+         <description>Pertaining to the position in which agent holds their body.</description>
          <node>
             <name>Crouching</name>
          </node>
@@ -1289,6 +1327,7 @@
       </node>
       <node>
          <name>Agent-trait</name>
+         <description>A genetically determined characteristic of an agent.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -1319,16 +1358,19 @@
          <node>
             <name>Handedness</name>
             <node>
-               <name>#</name>
-               <attribute>
-                  <name>takesValue</name>
-               </attribute>
+               <name>Left-handed</name>
+            </node>
+            <node>
+               <name>Right-handed</name>
+            </node>
+            <node>
+               <name>Ambidextrous</name>
             </node>
          </node>
       </node>
       <node>
          <name>Agent-social-role</name>
-         <description>The role of the agent not particular to the task.</description>
+         <description>The function or part that is ascribed to an individual agent with respect to in a community.</description>
          <node>
             <name>Brother</name>
          </node>
@@ -1347,7 +1389,7 @@
       </node>
       <node>
          <name>Agent-task-role</name>
-         <description>The role of the agent in the task.</description>
+         <description>The function or part that is ascribed to an agent in performing the task.</description>
          <node>
             <name>Experimental-controller</name>
          </node>
@@ -1376,27 +1418,13 @@
             <name>Teacher</name>
          </node>
       </node>
-      <node>
-         <name>Agent-association</name>
-         <node>
-            <name>Associated-with-non-agent</name>
-         </node>
-         <node>
-            <name>Associated-with-other</name>
-            <description>Item such as a cup belonging to another person</description>
-         </node>
-         <node>
-            <name>Associated-with-self</name>
-            <description>Item such as a cup belonging to the participant</description>
-         </node>
-      </node>
    </node>
    <node>
       <name>Data-property</name>
       <description>Something that pertains to data or information.</description>
       <node>
          <name>Data-source-type</name>
-         <description>The place, person, or thing from which the data comes or can be obtained.</description>
+         <description>The type of place, person, or thing from which the data comes or can be obtained.</description>
          <node>
             <name>Computed-feature</name>
             <description>A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.</description>
@@ -2115,8 +2143,10 @@
    </node>
    <node>
       <name>Task-property</name>
+      <description>Something that pertains to a task.</description>
       <node>
          <name>Task-attentional-strategy</name>
+         <description>Strategy for allocating attention toward goal-relevant information.</description>
          <node>
             <name>Bottom-up-attention</name>
          </node>
@@ -2273,8 +2303,8 @@
          </node>
       </node>
       <node>
-         <name>Task-stimulus-type</name>
-         <description>The stimulus purpose in the task.</description>
+         <name>Task-stimulus-role</name>
+         <description>The role of the stimulus plays in the task.</description>
          <node>
             <name>Cue</name>
          </node>
@@ -2302,7 +2332,7 @@
          </node>
          <node>
             <name>Non-target</name>
-            <description>Make sure to tag Expected if the Non-target is frequent</description>
+            <description>Make sure to tag Expected if the Non-target is frequent.</description>
          </node>
          <node>
             <name>Not-meaningful</name>
@@ -2350,13 +2380,13 @@
    </node>
    <node>
       <name>Attribute</name>
-      <description>Subtree tree for general properties.</description>
+      <description>A quality or feature regarded as a characteristic or inherent part of someone or something. In HED attributes are adjectives or adverbs.</description>
       <attribute>
          <name>extensionAllowed</name>
       </attribute>
       <node>
          <name>Informational</name>
-         <description>Informational properties.</description>
+         <description>Relating to or characterized by facts about something; providing information.</description>
          <node>
             <name>Def</name>
             <description>A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.</description>
@@ -2543,6 +2573,7 @@
       </node>
       <node>
          <name>Organizational</name>
+         <description>Relating to an organization or the action of organizing something.</description>
          <node>
             <name>Collection</name>
             <description>A tag designating a grouping of items such as in a set or list.</description>
@@ -2597,6 +2628,7 @@
       </node>
       <node>
          <name>Relational</name>
+         <description>Concerns the way in which two or more people or things are connected.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -2912,6 +2944,7 @@
       </node>
       <node>
          <name>Categorical</name>
+         <description>Indicates that something can take on a limited and usually fixed number of possible values.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -3218,7 +3251,7 @@
       </node>
       <node>
          <name>Descriptive</name>
-         <description>Indicate the type of thing.</description>
+         <description>Presenting observations about the characteristics of someone or something.</description>
          <node>
             <name>Abstract</name>
          </node>
@@ -3240,6 +3273,7 @@
       </node>
       <node>
          <name>Sensory</name>
+         <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -3970,6 +4004,7 @@
       </node>
       <node>
          <name>Environmental</name>
+         <description>Relating to or arising from an agent's surroundings.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -4036,6 +4071,7 @@
       </node>
       <node>
          <name>Anatomical</name>
+         <description>Relating to bodily structure.</description>
       </node>
    </node>
    <unitClassDefinitions>
@@ -4669,6 +4705,7 @@
    </schemaAttributeDefinitions>
    <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
 * boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - indicates that this property is designed to be applied to unit classes.
-* unitProperty - indicates that this property applies to units within a unit class. </epilogue>
+* unitClassProperty - indicates that this attribute is designed to be applied to unit classes.
+* unitModifierProperty - indicates that this attribute is designed to be applied to unit classes.
+* unitProperty - indicates that this a applies to units within a unit class. </epilogue>
 </HED>
