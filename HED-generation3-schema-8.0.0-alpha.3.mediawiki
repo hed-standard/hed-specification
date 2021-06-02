@@ -2,7 +2,7 @@ HED version: 8.0.0-alpha.3
 
 !# start schema 
 
-'''Event''' <nowiki>{suggestedTag=Task-property}[Elements of this tree designate the general category in which an event falls.]</nowiki>
+'''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
 * Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
@@ -11,7 +11,7 @@ HED version: 8.0.0-alpha.3
 * Experiment-structure <nowiki>[An event specifying the structure of the experiment.]</nowiki>
 
 '''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
-* Animal-agent <nowiki>[An animal that is present.]</nowiki>
+* Animal-agent <nowiki>[An animal that is present and acting to produce an effect.]</nowiki>
 * Avatar-agent <nowiki>[An agent associated with an icon or figure representing a particular person in venues such as video games or internet forums.]</nowiki>
 * Computational-agent <nowiki>[An agent whose decisions about its actions can be explained in terms of computation.]</nowiki>
 * Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
@@ -19,23 +19,23 @@ HED version: 8.0.0-alpha.3
 * Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
 * Software-agent <nowiki>[A computer program that acts for a user or other program in a relationship of agency.]</nowiki>
 
-'''Action''' <nowiki>{extensionAllowed} [May or may not be in response to a previous Sensory presentation event.]</nowiki> 
-* Move
+'''Act''' <nowiki>{extensionAllowed}[Do something.]</nowiki> 
+* Move <nowiki>[Go in a specified direction or manner; change position.]</nowiki>
 ** Breathe <nowiki>[Inhale and exhale air into the body during respiration.]</nowiki>
-*** Inhale <nowiki>[A deliberate in-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental if the inhalation is incidental to the task (Action/Move/Breathe/Inhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Exhale <nowiki>[A deliberate out-breath in response to a task instruction or as part of a task. Group with Attribute/Cognitive modifier/Incidental: (Action/Move/Breathe/Exhale, Attribute/Cognitive modifier/Incidental).]</nowiki>
-*** Hold-breath
-** Move-full-body
-*** Bend
-*** Dance
-*** Fall-down <nowiki>[Involuntary fall to floor or ground]</nowiki>
-*** Flex
-*** Jerk <nowiki>[When some force applied to the participant causes them to involuntarily accommodate or react to it.]</nowiki>
-***	Recover-balance <nowiki>[A movement made in response to a stumble or unforeseen loss of balance]</nowiki>
-*** Stretch <nowiki>[Stretching the body or body part]</nowiki> 
-*** Shudder 
-*** Stumble <nowiki>[Temporary and involuntary loss of balance]</nowiki>
-*** Turn
+*** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
+*** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
+*** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
+** Move-full-body <nowiki>[Move entire body.]</nowiki>
+*** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
+*** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
+*** Fall-down <nowiki>[ILose one's balance and collapse.]</nowiki>
+*** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
+*** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
+***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
+*** Stretch <nowiki>[Straighten or extend one's body or a part of one's body to its full length, typically so as to tighten one's muscles or in order to reach something.]</nowiki> 
+*** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
+*** Stumble <nowiki>[Trip or momentarily lose one's balance and almost fall.]</nowiki>
+*** Turn <nowiki>[Change or cause to change direction.]</nowiki>
 ** Move-body-part
 *** Move-head
 **** Move-eyes
@@ -90,14 +90,14 @@ HED version: 8.0.0-alpha.3
 ***** Toe-off
 **** Trot
 **** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
-* Communicate
-** Communicate-vocally
-*** Cry
-*** Groan
-*** Gulp  <nowiki>[Communicate anxiety. Use swallow if non-editorial.]</nowiki>
-***	Laugh
-*** Scream
-*** Sigh
+* Communicate <nowiki>[Convey knowledge of or information about something.]</nowiki>
+** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
+*** Cry <nowiki>[Shed tears associated with emotions, usually sadness but also joy or frustration.]</nowiki>
+*** Groan <nowiki>[Make a deep inarticulate sound in response to pain or despair.]</nowiki>
+*** Gulp  <nowiki>[Swallow drink or food quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
+***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
+*** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
+*** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Gesture <nowiki>[Make a expressive communicative movement of hands/arms and, often, face]</nowiki>
 ***	Index-up
@@ -113,24 +113,19 @@ HED version: 8.0.0-alpha.3
 *** Vocalize <nowiki>[Make a sustained vowel sound such as Ahhh.]</nowiki>
 *** Whistle
 * Perform <nowiki>[Carry out or accomplish an action or task or function.]</nowiki>
-** Collide
-** Halt <nowiki>[Stop action.]</nowiki>
-** Modify <nowiki>[Deliberately make a change in something.]</nowiki>
-** Operate <nowiki>[Control something else.]</nowiki>
-** Perceive
-*** Feel
-*** Listen
-*** Look
-*** Smell
-*** Taste
-** Play  <nowiki>[As a musical instrument or a game.]</nowiki>
-** Read
-** Rest 
-** Write
+** Collide <nowiki>[Hit with force when moving.]</nowiki>
+** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
+** Modify <nowiki>[Change something.]</nowiki>
+** Operate <nowiki>[Control the functioning of a machine, process, or system.]</nowiki>
+** Play  <nowiki>[Engage in activity for enjoyment and recreation rather than a serious or practical purpose.]</nowiki>
+** Read <nowiki>[Interpret something that is written or printed.]</nowki>
+** Repeat <nowiki>[Make or do or perform again.]</nowiki>
+** Rest <nowiki>[Be inactive in order to regain strength, health, or energy.]</nowiki>
+** Write <nowiki>[Communicate or express by means of letters or symbols written or imprinted on a surface.]</nowiki>
 * Think <nowiki>Direct one's mind toward someone or something or use one's mind actively to form connected ideas.</nowiki>
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass.]</nowiki> 
-** Attend-to <nowiki>[Focusing mental experience on specific targets.]</nowiki>
-** Count <nowiki>[Tally items.]</nowiki>
+** Attend-to <nowiki>[Focus mental experience on specific targets.]</nowiki>
+** Count <nowiki>[Tally items either silently or aloud.]</nowiki>
 ** Deny <nowiki> [Refuse to give or grant something requested or desired by someone.]</nowiki> 
 ** Detect <nowiki>[Discover or identify the presence or existence of something.]</nowiki>
 ** Discriminate <nowiki>[Recognize a distinction.]</nowiki>
@@ -139,14 +134,21 @@ HED version: 8.0.0-alpha.3
 ** Generate <nowiki>[Cause something, especially an emotion or situation to arise or come about.]</nowiki>
 ** Identify <nowiki>[Establish or indicate who or what someone or something is.]</nowiki>
 ** Imagine <nowiki>[Form a mental image or concept of.]</nowiki>
-** Plan
-** Predict
-** Recognize
-** Respond
-** Recall
-** Repeat
-** Switch-attention
-** Track
+** Judge <nowiki>[Evaluate evidence to make a decision or form a belief.]</nowiki>
+** Learn <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
+** Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
+*** Listen
+*** Look
+*** Smell
+*** Touch
+*** Taste
+** Plan <nowiki>[Think about the activities required to achieve a desired goal. ]</nowiki>
+** Predict <nowiki>[Say or estimate that something will happen or will be a consequence of something without having exact informaton.]</nowiki>
+** Recognize <nowiki>[Identify someone or something from having encountered them before.]</nowiki>
+** Respond <nowiki>[React to something such as a treatment or a stimulus.]</nowiki>
+** Recall <nowiki>[Remember information by mental effort.]</nowiki>
+** Switch-attention <nowiki>[Transfer attention from one focus to another.]</nowiki>
+** Track <nowiki>[Follow a person, animal, or object through space or time.]</nowiki>
 
 '''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
 * Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An item that is part of systematic means of communicating by the use of sounds, symbols, or gestures. The presentation of this item is usually visual, auditory or tactile.]</nowiki>
@@ -584,7 +586,7 @@ HED version: 8.0.0-alpha.3
 ** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
 ** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
 ** Successful <nowiki>{relatedTag=Correction}</nowiki>
-* Task-stimulus-role <nowiki>[The role of the stimulus plays in the task.]</nowiki>
+* Task-stimulus-role <nowiki>[The role the stimulus plays in the task.]</nowiki>
 ** Cue
 ** Distractor 
 ** Expected <nowiki>[Of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
@@ -609,7 +611,7 @@ HED version: 8.0.0-alpha.3
 ** Unexpected
 
 
-'''Attribute''' <nowiki>{extensionAllowed} [A quality or feature regarded as a characteristic or inherent part of someone or something. In HED attributes are adjectives or adverbs.]</nowiki>
+'''Attribute''' <nowiki>{extensionAllowed} [A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
 * Informational <nowiki>[Relating to or characterized by facts about something; providing information.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
