@@ -19,76 +19,79 @@ HED version: 8.0.0-alpha.3
 * Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
 * Software-agent <nowiki>[A computer program that acts for a user or other program in a relationship of agency.]</nowiki>
 
-'''Act''' <nowiki>{extensionAllowed}[Do something.]</nowiki> 
+'''Action''' <nowiki>{extensionAllowed}[Do something.]</nowiki> 
 * Move <nowiki>[Go in a specified direction or manner; change position.]</nowiki>
 ** Breathe <nowiki>[Inhale and exhale air into the body during respiration.]</nowiki>
-*** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
+*** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
 *** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
+*** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
 *** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
+*** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
+*** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
+*** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
 ** Move-full-body <nowiki>[Move entire body.]</nowiki>
 *** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
 *** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
-*** Fall-down <nowiki>[Lose one's balance and collapse.]</nowiki>
+*** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
 *** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
 *** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
 ***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
-*** Stretch <nowiki>[Straighten or extend one's body or a part of one's body to its full length, typically so as to tighten one's muscles or in order to reach something.]</nowiki> 
+*** Stretch <nowiki>[Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.]</nowiki> 
 *** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
-*** Stumble <nowiki>[Trip or momentarily lose one's balance and almost fall.]</nowiki>
+*** Stumble <nowiki>[Trip or momentarily lose balance and almost fall.]</nowiki>
 *** Turn <nowiki>[Change or cause to change direction.]</nowiki>
-** Move-body-part
-*** Move-head
-**** Move-eyes
-***** Blink
-***** Close-eyes
-***** Fixate
-***** Inhibit-blinks
-***** Open-eyes 
-***** Saccade
-**** Move-jaw
+** Move-body-part <nowiki>[Move one part of a body.]</nowiki>
+*** Move-head <nowiki>[Move head.]</nowiki>
+**** Move-eyes <nowiki>[Move eyes.]</nowiki>
+***** Blink <nowiki>[Shut and open the eyes quickly.]</nowiki>
+***** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
+***** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
+***** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
+***** Lift-eyebrows <nowiki>[Move eyebrows upward.]</nowiki>
+***** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
+***** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
+***** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
+***** Widen-eyes <nowiki>[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
+**** Move-jaw <nowiki>[Move lower part of the jaw and head.]</nowiki>
 ***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
-***** Burp 
+***** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
 ***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
-***** Clear-throat
-***** Cough 
-***** Gurgle
-***** Hiccup 
-***** Smile
-***** Sneeze 
-***** Sniffle
-***** Swallow
-***** Yawn <nowiki>[An involuntary deep inhalation with the mouth open often a sign of drowsiness or boredom.]</nowiki>
-**** Nod-head
-**** Shake-head
-*** Move-arm-hand
-**** Clap
-**** Drop <nowiki>[For example the participant drops a handheld ball]</nowiki>
-**** Grab
-**** Grasp <nowiki>[Grasp an object in one or both hands]</nowiki>
-**** Hold-down
-**** Lift <nowiki>[Often grouped with item being lifted.]</nowiki>
-**** Make-fist
-**** Point  <nowiki>[Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.]</nowiki> 
-**** Press <nowiki>[Often grouped with body part doing action and item being pressed.]</nowiki>
-**** Push
-**** Reach <nowiki>[Stretching out arm in order to get or touch something. The requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.]</nowiki> 
-**** Release <nowiki>[Often grouped with item being released.]</nowiki>
-**** Retract <nowiki>[Often grouped with body part doing action and item being retracted.]</nowiki>
-**** Scratch
-**** Snap-fingers
-**** Tap <nowiki>[Often grouped with body part doing action.]</nowiki>
-**** Touch <nowiki>[May follow a Reach event]</nowiki> 
-*** Move-leg-foot
-**** Curl-toes
-**** Jog
-**** Jump
-**** Kick 
-**** Pedal
-**** Run
-**** Step
-***** Heel-strike 
-***** Toe-off
-**** Trot
+***** Clear-throat <nowiki>[Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward.]</nowiki>
+***** Frown <nowiki>[Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.]</nowiki>
+***** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
+***** Smile <nowiki>[Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.]</nowiki>
+***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
+**** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
+**** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
+*** Move-arm-hand <nowiki>[Move some part of arm, shoulder and or arm.]</nowiki>
+**** Clap-hands <nowiki>[Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.]</nowiki>
+**** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
+**** Grab <nowiki>[Seize suddenly or quickly; snatch; clutch.]</nowiki>
+**** Grasp <nowiki>[Seize and hold firmly.]</nowiki>
+**** Hold-down <nowiki>[Prevent someone or something from moving by holding them firmly.]</nowiki>
+**** Lift <nowiki>[Raising something to higher position.]</nowiki>
+**** Make-fist <nowiki>[Close hand tightly with the fingers bent against the palm.]</nowiki>
+**** Point  <nowiki>[Draw attention to something by extending a finger or arm.]</nowiki> 
+**** Press <nowiki>[Apply pressure to something to flatten, shape, or smooth it.]</nowiki>
+**** Push <nowiki>[Apply force in order to move something away.]</nowiki>
+**** Reach <nowiki>[Stretch out your arm in order to get or touch something.]</nowiki> 
+**** Release <nowiki>[Make available; set free.]</nowiki>
+**** Retract <nowiki>[Draw or pull back.]</nowiki>
+**** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
+**** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
+**** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
+*** Move-leg-foot <nowiki>[Move some part of leg or foot.]</nowiki>
+**** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
+**** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
+**** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
+**** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
+**** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
+**** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
+**** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
+***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
+***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
+**** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
 **** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Communicate <nowiki>[Convey knowledge of or information about something.]</nowiki>
 ** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
@@ -100,18 +103,19 @@ HED version: 8.0.0-alpha.3
 *** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 ** Gesture <nowiki>[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
-***	Index-up
-***	Pump-fist
-***	Spread-hand
-***	Shhh
-***	Shrug
-***	Thumb-up
-***	Wave
-** Communicate-musically
-*** Hum
-*** Sing
-*** Vocalize <nowiki>[Make a sustained vowel sound such as Ahhh.]</nowiki>
-*** Whistle
+***	Index-up <nowiki>[Raise with fist clenched in triumph or affirmation.]
+***	Pump-fist <nowiki>[Raise with fist clenched in triumph or affirmation.]</nowiki>
+***	Spread-hands <nowiki>[Spread hands apart to indicate ignorance.]</nowiki>
+***	Shhh <nowiki>[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
+***	Shrug <nowiki>[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
+*** Thumbs-down <nowiki>[Extend the thumb downward to indicate disapproval.]</nowiki> 
+***	Thumb-up <nowiki>[Extend the thumb upward to indicate approval.]</nowiki>
+***	Wave <nowiki>[Raise hand and move left and right, as a greeting or sign of departure.]</nowiki>
+** Communicate-musically <nowiki>[Communicate using music.]</nowiki>
+*** Hum <nowiki>[Make a low, steady continuous sound like that of a bee. Sing with the lips closed and without uttering speech.]</nowiki>
+*** Sing <nowiki>[Produce musical tones by means of the voice.]</nowiki>
+*** Vocalize <nowiki>[Utter vocal sounds.]</nowiki>
+*** Whistle <nowiki>[Produce a shrill clear sound by forcing breath out or air in through the puckered lips.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>
 ** Collide <nowiki>[Hit with force when moving.]</nowiki>
 ** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
@@ -122,7 +126,7 @@ HED version: 8.0.0-alpha.3
 ** Repeat <nowiki>[Make, do, or perform again.]</nowiki>
 ** Rest <nowiki>[Be inactive in order to regain strength, health, or energy.]</nowiki>
 ** Write <nowiki>[Communicate or express by means of letters or symbols written or imprinted on a surface.]</nowiki>
-* Think <nowiki>[Direct one's mind toward someone or something or use one's mind actively to form connected ideas.]</nowiki>
+* Think <nowiki>[Direct the mind toward someone or something or use the mind actively to form connected ideas.]</nowiki>
 ** Allow <nowiki>[Allow access to something such as allowing a car to pass.]</nowiki> 
 ** Attend-to <nowiki>[Focus mental experience on specific targets.]</nowiki>
 ** Count <nowiki>[Tally items either silently or aloud.]</nowiki>
@@ -133,15 +137,14 @@ HED version: 8.0.0-alpha.3
 ** Evade <nowiki>[Escape or avoid, especially by cleverness or trickery.]</nowiki>
 ** Generate <nowiki>[Cause something, especially an emotion or situation to arise or come about.]</nowiki>
 ** Identify <nowiki>[Establish or indicate who or what someone or something is.]</nowiki>
-** Imagine <nowiki>[Form a mental image or concept of.]</nowiki>
+** Imagine <nowiki>[Form a mental image or concept of something.]</nowiki>
 ** Judge <nowiki>[Evaluate evidence to make a decision or form a belief.]</nowiki>
 ** Learn <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
 ** Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
-*** Listen
-*** Look
-*** Smell
-*** Touch
-*** Taste
+*** Listen <nowiki>[Give attention to a sound.]</nowiki>
+*** Look <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
+*** Smell <nowiki>[Inhale in order to ascertain an odor or scent.]</nowiki>
+*** Taste <nowiki>[Sense of flavor perceived in the mouth and throat on contact with a substance.]</nowiki>
 ** Plan <nowiki>[Think about the activities required to achieve a desired goal. ]</nowiki>
 ** Predict <nowiki>[Say or estimate that something will happen or will be a consequence of something without having exact informaton.]</nowiki>
 ** Recognize <nowiki>[Identify someone or something from having encountered them before.]</nowiki>
@@ -357,7 +360,7 @@ HED version: 8.0.0-alpha.3
 *** Siren
 
 '''Agent-property''' <nowiki>[Something that pertains to an agent.]</nowiki>
-* Cognitive-state <nowiki>{extensionAllowed, requireChild}[The state of an agent's cognitive processes or state of mind.]</nowiki>
+* Cognitive-state <nowiki>{extensionAllowed, requireChild}[The state of the cognitive processes or state of mind of the agent.]</nowiki>
 ** Alert
 ** Anesthetized 
 ** Asleep
@@ -371,7 +374,7 @@ HED version: 8.0.0-alpha.3
 ** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.]</nowiki>
 ** Resting
 ** Vegetative 
-* Emotional-state <nowiki>{extensionAllowed, requireChild}[The status of an agent's general temperament and outlook.]</nowiki>
+* Emotional-state <nowiki>{extensionAllowed, requireChild}[The status of the general temperament and outlook of an agent.]</nowiki>
 ** Angry 
 ** Aroused
 ** Awed
@@ -1025,7 +1028,7 @@ HED version: 8.0.0-alpha.3
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view
-* Environmental <nowiki>{extensionAllowed}[Relating to or arising from an agent's surroundings.]</nowiki>
+* Environmental <nowiki>{extensionAllowed}[Relating to or arising from the surroundings of an agent.]</nowiki>
 ** Indoors
 ** Outdoors
 ** Real-world
