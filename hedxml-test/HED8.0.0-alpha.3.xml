@@ -81,7 +81,7 @@
       </node>
    </node>
    <node>
-      <name>Act</name>
+      <name>Action</name>
       <description>Do something.</description>
       <attribute>
          <name>extensionAllowed</name>
@@ -93,16 +93,32 @@
             <name>Breathe</name>
             <description>Inhale and exhale air into the body during respiration.</description>
             <node>
-               <name>Inhale</name>
-               <description>Draw in with the breath through the nose or mouth.</description>
+               <name>Cough</name>
+               <description>Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.</description>
             </node>
             <node>
                <name>Exhale</name>
                <description>Blow out or expel breath.</description>
             </node>
             <node>
+               <name>Hiccup</name>
+               <description>Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.</description>
+            </node>
+            <node>
                <name>Hold-breath</name>
                <description>Interrupt normal breathing by ceasing to inhale or exhale.</description>
+            </node>
+            <node>
+               <name>Inhale</name>
+               <description>Draw in with the breath through the nose or mouth.</description>
+            </node>
+            <node>
+               <name>Sneeze</name>
+               <description>Suddenly and violently expel breath through the nose and mouth.</description>
+            </node>
+            <node>
+               <name>Sniffle</name>
+               <description>Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.</description>
             </node>
          </node>
          <node>
@@ -118,7 +134,7 @@
             </node>
             <node>
                <name>Fall-down</name>
-               <description>Lose one's balance and collapse.</description>
+               <description>Lose balance and collapse.</description>
             </node>
             <node>
                <name>Flex</name>
@@ -134,7 +150,7 @@
             </node>
             <node>
                <name>Stretch</name>
-               <description>Straighten or extend one's body or a part of one's body to its full length, typically so as to tighten one's muscles or in order to reach something.</description>
+               <description>Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.</description>
             </node>
             <node>
                <name>Shudder</name>
@@ -142,7 +158,7 @@
             </node>
             <node>
                <name>Stumble</name>
-               <description>Trip or momentarily lose one's balance and almost fall.</description>
+               <description>Trip or momentarily lose balance and almost fall.</description>
             </node>
             <node>
                <name>Turn</name>
@@ -151,37 +167,60 @@
          </node>
          <node>
             <name>Move-body-part</name>
+            <description>Move one part of a body.</description>
             <node>
                <name>Move-head</name>
+               <description>Move head.</description>
                <node>
                   <name>Move-eyes</name>
+                  <description>Move eyes.</description>
                   <node>
                      <name>Blink</name>
+                     <description>Shut and open the eyes quickly.</description>
                   </node>
                   <node>
                      <name>Close-eyes</name>
+                     <description>Lower and keep eyelids in a closed position.</description>
                   </node>
                   <node>
                      <name>Fixate</name>
+                     <description>Direct eyes to a specific point or target.</description>
                   </node>
                   <node>
                      <name>Inhibit-blinks</name>
+                     <description>Purposely prevent blinking.</description>
+                  </node>
+                  <node>
+                     <name>Lift-eyebrows</name>
+                     <description>Move eyebrows upward.</description>
                   </node>
                   <node>
                      <name>Open-eyes</name>
+                     <description>Raise eyelids to expose pupil.</description>
                   </node>
                   <node>
                      <name>Saccade</name>
+                     <description>Move eyes rapidly between fixation points.</description>
+                  </node>
+                  <node>
+                     <name>Stare</name>
+                     <description>Look fixedly or vacantly at someone or something with eyes wide open.</description>
+                  </node>
+                  <node>
+                     <name>Widen-eyes</name>
+                     <description>Open eyes and possibly with eyebrows lifted especially to express surprise or fear.</description>
                   </node>
                </node>
                <node>
                   <name>Move-jaw</name>
+                  <description>Move lower part of the jaw and head.</description>
                   <node>
                      <name>Bite</name>
                      <description>Seize with teeth or jaws an object or organism so as to grip or break the surface covering.</description>
                   </node>
                   <node>
                      <name>Burp</name>
+                     <description>Noisily release air from the stomach through the mouth; belch.</description>
                   </node>
                   <node>
                      <name>Chew</name>
@@ -189,135 +228,148 @@
                   </node>
                   <node>
                      <name>Clear-throat</name>
+                     <description>Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward.</description>
                   </node>
                   <node>
-                     <name>Cough</name>
+                     <name>Frown</name>
+                     <description>Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.</description>
                   </node>
                   <node>
                      <name>Gurgle</name>
-                  </node>
-                  <node>
-                     <name>Hiccup</name>
+                     <description>Make a hollow bubbling sound like that made by water running out of a bottle.</description>
                   </node>
                   <node>
                      <name>Smile</name>
-                  </node>
-                  <node>
-                     <name>Sneeze</name>
-                  </node>
-                  <node>
-                     <name>Sniffle</name>
+                     <description>Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.</description>
                   </node>
                   <node>
                      <name>Swallow</name>
+                     <description>Cause or allow something, especially food or drink to pass down the throat.</description>
                   </node>
                   <node>
                      <name>Yawn</name>
-                     <description>An involuntary deep inhalation with the mouth open often a sign of drowsiness or boredom.</description>
+                     <description>Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.</description>
                   </node>
                </node>
                <node>
                   <name>Nod-head</name>
+                  <description>Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.</description>
                </node>
                <node>
                   <name>Shake-head</name>
+                  <description>Turn head from side to side as a way of showing disagreement or refusal.</description>
                </node>
             </node>
             <node>
                <name>Move-arm-hand</name>
+               <description>Move some part of arm, shoulder and or arm.</description>
                <node>
-                  <name>Clap</name>
+                  <name>Clap-hands</name>
+                  <description>Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.</description>
                </node>
                <node>
                   <name>Drop</name>
-                  <description>For example the participant drops a handheld ball</description>
+                  <description>Let or cause to fall vertically.</description>
                </node>
                <node>
                   <name>Grab</name>
+                  <description>Seize suddenly or quickly; snatch; clutch.</description>
                </node>
                <node>
                   <name>Grasp</name>
-                  <description>Grasp an object in one or both hands</description>
+                  <description>Seize and hold firmly.</description>
                </node>
                <node>
                   <name>Hold-down</name>
+                  <description>Prevent someone or something from moving by holding them firmly.</description>
                </node>
                <node>
                   <name>Lift</name>
-                  <description>Often grouped with item being lifted.</description>
+                  <description>Raising something to higher position.</description>
                </node>
                <node>
                   <name>Make-fist</name>
+                  <description>Close hand tightly with the fingers bent against the palm.</description>
                </node>
                <node>
                   <name>Point</name>
-                  <description>Should be grouped with Item/Agent/Human/Body part/Hand/Finger tag to specify which finger was used for the action.</description>
+                  <description>Draw attention to something by extending a finger or arm.</description>
                </node>
                <node>
                   <name>Press</name>
-                  <description>Often grouped with body part doing action and item being pressed.</description>
+                  <description>Apply pressure to something to flatten, shape, or smooth it.</description>
                </node>
                <node>
                   <name>Push</name>
+                  <description>Apply force in order to move something away.</description>
                </node>
                <node>
                   <name>Reach</name>
-                  <description>Stretching out arm in order to get or touch something. The requires a spatial goal such as reaching to touch a button or to grasp something. A body stretch is not a reach.</description>
+                  <description>Stretch out your arm in order to get or touch something.</description>
                </node>
                <node>
                   <name>Release</name>
-                  <description>Often grouped with item being released.</description>
+                  <description>Make available; set free.</description>
                </node>
                <node>
                   <name>Retract</name>
-                  <description>Often grouped with body part doing action and item being retracted.</description>
+                  <description>Draw or pull back.</description>
                </node>
                <node>
                   <name>Scratch</name>
+                  <description>Drag claws or nails over a surface or on skin.</description>
                </node>
                <node>
                   <name>Snap-fingers</name>
-               </node>
-               <node>
-                  <name>Tap</name>
-                  <description>Often grouped with body part doing action.</description>
+                  <description>Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.</description>
                </node>
                <node>
                   <name>Touch</name>
-                  <description>May follow a Reach event</description>
+                  <description>Come into or be in contact with.</description>
                </node>
             </node>
             <node>
                <name>Move-leg-foot</name>
+               <description>Move some part of leg or foot.</description>
                <node>
                   <name>Curl-toes</name>
+                  <description>Bend toes sometimes to grip.</description>
                </node>
                <node>
                   <name>Jog</name>
+                  <description>Run at a trot to exercise.</description>
                </node>
                <node>
                   <name>Jump</name>
+                  <description>Move off the ground or other surface through sudden muscular effort in the legs.</description>
                </node>
                <node>
                   <name>Kick</name>
+                  <description>Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.</description>
                </node>
                <node>
                   <name>Pedal</name>
+                  <description>Move by working the pedals of a bicycle or other machine.</description>
                </node>
                <node>
                   <name>Run</name>
+                  <description>Travel on foot at a fast pace.</description>
                </node>
                <node>
                   <name>Step</name>
+                  <description>Put one leg in front of the other and shift weight onto it.</description>
                   <node>
                      <name>Heel-strike</name>
+                     <description>Strike the ground with the heel during a step.</description>
                   </node>
                   <node>
                      <name>Toe-off</name>
+                     <description>Push with toe as part of a stride.</description>
                   </node>
                </node>
                <node>
                   <name>Trot</name>
+                  <description>Run at a moderate pace, typically with short steps.</description>
                </node>
                <node>
                   <name>Walk</name>
@@ -366,40 +418,55 @@
             <description>Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.</description>
             <node>
                <name>Index-up</name>
+               <description>Raise with fist clenched in triumph or affirmation.</description>
             </node>
             <node>
                <name>Pump-fist</name>
+               <description>Raise with fist clenched in triumph or affirmation.</description>
             </node>
             <node>
-               <name>Spread-hand</name>
+               <name>Spread-hands</name>
+               <description>Spread hands apart to indicate ignorance.</description>
             </node>
             <node>
                <name>Shhh</name>
+               <description>Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.</description>
             </node>
             <node>
                <name>Shrug</name>
+               <description>Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.</description>
+            </node>
+            <node>
+               <name>Thumbs-down</name>
+               <description>Extend the thumb downward to indicate disapproval.</description>
             </node>
             <node>
                <name>Thumb-up</name>
+               <description>Extend the thumb upward to indicate approval.</description>
             </node>
             <node>
                <name>Wave</name>
+               <description>Raise hand and move left and right, as a greeting or sign of departure.</description>
             </node>
          </node>
          <node>
             <name>Communicate-musically</name>
+            <description>Communicate using music.</description>
             <node>
                <name>Hum</name>
+               <description>Make a low, steady continuous sound like that of a bee. Sing with the lips closed and without uttering speech.</description>
             </node>
             <node>
                <name>Sing</name>
+               <description>Produce musical tones by means of the voice.</description>
             </node>
             <node>
                <name>Vocalize</name>
-               <description>Make a sustained vowel sound such as Ahhh.</description>
+               <description>Utter vocal sounds.</description>
             </node>
             <node>
                <name>Whistle</name>
+               <description>Produce a shrill clear sound by forcing breath out or air in through the puckered lips.</description>
             </node>
          </node>
       </node>
@@ -445,7 +512,7 @@
       </node>
       <node>
          <name>Think</name>
-         <description>Direct one's mind toward someone or something or use one's mind actively to form connected ideas.</description>
+         <description>Direct the mind toward someone or something or use the mind actively to form connected ideas.</description>
          <node>
             <name>Allow</name>
             <description>Allow access to something such as allowing a car to pass.</description>
@@ -488,7 +555,7 @@
          </node>
          <node>
             <name>Imagine</name>
-            <description>Form a mental image or concept of.</description>
+            <description>Form a mental image or concept of something.</description>
          </node>
          <node>
             <name>Judge</name>
@@ -503,18 +570,19 @@
             <description>Produce an internal, conscious image through stimulating a sensory system.</description>
             <node>
                <name>Listen</name>
+               <description>Give attention to a sound.</description>
             </node>
             <node>
                <name>Look</name>
+               <description>Direct gaze toward someone or something or in a specified direction.</description>
             </node>
             <node>
                <name>Smell</name>
-            </node>
-            <node>
-               <name>Touch</name>
+               <description>Inhale in order to ascertain an odor or scent.</description>
             </node>
             <node>
                <name>Taste</name>
+               <description>Sense of flavor perceived in the mouth and throat on contact with a substance.</description>
             </node>
          </node>
          <node>
@@ -1222,7 +1290,7 @@
       <description>Something that pertains to an agent.</description>
       <node>
          <name>Cognitive-state</name>
-         <description>The state of an agent's cognitive processes or state of mind.</description>
+         <description>The state of the cognitive processes or state of mind of the agent.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -1273,7 +1341,7 @@
       </node>
       <node>
          <name>Emotional-state</name>
-         <description>The status of an agent's general temperament and outlook.</description>
+         <description>The status of the general temperament and outlook of an agent.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -4042,7 +4110,7 @@
       </node>
       <node>
          <name>Environmental</name>
-         <description>Relating to or arising from an agent's surroundings.</description>
+         <description>Relating to or arising from the surroundings of an agent.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
