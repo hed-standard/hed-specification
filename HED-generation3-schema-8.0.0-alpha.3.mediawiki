@@ -361,19 +361,19 @@ HED version: 8.0.0-alpha.3
 
 '''Agent-property''' <nowiki>[Something that pertains to an agent.]</nowiki>
 * Cognitive-state <nowiki>{extensionAllowed, requireChild}[The state of the cognitive processes or state of mind of the agent.]</nowiki>
-** Alert
-** Anesthetized 
-** Asleep
-** Attentive
-** Awake 
-** Brain-dead 
-** Comatose 
-** Drowsy 
-** Intoxicated <nowiki>[Indicates a state in which participant has consumed alcohol or drugs or other substances that may alter physical or mental state.]</nowiki> 
-** Locked-in 
-** Passive <nowiki>[Observing but not allowed to make any behavioral outputs. The resting state is not considered passive.]</nowiki>
-** Resting
-** Vegetative 
+** Alert <nowiki>[Condition of heightened watchfulness or preparation for action.]</nowiki>
+** Anesthetized <nowiki>[Having lost sensation to pain or having senses dulled due to the effects of an anesthetic.]</nowiki>
+** Asleep <nowiki>[Having entered a periodic, readily reversible state of reduced awareness and metabolic activity, usually accompanied by physical relaxation and brain activity.]</nowiki>
+** Attentive <nowiki>[Concentrating and focusing mental energy on the task or surroundings.]</nowiki>
+** Awake <nowiki>[In a non sleeping state.]</nowiki>
+** Brain-dead <nowiki>[Characterized by the irreversible absence of cortical and brain stem functioning.]</nowiki>
+** Comatose <nowiki>[In a state of profound unconsciousness associated with markedly depressed cerebral activity.]</nowiki>
+** Drowsy <nowiki>[In a state of near-sleep, a strong desire for sleep, or sleeping for unusually long periods.]</nowiki>
+** Intoxicated <nowiki>[In a state with disturbed psychophysiological functions and responses as a result of administration or ingestion of a psychoactive substance.]</nowiki> 
+** Locked-in <nowiki>[In a state of complete paralysis of all voluntary muscles except for the ones that control the movements of the eyes.]</nowiki>
+** Passive <nowiki>[Not responding or initiating an action in response to a stimulus.]</nowiki>
+** Resting <nowiki>[A state in which the agent is not exhibiting any physical exertion.]</nowiki>
+** Vegetative <nowiki>[A state of wakefulness and conscience, but (in contrast to coma) with involuntary opening of the eyes and movements (such as teeth grinding, yawning, or thrashing of the extremities).]</nowiki>
 * Emotional-state <nowiki>{extensionAllowed, requireChild}[The status of the general temperament and outlook of an agent.]</nowiki>
 ** Angry 
 ** Aroused
@@ -1066,7 +1066,7 @@ HED version: 8.0.0-alpha.3
 ** pixel^2
 * currency <nowiki>{defaultUnits=$, allowedCharacter=$}</nowiki> 
 ** dollar 
-** $ <nowiki>{unitSymbol}</nowiki> 
+** $ <nowiki>{unitPrefix, unitSymbol}</nowiki> 
 ** point 
 * dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:,allowedCharacter=-}</nowiki> 
 ** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.]</nowiki> 
@@ -1151,24 +1151,24 @@ HED version: 8.0.0-alpha.3
 
 
 '''Schema attributes'''
-* allowedCharacter <nowiki>{unitClassProperty}[An attribute of unit classes schema value placeholders indicating a special character that is allowed in expressing the value of that placeholder.]</nowiki>
-* defaultUnits <nowiki>{unitClassProperty}[An attribute of unit classes specifying the default units for a tag.]</nowiki> 
-* extensionAllowed <nowiki>{boolProperty}[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
-* isNumeric <nowiki>{boolProperty}[The tag hashtag placeholder must be replaced by a numerical value.]</nowiki>  
-* recommended  <nowiki>{boolProperty}[A HED string tagging an event is recommended to include this tag.]</nowiki> 
-* relatedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
-* requireChild  <nowiki>{boolProperty}[One of its descendants must be chosen to tag an event.]</nowiki> 
-* required <nowiki>{boolProperty}[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>{boolProperty, unitProperty}[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
-* SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
-* SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
-* suggestedTag <nowiki>[Additional HED tags suggested to be used with this tag. This attribute is used by tagging tools.]</nowiki> 
-* takesValue <nowiki>{boolProperty}[This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
-* topLevelTagGroup <nowiki>{boolProperty}[This tag can only appear in a top-level tag group.] </nowiki> 
-* unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
-* unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
-* unitSymbol <nowiki>{boolProperty, unitProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
-
+* allowedCharacter <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying a special character that is allowed in expressing the value of a placeholder with those units.]</nowiki>
+* defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
+* extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag.]</nowiki> 
+* isNumeric <nowiki>{boolProperty}[A schema attribute indicating that the tag hashtag placeholder must be replaced by a numerical value.]</nowiki>  
+* recommended  <nowiki>{boolProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 
+* relatedTag <nowiki>[A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools.]</nowiki> 
+* requireChild  <nowiki>{boolProperty}[A schema attribute indicating that one of the node elements descendants must be included when using this tag.]</nowiki> 
+* required <nowiki>{boolProperty}[A schema attribute indicating that every event-level HED string should include this tag.]</nowiki>
+* SIUnit  <nowiki>{boolProperty, unitProperty}[A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+* SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.]</nowiki>
+* suggestedTag <nowiki>[A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.]</nowiki> 
+* takesValue <nowiki>{boolProperty}[A schema attribute indicating the tag is a hashtag placeholder which is expected to be replaced with a user-defined value.] </nowiki> 
+* topLevelTagGroup <nowiki>{boolProperty}[A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.] </nowiki> 
+* unique <nowiki>{boolProperty}[A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.]</nowiki> 
+* unitClass <nowiki>[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
+* unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., $ in the currency units).]</nowiki> 
+* unitSymbol <nowiki>{boolProperty, unitProperty}[A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.]</nowiki>
 !# end hed 
 
 This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
