@@ -622,6 +622,145 @@
          <name>extensionAllowed</name>
       </attribute>
       <node>
+         <name>Biological-item</name>
+         <description>An entity that is biological, that is related to living organisms.</description>
+         <node>
+            <name>Organism</name>
+            <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
+            <node>
+               <name>Animal</name>
+               <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
+               <node>
+                  <name>Human</name>
+                  <description>The bipedal primate mammal Homo sapiens.</description>
+               </node>
+            </node>
+            <node>
+               <name>Plant</name>
+               <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
+            </node>
+         </node>
+         <node>
+            <name>Anatomical-item</name>
+            <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
+            <node>
+               <name>Body-part</name>
+               <description>Any part of an organism.</description>
+               <node>
+                  <name>Head</name>
+                  <description>The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.</description>
+                  <node>
+                     <name>Hair</name>
+                  </node>
+                  <node>
+                     <name>Ear</name>
+                  </node>
+                  <node>
+                     <name>Face</name>
+                     <node>
+                        <name>Cheek</name>
+                     </node>
+                     <node>
+                        <name>Chin</name>
+                     </node>
+                     <node>
+                        <name>Eye</name>
+                     </node>
+                     <node>
+                        <name>Eyebrow</name>
+                     </node>
+                     <node>
+                        <name>Forehead</name>
+                     </node>
+                     <node>
+                        <name>Lip</name>
+                     </node>
+                     <node>
+                        <name>Nose</name>
+                     </node>
+                     <node>
+                        <name>Mouth</name>
+                     </node>
+                     <node>
+                        <name>Teeth</name>
+                     </node>
+                  </node>
+               </node>
+               <node>
+                  <name>Arm</name>
+                  <node>
+                     <name>Elbow</name>
+                  </node>
+                  <node>
+                     <name>Hand</name>
+                     <node>
+                        <name>Finger</name>
+                        <node>
+                           <name>Index-finger</name>
+                        </node>
+                        <node>
+                           <name>Little-finger</name>
+                        </node>
+                        <node>
+                           <name>Middle-finger</name>
+                        </node>
+                        <node>
+                           <name>Ring-finger</name>
+                        </node>
+                        <node>
+                           <name>Thumb</name>
+                        </node>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Wrist</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Leg</name>
+                  <node>
+                     <name>Ankle</name>
+                  </node>
+                  <node>
+                     <name>Foot</name>
+                     <node>
+                        <name>Toe</name>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Knee</name>
+                  </node>
+               </node>
+               <node>
+                  <name>Torso</name>
+                  <node>
+                     <name>Upper-torso</name>
+                     <node>
+                        <name>Chest</name>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Lower-torso</name>
+                     <node>
+                        <name>Hips</name>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Waist</name>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Organ</name>
+               <description>A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.</description>
+            </node>
+            <node>
+               <name>Tissue</name>
+               <description>An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</description>
+            </node>
+         </node>
+      </node>
+      <node>
          <name>Language-item</name>
          <description>An item that is part of systematic means of communicating by the use of sounds, symbols, or gestures. The presentation of this item is usually visual, auditory or tactile.</description>
          <attribute>
@@ -737,6 +876,9 @@
                   <name>Pyradmid</name>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Ingestible-object</name>
          </node>
          <node>
             <name>Man-made-object</name>
@@ -1052,148 +1194,6 @@
                </node>
             </node>
          </node>
-         <node>
-            <name>Ingestible-object</name>
-         </node>
-      </node>
-      <node>
-         <name>Biological-item</name>
-         <description>An entity that is biological, that is related to living organisms.</description>
-         <node>
-            <name>Organism</name>
-            <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
-            <node>
-               <name>Animal</name>
-               <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
-               <node>
-                  <name>Human</name>
-                  <description>The bipedal primate mammal Homo sapiens.</description>
-               </node>
-            </node>
-            <node>
-               <name>Plant</name>
-               <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
-            </node>
-         </node>
-         <node>
-            <name>Anatomical-item</name>
-            <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
-            <node>
-               <name>Body-part</name>
-               <description>Any part of an organism.</description>
-               <node>
-                  <name>Head</name>
-                  <description>The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.</description>
-                  <node>
-                     <name>Hair</name>
-                  </node>
-                  <node>
-                     <name>Ear</name>
-                  </node>
-                  <node>
-                     <name>Face</name>
-                     <node>
-                        <name>Cheek</name>
-                     </node>
-                     <node>
-                        <name>Chin</name>
-                     </node>
-                     <node>
-                        <name>Eye</name>
-                     </node>
-                     <node>
-                        <name>Eyebrow</name>
-                     </node>
-                     <node>
-                        <name>Forehead</name>
-                     </node>
-                     <node>
-                        <name>Lip</name>
-                     </node>
-                     <node>
-                        <name>Nose</name>
-                     </node>
-                     <node>
-                        <name>Mouth</name>
-                     </node>
-                     <node>
-                        <name>Teeth</name>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Arm</name>
-                  <node>
-                     <name>Elbow</name>
-                  </node>
-                  <node>
-                     <name>Hand</name>
-                     <node>
-                        <name>Finger</name>
-                        <node>
-                           <name>Index-finger</name>
-                        </node>
-                        <node>
-                           <name>Little-finger</name>
-                        </node>
-                        <node>
-                           <name>Middle-finger</name>
-                        </node>
-                        <node>
-                           <name>Ring-finger</name>
-                        </node>
-                        <node>
-                           <name>Thumb</name>
-                        </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Wrist</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Leg</name>
-                  <node>
-                     <name>Ankle</name>
-                  </node>
-                  <node>
-                     <name>Foot</name>
-                     <node>
-                        <name>Toe</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Knee</name>
-                  </node>
-               </node>
-               <node>
-                  <name>Torso</name>
-                  <node>
-                     <name>Upper-torso</name>
-                     <node>
-                        <name>Chest</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Lower-torso</name>
-                     <node>
-                        <name>Hips</name>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Waist</name>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Organ</name>
-               <description>A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.</description>
-            </node>
-            <node>
-               <name>Tissue</name>
-               <description>An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</description>
-            </node>
-         </node>
       </node>
       <node>
          <name>Sound</name>
@@ -1288,15 +1288,12 @@
    <node>
       <name>Agent-property</name>
       <description>Something that pertains to an agent.</description>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Cognitive-state</name>
          <description>The state of the cognitive processes or state of mind of the agent.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
-         <attribute>
-            <name>requireChild</name>
-         </attribute>
          <node>
             <name>Alert</name>
             <description>Condition of heightened watchfulness or preparation for action.</description>
@@ -1353,68 +1350,81 @@
       <node>
          <name>Emotional-state</name>
          <description>The status of the general temperament and outlook of an agent.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
-         <attribute>
-            <name>requireChild</name>
-         </attribute>
          <node>
             <name>Angry</name>
+            <description>Experiencing emotions characterized by marked annoyance or hostility.</description>
          </node>
          <node>
             <name>Aroused</name>
+            <description>In a state reactive to stimuli leading to increased heart rate and blood pressure, sensory alertness, mobility and readiness to respond.</description>
          </node>
          <node>
             <name>Awed</name>
+            <description>Filled with wonder. Feeling grand, sublime or powerful emotions characterized by a combination of joy, fear, admiration, reverence, and/or respect.</description>
          </node>
          <node>
             <name>Compassionate</name>
+            <description>Feeling or showing sympathy and concern for others often evoked for a person who is in distress and associated with altruistic motivation.</description>
          </node>
          <node>
             <name>Content</name>
+            <description>Feeling  satisfaction with things as they are.</description>
          </node>
          <node>
             <name>Disgusted</name>
+            <description>Feeling revulsion or profound disapproval aroused by something unpleasant or offensive.</description>
          </node>
          <node>
             <name>Emotionally-neutral</name>
+            <description>Feeling neither satisfied nor dissatisfied.</description>
          </node>
          <node>
             <name>Empathetic</name>
+            <description>Understanding and sharing the feelings of another. Being aware of, being sensitive to, and vicariously experiencing the feelings, thoughts, and experience of another.</description>
          </node>
          <node>
             <name>Excited</name>
+            <description>Feeling great enthusiasm and eagerness.</description>
          </node>
          <node>
             <name>Fearful</name>
-         </node>
-         <node>
-            <name>Feeling-stress</name>
+            <description>Feeling apprehension that one may be in danger.</description>
          </node>
          <node>
             <name>Frustrated</name>
+            <description>Feeling annoyed as a result of being blocked, thwarted, disappointed or defeated.</description>
          </node>
          <node>
             <name>Grieving</name>
+            <description>Feeling sorrow in response to loss, whether physical or abstract.</description>
          </node>
          <node>
             <name>Happy</name>
+            <description>Feeling pleased and content.</description>
          </node>
          <node>
             <name>Jealous</name>
+            <description>Feeling threatened by a rival in a relationship with another individual, in particular an intimate partner, usually involves feelings of threat, fear, suspicion, distrust, anxiety, anger, betrayal, and rejection.</description>
          </node>
          <node>
             <name>Joyful</name>
+            <description>Feeling delight or intense happiness.</description>
          </node>
          <node>
             <name>Loving</name>
+            <description>Feeling a strong positive emotion of affection and attraction.</description>
          </node>
          <node>
             <name>Relieved</name>
+            <description>No longer feeling pain, distress,  anxiety, or reassured.</description>
          </node>
          <node>
             <name>Sad</name>
+            <description>Feeling grief or unhappiness.</description>
+         </node>
+         <node>
+            <name>Stressed</name>
+            <description>Experiencing mental or emotional strain or tension.</description>
          </node>
       </node>
       <node>
@@ -1422,34 +1432,39 @@
          <description>Pertaining to the position in which agent holds their body.</description>
          <node>
             <name>Crouching</name>
+            <description>Adopting a position where the knees are bent and the upper body is brought forward and down, sometimes to avoid detection or to defend oneself.</description>
          </node>
          <node>
             <name>Kneeling</name>
+            <description>Positioned where one or both knees are on the ground.</description>
          </node>
          <node>
             <name>On-treadmill</name>
+            <description>Ambulation on an exercise apparatus with an endless moving belt to support moving in place.</description>
          </node>
          <node>
             <name>Prone</name>
+            <description>Positioned in a recumbent body position whereby the person lies on its stomach and faces downward.</description>
          </node>
          <node>
             <name>Sitting</name>
+            <description>In a seated position.</description>
          </node>
          <node>
             <name>Standing</name>
+            <description>Assuming or maintaining an erect upright position.</description>
          </node>
          <node>
             <name>Supported-by-chin-rest</name>
+            <description>Using a device that supports the chin and head.</description>
          </node>
       </node>
       <node>
          <name>Agent-trait</name>
-         <description>A genetically determined characteristic of an agent.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
+         <description>A genetically, environmentally, or socially determined characteristic of an agent.</description>
          <node>
             <name>Age</name>
+            <description>Length of time elapsed time since birth of the agent.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -1459,29 +1474,38 @@
          </node>
          <node>
             <name>Gender</name>
+            <description>Characteristics that are socially constructed, including norms, behaviors, and roles based on sex.</description>
          </node>
          <node>
             <name>Sex</name>
+            <description>Physical properties or qualities by which male is distinguished from female.</description>
             <node>
                <name>Female</name>
+               <description>Biological sex of an individual with female sexual organs such ova.</description>
             </node>
             <node>
                <name>Male</name>
+               <description>Biological sex of an individual with male sexual organs producing sperm.</description>
             </node>
             <node>
                <name>Intersex</name>
+               <description>Having genitalia and/or secondary sexual characteristics of indeterminate sex.</description>
             </node>
          </node>
          <node>
             <name>Handedness</name>
+            <description>Individual preference for use of a hand, known as the dominant hand.</description>
             <node>
                <name>Left-handed</name>
+               <description>Preference for using the left hand or foot for tasks requiring the use of a single hand or foot.</description>
             </node>
             <node>
                <name>Right-handed</name>
+               <description>Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.</description>
             </node>
             <node>
                <name>Ambidextrous</name>
+               <description>Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.</description>
             </node>
          </node>
       </node>
@@ -1490,18 +1514,23 @@
          <description>The function or part that is ascribed to an individual agent with respect to in a community.</description>
          <node>
             <name>Brother</name>
+            <description>Being a male sibling.</description>
          </node>
          <node>
             <name>Child</name>
+            <description>Having an age below the legal age of majority.</description>
          </node>
          <node>
             <name>Father</name>
+            <description>Being a male parent.</description>
          </node>
          <node>
             <name>Mother</name>
+            <description>Being a female parent.</description>
          </node>
          <node>
             <name>Sister</name>
+            <description>Being a female sibling.</description>
          </node>
       </node>
       <node>
@@ -1509,45 +1538,54 @@
          <description>The function or part that is ascribed to an agent in performing the task.</description>
          <node>
             <name>Experimental-controller</name>
+            <description>An agent acting to control the experiment.</description>
          </node>
          <node>
             <name>Experimental-participant</name>
+            <description>Someone who takes part in an activity related to an experiment.</description>
          </node>
          <node>
             <name>Experimenter</name>
+            <description>Person who is the owner of the experiment and has its responsibility.</description>
          </node>
          <node>
             <name>Follower</name>
+            <description>A person who follows the lead of another.</description>
          </node>
          <node>
             <name>Friend</name>
+            <description>A person whom an individual knows, likes, and trusts.</description>
          </node>
          <node>
             <name>Leader</name>
+            <description>A person who leads or commands an activity, project, group, organization, or country.</description>
          </node>
          <node>
             <name>Stranger</name>
+            <description>A person not known in a particular place or community.</description>
          </node>
          <node>
             <name>Student</name>
+            <description>A person who is enrolled in an educational institution. A person who acquires knowledge and skill from some educator during an education process.</description>
          </node>
          <node>
             <name>Teacher</name>
+            <description>An agent who instructs or educates others.</description>
          </node>
       </node>
    </node>
    <node>
       <name>Data-property</name>
       <description>Something that pertains to data or information.</description>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Data-source-type</name>
          <description>The type of place, person, or thing from which the data comes or can be obtained.</description>
          <node>
             <name>Computed-feature</name>
             <description>A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.</description>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
          </node>
          <node>
             <name>Computed-prediction</name>
@@ -1556,23 +1594,14 @@
          <node>
             <name>Expert-annotation</name>
             <description>An explanatory or critical comment or other in-context information provided by an authority.</description>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
          </node>
          <node>
             <name>Instrument-measurement</name>
             <description>Information obtained from a device that is used to measure material properties or make other observations.</description>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
          </node>
          <node>
             <name>Observation</name>
             <description>Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.</description>
-            <attribute>
-               <name>extensionAllowed</name>
-            </attribute>
          </node>
       </node>
       <node>
@@ -1632,9 +1661,6 @@
       <node>
          <name>Quantitative-property</name>
          <description>Something capable of being estimated or expressed with numeric values.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Angle</name>
             <description>Angle assumed clockwise from vertical unless grouped with axis.</description>
@@ -1705,9 +1731,6 @@
       </node>
       <node>
          <name>Spatiotemporal-property</name>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Rate-of-change</name>
             <node>
@@ -1746,9 +1769,6 @@
             <node>
                <name>Sampling-rate</name>
                <description>Number of measurements per unit time.</description>
-               <attribute>
-                  <name>requireChild</name>
-               </attribute>
                <node>
                   <name>#</name>
                   <attribute>
@@ -1763,9 +1783,6 @@
             <node>
                <name>Refresh-rate</name>
                <description>Number of times per second a device displays an image. Also known as the frame rate.</description>
-               <attribute>
-                  <name>requireChild</name>
-               </attribute>
                <node>
                   <name>#</name>
                   <attribute>
@@ -2261,6 +2278,9 @@
    <node>
       <name>Task-property</name>
       <description>Something that pertains to a task.</description>
+      <attribute>
+         <name>extensionAllowed</name>
+      </attribute>
       <node>
          <name>Task-attentional-strategy</name>
          <description>Strategy for allocating attention toward goal-relevant information.</description>
@@ -2619,6 +2639,9 @@
             </node>
             <node>
                <name>Creation-date</name>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
                <node>
                   <name>#</name>
                   <attribute>
@@ -2746,9 +2769,6 @@
       <node>
          <name>Relational</name>
          <description>Concerns the way in which two or more people or things are connected.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Comparative-relation</name>
             <node>
@@ -3062,9 +3082,6 @@
       <node>
          <name>Categorical</name>
          <description>Indicates that something can take on a limited and usually fixed number of possible values.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Categorical-class</name>
             <description>Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.</description>
@@ -3391,9 +3408,6 @@
       <node>
          <name>Sensory</name>
          <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Auditory</name>
             <node>
@@ -3619,458 +3633,610 @@
                   <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
                   <node>
                      <name>Blue-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>CadetBlue</name>
+                        <description>CSS-color 0x5F9EA0</description>
                      </node>
                      <node>
                         <name>SteelBlue</name>
+                        <description>CSS-color 0x4682B4</description>
                      </node>
                      <node>
                         <name>LightSteelBlue</name>
+                        <description>CSS-color 0xB0C4DE</description>
                      </node>
                      <node>
                         <name>LightBlue</name>
+                        <description>CSS-color 0xADD8E6</description>
                      </node>
                      <node>
                         <name>PowderBlue</name>
+                        <description>CSS-color 0xB0E0E6</description>
                      </node>
                      <node>
                         <name>LightSkyBlue</name>
+                        <description>CSS-color 0x87CEFA</description>
                      </node>
                      <node>
                         <name>SkyBlue</name>
+                        <description>CSS-color 0x87CEEB</description>
                      </node>
                      <node>
                         <name>CornflowerBlue</name>
+                        <description>CSS-color 0x6495ED</description>
                      </node>
                      <node>
                         <name>DeepSkyBlue</name>
+                        <description>CSS-color 0x00BFFF</description>
                      </node>
                      <node>
                         <name>DodgerBlue</name>
+                        <description>CSS-color 0x1E90FF</description>
                      </node>
                      <node>
                         <name>RoyalBlue</name>
+                        <description>CSS-color 0x4169E1</description>
                      </node>
                      <node>
                         <name>Blue</name>
+                        <description>CSS-color 0x0000FF</description>
                      </node>
                      <node>
                         <name>MediumBlue</name>
+                        <description>CSS-color 0x0000CD</description>
                      </node>
                      <node>
                         <name>DarkBlue</name>
+                        <description>CSS-color 0x00008B</description>
                      </node>
                      <node>
                         <name>Navy</name>
+                        <description>CSS-color 0x000080</description>
                      </node>
                      <node>
                         <name>MidnightBlue</name>
+                        <description>CSS-color 0x191970</description>
                      </node>
                   </node>
                   <node>
                      <name>Brown-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Cornsilk</name>
+                        <description>CSS-color 0xFFF8DC</description>
                      </node>
                      <node>
                         <name>BlanchedAlmond</name>
+                        <description>CSS-color 0xFFEBCD</description>
                      </node>
                      <node>
                         <name>Bisque</name>
+                        <description>CSS-color 0xFFE4C4</description>
                      </node>
                      <node>
                         <name>NavajoWhite</name>
+                        <description>CSS-color 0xFFDEAD</description>
                      </node>
                      <node>
                         <name>Wheat</name>
+                        <description>CSS-color 0xF5DEB3</description>
                      </node>
                      <node>
                         <name>BurlyWood</name>
+                        <description>CSS-color 0xDEB887</description>
                      </node>
                      <node>
                         <name>Tan</name>
+                        <description>CSS-color 0xD2B48C</description>
                      </node>
                      <node>
                         <name>RosyBrown</name>
+                        <description>CSS-color 0xBC8F8F</description>
                      </node>
                      <node>
                         <name>SandyBrown</name>
+                        <description>CSS-color 0xF4A460</description>
                      </node>
                      <node>
                         <name>GoldenRod</name>
+                        <description>CSS-color 0xDAA520</description>
                      </node>
                      <node>
                         <name>DarkGoldenRod</name>
+                        <description>CSS-color 0xB8860B</description>
                      </node>
                      <node>
                         <name>Peru</name>
+                        <description>CSS-color 0xCD853F</description>
                      </node>
                      <node>
                         <name>Chocolate</name>
+                        <description>CSS-color 0xD2691E</description>
                      </node>
                      <node>
                         <name>Olive</name>
+                        <description>CSS-color 0x808000</description>
                      </node>
                      <node>
                         <name>SaddleBrown</name>
+                        <description>CSS-color 0x8B4513</description>
                      </node>
                      <node>
                         <name>Sienna</name>
+                        <description>CSS-color 0xA0522D</description>
                      </node>
                      <node>
                         <name>Brown</name>
+                        <description>CSS-color 0xA52A2A</description>
                      </node>
                      <node>
                         <name>Maroon</name>
+                        <description>CSS-color 0x800000</description>
                      </node>
                   </node>
                   <node>
                      <name>Cyan-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Aqua</name>
+                        <description>CSS-color 0x00FFFF</description>
                      </node>
                      <node>
                         <name>Cyan</name>
+                        <description>CSS-color 0x00FFFF</description>
                      </node>
                      <node>
                         <name>LightCyan</name>
+                        <description>CSS-color 0xE0FFFF</description>
                      </node>
                      <node>
                         <name>PaleTurquoise</name>
+                        <description>CSS-color 0xAFEEEE</description>
                      </node>
                      <node>
                         <name>Aquamarine</name>
+                        <description>CSS-color 0x7FFFD4</description>
                      </node>
                      <node>
                         <name>Turquoise</name>
+                        <description>CSS-color 0x40E0D0</description>
                      </node>
                      <node>
                         <name>MediumTurquoise</name>
+                        <description>CSS-color 0x48D1CC</description>
                      </node>
                      <node>
                         <name>DarkTurquoise</name>
+                        <description>CSS-color 0x00CED1</description>
                      </node>
                   </node>
                   <node>
                      <name>Green-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>GreenYellow</name>
+                        <description>CSS-color 0xADFF2F</description>
                      </node>
                      <node>
                         <name>Chartreuse</name>
+                        <description>CSS-color 0x7FFF00</description>
                      </node>
                      <node>
                         <name>LawnGreen</name>
+                        <description>CSS-color 0x7CFC00</description>
                      </node>
                      <node>
                         <name>Lime</name>
+                        <description>CSS-color 0x00FF00</description>
                      </node>
                      <node>
                         <name>LimeGreen</name>
+                        <description>CSS-color 0x32CD32</description>
                      </node>
                      <node>
                         <name>PaleGreen</name>
+                        <description>CSS-color 0x98FB98</description>
                      </node>
                      <node>
                         <name>LightGreen</name>
+                        <description>CSS-color 0x90EE90</description>
                      </node>
                      <node>
                         <name>MediumSpringGreen</name>
+                        <description>CSS-color 0x00FA9A</description>
                      </node>
                      <node>
                         <name>SpringGreen</name>
+                        <description>CSS-color 0x00FF7F</description>
                      </node>
                      <node>
                         <name>MediumSeaGreen</name>
+                        <description>CSS-color 0x3CB371</description>
                      </node>
                      <node>
                         <name>SeaGreen</name>
+                        <description>CSS-color 0x2E8B57</description>
                      </node>
                      <node>
                         <name>ForestGreen</name>
+                        <description>CSS-color 0x228B22</description>
                      </node>
                      <node>
                         <name>Green</name>
+                        <description>CSS-color 0x008000</description>
                      </node>
                      <node>
                         <name>DarkGreen</name>
+                        <description>CSS-color 0x006400</description>
                      </node>
                      <node>
                         <name>YellowGreen</name>
+                        <description>CSS-color 0x9ACD32</description>
                      </node>
                      <node>
                         <name>OliveDrab</name>
+                        <description>CSS-color 0x6B8E23</description>
                      </node>
                      <node>
                         <name>DarkOliveGreen</name>
+                        <description>CSS-color 0x556B2F</description>
                      </node>
                      <node>
                         <name>MediumAquaMarine</name>
+                        <description>CSS-color 0x66CDAA</description>
                      </node>
                      <node>
                         <name>DarkSeaGreen</name>
+                        <description>CSS-color 0x8FBC8F</description>
                      </node>
                      <node>
                         <name>LightSeaGreen</name>
+                        <description>CSS-color 0x20B2AA</description>
                      </node>
                      <node>
                         <name>DarkCyan</name>
+                        <description>CSS-color 0x008B8B</description>
                      </node>
                      <node>
                         <name>Teal</name>
+                        <description>CSS-color 0x008080</description>
                      </node>
                   </node>
                   <node>
                      <name>Gray-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Gainsboro</name>
+                        <description>CSS-color 0xDCDCDC</description>
                      </node>
                      <node>
                         <name>LightGray</name>
+                        <description>CSS-color 0xD3D3D3</description>
                      </node>
                      <node>
                         <name>Silver</name>
+                        <description>CSS-color 0xC0C0C0</description>
                      </node>
                      <node>
                         <name>DarkGray</name>
+                        <description>CSS-color 0xA9A9A9</description>
                      </node>
                      <node>
                         <name>DimGray</name>
+                        <description>CSS-color 0x696969</description>
                      </node>
                      <node>
                         <name>Gray</name>
+                        <description>CSS-color 0x808080</description>
                      </node>
                      <node>
                         <name>LightSlateGray</name>
+                        <description>CSS-color 0x778899</description>
                      </node>
                      <node>
                         <name>SlateGray</name>
+                        <description>CSS-color 0x708090</description>
                      </node>
                      <node>
                         <name>DarkSlateGray</name>
+                        <description>CSS-color 0x2F4F4F</description>
                      </node>
                      <node>
                         <name>Black</name>
+                        <description>CSS-color 0x000000</description>
                      </node>
                   </node>
                   <node>
                      <name>Orange-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Orange</name>
+                        <description>CSS-color 0xFFA500</description>
                      </node>
                      <node>
                         <name>DarkOrange</name>
+                        <description>CSS-color 0xFF8C00</description>
                      </node>
                      <node>
                         <name>Coral</name>
+                        <description>CSS-color 0xFF7F50</description>
                      </node>
                      <node>
                         <name>Tomato</name>
+                        <description>CSS-color 0xFF6347</description>
                      </node>
                      <node>
                         <name>OrangeRed</name>
+                        <description>CSS-color 0xFF4500</description>
                      </node>
                   </node>
                   <node>
                      <name>Pink-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Pink</name>
+                        <description>CSS-color 0xFFC0CB</description>
                      </node>
                      <node>
                         <name>LightPink</name>
+                        <description>CSS-color 0xFFB6C1</description>
                      </node>
                      <node>
                         <name>HotPink</name>
+                        <description>CSS-color 0xFF69B4</description>
                      </node>
                      <node>
                         <name>DeepPink</name>
+                        <description>CSS-color 0xFF1493</description>
                      </node>
                      <node>
                         <name>PaleVioletRed</name>
+                        <description>CSS-color 0xDB7093</description>
                      </node>
                      <node>
                         <name>MediumVioletRed</name>
+                        <description>CSS-color 0xC71585</description>
                      </node>
                   </node>
                   <node>
                      <name>Purple-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Lavender</name>
+                        <description>CSS-color 0xE6E6FA</description>
                      </node>
                      <node>
                         <name>Thistle</name>
+                        <description>CSS-color 0xD8BFD8</description>
                      </node>
                      <node>
                         <name>Plum</name>
+                        <description>CSS-color 0xDDA0DD</description>
                      </node>
                      <node>
                         <name>Orchid</name>
+                        <description>CSS-color 0xDA70D6</description>
                      </node>
                      <node>
                         <name>Violet</name>
+                        <description>CSS-color 0xEE82EE</description>
                      </node>
                      <node>
                         <name>Fuchsia</name>
+                        <description>CSS-color 0xFF00FF</description>
                      </node>
                      <node>
                         <name>Magenta</name>
+                        <description>CSS-color 0xFF00FF</description>
                      </node>
                      <node>
                         <name>MediumOrchid</name>
+                        <description>CSS-color 0xBA55D3</description>
                      </node>
                      <node>
                         <name>DarkOrchid</name>
+                        <description>CSS-color 0x9932CC</description>
                      </node>
                      <node>
                         <name>DarkViolet</name>
+                        <description>CSS-color 0x9400D3</description>
                      </node>
                      <node>
                         <name>BlueViolet</name>
+                        <description>CSS-color 0x8A2BE2</description>
                      </node>
                      <node>
                         <name>DarkMagenta</name>
+                        <description>CSS-color 0x8B008B</description>
                      </node>
                      <node>
                         <name>Purple</name>
+                        <description>CSS-color 0x800080</description>
                      </node>
                      <node>
                         <name>MediumPurple</name>
+                        <description>CSS-color 0x9370DB</description>
                      </node>
                      <node>
                         <name>MediumSlateBlue</name>
+                        <description>CSS-color 0x7B68EE</description>
                      </node>
                      <node>
                         <name>SlateBlue</name>
+                        <description>CSS-color 0x6A5ACD</description>
                      </node>
                      <node>
                         <name>DarkSlateBlue</name>
+                        <description>CSS-color 0x483D8B</description>
                      </node>
                      <node>
                         <name>RebeccaPurple</name>
+                        <description>CSS-color 0x663399</description>
                      </node>
                      <node>
                         <name>Indigo</name>
+                        <description>CSS-color 0x4B0082</description>
                      </node>
                   </node>
                   <node>
                      <name>Red-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>LightSalmon</name>
+                        <description>CSS-color 0xFFA07A</description>
                      </node>
                      <node>
                         <name>Salmon</name>
+                        <description>CSS-color 0xFA8072</description>
                      </node>
                      <node>
                         <name>DarkSalmon</name>
+                        <description>CSS-color 0xE9967A</description>
                      </node>
                      <node>
                         <name>LightCoral</name>
+                        <description>CSS-color 0xF08080</description>
                      </node>
                      <node>
                         <name>IndianRed</name>
+                        <description>CSS-color 0xCD5C5C</description>
                      </node>
                      <node>
                         <name>Crimson</name>
+                        <description>CSS-color 0xDC143C</description>
                      </node>
                      <node>
                         <name>Red</name>
+                        <description>CSS-color 0xFF0000</description>
                      </node>
                      <node>
                         <name>FireBrick</name>
+                        <description>CSS-color 0xB22222</description>
                      </node>
                      <node>
                         <name>DarkRed</name>
+                        <description>CSS-color 0x8B0000</description>
                      </node>
                   </node>
                   <node>
                      <name>Yellow-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>Gold</name>
+                        <description>CSS-color 0xFFD700</description>
                      </node>
                      <node>
                         <name>Yellow</name>
+                        <description>CSS-color 0xFFFF00</description>
                      </node>
                      <node>
                         <name>LightYellow</name>
+                        <description>CSS-color 0xFFFFE0</description>
                      </node>
                      <node>
                         <name>LemonChiffon</name>
+                        <description>CSS-color 0xFFFACD</description>
                      </node>
                      <node>
                         <name>LightGoldenRodYellow</name>
+                        <description>CSS-color 0xFAFAD2</description>
                      </node>
                      <node>
                         <name>PapayaWhip</name>
+                        <description>CSS-color 0xFFEFD5</description>
                      </node>
                      <node>
                         <name>Moccasin</name>
+                        <description>CSS-color 0xFFE4B5</description>
                      </node>
                      <node>
                         <name>PeachPuff</name>
+                        <description>CSS-color 0xFFDAB9</description>
                      </node>
                      <node>
                         <name>PaleGoldenRod</name>
+                        <description>CSS-color 0xEEE8AA</description>
                      </node>
                      <node>
                         <name>Khaki</name>
+                        <description>CSS-color 0xF0E68C</description>
                      </node>
                      <node>
                         <name>DarkKhaki</name>
+                        <description>CSS-color 0xBDB76B</description>
                      </node>
                   </node>
                   <node>
                      <name>White-color</name>
+                     <description>CSS color group</description>
                      <node>
                         <name>White</name>
+                        <description>CSS-color 0xFFFFFF</description>
                      </node>
                      <node>
                         <name>Snow</name>
+                        <description>CSS-color 0xFFFAFA</description>
                      </node>
                      <node>
                         <name>HoneyDew</name>
+                        <description>CSS-color 0xF0FFF0</description>
                      </node>
                      <node>
                         <name>MintCream</name>
+                        <description>CSS-color 0xF5FFFA</description>
                      </node>
                      <node>
                         <name>Azure</name>
+                        <description>CSS-color 0xF0FFFF</description>
                      </node>
                      <node>
                         <name>AliceBlue</name>
+                        <description>CSS-color 0xF0F8FF</description>
                      </node>
                      <node>
                         <name>GhostWhite</name>
+                        <description>CSS-color 0xF8F8FF</description>
                      </node>
                      <node>
                         <name>WhiteSmoke</name>
+                        <description>CSS-color 0xF5F5F5</description>
                      </node>
                      <node>
                         <name>SeaShell</name>
+                        <description>CSS-color 0xFFF5EE</description>
                      </node>
                      <node>
                         <name>Beige</name>
+                        <description>CSS-color 0xF5F5DC</description>
                      </node>
                      <node>
                         <name>OldLace</name>
+                        <description>CSS-color 0xFDF5E6</description>
                      </node>
                      <node>
                         <name>FloralWhite</name>
+                        <description>CSS-color 0xFFFAF0</description>
                      </node>
                      <node>
                         <name>Ivory</name>
+                        <description>CSS-color 0xFFFFF0</description>
                      </node>
                      <node>
                         <name>AntiqueWhite</name>
+                        <description>CSS-color 0xFAEBD7</description>
                      </node>
                      <node>
                         <name>Linen</name>
+                        <description>CSS-color 0xFAF0E6</description>
                      </node>
                      <node>
                         <name>LavenderBlush</name>
+                        <description>CSS-color 0xFFF0F5</description>
                      </node>
                      <node>
                         <name>MistyRose</name>
+                        <description>CSS-color 0xFFE4E1</description>
                      </node>
                   </node>
                </node>
@@ -4122,9 +4288,6 @@
       <node>
          <name>Environmental</name>
          <description>Relating to or arising from the surroundings of an agent.</description>
-         <attribute>
-            <name>extensionAllowed</name>
-         </attribute>
          <node>
             <name>Indoors</name>
          </node>
