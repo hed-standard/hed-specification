@@ -554,15 +554,15 @@ HED version: 8.0.0-alpha.3
 
 '''Task-property''' <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 * Task-attentional-strategy <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
-** Bottom-up-attention
-** Covert-attention
-** Divided-attention
-** Focused-attention
-** Orienting-attention
-** Overt-attention
-** Selective-attention
-** Sustained-attention
-** Top-down-attention
+** Bottom-up-attention <nowiki>[Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.]</nowiki>
+** Covert-attention <nowiki>[Paying attention without moving the eyes.]</nowiki>
+** Divided-attention <nowiki>[Integrating parallel multiple stimuli. Behavior involving responding simultaneously to multiple tasks or multiple task demands.]</nowiki>
+** Focused-attention <nowiki>[Responding discretely to specific visual, auditory, or tactile stimuli.]</nowiki>
+** Orienting-attention <nowiki>[Directing attention to a target stimulus.]</nowiki>
+** Overt-attention <nowiki>[Selectively processing one location over others by moving the eyes to point at that location.]</nowiki>
+** Selective-attention <nowiki>[Maintaining a behavioral or cognitive set in the face of distracting or competing stimuli. Ability to pay attention to a limited array of all available sensory information.]</nowiki>
+** Sustained-attention <nowiki>[Maintaining a consistent behavioral response during continuous and repetitive activity.]</nowiki>
+** Top-down-attention <nowiki>[Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.]</nowiki>
 * Task-effect-evidence <nowiki>[The evidence supporting the conclusion that the event had the specified effect.]</nowiki>
 ** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
 ** External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
@@ -618,7 +618,7 @@ HED version: 8.0.0-alpha.3
 * Informational <nowiki>[Relating to or characterized by facts about something; providing information.]</nowiki>
 ** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Def-expand <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+** Def-expand <nowiki>{requireChild, tagGroup} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
 ** Definition <nowiki>{requireChild, topLevelTagGroup}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
@@ -1162,7 +1162,8 @@ HED version: 8.0.0-alpha.3
 * SIUnit  <nowiki>{boolProperty, unitProperty}[A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
 * SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.]</nowiki> 
 * SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.]</nowiki>
-* suggestedTag <nowiki>[A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.]</nowiki> 
+* suggestedTag <nowiki>[A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.]</nowiki>
+* tagGroup <nowiki>{boolProperty}[A schema attribute indicating the tag can only appear inside a tag group.] </nowiki> 
 * takesValue <nowiki>{boolProperty}[A schema attribute indicating the tag is a hashtag placeholder which is expected to be replaced with a user-defined value.] </nowiki> 
 * topLevelTagGroup <nowiki>{boolProperty}[A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.] </nowiki> 
 * unique <nowiki>{boolProperty}[A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.]</nowiki> 

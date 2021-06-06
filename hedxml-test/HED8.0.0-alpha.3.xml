@@ -2286,30 +2286,39 @@
          <description>Strategy for allocating attention toward goal-relevant information.</description>
          <node>
             <name>Bottom-up-attention</name>
+            <description>Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.</description>
          </node>
          <node>
             <name>Covert-attention</name>
+            <description>Paying attention without moving the eyes.</description>
          </node>
          <node>
             <name>Divided-attention</name>
+            <description>Integrating parallel multiple stimuli. Behavior involving responding simultaneously to multiple tasks or multiple task demands.</description>
          </node>
          <node>
             <name>Focused-attention</name>
+            <description>Responding discretely to specific visual, auditory, or tactile stimuli.</description>
          </node>
          <node>
             <name>Orienting-attention</name>
+            <description>Directing attention to a target stimulus.</description>
          </node>
          <node>
             <name>Overt-attention</name>
+            <description>Selectively processing one location over others by moving the eyes to point at that location.</description>
          </node>
          <node>
             <name>Selective-attention</name>
+            <description>Maintaining a behavioral or cognitive set in the face of distracting or competing stimuli. Ability to pay attention to a limited array of all available sensory information.</description>
          </node>
          <node>
             <name>Sustained-attention</name>
+            <description>Maintaining a consistent behavioral response during continuous and repetitive activity.</description>
          </node>
          <node>
             <name>Top-down-attention</name>
+            <description>Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.</description>
          </node>
       </node>
       <node>
@@ -2542,6 +2551,9 @@
             <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
             <attribute>
                <name>requireChild</name>
+            </attribute>
+            <attribute>
+               <name>tagGroup</name>
             </attribute>
             <node>
                <name>#</name>
@@ -4363,6 +4375,12 @@
          </attribute>
          <unit>
             <name>m-per-s^2</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4373,9 +4391,18 @@
          </attribute>
          <unit>
             <name>radian</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>rad</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>degree</name>
@@ -4389,9 +4416,18 @@
          </attribute>
          <unit>
             <name>m^2</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>px^2</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>pixel^2</name>
@@ -4412,6 +4448,12 @@
          </unit>
          <unit>
             <name>$</name>
+            <attribute>
+               <name>unitPrefix</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>point</name>
@@ -4441,9 +4483,18 @@
          </attribute>
          <unit>
             <name>hertz</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>Hz</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4454,6 +4505,9 @@
          </attribute>
          <unit>
             <name>dB</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4464,6 +4518,9 @@
          </attribute>
          <unit>
             <name>m-per-s^3</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4474,9 +4531,18 @@
          </attribute>
          <unit>
             <name>candela</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>cd</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4487,9 +4553,18 @@
          </attribute>
          <unit>
             <name>byte</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>B</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4509,9 +4584,18 @@
          </attribute>
          <unit>
             <name>metre</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>m</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>foot</name>
@@ -4531,6 +4615,9 @@
          </unit>
          <unit>
             <name>px</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4541,12 +4628,24 @@
          </attribute>
          <unit>
             <name>m-per-s</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>mph</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>kph</name>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -4557,9 +4656,18 @@
          </attribute>
          <unit>
             <name>second</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
          </unit>
          <unit>
             <name>s</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
          <unit>
             <name>day</name>
@@ -4580,6 +4688,12 @@
          </attribute>
          <unit>
             <name>m^3</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
          </unit>
       </unitClassDefinition>
    </unitClassDefinitions>
@@ -4925,6 +5039,9 @@
          <property>
             <name>boolProperty</name>
          </property>
+         <property>
+            <name>unitProperty</name>
+         </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>SIUnitModifier</name>
@@ -4949,6 +5066,13 @@
       <schemaAttributeDefinition>
          <name>suggestedTag</name>
          <description>A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.</description>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
+         <name>tagGroup</name>
+         <description>A schema attribute indicating the tag can only appear inside a tag group.</description>
+         <property>
+            <name>boolProperty</name>
+         </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>takesValue</name>
@@ -4981,12 +5105,18 @@
          <property>
             <name>boolProperty</name>
          </property>
+         <property>
+            <name>unitProperty</name>
+         </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>unitSymbol</name>
          <description>A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.</description>
          <property>
             <name>boolProperty</name>
+         </property>
+         <property>
+            <name>unitProperty</name>
          </property>
       </schemaAttributeDefinition>
    </schemaAttributeDefinitions>
