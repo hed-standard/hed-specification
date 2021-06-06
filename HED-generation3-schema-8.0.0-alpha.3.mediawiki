@@ -564,10 +564,10 @@ HED version: 8.0.0-alpha.3
 ** Sustained-attention <nowiki>[Maintaining a consistent behavioral response during continuous and repetitive activity.]</nowiki>
 ** Top-down-attention <nowiki>[Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.]</nowiki>
 * Task-effect-evidence <nowiki>[The evidence supporting the conclusion that the event had the specified effect.]</nowiki>
-** Computational-evidence <nowiki>[Prediction made by computer program.]</nowiki> 
-** External-evidence <nowiki>[External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication]</nowiki> 
-** Intended-effect <nowiki> [How the stimulus is expected to effect the participants based on the experimental design.]</nowiki> 
-** Behavioral-evidence <nowiki>[This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.]</nowiki>
+** Computational-evidence <nowiki>[A type of evidence in which data are produced, and/or generated, and/or analyzed on a computer.]</nowiki> 
+** External-evidence <nowiki>[A phenomenon that follows and is caused by some previous phenomenon.]</nowiki> 
+** Intended-effect <nowiki>[A phenomenon that is intended to follow and be caused by some previous phenomenon.]</nowiki> 
+** Behavioral-evidence <nowiki>[An indication or conclusion based on the behavior of an agent.]</nowiki>
 * Task-event-role <nowiki>[The purpose of an event with respect to the task.]</nowiki>
 ** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Background-subtask <nowiki>[A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.]</nowiki>
@@ -580,38 +580,38 @@ HED version: 8.0.0-alpha.3
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
 * Task-response-type <nowiki>[How the participant response should be interpreted in terms of the task specification.]</nowiki>
-** Appropriate <nowiki>{relatedTag=Inappropriate}</nowiki>
-** Correction <nowiki>{relatedTag=Successful}</nowiki>
-** Erroneous
-** Imagined <nowiki>[This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate <nowiki>{relatedTag=Appropriate}</nowiki>
-** Indeterminate <nowiki>{relatedTag=Missed,relatedTag=Near-miss}</nowiki>
-** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}</nowiki>
-** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}</nowiki>
-** Successful <nowiki>{relatedTag=Correction}</nowiki>
+** Appropriate <nowiki>{relatedTag=Inappropriate}[Suitable or proper in the circumstances.]</nowiki>
+** Correction <nowiki>{relatedTag=Successful}[Offering an improvement to replace a mistake; setting right; something substituted for an error.]</nowiki>
+** Erroneous <nowiki>[Something wrong or incorrect.]</nowiki>
+** Imagined <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate <nowiki>{relatedTag=Appropriate}[Not in keeping with what is correct or proper.]</nowiki>
+** Indeterminate <nowiki>{relatedTag=Missed,relatedTag=Near-miss}[Cannot distinguish between two or more possible values in the current context.]</nowiki>
+** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}[Not existing; not able to be found.]</nowiki>
+** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}[A narrowly avoided collision or other accident.]</nowiki>
+** Successful <nowiki>{relatedTag=Correction}[Something that accomplishes its intended purpose.]</nowiki>
 * Task-stimulus-role <nowiki>[The role the stimulus plays in the task.]</nowiki>
-** Cue
-** Distractor 
-** Expected <nowiki>[Of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
-** Extraneous
-** Feedback 
-** Meaningful
-** Newly-learned
-** Non-informative
-** Non-target <nowiki>[Make sure to tag Expected if the Non-target is frequent.] </nowiki> 
-** Not-meaningful 
-** Novel <nowiki>[Genuinely novel such as an event occurring once or so per experiment]</nowiki> 
-** Oddball <nowiki> [Unexpected or infrequent]</nowiki>
-** Planned
-** Penalty
-** Priming
-** Reward
-** Signal-go
-** Signal-stop 
-** Target <nowiki>[Something the subject is looking for]</nowiki> 
-** Threat
-** Timed
-** Unexpected
+** Cue <nowiki>[A signal for an action, a pattern of stimuli indicating a particular response.]</nowiki>
+** Distractor <nowiki>[A person or thing that distracts or a plausible but incorrect option in a multiple-choice question.]</nowiki>
+** Expected <nowiki>[Considered likely or probable; anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
+** Extraneous <nowiki>[Irrelevant or unrelated to the subject being dealt with.]</nowiki>
+** Feedback <nowiki>[An evaluative response to an inquiry, process, event, or activity.]</nowiki>
+** Go-signal <nowiki>{relatedTag=Stop-signal}[An indicator to proceed with a planned action.]</nowiki>
+** Meaningful <nowiki>[Conveying significant or relevant information.]</nowiki>
+** Newly-learned <nowiki>[Representing recently acquired information or understanding.]</nowiki>
+** Non-informative <nowiki>[Something that is not useful in forming an opinion or judging an outcome.]</nowiki>
+** Non-target <nowiki>{suggestedTag=Expected}[Something other than that done or looked for. Also tag Expected if the Non-target is frequent.] </nowiki> 
+** Not-meaningful <nowiki>[Not having a serious, important, or useful quality or purpose.]</nowiki>
+** Novel <nowiki>[Having no previous example or precedent or parallel; of a kind not seen before.]</nowiki> 
+** Oddball <nowiki> [Something strange, bizarre, unusal, or infrequent.]</nowiki>
+** Planned <nowiki>[Something that was decided on or arranged in advance.]</nowiki>
+** Penalty <nowiki>[A disadvantage, loss, or hardship due to some action.]</nowiki>
+** Priming <nowiki>[An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.]</nowiki>
+** Reward <nowiki>[A positive reinforcement for a desired action, behavior or response.]</nowiki>
+** Stop-signal <nowiki>{relatedTag=Go-signal}[An indicator that the agent should stop the current activity.]</nowiki>
+** Target <nowiki>[Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.]</nowiki> 
+** Threat <nowiki>[An indicator that signifies hostility and predicts an increased probability of attack.]</nowiki>
+** Timed <nowiki>[Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.]</nowiki>
+** Unexpected <nowiki>[Something that is not planned or anticipated.]</nowiki>
 
 
 '''Attribute''' <nowiki>{extensionAllowed} [A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>

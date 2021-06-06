@@ -2326,19 +2326,19 @@
          <description>The evidence supporting the conclusion that the event had the specified effect.</description>
          <node>
             <name>Computational-evidence</name>
-            <description>Prediction made by computer program.</description>
+            <description>A type of evidence in which data are produced, and/or generated, and/or analyzed on a computer.</description>
          </node>
          <node>
             <name>External-evidence</name>
-            <description>External judgment assumed to be ground truth such as from an experiment control software or an annotator about participant actions such as answering a question, failing to answer in time, etc. Related to participant indication</description>
+            <description>A phenomenon that follows and is caused by some previous phenomenon.</description>
          </node>
          <node>
             <name>Intended-effect</name>
-            <description>How the stimulus is expected to effect the participants based on the experimental design.</description>
+            <description>A phenomenon that is intended to follow and be caused by some previous phenomenon.</description>
          </node>
          <node>
             <name>Behavioral-evidence</name>
-            <description>This tag is placed in Agent-action events and grouped  with Task-related tags to specify the type of what that action means with respect to the task. For example if a button press indicates a target then Participant-indication would be grouped with Target.</description>
+            <description>An indication or conclusion based on the behavior of an agent.</description>
          </node>
       </node>
       <node>
@@ -2390,6 +2390,7 @@
          <description>How the participant response should be interpreted in terms of the task specification.</description>
          <node>
             <name>Appropriate</name>
+            <description>Suitable or proper in the circumstances.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Inappropriate</value>
@@ -2397,6 +2398,7 @@
          </node>
          <node>
             <name>Correction</name>
+            <description>Offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Successful</value>
@@ -2404,13 +2406,15 @@
          </node>
          <node>
             <name>Erroneous</name>
+            <description>Something wrong or incorrect.</description>
          </node>
          <node>
             <name>Imagined</name>
-            <description>This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
+            <description>Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
          </node>
          <node>
             <name>Inappropriate</name>
+            <description>Not in keeping with what is correct or proper.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Appropriate</value>
@@ -2418,6 +2422,7 @@
          </node>
          <node>
             <name>Indeterminate</name>
+            <description>Cannot distinguish between two or more possible values in the current context.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Missed</value>
@@ -2426,6 +2431,7 @@
          </node>
          <node>
             <name>Missed</name>
+            <description>Not existing; not able to be found.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Indeterminate</value>
@@ -2434,6 +2440,7 @@
          </node>
          <node>
             <name>Near-miss</name>
+            <description>A narrowly avoided collision or other accident.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Indeterminate</value>
@@ -2442,6 +2449,7 @@
          </node>
          <node>
             <name>Successful</name>
+            <description>Something that accomplishes its intended purpose.</description>
             <attribute>
                <name>relatedTag</name>
                <value>Correction</value>
@@ -2453,74 +2461,103 @@
          <description>The role the stimulus plays in the task.</description>
          <node>
             <name>Cue</name>
+            <description>A signal for an action, a pattern of stimuli indicating a particular response.</description>
          </node>
          <node>
             <name>Distractor</name>
+            <description>A person or thing that distracts or a plausible but incorrect option in a multiple-choice question.</description>
          </node>
          <node>
             <name>Expected</name>
-            <description>Of low information value as in frequent non-targets in an RSVP paradigm.</description>
+            <description>Considered likely or probable; anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.</description>
          </node>
          <node>
             <name>Extraneous</name>
+            <description>Irrelevant or unrelated to the subject being dealt with.</description>
          </node>
          <node>
             <name>Feedback</name>
+            <description>An evaluative response to an inquiry, process, event, or activity.</description>
+         </node>
+         <node>
+            <name>Go-signal</name>
+            <description>An indicator to proceed with a planned action.</description>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Stop-signal</value>
+            </attribute>
          </node>
          <node>
             <name>Meaningful</name>
+            <description>Conveying significant or relevant information.</description>
          </node>
          <node>
             <name>Newly-learned</name>
+            <description>Representing recently acquired information or understanding.</description>
          </node>
          <node>
             <name>Non-informative</name>
+            <description>Something that is not useful in forming an opinion or judging an outcome.</description>
          </node>
          <node>
             <name>Non-target</name>
-            <description>Make sure to tag Expected if the Non-target is frequent.</description>
+            <description>Something other than that done or looked for. Also tag Expected if the Non-target is frequent.</description>
+            <attribute>
+               <name>suggestedTag</name>
+               <value>Expected</value>
+            </attribute>
          </node>
          <node>
             <name>Not-meaningful</name>
+            <description>Not having a serious, important, or useful quality or purpose.</description>
          </node>
          <node>
             <name>Novel</name>
-            <description>Genuinely novel such as an event occurring once or so per experiment</description>
+            <description>Having no previous example or precedent or parallel; of a kind not seen before.</description>
          </node>
          <node>
             <name>Oddball</name>
-            <description>Unexpected or infrequent</description>
+            <description>Something strange, bizarre, unusal, or infrequent.</description>
          </node>
          <node>
             <name>Planned</name>
+            <description>Something that was decided on or arranged in advance.</description>
          </node>
          <node>
             <name>Penalty</name>
+            <description>A disadvantage, loss, or hardship due to some action.</description>
          </node>
          <node>
             <name>Priming</name>
+            <description>An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.</description>
          </node>
          <node>
             <name>Reward</name>
+            <description>A positive reinforcement for a desired action, behavior or response.</description>
          </node>
          <node>
-            <name>Signal-go</name>
-         </node>
-         <node>
-            <name>Signal-stop</name>
+            <name>Stop-signal</name>
+            <description>An indicator that the agent should stop the current activity.</description>
+            <attribute>
+               <name>relatedTag</name>
+               <value>Go-signal</value>
+            </attribute>
          </node>
          <node>
             <name>Target</name>
-            <description>Something the subject is looking for</description>
+            <description>Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.</description>
          </node>
          <node>
             <name>Threat</name>
+            <description>An indicator that signifies hostility and predicts an increased probability of attack.</description>
          </node>
          <node>
             <name>Timed</name>
+            <description>Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.</description>
          </node>
          <node>
             <name>Unexpected</name>
+            <description>Something that is not planned or anticipated.</description>
          </node>
       </node>
    </node>
