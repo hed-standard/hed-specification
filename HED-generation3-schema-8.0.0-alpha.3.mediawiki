@@ -6,6 +6,7 @@ HED version: 8.0.0-alpha.3
 * Sensory-event <nowiki>{suggestedTag=Task-property/Task-role}[Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
 * Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
+* Detected-feature <nowiki>{suggestedTag=Data-property}[Something that is measured or detected by an instrument such as a patch-clamp or a probe.]</nowiki>
 * Experiment-control <nowiki>[An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>[An event specifying the structure of the experiment.]</nowiki>
@@ -16,6 +17,7 @@ HED version: 8.0.0-alpha.3
 * Computational-agent <nowiki>[An agent whose decisions about its actions can be explained in terms of computation.]</nowiki>
 * Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
 * Human-agent <nowiki>[A person who takes an active role or produces a specified effect.]</nowiki>
+* Microscopic-agent <nowiki>[An agent too small to be seen except under a microscope such as a cell or a neuron.]</nowiki>
 * Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
 * Software-agent <nowiki>[A computer program that acts for a user or other program in a relationship of agency.]</nowiki>
 
@@ -614,23 +616,23 @@ HED version: 8.0.0-alpha.3
 ** Unexpected <nowiki>[Something that is not planned or anticipated.]</nowiki>
 
 
-'''Attribute''' <nowiki>{extensionAllowed} [A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
-* Informational <nowiki>[Relating to or characterized by facts about something; providing information.]</nowiki>
-** Def <nowiki>{requireChild} [A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.]</nowiki>
+'''Attribute''' <nowiki>{extensionAllowed} [A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
+* Informational <nowiki>[A quality that pertains to information.]</nowiki>
+** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Def-expand <nowiki>{requireChild, tagGroup} [A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.]</nowiki>
+** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>   
-** Definition <nowiki>{requireChild, topLevelTagGroup}[A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.]</nowiki> 
+** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-** Description <nowiki>{requireChild} [Human-readable text description of the event.]</nowiki> 
+** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-** Experimental-note
+** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** ID <nowiki>{requireChild} [An alphanumeric code usually used to identify a particular instance of an item.]</nowiki>
+** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
-** Metadata <nowiki>[A tag used within a tag group indicate to designate information about the data such as file size or author.]</nowiki>
+** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
 *** CogAtlas <nowiki>[A tag used within a tag group indicate a relationship to the CognitiveAtlas terminology.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** CogPo <nowiki>[A tag used within a tag group indicate a relationship to the CogPO terminology.]</nowiki>
@@ -645,219 +647,218 @@ HED version: 8.0.0-alpha.3
 **** <nowiki># {takesValue}</nowiki>
 *** Version 
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
-** Parameter <nowiki>[As a Name:Value]</nowiki> 
+** Parameter <nowiki>[Any factor that defines a system and determines or limits its performance. A variable whose value changes the characteristics of a system or a function.
+]</nowiki> 
 *** <nowiki># {takesValue}</nowiki>
-** Value
+** Value <nowiki>[A numerical quantity measured or assigned or computed. Non-numeric values are specified with the Label tag.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 * Organizational <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Event-context <nowiki>{topLevelTagGroup}[A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included. ]</nowiki>
+** Event-context <nowiki>{topLevelTagGroup}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
 ** Event-stream <nowiki>[An ordered list of events  ]</nowiki> 
 ** Experimental-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Experimental-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
 ** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
-** Experimental-trial <nowiki>[A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
-** Permutation <nowiki>[A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.]</nowiki>
-** Recording <nowiki>[Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
-** Task <nowiki>[A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
+** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
+** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
+** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
+** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Relational <nowiki>[Concerns the way in which two or more people or things are connected.]</nowiki>
-** Comparative-relation
-*** Less-than
-*** Less-than-or-equal-to
-*** Greater-than
-*** Greater-than-or-equal-to
-*** Equal-to
-*** Not-equal-to
-** Connective-relation
-*** Belongs-to <nowiki>[As in owned by]</nowiki>
-*** Connected-to
-*** Contained-in
-*** Described-by
-*** From-to
-*** Group-of
-*** Implied-by
-*** Interacts-with
-*** Member-of
-*** Part-of
-*** Performed-by
-*** Related-to
-** Ordering-relation
-*** Early-item <nowiki>[Indication that this item appears early in a sequence.]</nowiki>
-*** First-item <nowiki>[Indication that this is the first item in a sequence.]</nowiki>
-*** Next-item <nowiki>[Indication that this item appears immediately after the previous item in a sequence.]</nowiki> 
-*** Later-item <nowiki>[Indication that this item appears later in a sequence.]</nowiki>
-*** Last-item <nowiki>[Indication that this is the last item in a sequence.]</nowiki>
-** Quantitative-relation
-*** Estimated
-*** Approximated
-*** Exact
-** Spatiotemporal-relation
-*** Directional-relation
-**** Away-from
-**** Backward
-**** Closing
-**** Decreasing
-**** Downward
-**** Forward
-**** Increasing
-**** Leftward
-**** Rightward
-**** Opening
-**** Towards
-**** Upward
-*** Orientational-relation
-**** Horizontally-oriented
-**** Oblique
-**** Rotated
-**** Vertically-oriented
-*** Positional-relation <nowiki>[Should be grouped with what it is positionally related to.]</nowiki>
-**** Above
-**** Across
-**** Adjacent-to
-**** Ahead-of
-**** Around
-**** Back-of
-**** Behind
-**** Below
-**** Between <nowiki>[Should be grouped with the items between designates.]</nowiki>
-**** Bilateral <nowiki>[Used designate activities or items that occur on both sides or on top and bottom.]</nowiki>
-**** Bottom-of <nowiki>[At the bottom of something. Should be grouped with the item that it is positionally related to.]</nowiki>
-**** Boundary-of
-**** Center-of <nowiki>[At the center of something. Should be grouped with the item that it is positionally related to.]</nowiki>
-**** Close-to
-**** Edge-of
-**** Far-from
-**** Front-of
-**** Inside-of
-**** Left-of
-**** Left-side
-**** Outside-of
-**** Over
-**** Right-of
-**** Right-side
-**** Top-of
-**** Under
-*** Temporal-relation
-**** After
-**** Asynchronous-with
-**** Before
-**** During
-**** Synchronous-with
-**** Waiting-for
-*** Variability-relation
-**** Constant
-**** Continuous
-**** Deterministic
-**** Discrete
+** Comparative-relation <nowiki>[Considered in comparison to something else.]</nowiki>
+*** Less-than <nowiki>[(A (Less-than B)) indicates that the relative size or order of A is smaller than that of B.]</nowiki>
+*** Less-than-or-equal-to <nowiki>[(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
+*** Greater-than <nowiki>[(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
+*** Greater-than-or-equal-to <nowiki>[(A (Greater-than-or-equal-to B)) indicates that the relative size or order of A is bigger than or the same as that of B.]</nowiki>
+*** Equal-to <nowiki>[(A (Equal-to B)) indicates that the size or order of A is the same as that of B.]</nowiki>
+*** Not-equal-to <nowiki>[(A (Not-equal-to B)) indicates that the size or order of A is not the same as that of B.]</nowiki>
+** Connective-relation <nowiki>[Indicates two items are related in some way.]</nowiki>
+*** Belongs-to <nowiki>[(A (Belongs-to B)) indicates that A is a member of B.]</nowiki>
+*** Connected-to <nowiki>[(A (Connected-to) B) indicates that A is related to B in some respect, usually through a direct link.]</nowiki>
+*** Contained-in <nowiki>[(A (Contained-in B)) indicates that A is completely inside of B.]</nowiki>
+*** Described-by <nowiki>[(A (Described-by B)) indicates that B provides information about A.]</nowiki>
+*** From-to <nowiki>[(A (From-to B)) indicates a directional relation from A to B. A is considered the source.]</nowiki>
+*** Group-of <nowiki>[(A (Group-of B)) indicates A is a group of items of type B.]</nowiki>
+*** Implied-by <nowiki>[(A (Implied-by B)) indicates B is suggested by A.]</nowiki>
+*** Interacts-with <nowiki>[(A (Interacts-with B)) indicates A and B interact, possibly reciprocally.]</nowiki>
+*** Member-of <nowiki>[(A (Member-of B)) indicates A is a member of group B.]</nowiki>
+*** Part-of <nowiki>[(A (Part-of B)) indicates A is a part of the whole B.]</nowiki>
+*** Performed-by <nowiki>[(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.]</nowiki>
+*** Related-to <nowiki>[(A (Relative-to B)) indicates A is a part of the whole B.]</nowiki>
+** Ordering-relation <nowiki>[A relation describing the systematic arrangement of data items.]</nowiki>
+*** Early-item <nowiki>[An item near the beginning of a course, process, or series.]</nowiki>
+*** First-item <nowiki>[A first item at the beginning of a course, process, or series.]</nowiki>
+*** Next-item <nowiki>[A subsequent or immediately following item in the order.]</nowiki> 
+*** Later-item <nowiki>[An item occurring near the end of a group of ordered items.]</nowiki>
+*** Last-item <nowiki>[An item occurring at the end of a group of ordered items.]</nowiki>
+** Quantitative-relation <nowiki>[A quantitative or numerical relationship.]</nowiki>
+*** Estimated <nowiki>[Calculated approximately.]</nowiki>
+*** Approximated <nowiki>[Not quite exact or correct; almost exact or correct.]</nowiki>
+*** Exact <nowiki>[Marked by strict and particular and complete accordance with fact.]</nowiki>
+** Spatiotemporal-relation <nowiki>[A space and or temporal relationship.]</nowiki>
+*** Directional-relation <nowiki>[A relationship indicating direction.]</nowiki>
+**** Away-from <nowiki>[Go away from (a place).]</nowiki>
+**** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
+**** Closing <nowiki>[Not affording passage or access; blocked against entry.]</nowiki>
+**** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
+**** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
+**** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+**** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
+**** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+**** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+**** Opening <nowiki>[Widening an aperture, door, or gap, especially one allowing access.]</nowiki>
+**** Towards <nowiki>[Moving in the direction of.]</nowiki>
+**** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
+*** Orientational-relation <nowiki>[Indicating relative physical position or direction of something.]</nowiki>
+**** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
+**** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
+**** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
+**** Vertically-oriented <nowiki>[Oriented in an upright in position or posture.]</nowiki>
+*** Positional-relation <nowiki>[Indicating information about position.]</nowiki>
+**** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>
+**** Across-from <nowiki>[(A (Across-from B)) means A is on the opposite side of something from B.]</nowiki>
+**** Adjacent-to <nowiki>[(A (Adjacent-to B)) indicates that A is next to B in time or space.]</nowiki>
+**** Ahead-of <nowiki>[(A (Ahead-of B)) indicates that A is further forward in time or space in B.]</nowiki>
+**** Around <nowiki>[(A (Around B)) means A is in or near the present place or situation of B.]</nowiki>
+**** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
+**** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
+**** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
+**** Bilateral <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+**** Bottom-of <nowiki>[(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.]</nowiki>
+**** Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
+**** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
+**** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
+**** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
+**** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
+**** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+**** Left-side <nowiki>[(A (Left-side B)) means A is located on the left side of B usually as part of B.]</nowiki>
+**** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
+**** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
+**** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+**** Right-side <nowiki>[(A (Right-side B)) means A is located on the right side of B usually as part of B.]</nowiki>
+**** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
+**** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
+**** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
+*** Temporal-relation <nowiki>[Any relationship which includes a temporal or time-based component.]</nowiki>
+**** After <nowiki>[(A After B) means A happens at a time subsequent to a reference time related to B.]</nowiki>
+**** Asynchronous-with <nowiki>[(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.]</nowiki>
+**** Before <nowiki>[(A Before B) means A happens at a time earlier in time or order than B.]</nowiki>
+**** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
+**** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
+**** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
+*** Variability-relation <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+**** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
+**** Continuous <nowiki>[]</nowiki>
+**** Deterministic <nowiki>[]</nowiki>
+**** Discrete <nowiki>[]</nowiki>
 **** Flickering <nowiki>[Irregular changes in time.]</nowiki>
-**** Fractal
-**** Random
-**** Repetitive
-**** Sudden
-**** Varying
-** Thermal-relation
-*** Cold
-*** Colder-than
-*** Hot
-*** Hotter-than
+**** Fractal <nowiki>[]</nowiki>
+**** Random <nowiki>[]</nowiki>
+**** Repetitive <nowiki>[]</nowiki>
+**** Sudden <nowiki>[]</nowiki>
+**** Varying <nowiki>[]</nowiki>
+** Thermal-relation <nowiki>[]</nowiki>
+*** Cold <nowiki>[]</nowiki>
+*** Colder-than <nowiki>[]</nowiki>
+*** Hot <nowiki>[]</nowiki>
+*** Hotter-than <nowiki>[]</nowiki>
 * Categorical <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 ** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
-*** All <nowiki>{relatedTag=Some, relatedTag=None}</nowiki>
-*** Correct <nowiki>{relatedTag=Incorrect}</nowiki>
-*** Explicit <nowiki>{relatedTag=Implicit}</nowiki>
-*** False <nowiki>{relatedTag=True}</nowiki>
-*** Implicit <nowiki>{relatedTag=Explicit}</nowiki>
-*** Incorrect <nowiki>{relatedTag=Correct}</nowiki>
-*** Invalid <nowiki>{relatedTag=Valid}</nowiki>
-*** None <nowiki>{relatedTag=All, relatedTag=Some}</nowiki>
-*** Some <nowiki>{relatedTag=All, relatedTag=None}</nowiki>
-*** True <nowiki>{relatedTag=False}</nowiki>
-*** Valid <nowiki>{relatedTag=Invalid}</nowiki>
+*** All <nowiki>{relatedTag=Some, relatedTag=None}[]</nowiki>
+*** Correct <nowiki>{relatedTag=Incorrect}[]</nowiki>
+*** Explicit <nowiki>{relatedTag=Implicit}[]</nowiki>
+*** False <nowiki>{relatedTag=True}[]</nowiki>
+*** Implicit <nowiki>{relatedTag=Explicit}[]</nowiki>
+*** Incorrect <nowiki>{relatedTag=Correct}[]</nowiki>
+*** Invalid <nowiki>{relatedTag=Valid}[]</nowiki>
+*** None <nowiki>{relatedTag=All, relatedTag=Some}[]</nowiki>
+*** Some <nowiki>{relatedTag=All, relatedTag=None}[]</nowiki>
+*** True <nowiki>{relatedTag=False}[]</nowiki>
+*** Valid <nowiki>{relatedTag=Invalid}[]</nowiki>
 ** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
-*** Abnormal <nowiki>{relatedTag=Normal}</nowiki>
-*** Asymmetric <nowiki>{relatedTag=Symmetric}</nowiki>
-*** Congruent <nowiki>{relatedTag=Incongruent}</nowiki>
-*** Constrained <nowiki>{relatedTag=Unconstrained}</nowiki>
-*** Disordered <nowiki>{relatedTag=Ordered}</nowiki>
+*** Abnormal <nowiki>{relatedTag=Normal}[]</nowiki>
+*** Asymmetric <nowiki>{relatedTag=Symmetric}[]</nowiki>
+*** Congruent <nowiki>{relatedTag=Incongruent}[]</nowiki>
+*** Constrained <nowiki>{relatedTag=Unconstrained}[]</nowiki>
+*** Disordered <nowiki>{relatedTag=Ordered}[]</nowiki>
 *** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Something known or encountered before.]</nowiki>
 *** Famous <nowiki>{relatedTag=Familiar, relatedTag=Unfamiliar}[Something known by many people but necessarily because of direct contact.]</nowiki>
-*** Incongruent <nowiki>{relatedTag=Congruent}</nowiki>
-*** Involuntary <nowiki>{relatedTag=Voluntary}</nowiki>
+*** Incongruent <nowiki>{relatedTag=Congruent}[]</nowiki>
+*** Involuntary <nowiki>{relatedTag=Voluntary}[]</nowiki>
 *** Masked <nowiki>[Ability to perceive influenced by presence of another stimulus]</nowiki>
-*** Normal <nowiki>{relatedTag=Abnormal}</nowiki>
-*** Ordered <nowiki>{relatedTag=Disordered}</nowiki>
-*** Symmetric <nowiki>{relatedTag=Unsymmetric}</nowiki>
-*** Unconstrained <nowiki>{relatedTag=Constrained}</nowiki>
+*** Normal <nowiki>{relatedTag=Abnormal}[]</nowiki>
+*** Ordered <nowiki>{relatedTag=Disordered}[]</nowiki>
+*** Symmetric <nowiki>{relatedTag=Unsymmetric}[]</nowiki>
+*** Unconstrained <nowiki>{relatedTag=Constrained}[]</nowiki>
 *** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Something not known or encountered before.]</nowiki>
 *** Unmasked <nowiki>[Ability to perceive not influenced by presence of another stimulus]</nowiki>
-*** Voluntary <nowiki>{relatedTag=Involuntary}</nowiki>
+*** Voluntary <nowiki>{relatedTag=Involuntary}[]</nowiki>
 ** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
-*** Deep <nowiki>{relatedTag=Shallow}</nowiki>
-*** High <nowiki>{relatedTag=Low, relatedTag=Medium}</nowiki>
-*** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}</nowiki>
-*** Low <nowiki>{relatedTag=High}</nowiki>
-*** Medium <nowiki>{relatedTag=Low, relatedTag=High}</nowiki>
-*** Negative <nowiki>{relatedTag=Positive}</nowiki>
-*** Positive <nowiki>{relatedTag=Negative}</nowiki>
-*** Shallow <nowiki>{relatedTag=Deep}</nowiki>
-*** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}</nowiki>
-*** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}</nowiki>
-*** Thick <nowiki>{relatedTag=Thin}</nowiki>
-*** Thin <nowiki>{relatedTag=Thick}</nowiki>
+*** Deep <nowiki>{relatedTag=Shallow}[]</nowiki>
+*** High <nowiki>{relatedTag=Low, relatedTag=Medium}[]</nowiki>
+*** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[]</nowiki>
+*** Low <nowiki>{relatedTag=High}[]</nowiki>
+*** Medium <nowiki>{relatedTag=Low, relatedTag=High}[]</nowiki>
+*** Negative <nowiki>{relatedTag=Positive}[]</nowiki>
+*** Positive <nowiki>{relatedTag=Negative}[]</nowiki>
+*** Shallow <nowiki>{relatedTag=Deep}[]</nowiki>
+*** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[]</nowiki>
+*** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[]</nowiki>
+*** Thick <nowiki>{relatedTag=Thin}[]</nowiki>
+*** Thin <nowiki>{relatedTag=Thick}[]</nowiki>
 * Descriptive <nowiki>[Presenting observations about the characteristics of someone or something.]</nowiki>
-** Abstract
-** Clinical
-** Complex
-** Composite
-** Numerical
-** Symbolic
+** Abstract <nowiki>[]</nowiki>
+** Clinical <nowiki>[]</nowiki>
+** Complex <nowiki>[]</nowiki>
+** Composite <nowiki>[]</nowiki>
+** Numerical <nowiki>[]</nowiki>
+** Symbolic <nowiki>[]</nowiki>
 * Sensory <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
-** Auditory
-*** Audible
-*** Frequency 
+** Auditory <nowiki>[]</nowiki>
+*** Audible <nowiki>[]</nowiki>
+*** Frequency <nowiki>[]</nowiki>
 **** <nowiki># {takesValue, isNumeric, unitClass=frequency}</nowiki>  
-*** Loudness 
+*** Loudness <nowiki>[]</nowiki>
 **** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Monophonic <nowiki> [Consisting of one independent audio channel]</nowiki>  
 *** Ramp-up <nowiki>[Increasing in amplitude]</nowiki> 
 *** Ramp-down <nowiki>[Decreasing in amplitude]</nowiki>
-*** Silent
+*** Silent <nowiki>[]</nowiki>
 *** Stereophonic <nowiki> [Consisting of more than one independent audio channel]</nowiki> 
 *** Timbre <nowiki>[Sound quality]</nowiki>  
 ** Gustatory <nowiki>[Pertaining to sensations of relating to taste.]</nowiki>
-*** Bitter
-*** Salty
-*** Savory
-*** Sour
-*** Sweet
+*** Bitter <nowiki>[]</nowiki>
+*** Salty <nowiki>[]</nowiki>
+*** Savory <nowiki>[]</nowiki>
+*** Sour <nowiki>[]</nowiki>
+*** Sweet <nowiki>[]</nowiki>
 ** Tactile <nowiki>[Pertaining to sensations of relating to touch.]</nowiki>
-*** Tactile-pressure
-*** Tactile-texture
-*** Tactile-vibration
+*** Tactile-pressure <nowiki>[]</nowiki>
+*** Tactile-texture <nowiki>[]</nowiki>
+*** Tactile-vibration <nowiki>[]</nowiki>
 ** Olfactory <nowiki>[Pertaining to sensations of relating to smell.]</nowiki>
 ** Somatic <nowiki>[Pertaining to sensations of nervous system such as pain.]</nowiki>
-*** Pain
-*** Stress
-** Vestibular
-** Visual
-*** Luminance 
-*** Color 
-**** Color-shade 
-***** Dark-shade
-***** Light-shade 
-**** HSV-color
-***** Hue 
+*** Pain <nowiki>[]</nowiki>
+*** Stress <nowiki>[]</nowiki>
+** Vestibular <nowiki>[]</nowiki>
+** Visual <nowiki>[]</nowiki>
+*** Luminance <nowiki>[]</nowiki>
+*** Color <nowiki>[]</nowiki>
+**** Color-shade <nowiki>[]</nowiki>
+***** Dark-shade <nowiki>[]</nowiki>
+***** Light-shade <nowiki>[]</nowiki>
+**** HSV-color <nowiki>[]</nowiki>
+***** Hue <nowiki>[]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
 ***** Saturation 
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
 ***** HSV-value 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
-**** RGB-color 
-***** RGB-red 
+**** RGB-color <nowiki>[]</nowiki>
+***** RGB-red <nowiki>[]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-***** RGB-blue 
+***** RGB-blue <nowiki>[]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
 ***** RGB-green 
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
@@ -1016,12 +1017,12 @@ HED version: 8.0.0-alpha.3
 ****** Linen <nowiki>[CSS-color 0xFAF0E6]</nowiki>
 ****** LavenderBlush <nowiki>[CSS-color 0xFFF0F5]</nowiki>
 ****** MistyRose <nowiki>[CSS-color 0xFFE4E1]</nowiki>
-*** View
-**** 2D-view
-**** 3D-view
-**** Background-view
+*** View <nowiki>[]</nowiki>
+**** 2D-view <nowiki>[]</nowiki>
+**** 3D-view <nowiki>[]</nowiki>
+**** Background-view <nowiki>[]</nowiki>
 **** Bistable-view <nowiki>[Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.]</nowiki>
-**** Foreground-view
+**** Foreground-view <nowiki>[]</nowiki>
 **** Foveal-view <nowiki>[Visual presentation directly on the fovea.]</nowiki>
 **** Map-view <nowiki>[A representation of a geographical location.]</nowiki>
 ***** Aerial-view <nowiki>[A representation from an overhead view such as captured by a drone.]</nowiki>
@@ -1029,26 +1030,26 @@ HED version: 8.0.0-alpha.3
 ***** Street-view <nowiki>[A panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view
 * Environmental <nowiki>[Relating to or arising from the surroundings of an agent.]</nowiki>
-** Indoors
-** Outdoors
-** Real-world
-** Virtual-world
-** Augmented-reality
-** Motion-platform
-** Urban
-** Rural
-*** Wooden-walkway
-** Terrain
-*** Composite-terrain
-*** Dirt-terrain
-*** Grassy-terrain
-*** Gravel-terrain
-*** Leaf-covered-terrain
-*** Muddy-terrain
-*** Paved-terrain
-*** Rocky-terrain
-*** Sloped-terrain
-*** Uneven-terrain
+** Indoors <nowiki>[]</nowiki>
+** Outdoors <nowiki>[]</nowiki>
+** Real-world <nowiki>[]</nowiki>
+** Virtual-world <nowiki>[]</nowiki>
+** Augmented-reality <nowiki>[]</nowiki>
+** Motion-platform <nowiki>[]</nowiki>
+** Urban <nowiki>[]</nowiki>
+** Rural <nowiki>[]</nowiki>
+*** Wooden-walkway <nowiki>[]</nowiki>
+** Terrain <nowiki>[]</nowiki>
+*** Composite-terrain <nowiki>[]</nowiki>
+*** Dirt-terrain <nowiki>[]</nowiki>
+*** Grassy-terrain <nowiki>[]</nowiki>
+*** Gravel-terrain <nowiki>[]</nowiki>
+*** Leaf-covered-terrain <nowiki>[]</nowiki>
+*** Muddy-terrain <nowiki>[]</nowiki>
+*** Paved-terrain <nowiki>[]</nowiki>
+*** Rocky-terrain <nowiki>[]</nowiki>
+*** Sloped-terrain <nowiki>[]</nowiki>
+*** Uneven-terrain <nowiki>[]</nowiki>
 * Anatomical <nowiki>[Relating to bodily structure.]</nowiki>
 
 !# end schema 
