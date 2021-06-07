@@ -1276,6 +1276,9 @@
                <name>Alarm</name>
             </node>
             <node>
+               <name>Beep</name>
+            </node>
+            <node>
                <name>Buzz</name>
             </node>
             <node>
@@ -2159,6 +2162,7 @@
       </node>
       <node>
          <name>Statistical-property</name>
+         <description>Relating to, based on, or employing the principles of statistics.</description>
          <attribute>
             <name>extensionAllowed</name>
          </attribute>
@@ -2177,6 +2181,7 @@
          </node>
          <node>
             <name>Data-mean</name>
+            <description>The sum of a set of values divided by the number of values in the set.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2189,6 +2194,7 @@
          </node>
          <node>
             <name>Data-median</name>
+            <description>The value which has an equal number of values greater and less than it.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2201,6 +2207,7 @@
          </node>
          <node>
             <name>Data-minimum</name>
+            <description>The smallest possible quantity.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2213,6 +2220,7 @@
          </node>
          <node>
             <name>Data-maximum</name>
+            <description>The largest possible quantity or degree.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2225,7 +2233,7 @@
          </node>
          <node>
             <name>Probability</name>
-            <description>Use to specify the level of certainty about the occurrence of the event.</description>
+            <description>A measure of the expectation of the occurrence of a particular event.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2238,6 +2246,7 @@
          </node>
          <node>
             <name>Statistical-precision</name>
+            <description>A quantitative representation of the degree of accuracy necessary for or associated with a particular action.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2250,6 +2259,7 @@
          </node>
          <node>
             <name>Statistical-recall</name>
+            <description>Sensitivity is a measurement datum qualifying a binary classification test and is computed by substracting the false negative rate to the integral numeral 1.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2262,6 +2272,7 @@
          </node>
          <node>
             <name>Standard-deviation</name>
+            <description>A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2274,7 +2285,7 @@
          </node>
          <node>
             <name>Uncertainty</name>
-            <description>Use to specify the level of error.</description>
+            <description>A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2734,7 +2745,7 @@
                </node>
             </node>
             <node>
-               <name>Subject</name>
+               <name>Subject-id</name>
                <node>
                   <name>#</name>
                   <attribute>
@@ -2755,12 +2766,13 @@
          </node>
          <node>
             <name>Parameter</name>
-         </node>
-         <node>
-            <name>#</name>
-            <attribute>
-               <name>takesValue</name>
-            </attribute>
+            <description>Any factor that defines a system and determines or limits its performance. A variable whose value changes the characteristics of a system or a function.</description>
+            <node>
+               <name>#</name>
+               <attribute>
+                  <name>takesValue</name>
+               </attribute>
+            </node>
          </node>
          <node>
             <name>Value</name>
@@ -2793,7 +2805,7 @@
          </node>
          <node>
             <name>Event-stream</name>
-            <description>An ordered list of events</description>
+            <description>An ordered list of events.</description>
          </node>
          <node>
             <name>Experimental-condition</name>
