@@ -32,6 +32,14 @@
          </attribute>
       </node>
       <node>
+         <name>Detected-feature</name>
+         <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
+         <attribute>
+            <name>suggestedTag</name>
+            <value>Data-property</value>
+         </attribute>
+      </node>
+      <node>
          <name>Experiment-control</name>
          <description>An event pertaining to the control of the experiment during its operation.</description>
       </node>
@@ -70,6 +78,10 @@
       <node>
          <name>Human-agent</name>
          <description>A person who takes an active role or produces a specified effect.</description>
+      </node>
+      <node>
+         <name>Microscopic-agent</name>
+         <description>An agent too small to be seen except under a microscope such as a cell or a neuron.</description>
       </node>
       <node>
          <name>Robotic-agent</name>
@@ -2563,16 +2575,16 @@
    </node>
    <node>
       <name>Attribute</name>
-      <description>A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.</description>
+      <description>A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.</description>
       <attribute>
          <name>extensionAllowed</name>
       </attribute>
       <node>
          <name>Informational</name>
-         <description>Relating to or characterized by facts about something; providing information.</description>
+         <description>A quality that pertains to information.</description>
          <node>
             <name>Def</name>
-            <description>A label that specifically corresponds to a Definition name and indicates that this label represents tags in an unexpanded definition.</description>
+            <description>A HED-specific utility tag used with a defined name to represent the tags associated with that definition.</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2585,7 +2597,7 @@
          </node>
          <node>
             <name>Def-expand</name>
-            <description>A label that specifically corresponds to a Definition name and indicates that this label is in a group containing an expanded definition and should not be expanded again.</description>
+            <description>A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2601,7 +2613,7 @@
          </node>
          <node>
             <name>Definition</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents that group of tags.</description>
+            <description>A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2617,7 +2629,7 @@
          </node>
          <node>
             <name>Description</name>
-            <description>Human-readable text description of the event.</description>
+            <description>An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2630,6 +2642,7 @@
          </node>
          <node>
             <name>Experimental-note</name>
+            <description>A brief written record about the experiment.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2639,7 +2652,7 @@
          </node>
          <node>
             <name>ID</name>
-            <description>An alphanumeric code usually used to identify a particular instance of an item.</description>
+            <description>An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2652,7 +2665,7 @@
          </node>
          <node>
             <name>Label</name>
-            <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances.</description>
+            <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.</description>
             <attribute>
                <name>requireChild</name>
             </attribute>
@@ -2665,7 +2678,7 @@
          </node>
          <node>
             <name>Metadata</name>
-            <description>A tag used within a tag group indicate to designate information about the data such as file size or author.</description>
+            <description>Data about data; information that describes another set of data.</description>
             <node>
                <name>CogAtlas</name>
                <description>A tag used within a tag group indicate a relationship to the CognitiveAtlas terminology.</description>
@@ -2742,16 +2755,16 @@
          </node>
          <node>
             <name>Parameter</name>
-            <description>As a Name:Value</description>
-            <node>
-               <name>#</name>
-               <attribute>
-                  <name>takesValue</name>
-               </attribute>
-            </node>
+         </node>
+         <node>
+            <name>#</name>
+            <attribute>
+               <name>takesValue</name>
+            </attribute>
          </node>
          <node>
             <name>Value</name>
+            <description>A numerical quantity measured or assigned or computed. Non-numeric values are specified with the Label tag.</description>
             <node>
                <name>#</name>
                <attribute>
@@ -2773,7 +2786,7 @@
          </node>
          <node>
             <name>Event-context</name>
-            <description>A tag indicating the overall environment and setup of the experiment or a portion of the experiment. This event is often inserted into a recording at the beginning of an experimental record to describe information such as whether the experiment is conducted indoors or outdoors or whether the experiment is conducted in the real-world or in a controlled laboratory setting. Tags specifying subject metadata might also be included.</description>
+            <description>A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.</description>
             <attribute>
                <name>topLevelTagGroup</name>
             </attribute>
@@ -2796,19 +2809,19 @@
          </node>
          <node>
             <name>Experimental-trial</name>
-            <description>A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.</description>
+            <description>Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.</description>
          </node>
          <node>
             <name>Permutation</name>
-            <description>A tag used within a tag group also containing a Label tag to indicate that the Label represents events that are permutations of each other.</description>
+            <description>A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.</description>
          </node>
          <node>
             <name>Recording</name>
-            <description>Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.</description>
+            <description>The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.</description>
          </node>
          <node>
             <name>Task</name>
-            <description>A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
+            <description>An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
          </node>
          <node>
             <name>Time-block</name>
@@ -2820,267 +2833,333 @@
          <description>Concerns the way in which two or more people or things are connected.</description>
          <node>
             <name>Comparative-relation</name>
+            <description>Considered in comparison to something else.</description>
             <node>
                <name>Less-than</name>
+               <description>(A (Less-than B)) indicates that the relative size or order of A is smaller than that of B.</description>
             </node>
             <node>
                <name>Less-than-or-equal-to</name>
+               <description>(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.</description>
             </node>
             <node>
                <name>Greater-than</name>
+               <description>(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.</description>
             </node>
             <node>
                <name>Greater-than-or-equal-to</name>
+               <description>(A (Greater-than-or-equal-to B)) indicates that the relative size or order of A is bigger than or the same as that of B.</description>
             </node>
             <node>
                <name>Equal-to</name>
+               <description>(A (Equal-to B)) indicates that the size or order of A is the same as that of B.</description>
             </node>
             <node>
                <name>Not-equal-to</name>
+               <description>(A (Not-equal-to B)) indicates that the size or order of A is not the same as that of B.</description>
             </node>
          </node>
          <node>
             <name>Connective-relation</name>
+            <description>Indicates two items are related in some way.</description>
             <node>
                <name>Belongs-to</name>
-               <description>As in owned by</description>
+               <description>(A (Belongs-to B)) indicates that A is a member of B.</description>
             </node>
             <node>
                <name>Connected-to</name>
+               <description>(A (Connected-to) B) indicates that A is related to B in some respect, usually through a direct link.</description>
             </node>
             <node>
                <name>Contained-in</name>
+               <description>(A (Contained-in B)) indicates that A is completely inside of B.</description>
             </node>
             <node>
                <name>Described-by</name>
+               <description>(A (Described-by B)) indicates that B provides information about A.</description>
             </node>
             <node>
                <name>From-to</name>
+               <description>(A (From-to B)) indicates a directional relation from A to B. A is considered the source.</description>
             </node>
             <node>
                <name>Group-of</name>
+               <description>(A (Group-of B)) indicates A is a group of items of type B.</description>
             </node>
             <node>
                <name>Implied-by</name>
+               <description>(A (Implied-by B)) indicates B is suggested by A.</description>
             </node>
             <node>
                <name>Interacts-with</name>
+               <description>(A (Interacts-with B)) indicates A and B interact, possibly reciprocally.</description>
             </node>
             <node>
                <name>Member-of</name>
+               <description>(A (Member-of B)) indicates A is a member of group B.</description>
             </node>
             <node>
                <name>Part-of</name>
+               <description>(A (Part-of B)) indicates A is a part of the whole B.</description>
             </node>
             <node>
                <name>Performed-by</name>
+               <description>(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.</description>
             </node>
             <node>
                <name>Related-to</name>
+               <description>(A (Relative-to B)) indicates A is a part of the whole B.</description>
             </node>
          </node>
          <node>
             <name>Ordering-relation</name>
+            <description>A relation describing the systematic arrangement of data items.</description>
             <node>
                <name>Early-item</name>
-               <description>Indication that this item appears early in a sequence.</description>
+               <description>An item near the beginning of a course, process, or series.</description>
             </node>
             <node>
                <name>First-item</name>
-               <description>Indication that this is the first item in a sequence.</description>
+               <description>A first item at the beginning of a course, process, or series.</description>
             </node>
             <node>
                <name>Next-item</name>
-               <description>Indication that this item appears immediately after the previous item in a sequence.</description>
+               <description>A subsequent or immediately following item in the order.</description>
             </node>
             <node>
                <name>Later-item</name>
-               <description>Indication that this item appears later in a sequence.</description>
+               <description>An item occurring near the end of a group of ordered items.</description>
             </node>
             <node>
                <name>Last-item</name>
-               <description>Indication that this is the last item in a sequence.</description>
+               <description>An item occurring at the end of a group of ordered items.</description>
             </node>
          </node>
          <node>
             <name>Quantitative-relation</name>
+            <description>A quantitative or numerical relationship.</description>
             <node>
                <name>Estimated</name>
+               <description>Calculated approximately.</description>
             </node>
             <node>
                <name>Approximated</name>
+               <description>Not quite exact or correct; almost exact or correct.</description>
             </node>
             <node>
                <name>Exact</name>
+               <description>Marked by strict and particular and complete accordance with fact.</description>
             </node>
          </node>
          <node>
             <name>Spatiotemporal-relation</name>
+            <description>A space and or temporal relationship.</description>
             <node>
                <name>Directional-relation</name>
+               <description>A relationship indicating direction.</description>
                <node>
                   <name>Away-from</name>
+                  <description>Go away from (a place).</description>
                </node>
                <node>
                   <name>Backward</name>
+                  <description>Directed behind or to the rear.</description>
                </node>
                <node>
                   <name>Closing</name>
+                  <description>Not affording passage or access; blocked against entry.</description>
                </node>
                <node>
                   <name>Decreasing</name>
+                  <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
                </node>
                <node>
                   <name>Downward</name>
+                  <description>Moving or leading toward a lower place or level.</description>
                </node>
                <node>
                   <name>Forward</name>
+                  <description>At or near or directed toward the front.</description>
                </node>
                <node>
                   <name>Increasing</name>
+                  <description>Becoming greater in size, amount, or degree; growing.</description>
                </node>
                <node>
                   <name>Leftward</name>
+                  <description>Going toward or facing the left.</description>
                </node>
                <node>
                   <name>Rightward</name>
+                  <description>Going toward or situated on the right.</description>
                </node>
                <node>
                   <name>Opening</name>
+                  <description>Widening an aperture, door, or gap, especially one allowing access.</description>
                </node>
                <node>
                   <name>Towards</name>
+                  <description>Moving in the direction of.</description>
                </node>
                <node>
                   <name>Upward</name>
+                  <description>Moving, pointing, or leading to a higher place, point, or level.</description>
                </node>
             </node>
             <node>
                <name>Orientational-relation</name>
+               <description>Indicating relative physical position or direction of something.</description>
                <node>
                   <name>Horizontally-oriented</name>
+                  <description>Oriented parallel to or in the plane of the horizon.</description>
                </node>
                <node>
                   <name>Oblique</name>
+                  <description>Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.</description>
                </node>
                <node>
                   <name>Rotated</name>
+                  <description>Move or cause to move in a circle around an axis or center.</description>
                </node>
                <node>
                   <name>Vertically-oriented</name>
+                  <description>Oriented in an upright in position or posture.</description>
                </node>
             </node>
             <node>
                <name>Positional-relation</name>
-               <description>Should be grouped with what it is positionally related to.</description>
+               <description>Indicating information about position.</description>
                <node>
                   <name>Above</name>
+                  <description>(A (Adjacent-to B)) means A is in a place or position that is higher than B.</description>
                </node>
                <node>
-                  <name>Across</name>
+                  <name>Across-from</name>
+                  <description>(A (Across-from B)) means A is on the opposite side of something from B.</description>
                </node>
                <node>
                   <name>Adjacent-to</name>
+                  <description>(A (Adjacent-to B)) indicates that A is next to B in time or space.</description>
                </node>
                <node>
                   <name>Ahead-of</name>
+                  <description>(A (Ahead-of B)) indicates that A is further forward in time or space in B.</description>
                </node>
                <node>
                   <name>Around</name>
-               </node>
-               <node>
-                  <name>Back-of</name>
+                  <description>(A (Around B)) means A is in or near the present place or situation of B.</description>
                </node>
                <node>
                   <name>Behind</name>
+                  <description>(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.</description>
                </node>
                <node>
                   <name>Below</name>
+                  <description>(A (Below B)) means A is in a place or position that is lower than the position of B.</description>
                </node>
                <node>
                   <name>Between</name>
-                  <description>Should be grouped with the items between designates.</description>
+                  <description>(A (Between, (B, C))) means A is in the space or interval separating B and C.</description>
                </node>
                <node>
                   <name>Bilateral</name>
-                  <description>Used designate activities or items that occur on both sides or on top and bottom.</description>
+                  <description>(A (Bilateral B)) means A is on both sides of B or affects both sides of B.</description>
                </node>
                <node>
                   <name>Bottom-of</name>
-                  <description>At the bottom of something. Should be grouped with the item that it is positionally related to.</description>
+                  <description>(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.</description>
                </node>
                <node>
                   <name>Boundary-of</name>
+                  <description>(A (Boundary-of B)) means A is on or part of the edge or boundary of B.</description>
                </node>
                <node>
                   <name>Center-of</name>
-                  <description>At the center of something. Should be grouped with the item that it is positionally related to.</description>
+                  <description>(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.</description>
                </node>
                <node>
                   <name>Close-to</name>
-               </node>
-               <node>
-                  <name>Edge-of</name>
+                  <description>(A (Close-to B)) means A is at a small distance from or is located near in space to B.</description>
                </node>
                <node>
                   <name>Far-from</name>
+                  <description>(A (Far-from B)) means A is at a large distance from or is not located near in space to B.</description>
                </node>
                <node>
-                  <name>Front-of</name>
-               </node>
-               <node>
-                  <name>Inside-of</name>
+                  <name>In-front-of</name>
+                  <description>(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
                </node>
                <node>
                   <name>Left-of</name>
+                  <description>(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
                </node>
                <node>
                   <name>Left-side</name>
+                  <description>(A (Left-side B)) means A is located on the left side of B usually as part of B.</description>
                </node>
                <node>
                   <name>Outside-of</name>
+                  <description>(A (Outside-of B)) means A is located in the space around but not including B.</description>
                </node>
                <node>
                   <name>Over</name>
+                  <description>(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
                </node>
                <node>
                   <name>Right-of</name>
+                  <description>(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
                </node>
                <node>
                   <name>Right-side</name>
+                  <description>(A (Right-side B)) means A is located on the right side of B usually as part of B.</description>
                </node>
                <node>
                   <name>Top-of</name>
+                  <description>(A (Top-of B)) means A is on the uppermost part, side, or surface of B.</description>
                </node>
                <node>
-                  <name>Under</name>
+                  <name>Underneath</name>
+                  <description>(A (Underneath B)) means A is situated directly below and may be concealed by B.</description>
+               </node>
+               <node>
+                  <name>Within</name>
+                  <description>(A (Within B)) means A is on the inside of or contained in B.</description>
                </node>
             </node>
             <node>
                <name>Temporal-relation</name>
+               <description>Any relationship which includes a temporal or time-based component.</description>
                <node>
                   <name>After</name>
+                  <description>(A After B) means A happens at a time subsequent to a reference time related to B.</description>
                </node>
                <node>
                   <name>Asynchronous-with</name>
+                  <description>(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.</description>
                </node>
                <node>
                   <name>Before</name>
+                  <description>(A Before B) means A happens at a time earlier in time or order than B.</description>
                </node>
                <node>
                   <name>During</name>
+                  <description>(A During B) means A happens at some point in a given period of time in which B is ongoing.</description>
                </node>
                <node>
                   <name>Synchronous-with</name>
+                  <description>(A Synchronous-with B) means A happens at occurs at the same time or rate as B.</description>
                </node>
                <node>
                   <name>Waiting-for</name>
+                  <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
                </node>
             </node>
             <node>
                <name>Variability-relation</name>
+               <description>An attribute describing how something changes or varies.</description>
                <node>
                   <name>Constant</name>
+                  <description>Continually recurring or continuing without interruption. Not changing in time or space.</description>
                </node>
                <node>
                   <name>Continuous</name>
