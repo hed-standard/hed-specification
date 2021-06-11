@@ -142,6 +142,7 @@ HED version: 8.0.0-alpha.3
 ** Imagine <nowiki>[Form a mental image or concept of something.]</nowiki>
 ** Judge <nowiki>[Evaluate evidence to make a decision or form a belief.]</nowiki>
 ** Learn <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
+** Memorize <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
 ** Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
 *** Listen <nowiki>[Give attention to a sound.]</nowiki>
 *** Look <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
@@ -164,203 +165,209 @@ HED version: 8.0.0-alpha.3
 ** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
 *** Body-part <nowiki>[Any part of an organism.]</nowiki>
 **** Head <nowiki>[The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.]</nowiki>
-***** Hair
-***** Ear
-***** Face
-****** Cheek
-****** Chin
-****** Eye
-****** Eyebrow
-****** Forehead
-****** Lip
-****** Nose
-****** Mouth
-****** Teeth
-**** Arm
-***** Elbow
-***** Hand
-****** Finger
-******* Index-finger
-******* Little-finger
-******* Middle-finger
-******* Ring-finger
-******* Thumb
-***** Wrist
-**** Leg
-***** Ankle
-***** Foot
-****** Toe
-***** Knee
-**** Torso
-***** Upper-torso
-****** Chest
-***** Lower-torso
-****** Hips
-***** Waist
+***** Hair <nowiki>[The filamentous outgrowth of the epidermis.]</nowiki>
+***** Ear <nowiki>[A sense organ needed for the detection of sound and for establishing balance.]</nowiki>
+***** Face <nowiki>[The anterior portion of the head extending from the forehead to the chin and ear to ear. The facial structures contain the eyes, nose and mouth, cheeks and jaws.]</nowiki>
+****** Cheek <nowiki>[The fleshy part of the face bounded by the eyes, nose, ear, and jaw line.]</nowiki>
+****** Chin <nowiki>[The part of the face below the lower lip and including the protruding part of the lower jaw.]</nowiki>
+****** Eye <nowiki>[The organ of sight or vision.]</nowiki>
+****** Eyebrow <nowiki>[The arched strip of hair on the bony ridge above each eye socket.]</nowiki>
+****** Forehead <nowiki>[The part of the face between the eyebrows and the normal hairline.]</nowiki>
+****** Lip <nowiki>[Fleshy fold which surrounds the opening of the mouth.]</nowiki>
+****** Nose <nowiki>[A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.]</nowiki>
+****** Mouth <nowiki>[The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.]</nowiki>
+****** Teeth <nowiki>[The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.]</nowiki>
+**** Arm <nowiki>[The portion of the upper extremity between the shoulder and the elbow. For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
+***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
+***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
+****** Finger <nowiki>[Any of the digits of the hand.]</nowiki>
+******* Index-finger <nowiki>[The second finger from the radial side of the hand, next to the thumb.]</nowiki>
+******* Little-finger <nowiki>[The fifth and smallest finger from the radial side of the hand.]</nowiki>
+******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
+******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
+******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
+***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
+**** Leg <nowiki>[The portion of the lower extremity between the knee and the ankle. For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
+***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
+***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
+****** Toe <nowiki>[One of the terminal digits of the foot.]</nowiki>
+***** Knee <nowiki>[A joint connecting the lower part of the femur with the upper part of the tibia.]</nowiki>
+**** Torso <nowiki>[The body excluding the head and neck and limbs.]</nowiki>
+***** Chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
+***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
+***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
 *** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
-* Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An item that is part of systematic means of communicating by the use of sounds, symbols, or gestures. The presentation of this item is usually visual, auditory or tactile.]</nowiki>
-** Character <nowiki>[A mark, sign or symbol used as part of language.]</nowiki>
-** Glyph <nowiki>[A symbol or pictograph.]</nowiki>
+* Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An entity related to a systematic means of communicating by the use of sounds, symbols, or gestures.]</nowiki>
+** Character <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
+** Glyph <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
-** Phoneme <nowiki>[A sound or a group of different sounds perceived to have the same function by speakers of the language.]</nowiki>
-** Phrase <nowiki>[A small group of words standing together as a conceptual unit.]</nowiki>
-** Sentence <nowiki>[A set of words that is complete in itself.]</nowiki>
-** Syllable <nowiki>[A unit of pronunciation having one vowel sound.]</nowiki>
+** Phoneme <nowiki>[A speech sound that is distinguished by the speakers of a particular language.]</nowiki>
+** Phrase <nowiki>[A phrase is a group of words functioning as a single unit in the syntax of a sentence.]</nowiki>
+** Sentence <nowiki>[A set of words that is complete in itself, conveying a statement, question, exclamation, or command and typically containing an explicit or implied subject and a predicate containing a finite verb.]</nowiki>
+** Syllable <nowiki>[A unit of spoken language larger than a phoneme.]</nowiki>
 ** Textblock <nowiki>[A block of text.]</nowiki>
-** Word <nowiki>[A single distinct meaningful element of a language.]</nowiki>
+** Word <nowiki>[A word is the smallest free form (an item that may be expressed in isolation with semantic or pragmatic content) in a language.]</nowiki>
 * Object <nowiki>{suggestedTag=Attribute/Sensory}[Something perceptible by one or more of the senses, especially by vision or touch; a material thing.]</nowiki>
-** Geometric-object
-*** Pattern
-**** Dots
-**** Led-pattern
-*** 2D-shape
-**** Clockface
-**** Cross
-**** Ellipse
-***** Circle
-**** Rectangle
-***** Square
-**** Single-point
-**** Star
-**** Triangle
-*** 3D-shape
-**** Box
-***** Cube
-**** Cone
-**** Cylinder
-**** Ellipsoid
-***** Sphere
-**** Pyradmid
-** Ingestible-object <nowiki>[An item designed to be consumed by an organism.</nowiki>
-** Man-made-object <nowiki>[A manmade object]</nowiki>
-*** Media
-**** Media-clip
-***** Audio-clip
-***** Video-clip
-**** Visualization <nowiki>[A visual representation of something else -- such as using a stick-figure to represent motion capture data.]</nowiki>
-***** Animation
-***** Art-installation
-***** Braille
-***** Cutout
-***** Image <nowiki>[A still 2-D representation.]</nowiki>
-****** Cartoon
-****** Drawing
-****** Icon
-****** Painting
-****** Photograph
-***** Movie
-***** Outline-visualization
-***** Point-light-visualization
-***** Sculpture
-***** Stick-figure-visualization
-*** Building <nowiki>[Whole building or building feature]</nowiki>
-**** Room
-**** Roof
-**** Entrance
-**** Attic
-**** Basement
-*** Clothing
-*** Device
-**** Computing-device
-**** Engine
-**** IO-device
-***** Input-device
-****** Button
-****** Joystick
-****** Keyboard
-******* Keyboard-key
+** Geometric-object <nowiki>[An object or a representation that has structure and topology in space.]</nowiki>
+*** Pattern <nowiki>[An arrangement of objects, facts, behaviors, or other things which have scientific, mathematical, geometric, statistical, or other meaning.]</nowiki>
+**** Dots <nowiki>[A small round mark or spot.]</nowiki>
+**** Led-pattern <nowiki>[A pattern created by lighting selected members of a fixed light emitting diode array.]</nowiki>
+*** 2D-shape <nowiki>[A planar, two-dimensional shape.]</nowiki>
+**** Clockface <nowiki>[The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
+**** Cross <nowiki>[A figure or mark formed by two intersecting lines crossing at their midpoints.]</nowiki>
+**** Ellipse <nowiki>[A closed plane curve resulting from the intersection of a circular cone and a plane cutting completely through it, especially a plane not parallel to the base.]</nowiki>
+***** Circle <nowiki>[A ring-shaped structure with every point equidistant from the center.]</nowiki>
+**** Rectangle <nowiki>[A parallelogram with four right angles.]</nowiki>
+***** Square <nowiki>[A square is a special rectangle with four equal sides.]</nowiki>
+**** Single-point <nowiki>[A point is a geometric entity that is located in a zero-dimensional spatial region and whose position is defined by its coordinates in some coordinate system.]</nowiki>
+**** Star <nowiki>[A conventional or stylized representation of a star, typically one having five or more points.]</nowiki>
+**** Triangle <nowiki>[A three-sided polygon.]</nowiki>
+*** 3D-shape <nowiki>[A geometric three-dimensional shape.]</nowiki>
+**** Box <nowiki>[A square or rectangular vessel, usually made of cardboard or plastic.]</nowiki>
+***** Cube <nowiki>[A solid or semi-solid in the shape of a three dimensional square.]</nowiki>
+**** Cone <nowiki>[A shape whose base is a circle and whose sides taper up to a point.]</nowiki>
+**** Cylinder <nowiki>[A surface formed by circles of a given radius that are contained in a plane perpendicular to a given axis, whose centers align on the axis.]</nowiki>
+**** Ellipsoid <nowiki>[A closed plane curve resulting from the intersection of a circular cone and a plane cutting completely through it, especially a plane not parallel to the base. ]</nowiki>
+***** Sphere <nowiki>[A solid or hollow three-dimensional object bounded by a closed surface such that every point on the surface is equidistant from the center.]</nowiki>
+**** Pyramid <nowiki>[A polyhedron of which one face is a polygon of any number of sides, and the other faces are triangles with a common vertex.]</nowiki>
+** Ingestible-object <nowiki>[Something that can be taken into the body by the mouth for digestion or absorption.]</nowiki>
+** Man-made-object <nowiki>[Something constructed by human means.]</nowiki>
+*** Building <nowiki>[A structure that has a roof and walls and stands more or less permanently in one place.]</nowiki>
+**** Room <nowiki>[An area within a building enclosed by walls and floor and ceiling.]</nowiki>
+**** Roof <nowiki>[A roof is the covering on the uppermost part of a building which provides protection from animals and weather, notably rain, but also heat, wind and sunlight.]</nowiki>
+**** Entrance <nowiki>[The means or place of entry.]</nowiki>
+**** Attic <nowiki>[A room or a space immediately below the roof of a building.]</nowiki>
+**** Basement <nowiki>[The part of a building that is wholly or partly below ground level.]</nowiki>
+*** Clothing <nowiki>[A covering designed to be worn on the body.]</nowiki>
+*** Device <nowiki>[An object contrived for a specific purpose.]</nowiki>
+**** Assistive-device <nowiki>[A device that help an individual accomplish a task.]</nowiki>
+***** Glasses <nowiki>[Frames with lenses worn in front of the eye for vision correction, eye protection, or protection from UV rays.]</nowiki>
+***** Writing-device <nowiki>[A device used for writing.]</nowiki>
+****** Pen <nowiki>[A common writing instrument used to apply ink to a surface, usually paper, for writing or drawing.]</nowiki>
+****** Pencil <nowiki>[An implement for writing or drawing, constructed of a narrow, solid pigment core in a protective casing that prevents the core from being broken or marking the hand.]</nowiki>
+**** Computing-device <nowiki>[An electronic device which take inputs, process the inputs and then calculate results from the inputs.]</nowiki>
+**** Engine <nowiki>[A motor is a machine designed to convert one or more forms of energy into mechanical energy.]</nowiki>
+**** IO-device <nowiki>[Hardware used by a human (or other system) to communicate with a computer.]</nowiki>
+***** Input-device <nowiki>[A piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance.]</nowiki>
+****** Computer-mouse <nowiki>[A hand-held pointing device that detects two-dimensional motion relative to a surface.]</nowiki>
+******* Mouse-button <nowiki>[An electric switch on a computer mouse which can be pressed or clicked to select or interact with an element of a graphical user interface.]</nowiki>
+******* Scroll-wheel <nowiki>[A scroll wheel or mouse wheel is a wheel used for scrolling made of hard plastic with a rubbery surface usually located between the left and right mouse buttons and is positioned perpendicular to the mouse surface.]</nowiki>
+****** Joystick <nowiki>[A control device that uses a movable handle to create two-axis input for a computer device.]</nowiki>
+****** Keyboard <nowiki>[A device consisting of mechanical keys that are pressed to create input to a computer.]</nowiki>
+******* Keyboard-key <nowiki>[A button on a keyboard usually representing letters, numbers, functions, or symbols.]</nowiki>
 ******** <nowiki># {takesValue}[Value of a keyboard key.]</nowiki>
-******* Keypad-key 
+****** Keypad <nowiki>[A device consisting of keys, usually in a block arrangement, that provides limited input to a system.]</nowiki>
+******* Keypad-key <nowiki>[A key on a separate section of a computer keyboard that groups together numeric keys and those for mathematical or other special functions in an arrangement like that of a calculator.]</nowiki>
 ******** <nowiki># {takesValue}[Value of keypad key.]</nowiki>
-****** Microphone
-****** Mouse
-******* Mouse-button
-******* Scroll-wheel
-****** Touch-screen
-***** Network-device
-***** Output-device
-****** Display-device
-******* Head-mounted-display
-******* LED-display
-******* Screen
-******** Screen-window
-****** Auditory-device
-******* Headphones
-******* Screen-speaker
-******* Loudspeaker
-***** Recording-device
-****** EEG-recording
-****** File-recording
-****** MEG-recording
-****** Motion-capture
-****** Tape-recording
-**** Machine
-***** Noisemaker
-**** Measurement-device
-***** Clock
-****** Clock-face
-**** Robot
-**** Tool
-***	Document <nowiki>[A physical, written document]</nowiki>
-**** Manuscript
-**** Letter
-**** Note
-**** Book
-**** Notebook
-*** Furnishing <nowiki>[Furniture and appliances and other movable accessories including curtains and rugs]</nowiki>
-*** Navigational-object
-**** Path
-**** Road
-***** Lane
-**** Runway
-**** Sign
-*** Vehicle
-**** Aircraft 
-**** Bicycle
-**** Boat 
-**** Car
-**** Cart
-**** Tractor
-**** Train 
-**** Truck 
-** Natural-object <nowiki>[An object occuring naturally in contrast to a man-made object.]</nowiki>
-*** Mineral <nowiki>[An inorganic substance]</nowiki>
-*** Natural-feature <nowiki>[Some terrain occuring in the outdoors.]</nowiki>
-**** Field
-**** Hill
-**** Mountain
-**** River
-**** Waterfall
+****** Microphone <nowiki>[A device designed to convert sound to an electrical signal.]</nowiki>
+****** Push-button <nowiki>[A switch designed to be operated by pressing a button.]</nowiki>
+***** Network-device <nowiki>[A collection of two or more computers and/or associated devices that are linked together with communications equipment.]</nowiki>
+***** Output-device <nowiki>[Any piece of computer hardware equipment which converts information into human understandable form.]</nowiki>
+****** Display-device <nowiki>[An output device for presentation of information in visual or tactile form the latter used for example in tactile electronic displays for blind people.]</nowiki>
+******* Head-mounted-display <nowiki>[An instrument that functions as a display device, worn on the head or as part of a helmet, that has a small display optic in front of one (monocular HMD) or each eye (binocular HMD).]</nowiki>
+******* LED-display <nowiki>[A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display.]</nowiki>
+******* Screen <nowiki>[An electronic device designed as a display or a physical device designed to be a protective meshwork.]</nowiki>
+******** Computer-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
+****** Auditory-device <nowiki>[A device designed to produce sound.]</nowiki>
+******* Headphones <nowiki>[An instrument that consists of a pair of small loudspeakers, or less commonly a single speaker, held close to ears and connected to a signal source such as an audio amplifier, radio, CD player or portable media player.]</nowiki>
+******* Speaker-device <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
+***** Recording-device <nowiki>[A device that copies information in a signal into a persistent information bearer.]</nowiki>
+****** EEG-recording <nowiki>[A recording of electric currents developed in the brain by means of electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.]</nowiki>
+****** File-recording <nowiki>[A file is an information-bearing object that contains a physical embodiment of some information using a particular character encoding.]</nowiki>
+****** MEG-recording <nowiki>[The measurement of the magnetic fields produced by electrical activity in the brain, usually conducted externally, using extremely sensitive devices.]</nowiki>
+****** Motion-capture <nowiki>[A recording of the movement of objects or people.]</nowiki>
+****** Tape-recording <nowiki>[A sound recording and reproduction usually using magnetic tape for storage that can be saved and played back.]</nowiki>
+***** Touchscreen <nowiki>[A control component that operates an electronic device by pressing the display on the screen.]</nowiki>
+**** Machine <nowiki>[A human-made device that uses power to apply forces and control movement to perform an action.]</nowiki>
+***** Noisemaker <nowiki>[A device such as a horn or rattle used to make noise at parties.]</nowiki>
+**** Measurement-device <nowiki>[A device in which a measure function inheres.]</nowiki>
+***** Clock <nowiki>[A device designed to indicate the time of day or to measure the time duration of an event or action.]</nowiki>
+****** Clock-face <nowiki>[A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
+**** Robot <nowiki>[A mechanical device that sometimes resembles a living animal and is capable of performing a variety of often complex human tasks on command or by being programmed in advance.]</nowiki>
+**** Tool <nowiki>[A component that is not part of a device but is designed to support its assemby or operation.]</nowiki>
+***	Document <nowiki>[A physical object, or electronic counterpart, that is characterized by containing writing which is meant to be human-readable.]</nowiki>
+**** Letter <nowiki>[A written message addressed to a person or organization.]</nowiki>
+**** Note <nowiki>[A brief written record.]</nowiki>
+**** Book <nowiki>[A volume made up of pages fastened along one edge and enclosed between protective covers.]</nowiki>
+**** Notebook <nowiki>[A book for notes or memoranda.]</nowiki>
+*** Furnishing <nowiki>[Furniture, fittings, and other decorative accessories, such as curtains and carpets, for a house or room.]</nowiki>
+*** Manufactured-material <nowiki>[Substances created or extracted from raw materials.]</nowiki>
+**** Ceramic <nowiki>[A hard, brittle, heat-resistant and corrosion-resistant material made by shaping and then firing a nonmetallic mineral, such as clay, at a high temperature.]</nowiki>
+**** Glass <nowiki>[A brittle transparent solid with irregular atomic structure.]</nowiki>
+**** Paper <nowiki>[A thin sheet material produced by mechanically or chemically processing cellulose fibres derived from wood, rags, grasses or other vegetable sources in water.]</nowiki>
+**** Plastic <nowiki>[Various high-molecular-weight thermoplastic or thermosetting polymers that are capable of being molded, extruded, drawn, or otherwise shaped and then hardened into a form.]</nowiki>
+**** Steel <nowiki>[An alloy made up of iron with typically a few tenths of a percent of carbon to improve its strength and fracture resistance compared to iron.]</nowiki>
+*** Media <nowiki>[Media are audo/visual/audiovisual modes of communicating information for mass consumption.]</nowiki>
+**** Media-clip <nowiki>[A short segment of media.]</nowiki>
+***** Audio-clip <nowiki>[A short segment of audio.]</nowiki>
+***** Video-clip <nowiki>[A short segment of video.]</nowiki>
+**** Visualization <nowiki>[An planned process that creates images, diagrams or animations from the input data.]</nowiki>
+***** Animation <nowiki>[A form of graphical illustration that changes with time to give a sense of motion or represent dynamic changes in the portrayal.]</nowiki>
+***** Art-installation <nowiki>[A large-scale, mixed-media constructions, often designed for a specific place or for a temporary period of time.]</nowiki>
+***** Braille <nowiki>[]</nowiki>
+***** Cutout <nowiki>[]</nowiki>
+***** Image <nowiki>[Any record of an imaging event whether physical or electronic.]</nowiki>
+****** Cartoon <nowiki>[A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either: an image or series of images intended for satire, caricature, or humor; or a motion picture that relies on a sequence of illustrations for its animation.]</nowiki>
+****** Drawing <nowiki>[A representation of an object or outlining a figure, plan, or sketch by means of lines.]</nowiki>
+****** Icon <nowiki>[A sign (such as a word or graphic symbol) whose form suggests its meaning.]</nowiki>
+****** Painting <nowiki>[A work produced through the art of painting.]</nowiki>
+****** Photograph <nowiki>[An image recorded by a camera.]</nowiki>
+***** Movie <nowiki>[A sequence of images displayed in succession giving the illusion of continuous movement.]</nowiki>
+***** Outline-visualization <nowiki>[A visualization consisting of a line or set of lines enclosing or indicating the shape of an object in a sketch or diagram.]</nowiki>
+***** Point-light-visualization <nowiki>[]</nowiki>
+***** Sculpture <nowiki>[A two- or three-dimensional representative or abstract forms, especially by carving stone or wood or by casting metal or plaster.]</nowiki>
+***** Stick-figure-visualization <nowiki>[A drawing showing the head of a human being or animal as a circle and all other parts as straight lines.]</nowiki>
+*** Navigational-object <nowiki>[An object whose purpose is to assist directed movement from one location to another.]</nowiki>
+**** Path <nowiki>[A trodden way. A way or track laid down for walking or made by continual treading.]</nowiki>
+**** Road <nowiki>[An open way for the passage of vehicles, persons, or animals on land.]</nowiki>
+***** Lane <nowiki>[A defined path with physical dimensions through which an object or substance may traverse.]</nowiki>
+**** Runway <nowiki>[A paved strip of ground on a landing field for the landing and takeoff of aircraft.]</nowiki>
+*** Vehicle <nowiki>[A mobile machine which transports people or cargo.]</nowiki>
+**** Aircraft <nowiki>[A vehicle which is able to travel through air in an atmosphere.]</nowiki>
+**** Bicycle <nowiki>[A human-powered, pedal-driven, single-track vehicle, having two wheels attached to a frame, one behind the other.]</nowiki>
+**** Boat <nowiki>[A watercraft of any size which is able to float or plane on water.]</nowiki>
+**** Car <nowiki>[A wheeled motor vehicle used primarily for the transportation of human passengers.]</nowiki>
+**** Cart <nowiki>[A cart is a vehicle which has two wheels and is designed to transport human passengers or cargo.]</nowiki>
+**** Tractor <nowiki>[A mobile machine specifically designed to deliver a high tractive effort at slow speeds, and mainly used for the purposes of hauling a trailer or machinery used in agriculture or construction.]</nowiki>
+**** Train <nowiki>[A connected line of railroad cars with or without a locomotive.]</nowiki>
+**** Truck <nowiki>[A motor vehicle which, as its primary funcion, transports cargo rather than human passangers.]</nowiki>
+** Natural-object <nowiki>[Something that exists in or is produced by nature, and is not artificial or man-made.]</nowiki>
+*** Mineral <nowiki>[A solid, homogeneous, inorganic substance occurring in nature and having a definite chemical composition.]</nowiki>
+*** Natural-feature <nowiki>[A feature that occurs in nature. A prominent or identifiable aspect, region, or site of interest.]</nowiki>
+**** Field <nowiki>[An unbroken expanse as of ice or grassland.]</nowiki>
+**** Hill <nowiki>[A rounded elevation of limited extent rising above the surrounding land with local relief of less than 300m.]</nowiki>
+**** Mountain <nowiki>[A landform that extends above the surrounding terrain in a limited area.]</nowiki>
+**** River <nowiki>[A natural freshwater surface stream of considerable volume and a permanent or seasonal flow, moving in a definite channel toward a sea, lake, or another river.]</nowiki>
+**** Waterfall <nowiki>[A sudden descent of water over a step or ledge in the bed of a river.]</nowiki>
 * Sound <nowiki>[Mechanical vibrations transmitted by an elastic medium; something that can be heard.]</nowiki>
-** Environmental-sound<nowiki>[A background sound from the surrounding environment.]</nowiki>
-*** Crowd-sound <nowiki>[Multiple speech streams at once.]</nowiki>
-*** Noise
-**** White-noise
-**** Colored-noise
-** Musical-sound <nowiki>[Any tone or combination of tones with characteristics such as controlled pitch and timbre that can be controlled by an agent.]</nowiki>
-*** Tone
-*** Instrument-sound
-*** Vocalized-sound
-** Named-animal-sound
-*** Bark
-*** Bleat
-*** Crow
-*** Chirp
-*** Growl
-*** Meow
-*** Moo
-*** Purr
-*** Roar
-** Named-object-sound
-*** Alarm
-*** Beep
-*** Buzz
-*** Ka-ching <nowiki>[Cash register sound]</nowiki>
-*** Click
-*** Ding
-*** Horn
-*** Siren
+** Environmental-sound<nowiki>[Sounds occuring in the environment. An accumulation of noise pollution that occurs outside. This noise can be caused by transport, industrial, and recreational activities.]</nowiki>
+*** Crowd-sound <nowiki>[Noise produced by a mixture of sounds from a large group of people.]</nowiki>
+*** Signal-noise <nowiki>[Any part of a signal that is not the true or original signal but is introduced by the communication mechanism.]</nowiki>
+** Musical-sound <nowiki>[Sound produced by continuous and regular vibrations, as opposed to noise.]</nowiki>
+*** Tone <nowiki>[A musical note, warble, or other sound used as a particular signal on a telephone or answering machine.]</nowiki>
+*** Instrument-sound <nowiki>[Sound produced by a musical instrument.]</nowiki>
+*** Vocalized-sound <nowiki>[Musical sound produced by vocal cords in a biological agent.]</nowiki>
+** Named-animal-sound <nowiki>[]</nowiki>
+*** Barking <nowiki>[Sharp explosive cries like sounds made by certain animals, especially a dog, fox, or seal.]</nowiki>
+*** Bleating <nowiki>[Wavering cries like sounds made by a sheep, goat, or calf. ]</nowiki>
+*** Crowing <nowiki>[Loud shrill sounds characteristic of roosters.]</nowiki>
+*** Chirping <nowiki>[Short, sharp, high-pitched noises like sounds made by small birds or an insects.]</nowiki>
+*** Growling <nowiki>[Low guttural sounds like those that made in the throat by a hostile dog or other animal.]</nowiki>
+*** Meowing <nowiki>[Vocalizations like those made by as those cats. These sounds have diverse tones and are sometimes chattered, murmured or whispered. The purpose can be assertive.]</nowiki>
+*** Mooing <nowiki>[Deep vocal sounds like those made by a cow.]</nowiki>
+*** Purring <nowiki>[Low continuous vibratory sound such as those made by cats. The sound expresses contentment.]</nowiki>
+*** Roaring <nowiki>[Loud, deep, or harsh prolonged sounds such as those made by big cats and bears for long-distance communication and intimidation.]</nowiki>
+*** Squawking <nowiki>[Loud, harsh noises such as those made by geese.]</nowiki>
+** Named-object-sound <nowiki>[A sound identifiable as coming from a particular type of object.]</nowiki>
+*** Alarm-sound <nowiki>[A loud signal often loud continuous ringing to alert people to a problem or condition that requires urgent attention.]</nowiki>
+*** Beep <nowiki>[A short, single tone, that is typically high-pitched and generally made by a computer or other machine. ]</nowiki>
+*** Buzz <nowiki>[A persistent vibratory sound often made by a buzzer device and used to indicate something incorrect.]</nowiki>
+*** Ka-ching <nowiki>[The sound made by a mechanical cash register, often to designate a reward.]</nowiki>
+*** Click <nowiki>[The sound made by a mechanical cash register, often to designate a reward.]</nowiki>
+*** Ding <nowiki>[A short ringing sound such as that made by a bell, often to indicate a correct response or the expiration of time.]</nowiki>
+*** Horn-blow <nowiki>[A loud sound made by forcing air through a sound device that funnels air to create the sound, often used to sound an alert.]</nowiki>
+*** Siren <nowiki>[A loud, continuous sound often varying in frequency designed to indicate an emergency.]</nowiki>
 
 '''Agent-property''' <nowiki>{extensionAllowed}[Something that pertains to an agent.]</nowiki>
 * Cognitive-state <nowiki>[The state of the cognitive processes or state of mind of the agent.]</nowiki>
@@ -613,6 +620,7 @@ HED version: 8.0.0-alpha.3
 ** Planned <nowiki>[Something that was decided on or arranged in advance.]</nowiki>
 ** Penalty <nowiki>[A disadvantage, loss, or hardship due to some action.]</nowiki>
 ** Priming <nowiki>[An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.]</nowiki>
+** Query <nowiki>[A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).]</nowiki>
 ** Reward <nowiki>[A positive reinforcement for a desired action, behavior or response.]</nowiki>
 ** Stop-signal <nowiki>{relatedTag=Go-signal}[An indicator that the agent should stop the current activity.]</nowiki>
 ** Target <nowiki>[Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.]</nowiki> 
