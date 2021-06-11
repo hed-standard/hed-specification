@@ -628,7 +628,6 @@ HED version: 8.0.0-alpha.3
 ** Timed <nowiki>[Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.]</nowiki>
 ** Unexpected <nowiki>[Something that is not planned or anticipated.]</nowiki>
 
-
 '''Attribute''' <nowiki>{extensionAllowed} [A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
 * Informational <nowiki>[A quality that pertains to information.]</nowiki>
 ** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
@@ -863,13 +862,13 @@ HED version: 8.0.0-alpha.3
 ***** Saturation <nowiki>[Colorfulness of a stimulus relative to its own brightness.]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
 ***** HSV-value <nowiki>[AAttribute of a visual sensation according to which an area appears to emit more or less light.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} []</nowiki> 
-**** RGB-color <nowiki>[]</nowiki>
-***** RGB-red <nowiki>[]</nowiki>
+****** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** RGB-color <nowiki>[A color from the RGB schema.]</nowiki>
+***** RGB-red <nowiki>[The red component.]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
-***** RGB-blue <nowiki>[]</nowiki>
+***** RGB-blue <nowiki>[The blue component.]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
-***** RGB-green 
+***** RGB-green <nowiki>[The green component.]</nowiki>
 ****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.]</nowiki> 
 ***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
