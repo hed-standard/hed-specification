@@ -44,7 +44,7 @@
             <description>An event specifying the structure of the experiment.</description>
          </node>
          <node>
-            <name>Measurement</name>
+            <name>Measurement-event</name>
             <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
             <attribute>
                <name>suggestedTag</name>
