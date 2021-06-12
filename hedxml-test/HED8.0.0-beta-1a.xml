@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-alpha.3">
-   <schema>
+<HED version="8.0.0-beta.1a">
       <node>
          <name>Event</name>
          <description>Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.</description>
@@ -10,10 +9,10 @@
          </attribute>
          <node>
             <name>Sensory-event</name>
-            <description>Something perceivable by the participant. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
+            <description>Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
             <attribute>
                <name>suggestedTag</name>
-               <value>Task-property/Task-role</value>
+               <value>Task-property/Task-event-role</value>
             </attribute>
          </node>
          <node>
@@ -33,14 +32,6 @@
             </attribute>
          </node>
          <node>
-            <name>Detected-feature</name>
-            <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
-            <attribute>
-               <name>suggestedTag</name>
-               <value>Data-property</value>
-            </attribute>
-         </node>
-         <node>
             <name>Experiment-control</name>
             <description>An event pertaining to the control of the experiment during its operation.</description>
          </node>
@@ -51,6 +42,14 @@
          <node>
             <name>Experiment-structure</name>
             <description>An event specifying the structure of the experiment.</description>
+         </node>
+         <node>
+            <name>Measurement</name>
+            <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
+            <attribute>
+               <name>suggestedTag</name>
+               <value>Data-property</value>
+            </attribute>
          </node>
       </node>
       <node>
@@ -79,10 +78,6 @@
          <node>
             <name>Human-agent</name>
             <description>A person who takes an active role or produces a specified effect.</description>
-         </node>
-         <node>
-            <name>Microscopic-agent</name>
-            <description>An agent too small to be seen except under a microscope such as a cell or a neuron.</description>
          </node>
          <node>
             <name>Robotic-agent</name>
@@ -4872,7 +4867,6 @@
             <description>Relating to bodily structure.</description>
          </node>
       </node>
-   </schema>
    <unitClassDefinitions>
       <unitClassDefinition>
          <name>acceleration</name>
