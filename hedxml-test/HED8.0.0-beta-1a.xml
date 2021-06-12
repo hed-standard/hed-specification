@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-beta.1">
+<HED version="8.0.0-beta.1a">
       <node>
          <name>Event</name>
          <description>Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.</description>
