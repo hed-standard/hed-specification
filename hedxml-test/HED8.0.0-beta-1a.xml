@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-beta.1a">
+<HED version="8.0.0-beta.1">
       <node>
          <name>Event</name>
          <description>Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.</description>
@@ -44,7 +44,7 @@
             <description>An event specifying the structure of the experiment.</description>
          </node>
          <node>
-            <name>Measurement</name>
+            <name>Measurement-event</name>
             <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
             <attribute>
                <name>suggestedTag</name>
