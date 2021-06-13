@@ -17,13 +17,13 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 > [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
 
-> [**HTML view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.1)  
+> [**HTML view of HED8.0.0-beta.1**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.1)  
 > Note:this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
 
 ### HED-2G vocabulary views
 
 The latest version is of HED-2G is 7.2.0:
-> [**Expandable html view of HED7.2.0**](http://www.hedtags.org/display_hed.html?version=7.2.0)  
+> [**Expandable html view of HED7.2.0**](https://www.hedtags.org/display_hed.html?version=7.2.0)  
 
 > [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-7.2.0.mediawiki)
 
