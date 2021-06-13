@@ -3,8 +3,8 @@ HED version: 8.0.0-beta.1
 !# start schema 
 
 '''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.]</nowiki>
-* Sensory-event <nowiki>{suggestedTag=Task-property/Task-event-role}[Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.]</nowiki>
-* Agent-action <nowiki>{suggestedTag=Task-property/Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-event-role}[Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-event-role/Experiment-stimulus.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>[An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
@@ -1064,7 +1064,7 @@ HED version: 8.0.0-beta.1
 
 !# end schema 
 
-'''Unit classes''' 
+'''Unit classes''' <nowiki>[A list of unit classes and the units associated with these classes]</nowiki>
 * acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
 ** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
@@ -1115,7 +1115,6 @@ HED version: 8.0.0-beta.1
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
 * volume <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-
 
 
 '''Unit modifiers''' 

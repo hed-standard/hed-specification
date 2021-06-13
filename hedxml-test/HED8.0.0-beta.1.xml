@@ -10,10 +10,10 @@
          </attribute>
          <node>
             <name>Sensory-event</name>
-            <description>Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-property/Task-role/Experiment-stimulus.</description>
+            <description>Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-event-role/Experiment-stimulus.</description>
             <attribute>
                <name>suggestedTag</name>
-               <value>Task-property/Task-event-role</value>
+               <value>Task-event-role</value>
             </attribute>
          </node>
          <node>
@@ -21,7 +21,7 @@
             <description>Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.</description>
             <attribute>
                <name>suggestedTag</name>
-               <value>Task-property/Task-role</value>
+               <value>Task-role</value>
             </attribute>
          </node>
          <node>
