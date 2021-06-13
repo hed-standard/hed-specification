@@ -215,6 +215,7 @@ HED version: 8.0.0-beta.1
 *** 2D-shape <nowiki>[A planar, two-dimensional shape.]</nowiki>
 **** Clockface <nowiki>[The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
 **** Cross <nowiki>[A figure or mark formed by two intersecting lines crossing at their midpoints.]</nowiki>
+**** Dash <nowiki>[A horizontal stroke in writing or printing to mark a pause or break in sense or to represent omitted letters or words.]</nowiki>
 **** Ellipse <nowiki>[A closed plane curve resulting from the intersection of a circular cone and a plane cutting completely through it, especially a plane not parallel to the base.]</nowiki>
 ***** Circle <nowiki>[A ring-shaped structure with every point equidistant from the center.]</nowiki>
 **** Rectangle <nowiki>[A parallelogram with four right angles.]</nowiki>
@@ -488,7 +489,9 @@ HED version: 8.0.0-beta.1
 *** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
 **** <nowiki># {takesValue, isNumeric}</nowiki>
 *** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>
+*** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
+**** <nowiki># {takesValue, unitClass=frequency}</nowiki>  
 ** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
 *** IO-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.]</nowiki>
 **** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
