@@ -4,7 +4,7 @@ HED is an evolving framework for the description and formal annotation of events
 ## HED annotation
 HED annotations consist of comma-separated path strings. The path strings are selected from a tree-structured vocabulary. The vocabulary is available in several formats. The MediaWiki markdown format allows vocabulary developers to view and edit the vocabulary tree using a markdown language available in Wikis and on github repositories. All analysis and validation tools operate on an XML translation of the vocabulary markdown document. In addition, an expandable HTML viewer is available to help users explore the vocabulary.
 
-The current version of HED (referred to as HED-2G or HED-2nd generation) has semantic version numbers less than or equal to 7.x.x. The next generation HED (referred to as HED-3G or HED-3rd generation) has semantic version numbers greater than or equal to 7.x.x. HED-3G represents a dramatic improvement in HED's capability for capturing complex temporal relationships among events and the relationships of events to the task. HED-3G is under alpha release (HED8.0.0-alpha.2) and is open for community input and discussion.  The current version of the HED-3G specification can be viewed in the [HED Hierarchical Event Descriptors working 3G specification](https://docs.google.com/document/d/1icp4fJyCqngSfYy1kPe7FJ-bqA8_Ei67oqn5--0vrDo/edit?usp=sharing).
+The current version of HED (referred to as HED-2G or HED-2nd generation) has semantic version numbers less than or equal to 7.x.x. The next generation HED (referred to as HED-3G or HED-3rd generation) has semantic version numbers greater than or equal to 7.x.x. HED-3G represents a dramatic improvement in HED's capability for capturing complex temporal relationships among events and the relationships of events to the task. HED-3G is under alpha release (HED8.0.0-alpha.2) and is open for community input and discussion.  The current version of the HED-3G specification can be viewed in the [HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing).
 
 ## Viewing the HED vocabulary
 
@@ -17,7 +17,8 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 > [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
 
-> [**HTML view of HED8.0.0-alpha.3**](http://www.hedtags.org/display_hed_test.html?version=8.0.0-alpha.3)  under development
+> [**HTML view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.1) 
+> Note:this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
 
 ### HED-2G vocabulary views
 
@@ -53,12 +54,17 @@ The following white paper gives the history of HED development and the goals for
 
 ### HED-3G specification document
 
->[**Google doc with current version of the HED-3G specification**](https://docs.google.com/document/d/1icp4fJyCqngSfYy1kPe7FJ-bqA8_Ei67oqn5--0vrDo/edit?usp=sharing)
+>[**Google doc with current version of the HED-3G specification**](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing)
 
 ### Mapping of HED-2G tags into HED-3G tags
 
-> [**Google doc with mapping of HED 7.1.2 into HED 8.0.0-alpha.1**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing) 
+> [**Google doc with mapping of HED 7.1.2 into HED 8.0.0-alpha.1**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/view?usp=sharing) 
 
+### HED-3G document mapping to defined terms in existing ontologies
+
+The following working document describes the origin of the descriptions associated with individual nodes in the HED-3G hierarchy. Many terms appear in the NCIT ontology (National Cancer Institute Thesaurus OBO edition).
+
+> [**Google doc with mapping of HED-3G term descriptions to existing ontology terms**](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing) 
 
 ## Web-based HED tools
 
