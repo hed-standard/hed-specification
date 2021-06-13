@@ -876,6 +876,10 @@
                      <description>A figure or mark formed by two intersecting lines crossing at their midpoints.</description>
                   </node>
                   <node>
+                     <name>Dash</name>
+                     <description>A horizontal stroke in writing or printing to mark a pause or break in sense or to represent omitted letters or words.</description>
+                  </node>
+                  <node>
                      <name>Ellipse</name>
                      <description>A closed plane curve resulting from the intersection of a circular cone and a plane cutting completely through it, especially a plane not parallel to the base.</description>
                      <node>
@@ -2045,6 +2049,20 @@
                      <attribute>
                         <name>unitClass</name>
                         <value>speed</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temporal-rate</name>
+                  <description>The number of items per unit of time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>frequency</value>
                      </attribute>
                   </node>
                </node>

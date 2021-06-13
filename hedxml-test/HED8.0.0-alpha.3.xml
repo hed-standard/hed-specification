@@ -33,14 +33,6 @@
             </attribute>
          </node>
          <node>
-            <name>Detected-feature</name>
-            <description>Something that is measured or detected by an instrument such as a patch-clamp or a probe.</description>
-            <attribute>
-               <name>suggestedTag</name>
-               <value>Data-property</value>
-            </attribute>
-         </node>
-         <node>
             <name>Experiment-control</name>
             <description>An event pertaining to the control of the experiment during its operation.</description>
          </node>
@@ -79,10 +71,6 @@
          <node>
             <name>Human-agent</name>
             <description>A person who takes an active role or produces a specified effect.</description>
-         </node>
-         <node>
-            <name>Microscopic-agent</name>
-            <description>An agent too small to be seen except under a microscope such as a cell or a neuron.</description>
          </node>
          <node>
             <name>Robotic-agent</name>
