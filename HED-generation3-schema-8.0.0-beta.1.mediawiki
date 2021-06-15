@@ -74,8 +74,8 @@ HED version: 8.0.0-beta.1
 **** Lift <nowiki>[Raising something to higher position.]</nowiki>
 **** Make-fist <nowiki>[Close hand tightly with the fingers bent against the palm.]</nowiki>
 **** Point  <nowiki>[Draw attention to something by extending a finger or arm.]</nowiki> 
-**** Press <nowiki>[Apply pressure to something to flatten, shape, or smooth it.]</nowiki>
-**** Push <nowiki>[Apply force in order to move something away.]</nowiki>
+**** Press <nowiki>{relatedTag=Push}[Apply pressure to something to flatten, shape, smooth or depress it. This action tag should be used to indicate key presses and mouse clicks.]</nowiki>
+**** Push <nowiki>{relatedTag=Press}[Apply force in order to move something away. Use Press to indicate a key press or mouse click.]</nowiki>
 **** Reach <nowiki>[Stretch out your arm in order to get or touch something.]</nowiki> 
 **** Release <nowiki>[Make available; set free.]</nowiki>
 **** Retract <nowiki>[Draw or pull back.]</nowiki>
@@ -667,13 +667,13 @@ HED version: 8.0.0-beta.1
 *** <nowiki># {takesValue}</nowiki>
 * Organizational <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Event-context <nowiki>{topLevelTagGroup}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
-** Event-stream <nowiki>[An ordered list of events.]</nowiki> 
-** Experimental-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-** Experimental-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
 ** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
 ** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
+** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
 ** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
 ** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
@@ -1064,7 +1064,7 @@ HED version: 8.0.0-beta.1
 
 !# end schema 
 
-'''Unit classes''' <nowiki>[A list of unit classes and the units associated with these classes]</nowiki>
+'''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 * acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
 ** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
@@ -1117,7 +1117,7 @@ HED version: 8.0.0-beta.1
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
 
-'''Unit modifiers''' 
+'''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
 * deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
 * hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
@@ -1160,7 +1160,7 @@ HED version: 8.0.0-beta.1
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 
 
-'''Schema attributes'''
+'''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
 * allowedCharacter <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying a special character that is allowed in expressing the value of a placeholder with those units.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag.]</nowiki> 
@@ -1184,7 +1184,7 @@ HED version: 8.0.0-beta.1
 
 This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
 
-* boolProperty - indicates that that attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - indicates that this attribute is designed to be applied to unit classes.
-* unitModifierProperty - indicates that this attribute is designed to be applied to unit classes.
-* unitProperty - indicates that this a applies to units within a unit class. 
+* boolProperty - Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
+* unitClassProperty - Indicates that the schema attribute is meant to be applied to unit classes.
+* unitModifierProperty - Indicates that the schema attribute is meant to be applied to unit modifier classes.
+* unitProperty - Indicates that the schema attribute is meant to be applied to units within a unit class. 
