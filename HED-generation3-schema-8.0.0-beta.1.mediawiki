@@ -667,13 +667,13 @@ HED version: 8.0.0-beta.1
 *** <nowiki># {takesValue}</nowiki>
 * Organizational <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
 ** Event-context <nowiki>{topLevelTagGroup}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
-** Event-stream <nowiki>[An ordered list of events.]</nowiki> 
-** Experimental-condition <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-** Experimental-indicator <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
 ** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
 ** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
+** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
 ** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
 ** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
