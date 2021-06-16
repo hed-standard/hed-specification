@@ -1,7 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-beta.1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/blob/master/hed-xsd-test/HED8.0.0-beta.1a.xsd">
+<HED version="8.0.0-beta.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hed-xsd-test/HED8.0.0-beta.1a.xsd">
    <schema>
       <node>
          <name>Event</name>
@@ -5651,9 +5649,29 @@
          </property>
       </schemaAttributeDefinition>
    </schemaAttributeDefinitions>
-   <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
-* boolProperty - Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - Indicates that the schema attribute is meant to be applied to unit classes.
-* unitModifierProperty - Indicates that the schema attribute is meant to be applied to unit modifier classes.
-* unitProperty - Indicates that the schema attribute is meant to be applied to units within a unit class. </epilogue>
+   <propertyDefinitions>
+        <propertyDefinition>
+            <name>boolProperty</name>
+            <description>Indicates that the schema attribute represents something that is either true or false and does
+                not have a value. Attributes without this value are assumed to have string values.
+            </description>
+        </propertyDefinition>
+        <propertyDefinition>
+            <name>unitClassProperty</name>
+            <description>Indicates that the schema attribute is meant to be applied to unit classes.</description>
+        </propertyDefinition>
+        <propertyDefinition>
+            <name>unitModifierProperty</name>
+            <description>Indicates that the schema attribute is meant to be applied to unit modifier classes.
+            </description>
+        </propertyDefinition>
+        <propertyDefinition>
+            <name>unitProperty</name>
+            <description>Indicates that the schema attribute is meant to be applied to units within a unit class.
+            </description>
+        </propertyDefinition>
+    </propertyDefinitions>
+    <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in
+        software rather than hard-coded. The schema attributes, themselves have properties.
+    </epilogue>
 </HED>
