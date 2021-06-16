@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <HED version="8.0.0-beta.1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/blob/master/hed-xsd-test/HED8.0.0-beta.1a.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://github.com/hed-standard/hed-specification/blob/master/hed-xsd-test/HED8.0.0-beta.1a.xsd">
     <schema>
         <node>
             <name>Event</name>
