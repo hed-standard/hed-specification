@@ -5671,7 +5671,6 @@
             </description>
         </propertyDefinition>
     </propertyDefinitions>
-    <epilogue>This is the new format for the mediawiki schema. The schema attributes are designed to be checked in
-        software rather than hard-coded. The schema attributes, themselves have properties.
+    <epilogue>This is the new format for the mediawiki schema. The schema attribute properties are used to cross-check that only valid properties are used in the Schema attribute sections during schema validation.
     </epilogue>
 </HED>
