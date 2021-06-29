@@ -4,7 +4,7 @@ HED version: 8.0.0-beta.1
 
 '''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-event-role}[Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-event-role/Experiment-stimulus.]</nowiki>
-* Agent-action <nowiki>{suggestedTag=Task-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-event-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
 * Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
 * Experiment-control <nowiki>[An event pertaining to the control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
@@ -14,7 +14,6 @@ HED version: 8.0.0-beta.1
 '''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
 * Animal-agent <nowiki>[An animal that is present and acting to produce an effect.]</nowiki>
 * Avatar-agent <nowiki>[An agent associated with an icon or figure representing a particular person in venues such as video games or internet forums.]</nowiki>
-* Computational-agent <nowiki>[An agent whose decisions about its actions can be explained in terms of computation.]</nowiki>
 * Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
 * Human-agent <nowiki>[A person who takes an active role or produces a specified effect.]</nowiki>
 * Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
@@ -1180,13 +1179,11 @@ HED version: 8.0.0-beta.1
 * unitClass <nowiki>[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units).]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitProperty}[A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.]</nowiki>
-
-'''Schema attribute properties'''
-* boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
-* unitClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit classes.]</nowiki>
-* unitModifierProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit modifier classes.]</nowiki>
-* unitProperty <nowiki>[Indicates that the schema attribute is meant to be applied to units within a unit class.]</nowiki> 
-
 !# end hed 
 
-This is the new format for the mediawiki schema. The schema attribute properties are used to cross-check that only valid properties are used in the Schema attribute sections during schema validation.
+This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
+
+* boolProperty - Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
+* unitClassProperty - Indicates that the schema attribute is meant to be applied to unit classes.
+* unitModifierProperty - Indicates that the schema attribute is meant to be applied to unit modifier classes.
+* unitProperty - Indicates that the schema attribute is meant to be applied to units within a unit class. 

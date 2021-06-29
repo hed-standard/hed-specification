@@ -4,7 +4,7 @@ HED is an evolving framework for the description and formal annotation of events
 ## HED annotation
 HED annotations consist of comma-separated path strings. The path strings are selected from a tree-structured vocabulary. The vocabulary is available in several formats. The MediaWiki markdown format allows vocabulary developers to view and edit the vocabulary tree using a markdown language available in Wikis and on github repositories. All analysis and validation tools operate on an XML translation of the vocabulary markdown document. In addition, an expandable HTML viewer is available to help users explore the vocabulary.
 
-The current version of HED (referred to as HED-2G or HED-2nd generation) has semantic version numbers less than or equal to 7.x.x. The next generation HED (referred to as HED-3G or HED-3rd generation) has semantic version numbers greater than or equal to 7.x.x. HED-3G represents a dramatic improvement in HED's capability for capturing complex temporal relationships among events and the relationships of events to the task. HED-3G is under alpha release (HED8.0.0-alpha.2) and is open for community input and discussion.  The current version of the HED-3G specification can be viewed in the [HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing).
+The current version of HED (referred to as HED-2G or HED-2nd generation) has semantic version numbers less than or equal to 7.x.x. The next generation HED (referred to as HED-3G or HED-3rd generation) has semantic version numbers greater than or equal to 7.x.x. HED-3G represents a dramatic improvement in HED's capability for capturing complex temporal relationships among events and the relationships of events to the task. HED-3G is under beta release (HED8.0.0-beta.1) and is open for community input and discussion.  The current version of the HED-3G specification can be viewed in the [HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing).  <b>HED-3G official release of HED8.0.0 is planned for July 15.</b>
 
 ## Viewing the HED vocabulary
 
@@ -17,7 +17,7 @@ The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a 
 
 > [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
 
-> [**HTML view of HED8.0.0-beta.1**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.1)  
+> [**HTML view of HED8.0.0-beta.2**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.2)  
 > Note:this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
 
 ### HED-2G vocabulary views

@@ -1,4 +1,4 @@
-HED version: 8.0.0-beta.1
+HED version: 8.0.0-beta.2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.1.xsd"
 
 !# start schema 
 
@@ -451,15 +451,15 @@ HED version: 8.0.0-beta.1
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
 *** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 ** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
 ** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
 *** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 *** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 *** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 * Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
 ** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>  
@@ -480,15 +480,15 @@ HED version: 8.0.0-beta.1
 * Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
 ** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 *** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=acceleration}</nowiki>  
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=acceleration}</nowiki>  
 *** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=jerk}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=jerk}</nowiki>
 *** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
 **** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
 *** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 *** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=speed}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=speed}</nowiki>
 *** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
 **** <nowiki># {takesValue, unitClass=frequency}</nowiki>  
 ** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
@@ -505,67 +505,67 @@ HED version: 8.0.0-beta.1
 **** <nowiki># {takesValue} </nowiki>  
 ** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
 *** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 *** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
-**** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki> 
 *** Orientation <nowiki>[The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 *** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki> 
 **** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>  
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki>  
 **** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>   
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki>   
 *** Size <nowiki>[The physical magnitude of something.]</nowiki>
 **** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=area}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=area}</nowiki> 
 **** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki> 
 **** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki>
 **** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=physicalLength}</nowiki> 
 **** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
-***** <nowiki># {takesValue, isNumeric, unitClass=volume}</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=volume}</nowiki>
 *** Surface-properties <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
 **** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
 **** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
 ** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
 *** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=time}</nowiki> 
 *** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=time}</nowiki>
 *** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=frequency}</nowiki>   
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=frequency}</nowiki>   
 *** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
 *** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
 *** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
-*** Time-value <nowiki>{unitClass=time}[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+*** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass, unitClass=time}</nowiki> 
 *** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 *** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 * Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
 ** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 ** Data-mean <nowiki>[The sum of a set of values divided by the number of values in the set.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 ** Data-median <nowiki>[The value which has an equal number of values greater and less than it.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 ** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 ** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}[]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}[]</nowiki> 
 ** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>  
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>  
 ** Statistical-precision <nowiki>[A quantitative representation of the degree of accuracy necessary for or associated with a particular action.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 ** Statistical-recall <nowiki>[Sensitivity is a measurement datum qualifying a binary classification test and is computed by substracting the false negative rate to the integral numeral 1.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 ** Standard-deviation <nowiki>[A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 ** Uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
-*** <nowiki># {takesValue, isNumeric}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 
 '''Task-property''' <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 * Task-attentional-strategy <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
@@ -632,19 +632,19 @@ HED version: 8.0.0-beta.1
 '''Attribute''' <nowiki>{extensionAllowed} [A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
 * Informational <nowiki>[A quality that pertains to information.]</nowiki>
 ** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=nameClass}</nowiki>
 ** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>   creation date
+*** <nowiki># {takesValue, unitClass=nameClass}</nowiki>   creation date
 ** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=nameClass}</nowiki>
 ** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=textClass}</nowiki>
 ** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=textClass}</nowiki>
 ** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=textClass}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
+*** <nowiki># {takesValue, unitClass=nameClass}</nowiki>
 ** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
 *** CogAtlas <nowiki>[The Cognitive Atlas ID number of somthing.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
@@ -653,7 +653,7 @@ HED version: 8.0.0-beta.1
 *** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
 **** <nowiki># {takesValue, unitClass=datetime}</nowiki>
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
-**** <nowiki># {takesValue}</nowiki>
+**** <nowiki># {takesValue, unitClass=nameClass}</nowiki>
 *** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
 **** <nowiki># {takesValue}</nowiki> 
 *** Subject-identifier <nowiki>[A sequence of characters used to identify, name, or characterize a trial or study subject.]</nowiki>
@@ -831,7 +831,7 @@ HED version: 8.0.0-beta.1
 ** Auditory <nowiki>[Of or relating to the process of hearing.]</nowiki>
 *** Audible <nowiki>[Any action or condition designed to cause the registration or perception of a stimulus by organs and receptors involved in the sense of hearing.]</nowiki>
 *** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>
-**** <nowiki># {takesValue, isNumeric}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki>
 *** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
 *** Silent <nowiki>[The absence of ambient audible sound, the emission of sounds of such low intensity that they do not draw attention to themselves, or the state of having ceased to produce sounds.]</nowiki>
 *** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
@@ -859,20 +859,20 @@ HED version: 8.0.0-beta.1
 ***** Light-shade <nowiki>[A color tone reflecting more light.]</nowiki>
 **** HSV-color <nowiki>[A color representation that models how colors appear under light.]</nowiki>
 ***** Hue <nowiki>[Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} [Angular value between 0 and 360]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [Angular value between 0 and 360]</nowiki> 
 ***** Saturation <nowiki>[Colorfulness of a stimulus relative to its own brightness.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
 ***** HSV-value <nowiki>[AAttribute of a visual sensation according to which an area appears to emit more or less light.]</nowiki>
-****** <nowiki># {takesValue, isNumeric}</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass}</nowiki> 
 **** RGB-color <nowiki>[A color from the RGB schema.]</nowiki>
 ***** RGB-red <nowiki>[The red component.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} [R value of RGB between 0 and 1]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [R value of RGB between 0 and 1]</nowiki> 
 ***** RGB-blue <nowiki>[The blue component.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} [B value of RGB between 0 and 1]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
 ***** RGB-green <nowiki>[The green component.]</nowiki>
-****** <nowiki># {takesValue, isNumeric} [G value of RGB between 0 and 1]</nowiki> 
+****** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [G value of RGB between 0 and 1]</nowiki> 
 **** Grayscale <nowiki>[Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.]</nowiki> 
-***** <nowiki># {takesValue, isNumeric} [White intensity between 0 and 1]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=numericClass} [White intensity between 0 and 1]</nowiki>
 **** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
 ***** Blue-color <nowiki>[CSS color group]</nowiki>
 ****** CadetBlue <nowiki>[CSS-color 0x5F9EA0]</nowiki>
@@ -1114,6 +1114,9 @@ HED version: 8.0.0-beta.1
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
 * volume <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* nameClass <nowiki>[Unit class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
+* numericClass <nowiki>{allowedCharacter=[Unit class designating values are numeric.]</nowiki>
+* textClass <nowiki>[Unit class designating values that have the characteristics of text such as in descriptions.]</nowiki>
 
 
 '''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
@@ -1159,7 +1162,7 @@ HED version: 8.0.0-beta.1
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 
 
-'''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
+'''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
 * allowedCharacter <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying a special character that is allowed in expressing the value of a placeholder with those units.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag.]</nowiki> 
@@ -1179,11 +1182,12 @@ HED version: 8.0.0-beta.1
 * unitClass <nowiki>[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units).]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitProperty}[A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.]</nowiki>
+
+'''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
+* boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
+* unitClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit classes.]</nowiki>
+* unitModifierProperty <nowiki>[Indicates that the schema attribute is meant to be applied to unit modifier classes.]</nowiki>
+* unitProperty <nowiki>[Indicates that the schema attribute is meant to be applied to units within a unit class.]</nowiki> 
 !# end hed 
 
-This is the new format for the mediawiki schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties. These are:
-
-* boolProperty - Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.
-* unitClassProperty - Indicates that the schema attribute is meant to be applied to unit classes.
-* unitModifierProperty - Indicates that the schema attribute is meant to be applied to unit modifier classes.
-* unitProperty - Indicates that the schema attribute is meant to be applied to units within a unit class. 
+This is an updated version of the schema format. The properties are now part of the schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties.
