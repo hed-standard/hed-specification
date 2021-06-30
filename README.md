@@ -51,7 +51,7 @@ HED version number and the design generation.
 HED-1G introduced the basic ideas of annotation using path strings and is
 still in use in the [HEADIT archive](https://headit.ucsd.edu). 
 
-A major redesign of HED, HED-2G released in 2016 (4.0.0 <= HED version <= 8.0.0), 
+A major redesign of HED, HED-2G released in 2016 (4.0.0 <= HED version < 8.0.0), 
 orthongonalized the vocabularly terms and introduced parentheses for grouping modifiers
 with the terms they modify, resulting in much improved annotation. 
 
@@ -64,8 +64,8 @@ and events with temporal extent.
 
 ## HED vocabularly formats
 The HED vocabulary is available in MediaWiki and XML. The MediaWiki markdown format 
-allows vocabulary developers to view and edit the vocabulary tree using a markdown l
-anguage available in Wikis and on GitHub repositories. 
+allows vocabulary developers to view and edit the vocabulary tree using a markdown 
+language available in Wikis and on GitHub repositories. 
 
 All analysis and validation tools operate on an XML translation of the vocabulary 
 markdown document. In addition, an expandable non-editable HTML viewer is available
