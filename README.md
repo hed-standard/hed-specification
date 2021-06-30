@@ -12,16 +12,17 @@ HED annotations consist of comma-separated path strings. The path strings are
 selected from a tree-structured vocabulary. In the newest versions of HED,
 all individual nodes in the vocabulary are unique, so users can annotate
 by simply giving the last node in the path string rather than the entire path
-string: Red instead of Attribute/Sensory/Visual/Color/CSS-color/Red-color/Red.
+string: *Red* instead of *Attribute/Sensory/Visual/Color/CSS-color/Red-color/Red*.
 
 ## Viewing and using HED
-To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-alpha.2).
+The current generation of HED infrastructure is referred to as HED-3G 
+(HED third generation). HED-3G is under beta release (HED8.0.0-beta.1), and the
+<b>HED-3G official release of HED8.0.0 is planned for July 15.</b> Users are
+strongly recommended to use the latest version of HED in doing their annotations.  
+
+To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1).
 The current version of the HED specification document is available as 
 [HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing). 
-The current generation of HED infrastructure is referred to as HED-3G 
-(HED third generation). HED-3G is under beta release (HED8.0.0-beta.1)and the
-<b>HED-3G official release of HED8.0.0 is planned for July 15.</b>. Users are
-strongly recommended to use the latest version of HED in doing their annotations.  
 
 The following white papers give an overview of HED and how it is used.
 
@@ -48,13 +49,13 @@ HED version number and the design generation.
 ? = release date tentative
 
 HED-1G introduced the basic ideas of annotation using path strings and is
-still in use the [HEADIT archive](https://headit.ucsd.edu). 
+still in use in the [HEADIT archive](https://headit.ucsd.edu). 
 
-A major redesign of HED, HED-2G released in 2016 (4.0.0 &le HED version &lt 8.0.0), 
+A major redesign of HED, HED-2G released in 2016 (4.0.0 <= HED version <= 8.0.0), 
 orthongonalized the vocabularly terms and introduced parentheses for grouping modifiers
 with the terms they modify, resulting in much improved annotation. 
 
-The second majoring restructuring, HED-3G (7.x.x &lt HED version), 
+The second majoring restructuring, HED-3G (7.x.x < HED version), 
 has resulted in a dramatic improvement in capabilities, including the 
 introduction of annotations of condition variables and experimental 
 design within the data as well as the ability to handle event context 
@@ -67,8 +68,8 @@ allows vocabulary developers to view and edit the vocabulary tree using a markdo
 anguage available in Wikis and on GitHub repositories. 
 
 All analysis and validation tools operate on an XML translation of the vocabulary 
-markdown document. The current versions of the HED vocabulary. In addition, 
-an expandable non-editable HTML viewer is available to help users explore the vocabulary.
+markdown document. In addition, an expandable non-editable HTML viewer is available
+to help users explore the vocabulary.
 
 ### HED-3G vocabulary views
 The latest version of the redesigned HED vocabulary is 8.0.0-beta.1. This is a pre-release version 
@@ -113,7 +114,8 @@ The following working document describes the origin of the descriptions associat
 
 The current web-based HED tools include an online validator of spreadsheets (Excel or tsv)
 containing HED tags. Schema tools are available for converting HED schema specifications between `.mediawiki` and
-`.xml` formats. Also available is a tool for checking for duplicate nodes in schema.  
+`.xml` formats. Also available is a tool for checking for duplicate nodes in schema and for converting
+HED annotations between short and long forms.  
 
 The current web-based HED tools are located at [https://hedtags.ucsd.edu/hed](https://hedtags.ucsd.edu/hed).  
 
