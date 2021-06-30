@@ -1,22 +1,86 @@
 # Hierarchical Event Descriptors (HED)
-HED is an evolving framework for the description and formal annotation of events identified in time series data. The HED ecosystem includes a structured vocabulary together with tools for validation and for using HED annotations in data search, extraction, and analysis. While HED can be used to annotate any type of event, the current HED community focuses on annotation of events in human electrophysiological and behavioral data such as EEG, MEG, iEEG, eye-tracking, motion-capture, EKG, and audiovisual recording.
-
+HED is an evolving framework for the description and formal annotation of events 
+identified in time series data. The HED ecosystem includes a structured vocabulary
+together with tools for validation and for using HED annotations in data search, 
+extraction, and analysis. While HED can be used to annotate any type of event, 
+the current HED community focuses on annotation of events in human 
+electrophysiological and behavioral data such as EEG, MEG, iEEG, eye-tracking, 
+motion-capture, EKG, and audiovisual recording.
+ 
 ## HED annotation
-HED annotations consist of comma-separated path strings. The path strings are selected from a tree-structured vocabulary. The vocabulary is available in several formats. The MediaWiki markdown format allows vocabulary developers to view and edit the vocabulary tree using a markdown language available in Wikis and on github repositories. All analysis and validation tools operate on an XML translation of the vocabulary markdown document. In addition, an expandable HTML viewer is available to help users explore the vocabulary.
+HED annotations consist of comma-separated path strings. The path strings are 
+selected from a tree-structured vocabulary. In the newest versions of HED,
+all individual nodes in the vocabulary are unique, so users can annotate
+by simply giving the last node in the path string rather than the entire path
+string: Red instead of Attribute/Sensory/Visual/Color/CSS-color/Red-color/Red.
 
-The current version of HED (referred to as HED-2G or HED-2nd generation) has semantic version numbers less than or equal to 7.x.x. The next generation HED (referred to as HED-3G or HED-3rd generation) has semantic version numbers greater than or equal to 7.x.x. HED-3G represents a dramatic improvement in HED's capability for capturing complex temporal relationships among events and the relationships of events to the task. HED-3G is under beta release (HED8.0.0-beta.1) and is open for community input and discussion.  The current version of the HED-3G specification can be viewed in the [HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing).  <b>HED-3G official release of HED8.0.0 is planned for July 15.</b>
+## Viewing and using HED
+To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-alpha.2).
+The current version of the HED specification document is available as 
+[HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing). 
+The current generation of HED infrastructure is referred to as HED-3G 
+(HED third generation). HED-3G is under beta release (HED8.0.0-beta.1)and the
+<b>HED-3G official release of HED8.0.0 is planned for July 15.</b>. Users are
+strongly recommended to use the latest version of HED in doing their annotations.  
 
-## Viewing the HED vocabulary
+The following white papers give an overview of HED and how it is used.
+
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).  
+> Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
+> https://doi.org/10.31219/osf.io/5fg73
+
+> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
+> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
+> BioRxiv, 2021.05.06.442841. 
+> https://doi.org/10.1101/2021.05.06.442841
+
+
+## HED vocabularly versions and generations
+The HED system has gone through two major restructurings since the original system
+(HED-1G) was introduced. The following table shows the correspondence between 
+HED version number and the design generation.
+
+| version | release date | HED generation |
+| --- | --- | --- |
+| 1.0 | 2011-01-01 | HED-1G |
+| 4.0.0 | 2016-02-25 | HED-2G |
+| 8.0.0 | 2021-07-15? | HED-3G |
+? = release date tentative
+
+HED-1G introduced the basic ideas of annotation using path strings and is
+still in use the [HEADIT archive](https://headit.ucsd.edu). 
+
+A major redesign of HED, HED-2G released in 2016 (4.0.0 &le HED version &lt 8.0.0), 
+orthongonalized the vocabularly terms and introduced parentheses for grouping modifiers
+with the terms they modify, resulting in much improved annotation. 
+
+The second majoring restructuring, HED-3G (7.x.x &lt HED version), 
+has resulted in a dramatic improvement in capabilities, including the 
+introduction of annotations of condition variables and experimental 
+design within the data as well as the ability to handle event context 
+and events with temporal extent.
+ 
+
+## HED vocabularly formats
+The HED vocabulary is available in MediaWiki and XML. The MediaWiki markdown format 
+allows vocabulary developers to view and edit the vocabulary tree using a markdown l
+anguage available in Wikis and on GitHub repositories. 
+
+All analysis and validation tools operate on an XML translation of the vocabulary 
+markdown document. The current versions of the HED vocabulary. In addition, 
+an expandable non-editable HTML viewer is available to help users explore the vocabulary.
 
 ### HED-3G vocabulary views
-The latest version of the redesigned HED vocabulary is 8.0.0-alpha.1. This is a prerelease version pending community comments:
+The latest version of the redesigned HED vocabulary is 8.0.0-beta.1. This is a pre-release version 
+pending community comments:
 
-> [**Expandable html view of HED8.0.0-alpha.2**](http://www.hedtags.org/display_hed.html?version=8.0.0-alpha.2) 
+> [**Expandable html view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.2) 
 
-> [**Readable mediawiki view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-alpha.2.mediawiki) 
+> [**Readable mediawiki view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-beta.1.mediawiki) 
 
-> [**XML view of HED8.0.0-alpha.2**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-alpha.2.xml)  
+> [**XML view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-beta.1.xml)  
 
+An experimental pre-release is available in the hedxml-test directory
 > [**HTML view of HED8.0.0-beta.2**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.2)  
 > Note:this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
 
@@ -38,27 +102,6 @@ The documentation on this page refers specifically to the HED vocabulary and sup
 All of the HED software is open-source and organized into various repositories on the HED standards organization website:
 
 > [**HED organization github repository**](https://github.com/hed-standard)
-
-### HED-3G white papers
-The following white paper gives the history of HED development and the goals for HED-3G
-
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).  
-> Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
-> https://doi.org/10.31219/osf.io/5fg73
-
-> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
-> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-> BioRxiv, 2021.05.06.442841. 
-> https://doi.org/10.1101/2021.05.06.442841
-
-
-### HED-3G specification document
-
->[**Google doc with current version of the HED-3G specification**](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing)
-
-### Mapping of HED-2G tags into HED-3G tags
-
-> [**Google doc with mapping of HED 7.1.2 into HED 8.0.0-alpha.1**](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/view?usp=sharing) 
 
 ### HED-3G document mapping to defined terms in existing ontologies
 
