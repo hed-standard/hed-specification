@@ -110,6 +110,9 @@ The following working document describes the origin of the descriptions associat
 
 > [**Google doc with mapping of HED-3G term descriptions to existing ontology terms**](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing) 
 
+## Tools to help with HED annotations
+We develop the GUI tool [_CTagger_](https://github.com/hed-standard/CTagger) to help users with the annotation process. CTagger can be used as a standalone application or can be called from EEGLAB via the [hedtools plug-in](https://github.com/hed-standard/hed-matlab) to annotate EEGLAB dataset/STUDY directly. Please refer to the linked repositories for more documentation on how to start HED-tagging using CTagger.
+
 ## Web-based HED tools
 
 The current web-based HED tools include an online validator of spreadsheets (Excel or tsv)
