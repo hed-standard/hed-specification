@@ -55,7 +55,7 @@ pending community comments:
 
 An experimental pre-release is available in the hedxml-test directory
 > [**HTML view of HED8.0.0-beta.2**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.2)  
-> Note:this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
+> Note: this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.
 
 ### HED-2G vocabulary views
 
