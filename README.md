@@ -29,8 +29,9 @@ The current generation of HED infrastructure is referred to as HED-3G
 strongly recommended to use the latest version of the HED schema in doing their annotations.  
 
 To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1).
-The current version of the HED specification document is available as 
-[HED-3G Hierarchical Event Descriptors specification beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing). 
+The current version of the HED specification document is available as: 
+ 
+> [HED-3G Hierarchical Event Descriptors specification-version beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing). 
 
 The following white papers give an overview of HED and how it is used.
 
@@ -47,9 +48,9 @@ The following white papers give an overview of HED and how it is used.
 The latest version of the redesigned HED vocabulary is 8.0.0-beta.1. This is a pre-release version 
 pending community comments:
 
-> [**Expandable html view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.2) 
+> [**Expandable html view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1) 
 
-> [**Readable mediawiki view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-beta.1.mediawiki) 
+> [**Readable mediawiki view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0-beta.1.mediawiki) 
 
 > [**XML view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-beta.1.xml)  
 
@@ -62,7 +63,7 @@ An experimental pre-release is available in the hedxml-test directory
 The latest version of HED-2G is 7.2.0:
 > [**Expandable html view of HED7.2.0**](https://www.hedtags.org/display_hed.html?version=7.2.0)  
 
-> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-7.2.0.mediawiki)
+> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation2-schema-7.2.0.mediawiki)
 
 > [**XML view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml)  
 
@@ -131,6 +132,7 @@ of the [hed-python](https://github.com/hed-standard/hed-python) repository of
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-specification/tree/master/hedxml)
 
 > [**Stable  link for the latest version of the HED-generation2 schema**](https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml)
+
 
 ## HED-3G library schema
 
