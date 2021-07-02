@@ -1159,7 +1159,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
 * dateTime <nowiki>[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
 * nameClass <nowiki>[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
-* numericClass <nowiki>{Value must be numeric.]</nowiki>
+* numericClass <nowiki>[Value must be numeric.]</nowiki>
 * posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 * textClass <nowiki>[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>
 
