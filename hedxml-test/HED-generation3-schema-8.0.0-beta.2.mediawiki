@@ -1,27 +1,27 @@
-HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.1.xsd"
+HED version=8.0.0-beta.2
 
 !# start schema 
 
-'''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given place and time. Elements of this subtree designate the general category in which an event falls.]</nowiki>
-* Sensory-event <nowiki>{suggestedTag=Task-event-role}[Something perceivable by an agent. An event meant to be an experimental stimulus should also be tagged with Task-event-role/Experiment-stimulus.]</nowiki>
-* Agent-action <nowiki>{suggestedTag=Task-event-role}[Any action engaged in by an agent. An event that is a participant response to an experiment stimulus should also be tagged with Agent-property/Agent-task-role/Participant-response.]</nowiki>
-* Data-feature <nowiki>{suggestedTag=Data-property}[An event derived from the data itself or possibly inserted in a post-hoc fashion. Examples are markers for interictal spikes or alpha bursts.]</nowiki>
-* Experiment-control <nowiki>[An event pertaining to the control of the experiment during its operation.]</nowiki>
-* Experiment-procedure <nowiki>[An event indicating an experimental procedure as in doing a saliva swab on a participant during the experiment or administering a survey.]</nowiki>  
-* Experiment-structure <nowiki>[An event specifying the structure of the experiment.]</nowiki>
-* Measurement-event <nowiki>{suggestedTag=Data-property}[Something that is measured or detected by an instrument such as a patch-clamp or a probe.]</nowiki>
+'''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-event-role, suggestedTag=Attribute/Sensory}[Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-event-role, suggestedTag=Agent}[Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experimental-participant.]</nowiki>
+* Data-feature <nowiki>{suggestedTag=Data-property}[An event marking the occurrence of a data feature such as an interictal spike or alpha burst, often added post hoc to the data record.]</nowiki>
+* Experiment-control <nowiki>[An event pertaining to the physical control of the experiment during its operation.]</nowiki>
+* Experiment-procedure <nowiki>[An event indicating an experimental procedure, as in performing a saliva swab during the experiment or administering a survey.]</nowiki>  
+* Experiment-structure <nowiki>[An event specifying a change-point of the structure of experiment. This event is typically used to indicate a change in experimental conditions or tasks.]</nowiki>
+* Measurement-event <nowiki>{suggestedTag=Data-property}[A discrete measure returned by an instrument.]</nowiki>
 
-'''Agent''' <nowiki>{suggestedTag=Agent-property}[Something in the experiment that takes an active role or produces an effect. The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
-* Animal-agent <nowiki>[An animal that is present and acting to produce an effect.]</nowiki>
-* Avatar-agent <nowiki>[An agent associated with an icon or figure representing a particular person in venues such as video games or internet forums.]</nowiki>
-* Controller-agent <nowiki>[An outside controller such as the experimental control software or hardware.]</nowiki> 
+'''Agent''' <nowiki>{suggestedTag=Agent-property}[Someone or something that takes an active role or produces a specified effect.The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
+* Animal-agent <nowiki>[An agent living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement, as distinguished from a plant or mineral.]</nowiki>
+* Avatar-agent <nowiki>[An agent associated with an icon or avatar representing another agent.]</nowiki>
+* Controller-agent <nowiki>[An agent experiment control software or hardware.]</nowiki> 
 * Human-agent <nowiki>[A person who takes an active role or produces a specified effect.]</nowiki>
-* Robotic-agent <nowiki>[An agent that is a mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
-* Software-agent <nowiki>[A computer program that acts for a user or other program in a relationship of agency.]</nowiki>
+* Robotic-agent <nowiki>[An agent mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
+* Software-agent <nowiki>[An agent computer program.]</nowiki>
 
 '''Action''' <nowiki>{extensionAllowed}[Do something.]</nowiki> 
-* Move <nowiki>[Go in a specified direction or manner; change position.]</nowiki>
-** Breathe <nowiki>[Inhale and exhale air into the body during respiration.]</nowiki>
+* Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
+** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
 *** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
 *** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
 *** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
@@ -29,7 +29,7 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 *** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
 *** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
 *** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
-** Move-full-body <nowiki>[Move entire body.]</nowiki>
+** Move-body <nowiki>[Move entire body.]</nowiki>
 *** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
 *** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
 *** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
@@ -83,6 +83,7 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 **** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
 *** Move-leg-foot <nowiki>[Move some part of leg or foot.]</nowiki>
 **** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
+**** Hop <nowiki>[Jump on one foot.]</nowiki>
 **** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
 **** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
 **** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
@@ -94,16 +95,7 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 **** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
 **** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Communicate <nowiki>[Convey knowledge of or information about something.]</nowiki>
-** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
-*** Cry <nowiki>[Shed tears associated with emotions, usually sadness but also joy or frustration.]</nowiki>
-*** Groan <nowiki>[Make a deep inarticulate sound in response to pain or despair.]</nowiki>
-*** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
-***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
-*** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
-*** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
-*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
-** Gesture <nowiki>[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
-***	Index-up <nowiki>[Raise with fist clenched in triumph or affirmation.]
+** Communicate-gesturally <nowiki>[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
 ***	Pump-fist <nowiki>[Raise with fist clenched in triumph or affirmation.]</nowiki>
 ***	Spread-hands <nowiki>[Spread hands apart to indicate ignorance.]</nowiki>
 ***	Shhh <nowiki>[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
@@ -116,8 +108,16 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 *** Sing <nowiki>[Produce musical tones by means of the voice.]</nowiki>
 *** Vocalize <nowiki>[Utter vocal sounds.]</nowiki>
 *** Whistle <nowiki>[Produce a shrill clear sound by forcing breath out or air in through the puckered lips.]</nowiki>
+** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
+*** Cry <nowiki>[Shed tears associated with emotions, usually sadness but also joy or frustration.]</nowiki>
+*** Groan <nowiki>[Make a deep inarticulate sound in response to pain or despair.]</nowiki>
+*** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
+***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
+*** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
+*** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
+*** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>
-** Collide <nowiki>[Hit with force when moving.]</nowiki>
+** Collide-with <nowiki>[Hit with force when moving.]</nowiki>
 ** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
 ** Modify <nowiki>[Change something.]</nowiki>
 ** Operate <nowiki>[Control the functioning of a machine, process, or system.]</nowiki>
@@ -175,7 +175,7 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 ****** Nose <nowiki>[A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.]</nowiki>
 ****** Mouth <nowiki>[The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.]</nowiki>
 ****** Teeth <nowiki>[The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.]</nowiki>
-**** Arm <nowiki>[The portion of the upper extremity between the shoulder and the elbow. For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
+**** Arm <nowiki>[For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
 ***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
 ***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
 ****** Finger <nowiki>[Any of the digits of the hand.]</nowiki>
@@ -185,7 +185,7 @@ HED version="8.0.0-beta.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 ******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
 ******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
 ***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
-**** Leg <nowiki>[The portion of the lower extremity between the knee and the ankle. For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
+**** Leg <nowiki>[For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
 ***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
 ****** Toe <nowiki>[One of the terminal digits of the foot.]</nowiki>
