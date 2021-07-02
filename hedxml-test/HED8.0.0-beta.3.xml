@@ -1832,7 +1832,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -1853,7 +1854,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -1866,7 +1868,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -1879,7 +1882,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -1984,7 +1988,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -2033,7 +2038,8 @@
                   <node>
                      <name>#</name>
                      <attribute>
-                        <name>isNumeric</name>
+                        <name>valueClass</name>
+						<value>numericClass</value>
                      </attribute>
                      <attribute>
                         <name>takesValue</name>
@@ -5578,7 +5584,7 @@
       </valueClassDefinition>
 	  <valueClassDefinition>
          <name>textClass</name>
-         <description>Clasee designating values that have the characteristics of text such as in descriptions.</description>
+         <description>Class designating values that have the characteristics of text such as in descriptions.</description>
       </valueClassDefinition>
    </valueClassDefinitions>
    <schemaAttributeDefinitions>
