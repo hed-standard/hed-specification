@@ -14,13 +14,13 @@ all individual nodes in the vocabulary are unique, so users can annotate
 by simply giving the last node in the path string rather than the entire path
 string: *Red* instead of *Attribute/Sensory/Visual/Color/CSS-color/Red-color/Red*.
 
-This repository contains the HED schema specification, where discussions on schema terms and syntax are held via Github issue mechanism and where HED-supporting tools can find machine-readable format of the schema. The HED schema is available in MediaWiki and XML. The MediaWiki markdown format, stored in [`hedwiki`](https://github.com/hed-standard/hed-specification/tree/directory-reorg/hedwiki),
+This repository contains the HED schema specification, where discussions on schema terms and syntax are held via Github issue mechanism and where HED-supporting tools can find machine-readable format of the schema. The HED schema is available in MediaWiki and XML. The MediaWiki markdown format, stored in [`hedwiki`](https://github.com/hed-standard/hed-specification/tree/master/hedwiki),
 allows vocabulary developers to view and edit the vocabulary tree using a human-readable markdown 
 language available in Wikis and on GitHub repositories. In addition, an expandable non-editable HTML viewer is available
 to help users explore the vocabulary.
 
 All analysis and validation tools operate on an XML translation of the vocabulary 
-markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/directory-reorg/hedxml). 
+markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml). 
 
 ## Viewing and using HED schema
 The current generation of HED infrastructure is referred to as HED-3G 
