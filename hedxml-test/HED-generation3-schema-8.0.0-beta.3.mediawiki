@@ -1074,7 +1074,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 ** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** px^2 <nowiki>{unitSymbol}</nowiki> 
 ** pixel^2
-* currency <nowiki>[Units indicating the worth of something.]</nowiki> 
+* currency <nowiki>{defaultUnits=$}[Units indicating the worth of something.]</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitPrefix, unitSymbol}</nowiki> 
 ** point 
@@ -1157,7 +1157,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
 
 '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
-* dateTime <nowiki>[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
+* dateTime <nowiki>{allowedCharacter=-,allowedCharacter=:}[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
 * nameClass <nowiki>[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
 * numericClass <nowiki>[Value must be numeric.]</nowiki>
 * posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
@@ -1183,6 +1183,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 * unitClass <nowiki>[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units).]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitProperty}[A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.]</nowiki>
+* valueClass <nowiki>[A schema attribute specifying which value class this value tag belongs to.]</nowiki> 
 
 '''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
 * boolProperty <nowiki>[Indicates that the schema attribute represents something that is either true or false and does not have a value. Attributes without this value are assumed to have string values.]</nowiki>
