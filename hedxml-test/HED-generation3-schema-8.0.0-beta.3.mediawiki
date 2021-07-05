@@ -634,7 +634,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 ** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 ** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>   creation date
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 ** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
 *** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 ** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
@@ -651,7 +651,7 @@ HED version="8.0.0-beta.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 *** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
-**** <nowiki># {takesValue, valueClass=datetime}</nowiki>
+**** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
 **** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
