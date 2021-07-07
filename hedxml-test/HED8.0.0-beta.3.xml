@@ -1511,7 +1511,7 @@
             <name>Agent-state</name>
             <description>The state of the agent.</description>
             <node>
-               <name>Cognitive-state</name>
+               <name>Agent-cognitive-state</name>
                <description>The state of the cognitive processes or state of mind of the agent.</description>
                <node>
                   <name>Alert</name>
@@ -1680,6 +1680,26 @@
             </node>
          </node>
          <node>
+            <name>Agent-task-role</name>
+            <description>The function or part that is ascribed to an agent in performing the task.</description>
+            <node>
+               <name>Experiment-actor</name>
+               <description>An agent who plays a predetermined role to create the experiment scenario.</description>
+            </node>
+            <node>
+               <name>Experiment-controller</name>
+               <description>An agent exerting control over some aspect of the experiment.</description>
+            </node>
+            <node>
+               <name>Experiment-participant</name>
+               <description>Someone who takes part in an activity related to an experiment.</description>
+            </node>
+            <node>
+               <name>Experimenter</name>
+               <description>Person who is the owner of the experiment and has its responsibility.</description>
+            </node>
+         </node>
+         <node>
             <name>Agent-trait</name>
             <description>A genetically, environmentally, or socially determined characteristic of an agent.</description>
             <node>
@@ -1727,26 +1747,6 @@
                   <name>Ambidextrous</name>
                   <description>Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.</description>
                </node>
-            </node>
-         </node>
-         <node>
-            <name>Agent-task-role</name>
-            <description>The function or part that is ascribed to an agent in performing the task.</description>
-            <node>
-               <name>Experiment-actor</name>
-               <description>An agent who plays a predetermined role to create the experiment.</description>
-            </node>
-            <node>
-               <name>Experiment-controller</name>
-               <description>An agent exerting control over some aspect of the experiment.</description>
-            </node>
-            <node>
-               <name>Experiment-participant</name>
-               <description>Someone who takes part in an activity related to an experiment.</description>
-            </node>
-            <node>
-               <name>Experimenter</name>
-               <description>Person who is the owner of the experiment and has its responsibility.</description>
             </node>
          </node>
       </node>
