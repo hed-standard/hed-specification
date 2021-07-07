@@ -125,8 +125,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Modify <nowiki>[Change something.]</nowiki>
 ** Operate <nowiki>[Control the functioning of a machine, process, or system.]</nowiki>
 ** Play  <nowiki>[Engage in activity for enjoyment and recreation rather than a serious or practical purpose.]</nowiki>
-** Read <nowiki>[Interpret something that is written or printed.]</nowki>
-** Repeat <nowiki>[Make, do, or perform again.]</nowiki>
+** Read <nowiki>[Interpret something that is written or printed.]</nowiki>
+** Repeat <nowiki>[Make do or perform again.]</nowiki>
 ** Rest <nowiki>[Be inactive in order to regain strength, health, or energy.]</nowiki>
 ** Write <nowiki>[Communicate or express by means of letters or symbols written or imprinted on a surface.]</nowiki>
 * Think <nowiki>[Direct the mind toward someone or something or use the mind actively to form connected ideas.]</nowiki>
@@ -162,7 +162,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
 *** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
 **** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
-*** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]<nowiki>
+*** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]</nowiki>
 ** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
 *** Body-part <nowiki>[Any part of an organism.]</nowiki>
 **** Head <nowiki>[The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.]</nowiki>
@@ -427,12 +427,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Left-handed <nowiki>[Preference for using the left hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Right-handed <nowiki>[Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
-* Agent-social-role <nowiki>[The function or part that is ascribed to an individual agent with respect to in a community.]</nowiki>
-** Brother <nowiki>[Being a male sibling.]</nowiki>
-** Child <nowiki>[Having an age below the legal age of majority.]</nowiki>
-** Father <nowiki>[Being a male parent.]</nowiki>
-** Mother <nowiki>[Being a female parent.]</nowiki>
-** Sister <nowiki>[Being a female sibling.]</nowiki>
 * Agent-task-role <nowiki>[The function or part that is ascribed to an agent in performing the task.]</nowiki>
 ** Experiment-actor <nowiki>[An agent who plays a predetermined role to create the experiment.]</nowiki>
 ** Experiment-controller <nowiki>[An agent exerting control over some aspect of the experiment.]</nowiki>
@@ -1168,7 +1162,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 '''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
 * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki> 
-* extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders.]</nowiki> 
+* extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
 * recommended  <nowiki>{boolProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 
 * relatedTag <nowiki>[A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools.]</nowiki> 
 * requireChild  <nowiki>{boolProperty}[A schema attribute indicating that one of the node elements descendants must be included when using this tag.]</nowiki> 
@@ -1194,8 +1188,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 * valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki>
 
 '''Epilogue'''
-This is the portion for final notes.
+This is an updated version of the schema format. The properties are now part of the schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties.
 
 !# end hed 
-
-This is an updated version of the schema format. The properties are now part of the schema. The schema attributes are designed to be checked in software rather than hard-coded. The schema attributes, themselves have properties.
