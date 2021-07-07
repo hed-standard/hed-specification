@@ -1,6 +1,5 @@
-HED version="7.3.0"
+HED version: 7.3.0
 
-'''Prologue'''
 Changelog
 * 5/08/2021: v7.3.0 Added unitClass as an attribute
 * 4/20/2021: v.7.3.0 Removed default as a valid attribute. Added schema attribute properties.
@@ -50,7 +49,9 @@ Changelog
 ** Removed /Participant/Effect/Cognitive/Oddball/Three stimuli/Target 
 ** Moved Non-target from under Expected to the same level as Target, this is because in Three stimuli oddball paradigm the Non-targets are oddballs and hence not expected. 
 ** Note: user are encouraged to add Expected and Oddball tags when tagging targets and non-targets 
-** Added Presentation fraction  
+** Added Presentation fraction 
+
+'''Syntax'''  
 
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  
 From version 2.2, HED adheres to http://semver.org/ versioning. 
@@ -1285,9 +1286,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 
-'''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
 
 '''Schema attributes'''
+
+
 * allowedCharacter <nowiki>{unitClassProperty}[An attribute of unit classes schema value placeholders indicating a special character that is allowed in expressing the value of that placeholder.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[An attribute of unit classes specifying the default units for a tag.]</nowiki> 
 * extensionAllowed <nowiki>{boolProperty}[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
@@ -1305,9 +1307,8 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitSymbol <nowiki>{boolProperty, unitClassProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
-'''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
-
-'''Epilogue'''
-Note: This is the new version of the .mediawiki designed to support prologues and epilogues.
-
 !# end hed 
+
+
+
+Note: This is the new version of the .mediawiki designed to support prologues and epilogues.
