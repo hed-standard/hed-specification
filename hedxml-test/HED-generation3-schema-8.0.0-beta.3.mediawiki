@@ -646,7 +646,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Not-meaningful <nowiki>[Not having a serious, important, or useful quality or purpose.]</nowiki>
 ** Novel <nowiki>[Having no previous example or precedent or parallel; of a kind not seen before.]</nowiki> 
 ** Oddball <nowiki> {relatedTag=Unexpected, suggestedTag=Target}[Something unusual, or infrequent.]</nowiki>
-** Planned <nowiki>[Something that was decided on or arranged in advance.]</nowiki>
+** Planned <nowiki>{relatedTag=Unplanned}[Something that was decided on or arranged in advance.]</nowiki>
 ** Penalty <nowiki>[A disadvantage, loss, or hardship due to some action.]</nowiki>
 ** Priming <nowiki>[An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.]</nowiki>
 ** Query <nowiki>[A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).]</nowiki>
@@ -655,7 +655,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Target <nowiki>[Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.]</nowiki> 
 ** Threat <nowiki>[An indicator that signifies hostility and predicts an increased probability of attack.]</nowiki>
 ** Timed <nowiki>[Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.]</nowiki>
-** Unexpected <nowiki>{relatedTag=Expected}[Something that is not planned or anticipated.]</nowiki>
+** Unexpected <nowiki>{relatedTag=Expected}[Something that is not anticipated.]</nowiki>
+** Unplanned <nowiki>{relatedTag=Planned}[Something that has not been planned as part of the task.]</nowiki>
 
 '''Attribute''' <nowiki>{extensionAllowed} [A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
 * Anatomical <nowiki>[Relating to bodily structure.]</nowiki>
