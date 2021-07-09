@@ -1844,6 +1844,33 @@
             <node>
                <name>Agent-experience-level</name>
                <description>Amount of skill or knowledge that the agent has as pertains to the task.</description>
+               <node>
+                  <name>Expert-level</name>
+                  <description>Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Intermediate-experience-level</value>
+                     <value>Novice-level</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Intermediate-experience-level</name>
+                  <description>Having a moderate amount of knowledge or skill related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Expert-level</value>
+                     <value>Novice-level</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Novice-level</name>
+                  <description>Being inexperienced in a field or situation related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Expert-level</value>
+                     <value>Intermediate-experience-level</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Agent-height</name>
@@ -1870,33 +1897,6 @@
                   <attribute>
                      <name>valueClass</name>
                      <value>numericClass</value>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Expert-level</name>
-                  <description>Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.</description>
-                  <attribute>
-                     <name>relatedTag</name>
-                     <value>Intermediate-experience-level</value>
-                     <value>Novice-level</value>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Intermediate-experience-level</name>
-                  <description>Having a moderate amount of knowledge or skill related to the task.</description>
-                  <attribute>
-                     <name>relatedTag</name>
-                     <value>Expert-level</value>
-                     <value>Novice-level</value>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Novice-level</name>
-                  <description>Being inexperienced in a field or situation related to the task.</description>
-                  <attribute>
-                     <name>relatedTag</name>
-                     <value>Expert-level</value>
-                     <value>Intermediate-experience-level</value>
                   </attribute>
                </node>
             </node>
