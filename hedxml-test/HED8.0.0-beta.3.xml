@@ -1994,7 +1994,7 @@
                </node>
                <node>
                   <name>Weight</name>
-                  <description>A body's relative mass or the quantity of matter contained by it, giving rise to a downward force.</description>
+                  <description>The relative mass or the quantity of matter contained in a body, giving rise to a downward force.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2898,20 +2898,20 @@
             <name>Task-action-type</name>
             <description>How an agent action should be interpreted in terms of the task specification.</description>
             <node>
-               <name>Appropriate</name>
+               <name>Appropriate-action</name>
                <description>An action suitable or proper in the circumstances.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Inappropriate</value>
+                  <value>Inappropriate-action</value>
                </attribute>
             </node>
             <node>
-               <name>Correct</name>
+               <name>Correct-action</name>
                <description>An action that was a correct response in the context of the task.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Incorrect</value>
-                  <value>Indeterminate</value>
+                  <value>Incorrect-action</value>
+                  <value>Indeterminate-action</value>
                </attribute>
             </node>
             <node>
@@ -2919,39 +2919,39 @@
                <description>An action offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
             </node>
             <node>
-               <name>Incorrect</name>
+               <name>Incorrect-action</name>
                <description>An action considered wrong or incorrect in the context of the task.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Correct</value>
-                  <value>Indeterminate</value>
+                  <value>Correct-action</value>
+                  <value>Indeterminate-action</value>
                </attribute>
             </node>
             <node>
-               <name>Imagined</name>
+               <name>Imagined-action</name>
                <description>Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
             </node>
             <node>
-               <name>Inappropriate</name>
+               <name>Inappropriate-action</name>
                <description>An action not in keeping with what is correct or proper for the task.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Appropriate</value>
+                  <value>Appropriate-action</value>
                </attribute>
             </node>
             <node>
-               <name>Indeterminate</name>
+               <name>Indeterminate-action</name>
                <description>An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Correct</value>
-                  <value>Incorrect</value>
+                  <value>Correct-action</value>
+                  <value>Incorrect-action</value>
                   <value>Miss</value>
                   <value>Near-miss</value>
                </attribute>
             </node>
             <node>
-               <name>Omitted</name>
+               <name>Omitted-action</name>
                <description>An expected response was skipped.</description>
             </node>
             <node>

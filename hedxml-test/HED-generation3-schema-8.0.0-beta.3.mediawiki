@@ -477,7 +477,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
 *** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Weight <nowiki>[A body's relative mass or the quantity of matter contained by it, giving rise to a downward force.]</nowiki>
+*** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
 ** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
@@ -620,14 +620,14 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Task-activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
 * Task-action-type <nowiki>[How an agent action should be interpreted in terms of the task specification.]</nowiki>
-** Appropriate <nowiki>{relatedTag=Inappropriate}[An action suitable or proper in the circumstances.]</nowiki>
-** Correct <nowiki>{relatedTag=Incorrect, relatedTag=Indeterminate}[An action that was a correct response in the context of the task.]</nowiki>
+** Appropriate-action <nowiki>{relatedTag=Inappropriate-action}[An action suitable or proper in the circumstances.]</nowiki>
+** Correct-action <nowiki>{relatedTag=Incorrect-action, relatedTag=Indeterminate-action}[An action that was a correct response in the context of the task.]</nowiki>
 ** Correction <nowiki>[An action offering an improvement to replace a mistake; setting right; something substituted for an error.]</nowiki>
-** Incorrect <nowiki>{relatedTag=Correct, relatedTag=Indeterminate}[An action considered wrong or incorrect in the context of the task.]</nowiki>
-** Imagined <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate <nowiki>{relatedTag=Appropriate}[An action not in keeping with what is correct or proper for the task.]</nowiki>
-** Indeterminate <nowiki>{relatedTag=Correct,relatedTag=Incorrect, relatedTag=Miss, relatedTag=Near-miss}[An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.]</nowiki>
-** Omitted <nowiki>[An expected response was skipped.]</nowiki>
+** Incorrect-action <nowiki>{relatedTag=Correct-action, relatedTag=Indeterminate-action}[An action considered wrong or incorrect in the context of the task.]</nowiki>
+** Imagined-action <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
+** Inappropriate-action <nowiki>{relatedTag=Appropriate-action}[An action not in keeping with what is correct or proper for the task.]</nowiki>
+** Indeterminate-action <nowiki>{relatedTag=Correct-action,relatedTag=Incorrect-action, relatedTag=Miss, relatedTag=Near-miss}[An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.]</nowiki>
+** Omitted-action <nowiki>[An expected response was skipped.]</nowiki>
 ** Miss <nowiki><nowiki>{relatedTag=Near-miss}[An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.]</nowiki>
 ** Near-miss <nowiki>{relatedTag=Miss}[An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.]</nowiki>
 * Task-relationship <nowiki>[Specifying organizational importance of sub-tasks.]</nowiki>
