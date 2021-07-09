@@ -50,20 +50,22 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
 ***** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
 ***** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
-***** Lift-eyebrows <nowiki>[Move eyebrows upward.]</nowiki>
 ***** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
 ***** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
 ***** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
-***** Widen-eyes <nowiki>[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
-**** Move-jaw <nowiki>[Move lower part of the jaw and head.]</nowiki>
+***** Wink <nowiki>{suggestedTag=Communicate-gesturally}[Close and open one eye quickly, typically to indicate that something is a joke or a secret or as a signal of affection or greeting.]</nowiki>
+**** Move-face <nowiki>[Move the face or jaw.]</nowiki>
 ***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
 ***** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
 ***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
 ***** Clear-throat <nowiki>[Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward.]</nowiki>
-***** Frown <nowiki>[Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.]</nowiki>
+***** Frown <nowiki>{suggested-Tag=Communicate-gesturally}[Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.]</nowiki>
+***** Grimace <nowiki>{suggested-Tag=Communicate-gesturally}[Make a twisted expression, typically expressing disgust, pain, or wry amusement.]</nowiki>
 ***** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
-***** Smile <nowiki>[Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.]</nowiki>
+***** Raise-eyebrows <nowiki>[Move eyebrows upward.]</nowiki>
+***** Smile <nowiki>{suggested-Tag=Communicate-gesturally}[Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.]</nowiki>
 ***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+***** Widen-eyes <nowiki>[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
 ***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 **** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
 **** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
@@ -91,6 +93,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
 **** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
 **** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
+**** Press-foot <nowiki>[Move by pressing foot.]</nowiki>
 **** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
 **** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
 ***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
@@ -108,6 +111,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***	Wave <nowiki>[Raise hand and move left and right, as a greeting or sign of departure.]</nowiki>
 ** Communicate-musically <nowiki>[Communicate using music.]</nowiki>
 *** Hum <nowiki>[Make a low, steady continuous sound like that of a bee. Sing with the lips closed and without uttering speech.]</nowiki>
+*** Play-instrument <nowiki>[Make musical sounds using an instrument.]</nowiki>
 *** Sing <nowiki>[Produce musical tones by means of the voice.]</nowiki>
 *** Vocalize <nowiki>[Utter vocal sounds.]</nowiki>
 *** Whistle <nowiki>[Produce a shrill clear sound by forcing breath out or air in through the puckered lips.]</nowiki>
@@ -178,8 +182,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** Nose <nowiki>[A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.]</nowiki>
 ****** Mouth <nowiki>[The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.]</nowiki>
 ****** Teeth <nowiki>[The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.]</nowiki>
-**** Arm <nowiki>[For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
+**** Upper-extremity <nowiki>[For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
 ***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
+***** Forearm <nowiki>[Lower part of the arm between the elbow and wrist.]</nowiki>
 ***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
 ****** Finger <nowiki>[Any of the digits of the hand.]</nowiki>
 ******* Index-finger <nowiki>[The second finger from the radial side of the hand, next to the thumb.]</nowiki>
@@ -187,15 +192,26 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
 ******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
 ******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
+****** Hand-palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
+****** Knuckles <nowiki>[A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.]</nowiki>
+***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
+***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
 ***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
-**** Leg <nowiki>[For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
+**** Lower-extremity <nowiki>[For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
+***** Calf <nowiki>[The fleshy part at the back of the leg below the knee.]</nowiki>
 ***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
 ****** Toe <nowiki>[One of the terminal digits of the foot.]</nowiki>
 ***** Knee <nowiki>[A joint connecting the lower part of the femur with the upper part of the tibia.]</nowiki>
+***** Shin <nowiki>[Front part of the leg below the knee.]</nowiki>
+***** Thigh <nowiki>[Upper part of the leg between hip and knee.]</nowiki>
 **** Torso <nowiki>[The body excluding the head and neck and limbs.]</nowiki>
+***** Back-torso <nowiki>[The rear surface of the human body from the shoulders to the hips.]</nowiki>
+***** Buttocks <nowiki>[The round fleshy parts that form the lower rear area of a human trunk.]</nowiki>
 ***** Chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
+***** Gentalia <nowiki>[The external organs of reproduction.]</nowiki>
 ***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
+***** Shoulder <nowiki>[The joint attaching the upper arm to the torso.]</nowiki>
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
 *** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
@@ -407,6 +423,14 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Relieved <nowiki>[No longer feeling pain, distress,  anxiety, or reassured.]</nowiki>
 *** Sad <nowiki>[Feeling grief or unhappiness.]</nowiki>
 *** Stressed <nowiki>[Experiencing mental or emotional strain or tension.]</nowiki>
+** Agent-physiological-state
+*** Healthy <nowiki>{relatedTag=Sick}</nowiki>
+*** Hungry <nowiki>{relatedTag=Sated}</nowiki>
+*** Rested <nowiki>{relatedTag=Tired}</nowiki>
+*** Sated <nowiki>{relatedTag=Hungry}</nowiki>
+*** Sick <nowiki>{relatedTag=Healthy}</nowiki>
+*** Thirsty <nowiki></nowiki>
+*** Tired <nowiki>{relatedTag=Rested}</nowiki>
 ** Agent-postural-state <nowiki>[Pertaining to the position in which agent holds their body.]</nowiki> 
 *** Crouching <nowiki>[Adopting a position where the knees are bent and the upper body is brought forward and down, sometimes to avoid detection or to defend oneself.]</nowiki>
 *** Kneeling <nowiki>[Positioned where one or both knees are on the ground.]</nowiki>
@@ -414,7 +438,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Prone <nowiki>[Positioned in a recumbent body position whereby the person lies on its stomach and faces downward.]</nowiki>
 *** Sitting <nowiki>[In a seated position.]</nowiki>
 *** Standing <nowiki>[Assuming or maintaining an erect upright position. ]</nowiki>
-*** Supported-by-chin-rest <nowiki>[Using a device that supports the chin and head.]</nowiki>
+*** Seated-with-chin-rest <nowiki>[Using a device that supports the chin and head.]</nowiki>
 * Agent-task-role <nowiki>[The function or part that is ascribed to an agent in performing the task.]</nowiki>
 ** Experiment-actor <nowiki>[An agent who plays a predetermined role to create the experiment scenario.]</nowiki>
 ** Experiment-controller <nowiki>[An agent exerting control over some aspect of the experiment.]</nowiki>
@@ -423,6 +447,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Agent-trait <nowiki>[A genetically, environmentally, or socially determined characteristic of an agent.]</nowiki> 
 ** Age <nowiki>[Length of time elapsed time since birth of the agent.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
+** Agent-experience-level <nowiki>[Amount of skill or knowledge that the agent has as pertains to the task.]</nowiki>
+*** Expert-level {relatedTag=Intermediate-experience-level, relatedTag=Novice-level}<nowiki>[Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.]</nowiki>
+*** Intermediate-experience-level <nowiki>{relatedTag=Expert-level, relatedTag=Novice-level}[Having a moderate amount of knowledge or skill related to the task.]</nowiki>
+*** Novice-level <nowiki>{relatedTag=Expert-level, relatedTag=Intermediate-experience-level} [Having a moderate amount of knowledge or skill related to the task.]</nowiki>
 ** Gender <nowiki>[Characteristics that are socially constructed, including norms, behaviors, and roles based on sex.]</nowiki>
 ** Sex <nowiki>[Physical properties or qualities by which male is distinguished from female.]</nowiki>
 *** Female <nowiki>[Biological sex of an individual with female sexual organs such ova.]</nowiki>
@@ -432,6 +460,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Left-handed <nowiki>[Preference for using the left hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Right-handed <nowiki>[Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
+** Agent-height <nowiki>[The vertical dimension of an agent.]</nowiki>
+*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Agent-weight <nowiki>[The heaviness of an agent.]</nowiki>
+*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 
 '''Data-property''' <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
 * Data-source-type <nowiki>[The type of place, person, or thing from which the data comes or can be obtained.]</nowiki>
@@ -444,6 +476,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
 *** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Weight <nowiki>[A body's relative mass or the quantity of matter contained by it, giving rise to a downward force.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
 ** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
@@ -577,26 +611,28 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Intended-effect <nowiki>[A phenomenon that is intended to follow and be caused by some previous phenomenon.]</nowiki> 
 ** Behavioral-evidence <nowiki>[An indication or conclusion based on the behavior of an agent.]</nowiki>
 * Task-event-role <nowiki>[The purpose of an event with respect to the task.]</nowiki>
-** Activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
-** Background-subtask <nowiki>[A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.]</nowiki>
+
 ** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-** Failure <nowiki>[A descriptor indicating a failure.]</nowiki>
 ** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 ** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 ** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
-** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
+** Task-activity <nowiki> [Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.]</nowiki>
 ** Warning <nowiki>[Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.]</nowiki> 
-* Task-response-type <nowiki>[How the participant response should be interpreted in terms of the task specification.]</nowiki>
-** Appropriate <nowiki>{relatedTag=Inappropriate}[Suitable or proper in the circumstances.]</nowiki>
-** Correction <nowiki>{relatedTag=Successful}[Offering an improvement to replace a mistake; setting right; something substituted for an error.]</nowiki>
-** Erroneous <nowiki>[Something wrong or incorrect.]</nowiki>
+* Task-action-type <nowiki>[How an agent action should be interpreted in terms of the task specification.]</nowiki>
+** Appropriate <nowiki>{relatedTag=Inappropriate}[An action suitable or proper in the circumstances.]</nowiki>
+** Correct <nowiki>{relatedTag=Incorrect, relatedTag=Indeterminate}[An action that was a correct response in the context of the task.]</nowiki>
+** Correction <nowiki>[An action offering an improvement to replace a mistake; setting right; something substituted for an error.]</nowiki>
+** Incorrect <nowiki>{relatedTag=Correct, relatedTag=Indeterminate}[An action considered wrong or incorrect in the context of the task.]</nowiki>
 ** Imagined <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
-** Inappropriate <nowiki>{relatedTag=Appropriate}[Not in keeping with what is correct or proper.]</nowiki>
-** Indeterminate <nowiki>{relatedTag=Missed,relatedTag=Near-miss}[Cannot distinguish between two or more possible values in the current context.]</nowiki>
-** Missed <nowiki>{relatedTag=Indeterminate,relatedTag=Near-miss}[Not existing; not able to be found.]</nowiki>
-** Near-miss <nowiki>{relatedTag=Indeterminate,relatedTag=Miss}[A narrowly avoided collision or other accident.]</nowiki>
-** Successful <nowiki>{relatedTag=Correction}[Something that accomplishes its intended purpose.]</nowiki>
+** Inappropriate <nowiki>{relatedTag=Appropriate}[An action not in keeping with what is correct or proper for the task.]</nowiki>
+** Indeterminate <nowiki>{relatedTag=Correct,relatedTag=Incorrect, relatedTag=Miss, relatedTag=Near-miss}[An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.]</nowiki>
+** Omitted <nowiki>[An expected response was skipped.]</nowiki>
+** Miss <nowiki><nowiki>{relatedTag=Near-miss}[An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.]</nowiki>
+** Near-miss <nowiki>{relatedTag=Miss}[An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.]</nowiki>
+* Task-relationship <nowiki>[Specifying organizational importance of sub-tasks.]</nowiki>
+** Background-subtask <nowiki>[A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.]</nowiki>
+** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 * Task-stimulus-role <nowiki>[The role the stimulus plays in the task.]</nowiki>
 ** Cue <nowiki>[A signal for an action, a pattern of stimuli indicating a particular response.]</nowiki>
 ** Distractor <nowiki>[A person or thing that distracts or a plausible but incorrect option in a multiple-choice question.]</nowiki>
