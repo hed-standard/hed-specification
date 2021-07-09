@@ -604,7 +604,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Overt-attention <nowiki>{relatedTag=Covert-attention}[Selectively processing one location over others by moving the eyes to point at that location.]</nowiki>
 ** Selective-attention <nowiki>[Maintaining a behavioral or cognitive set in the face of distracting or competing stimuli. Ability to pay attention to a limited array of all available sensory information.]</nowiki>
 ** Sustained-attention <nowiki>[Maintaining a consistent behavioral response during continuous and repetitive activity.]</nowiki>
-** Switching-attention <nowiki>[Having to switch attention between two or more modalities of presentation.]</nowiki>
+** Switched-attention <nowiki>[Having to switch attention between two or more modalities of presentation.]</nowiki>
 ** Top-down-attention <nowiki>{relatedTag=Bottom-up-attention}[Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.]</nowiki>
 * Task-effect-evidence <nowiki>[The evidence supporting the conclusion that the event had the specified effect.]</nowiki>
 ** Computational-evidence <nowiki>[A type of evidence in which data are produced, and/or generated, and/or analyzed on a computer.]</nowiki> 

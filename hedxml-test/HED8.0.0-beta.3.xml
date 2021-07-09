@@ -2830,7 +2830,7 @@
                <description>Maintaining a consistent behavioral response during continuous and repetitive activity.</description>
             </node>
             <node>
-               <name>Switching-attention</name>
+               <name>Switched-attention</name>
                <description>Having to switch attention between two or more modalities of presentation.</description>
             </node>
             <node>
