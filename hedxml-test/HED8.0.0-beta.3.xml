@@ -1712,8 +1712,10 @@
             </node>
             <node>
                <name>Agent-physiological-state</name>
+               <description>Having to do with the mechanical, physical, or biochemical function of an agent.</description>
                <node>
                   <name>Healthy</name>
+                  <description>Having no significant health-related issues.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Sick</value>
@@ -1721,13 +1723,16 @@
                </node>
                <node>
                   <name>Hungry</name>
+                  <description>Being in a state of craving or desiring food.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Sated</value>
+                     <value>Thirsty</value>
                   </attribute>
                </node>
                <node>
                   <name>Rested</name>
+                  <description>Feeling refreshed and relaxed.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Tired</value>
@@ -1735,6 +1740,7 @@
                </node>
                <node>
                   <name>Sated</name>
+                  <description>Feeling full.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Hungry</value>
@@ -1742,6 +1748,7 @@
                </node>
                <node>
                   <name>Sick</name>
+                  <description>Being in a state of ill health, bodily malfunction, or discomfort.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Healthy</value>
@@ -1749,9 +1756,15 @@
                </node>
                <node>
                   <name>Thirsty</name>
+                  <description>Feeling a need to drink.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Hungry</value>
+                  </attribute>
                </node>
                <node>
                   <name>Tired</name>
+                  <description>Feeling in need of sleep or rest.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Rested</value>
@@ -1875,7 +1888,7 @@
                </node>
                <node>
                   <name>Novice-level</name>
-                  <description>Having a moderate amount of knowledge or skill related to the task.</description>
+                  <description>Being inexperienced in a field or situation related to the task.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Expert-level</value>
@@ -2813,6 +2826,10 @@
                <description>Maintaining a consistent behavioral response during continuous and repetitive activity.</description>
             </node>
             <node>
+               <name>Switching-attention</name>
+               <description>Having to switch attention between two or more modalities of presentation.</description>
+            </node>
+            <node>
                <name>Top-down-attention</name>
                <description>Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.</description>
                <attribute>
@@ -2975,7 +2992,15 @@
             </node>
             <node>
                <name>Expected</name>
-               <description>Considered likely or probable; anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.</description>
+               <description>Considered likely, probable or anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Unexpected</value>
+               </attribute>
+               <attribute>
+                  <name>suggestedTag</name>
+                  <value>Target</value>
+               </attribute>
             </node>
             <node>
                <name>Extraneous</name>
@@ -3009,8 +3034,8 @@
                <name>Non-target</name>
                <description>Something other than that done or looked for. Also tag Expected if the Non-target is frequent.</description>
                <attribute>
-                  <name>suggestedTag</name>
-                  <value>Expected</value>
+                  <name>relatedTag</name>
+                  <value>Target</value>
                </attribute>
             </node>
             <node>
@@ -3023,11 +3048,23 @@
             </node>
             <node>
                <name>Oddball</name>
-               <description>Something strange, bizarre, unusal, or infrequent.</description>
+               <description>Something unusual, or infrequent.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Unexpected</value>
+               </attribute>
+               <attribute>
+                  <name>suggestedTag</name>
+                  <value>Target</value>
+               </attribute>
             </node>
             <node>
                <name>Planned</name>
                <description>Something that was decided on or arranged in advance.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Unplanned</value>
+               </attribute>
             </node>
             <node>
                <name>Penalty</name>
@@ -3067,7 +3104,19 @@
             </node>
             <node>
                <name>Unexpected</name>
-               <description>Something that is not planned or anticipated.</description>
+               <description>Something that is not anticipated.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Expected</value>
+               </attribute>
+            </node>
+            <node>
+               <name>Unplanned</name>
+               <description>Something that has not been planned as part of the task.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Planned</value>
+               </attribute>
             </node>
          </node>
       </node>
