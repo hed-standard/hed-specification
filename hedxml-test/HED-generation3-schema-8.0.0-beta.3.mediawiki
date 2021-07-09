@@ -211,7 +211,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
 ***** Gentalia <nowiki>[The external organs of reproduction.]</nowiki>
 ***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
-***** Shoulder <nowiki>[The joint attaching the upper arm to the torso.]</nowiki>
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
 *** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
@@ -448,6 +447,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Age <nowiki>[Length of time elapsed time since birth of the agent.]</nowiki>
 *** <nowiki># {takesValue}</nowiki>
 ** Agent-experience-level <nowiki>[Amount of skill or knowledge that the agent has as pertains to the task.]</nowiki>
+** Agent-height <nowiki>[The vertical dimension of an agent.]</nowiki>
+*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Agent-weight <nowiki>[The heaviness of an agent.]</nowiki>
+*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Expert-level {relatedTag=Intermediate-experience-level, relatedTag=Novice-level}<nowiki>[Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.]</nowiki>
 *** Intermediate-experience-level <nowiki>{relatedTag=Expert-level, relatedTag=Novice-level}[Having a moderate amount of knowledge or skill related to the task.]</nowiki>
 *** Novice-level <nowiki>{relatedTag=Expert-level, relatedTag=Intermediate-experience-level} [Having a moderate amount of knowledge or skill related to the task.]</nowiki>
@@ -460,10 +463,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Left-handed <nowiki>[Preference for using the left hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Right-handed <nowiki>[Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 *** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
-** Agent-height <nowiki>[The vertical dimension of an agent.]</nowiki>
-*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Agent-weight <nowiki>[The heaviness of an agent.]</nowiki>
-*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 
 '''Data-property''' <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
 * Data-source-type <nowiki>[The type of place, person, or thing from which the data comes or can be obtained.]</nowiki>

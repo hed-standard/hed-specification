@@ -855,10 +855,6 @@
                         <description>The lateral prominence of the pelvis from the waist to the thigh.</description>
                      </node>
                      <node>
-                        <name>Shoulder</name>
-                        <description>The joint attaching the upper arm to the torso.</description>
-                     </node>
-                     <node>
                         <name>Waist</name>
                         <description>The abdominal circumference at the navel.</description>
                      </node>
@@ -1831,6 +1827,34 @@
             <node>
                <name>Agent-experience-level</name>
                <description>Amount of skill or knowledge that the agent has as pertains to the task.</description>
+            </node>
+            <node>
+               <name>Agent-height</name>
+               <description>The vertical dimension of an agent.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>numericClass</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Agent-weight</name>
+               <description>The heaviness of an agent.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>numericClass</value>
+                  </attribute>
+               </node>
                <node>
                   <name>Expert-level</name>
                   <description>Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.</description>
@@ -1893,34 +1917,6 @@
                <node>
                   <name>Ambidextrous</name>
                   <description>Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.</description>
-               </node>
-            </node>
-            <node>
-               <name>Agent-height</name>
-               <description>The vertical dimension of an agent.</description>
-               <node>
-                  <name>#</name>
-                  <attribute>
-                     <name>takesValue</name>
-                  </attribute>
-                  <attribute>
-                     <name>valueClass</name>
-                     <value>numericClass</value>
-                  </attribute>
-               </node>
-            </node>
-            <node>
-               <name>Agent-weight</name>
-               <description>The heaviness of an agent.</description>
-               <node>
-                  <name>#</name>
-                  <attribute>
-                     <name>takesValue</name>
-                  </attribute>
-                  <attribute>
-                     <name>valueClass</name>
-                     <value>numericClass</value>
-                  </attribute>
                </node>
             </node>
          </node>
