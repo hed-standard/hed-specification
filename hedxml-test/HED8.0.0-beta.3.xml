@@ -200,10 +200,6 @@
                         <description>Purposely prevent blinking.</description>
                      </node>
                      <node>
-                        <name>Lift-eyebrows</name>
-                        <description>Move eyebrows upward.</description>
-                     </node>
-                     <node>
                         <name>Open-eyes</name>
                         <description>Raise eyelids to expose pupil.</description>
                      </node>
@@ -216,13 +212,17 @@
                         <description>Look fixedly or vacantly at someone or something with eyes wide open.</description>
                      </node>
                      <node>
-                        <name>Widen-eyes</name>
-                        <description>Open eyes and possibly with eyebrows lifted especially to express surprise or fear.</description>
+                        <name>Wink</name>
+                        <description>Close and open one eye quickly, typically to indicate that something is a joke or a secret or as a signal of affection or greeting.</description>
+                        <attribute>
+                           <name>suggestedTag</name>
+                           <value>Communicate-gesturally</value>
+                        </attribute>
                      </node>
                   </node>
                   <node>
-                     <name>Move-jaw</name>
-                     <description>Move lower part of the jaw and head.</description>
+                     <name>Move-face</name>
+                     <description>Move the face or jaw.</description>
                      <node>
                         <name>Bite</name>
                         <description>Seize with teeth or jaws an object or organism so as to grip or break the surface covering.</description>
@@ -244,8 +244,16 @@
                         <description>Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.</description>
                      </node>
                      <node>
+                        <name>Grimace</name>
+                        <description>Make a twisted expression, typically expressing disgust, pain, or wry amusement.</description>
+                     </node>
+                     <node>
                         <name>Gurgle</name>
                         <description>Make a hollow bubbling sound like that made by water running out of a bottle.</description>
+                     </node>
+                     <node>
+                        <name>Raise-eyebrows</name>
+                        <description>Move eyebrows upward.</description>
                      </node>
                      <node>
                         <name>Smile</name>
@@ -254,6 +262,10 @@
                      <node>
                         <name>Swallow</name>
                         <description>Cause or allow something, especially food or drink to pass down the throat.</description>
+                     </node>
+                     <node>
+                        <name>Widen-eyes</name>
+                        <description>Open eyes and possibly with eyebrows lifted especially to express surprise or fear.</description>
                      </node>
                      <node>
                         <name>Yawn</name>
@@ -373,6 +385,10 @@
                      <description>Move by working the pedals of a bicycle or other machine.</description>
                   </node>
                   <node>
+                     <name>Press-foot</name>
+                     <description>Move by pressing foot.</description>
+                  </node>
+                  <node>
                      <name>Run</name>
                      <description>Travel on foot at a fast pace.</description>
                   </node>
@@ -440,6 +456,10 @@
                <node>
                   <name>Hum</name>
                   <description>Make a low, steady continuous sound like that of a bee. Sing with the lips closed and without uttering speech.</description>
+               </node>
+               <node>
+                  <name>Play-instrument</name>
+                  <description>Make musical sounds using an instrument.</description>
                </node>
                <node>
                   <name>Sing</name>
@@ -720,11 +740,15 @@
                      </node>
                   </node>
                   <node>
-                     <name>Arm</name>
+                     <name>Upper-extremity</name>
                      <description>For clinical purposes this term is also used to refer to the whole superior limb.</description>
                      <node>
                         <name>Elbow</name>
                         <description>A type of hinge joint located between the forearm and upper arm.</description>
+                     </node>
+                     <node>
+                        <name>Forearm</name>
+                        <description>Lower part of the arm between the elbow and wrist.</description>
                      </node>
                      <node>
                         <name>Hand</name>
@@ -753,6 +777,22 @@
                               <description>The thick and short hand digit which is next to the index finger in humans.</description>
                            </node>
                         </node>
+                        <node>
+                           <name>Hand-palm</name>
+                           <description>The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.</description>
+                        </node>
+                        <node>
+                           <name>Knuckles</name>
+                           <description>A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.</description>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Shoulder</name>
+                        <description>Joint attaching upper arm to trunk.</description>
+                     </node>
+                     <node>
+                        <name>Upper-arm</name>
+                        <description>Portion of arm between shoulder and elbow.</description>
                      </node>
                      <node>
                         <name>Wrist</name>
@@ -760,11 +800,15 @@
                      </node>
                   </node>
                   <node>
-                     <name>Leg</name>
+                     <name>Lower-extremity</name>
                      <description>For clinical purposes this term is also used to refer to the whole inferior limb.</description>
                      <node>
                         <name>Ankle</name>
                         <description>A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.</description>
+                     </node>
+                     <node>
+                        <name>Calf</name>
+                        <description>The fleshy part at the back of the leg below the knee.</description>
                      </node>
                      <node>
                         <name>Foot</name>
@@ -778,13 +822,33 @@
                         <name>Knee</name>
                         <description>A joint connecting the lower part of the femur with the upper part of the tibia.</description>
                      </node>
+                     <node>
+                        <name>Shin</name>
+                        <description>Front part of the leg below the knee.</description>
+                     </node>
+                     <node>
+                        <name>Thigh</name>
+                        <description>Upper part of the leg between hip and knee.</description>
+                     </node>
                   </node>
                   <node>
                      <name>Torso</name>
                      <description>The body excluding the head and neck and limbs.</description>
                      <node>
+                        <name>Back-torso</name>
+                        <description>The rear surface of the human body from the shoulders to the hips.</description>
+                     </node>
+                     <node>
+                        <name>Buttocks</name>
+                        <description>The round fleshy parts that form the lower rear area of a human trunk.</description>
+                     </node>
+                     <node>
                         <name>Chest</name>
                         <description>The anterior side of the thorax from the neck to the abdomen.</description>
+                     </node>
+                     <node>
+                        <name>Gentalia</name>
+                        <description>The external organs of reproduction.</description>
                      </node>
                      <node>
                         <name>Hip</name>
@@ -1647,6 +1711,54 @@
                </node>
             </node>
             <node>
+               <name>Agent-physiological-state</name>
+               <node>
+                  <name>Healthy</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Sick</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Hungry</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Sated</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Rested</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Tired</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Sated</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Hungry</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Sick</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Healthy</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Thirsty</name>
+               </node>
+               <node>
+                  <name>Tired</name>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Rested</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
                <name>Agent-postural-state</name>
                <description>Pertaining to the position in which agent holds their body.</description>
                <node>
@@ -1674,7 +1786,7 @@
                   <description>Assuming or maintaining an erect upright position.</description>
                </node>
                <node>
-                  <name>Supported-by-chin-rest</name>
+                  <name>Seated-with-chin-rest</name>
                   <description>Using a device that supports the chin and head.</description>
                </node>
             </node>
@@ -1709,6 +1821,65 @@
                   <name>#</name>
                   <attribute>
                      <name>takesValue</name>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Agent-experience-level</name>
+               <description>Amount of skill or knowledge that the agent has as pertains to the task.</description>
+            </node>
+            <node>
+               <name>Agent-height</name>
+               <description>The vertical dimension of an agent.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>numericClass</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Agent-weight</name>
+               <description>The heaviness of an agent.</description>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>numericClass</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Expert-level</name>
+                  <description>Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Intermediate-experience-level</value>
+                     <value>Novice-level</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Intermediate-experience-level</name>
+                  <description>Having a moderate amount of knowledge or skill related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Expert-level</value>
+                     <value>Novice-level</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Novice-level</name>
+                  <description>Having a moderate amount of knowledge or skill related to the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Expert-level</value>
+                     <value>Intermediate-experience-level</value>
                   </attribute>
                </node>
             </node>
@@ -1793,6 +1964,20 @@
                <node>
                   <name>Pressure</name>
                   <description>The force applied to a unit area of surface.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Weight</name>
+                  <description>A body's relative mass or the quantity of matter contained by it, giving rise to a downward force.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2660,20 +2845,8 @@
             <name>Task-event-role</name>
             <description>The purpose of an event with respect to the task.</description>
             <node>
-               <name>Activity</name>
-               <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
-            </node>
-            <node>
-               <name>Background-subtask</name>
-               <description>A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.</description>
-            </node>
-            <node>
                <name>Experimental-stimulus</name>
                <description>Part of something designed to elicit a response in the experiment.</description>
-            </node>
-            <node>
-               <name>Failure</name>
-               <description>A descriptor indicating a failure.</description>
             </node>
             <node>
                <name>Incidental</name>
@@ -2692,8 +2865,8 @@
                <description>Something related to a participant actions in performing the task.</description>
             </node>
             <node>
-               <name>Primary-subtask</name>
-               <description>A part of the task which should be the primary focus of the participant.</description>
+               <name>Task-activity</name>
+               <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
             </node>
             <node>
                <name>Warning</name>
@@ -2701,27 +2874,37 @@
             </node>
          </node>
          <node>
-            <name>Task-response-type</name>
-            <description>How the participant response should be interpreted in terms of the task specification.</description>
+            <name>Task-action-type</name>
+            <description>How an agent action should be interpreted in terms of the task specification.</description>
             <node>
                <name>Appropriate</name>
-               <description>Suitable or proper in the circumstances.</description>
+               <description>An action suitable or proper in the circumstances.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Inappropriate</value>
                </attribute>
             </node>
             <node>
-               <name>Correction</name>
-               <description>Offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
+               <name>Correct</name>
+               <description>An action that was a correct response in the context of the task.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Successful</value>
+                  <value>Incorrect</value>
+                  <value>Indeterminate</value>
                </attribute>
             </node>
             <node>
-               <name>Erroneous</name>
-               <description>Something wrong or incorrect.</description>
+               <name>Correction</name>
+               <description>An action offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
+            </node>
+            <node>
+               <name>Incorrect</name>
+               <description>An action considered wrong or incorrect in the context of the task.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Correct</value>
+                  <value>Indeterminate</value>
+               </attribute>
             </node>
             <node>
                <name>Imagined</name>
@@ -2729,7 +2912,7 @@
             </node>
             <node>
                <name>Inappropriate</name>
-               <description>Not in keeping with what is correct or proper.</description>
+               <description>An action not in keeping with what is correct or proper for the task.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Appropriate</value>
@@ -2737,38 +2920,46 @@
             </node>
             <node>
                <name>Indeterminate</name>
-               <description>Cannot distinguish between two or more possible values in the current context.</description>
+               <description>An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Missed</value>
+                  <value>Correct</value>
+                  <value>Incorrect</value>
+                  <value>Miss</value>
                   <value>Near-miss</value>
                </attribute>
             </node>
             <node>
-               <name>Missed</name>
-               <description>Not existing; not able to be found.</description>
+               <name>Omitted</name>
+               <description>An expected response was skipped.</description>
+            </node>
+            <node>
+               <name>Miss</name>
+               <description>An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Indeterminate</value>
                   <value>Near-miss</value>
                </attribute>
             </node>
             <node>
                <name>Near-miss</name>
-               <description>A narrowly avoided collision or other accident.</description>
+               <description>An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.</description>
                <attribute>
                   <name>relatedTag</name>
-                  <value>Indeterminate</value>
                   <value>Miss</value>
                </attribute>
             </node>
+         </node>
+         <node>
+            <name>Task-relationship</name>
+            <description>Specifying organizational importance of sub-tasks.</description>
             <node>
-               <name>Successful</name>
-               <description>Something that accomplishes its intended purpose.</description>
-               <attribute>
-                  <name>relatedTag</name>
-                  <value>Correction</value>
-               </attribute>
+               <name>Background-subtask</name>
+               <description>A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.</description>
+            </node>
+            <node>
+               <name>Primary-subtask</name>
+               <description>A part of the task which should be the primary focus of the participant.</description>
             </node>
          </node>
          <node>
