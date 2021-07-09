@@ -121,6 +121,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 ***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
 *** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
+*** Shout <nowiki>[Say something very loudly.]</nowiki>
 *** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>

@@ -498,6 +498,10 @@
                   <description>Make loud, vociferous cries or yells to express pain, excitement, or fear.</description>
                </node>
                <node>
+                  <name>Shout</name>
+                  <description>Say something very loudly.</description>
+               </node>
+               <node>
                   <name>Sigh</name>
                   <description>Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.</description>
                </node>
