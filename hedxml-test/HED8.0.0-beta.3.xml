@@ -66,7 +66,7 @@
          </attribute>
          <node>
             <name>Animal-agent</name>
-            <description>An agent living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement, as distinguished from a plant or mineral.</description>
+            <description>An agent that is an animal.</description>
          </node>
          <node>
             <name>Avatar-agent</name>
@@ -675,10 +675,10 @@
                <node>
                   <name>Animal</name>
                   <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
-                  <node>
-                     <name>Human</name>
-                     <description>The bipedal primate mammal Homo sapiens.</description>
-                  </node>
+               </node>
+               <node>
+                  <name>Human</name>
+                  <description>The bipedal primate mammal Homo sapiens.</description>
                </node>
                <node>
                   <name>Plant</name>
@@ -886,12 +886,20 @@
                <description>A hieroglyphic character or symbol; a pictograph.</description>
             </node>
             <node>
+               <name>Clause</name>
+               <description>A  unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.</description>
+            </node>
+            <node>
                <name>Glyph</name>
                <description>A hieroglyphic character or symbol; a pictograph.</description>
             </node>
             <node>
                <name>Nonword</name>
                <description>A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.</description>
+            </node>
+            <node>
+               <name>Paragraph</name>
+               <description>A distinct section of a piece of writing, usually dealing with a single theme.</description>
             </node>
             <node>
                <name>Phoneme</name>
@@ -936,7 +944,7 @@
                      <description>A small round mark or spot.</description>
                   </node>
                   <node>
-                     <name>Led-pattern</name>
+                     <name>LED-pattern</name>
                      <description>A pattern created by lighting selected members of a fixed light emitting diode array.</description>
                   </node>
                </node>
@@ -1067,17 +1075,33 @@
                         <description>A device used for writing.</description>
                         <node>
                            <name>Pen</name>
-                           <description>A common writing instrument used to apply ink to a surface, usually paper, for writing or drawing.</description>
+                           <description>A common writing instrument used to apply ink to a surface for writing or drawing.</description>
                         </node>
                         <node>
                            <name>Pencil</name>
-                           <description>An implement for writing or drawing, constructed of a narrow, solid pigment core in a protective casing that prevents the core from being broken or marking the hand.</description>
+                           <description>An implement for writing or drawing that is constructed of a narrow solid pigment core in a protective casing that prevents the core from being broken or marking the hand.</description>
                         </node>
                      </node>
                   </node>
                   <node>
                      <name>Computing-device</name>
-                     <description>An electronic device which take inputs, process the inputs and then calculate results from the inputs.</description>
+                     <description>An electronic device which take inputs and processes results from the inputs.</description>
+                     <node>
+                        <name>Cellphone</name>
+                        <description>A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network.</description>
+                     </node>
+                     <node>
+                        <name>Desktop-computer</name>
+                        <description>A computer suitable for use at an ordinary desk.</description>
+                     </node>
+                     <node>
+                        <name>Laptop-computer</name>
+                        <description>A computer that is portable and suitable for use while traveling.</description>
+                     </node>
+                     <node>
+                        <name>Tablet-computer</name>
+                        <description>A small portable computer that accepts input directly on to its screen rather than via a keyboard or mouse.</description>
+                     </node>
                   </node>
                   <node>
                      <name>Engine</name>
@@ -1145,10 +1169,6 @@
                         </node>
                      </node>
                      <node>
-                        <name>Network-device</name>
-                        <description>A collection of two or more computers and/or associated devices that are linked together with communications equipment.</description>
-                     </node>
-                     <node>
                         <name>Output-device</name>
                         <description>Any piece of computer hardware equipment which converts information into human understandable form.</description>
                         <node>
@@ -1163,7 +1183,7 @@
                               <description>A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display.</description>
                            </node>
                            <node>
-                              <name>Screen</name>
+                              <name>Computer-screen</name>
                               <description>An electronic device designed as a display or a physical device designed to be a protective meshwork.</description>
                               <node>
                                  <name>Computer-window</name>
@@ -1188,24 +1208,24 @@
                         <name>Recording-device</name>
                         <description>A device that copies information in a signal into a persistent information bearer.</description>
                         <node>
-                           <name>EEG-recording</name>
-                           <description>A recording of electric currents developed in the brain by means of electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.</description>
+                           <name>EEG-recorder</name>
+                           <description>A device for recording electric currents in the brain using electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.</description>
                         </node>
                         <node>
-                           <name>File-recording</name>
-                           <description>A file is an information-bearing object that contains a physical embodiment of some information using a particular character encoding.</description>
+                           <name>File-storage</name>
+                           <description>A device for recording digital information to a permanent media.</description>
                         </node>
                         <node>
-                           <name>MEG-recording</name>
-                           <description>The measurement of the magnetic fields produced by electrical activity in the brain, usually conducted externally, using extremely sensitive devices.</description>
+                           <name>MEG-recorder</name>
+                           <description>A device for measuring the magnetic fields produced by electrical activity in the brain, usually conducted externally.</description>
                         </node>
                         <node>
                            <name>Motion-capture</name>
-                           <description>A recording of the movement of objects or people.</description>
+                           <description>A device for recording the movement of objects or people.</description>
                         </node>
                         <node>
-                           <name>Tape-recording</name>
-                           <description>A sound recording and reproduction usually using magnetic tape for storage that can be saved and played back.</description>
+                           <name>Tape-recorder</name>
+                           <description>A device for recording and reproduction usually using magnetic tape for storage that can be saved and played back.</description>
                         </node>
                      </node>
                      <node>
@@ -1216,10 +1236,6 @@
                   <node>
                      <name>Machine</name>
                      <description>A human-made device that uses power to apply forces and control movement to perform an action.</description>
-                     <node>
-                        <name>Noisemaker</name>
-                        <description>A device such as a horn or rattle used to make noise at parties.</description>
-                     </node>
                   </node>
                   <node>
                      <name>Measurement-device</name>

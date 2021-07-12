@@ -15,7 +15,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Measurement-event <nowiki>{suggestedTag=Data-property}[A discrete measure returned by an instrument.]</nowiki>
 
 '''Agent''' <nowiki>{suggestedTag=Agent-property}[Someone or something that takes an active role or produces a specified effect.The role or effect may be implicit. Being alive or performing an activity such as a computation may qualify something to be an agent. An agent may also be something that simulates something else.]</nowiki>
-* Animal-agent <nowiki>[An agent living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement, as distinguished from a plant or mineral.]</nowiki>
+* Animal-agent <nowiki>[An agent that is an animal.]</nowiki>
 * Avatar-agent <nowiki>[An agent associated with an icon or avatar representing another agent.]</nowiki>
 * Controller-agent <nowiki>[An agent experiment control software or hardware.]</nowiki> 
 * Human-agent <nowiki>[A person who takes an active role or produces a specified effect.]</nowiki>
@@ -166,7 +166,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Biological-item <nowiki>[An entity that is biological, that is related to living organisms.]</nowiki>
 ** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
 *** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
-**** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
+*** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
 *** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]</nowiki>
 ** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
 *** Body-part <nowiki>[Any part of an organism.]</nowiki>
@@ -217,8 +217,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
 * Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An entity related to a systematic means of communicating by the use of sounds, symbols, or gestures.]</nowiki>
 ** Character <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
+** Clause <nowiki>[A  unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.]</nowiki>
 ** Glyph <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
+** Paragraph <nowiki>[A distinct section of a piece of writing, usually dealing with a single theme.]</nowiki>
 ** Phoneme <nowiki>[A speech sound that is distinguished by the speakers of a particular language.]</nowiki>
 ** Phrase <nowiki>[A phrase is a group of words functioning as a single unit in the syntax of a sentence.]</nowiki>
 ** Sentence <nowiki>[A set of words that is complete in itself, conveying a statement, question, exclamation, or command and typically containing an explicit or implied subject and a predicate containing a finite verb.]</nowiki>
@@ -229,7 +231,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Geometric-object <nowiki>[An object or a representation that has structure and topology in space.]</nowiki>
 *** Pattern <nowiki>[An arrangement of objects, facts, behaviors, or other things which have scientific, mathematical, geometric, statistical, or other meaning.]</nowiki>
 **** Dots <nowiki>[A small round mark or spot.]</nowiki>
-**** Led-pattern <nowiki>[A pattern created by lighting selected members of a fixed light emitting diode array.]</nowiki>
+**** LED-pattern <nowiki>[A pattern created by lighting selected members of a fixed light emitting diode array.]</nowiki>
 *** 2D-shape <nowiki>[A planar, two-dimensional shape.]</nowiki>
 **** Clockface <nowiki>[The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
 **** Cross <nowiki>[A figure or mark formed by two intersecting lines crossing at their midpoints.]</nowiki>
@@ -262,9 +264,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Assistive-device <nowiki>[A device that help an individual accomplish a task.]</nowiki>
 ***** Glasses <nowiki>[Frames with lenses worn in front of the eye for vision correction, eye protection, or protection from UV rays.]</nowiki>
 ***** Writing-device <nowiki>[A device used for writing.]</nowiki>
-****** Pen <nowiki>[A common writing instrument used to apply ink to a surface, usually paper, for writing or drawing.]</nowiki>
-****** Pencil <nowiki>[An implement for writing or drawing, constructed of a narrow, solid pigment core in a protective casing that prevents the core from being broken or marking the hand.]</nowiki>
-**** Computing-device <nowiki>[An electronic device which take inputs, process the inputs and then calculate results from the inputs.]</nowiki>
+****** Pen <nowiki>[A common writing instrument used to apply ink to a surface for writing or drawing.]</nowiki>
+****** Pencil <nowiki>[An implement for writing or drawing that is constructed of a narrow solid pigment core in a protective casing that prevents the core from being broken or marking the hand.]</nowiki>
+**** Computing-device <nowiki>[An electronic device which take inputs and processes results from the inputs.]</nowiki>
+***** Cellphone <nowiki>[A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network.]</nowiki>
+***** Desktop-computer <nowiki>[A computer suitable for use at an ordinary desk.]</nowiki>
+***** Laptop-computer <nowiki>[A computer that is portable and suitable for use while traveling.]</nowiki>
+***** Tablet-computer <nowiki>[A small portable computer that accepts input directly on to its screen rather than via a keyboard or mouse.]</nowiki>
 **** Engine <nowiki>[A motor is a machine designed to convert one or more forms of energy into mechanical energy.]</nowiki>
 **** IO-device <nowiki>[Hardware used by a human (or other system) to communicate with a computer.]</nowiki>
 ***** Input-device <nowiki>[A piece of equipment used to provide data and control signals to an information processing system such as a computer or information appliance.]</nowiki>
@@ -280,25 +286,23 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******** <nowiki># {takesValue}[Value of keypad key.]</nowiki>
 ****** Microphone <nowiki>[A device designed to convert sound to an electrical signal.]</nowiki>
 ****** Push-button <nowiki>[A switch designed to be operated by pressing a button.]</nowiki>
-***** Network-device <nowiki>[A collection of two or more computers and/or associated devices that are linked together with communications equipment.]</nowiki>
 ***** Output-device <nowiki>[Any piece of computer hardware equipment which converts information into human understandable form.]</nowiki>
 ****** Display-device <nowiki>[An output device for presentation of information in visual or tactile form the latter used for example in tactile electronic displays for blind people.]</nowiki>
 ******* Head-mounted-display <nowiki>[An instrument that functions as a display device, worn on the head or as part of a helmet, that has a small display optic in front of one (monocular HMD) or each eye (binocular HMD).]</nowiki>
 ******* LED-display <nowiki>[A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display.]</nowiki>
-******* Screen <nowiki>[An electronic device designed as a display or a physical device designed to be a protective meshwork.]</nowiki>
+******* Computer-screen <nowiki>[An electronic device designed as a display or a physical device designed to be a protective meshwork.]</nowiki>
 ******** Computer-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
 ****** Auditory-device <nowiki>[A device designed to produce sound.]</nowiki>
 ******* Headphones <nowiki>[An instrument that consists of a pair of small loudspeakers, or less commonly a single speaker, held close to ears and connected to a signal source such as an audio amplifier, radio, CD player or portable media player.]</nowiki>
 ******* Speaker-device <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
 ***** Recording-device <nowiki>[A device that copies information in a signal into a persistent information bearer.]</nowiki>
-****** EEG-recording <nowiki>[A recording of electric currents developed in the brain by means of electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.]</nowiki>
-****** File-recording <nowiki>[A file is an information-bearing object that contains a physical embodiment of some information using a particular character encoding.]</nowiki>
-****** MEG-recording <nowiki>[The measurement of the magnetic fields produced by electrical activity in the brain, usually conducted externally, using extremely sensitive devices.]</nowiki>
-****** Motion-capture <nowiki>[A recording of the movement of objects or people.]</nowiki>
-****** Tape-recording <nowiki>[A sound recording and reproduction usually using magnetic tape for storage that can be saved and played back.]</nowiki>
+****** EEG-recorder <nowiki>[A device for recording electric currents in the brain using electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.]</nowiki>
+****** File-storage <nowiki>[A device for recording digital information to a permanent media.]</nowiki>
+****** MEG-recorder <nowiki>[A device for measuring the magnetic fields produced by electrical activity in the brain, usually conducted externally.]</nowiki>
+****** Motion-capture <nowiki>[A device for recording the movement of objects or people.]</nowiki>
+****** Tape-recorder <nowiki>[A device for recording and reproduction usually using magnetic tape for storage that can be saved and played back.]</nowiki>
 ***** Touchscreen <nowiki>[A control component that operates an electronic device by pressing the display on the screen.]</nowiki>
 **** Machine <nowiki>[A human-made device that uses power to apply forces and control movement to perform an action.]</nowiki>
-***** Noisemaker <nowiki>[A device such as a horn or rattle used to make noise at parties.]</nowiki>
 **** Measurement-device <nowiki>[A device in which a measure function inheres.]</nowiki>
 ***** Clock <nowiki>[A device designed to indicate the time of day or to measure the time duration of an event or action.]</nowiki>
 ****** Clock-face <nowiki>[A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
