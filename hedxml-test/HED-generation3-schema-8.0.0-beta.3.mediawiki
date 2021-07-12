@@ -264,10 +264,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Assistive-device <nowiki>[A device that help an individual accomplish a task.]</nowiki>
 ***** Glasses <nowiki>[Frames with lenses worn in front of the eye for vision correction, eye protection, or protection from UV rays.]</nowiki>
 ***** Writing-device <nowiki>[A device used for writing.]</nowiki>
-****** Pen <nowiki>[A common writing instrument used to apply ink to a surface, usually paper, for writing or drawing.]</nowiki>
-****** Pencil <nowiki>[An implement for writing or drawing, constructed of a narrow, solid pigment core in a protective casing that prevents the core from being broken or marking the hand.]</nowiki>
-**** Computing-device <nowiki>[An electronic device which take inputs, process the inputs and then calculate results from the inputs.]</nowiki>
-***** Cellphone <nowiki>[A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network; a mobile phone.]</nowiki>
+****** Pen <nowiki>[A common writing instrument used to apply ink to a surface for writing or drawing.]</nowiki>
+****** Pencil <nowiki>[An implement for writing or drawing that is constructed of a narrow solid pigment core in a protective casing that prevents the core from being broken or marking the hand.]</nowiki>
+**** Computing-device <nowiki>[An electronic device which take inputs and processes results from the inputs.]</nowiki>
+***** Cellphone <nowiki>[A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network.]</nowiki>
 ***** Desktop-computer <nowiki>[A computer suitable for use at an ordinary desk.]</nowiki>
 ***** Laptop-computer <nowiki>[A computer that is portable and suitable for use while traveling.]</nowiki>
 ***** Tablet-computer <nowiki>[A small portable computer that accepts input directly on to its screen rather than via a keyboard or mouse.]</nowiki>

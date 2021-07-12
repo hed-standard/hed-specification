@@ -1075,20 +1075,20 @@
                         <description>A device used for writing.</description>
                         <node>
                            <name>Pen</name>
-                           <description>A common writing instrument used to apply ink to a surface, usually paper, for writing or drawing.</description>
+                           <description>A common writing instrument used to apply ink to a surface for writing or drawing.</description>
                         </node>
                         <node>
                            <name>Pencil</name>
-                           <description>An implement for writing or drawing, constructed of a narrow, solid pigment core in a protective casing that prevents the core from being broken or marking the hand.</description>
+                           <description>An implement for writing or drawing that is constructed of a narrow solid pigment core in a protective casing that prevents the core from being broken or marking the hand.</description>
                         </node>
                      </node>
                   </node>
                   <node>
                      <name>Computing-device</name>
-                     <description>An electronic device which take inputs, process the inputs and then calculate results from the inputs.</description>
+                     <description>An electronic device which take inputs and processes results from the inputs.</description>
                      <node>
                         <name>Cellphone</name>
-                        <description>A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network; a mobile phone.</description>
+                        <description>A telephone with access to a cellular radio system so it can be used over a wide area, without a physical connection to a network.</description>
                      </node>
                      <node>
                         <name>Desktop-computer</name>
