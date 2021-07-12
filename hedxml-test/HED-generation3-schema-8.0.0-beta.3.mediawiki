@@ -286,7 +286,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******** <nowiki># {takesValue}[Value of keypad key.]</nowiki>
 ****** Microphone <nowiki>[A device designed to convert sound to an electrical signal.]</nowiki>
 ****** Push-button <nowiki>[A switch designed to be operated by pressing a button.]</nowiki>
-***** Network-device <nowiki>[A collection of two or more computers and/or associated devices that are linked together with communications equipment.]</nowiki>
 ***** Output-device <nowiki>[Any piece of computer hardware equipment which converts information into human understandable form.]</nowiki>
 ****** Display-device <nowiki>[An output device for presentation of information in visual or tactile form the latter used for example in tactile electronic displays for blind people.]</nowiki>
 ******* Head-mounted-display <nowiki>[An instrument that functions as a display device, worn on the head or as part of a helmet, that has a small display optic in front of one (monocular HMD) or each eye (binocular HMD).]</nowiki>

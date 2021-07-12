@@ -1169,10 +1169,6 @@
                         </node>
                      </node>
                      <node>
-                        <name>Network-device</name>
-                        <description>A collection of two or more computers and/or associated devices that are linked together with communications equipment.</description>
-                     </node>
-                     <node>
                         <name>Output-device</name>
                         <description>Any piece of computer hardware equipment which converts information into human understandable form.</description>
                         <node>
