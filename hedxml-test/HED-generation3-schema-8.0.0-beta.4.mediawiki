@@ -914,25 +914,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Visual-property <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
 **** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
-***** Color-shade <nowiki>[A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.]</nowiki>
-****** Dark-shade <nowiki>[A color tone not reflecting much light.]</nowiki>
-****** Light-shade <nowiki>[A color tone reflecting more light.]</nowiki>
-***** HSV-color <nowiki>[A color representation that models how colors appear under light.]</nowiki>
-****** Hue <nowiki>[Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [Angular value between 0 and 360]</nowiki> 
-****** Saturation <nowiki>[Colorfulness of a stimulus relative to its own brightness.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
-****** HSV-value <nowiki>[AAttribute of a visual sensation according to which an area appears to emit more or less light.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-***** RGB-color <nowiki>[A color from the RGB schema.]</nowiki>
-****** RGB-red <nowiki>[The red component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [R value of RGB between 0 and 1]</nowiki> 
-****** RGB-blue <nowiki>[The blue component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
-****** RGB-green <nowiki>[The green component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki> 
-***** Grayscale <nowiki>[Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.]</nowiki> 
-****** <nowiki># {takesValue, valueClass=numericClass} [White intensity between 0 and 1]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
 ****** Blue-color <nowiki>[CSS color group]</nowiki>
 ******* CadetBlue <nowiki>[CSS-color 0x5F9EA0]</nowiki>
@@ -1086,6 +1067,25 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Linen <nowiki>[CSS-color 0xFAF0E6]</nowiki>
 ******* LavenderBlush <nowiki>[CSS-color 0xFFF0F5]</nowiki>
 ******* MistyRose <nowiki>[CSS-color 0xFFE4E1]</nowiki>
+***** Color-shade <nowiki>[A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.]</nowiki>
+****** Dark-shade <nowiki>[A color tone not reflecting much light.]</nowiki>
+****** Light-shade <nowiki>[A color tone reflecting more light.]</nowiki>
+***** Grayscale <nowiki>[Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.]</nowiki> 
+****** <nowiki># {takesValue, valueClass=numericClass} [White intensity between 0 and 1]</nowiki>
+***** HSV-color <nowiki>[A color representation that models how colors appear under light.]</nowiki>
+****** Hue <nowiki>[Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [Angular value between 0 and 360]</nowiki> 
+****** Saturation <nowiki>[Colorfulness of a stimulus relative to its own brightness.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
+****** HSV-value <nowiki>[AAttribute of a visual sensation according to which an area appears to emit more or less light.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
+***** RGB-color <nowiki>[A color from the RGB schema.]</nowiki>
+****** RGB-red <nowiki>[The red component.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [R value of RGB between 0 and 1]</nowiki> 
+****** RGB-blue <nowiki>[The blue component.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
+****** RGB-green <nowiki>[The green component.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki> 
 **** View <nowiki>[A specific visual representation of data, situations, topics, etc.]</nowiki>
 ***** 2D-view <nowiki>[A view showing only two dimensions.]</nowiki>
 ***** 3D-view <nowiki>[A view showing three dimensions.]</nowiki>
