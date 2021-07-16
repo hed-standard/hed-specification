@@ -337,7 +337,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** Photograph <nowiki>[An image recorded by a camera.]</nowiki>
 ***** Movie <nowiki>[A sequence of images displayed in succession giving the illusion of continuous movement.]</nowiki>
 ***** Outline-visualization <nowiki>[A visualization consisting of a line or set of lines enclosing or indicating the shape of an object in a sketch or diagram.]</nowiki>
-***** Point-light-visualization <nowiki>[]</nowiki>
+***** Point-light-visualization <nowiki>[A display in which action is depicted using a few points of light, often generated from discrete sensors in motion capture.]</nowiki>
 ***** Sculpture <nowiki>[A two- or three-dimensional representative or abstract forms, especially by carving stone or wood or by casting metal or plaster.]</nowiki>
 ***** Stick-figure-visualization <nowiki>[A drawing showing the head of a human being or animal as a circle and all other parts as straight lines.]</nowiki>
 *** Navigational-object <nowiki>[An object whose purpose is to assist directed movement from one location to another.]</nowiki>

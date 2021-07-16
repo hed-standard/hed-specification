@@ -1374,6 +1374,7 @@
                      </node>
                      <node>
                         <name>Point-light-visualization</name>
+                        <description>A display in which action is depicted using a few points of light, often generated from discrete sensors in motion capture.</description>
                      </node>
                      <node>
                         <name>Sculpture</name>
