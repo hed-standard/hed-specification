@@ -4455,130 +4455,6 @@
                      <name>Color</name>
                      <description>The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.</description>
                      <node>
-                        <name>Color-shade</name>
-                        <description>A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.</description>
-                        <node>
-                           <name>Dark-shade</name>
-                           <description>A color tone not reflecting much light.</description>
-                        </node>
-                        <node>
-                           <name>Light-shade</name>
-                           <description>A color tone reflecting more light.</description>
-                        </node>
-                     </node>
-                     <node>
-                        <name>HSV-color</name>
-                        <description>A color representation that models how colors appear under light.</description>
-                        <node>
-                           <name>Hue</name>
-                           <description>Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.</description>
-                           <node>
-                              <name>#</name>
-                              <description>Angular value between 0 and 360</description>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                        <node>
-                           <name>Saturation</name>
-                           <description>Colorfulness of a stimulus relative to its own brightness.</description>
-                           <node>
-                              <name>#</name>
-                              <description>B value of RGB between 0 and 1</description>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                        <node>
-                           <name>HSV-value</name>
-                           <description>AAttribute of a visual sensation according to which an area appears to emit more or less light.</description>
-                           <node>
-                              <name>#</name>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                     </node>
-                     <node>
-                        <name>RGB-color</name>
-                        <description>A color from the RGB schema.</description>
-                        <node>
-                           <name>RGB-red</name>
-                           <description>The red component.</description>
-                           <node>
-                              <name>#</name>
-                              <description>R value of RGB between 0 and 1</description>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                        <node>
-                           <name>RGB-blue</name>
-                           <description>The blue component.</description>
-                           <node>
-                              <name>#</name>
-                              <description>B value of RGB between 0 and 1</description>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                        <node>
-                           <name>RGB-green</name>
-                           <description>The green component.</description>
-                           <node>
-                              <name>#</name>
-                              <description>G value of RGB between 0 and 1</description>
-                              <attribute>
-                                 <name>takesValue</name>
-                              </attribute>
-                              <attribute>
-                                 <name>valueClass</name>
-                                 <value>numericClass</value>
-                              </attribute>
-                           </node>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Grayscale</name>
-                        <description>Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.</description>
-                        <node>
-                           <name>#</name>
-                           <description>White intensity between 0 and 1</description>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
                         <name>CSS-color</name>
                         <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
                         <node>
@@ -5187,6 +5063,130 @@
                            <node>
                               <name>MistyRose</name>
                               <description>CSS-color 0xFFE4E1</description>
+                           </node>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Color-shade</name>
+                        <description>A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.</description>
+                        <node>
+                           <name>Dark-shade</name>
+                           <description>A color tone not reflecting much light.</description>
+                        </node>
+                        <node>
+                           <name>Light-shade</name>
+                           <description>A color tone reflecting more light.</description>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Grayscale</name>
+                        <description>Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.</description>
+                        <node>
+                           <name>#</name>
+                           <description>White intensity between 0 and 1</description>
+                           <attribute>
+                              <name>takesValue</name>
+                           </attribute>
+                           <attribute>
+                              <name>valueClass</name>
+                              <value>numericClass</value>
+                           </attribute>
+                        </node>
+                     </node>
+                     <node>
+                        <name>HSV-color</name>
+                        <description>A color representation that models how colors appear under light.</description>
+                        <node>
+                           <name>Hue</name>
+                           <description>Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.</description>
+                           <node>
+                              <name>#</name>
+                              <description>Angular value between 0 and 360</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Saturation</name>
+                           <description>Colorfulness of a stimulus relative to its own brightness.</description>
+                           <node>
+                              <name>#</name>
+                              <description>B value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                        <node>
+                           <name>HSV-value</name>
+                           <description>AAttribute of a visual sensation according to which an area appears to emit more or less light.</description>
+                           <node>
+                              <name>#</name>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                     </node>
+                     <node>
+                        <name>RGB-color</name>
+                        <description>A color from the RGB schema.</description>
+                        <node>
+                           <name>RGB-red</name>
+                           <description>The red component.</description>
+                           <node>
+                              <name>#</name>
+                              <description>R value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                        <node>
+                           <name>RGB-blue</name>
+                           <description>The blue component.</description>
+                           <node>
+                              <name>#</name>
+                              <description>B value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                        <node>
+                           <name>RGB-green</name>
+                           <description>The green component.</description>
+                           <node>
+                              <name>#</name>
+                              <description>G value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
                            </node>
                         </node>
                      </node>
