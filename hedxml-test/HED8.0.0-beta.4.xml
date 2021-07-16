@@ -1317,6 +1317,10 @@
                         <description>A short segment of audio.</description>
                      </node>
                      <node>
+                        <name>Audiovisual-clip</name>
+                        <description>A short media segment containing both audio and video.</description>
+                     </node>
+                     <node>
                         <name>Video-clip</name>
                         <description>A short segment of video.</description>
                      </node>
@@ -1334,9 +1338,7 @@
                      </node>
                      <node>
                         <name>Braille</name>
-                     </node>
-                     <node>
-                        <name>Cutout</name>
+                        <description>A display using a system of raised dots that can be read with the fingers by people who are blind.</description>
                      </node>
                      <node>
                         <name>Image</name>

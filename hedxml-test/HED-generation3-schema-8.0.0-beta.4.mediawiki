@@ -323,12 +323,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Media <nowiki>[Media are audo/visual/audiovisual modes of communicating information for mass consumption.]</nowiki>
 **** Media-clip <nowiki>[A short segment of media.]</nowiki>
 ***** Audio-clip <nowiki>[A short segment of audio.]</nowiki>
+***** Audiovisual-clip <nowiki>[A short media segment containing both audio and video.]</nowiki>
 ***** Video-clip <nowiki>[A short segment of video.]</nowiki>
 **** Visualization <nowiki>[An planned process that creates images, diagrams or animations from the input data.]</nowiki>
 ***** Animation <nowiki>[A form of graphical illustration that changes with time to give a sense of motion or represent dynamic changes in the portrayal.]</nowiki>
 ***** Art-installation <nowiki>[A large-scale, mixed-media constructions, often designed for a specific place or for a temporary period of time.]</nowiki>
-***** Braille <nowiki>[]</nowiki>
-***** Cutout <nowiki>[]</nowiki>
+***** Braille <nowiki>[A display using a system of raised dots that can be read with the fingers by people who are blind.]</nowiki>
 ***** Image <nowiki>[Any record of an imaging event whether physical or electronic.]</nowiki>
 ****** Cartoon <nowiki>[A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either: an image or series of images intended for satire, caricature, or humor; or a motion picture that relies on a sequence of illustrations for its animation.]</nowiki>
 ****** Drawing <nowiki>[A representation of an object or outlining a figure, plan, or sketch by means of lines.]</nowiki>
