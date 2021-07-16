@@ -887,7 +887,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Somatic-modality <nowiki>[Using the feelings in the body or of the nervous system.]</nowiki>
 *** Tactile-modality <nowiki>[Using the sense of touch.]</nowiki>
 *** Vestibular-modality <nowiki>[Using the sense of balance or body position.]</nowiki>
-*** Tactile-modality <nowiki>[Using the sense of touch.]</nowiki>
 *** Visual-modality <nowiki>[Using the sense of sight.]</nowiki>
 ** Sensory-property <nowiki>[A property related to something sensed or perceived.]</nowiki>
 *** Auditory-property <nowiki>[Using the sense of hearing.]</nowiki>
