@@ -370,7 +370,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Tone <nowiki>[A musical note, warble, or other sound used as a particular signal on a telephone or answering machine.]</nowiki>
 *** Instrument-sound <nowiki>[Sound produced by a musical instrument.]</nowiki>
 *** Vocalized-sound <nowiki>[Musical sound produced by vocal cords in a biological agent.]</nowiki>
-** Named-animal-sound <nowiki>[]</nowiki>
+** Named-animal-sound <nowiki>[A sound recognizable as being associated with particular animals.]</nowiki>
 *** Barking <nowiki>[Sharp explosive cries like sounds made by certain animals, especially a dog, fox, or seal.]</nowiki>
 *** Bleating <nowiki>[Wavering cries like sounds made by a sheep, goat, or calf. ]</nowiki>
 *** Crowing <nowiki>[Loud shrill sounds characteristic of roosters.]</nowiki>
