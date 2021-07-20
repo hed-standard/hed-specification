@@ -310,158 +310,6 @@
             </node>
          </node>
          <node>
-            <name>Perceive</name>
-            <description>Produce an internal, conscious image through stimulating a sensory system.</description>
-            <node>
-               <name>Hear</name>
-               <description>Give attention to a sound.</description>
-            </node>
-            <node>
-               <name>See</name>
-               <description>Direct gaze toward someone or something or in a specified direction.</description>
-            </node>
-            <node>
-               <name>Smell</name>
-               <description>Inhale in order to ascertain an odor or scent.</description>
-            </node>
-            <node>
-               <name>Taste</name>
-               <description>Sense a flavor in the mouth and throat on contact with a substance.</description>
-            </node>
-            <node>
-               <name>Sense-by-touch</name>
-               <description>Sense something through receptors in the skin.</description>
-            </node>
-         </node>
-         <node>
-            <name>Perform</name>
-            <description>Carry out or accomplish an action, task, or function.</description>
-            <node>
-               <name>Collide-with</name>
-               <description>Hit with force when moving.</description>
-            </node>
-            <node>
-               <name>Halt</name>
-               <description>Bring or come to an abrupt stop.</description>
-            </node>
-            <node>
-               <name>Modify</name>
-               <description>Change something.</description>
-            </node>
-            <node>
-               <name>Operate</name>
-               <description>Control the functioning of a machine, process, or system.</description>
-            </node>
-            <node>
-               <name>Play</name>
-               <description>Engage in activity for enjoyment and recreation rather than a serious or practical purpose.</description>
-            </node>
-            <node>
-               <name>Read</name>
-               <description>Interpret something that is written or printed.</description>
-            </node>
-            <node>
-               <name>Repeat</name>
-               <description>Make do or perform again.</description>
-            </node>
-            <node>
-               <name>Rest</name>
-               <description>Be inactive in order to regain strength, health, or energy.</description>
-            </node>
-            <node>
-               <name>Write</name>
-               <description>Communicate or express by means of letters or symbols written or imprinted on a surface.</description>
-            </node>
-         </node>
-         <node>
-            <name>Think</name>
-            <description>Direct the mind toward someone or something or use the mind actively to form connected ideas.</description>
-            <node>
-               <name>Allow</name>
-               <description>Allow access to something such as allowing a car to pass.</description>
-            </node>
-            <node>
-               <name>Attend-to</name>
-               <description>Focus mental experience on specific targets.</description>
-            </node>
-            <node>
-               <name>Count</name>
-               <description>Tally items either silently or aloud.</description>
-            </node>
-            <node>
-               <name>Deny</name>
-               <description>Refuse to give or grant something requested or desired by someone.</description>
-            </node>
-            <node>
-               <name>Detect</name>
-               <description>Discover or identify the presence or existence of something.</description>
-            </node>
-            <node>
-               <name>Discriminate</name>
-               <description>Recognize a distinction.</description>
-            </node>
-            <node>
-               <name>Encode</name>
-               <description>Convert information or an instruction into a particular form.</description>
-            </node>
-            <node>
-               <name>Evade</name>
-               <description>Escape or avoid, especially by cleverness or trickery.</description>
-            </node>
-            <node>
-               <name>Generate</name>
-               <description>Cause something, especially an emotion or situation to arise or come about.</description>
-            </node>
-            <node>
-               <name>Identify</name>
-               <description>Establish or indicate who or what someone or something is.</description>
-            </node>
-            <node>
-               <name>Imagine</name>
-               <description>Form a mental image or concept of something.</description>
-            </node>
-            <node>
-               <name>Judge</name>
-               <description>Evaluate evidence to make a decision or form a belief.</description>
-            </node>
-            <node>
-               <name>Learn</name>
-               <description>Adaptively change behavior as the result of experience.</description>
-            </node>
-            <node>
-               <name>Memorize</name>
-               <description>Adaptively change behavior as the result of experience.</description>
-            </node>
-            <node>
-               <name>Plan</name>
-               <description>Think about the activities required to achieve a desired goal.</description>
-            </node>
-            <node>
-               <name>Predict</name>
-               <description>Say or estimate that something will happen or will be a consequence of something without having exact informaton.</description>
-            </node>
-            <node>
-               <name>Recognize</name>
-               <description>Identify someone or something from having encountered them before.</description>
-            </node>
-            <node>
-               <name>Respond</name>
-               <description>React to something such as a treatment or a stimulus.</description>
-            </node>
-            <node>
-               <name>Recall</name>
-               <description>Remember information by mental effort.</description>
-            </node>
-            <node>
-               <name>Switch-attention</name>
-               <description>Transfer attention from one focus to another.</description>
-            </node>
-            <node>
-               <name>Track</name>
-               <description>Follow a person, animal, or object through space or time.</description>
-            </node>
-         </node>
-         <node>
             <name>Move</name>
             <description>Move in a specified direction or manner; change position or posture.</description>
             <node>
@@ -735,6 +583,158 @@
                      <description>Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.</description>
                   </node>
                </node>
+            </node>
+         </node>
+         <node>
+            <name>Perceive</name>
+            <description>Produce an internal, conscious image through stimulating a sensory system.</description>
+            <node>
+               <name>Hear</name>
+               <description>Give attention to a sound.</description>
+            </node>
+            <node>
+               <name>See</name>
+               <description>Direct gaze toward someone or something or in a specified direction.</description>
+            </node>
+            <node>
+               <name>Smell</name>
+               <description>Inhale in order to ascertain an odor or scent.</description>
+            </node>
+            <node>
+               <name>Taste</name>
+               <description>Sense a flavor in the mouth and throat on contact with a substance.</description>
+            </node>
+            <node>
+               <name>Sense-by-touch</name>
+               <description>Sense something through receptors in the skin.</description>
+            </node>
+         </node>
+         <node>
+            <name>Perform</name>
+            <description>Carry out or accomplish an action, task, or function.</description>
+            <node>
+               <name>Collide-with</name>
+               <description>Hit with force when moving.</description>
+            </node>
+            <node>
+               <name>Halt</name>
+               <description>Bring or come to an abrupt stop.</description>
+            </node>
+            <node>
+               <name>Modify</name>
+               <description>Change something.</description>
+            </node>
+            <node>
+               <name>Operate</name>
+               <description>Control the functioning of a machine, process, or system.</description>
+            </node>
+            <node>
+               <name>Play</name>
+               <description>Engage in activity for enjoyment and recreation rather than a serious or practical purpose.</description>
+            </node>
+            <node>
+               <name>Read</name>
+               <description>Interpret something that is written or printed.</description>
+            </node>
+            <node>
+               <name>Repeat</name>
+               <description>Make do or perform again.</description>
+            </node>
+            <node>
+               <name>Rest</name>
+               <description>Be inactive in order to regain strength, health, or energy.</description>
+            </node>
+            <node>
+               <name>Write</name>
+               <description>Communicate or express by means of letters or symbols written or imprinted on a surface.</description>
+            </node>
+         </node>
+         <node>
+            <name>Think</name>
+            <description>Direct the mind toward someone or something or use the mind actively to form connected ideas.</description>
+            <node>
+               <name>Allow</name>
+               <description>Allow access to something such as allowing a car to pass.</description>
+            </node>
+            <node>
+               <name>Attend-to</name>
+               <description>Focus mental experience on specific targets.</description>
+            </node>
+            <node>
+               <name>Count</name>
+               <description>Tally items either silently or aloud.</description>
+            </node>
+            <node>
+               <name>Deny</name>
+               <description>Refuse to give or grant something requested or desired by someone.</description>
+            </node>
+            <node>
+               <name>Detect</name>
+               <description>Discover or identify the presence or existence of something.</description>
+            </node>
+            <node>
+               <name>Discriminate</name>
+               <description>Recognize a distinction.</description>
+            </node>
+            <node>
+               <name>Encode</name>
+               <description>Convert information or an instruction into a particular form.</description>
+            </node>
+            <node>
+               <name>Evade</name>
+               <description>Escape or avoid, especially by cleverness or trickery.</description>
+            </node>
+            <node>
+               <name>Generate</name>
+               <description>Cause something, especially an emotion or situation to arise or come about.</description>
+            </node>
+            <node>
+               <name>Identify</name>
+               <description>Establish or indicate who or what someone or something is.</description>
+            </node>
+            <node>
+               <name>Imagine</name>
+               <description>Form a mental image or concept of something.</description>
+            </node>
+            <node>
+               <name>Judge</name>
+               <description>Evaluate evidence to make a decision or form a belief.</description>
+            </node>
+            <node>
+               <name>Learn</name>
+               <description>Adaptively change behavior as the result of experience.</description>
+            </node>
+            <node>
+               <name>Memorize</name>
+               <description>Adaptively change behavior as the result of experience.</description>
+            </node>
+            <node>
+               <name>Plan</name>
+               <description>Think about the activities required to achieve a desired goal.</description>
+            </node>
+            <node>
+               <name>Predict</name>
+               <description>Say or estimate that something will happen or will be a consequence of something without having exact informaton.</description>
+            </node>
+            <node>
+               <name>Recognize</name>
+               <description>Identify someone or something from having encountered them before.</description>
+            </node>
+            <node>
+               <name>Respond</name>
+               <description>React to something such as a treatment or a stimulus.</description>
+            </node>
+            <node>
+               <name>Recall</name>
+               <description>Remember information by mental effort.</description>
+            </node>
+            <node>
+               <name>Switch-attention</name>
+               <description>Transfer attention from one focus to another.</description>
+            </node>
+            <node>
+               <name>Track</name>
+               <description>Follow a person, animal, or object through space or time.</description>
             </node>
          </node>
       </node>
