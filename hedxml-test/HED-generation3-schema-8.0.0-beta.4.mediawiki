@@ -69,10 +69,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 **** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
 **** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
-*** Move-upper-extremity <nowiki>[Move some part of arm, shoulder and or arm.]</nowiki>
+*** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
 **** Clap-hands <nowiki>[Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.]</nowiki>
 **** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
-**** Grab <nowiki>[Seize suddenly or quickly; snatch; clutch.]</nowiki>
+**** Grab <nowiki>[Seize suddenly or quickly. Snatch or clutch.]</nowiki>
 **** Grasp <nowiki>[Seize and hold firmly.]</nowiki>
 **** Hold-down <nowiki>[Prevent someone or something from moving by holding them firmly.]</nowiki>
 **** Lift <nowiki>[Raising something to higher position.]</nowiki>
@@ -86,7 +86,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
 **** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
 **** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
-*** Move-lower-extremity <nowiki>[Move some part of leg or foot.]</nowiki>
+*** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
 **** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
 **** Hop <nowiki>[Jump on one foot.]</nowiki>
 **** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
@@ -124,6 +124,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Shout <nowiki>[Say something very loudly.]</nowiki>
 *** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
+*** Whisper <nowiki>[Speak very softly using breath without vocal cords.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>
 ** Collide-with <nowiki>[Hit with force when moving.]</nowiki>
 ** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
@@ -150,10 +151,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Learn <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
 ** Memorize <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
 ** Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
-*** Listen <nowiki>[Give attention to a sound.]</nowiki>
-*** Look <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
+*** Hear <nowiki>[Give attention to a sound.]</nowiki>
+*** See <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
 *** Smell <nowiki>[Inhale in order to ascertain an odor or scent.]</nowiki>
-*** Taste <nowiki>[Sense of flavor perceived in the mouth and throat on contact with a substance.]</nowiki>
+*** Taste <nowiki>[Sense a flavor in the mouth and throat on contact with a substance.]</nowiki>
+*** Sense-by-touch <nowiki>[Sense something through receptors in the skin.]</nowiki>
 ** Plan <nowiki>[Think about the activities required to achieve a desired goal. ]</nowiki>
 ** Predict <nowiki>[Say or estimate that something will happen or will be a consequence of something without having exact informaton.]</nowiki>
 ** Recognize <nowiki>[Identify someone or something from having encountered them before.]</nowiki>
@@ -183,7 +185,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** Nose <nowiki>[A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.]</nowiki>
 ****** Mouth <nowiki>[The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.]</nowiki>
 ****** Teeth <nowiki>[The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.]</nowiki>
-**** Upper-extremity <nowiki>[For clinical purposes this term is also used to refer to the whole superior limb.]</nowiki>
+**** Upper-extremity <nowiki>[Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).]</nowiki>
 ***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
 ***** Forearm <nowiki>[Lower part of the arm between the elbow and wrist.]</nowiki>
 ***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
@@ -198,7 +200,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
 ***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
 ***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
-**** Lower-extremity <nowiki>[For clinical purposes this term is also used to refer to the whole inferior limb.]</nowiki>
+**** Lower-extremity <nowiki>[Refers to the whole inferior limb (leg and/or foot).]</nowiki>
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
 ***** Calf <nowiki>[The fleshy part at the back of the leg below the knee.]</nowiki>
 ***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
@@ -639,7 +641,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
 * Task-stimulus-role <nowiki>[The role the stimulus plays in the task.]</nowiki>
 ** Cue <nowiki>[A signal for an action, a pattern of stimuli indicating a particular response.]</nowiki>
-** Distractor <nowiki>[A person or thing that distracts or a plausible but incorrect option in a multiple-choice question.]</nowiki>
+** Distractor <nowiki>[A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In pyschological studies this is sometimes referred to as a foil.]</nowiki>
 ** Expected <nowiki>{relatedTag=Unexpected, suggestedTag=Target}[Considered likely, probable or anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.]</nowiki>
 ** Extraneous <nowiki>[Irrelevant or unrelated to the subject being dealt with.]</nowiki>
 ** Feedback <nowiki>[An evaluative response to an inquiry, process, event, or activity.]</nowiki>
@@ -721,7 +723,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Motion-platform <nowiki>[A mechanism that creates the feelings of being in a real motion environment.]</nowiki>
 ** Urban <nowiki>[Relating to, located in, or characteristic of a city or densely populated area.]</nowiki>
 ** Rural <nowiki>[Of or pertaining to the country as opposed to the city.]</nowiki>
-*** Wooden-walkway <nowiki>[A path made out of wood.]</nowiki>
 ** Terrain <nowiki>[Characterization of the physical features of a tract of land.]</nowiki>
 *** Composite-terrain <nowiki>[Tracts of land characterized by a mixure of physical features.]</nowiki>
 *** Dirt-terrain <nowiki>[Tracts of land characterized by a soil surface and lack of vegetation.]</nowiki>
@@ -881,13 +882,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Hotter-than <nowiki>[(A (Hotter-than B)) means A has more heat energy than the object against which it is compared; the absence of heat.]</nowiki>
 * Sensory <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
 ** Sensory-modality <nowiki>[Indication of which senses are affected by or used to perceive something.]</nowiki>
-*** Auditory-modality <nowiki>[Using the sense of hearing.]</nowiki>
-*** Gustatory-modality <nowiki>[Using the sense of taste.]</nowiki>
-*** Olfactory-modality <nowiki>[Using the sense of smell.]</nowiki>
-*** Somatic-modality <nowiki>[Using the feelings in the body or of the nervous system.]</nowiki>
-*** Tactile-modality <nowiki>[Using the sense of touch.]</nowiki>
-*** Vestibular-modality <nowiki>[Using the sense of balance or body position.]</nowiki>
-*** Visual-modality <nowiki>[Using the sense of sight.]</nowiki>
+*** Auditory <nowiki>[Using the sense of hearing.]</nowiki>
+*** Gustatory <nowiki>[Using the sense of taste.]</nowiki>
+*** Olfactory <nowiki>[Using the sense of smell.]</nowiki>
+*** Somatic <nowiki>[Using the feelings in the body or of the nervous system.]</nowiki>
+*** Tactile <nowiki>[Using the sense of touch.]</nowiki>
+*** Vestibular <nowiki>[Using the sense of balance or body position.]</nowiki>
+*** Visual <nowiki>[Using the sense of sight.]</nowiki>
 ** Sensory-property <nowiki>[A property related to something sensed or perceived.]</nowiki>
 *** Auditory-property <nowiki>[Using the sense of hearing.]</nowiki>
 **** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>

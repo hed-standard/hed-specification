@@ -25,7 +25,7 @@ markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-spec
 ## Viewing and using HED schema
 The current generation of HED infrastructure is referred to as HED-3G 
 (HED third generation). HED-3G schema is under beta release (HED8.0.0-beta.1), and the
-<b>official release of HED-3G schema (HED8.0.0) is planned for July 19.</b> Users are
+<b>official release of HED-3G schema (HED8.0.0) is planned for July 27.</b> Users are
 strongly recommended to use the latest version of the HED schema in doing their annotations.
 
 The pre-release  of HED8.0.0 is available in the hedxml-test directory
