@@ -748,22 +748,6 @@
             <name>Biological-item</name>
             <description>An entity that is biological, that is related to living organisms.</description>
             <node>
-               <name>Organism</name>
-               <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
-               <node>
-                  <name>Animal</name>
-                  <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
-               </node>
-               <node>
-                  <name>Human</name>
-                  <description>The bipedal primate mammal Homo sapiens.</description>
-               </node>
-               <node>
-                  <name>Plant</name>
-                  <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
-               </node>
-            </node>
-            <node>
                <name>Anatomical-item</name>
                <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
                <node>
@@ -819,66 +803,6 @@
                            <name>Teeth</name>
                            <description>The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.</description>
                         </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Upper-extremity</name>
-                     <description>Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).</description>
-                     <node>
-                        <name>Elbow</name>
-                        <description>A type of hinge joint located between the forearm and upper arm.</description>
-                     </node>
-                     <node>
-                        <name>Forearm</name>
-                        <description>Lower part of the arm between the elbow and wrist.</description>
-                     </node>
-                     <node>
-                        <name>Hand</name>
-                        <description>The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.</description>
-                        <node>
-                           <name>Finger</name>
-                           <description>Any of the digits of the hand.</description>
-                           <node>
-                              <name>Index-finger</name>
-                              <description>The second finger from the radial side of the hand, next to the thumb.</description>
-                           </node>
-                           <node>
-                              <name>Little-finger</name>
-                              <description>The fifth and smallest finger from the radial side of the hand.</description>
-                           </node>
-                           <node>
-                              <name>Middle-finger</name>
-                              <description>The middle or third finger from the radial side of the hand.</description>
-                           </node>
-                           <node>
-                              <name>Ring-finger</name>
-                              <description>The fourth finger from the radial side of the hand.</description>
-                           </node>
-                           <node>
-                              <name>Thumb</name>
-                              <description>The thick and short hand digit which is next to the index finger in humans.</description>
-                           </node>
-                        </node>
-                        <node>
-                           <name>Hand-palm</name>
-                           <description>The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.</description>
-                        </node>
-                        <node>
-                           <name>Knuckles</name>
-                           <description>A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.</description>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Shoulder</name>
-                        <description>Joint attaching upper arm to trunk.</description>
-                     </node>
-                     <node>
-                        <name>Upper-arm</name>
-                        <description>Portion of arm between shoulder and elbow.</description>
-                     </node>
-                     <node>
-                        <name>Wrist</name>
-                        <description>A joint between the distal end of the radius and the proximal row of carpal bones.</description>
                      </node>
                   </node>
                   <node>
@@ -941,6 +865,66 @@
                         <description>The abdominal circumference at the navel.</description>
                      </node>
                   </node>
+                  <node>
+                     <name>Upper-extremity</name>
+                     <description>Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).</description>
+                     <node>
+                        <name>Elbow</name>
+                        <description>A type of hinge joint located between the forearm and upper arm.</description>
+                     </node>
+                     <node>
+                        <name>Forearm</name>
+                        <description>Lower part of the arm between the elbow and wrist.</description>
+                     </node>
+                     <node>
+                        <name>Hand</name>
+                        <description>The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.</description>
+                        <node>
+                           <name>Finger</name>
+                           <description>Any of the digits of the hand.</description>
+                           <node>
+                              <name>Index-finger</name>
+                              <description>The second finger from the radial side of the hand, next to the thumb.</description>
+                           </node>
+                           <node>
+                              <name>Little-finger</name>
+                              <description>The fifth and smallest finger from the radial side of the hand.</description>
+                           </node>
+                           <node>
+                              <name>Middle-finger</name>
+                              <description>The middle or third finger from the radial side of the hand.</description>
+                           </node>
+                           <node>
+                              <name>Ring-finger</name>
+                              <description>The fourth finger from the radial side of the hand.</description>
+                           </node>
+                           <node>
+                              <name>Thumb</name>
+                              <description>The thick and short hand digit which is next to the index finger in humans.</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Hand-palm</name>
+                           <description>The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.</description>
+                        </node>
+                        <node>
+                           <name>Knuckles</name>
+                           <description>A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.</description>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Shoulder</name>
+                        <description>Joint attaching upper arm to trunk.</description>
+                     </node>
+                     <node>
+                        <name>Upper-arm</name>
+                        <description>Portion of arm between shoulder and elbow.</description>
+                     </node>
+                     <node>
+                        <name>Wrist</name>
+                        <description>A joint between the distal end of the radius and the proximal row of carpal bones.</description>
+                     </node>
+                  </node>
                </node>
                <node>
                   <name>Organ</name>
@@ -949,6 +933,22 @@
                <node>
                   <name>Tissue</name>
                   <description>An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</description>
+               </node>
+            </node>
+            <node>
+               <name>Organism</name>
+               <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
+               <node>
+                  <name>Animal</name>
+                  <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
+               </node>
+               <node>
+                  <name>Human</name>
+                  <description>The bipedal primate mammal Homo sapiens.</description>
+               </node>
+               <node>
+                  <name>Plant</name>
+                  <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
                </node>
             </node>
          </node>
