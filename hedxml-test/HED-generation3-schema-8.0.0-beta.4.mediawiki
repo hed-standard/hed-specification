@@ -22,93 +22,26 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Robotic-agent <nowiki>[An agent mechanical device capable of performing a variety of often complex tasks on command or by being programmed in advance.]</nowiki>
 * Software-agent <nowiki>[An agent computer program.]</nowiki>
 
-'''Action''' <nowiki>{extensionAllowed}[Do something.]</nowiki> 
-* Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
-** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
-*** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
-*** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
-*** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
-*** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
-*** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
-*** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
-*** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
-** Move-body <nowiki>[Move entire body.]</nowiki>
-*** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
-*** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
-*** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
-*** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
-*** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
-***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
-*** Stretch <nowiki>[Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.]</nowiki> 
-*** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
-*** Stumble <nowiki>[Trip or momentarily lose balance and almost fall.]</nowiki>
-*** Turn <nowiki>[Change or cause to change direction.]</nowiki>
-** Move-body-part <nowiki>[Move one part of a body.]</nowiki>
-*** Move-head <nowiki>[Move head.]</nowiki>
-**** Move-eyes <nowiki>[Move eyes.]</nowiki>
-***** Blink <nowiki>[Shut and open the eyes quickly.]</nowiki>
-***** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
-***** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
-***** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
-***** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
-***** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
-***** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
-***** Wink <nowiki>{suggestedTag=Communicate-gesturally}[Close and open one eye quickly, typically to indicate that something is a joke or a secret or as a signal of affection or greeting.]</nowiki>
-**** Move-face <nowiki>[Move the face or jaw.]</nowiki>
-***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
-***** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
-***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
-***** Clear-throat <nowiki>[Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward.]</nowiki>
-***** Frown <nowiki>{suggested-Tag=Communicate-gesturally}[Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.]</nowiki>
-***** Grimace <nowiki>{suggested-Tag=Communicate-gesturally}[Make a twisted expression, typically expressing disgust, pain, or wry amusement.]</nowiki>
-***** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
-***** Raise-eyebrows <nowiki>[Move eyebrows upward.]</nowiki>
-***** Smile <nowiki>{suggested-Tag=Communicate-gesturally}[Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.]</nowiki>
-***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
-***** Widen-eyes <nowiki>[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
-***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
-*** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
-**** Clap-hands <nowiki>[Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.]</nowiki>
-**** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
-**** Grab <nowiki>[Seize suddenly or quickly. Snatch or clutch.]</nowiki>
-**** Grasp <nowiki>[Seize and hold firmly.]</nowiki>
-**** Hold-down <nowiki>[Prevent someone or something from moving by holding them firmly.]</nowiki>
-**** Lift <nowiki>[Raising something to higher position.]</nowiki>
-**** Make-fist <nowiki>[Close hand tightly with the fingers bent against the palm.]</nowiki>
-**** Point  <nowiki>[Draw attention to something by extending a finger or arm.]</nowiki> 
-**** Press <nowiki>{relatedTag=Push}[Apply pressure to something to flatten, shape, smooth or depress it. This action tag should be used to indicate key presses and mouse clicks.]</nowiki>
-**** Push <nowiki>{relatedTag=Press}[Apply force in order to move something away. Use Press to indicate a key press or mouse click.]</nowiki>
-**** Reach <nowiki>[Stretch out your arm in order to get or touch something.]</nowiki> 
-**** Release <nowiki>[Make available; set free.]</nowiki>
-**** Retract <nowiki>[Draw or pull back.]</nowiki>
-**** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
-**** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
-**** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
-*** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
-**** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
-**** Hop <nowiki>[Jump on one foot.]</nowiki>
-**** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
-**** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
-**** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
-**** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
-**** Press-foot <nowiki>[Move by pressing foot.]</nowiki>
-**** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
-**** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
-***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
-***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
-**** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
-**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
+'''Action''' <nowiki>{extensionAllowed}[Do something.]</nowiki>
 * Communicate <nowiki>[Convey knowledge of or information about something.]</nowiki>
-** Communicate-gesturally <nowiki>[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
-*** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
-***	Pump-fist <nowiki>[Raise with fist clenched in triumph or affirmation.]</nowiki>
-*** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
-***	Shhh <nowiki>[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
-***	Shrug <nowiki>[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
-***	Spread-hands <nowiki>[Spread hands apart to indicate ignorance.]</nowiki>
-*** Thumbs-down <nowiki>[Extend the thumb downward to indicate disapproval.]</nowiki> 
-***	Thumb-up <nowiki>[Extend the thumb upward to indicate approval.]</nowiki>
-***	Wave <nowiki>[Raise hand and move left and right, as a greeting or sign of departure.]</nowiki>
+** Communicate-gesturally <nowiki>{relatedTag=Move-face, relatedTag=Move-upper-extremity}[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
+*** Clap-hands <nowiki>[Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.]</nowiki>
+*** Clear-throat <nowiki>{relatedTag=Move-face, relatedTag=Move-head}[Cough slightly so as to speak more clearly, attract attention, or to express hesitancy before saying something awkward.]</nowiki>
+*** Frown <nowiki>{relatedTag=Move-face}[Express disapproval, displeasure, or concentration, typically by turning down the corners of the mouth.]</nowiki>
+*** Grimace <nowiki>{relatedTag=Move-face}[Make a twisted expression, typically expressing disgust, pain, or wry amusement.]</nowiki>
+*** Nod-head <nowiki>{relatedTag=Move-head}[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
+***	Pump-fist <nowiki>{relatedTag=Move-upper-extremity}[Raise with fist clenched in triumph or affirmation.]</nowiki>
+*** Raise-eyebrows <nowiki>{relatedTag=Move-face, relatedTag=Move-eyes}[Move eyebrows upward.]</nowiki>
+*** Shake-head <nowiki>{relatedTag=Move-head}[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
+***	Shhh <nowiki>{relatedTag=Move-upper-extremity}[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
+***	Shrug <nowiki>{relatedTag=Move-upper-extremity, relatedTag=Move-torso}[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
+*** Smile <nowiki>{relatedTag=Move-face}[Form facial features into a pleased, kind, or amused expression, typically with the corners of the mouth turned up and the front teeth exposed.]</nowiki>
+***	Spread-hands <nowiki>{relatedTag=Move-upper-extremity}[Spread hands apart to indicate ignorance.]</nowiki>
+*** Thumbs-down <nowiki>{relatedTag=Move-upper-extremity}[Extend the thumb downward to indicate disapproval.]</nowiki> 
+***	Thumb-up <nowiki>{relatedTag=Move-upper-extremity}[Extend the thumb upward to indicate approval.]</nowiki>
+***	Wave <nowiki>{relatedTag=Move-upper-extremity}[Raise hand and move left and right, as a greeting or sign of departure.]</nowiki>
+*** Widen-eyes <nowiki>{relatedTag=Move-face, relatedTag=Move-eyes}[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
+*** Wink <nowiki>{relatedTag=Move-face, relatedTag=Move-eyes}[Close and open one eye quickly, typically to indicate that something is a joke or a secret or as a signal of affection or greeting.]</nowiki>
 ** Communicate-musically <nowiki>[Communicate using music.]</nowiki>
 *** Hum <nowiki>[Make a low, steady continuous sound like that of a bee. Sing with the lips closed and without uttering speech.]</nowiki>
 *** Play-instrument <nowiki>[Make musical sounds using an instrument.]</nowiki>
@@ -163,6 +96,74 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Recall <nowiki>[Remember information by mental effort.]</nowiki>
 ** Switch-attention <nowiki>[Transfer attention from one focus to another.]</nowiki>
 ** Track <nowiki>[Follow a person, animal, or object through space or time.]</nowiki>
+ 
+* Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
+** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
+*** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
+*** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
+*** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
+*** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
+*** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
+*** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
+*** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
+** Move-body <nowiki>[Move entire body.]</nowiki>
+*** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
+*** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
+*** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
+*** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
+*** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
+***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
+*** Stretch <nowiki>[Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.]</nowiki> 
+*** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
+*** Stumble <nowiki>[Trip or momentarily lose balance and almost fall.]</nowiki>
+*** Turn <nowiki>[Change or cause to change direction.]</nowiki>
+** Move-body-part <nowiki>[Move one part of a body.]</nowiki>
+*** Move-head <nowiki>[Move head.]</nowiki>
+**** Move-eyes <nowiki>[Move eyes.]</nowiki>
+***** Blink <nowiki>[Shut and open the eyes quickly.]</nowiki>
+***** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
+***** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
+***** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
+***** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
+***** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
+***** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
+**** Move-face <nowiki>[Move the face or jaw.]</nowiki>
+***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
+***** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
+***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
+***** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
+***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
+*** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
+**** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
+**** Grab <nowiki>[Seize suddenly or quickly. Snatch or clutch.]</nowiki>
+**** Grasp <nowiki>[Seize and hold firmly.]</nowiki>
+**** Hold-down <nowiki>[Prevent someone or something from moving by holding them firmly.]</nowiki>
+**** Lift <nowiki>[Raising something to higher position.]</nowiki>
+**** Make-fist <nowiki>[Close hand tightly with the fingers bent against the palm.]</nowiki>
+**** Point  <nowiki>[Draw attention to something by extending a finger or arm.]</nowiki> 
+**** Press <nowiki>{relatedTag=Push}[Apply pressure to something to flatten, shape, smooth or depress it. This action tag should be used to indicate key presses and mouse clicks.]</nowiki>
+**** Push <nowiki>{relatedTag=Press}[Apply force in order to move something away. Use Press to indicate a key press or mouse click.]</nowiki>
+**** Reach <nowiki>[Stretch out your arm in order to get or touch something.]</nowiki> 
+**** Release <nowiki>[Make available; set free.]</nowiki>
+**** Retract <nowiki>[Draw or pull back.]</nowiki>
+**** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
+**** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
+**** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
+*** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
+**** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
+**** Hop <nowiki>[Jump on one foot.]</nowiki>
+**** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
+**** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
+**** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
+**** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
+**** Press-foot <nowiki>[Move by pressing foot.]</nowiki>
+**** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
+**** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
+***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
+***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
+**** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
+**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 
 '''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
 * Biological-item <nowiki>[An entity that is biological, that is related to living organisms.]</nowiki>
