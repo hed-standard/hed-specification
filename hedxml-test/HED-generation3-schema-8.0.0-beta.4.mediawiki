@@ -96,7 +96,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Recall <nowiki>[Remember information by mental effort.]</nowiki>
 ** Switch-attention <nowiki>[Transfer attention from one focus to another.]</nowiki>
 ** Track <nowiki>[Follow a person, animal, or object through space or time.]</nowiki>
- 
 * Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
 ** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
 *** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
@@ -167,10 +166,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 '''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
 * Biological-item <nowiki>[An entity that is biological, that is related to living organisms.]</nowiki>
-** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
-*** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
-*** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
-*** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]</nowiki>
 ** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
 *** Body-part <nowiki>[Any part of an organism.]</nowiki>
 **** Head <nowiki>[The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.]</nowiki>
@@ -218,6 +213,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
 *** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
+** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
+*** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
+*** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
+*** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]</nowiki>
 * Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An entity related to a systematic means of communicating by the use of sounds, symbols, or gestures.]</nowiki>
 ** Character <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
 ** Clause <nowiki>[A  unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.]</nowiki>
