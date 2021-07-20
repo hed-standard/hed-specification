@@ -283,7 +283,7 @@
                </node>
                <node>
                   <name>Move-upper-extremity</name>
-                  <description>Move some part of arm, shoulder and or arm.</description>
+                  <description>Move arm, shoulder, and/or hand.</description>
                   <node>
                      <name>Clap-hands</name>
                      <description>Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.</description>
@@ -294,7 +294,7 @@
                   </node>
                   <node>
                      <name>Grab</name>
-                     <description>Seize suddenly or quickly; snatch; clutch.</description>
+                     <description>Seize suddenly or quickly. Snatch or clutch.</description>
                   </node>
                   <node>
                      <name>Grasp</name>
@@ -359,7 +359,7 @@
                </node>
                <node>
                   <name>Move-lower-extremity</name>
-                  <description>Move some part of leg or foot.</description>
+                  <description>Move leg and/or foot.</description>
                   <node>
                      <name>Curl-toes</name>
                      <description>Bend toes sometimes to grip.</description>
@@ -509,6 +509,10 @@
                   <name>Speak</name>
                   <description>Communicate using spoken language.</description>
                </node>
+               <node>
+                  <name>Whisper</name>
+                  <description>Speak very softly using breath without vocal cords.</description>
+               </node>
             </node>
          </node>
          <node>
@@ -614,11 +618,11 @@
                <name>Perceive</name>
                <description>Produce an internal, conscious image through stimulating a sensory system.</description>
                <node>
-                  <name>Listen</name>
+                  <name>Hear</name>
                   <description>Give attention to a sound.</description>
                </node>
                <node>
-                  <name>Look</name>
+                  <name>See</name>
                   <description>Direct gaze toward someone or something or in a specified direction.</description>
                </node>
                <node>
@@ -627,7 +631,11 @@
                </node>
                <node>
                   <name>Taste</name>
-                  <description>Sense of flavor perceived in the mouth and throat on contact with a substance.</description>
+                  <description>Sense a flavor in the mouth and throat on contact with a substance.</description>
+               </node>
+               <node>
+                  <name>Sense-by-touch</name>
+                  <description>Sense something through receptors in the skin.</description>
                </node>
             </node>
             <node>
@@ -745,7 +753,7 @@
                   </node>
                   <node>
                      <name>Upper-extremity</name>
-                     <description>For clinical purposes this term is also used to refer to the whole superior limb.</description>
+                     <description>Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).</description>
                      <node>
                         <name>Elbow</name>
                         <description>A type of hinge joint located between the forearm and upper arm.</description>
@@ -805,7 +813,7 @@
                   </node>
                   <node>
                      <name>Lower-extremity</name>
-                     <description>For clinical purposes this term is also used to refer to the whole inferior limb.</description>
+                     <description>Refers to the whole inferior limb (leg and/or foot).</description>
                      <node>
                         <name>Ankle</name>
                         <description>A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.</description>
@@ -3012,7 +3020,7 @@
             </node>
             <node>
                <name>Distractor</name>
-               <description>A person or thing that distracts or a plausible but incorrect option in a multiple-choice question.</description>
+               <description>A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In pyschological studies this is sometimes referred to as a foil.</description>
             </node>
             <node>
                <name>Expected</name>
@@ -3564,10 +3572,6 @@
             <node>
                <name>Rural</name>
                <description>Of or pertaining to the country as opposed to the city.</description>
-               <node>
-                  <name>Wooden-walkway</name>
-                  <description>A path made out of wood.</description>
-               </node>
             </node>
             <node>
                <name>Terrain</name>
@@ -4319,31 +4323,31 @@
                <name>Sensory-modality</name>
                <description>Indication of which senses are affected by or used to perceive something.</description>
                <node>
-                  <name>Auditory-modality</name>
+                  <name>Auditory</name>
                   <description>Using the sense of hearing.</description>
                </node>
                <node>
-                  <name>Gustatory-modality</name>
+                  <name>Gustatory</name>
                   <description>Using the sense of taste.</description>
                </node>
                <node>
-                  <name>Olfactory-modality</name>
+                  <name>Olfactory</name>
                   <description>Using the sense of smell.</description>
                </node>
                <node>
-                  <name>Somatic-modality</name>
+                  <name>Somatic</name>
                   <description>Using the feelings in the body or of the nervous system.</description>
                </node>
                <node>
-                  <name>Tactile-modality</name>
+                  <name>Tactile</name>
                   <description>Using the sense of touch.</description>
                </node>
                <node>
-                  <name>Vestibular-modality</name>
+                  <name>Vestibular</name>
                   <description>Using the sense of balance or body position.</description>
                </node>
                <node>
-                  <name>Visual-modality</name>
+                  <name>Visual</name>
                   <description>Using the sense of sight.</description>
                </node>
             </node>
