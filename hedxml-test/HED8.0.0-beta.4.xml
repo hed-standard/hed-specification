@@ -748,22 +748,6 @@
             <name>Biological-item</name>
             <description>An entity that is biological, that is related to living organisms.</description>
             <node>
-               <name>Organism</name>
-               <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
-               <node>
-                  <name>Animal</name>
-                  <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
-               </node>
-               <node>
-                  <name>Human</name>
-                  <description>The bipedal primate mammal Homo sapiens.</description>
-               </node>
-               <node>
-                  <name>Plant</name>
-                  <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
-               </node>
-            </node>
-            <node>
                <name>Anatomical-item</name>
                <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
                <node>
@@ -949,6 +933,22 @@
                <node>
                   <name>Tissue</name>
                   <description>An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</description>
+               </node>
+            </node>
+            <node>
+               <name>Organism</name>
+               <description>A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).</description>
+               <node>
+                  <name>Animal</name>
+                  <description>A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.</description>
+               </node>
+               <node>
+                  <name>Human</name>
+                  <description>The bipedal primate mammal Homo sapiens.</description>
+               </node>
+               <node>
+                  <name>Plant</name>
+                  <description>Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.</description>
                </node>
             </node>
          </node>

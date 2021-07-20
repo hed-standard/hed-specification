@@ -181,21 +181,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** Nose <nowiki>[A structure of special sense serving as an organ of the sense of smell and as an entrance to the respiratory tract.]</nowiki>
 ****** Mouth <nowiki>[The proximal portion of the digestive tract, containing the oral cavity and bounded by the oral opening.]</nowiki>
 ****** Teeth <nowiki>[The hard bonelike structures in the jaws. A collection of teeth arranged in some pattern in the mouth or other part of the body.]</nowiki>
-**** Upper-extremity <nowiki>[Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).]</nowiki>
-***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
-***** Forearm <nowiki>[Lower part of the arm between the elbow and wrist.]</nowiki>
-***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
-****** Finger <nowiki>[Any of the digits of the hand.]</nowiki>
-******* Index-finger <nowiki>[The second finger from the radial side of the hand, next to the thumb.]</nowiki>
-******* Little-finger <nowiki>[The fifth and smallest finger from the radial side of the hand.]</nowiki>
-******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
-******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
-******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
-****** Hand-palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
-****** Knuckles <nowiki>[A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.]</nowiki>
-***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
-***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
-***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
 **** Lower-extremity <nowiki>[Refers to the whole inferior limb (leg and/or foot).]</nowiki>
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
 ***** Calf <nowiki>[The fleshy part at the back of the leg below the knee.]</nowiki>
@@ -211,6 +196,21 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Gentalia <nowiki>[The external organs of reproduction.]</nowiki>
 ***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
+**** Upper-extremity <nowiki>[Refers to the whole superior limb (shoulder, arm, elbow, wrist, hand).]</nowiki>
+***** Elbow <nowiki>[A type of hinge joint located between the forearm and upper arm.]</nowiki>
+***** Forearm <nowiki>[Lower part of the arm between the elbow and wrist.]</nowiki>
+***** Hand <nowiki>[The distal portion of the upper extremity. It consists of the carpus, metacarpus, and digits.]</nowiki>
+****** Finger <nowiki>[Any of the digits of the hand.]</nowiki>
+******* Index-finger <nowiki>[The second finger from the radial side of the hand, next to the thumb.]</nowiki>
+******* Little-finger <nowiki>[The fifth and smallest finger from the radial side of the hand.]</nowiki>
+******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
+******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
+******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
+****** Hand-palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
+****** Knuckles <nowiki>[A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.]</nowiki>
+***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
+***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
+***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
 *** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
 *** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
 ** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
