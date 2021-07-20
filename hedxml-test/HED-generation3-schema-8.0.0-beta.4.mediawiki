@@ -125,6 +125,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 *** Whisper <nowiki>[Speak very softly using breath without vocal cords.]</nowiki>
+* Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
+** Hear <nowiki>[Give attention to a sound.]</nowiki>
+** See <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
+** Smell <nowiki>[Inhale in order to ascertain an odor or scent.]</nowiki>
+** Taste <nowiki>[Sense a flavor in the mouth and throat on contact with a substance.]</nowiki>
+** Sense-by-touch <nowiki>[Sense something through receptors in the skin.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>
 ** Collide-with <nowiki>[Hit with force when moving.]</nowiki>
 ** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
@@ -150,12 +156,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Judge <nowiki>[Evaluate evidence to make a decision or form a belief.]</nowiki>
 ** Learn <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
 ** Memorize <nowiki>[Adaptively change behavior as the result of experience.]</nowiki>
-** Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
-*** Hear <nowiki>[Give attention to a sound.]</nowiki>
-*** See <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
-*** Smell <nowiki>[Inhale in order to ascertain an odor or scent.]</nowiki>
-*** Taste <nowiki>[Sense a flavor in the mouth and throat on contact with a substance.]</nowiki>
-*** Sense-by-touch <nowiki>[Sense something through receptors in the skin.]</nowiki>
 ** Plan <nowiki>[Think about the activities required to achieve a desired goal. ]</nowiki>
 ** Predict <nowiki>[Say or estimate that something will happen or will be a consequence of something without having exact informaton.]</nowiki>
 ** Recognize <nowiki>[Identify someone or something from having encountered them before.]</nowiki>

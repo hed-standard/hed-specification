@@ -516,6 +516,30 @@
             </node>
          </node>
          <node>
+            <name>Perceive</name>
+            <description>Produce an internal, conscious image through stimulating a sensory system.</description>
+            <node>
+               <name>Hear</name>
+               <description>Give attention to a sound.</description>
+            </node>
+            <node>
+               <name>See</name>
+               <description>Direct gaze toward someone or something or in a specified direction.</description>
+            </node>
+            <node>
+               <name>Smell</name>
+               <description>Inhale in order to ascertain an odor or scent.</description>
+            </node>
+            <node>
+               <name>Taste</name>
+               <description>Sense a flavor in the mouth and throat on contact with a substance.</description>
+            </node>
+            <node>
+               <name>Sense-by-touch</name>
+               <description>Sense something through receptors in the skin.</description>
+            </node>
+         </node>
+         <node>
             <name>Perform</name>
             <description>Carry out or accomplish an action, task, or function.</description>
             <node>
@@ -613,30 +637,6 @@
             <node>
                <name>Memorize</name>
                <description>Adaptively change behavior as the result of experience.</description>
-            </node>
-            <node>
-               <name>Perceive</name>
-               <description>Produce an internal, conscious image through stimulating a sensory system.</description>
-               <node>
-                  <name>Hear</name>
-                  <description>Give attention to a sound.</description>
-               </node>
-               <node>
-                  <name>See</name>
-                  <description>Direct gaze toward someone or something or in a specified direction.</description>
-               </node>
-               <node>
-                  <name>Smell</name>
-                  <description>Inhale in order to ascertain an odor or scent.</description>
-               </node>
-               <node>
-                  <name>Taste</name>
-                  <description>Sense a flavor in the mouth and throat on contact with a substance.</description>
-               </node>
-               <node>
-                  <name>Sense-by-touch</name>
-                  <description>Sense something through receptors in the skin.</description>
-               </node>
             </node>
             <node>
                <name>Plan</name>
