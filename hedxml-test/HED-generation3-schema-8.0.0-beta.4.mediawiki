@@ -67,8 +67,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
 ***** Widen-eyes <nowiki>[Open eyes and possibly with eyebrows lifted especially to express surprise or fear.]</nowiki>
 ***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
-**** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
-**** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
 *** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
 **** Clap-hands <nowiki>[Strike the palms of against one another resoundingly, and usually repeatedly, especially to express approval.]</nowiki>
 **** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
@@ -102,10 +100,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Communicate <nowiki>[Convey knowledge of or information about something.]</nowiki>
 ** Communicate-gesturally <nowiki>[Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.]</nowiki>
+*** Nod-head <nowiki>[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
 ***	Pump-fist <nowiki>[Raise with fist clenched in triumph or affirmation.]</nowiki>
-***	Spread-hands <nowiki>[Spread hands apart to indicate ignorance.]</nowiki>
+*** Shake-head <nowiki>[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
 ***	Shhh <nowiki>[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
 ***	Shrug <nowiki>[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
+***	Spread-hands <nowiki>[Spread hands apart to indicate ignorance.]</nowiki>
 *** Thumbs-down <nowiki>[Extend the thumb downward to indicate disapproval.]</nowiki> 
 ***	Thumb-up <nowiki>[Extend the thumb upward to indicate approval.]</nowiki>
 ***	Wave <nowiki>[Raise hand and move left and right, as a greeting or sign of departure.]</nowiki>

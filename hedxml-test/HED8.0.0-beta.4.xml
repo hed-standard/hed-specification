@@ -272,14 +272,6 @@
                         <description>Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.</description>
                      </node>
                   </node>
-                  <node>
-                     <name>Nod-head</name>
-                     <description>Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.</description>
-                  </node>
-                  <node>
-                     <name>Shake-head</name>
-                     <description>Turn head from side to side as a way of showing disagreement or refusal.</description>
-                  </node>
                </node>
                <node>
                   <name>Move-upper-extremity</name>
@@ -422,12 +414,16 @@
                <name>Communicate-gesturally</name>
                <description>Communicate nonverbally using visible bodily actions, either in place of speech or together and in parallel with spoken words. Gestures include movement of the hands, face, or other parts of the body.</description>
                <node>
+                  <name>Nod-head</name>
+                  <description>Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.</description>
+               </node>
+               <node>
                   <name>Pump-fist</name>
                   <description>Raise with fist clenched in triumph or affirmation.</description>
                </node>
                <node>
-                  <name>Spread-hands</name>
-                  <description>Spread hands apart to indicate ignorance.</description>
+                  <name>Shake-head</name>
+                  <description>Turn head from side to side as a way of showing disagreement or refusal.</description>
                </node>
                <node>
                   <name>Shhh</name>
@@ -436,6 +432,10 @@
                <node>
                   <name>Shrug</name>
                   <description>Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.</description>
+               </node>
+               <node>
+                  <name>Spread-hands</name>
+                  <description>Spread hands apart to indicate ignorance.</description>
                </node>
                <node>
                   <name>Thumbs-down</name>
