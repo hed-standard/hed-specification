@@ -79,22 +79,36 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Stumble <nowiki>[Trip or momentarily lose balance and almost fall.]</nowiki>
 *** Turn <nowiki>[Change or cause to change direction.]</nowiki>
 ** Move-body-part <nowiki>[Move one part of a body.]</nowiki>
+*** Move-eyes <nowiki>[Move eyes.]</nowiki>
+**** Blink <nowiki>[Shut and open the eyes quickly.]</nowiki>
+**** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
+**** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
+**** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
+**** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
+**** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
+**** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
+*** Move-face <nowiki>[Move the face or jaw.]</nowiki>
+**** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
+**** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
+**** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
+**** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
+**** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+**** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 *** Move-head <nowiki>[Move head.]</nowiki>
-**** Move-eyes <nowiki>[Move eyes.]</nowiki>
-***** Blink <nowiki>[Shut and open the eyes quickly.]</nowiki>
-***** Close-eyes <nowiki>[Lower and keep eyelids in a closed position.]</nowiki>
-***** Fixate <nowiki>[Direct eyes to a specific point or target.]</nowiki>
-***** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
-***** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
-***** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
-***** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
-**** Move-face <nowiki>[Move the face or jaw.]</nowiki>
-***** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
-***** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
-***** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
-***** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
-***** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
-***** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
+*** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
+**** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
+**** Hop <nowiki>[Jump on one foot.]</nowiki>
+**** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
+**** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
+**** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
+**** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
+**** Press-foot <nowiki>[Move by pressing foot.]</nowiki>
+**** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
+**** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
+***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
+***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
+**** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
+**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 *** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
 **** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
 **** Grab <nowiki>[Seize suddenly or quickly. Snatch or clutch.]</nowiki>
@@ -111,20 +125,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
 **** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
 **** Touch <nowiki>[Come into or be in contact with.]</nowiki> 
-*** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
-**** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
-**** Hop <nowiki>[Jump on one foot.]</nowiki>
-**** Jog <nowiki>[Run at a trot to exercise.]</nowiki>
-**** Jump <nowiki>[Move off the ground or other surface through sudden muscular effort in the legs.]</nowiki>
-**** Kick <nowiki>[Strike out or flail with the foot or feet.  Strike using the leg, in unison usually with an area of the knee or lower using the foot.]</nowiki>
-**** Pedal <nowiki>[Move by working the pedals of a bicycle or other machine.]</nowiki>
-**** Press-foot <nowiki>[Move by pressing foot.]</nowiki>
-**** Run <nowiki>[Travel on foot at a fast pace.]</nowiki>
-**** Step <nowiki>[Put one leg in front of the other and shift weight onto it.]</nowiki>
-***** Heel-strike <nowiki>[Strike the ground with the heel during a step.]</nowiki>
-***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
-**** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
-**** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
 * Perceive <nowiki>[Produce an internal, conscious image through stimulating a sensory system.]</nowiki>
 ** Hear <nowiki>[Give attention to a sound.]</nowiki>
 ** See <nowiki>[Direct gaze toward someone or something or in a specified direction.]</nowiki>
@@ -513,17 +513,17 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
 ** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 *** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=acceleration}</nowiki>  
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
 *** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerk}</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerkUnits}</nowiki>
 *** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequency}</nowiki> 
+**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki> 
 *** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=speed}</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
 *** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequency}</nowiki>  
+**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
 ** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
 *** IO-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.]</nowiki>
 **** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
@@ -540,42 +540,42 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 *** Orientation <nowiki>[The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 **** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki>  
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>  
 **** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki>   
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>   
 *** Size <nowiki>[The physical magnitude of something.]</nowiki>
 **** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=area}</nowiki> 
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
 **** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 **** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
 **** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLength}</nowiki> 
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 **** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volume}</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
 *** Surface-properties <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
 **** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
 **** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
 ** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
 *** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=time}</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 *** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=time}</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 *** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequency}</nowiki>   
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>   
 *** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
 *** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
 *** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
 *** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=time}</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 *** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 *** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 * Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
@@ -1105,52 +1105,47 @@ This schema is the first version that includes an xsd and requires unit class, u
 !# end schema 
 
 '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
-* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+* accelerationUnits <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
 ** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* angle <nowiki>{defaultUnits=radian}</nowiki> 
+* angleUnits <nowiki>{defaultUnits=radian}</nowiki> 
 ** radian <nowiki>{SIUnit}</nowiki> 
 ** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** degree 
-* area <nowiki>{defaultUnits=m^2}</nowiki> 
+* areaUnits <nowiki>{defaultUnits=m^2}</nowiki> 
 ** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** px^2 <nowiki>{unitSymbol}</nowiki> 
-** pixel^2
-* currency <nowiki>{defaultUnits=$}[Units indicating the worth of something.]</nowiki> 
+* currencyUnits <nowiki>{defaultUnits=$}[Units indicating the worth of something.]</nowiki> 
 ** dollar 
 ** $ <nowiki>{unitPrefix, unitSymbol}</nowiki> 
 ** point 
-* frequency <nowiki>{defaultUnits=Hz}</nowiki>
+* frequencyUnits <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* intensity <nowiki>{defaultUnits=dB}</nowiki> 
-** dB <nowiki>{unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
+* intensityUnits <nowiki>{defaultUnits=dB}</nowiki> 
+** dB <nowiki>{unitSymbol}[Intensity expressed as ratio to a threshold. Often used for sound intensity.]</nowiki>
+** candela <nowiki>{SIUnit}[Units used to express light intensity.]</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}[Units used to express light intensity.]</nowiki>  
+* jerkUnits <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
 ** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
-* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
-** candela <nowiki>{SIUnit}</nowiki> 
-** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+* memorySizeUnits <nowiki>{defaultUnits=B}</nowiki> 
 ** byte <nowiki>{SIUnit}</nowiki>
 ** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* physicalLength <nowiki>{defaultUnits=m}</nowiki> 
+* physicalLengthUnits <nowiki>{defaultUnits=m}</nowiki> 
+** foot 
+** inch
 ** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** foot 
 ** mile  
-* pixels <nowiki>{defaultUnits=px}</nowiki>  
-** pixel 
-** px <nowiki>{unitSymbol}</nowiki> 
-* speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
+* speedUnits <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
-* time <nowiki>{defaultUnits=s}</nowiki> 
+* timeUnits <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** day 
 ** minute 
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
-* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+* volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
 
