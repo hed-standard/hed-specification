@@ -3941,6 +3941,9 @@
                <attribute>
                   <name>topLevelTagGroup</name>
                </attribute>
+               <attribute>
+                  <name>unique</name>
+               </attribute>
             </node>
             <node>
                <name>Event-stream</name>
