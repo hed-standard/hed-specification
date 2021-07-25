@@ -840,7 +840,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
 **** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
 **** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
-**** Bilateral <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+**** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
 **** Bottom-of <nowiki>[(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.]</nowiki>
 **** Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
 **** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
