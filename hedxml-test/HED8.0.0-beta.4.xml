@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-beta.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
+<HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.0.0-beta.4" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
    <prologue>This schema is the first version that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 </prologue>
    <schema>
@@ -2603,7 +2603,7 @@
                   </node>
                </node>
                <node>
-                  <name>Surface-properties</name>
+                  <name>Surface-property</name>
                   <description>Property of the outer boundary of a three-dimensional object.</description>
                   <node>
                      <name>Rough</name>
@@ -2715,6 +2715,69 @@
                <node>
                   <name>Time-sync</name>
                   <description>A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
+               </node>
+            </node>
+            <node>
+               <name>Variability-property</name>
+               <description>An attribute describing how something changes or varies.</description>
+               <node>
+                  <name>Abrupt</name>
+                  <description>Marked by sudden change.</description>
+               </node>
+               <node>
+                  <name>Constant</name>
+                  <description>Continually recurring or continuing without interruption. Not changing in time or space.</description>
+               </node>
+               <node>
+                  <name>Continuous</name>
+                  <description>Uninterrupted in time, sequence, substance, or extent.</description>
+               </node>
+               <node>
+                  <name>Deterministic</name>
+                  <description>No randomness is involved in the development of the future states of the element.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Random</value>
+                     <value>Stochastic</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Discrete</name>
+                  <description>Constituting a separate entities or parts.</description>
+               </node>
+               <node>
+                  <name>Flickering</name>
+                  <description>Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.</description>
+               </node>
+               <node>
+                  <name>Fractal</name>
+                  <description>Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.</description>
+               </node>
+               <node>
+                  <name>Random</name>
+                  <description>Governed by or depending on chance; lacking any definite plan or order or purpose.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Deterministic</value>
+                     <value>Stochastic</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Repetitive</name>
+                  <description>A recurring action that is often non-purposeful.</description>
+               </node>
+               <node>
+                  <name>Stochastic</name>
+                  <description>Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Deterministic</value>
+                     <value>Random</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Varying</name>
+                  <description>Differing in size, amount, degree, or nature.</description>
                </node>
             </node>
          </node>
@@ -3941,6 +4004,9 @@
                <attribute>
                   <name>topLevelTagGroup</name>
                </attribute>
+               <attribute>
+                  <name>unique</name>
+               </attribute>
             </node>
             <node>
                <name>Event-stream</name>
@@ -4209,7 +4275,7 @@
                      <description>(A (Between, (B, C))) means A is in the space or interval separating B and C.</description>
                   </node>
                   <node>
-                     <name>Bilateral</name>
+                     <name>Bilateral-to</name>
                      <description>(A (Bilateral B)) means A is on both sides of B or affects both sides of B.</description>
                   </node>
                   <node>
@@ -4299,69 +4365,6 @@
                   <node>
                      <name>Waiting-for</name>
                      <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
-                  </node>
-               </node>
-               <node>
-                  <name>Variability-relation</name>
-                  <description>An attribute describing how something changes or varies.</description>
-                  <node>
-                     <name>Abrupt</name>
-                     <description>Marked by sudden change.</description>
-                  </node>
-                  <node>
-                     <name>Constant</name>
-                     <description>Continually recurring or continuing without interruption. Not changing in time or space.</description>
-                  </node>
-                  <node>
-                     <name>Continuous</name>
-                     <description>Uninterrupted in time, sequence, substance, or extent.</description>
-                  </node>
-                  <node>
-                     <name>Deterministic</name>
-                     <description>No randomness is involved in the development of the future states of the element.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Random</value>
-                        <value>Stochastic</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Discrete</name>
-                     <description>Constituting a separate entities or parts.</description>
-                  </node>
-                  <node>
-                     <name>Flickering</name>
-                     <description>Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.</description>
-                  </node>
-                  <node>
-                     <name>Fractal</name>
-                     <description>Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.</description>
-                  </node>
-                  <node>
-                     <name>Random</name>
-                     <description>Governed by or depending on chance; lacking any definite plan or order or purpose.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Deterministic</value>
-                        <value>Stochastic</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Repetitive</name>
-                     <description>A recurring action that is often non-purposeful.</description>
-                  </node>
-                  <node>
-                     <name>Stochastic</name>
-                     <description>Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Deterministic</value>
-                        <value>Random</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Varying</name>
-                     <description>Differing in size, amount, degree, or nature.</description>
                   </node>
                </node>
             </node>

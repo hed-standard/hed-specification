@@ -561,7 +561,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 **** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
-*** Surface-properties <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
+*** Surface-property <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
 **** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
 **** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
 ** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
@@ -578,6 +578,18 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 *** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 *** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+*** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
+*** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
+*** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
+*** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
+*** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
+*** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
+*** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
+*** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
+*** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
+*** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
+*** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
 * Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
 ** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 *** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -772,7 +784,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 ** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-** Event-context <nowiki>{topLevelTagGroup}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
+** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
 ** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
 ** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
 ** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
@@ -840,7 +852,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
 **** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
 **** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
-**** Bilateral <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+**** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
 **** Bottom-of <nowiki>[(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.]</nowiki>
 **** Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
 **** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
@@ -863,18 +875,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
 **** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
 **** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
-*** Variability-relation <nowiki>[An attribute describing how something changes or varies.]</nowiki>
-**** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
-**** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
-**** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
-**** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
-**** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
-**** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
-**** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
-**** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
-**** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
-**** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
-**** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
 ** Thermal-relation <nowiki>[A relationship related to temperature.]</nowiki>
 *** Cold <nowiki>[Characterized by an absence of heat.]</nowiki>
 *** Colder-than <nowiki>[(A (Colder-than B)) means A has less heat energy than the object against which it is compared; the absence of heat.]</nowiki>
