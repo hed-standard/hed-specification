@@ -561,7 +561,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 **** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
-*** Surface-properties <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
+*** Surface-property <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
 **** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
 **** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
 ** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
@@ -578,6 +578,18 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 *** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 *** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+*** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
+*** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
+*** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
+*** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
+*** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
+*** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
+*** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
+*** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
+*** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
+*** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
+*** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
 * Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
 ** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 *** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -863,18 +875,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
 **** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
 **** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
-*** Variability-relation <nowiki>[An attribute describing how something changes or varies.]</nowiki>
-**** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
-**** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
-**** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
-**** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
-**** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
-**** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
-**** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
-**** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
-**** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
-**** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
-**** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
 ** Thermal-relation <nowiki>[A relationship related to temperature.]</nowiki>
 *** Cold <nowiki>[Characterized by an absence of heat.]</nowiki>
 *** Colder-than <nowiki>[(A (Colder-than B)) means A has less heat energy than the object against which it is compared; the absence of heat.]</nowiki>
