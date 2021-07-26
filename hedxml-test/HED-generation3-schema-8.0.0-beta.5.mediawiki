@@ -731,38 +731,33 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 *** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
-** Sensory-modality <nowiki>[Indication of which senses are affected by or used to perceive something.]</nowiki>
-*** Auditory <nowiki>[Using the sense of hearing.]</nowiki>
-*** Gustatory <nowiki>[Using the sense of taste.]</nowiki>
-*** Olfactory <nowiki>[Using the sense of smell.]</nowiki>
-*** Somatic <nowiki>[Using the feelings in the body or of the nervous system.]</nowiki>
-*** Tactile <nowiki>[Using the sense of touch.]</nowiki>
-*** Vestibular <nowiki>[Using the sense of balance or body position.]</nowiki>
-*** Visual <nowiki>[Using the sense of sight.]</nowiki>
-** Sensory-quality <nowiki>[A property related to something sensed or perceived.]</nowiki>
-*** Auditory-property <nowiki>[Using the sense of hearing.]</nowiki>
-**** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Auditory <nowiki>[Pertaining to the sense of hearing.]</nowiki>
+*** Sound-type
 **** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
 **** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
 **** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
+*** Auditory-quality <nowiki>[Using the sense of hearing.]</nowiki>
+**** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Timbre <nowiki>[The quality of tone distinctive of a particular singing voice or musical instrument.]</nowiki>  
-*** Gustatory-property <nowiki>[Concerned with tasting or the sense of taste.]</nowiki>
+** Gustatory <nowiki>[Pertaining to the sense of taste.]</nowiki>
+*** Taste-type <nowiki>[Type of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
 **** Savory <nowiki>[Belonging to a taste that is salty or spicy rather than sweet.]</nowiki>
 **** Sour <nowiki>[Having a sharp, acidic taste.]</nowiki>
 **** Sweet <nowiki>[Having or resembling the taste of sugar.]</nowiki>
-*** Olfactory-property <nowiki>[Having to do with the faculty of smell.]</nowiki>
-*** Somatic-property <nowiki>[Having to do with feelings in the body.]</nowiki>
-**** Pain <nowiki>[The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.]</nowiki>
-**** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
-*** Tactile-property <nowiki>[Of or connected with the sense of touch.]</nowiki>
-**** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
-**** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
-**** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
-*** Vestibular-property <nowiki>[Relating to or affecting the perception of body position and movement.]</nowiki>
-*** Visual-property <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
+** Olfactory <nowiki>[Pertaining to the sense of smell.]</nowiki>
+** Somatic <nowiki>[Pertaining to the feelings in the body or of the nervous system.]</nowiki>
+*** Pain <nowiki>[The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.]</nowiki>
+*** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
+** Tactile <nowiki>[Pertaining to the sense of touch.]</nowiki>
+*** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
+*** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
+*** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
+** Vestibular <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
+** Visual <nowiki>[Pertaining to the sense of sight.]</nowiki>
+*** Optical-quality <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
 **** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
@@ -937,18 +932,18 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
 ****** RGB-green <nowiki>[The green component.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki> 
-**** View <nowiki>[A specific visual representation of data, situations, topics, etc.]</nowiki>
-***** 2D-view <nowiki>[A view showing only two dimensions.]</nowiki>
-***** 3D-view <nowiki>[A view showing three dimensions.]</nowiki>
-***** Background-view <nowiki>[Parts of the view that are farthest from the viewer and usually the not part of the visual focus.]</nowiki>
-***** Bistable-view <nowiki>[Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.]</nowiki>
-***** Foreground-view <nowiki>[Parts of the view that are closest to the viewer and usually the most important part of the visual focus.]</nowiki>
-***** Foveal-view <nowiki>[Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.]</nowiki>
-***** Map-view <nowiki>[A diagrammatic representation of an area of land or sea showing physical features, cities, roads.]</nowiki>
-******* Aerial-view <nowiki>[Elevated view of an object from above, with a perspective as though the observer were a bird.]</nowiki>
-****** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
-****** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
-***** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
+*** View-type <nowiki>[A specific visual representation of data, situations, topics, etc.]</nowiki>
+**** 2D-view <nowiki>[A view showing only two dimensions.]</nowiki>
+**** 3D-view <nowiki>[A view showing three dimensions.]</nowiki>
+**** Background-view <nowiki>[Parts of the view that are farthest from the viewer and usually the not part of the visual focus.]</nowiki>
+**** Bistable-view <nowiki>[Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.]</nowiki>
+**** Foreground-view <nowiki>[Parts of the view that are closest to the viewer and usually the most important part of the visual focus.]</nowiki>
+**** Foveal-view <nowiki>[Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.]</nowiki>
+**** Map-view <nowiki>[A diagrammatic representation of an area of land or sea showing physical features, cities, roads.]</nowiki>
+***** Aerial-view <nowiki>[Elevated view of an object from above, with a perspective as though the observer were a bird.]</nowiki>
+***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
+***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
+**** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
 * Task-property <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Task-attentional-demand <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
 *** Bottom-up-attention <nowiki>{relatedTag=Top-down-attention}[Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.]</nowiki>
