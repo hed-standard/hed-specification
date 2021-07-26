@@ -2073,6 +2073,406 @@
                </node>
             </node>
             <node>
+               <name>Data-type</name>
+               <description>Designation of the type of a data item.</description>
+            </node>
+            <node>
+               <name>Categorical-type</name>
+               <description>Indicates that something can take on a limited and usually fixed number of possible values.</description>
+               <node>
+                  <name>Categorical-class</name>
+                  <description>Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.</description>
+                  <node>
+                     <name>All</name>
+                     <description>To a complete degree or to the full or entire extent.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Some</value>
+                        <value>None</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Correct</name>
+                     <description>Free from error. Especially conforming to fact or truth.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Incorrect</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Explicit</name>
+                     <description>Stated clearly and in detail, leaving no room for confusion or doubt.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Implicit</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>False</name>
+                     <description>Not in accordance with facts, reality or definitive criteria.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>True</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Implicit</name>
+                     <description>Implied though not plainly expressed.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Explicit</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Invalid</name>
+                     <description>Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Valid</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>None</name>
+                     <description>No person or thing, nobody, not any.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>All</value>
+                        <value>Some</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Some</name>
+                     <description>At least a small amount or number of, but not a large amount of, or often.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>All</value>
+                        <value>None</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>True</name>
+                     <description>Conforming to facts, reality or definitive criteria.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>False</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Valid</name>
+                     <description>Allowable, usable, or acceptable.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Invalid</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Wrong</name>
+                     <description>Not accurate, correct, or appropriate.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Correct</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Categorical-judgment</name>
+                  <description>Categorical values that are based on the judgment or perception of the participant such familiar and famous.</description>
+                  <node>
+                     <name>Abnormal</name>
+                     <description>Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Normal</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Asymmetrical</name>
+                     <description>Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Symmetrical</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Audible</name>
+                     <description>A sound that can be perceived by the participant.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Inaudible</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Congruent</name>
+                     <description>Concordance of multiple evidence lines. In agreement or harmony.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Incongruent</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Complex</name>
+                     <description>Hard, involved or complicated, elaborate, having many parts.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Simple</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Constrained</name>
+                     <description>Keeping something within particular limits or bounds.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Unconstrained</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Disordered</name>
+                     <description>Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Ordered</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Familiar</name>
+                     <description>Recognized, familiar, or within the scope of knowledge.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Unfamiliar</value>
+                        <value>Famous</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Famous</name>
+                     <description>A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Familiar</value>
+                        <value>UnfamiliarrelatedTag</value>
+                        <value>Unfamiliar</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Inaudible</name>
+                     <description>A sound below the threshold of perception of the participant.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Audible</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Incongruent</name>
+                     <description>Not in agreement or harmony.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Congruent</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Involuntary</name>
+                     <description>An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Voluntary</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Masked</name>
+                     <description>Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Unmasked</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Normal</name>
+                     <description>Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Abnormal</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Ordered</name>
+                     <description>Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Disordered</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Simple</name>
+                     <description>Easily understood or presenting no difficulties.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Complex</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Symmetrical</name>
+                     <description>Made up of exactly similar parts facing each other or around an axis; showing symmetry.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Asymmetrical</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Unconstrained</name>
+                     <description>Moving without restriction.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Constrained</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Unfamiliar</name>
+                     <description>Not having knowledge or experience of.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Familiar</value>
+                        <value>Famous</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Unmasked</name>
+                     <description>Information is revealed.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Masked</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Voluntary</name>
+                     <description>Using free will or design; not forced or compelled; controlled by individual volition.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Involuntary</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Categorical-level</name>
+                  <description>Categorical values based on dividing a continuous variable into levels such as high and low.</description>
+                  <node>
+                     <name>Cold</name>
+                     <description>Characterized by an absence of heat.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Hot</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Deep</name>
+                     <description>Extending relatively far inward or downward.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Shallow</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>High</name>
+                     <description>Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Low</value>
+                        <value>Medium</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Hot</name>
+                     <description>Characterized by an excess of heat.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Cold</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Liminal</name>
+                     <description>Situated at a sensory threshold; barely perceptible or capable of eliciting a response.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Subliminal</value>
+                        <value>Supraliminal</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Low</name>
+                     <description>A minimum level or position or degree; less than normal in degree, intensity or amount.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>High</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Medium</name>
+                     <description>Mid-way between small and large in number, quantity, magnitude or extent.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Low</value>
+                        <value>High</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Negative</name>
+                     <description>Involving disadvantage or harm.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Positive</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Positive</name>
+                     <description>Involving advantage or good.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Negative</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Shallow</name>
+                     <description>Having a depth which is relatively low.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Deep</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Subliminal</name>
+                     <description>Situated below a sensory threshold; imperceptible or not capable of eliciting a response.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Liminal</value>
+                        <value>Supraliminal</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Supraliminal</name>
+                     <description>Situated above a sensory threshold; perceptible or capable of eliciting a response.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Liminal</value>
+                        <value>Subliminal</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Thick</name>
+                     <description>Wide in width, extent or cross-section.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Thin</value>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Thin</name>
+                     <description>Narrow in width, extent or cross-section.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Thick</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
                <name>Physical-property</name>
                <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
                <node>
@@ -3021,386 +3421,6 @@
             <attribute>
                <name>extensionAllowed</name>
             </attribute>
-            <node>
-               <name>Categorical</name>
-               <description>Indicates that something can take on a limited and usually fixed number of possible values.</description>
-               <node>
-                  <name>Categorical-class</name>
-                  <description>Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.</description>
-                  <node>
-                     <name>All</name>
-                     <description>To a complete degree or to the full or entire extent.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Some</value>
-                        <value>None</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Correct</name>
-                     <description>Free from error; especially conforming to fact or truth.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Incorrect</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Explicit</name>
-                     <description>Stated clearly and in detail, leaving no room for confusion or doubt.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Implicit</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>False</name>
-                     <description>Not in accordance with facts, reality or definitive criteria.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>True</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Implicit</name>
-                     <description>Implied though not plainly expressed.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Explicit</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Invalid</name>
-                     <description>Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Valid</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>None</name>
-                     <description>No person or thing, nobody, not any.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>All</value>
-                        <value>Some</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Some</name>
-                     <description>At least a small amount or number of, but not a large amount of, or often.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>All</value>
-                        <value>None</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>True</name>
-                     <description>Conforming to facts, reality or definitive criteria.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>False</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Valid</name>
-                     <description>Allowable, usable, or acceptable.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Invalid</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Wrong</name>
-                     <description>Not accurate, correct, or appropriate.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Correct</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Categorical-judgment</name>
-                  <description>Categorical values that are based on the judgment or perception of the participant such familiar and famous.</description>
-                  <node>
-                     <name>Abnormal</name>
-                     <description>Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Normal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Asymmetrical</name>
-                     <description>Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Symmetrical</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Audible</name>
-                     <description>A sound that can be perceived by the participant.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Inaudible</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Congruent</name>
-                     <description>Concordance of multiple evidence lines. In agreement or harmony.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Incongruent</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Complex</name>
-                     <description>Hard, involved or complicated, elaborate, having many parts.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Simple</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Constrained</name>
-                     <description>Keeping something within particular limits or bounds.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unconstrained</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Disordered</name>
-                     <description>Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Ordered</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Familiar</name>
-                     <description>Recognized, familiar, or within the scope of knowledge.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unfamiliar</value>
-                        <value>Famous</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Famous</name>
-                     <description>A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Familiar</value>
-                        <value>UnfamiliarrelatedTag</value>
-                        <value>Unfamiliar</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Inaudible</name>
-                     <description>A sound below the threshold of perception of the participant.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Audible</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Incongruent</name>
-                     <description>Not in agreement or harmony.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Congruent</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Involuntary</name>
-                     <description>An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Voluntary</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Masked</name>
-                     <description>Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unmasked</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Normal</name>
-                     <description>Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Abnormal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Ordered</name>
-                     <description>Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Disordered</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Simple</name>
-                     <description>Easily understood or presenting no difficulties.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Complex</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Symmetrical</name>
-                     <description>Made up of exactly similar parts facing each other or around an axis; showing symmetry.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Asymmetrical</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Unconstrained</name>
-                     <description>Moving without restriction.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Constrained</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Unfamiliar</name>
-                     <description>Not having knowledge or experience of.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Familiar</value>
-                        <value>Famous</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Unmasked</name>
-                     <description>Information is revealed.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Masked</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Voluntary</name>
-                     <description>Using free will or design; not forced or compelled; controlled by individual volition.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Involuntary</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Categorical-level</name>
-                  <description>Categorical values based on dividing a continuous variable into levels such as high and low.</description>
-                  <node>
-                     <name>Deep</name>
-                     <description>Extending relatively far inward or downward.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Shallow</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>High</name>
-                     <description>Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Low</value>
-                        <value>Medium</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Liminal</name>
-                     <description>Situated at a sensory threshold; barely perceptible or capable of eliciting a response.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Subliminal</value>
-                        <value>Supraliminal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Low</name>
-                     <description>A minimum level or position or degree; less than normal in degree, intensity or amount.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>High</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Medium</name>
-                     <description>Mid-way between small and large in number, quantity, magnitude or extent.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Low</value>
-                        <value>High</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Negative</name>
-                     <description>Involving disadvantage or harm.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Positive</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Positive</name>
-                     <description>Involving advantage or good.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Negative</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Shallow</name>
-                     <description>Having a depth which is relatively low.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Deep</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Subliminal</name>
-                     <description>Situated below a sensory threshold; imperceptible or not capable of eliciting a response.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Liminal</value>
-                        <value>Supraliminal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Supraliminal</name>
-                     <description>Situated above a sensory threshold; perceptible or capable of eliciting a response.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Liminal</value>
-                        <value>Subliminal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Thick</name>
-                     <description>Wide in width, extent or cross-section.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Thin</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Thin</name>
-                     <description>Narrow in width, extent or cross-section.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Thick</value>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
             <node>
                <name>Informational</name>
                <description>A quality that pertains to information.</description>
@@ -5304,26 +5324,6 @@
                   <name>Waiting-for</name>
                   <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
                </node>
-            </node>
-         </node>
-         <node>
-            <name>Thermal-relation</name>
-            <description>A relationship related to temperature.</description>
-            <node>
-               <name>Cold</name>
-               <description>Characterized by an absence of heat.</description>
-            </node>
-            <node>
-               <name>Colder-than</name>
-               <description>(A (Colder-than B)) means A has less heat energy than the object against which it is compared; the absence of heat.</description>
-            </node>
-            <node>
-               <name>Hot</name>
-               <description>Characterized by an excess of heat.</description>
-            </node>
-            <node>
-               <name>Hotter-than</name>
-               <description>(A (Hotter-than B)) means A has more heat energy than the object against which it is compared; the absence of heat.</description>
             </node>
          </node>
       </node>
