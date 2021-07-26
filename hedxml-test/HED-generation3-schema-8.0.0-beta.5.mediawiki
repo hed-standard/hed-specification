@@ -394,7 +394,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Siren <nowiki>[A loud, continuous sound often varying in frequency designed to indicate an emergency.]</nowiki>
 
 '''Property''' <nowiki>{extensionAllowed}[Something that pertains to a thing. A characteristic of some entity. A quality or feature regarded as a characteristic or inherent part of someone or something. HED attributes are adjectives or adverbs.]</nowiki>
-*Agent-property <nowiki>{extensionAllowed}[Something that pertains to an agent.]</nowiki>
+* Agent-property <nowiki>{extensionAllowed}[Something that pertains to an agent.]</nowiki>
 ** Agent-state <nowiki>[The state of the agent.]</nowiki>
 *** Agent-cognitive-state <nowiki>[The state of the cognitive processes or state of mind of the agent.]</nowiki>
 **** Alert <nowiki>[Condition of heightened watchfulness or preparation for action.]</nowiki>
@@ -611,26 +611,26 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Environmental <nowiki>[Relating to or arising from the surroundings of an agent.]</nowiki>
-*** Indoors <nowiki>[Located inside a building or enclosure.]</nowiki>
-*** Outdoors <nowiki>[Any area outside a building or shelter.]</nowiki>
-*** Real-world <nowiki>[Located in a place that exists in real space and time under realistic conditions.]</nowiki>
-*** Virtual-world <nowiki>[Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment.]</nowiki>
-*** Augmented-reality <nowiki>[Using technology that enhances real-world experiences with computer-derived digital overlays to change some aspects of perception of the natural environment. The digital content is shown to the user through a smart device or glasses and responds to changes in the environment.]</nowiki>
-*** Motion-platform <nowiki>[A mechanism that creates the feelings of being in a real motion environment.]</nowiki>
-*** Urban <nowiki>[Relating to, located in, or characteristic of a city or densely populated area.]</nowiki>
-*** Rural <nowiki>[Of or pertaining to the country as opposed to the city.]</nowiki>
-*** Terrain <nowiki>[Characterization of the physical features of a tract of land.]</nowiki>
-**** Composite-terrain <nowiki>[Tracts of land characterized by a mixure of physical features.]</nowiki>
-**** Dirt-terrain <nowiki>[Tracts of land characterized by a soil surface and lack of vegetation.]</nowiki>
-**** Grassy-terrain <nowiki>[Tracts of land covered by grass.]</nowiki>
-**** Gravel-terrain <nowiki>[Tracts of land covered by a surface consisting a loose aggregation of small water-worn or pounded stones.]</nowiki>
-**** Leaf-covered-terrain <nowiki>[Tracts of land covered by leaves and composited organic material.]</nowiki>
-**** Muddy-terrain <nowiki>[Tracts of land covered by a liquid or semi-liquid mixture of water and some combination of soil, silt, and clay.]</nowiki>
-**** Paved-terrain <nowiki>[Tracts of land covered  with concrete, asphalt, stones, or bricks.]</nowiki>
-**** Rocky-terrain <nowiki>[Tracts of land consisting or full of rock or rocks.]</nowiki>
-**** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
-**** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
+* Environmental-property <nowiki>[Relating to or arising from the surroundings of an agent.]</nowiki>
+** Indoors <nowiki>[Located inside a building or enclosure.]</nowiki>
+** Outdoors <nowiki>[Any area outside a building or shelter.]</nowiki>
+** Real-world <nowiki>[Located in a place that exists in real space and time under realistic conditions.]</nowiki>
+** Virtual-world <nowiki>[Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment.]</nowiki>
+** Augmented-reality <nowiki>[Using technology that enhances real-world experiences with computer-derived digital overlays to change some aspects of perception of the natural environment. The digital content is shown to the user through a smart device or glasses and responds to changes in the environment.]</nowiki>
+** Motion-platform <nowiki>[A mechanism that creates the feelings of being in a real motion environment.]</nowiki>
+** Urban <nowiki>[Relating to, located in, or characteristic of a city or densely populated area.]</nowiki>
+** Rural <nowiki>[Of or pertaining to the country as opposed to the city.]</nowiki>
+** Terrain <nowiki>[Characterization of the physical features of a tract of land.]</nowiki>
+*** Composite-terrain <nowiki>[Tracts of land characterized by a mixure of physical features.]</nowiki>
+*** Dirt-terrain <nowiki>[Tracts of land characterized by a soil surface and lack of vegetation.]</nowiki>
+*** Grassy-terrain <nowiki>[Tracts of land covered by grass.]</nowiki>
+*** Gravel-terrain <nowiki>[Tracts of land covered by a surface consisting a loose aggregation of small water-worn or pounded stones.]</nowiki>
+*** Leaf-covered-terrain <nowiki>[Tracts of land covered by leaves and composited organic material.]</nowiki>
+*** Muddy-terrain <nowiki>[Tracts of land covered by a liquid or semi-liquid mixture of water and some combination of soil, silt, and clay.]</nowiki>
+*** Paved-terrain <nowiki>[Tracts of land covered  with concrete, asphalt, stones, or bricks.]</nowiki>
+*** Rocky-terrain <nowiki>[Tracts of land consisting or full of rock or rocks.]</nowiki>
+*** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
+*** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
 * Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Categorical <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 *** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
@@ -681,7 +681,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 **** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
 ** Informational <nowiki>[A quality that pertains to information.]</nowiki>
-
 *** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 *** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>

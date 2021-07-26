@@ -2934,84 +2934,84 @@
                   </node>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Environmental-property</name>
+            <description>Relating to or arising from the surroundings of an agent.</description>
             <node>
-               <name>Environmental</name>
-               <description>Relating to or arising from the surroundings of an agent.</description>
+               <name>Indoors</name>
+               <description>Located inside a building or enclosure.</description>
+            </node>
+            <node>
+               <name>Outdoors</name>
+               <description>Any area outside a building or shelter.</description>
+            </node>
+            <node>
+               <name>Real-world</name>
+               <description>Located in a place that exists in real space and time under realistic conditions.</description>
+            </node>
+            <node>
+               <name>Virtual-world</name>
+               <description>Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment.</description>
+            </node>
+            <node>
+               <name>Augmented-reality</name>
+               <description>Using technology that enhances real-world experiences with computer-derived digital overlays to change some aspects of perception of the natural environment. The digital content is shown to the user through a smart device or glasses and responds to changes in the environment.</description>
+            </node>
+            <node>
+               <name>Motion-platform</name>
+               <description>A mechanism that creates the feelings of being in a real motion environment.</description>
+            </node>
+            <node>
+               <name>Urban</name>
+               <description>Relating to, located in, or characteristic of a city or densely populated area.</description>
+            </node>
+            <node>
+               <name>Rural</name>
+               <description>Of or pertaining to the country as opposed to the city.</description>
+            </node>
+            <node>
+               <name>Terrain</name>
+               <description>Characterization of the physical features of a tract of land.</description>
                <node>
-                  <name>Indoors</name>
-                  <description>Located inside a building or enclosure.</description>
+                  <name>Composite-terrain</name>
+                  <description>Tracts of land characterized by a mixure of physical features.</description>
                </node>
                <node>
-                  <name>Outdoors</name>
-                  <description>Any area outside a building or shelter.</description>
+                  <name>Dirt-terrain</name>
+                  <description>Tracts of land characterized by a soil surface and lack of vegetation.</description>
                </node>
                <node>
-                  <name>Real-world</name>
-                  <description>Located in a place that exists in real space and time under realistic conditions.</description>
+                  <name>Grassy-terrain</name>
+                  <description>Tracts of land covered by grass.</description>
                </node>
                <node>
-                  <name>Virtual-world</name>
-                  <description>Using technology that creates immersive, computer-generated experiences that a person can interact with and navigate through. The digital content is generally delivered to the user through some type of headset and responds to changes in head position or through interaction with other types of sensors. Existing in a virtual setting such as a simulation or game environment.</description>
+                  <name>Gravel-terrain</name>
+                  <description>Tracts of land covered by a surface consisting a loose aggregation of small water-worn or pounded stones.</description>
                </node>
                <node>
-                  <name>Augmented-reality</name>
-                  <description>Using technology that enhances real-world experiences with computer-derived digital overlays to change some aspects of perception of the natural environment. The digital content is shown to the user through a smart device or glasses and responds to changes in the environment.</description>
+                  <name>Leaf-covered-terrain</name>
+                  <description>Tracts of land covered by leaves and composited organic material.</description>
                </node>
                <node>
-                  <name>Motion-platform</name>
-                  <description>A mechanism that creates the feelings of being in a real motion environment.</description>
+                  <name>Muddy-terrain</name>
+                  <description>Tracts of land covered by a liquid or semi-liquid mixture of water and some combination of soil, silt, and clay.</description>
                </node>
                <node>
-                  <name>Urban</name>
-                  <description>Relating to, located in, or characteristic of a city or densely populated area.</description>
+                  <name>Paved-terrain</name>
+                  <description>Tracts of land covered  with concrete, asphalt, stones, or bricks.</description>
                </node>
                <node>
-                  <name>Rural</name>
-                  <description>Of or pertaining to the country as opposed to the city.</description>
+                  <name>Rocky-terrain</name>
+                  <description>Tracts of land consisting or full of rock or rocks.</description>
                </node>
                <node>
-                  <name>Terrain</name>
-                  <description>Characterization of the physical features of a tract of land.</description>
-                  <node>
-                     <name>Composite-terrain</name>
-                     <description>Tracts of land characterized by a mixure of physical features.</description>
-                  </node>
-                  <node>
-                     <name>Dirt-terrain</name>
-                     <description>Tracts of land characterized by a soil surface and lack of vegetation.</description>
-                  </node>
-                  <node>
-                     <name>Grassy-terrain</name>
-                     <description>Tracts of land covered by grass.</description>
-                  </node>
-                  <node>
-                     <name>Gravel-terrain</name>
-                     <description>Tracts of land covered by a surface consisting a loose aggregation of small water-worn or pounded stones.</description>
-                  </node>
-                  <node>
-                     <name>Leaf-covered-terrain</name>
-                     <description>Tracts of land covered by leaves and composited organic material.</description>
-                  </node>
-                  <node>
-                     <name>Muddy-terrain</name>
-                     <description>Tracts of land covered by a liquid or semi-liquid mixture of water and some combination of soil, silt, and clay.</description>
-                  </node>
-                  <node>
-                     <name>Paved-terrain</name>
-                     <description>Tracts of land covered  with concrete, asphalt, stones, or bricks.</description>
-                  </node>
-                  <node>
-                     <name>Rocky-terrain</name>
-                     <description>Tracts of land consisting or full of rock or rocks.</description>
-                  </node>
-                  <node>
-                     <name>Sloped-terrain</name>
-                     <description>Tracts of land arranged in a sloping position; inclined.</description>
-                  </node>
-                  <node>
-                     <name>Uneven-terrain</name>
-                     <description>Tracts of land that are not level, smooth, or regular.</description>
-                  </node>
+                  <name>Sloped-terrain</name>
+                  <description>Tracts of land arranged in a sloping position; inclined.</description>
+               </node>
+               <node>
+                  <name>Uneven-terrain</name>
+                  <description>Tracts of land that are not level, smooth, or regular.</description>
                </node>
             </node>
          </node>
