@@ -631,7 +631,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Rocky-terrain <nowiki>[Tracts of land consisting or full of rock or rocks.]</nowiki>
 **** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
 **** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
-* Informational<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
+* Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Categorical <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 *** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 **** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
@@ -680,13 +680,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 **** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 **** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
-** Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
-*** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+** Informational <nowiki>[A quality that pertains to information.]</nowiki>
+
 *** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 *** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
@@ -718,6 +713,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 *** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
 *** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+*** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
 *** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
 *** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
