@@ -3016,7 +3016,7 @@
             </node>
          </node>
          <node>
-            <name>Informational</name>
+            <name>Informational-property</name>
             <description>Something that pertains to a task.</description>
             <attribute>
                <name>extensionAllowed</name>
@@ -3402,65 +3402,8 @@
                </node>
             </node>
             <node>
-               <name>Informational-property</name>
+               <name>Informational</name>
                <description>A quality that pertains to information.</description>
-               <node>
-                  <name>Def</name>
-                  <description>A HED-specific utility tag used with a defined name to represent the tags associated with that definition.</description>
-                  <attribute>
-                     <name>requireChild</name>
-                  </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Def-expand</name>
-                  <description>A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.</description>
-                  <attribute>
-                     <name>requireChild</name>
-                  </attribute>
-                  <attribute>
-                     <name>tagGroup</name>
-                  </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Definition</name>
-                  <description>A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.</description>
-                  <attribute>
-                     <name>requireChild</name>
-                  </attribute>
-                  <attribute>
-                     <name>topLevelTagGroup</name>
-                  </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
                <node>
                   <name>Description</name>
                   <description>An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.</description>
@@ -3649,6 +3592,63 @@
                   <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
                </node>
                <node>
+                  <name>Def</name>
+                  <description>A HED-specific utility tag used with a defined name to represent the tags associated with that definition.</description>
+                  <attribute>
+                     <name>requireChild</name>
+                  </attribute>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Def-expand</name>
+                  <description>A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.</description>
+                  <attribute>
+                     <name>requireChild</name>
+                  </attribute>
+                  <attribute>
+                     <name>tagGroup</name>
+                  </attribute>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Definition</name>
+                  <description>A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.</description>
+                  <attribute>
+                     <name>requireChild</name>
+                  </attribute>
+                  <attribute>
+                     <name>topLevelTagGroup</name>
+                  </attribute>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
                   <name>Event-context</name>
                   <description>A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.</description>
                   <attribute>
@@ -3691,52 +3691,779 @@
                   <description>A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.</description>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Sensory-property</name>
+            <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
             <node>
-               <name>Sensory-property</name>
-               <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
+               <name>Sensory-modality</name>
+               <description>Indication of which senses are affected by or used to perceive something.</description>
                <node>
-                  <name>Sensory-modality</name>
-                  <description>Indication of which senses are affected by or used to perceive something.</description>
+                  <name>Auditory</name>
+                  <description>Using the sense of hearing.</description>
+               </node>
+               <node>
+                  <name>Gustatory</name>
+                  <description>Using the sense of taste.</description>
+               </node>
+               <node>
+                  <name>Olfactory</name>
+                  <description>Using the sense of smell.</description>
+               </node>
+               <node>
+                  <name>Somatic</name>
+                  <description>Using the feelings in the body or of the nervous system.</description>
+               </node>
+               <node>
+                  <name>Tactile</name>
+                  <description>Using the sense of touch.</description>
+               </node>
+               <node>
+                  <name>Vestibular</name>
+                  <description>Using the sense of balance or body position.</description>
+               </node>
+               <node>
+                  <name>Visual</name>
+                  <description>Using the sense of sight.</description>
+               </node>
+            </node>
+            <node>
+               <name>Sensory-quality</name>
+               <description>A property related to something sensed or perceived.</description>
+               <node>
+                  <name>Auditory-property</name>
+                  <description>Using the sense of hearing.</description>
                   <node>
-                     <name>Auditory</name>
-                     <description>Using the sense of hearing.</description>
+                     <name>Loudness</name>
+                     <description>A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
                   <node>
-                     <name>Gustatory</name>
-                     <description>Using the sense of taste.</description>
+                     <name>Monophonic</name>
+                     <description>Relating to sound transmission, recording, or reproduction involving a single transmission path.</description>
                   </node>
                   <node>
-                     <name>Olfactory</name>
-                     <description>Using the sense of smell.</description>
+                     <name>Silent</name>
+                     <description>The absence of ambient audible sound or the state of having ceased to produce sounds.</description>
                   </node>
                   <node>
-                     <name>Somatic</name>
-                     <description>Using the feelings in the body or of the nervous system.</description>
+                     <name>Stereophonic</name>
+                     <description>Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.</description>
                   </node>
                   <node>
-                     <name>Tactile</name>
-                     <description>Using the sense of touch.</description>
-                  </node>
-                  <node>
-                     <name>Vestibular</name>
-                     <description>Using the sense of balance or body position.</description>
-                  </node>
-                  <node>
-                     <name>Visual</name>
-                     <description>Using the sense of sight.</description>
+                     <name>Timbre</name>
+                     <description>The quality of tone distinctive of a particular singing voice or musical instrument.</description>
                   </node>
                </node>
                <node>
-                  <name>Sensory-quality</name>
-                  <description>A property related to something sensed or perceived.</description>
+                  <name>Gustatory-property</name>
+                  <description>Concerned with tasting or the sense of taste.</description>
                   <node>
-                     <name>Auditory-property</name>
-                     <description>Using the sense of hearing.</description>
+                     <name>Bitter</name>
+                     <description>Having a sharp, pungent taste.</description>
+                  </node>
+                  <node>
+                     <name>Salty</name>
+                     <description>Tasting of or like salt.</description>
+                  </node>
+                  <node>
+                     <name>Savory</name>
+                     <description>Belonging to a taste that is salty or spicy rather than sweet.</description>
+                  </node>
+                  <node>
+                     <name>Sour</name>
+                     <description>Having a sharp, acidic taste.</description>
+                  </node>
+                  <node>
+                     <name>Sweet</name>
+                     <description>Having or resembling the taste of sugar.</description>
+                  </node>
+               </node>
+               <node>
+                  <name>Olfactory-property</name>
+                  <description>Having to do with the faculty of smell.</description>
+               </node>
+               <node>
+                  <name>Somatic-property</name>
+                  <description>Having to do with feelings in the body.</description>
+                  <node>
+                     <name>Pain</name>
+                     <description>The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.</description>
+                  </node>
+                  <node>
+                     <name>Stress</name>
+                     <description>The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.</description>
+                  </node>
+               </node>
+               <node>
+                  <name>Tactile-property</name>
+                  <description>Of or connected with the sense of touch.</description>
+                  <node>
+                     <name>Tactile-pressure</name>
+                     <description>Having a feeling of heaviness.</description>
+                  </node>
+                  <node>
+                     <name>Tactile-texture</name>
+                     <description>Having a feeling of roughness.</description>
+                  </node>
+                  <node>
+                     <name>Tactile-vibration</name>
+                     <description>Having a feeling of mechanical oscillation.</description>
+                  </node>
+               </node>
+               <node>
+                  <name>Vestibular-property</name>
+                  <description>Relating to or affecting the perception of body position and movement.</description>
+               </node>
+               <node>
+                  <name>Visual-property</name>
+                  <description>Relating to or using sight; able to be seen.</description>
+                  <node>
+                     <name>Luminance</name>
+                     <description>A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.</description>
+                  </node>
+                  <node>
+                     <name>Color</name>
+                     <description>The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.</description>
                      <node>
-                        <name>Loudness</name>
-                        <description>A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.</description>
+                        <name>CSS-color</name>
+                        <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
+                        <node>
+                           <name>Blue-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>CadetBlue</name>
+                              <description>CSS-color 0x5F9EA0</description>
+                           </node>
+                           <node>
+                              <name>SteelBlue</name>
+                              <description>CSS-color 0x4682B4</description>
+                           </node>
+                           <node>
+                              <name>LightSteelBlue</name>
+                              <description>CSS-color 0xB0C4DE</description>
+                           </node>
+                           <node>
+                              <name>LightBlue</name>
+                              <description>CSS-color 0xADD8E6</description>
+                           </node>
+                           <node>
+                              <name>PowderBlue</name>
+                              <description>CSS-color 0xB0E0E6</description>
+                           </node>
+                           <node>
+                              <name>LightSkyBlue</name>
+                              <description>CSS-color 0x87CEFA</description>
+                           </node>
+                           <node>
+                              <name>SkyBlue</name>
+                              <description>CSS-color 0x87CEEB</description>
+                           </node>
+                           <node>
+                              <name>CornflowerBlue</name>
+                              <description>CSS-color 0x6495ED</description>
+                           </node>
+                           <node>
+                              <name>DeepSkyBlue</name>
+                              <description>CSS-color 0x00BFFF</description>
+                           </node>
+                           <node>
+                              <name>DodgerBlue</name>
+                              <description>CSS-color 0x1E90FF</description>
+                           </node>
+                           <node>
+                              <name>RoyalBlue</name>
+                              <description>CSS-color 0x4169E1</description>
+                           </node>
+                           <node>
+                              <name>Blue</name>
+                              <description>CSS-color 0x0000FF</description>
+                           </node>
+                           <node>
+                              <name>MediumBlue</name>
+                              <description>CSS-color 0x0000CD</description>
+                           </node>
+                           <node>
+                              <name>DarkBlue</name>
+                              <description>CSS-color 0x00008B</description>
+                           </node>
+                           <node>
+                              <name>Navy</name>
+                              <description>CSS-color 0x000080</description>
+                           </node>
+                           <node>
+                              <name>MidnightBlue</name>
+                              <description>CSS-color 0x191970</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Brown-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Cornsilk</name>
+                              <description>CSS-color 0xFFF8DC</description>
+                           </node>
+                           <node>
+                              <name>BlanchedAlmond</name>
+                              <description>CSS-color 0xFFEBCD</description>
+                           </node>
+                           <node>
+                              <name>Bisque</name>
+                              <description>CSS-color 0xFFE4C4</description>
+                           </node>
+                           <node>
+                              <name>NavajoWhite</name>
+                              <description>CSS-color 0xFFDEAD</description>
+                           </node>
+                           <node>
+                              <name>Wheat</name>
+                              <description>CSS-color 0xF5DEB3</description>
+                           </node>
+                           <node>
+                              <name>BurlyWood</name>
+                              <description>CSS-color 0xDEB887</description>
+                           </node>
+                           <node>
+                              <name>Tan</name>
+                              <description>CSS-color 0xD2B48C</description>
+                           </node>
+                           <node>
+                              <name>RosyBrown</name>
+                              <description>CSS-color 0xBC8F8F</description>
+                           </node>
+                           <node>
+                              <name>SandyBrown</name>
+                              <description>CSS-color 0xF4A460</description>
+                           </node>
+                           <node>
+                              <name>GoldenRod</name>
+                              <description>CSS-color 0xDAA520</description>
+                           </node>
+                           <node>
+                              <name>DarkGoldenRod</name>
+                              <description>CSS-color 0xB8860B</description>
+                           </node>
+                           <node>
+                              <name>Peru</name>
+                              <description>CSS-color 0xCD853F</description>
+                           </node>
+                           <node>
+                              <name>Chocolate</name>
+                              <description>CSS-color 0xD2691E</description>
+                           </node>
+                           <node>
+                              <name>Olive</name>
+                              <description>CSS-color 0x808000</description>
+                           </node>
+                           <node>
+                              <name>SaddleBrown</name>
+                              <description>CSS-color 0x8B4513</description>
+                           </node>
+                           <node>
+                              <name>Sienna</name>
+                              <description>CSS-color 0xA0522D</description>
+                           </node>
+                           <node>
+                              <name>Brown</name>
+                              <description>CSS-color 0xA52A2A</description>
+                           </node>
+                           <node>
+                              <name>Maroon</name>
+                              <description>CSS-color 0x800000</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Cyan-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Aqua</name>
+                              <description>CSS-color 0x00FFFF</description>
+                           </node>
+                           <node>
+                              <name>Cyan</name>
+                              <description>CSS-color 0x00FFFF</description>
+                           </node>
+                           <node>
+                              <name>LightCyan</name>
+                              <description>CSS-color 0xE0FFFF</description>
+                           </node>
+                           <node>
+                              <name>PaleTurquoise</name>
+                              <description>CSS-color 0xAFEEEE</description>
+                           </node>
+                           <node>
+                              <name>Aquamarine</name>
+                              <description>CSS-color 0x7FFFD4</description>
+                           </node>
+                           <node>
+                              <name>Turquoise</name>
+                              <description>CSS-color 0x40E0D0</description>
+                           </node>
+                           <node>
+                              <name>MediumTurquoise</name>
+                              <description>CSS-color 0x48D1CC</description>
+                           </node>
+                           <node>
+                              <name>DarkTurquoise</name>
+                              <description>CSS-color 0x00CED1</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Green-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>GreenYellow</name>
+                              <description>CSS-color 0xADFF2F</description>
+                           </node>
+                           <node>
+                              <name>Chartreuse</name>
+                              <description>CSS-color 0x7FFF00</description>
+                           </node>
+                           <node>
+                              <name>LawnGreen</name>
+                              <description>CSS-color 0x7CFC00</description>
+                           </node>
+                           <node>
+                              <name>Lime</name>
+                              <description>CSS-color 0x00FF00</description>
+                           </node>
+                           <node>
+                              <name>LimeGreen</name>
+                              <description>CSS-color 0x32CD32</description>
+                           </node>
+                           <node>
+                              <name>PaleGreen</name>
+                              <description>CSS-color 0x98FB98</description>
+                           </node>
+                           <node>
+                              <name>LightGreen</name>
+                              <description>CSS-color 0x90EE90</description>
+                           </node>
+                           <node>
+                              <name>MediumSpringGreen</name>
+                              <description>CSS-color 0x00FA9A</description>
+                           </node>
+                           <node>
+                              <name>SpringGreen</name>
+                              <description>CSS-color 0x00FF7F</description>
+                           </node>
+                           <node>
+                              <name>MediumSeaGreen</name>
+                              <description>CSS-color 0x3CB371</description>
+                           </node>
+                           <node>
+                              <name>SeaGreen</name>
+                              <description>CSS-color 0x2E8B57</description>
+                           </node>
+                           <node>
+                              <name>ForestGreen</name>
+                              <description>CSS-color 0x228B22</description>
+                           </node>
+                           <node>
+                              <name>Green</name>
+                              <description>CSS-color 0x008000</description>
+                           </node>
+                           <node>
+                              <name>DarkGreen</name>
+                              <description>CSS-color 0x006400</description>
+                           </node>
+                           <node>
+                              <name>YellowGreen</name>
+                              <description>CSS-color 0x9ACD32</description>
+                           </node>
+                           <node>
+                              <name>OliveDrab</name>
+                              <description>CSS-color 0x6B8E23</description>
+                           </node>
+                           <node>
+                              <name>DarkOliveGreen</name>
+                              <description>CSS-color 0x556B2F</description>
+                           </node>
+                           <node>
+                              <name>MediumAquaMarine</name>
+                              <description>CSS-color 0x66CDAA</description>
+                           </node>
+                           <node>
+                              <name>DarkSeaGreen</name>
+                              <description>CSS-color 0x8FBC8F</description>
+                           </node>
+                           <node>
+                              <name>LightSeaGreen</name>
+                              <description>CSS-color 0x20B2AA</description>
+                           </node>
+                           <node>
+                              <name>DarkCyan</name>
+                              <description>CSS-color 0x008B8B</description>
+                           </node>
+                           <node>
+                              <name>Teal</name>
+                              <description>CSS-color 0x008080</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Gray-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Gainsboro</name>
+                              <description>CSS-color 0xDCDCDC</description>
+                           </node>
+                           <node>
+                              <name>LightGray</name>
+                              <description>CSS-color 0xD3D3D3</description>
+                           </node>
+                           <node>
+                              <name>Silver</name>
+                              <description>CSS-color 0xC0C0C0</description>
+                           </node>
+                           <node>
+                              <name>DarkGray</name>
+                              <description>CSS-color 0xA9A9A9</description>
+                           </node>
+                           <node>
+                              <name>DimGray</name>
+                              <description>CSS-color 0x696969</description>
+                           </node>
+                           <node>
+                              <name>Gray</name>
+                              <description>CSS-color 0x808080</description>
+                           </node>
+                           <node>
+                              <name>LightSlateGray</name>
+                              <description>CSS-color 0x778899</description>
+                           </node>
+                           <node>
+                              <name>SlateGray</name>
+                              <description>CSS-color 0x708090</description>
+                           </node>
+                           <node>
+                              <name>DarkSlateGray</name>
+                              <description>CSS-color 0x2F4F4F</description>
+                           </node>
+                           <node>
+                              <name>Black</name>
+                              <description>CSS-color 0x000000</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Orange-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Orange</name>
+                              <description>CSS-color 0xFFA500</description>
+                           </node>
+                           <node>
+                              <name>DarkOrange</name>
+                              <description>CSS-color 0xFF8C00</description>
+                           </node>
+                           <node>
+                              <name>Coral</name>
+                              <description>CSS-color 0xFF7F50</description>
+                           </node>
+                           <node>
+                              <name>Tomato</name>
+                              <description>CSS-color 0xFF6347</description>
+                           </node>
+                           <node>
+                              <name>OrangeRed</name>
+                              <description>CSS-color 0xFF4500</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Pink-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Pink</name>
+                              <description>CSS-color 0xFFC0CB</description>
+                           </node>
+                           <node>
+                              <name>LightPink</name>
+                              <description>CSS-color 0xFFB6C1</description>
+                           </node>
+                           <node>
+                              <name>HotPink</name>
+                              <description>CSS-color 0xFF69B4</description>
+                           </node>
+                           <node>
+                              <name>DeepPink</name>
+                              <description>CSS-color 0xFF1493</description>
+                           </node>
+                           <node>
+                              <name>PaleVioletRed</name>
+                              <description>CSS-color 0xDB7093</description>
+                           </node>
+                           <node>
+                              <name>MediumVioletRed</name>
+                              <description>CSS-color 0xC71585</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Purple-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Lavender</name>
+                              <description>CSS-color 0xE6E6FA</description>
+                           </node>
+                           <node>
+                              <name>Thistle</name>
+                              <description>CSS-color 0xD8BFD8</description>
+                           </node>
+                           <node>
+                              <name>Plum</name>
+                              <description>CSS-color 0xDDA0DD</description>
+                           </node>
+                           <node>
+                              <name>Orchid</name>
+                              <description>CSS-color 0xDA70D6</description>
+                           </node>
+                           <node>
+                              <name>Violet</name>
+                              <description>CSS-color 0xEE82EE</description>
+                           </node>
+                           <node>
+                              <name>Fuchsia</name>
+                              <description>CSS-color 0xFF00FF</description>
+                           </node>
+                           <node>
+                              <name>Magenta</name>
+                              <description>CSS-color 0xFF00FF</description>
+                           </node>
+                           <node>
+                              <name>MediumOrchid</name>
+                              <description>CSS-color 0xBA55D3</description>
+                           </node>
+                           <node>
+                              <name>DarkOrchid</name>
+                              <description>CSS-color 0x9932CC</description>
+                           </node>
+                           <node>
+                              <name>DarkViolet</name>
+                              <description>CSS-color 0x9400D3</description>
+                           </node>
+                           <node>
+                              <name>BlueViolet</name>
+                              <description>CSS-color 0x8A2BE2</description>
+                           </node>
+                           <node>
+                              <name>DarkMagenta</name>
+                              <description>CSS-color 0x8B008B</description>
+                           </node>
+                           <node>
+                              <name>Purple</name>
+                              <description>CSS-color 0x800080</description>
+                           </node>
+                           <node>
+                              <name>MediumPurple</name>
+                              <description>CSS-color 0x9370DB</description>
+                           </node>
+                           <node>
+                              <name>MediumSlateBlue</name>
+                              <description>CSS-color 0x7B68EE</description>
+                           </node>
+                           <node>
+                              <name>SlateBlue</name>
+                              <description>CSS-color 0x6A5ACD</description>
+                           </node>
+                           <node>
+                              <name>DarkSlateBlue</name>
+                              <description>CSS-color 0x483D8B</description>
+                           </node>
+                           <node>
+                              <name>RebeccaPurple</name>
+                              <description>CSS-color 0x663399</description>
+                           </node>
+                           <node>
+                              <name>Indigo</name>
+                              <description>CSS-color 0x4B0082</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Red-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>LightSalmon</name>
+                              <description>CSS-color 0xFFA07A</description>
+                           </node>
+                           <node>
+                              <name>Salmon</name>
+                              <description>CSS-color 0xFA8072</description>
+                           </node>
+                           <node>
+                              <name>DarkSalmon</name>
+                              <description>CSS-color 0xE9967A</description>
+                           </node>
+                           <node>
+                              <name>LightCoral</name>
+                              <description>CSS-color 0xF08080</description>
+                           </node>
+                           <node>
+                              <name>IndianRed</name>
+                              <description>CSS-color 0xCD5C5C</description>
+                           </node>
+                           <node>
+                              <name>Crimson</name>
+                              <description>CSS-color 0xDC143C</description>
+                           </node>
+                           <node>
+                              <name>Red</name>
+                              <description>CSS-color 0xFF0000</description>
+                           </node>
+                           <node>
+                              <name>FireBrick</name>
+                              <description>CSS-color 0xB22222</description>
+                           </node>
+                           <node>
+                              <name>DarkRed</name>
+                              <description>CSS-color 0x8B0000</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>Yellow-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>Gold</name>
+                              <description>CSS-color 0xFFD700</description>
+                           </node>
+                           <node>
+                              <name>Yellow</name>
+                              <description>CSS-color 0xFFFF00</description>
+                           </node>
+                           <node>
+                              <name>LightYellow</name>
+                              <description>CSS-color 0xFFFFE0</description>
+                           </node>
+                           <node>
+                              <name>LemonChiffon</name>
+                              <description>CSS-color 0xFFFACD</description>
+                           </node>
+                           <node>
+                              <name>LightGoldenRodYellow</name>
+                              <description>CSS-color 0xFAFAD2</description>
+                           </node>
+                           <node>
+                              <name>PapayaWhip</name>
+                              <description>CSS-color 0xFFEFD5</description>
+                           </node>
+                           <node>
+                              <name>Moccasin</name>
+                              <description>CSS-color 0xFFE4B5</description>
+                           </node>
+                           <node>
+                              <name>PeachPuff</name>
+                              <description>CSS-color 0xFFDAB9</description>
+                           </node>
+                           <node>
+                              <name>PaleGoldenRod</name>
+                              <description>CSS-color 0xEEE8AA</description>
+                           </node>
+                           <node>
+                              <name>Khaki</name>
+                              <description>CSS-color 0xF0E68C</description>
+                           </node>
+                           <node>
+                              <name>DarkKhaki</name>
+                              <description>CSS-color 0xBDB76B</description>
+                           </node>
+                        </node>
+                        <node>
+                           <name>White-color</name>
+                           <description>CSS color group</description>
+                           <node>
+                              <name>White</name>
+                              <description>CSS-color 0xFFFFFF</description>
+                           </node>
+                           <node>
+                              <name>Snow</name>
+                              <description>CSS-color 0xFFFAFA</description>
+                           </node>
+                           <node>
+                              <name>HoneyDew</name>
+                              <description>CSS-color 0xF0FFF0</description>
+                           </node>
+                           <node>
+                              <name>MintCream</name>
+                              <description>CSS-color 0xF5FFFA</description>
+                           </node>
+                           <node>
+                              <name>Azure</name>
+                              <description>CSS-color 0xF0FFFF</description>
+                           </node>
+                           <node>
+                              <name>AliceBlue</name>
+                              <description>CSS-color 0xF0F8FF</description>
+                           </node>
+                           <node>
+                              <name>GhostWhite</name>
+                              <description>CSS-color 0xF8F8FF</description>
+                           </node>
+                           <node>
+                              <name>WhiteSmoke</name>
+                              <description>CSS-color 0xF5F5F5</description>
+                           </node>
+                           <node>
+                              <name>SeaShell</name>
+                              <description>CSS-color 0xFFF5EE</description>
+                           </node>
+                           <node>
+                              <name>Beige</name>
+                              <description>CSS-color 0xF5F5DC</description>
+                           </node>
+                           <node>
+                              <name>OldLace</name>
+                              <description>CSS-color 0xFDF5E6</description>
+                           </node>
+                           <node>
+                              <name>FloralWhite</name>
+                              <description>CSS-color 0xFFFAF0</description>
+                           </node>
+                           <node>
+                              <name>Ivory</name>
+                              <description>CSS-color 0xFFFFF0</description>
+                           </node>
+                           <node>
+                              <name>AntiqueWhite</name>
+                              <description>CSS-color 0xFAEBD7</description>
+                           </node>
+                           <node>
+                              <name>Linen</name>
+                              <description>CSS-color 0xFAF0E6</description>
+                           </node>
+                           <node>
+                              <name>LavenderBlush</name>
+                              <description>CSS-color 0xFFF0F5</description>
+                           </node>
+                           <node>
+                              <name>MistyRose</name>
+                              <description>CSS-color 0xFFE4E1</description>
+                           </node>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Color-shade</name>
+                        <description>A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.</description>
+                        <node>
+                           <name>Dark-shade</name>
+                           <description>A color tone not reflecting much light.</description>
+                        </node>
+                        <node>
+                           <name>Light-shade</name>
+                           <description>A color tone reflecting more light.</description>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Grayscale</name>
+                        <description>Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.</description>
                         <node>
                            <name>#</name>
+                           <description>White intensity between 0 and 1</description>
                            <attribute>
                               <name>takesValue</name>
                            </attribute>
@@ -3747,722 +4474,14 @@
                         </node>
                      </node>
                      <node>
-                        <name>Monophonic</name>
-                        <description>Relating to sound transmission, recording, or reproduction involving a single transmission path.</description>
-                     </node>
-                     <node>
-                        <name>Silent</name>
-                        <description>The absence of ambient audible sound or the state of having ceased to produce sounds.</description>
-                     </node>
-                     <node>
-                        <name>Stereophonic</name>
-                        <description>Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.</description>
-                     </node>
-                     <node>
-                        <name>Timbre</name>
-                        <description>The quality of tone distinctive of a particular singing voice or musical instrument.</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Gustatory-property</name>
-                     <description>Concerned with tasting or the sense of taste.</description>
-                     <node>
-                        <name>Bitter</name>
-                        <description>Having a sharp, pungent taste.</description>
-                     </node>
-                     <node>
-                        <name>Salty</name>
-                        <description>Tasting of or like salt.</description>
-                     </node>
-                     <node>
-                        <name>Savory</name>
-                        <description>Belonging to a taste that is salty or spicy rather than sweet.</description>
-                     </node>
-                     <node>
-                        <name>Sour</name>
-                        <description>Having a sharp, acidic taste.</description>
-                     </node>
-                     <node>
-                        <name>Sweet</name>
-                        <description>Having or resembling the taste of sugar.</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Olfactory-property</name>
-                     <description>Having to do with the faculty of smell.</description>
-                  </node>
-                  <node>
-                     <name>Somatic-property</name>
-                     <description>Having to do with feelings in the body.</description>
-                     <node>
-                        <name>Pain</name>
-                        <description>The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.</description>
-                     </node>
-                     <node>
-                        <name>Stress</name>
-                        <description>The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Tactile-property</name>
-                     <description>Of or connected with the sense of touch.</description>
-                     <node>
-                        <name>Tactile-pressure</name>
-                        <description>Having a feeling of heaviness.</description>
-                     </node>
-                     <node>
-                        <name>Tactile-texture</name>
-                        <description>Having a feeling of roughness.</description>
-                     </node>
-                     <node>
-                        <name>Tactile-vibration</name>
-                        <description>Having a feeling of mechanical oscillation.</description>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Vestibular-property</name>
-                     <description>Relating to or affecting the perception of body position and movement.</description>
-                  </node>
-                  <node>
-                     <name>Visual-property</name>
-                     <description>Relating to or using sight; able to be seen.</description>
-                     <node>
-                        <name>Luminance</name>
-                        <description>A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.</description>
-                     </node>
-                     <node>
-                        <name>Color</name>
-                        <description>The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.</description>
+                        <name>HSV-color</name>
+                        <description>A color representation that models how colors appear under light.</description>
                         <node>
-                           <name>CSS-color</name>
-                           <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
-                           <node>
-                              <name>Blue-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>CadetBlue</name>
-                                 <description>CSS-color 0x5F9EA0</description>
-                              </node>
-                              <node>
-                                 <name>SteelBlue</name>
-                                 <description>CSS-color 0x4682B4</description>
-                              </node>
-                              <node>
-                                 <name>LightSteelBlue</name>
-                                 <description>CSS-color 0xB0C4DE</description>
-                              </node>
-                              <node>
-                                 <name>LightBlue</name>
-                                 <description>CSS-color 0xADD8E6</description>
-                              </node>
-                              <node>
-                                 <name>PowderBlue</name>
-                                 <description>CSS-color 0xB0E0E6</description>
-                              </node>
-                              <node>
-                                 <name>LightSkyBlue</name>
-                                 <description>CSS-color 0x87CEFA</description>
-                              </node>
-                              <node>
-                                 <name>SkyBlue</name>
-                                 <description>CSS-color 0x87CEEB</description>
-                              </node>
-                              <node>
-                                 <name>CornflowerBlue</name>
-                                 <description>CSS-color 0x6495ED</description>
-                              </node>
-                              <node>
-                                 <name>DeepSkyBlue</name>
-                                 <description>CSS-color 0x00BFFF</description>
-                              </node>
-                              <node>
-                                 <name>DodgerBlue</name>
-                                 <description>CSS-color 0x1E90FF</description>
-                              </node>
-                              <node>
-                                 <name>RoyalBlue</name>
-                                 <description>CSS-color 0x4169E1</description>
-                              </node>
-                              <node>
-                                 <name>Blue</name>
-                                 <description>CSS-color 0x0000FF</description>
-                              </node>
-                              <node>
-                                 <name>MediumBlue</name>
-                                 <description>CSS-color 0x0000CD</description>
-                              </node>
-                              <node>
-                                 <name>DarkBlue</name>
-                                 <description>CSS-color 0x00008B</description>
-                              </node>
-                              <node>
-                                 <name>Navy</name>
-                                 <description>CSS-color 0x000080</description>
-                              </node>
-                              <node>
-                                 <name>MidnightBlue</name>
-                                 <description>CSS-color 0x191970</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Brown-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Cornsilk</name>
-                                 <description>CSS-color 0xFFF8DC</description>
-                              </node>
-                              <node>
-                                 <name>BlanchedAlmond</name>
-                                 <description>CSS-color 0xFFEBCD</description>
-                              </node>
-                              <node>
-                                 <name>Bisque</name>
-                                 <description>CSS-color 0xFFE4C4</description>
-                              </node>
-                              <node>
-                                 <name>NavajoWhite</name>
-                                 <description>CSS-color 0xFFDEAD</description>
-                              </node>
-                              <node>
-                                 <name>Wheat</name>
-                                 <description>CSS-color 0xF5DEB3</description>
-                              </node>
-                              <node>
-                                 <name>BurlyWood</name>
-                                 <description>CSS-color 0xDEB887</description>
-                              </node>
-                              <node>
-                                 <name>Tan</name>
-                                 <description>CSS-color 0xD2B48C</description>
-                              </node>
-                              <node>
-                                 <name>RosyBrown</name>
-                                 <description>CSS-color 0xBC8F8F</description>
-                              </node>
-                              <node>
-                                 <name>SandyBrown</name>
-                                 <description>CSS-color 0xF4A460</description>
-                              </node>
-                              <node>
-                                 <name>GoldenRod</name>
-                                 <description>CSS-color 0xDAA520</description>
-                              </node>
-                              <node>
-                                 <name>DarkGoldenRod</name>
-                                 <description>CSS-color 0xB8860B</description>
-                              </node>
-                              <node>
-                                 <name>Peru</name>
-                                 <description>CSS-color 0xCD853F</description>
-                              </node>
-                              <node>
-                                 <name>Chocolate</name>
-                                 <description>CSS-color 0xD2691E</description>
-                              </node>
-                              <node>
-                                 <name>Olive</name>
-                                 <description>CSS-color 0x808000</description>
-                              </node>
-                              <node>
-                                 <name>SaddleBrown</name>
-                                 <description>CSS-color 0x8B4513</description>
-                              </node>
-                              <node>
-                                 <name>Sienna</name>
-                                 <description>CSS-color 0xA0522D</description>
-                              </node>
-                              <node>
-                                 <name>Brown</name>
-                                 <description>CSS-color 0xA52A2A</description>
-                              </node>
-                              <node>
-                                 <name>Maroon</name>
-                                 <description>CSS-color 0x800000</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Cyan-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Aqua</name>
-                                 <description>CSS-color 0x00FFFF</description>
-                              </node>
-                              <node>
-                                 <name>Cyan</name>
-                                 <description>CSS-color 0x00FFFF</description>
-                              </node>
-                              <node>
-                                 <name>LightCyan</name>
-                                 <description>CSS-color 0xE0FFFF</description>
-                              </node>
-                              <node>
-                                 <name>PaleTurquoise</name>
-                                 <description>CSS-color 0xAFEEEE</description>
-                              </node>
-                              <node>
-                                 <name>Aquamarine</name>
-                                 <description>CSS-color 0x7FFFD4</description>
-                              </node>
-                              <node>
-                                 <name>Turquoise</name>
-                                 <description>CSS-color 0x40E0D0</description>
-                              </node>
-                              <node>
-                                 <name>MediumTurquoise</name>
-                                 <description>CSS-color 0x48D1CC</description>
-                              </node>
-                              <node>
-                                 <name>DarkTurquoise</name>
-                                 <description>CSS-color 0x00CED1</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Green-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>GreenYellow</name>
-                                 <description>CSS-color 0xADFF2F</description>
-                              </node>
-                              <node>
-                                 <name>Chartreuse</name>
-                                 <description>CSS-color 0x7FFF00</description>
-                              </node>
-                              <node>
-                                 <name>LawnGreen</name>
-                                 <description>CSS-color 0x7CFC00</description>
-                              </node>
-                              <node>
-                                 <name>Lime</name>
-                                 <description>CSS-color 0x00FF00</description>
-                              </node>
-                              <node>
-                                 <name>LimeGreen</name>
-                                 <description>CSS-color 0x32CD32</description>
-                              </node>
-                              <node>
-                                 <name>PaleGreen</name>
-                                 <description>CSS-color 0x98FB98</description>
-                              </node>
-                              <node>
-                                 <name>LightGreen</name>
-                                 <description>CSS-color 0x90EE90</description>
-                              </node>
-                              <node>
-                                 <name>MediumSpringGreen</name>
-                                 <description>CSS-color 0x00FA9A</description>
-                              </node>
-                              <node>
-                                 <name>SpringGreen</name>
-                                 <description>CSS-color 0x00FF7F</description>
-                              </node>
-                              <node>
-                                 <name>MediumSeaGreen</name>
-                                 <description>CSS-color 0x3CB371</description>
-                              </node>
-                              <node>
-                                 <name>SeaGreen</name>
-                                 <description>CSS-color 0x2E8B57</description>
-                              </node>
-                              <node>
-                                 <name>ForestGreen</name>
-                                 <description>CSS-color 0x228B22</description>
-                              </node>
-                              <node>
-                                 <name>Green</name>
-                                 <description>CSS-color 0x008000</description>
-                              </node>
-                              <node>
-                                 <name>DarkGreen</name>
-                                 <description>CSS-color 0x006400</description>
-                              </node>
-                              <node>
-                                 <name>YellowGreen</name>
-                                 <description>CSS-color 0x9ACD32</description>
-                              </node>
-                              <node>
-                                 <name>OliveDrab</name>
-                                 <description>CSS-color 0x6B8E23</description>
-                              </node>
-                              <node>
-                                 <name>DarkOliveGreen</name>
-                                 <description>CSS-color 0x556B2F</description>
-                              </node>
-                              <node>
-                                 <name>MediumAquaMarine</name>
-                                 <description>CSS-color 0x66CDAA</description>
-                              </node>
-                              <node>
-                                 <name>DarkSeaGreen</name>
-                                 <description>CSS-color 0x8FBC8F</description>
-                              </node>
-                              <node>
-                                 <name>LightSeaGreen</name>
-                                 <description>CSS-color 0x20B2AA</description>
-                              </node>
-                              <node>
-                                 <name>DarkCyan</name>
-                                 <description>CSS-color 0x008B8B</description>
-                              </node>
-                              <node>
-                                 <name>Teal</name>
-                                 <description>CSS-color 0x008080</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Gray-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Gainsboro</name>
-                                 <description>CSS-color 0xDCDCDC</description>
-                              </node>
-                              <node>
-                                 <name>LightGray</name>
-                                 <description>CSS-color 0xD3D3D3</description>
-                              </node>
-                              <node>
-                                 <name>Silver</name>
-                                 <description>CSS-color 0xC0C0C0</description>
-                              </node>
-                              <node>
-                                 <name>DarkGray</name>
-                                 <description>CSS-color 0xA9A9A9</description>
-                              </node>
-                              <node>
-                                 <name>DimGray</name>
-                                 <description>CSS-color 0x696969</description>
-                              </node>
-                              <node>
-                                 <name>Gray</name>
-                                 <description>CSS-color 0x808080</description>
-                              </node>
-                              <node>
-                                 <name>LightSlateGray</name>
-                                 <description>CSS-color 0x778899</description>
-                              </node>
-                              <node>
-                                 <name>SlateGray</name>
-                                 <description>CSS-color 0x708090</description>
-                              </node>
-                              <node>
-                                 <name>DarkSlateGray</name>
-                                 <description>CSS-color 0x2F4F4F</description>
-                              </node>
-                              <node>
-                                 <name>Black</name>
-                                 <description>CSS-color 0x000000</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Orange-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Orange</name>
-                                 <description>CSS-color 0xFFA500</description>
-                              </node>
-                              <node>
-                                 <name>DarkOrange</name>
-                                 <description>CSS-color 0xFF8C00</description>
-                              </node>
-                              <node>
-                                 <name>Coral</name>
-                                 <description>CSS-color 0xFF7F50</description>
-                              </node>
-                              <node>
-                                 <name>Tomato</name>
-                                 <description>CSS-color 0xFF6347</description>
-                              </node>
-                              <node>
-                                 <name>OrangeRed</name>
-                                 <description>CSS-color 0xFF4500</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Pink-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Pink</name>
-                                 <description>CSS-color 0xFFC0CB</description>
-                              </node>
-                              <node>
-                                 <name>LightPink</name>
-                                 <description>CSS-color 0xFFB6C1</description>
-                              </node>
-                              <node>
-                                 <name>HotPink</name>
-                                 <description>CSS-color 0xFF69B4</description>
-                              </node>
-                              <node>
-                                 <name>DeepPink</name>
-                                 <description>CSS-color 0xFF1493</description>
-                              </node>
-                              <node>
-                                 <name>PaleVioletRed</name>
-                                 <description>CSS-color 0xDB7093</description>
-                              </node>
-                              <node>
-                                 <name>MediumVioletRed</name>
-                                 <description>CSS-color 0xC71585</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Purple-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Lavender</name>
-                                 <description>CSS-color 0xE6E6FA</description>
-                              </node>
-                              <node>
-                                 <name>Thistle</name>
-                                 <description>CSS-color 0xD8BFD8</description>
-                              </node>
-                              <node>
-                                 <name>Plum</name>
-                                 <description>CSS-color 0xDDA0DD</description>
-                              </node>
-                              <node>
-                                 <name>Orchid</name>
-                                 <description>CSS-color 0xDA70D6</description>
-                              </node>
-                              <node>
-                                 <name>Violet</name>
-                                 <description>CSS-color 0xEE82EE</description>
-                              </node>
-                              <node>
-                                 <name>Fuchsia</name>
-                                 <description>CSS-color 0xFF00FF</description>
-                              </node>
-                              <node>
-                                 <name>Magenta</name>
-                                 <description>CSS-color 0xFF00FF</description>
-                              </node>
-                              <node>
-                                 <name>MediumOrchid</name>
-                                 <description>CSS-color 0xBA55D3</description>
-                              </node>
-                              <node>
-                                 <name>DarkOrchid</name>
-                                 <description>CSS-color 0x9932CC</description>
-                              </node>
-                              <node>
-                                 <name>DarkViolet</name>
-                                 <description>CSS-color 0x9400D3</description>
-                              </node>
-                              <node>
-                                 <name>BlueViolet</name>
-                                 <description>CSS-color 0x8A2BE2</description>
-                              </node>
-                              <node>
-                                 <name>DarkMagenta</name>
-                                 <description>CSS-color 0x8B008B</description>
-                              </node>
-                              <node>
-                                 <name>Purple</name>
-                                 <description>CSS-color 0x800080</description>
-                              </node>
-                              <node>
-                                 <name>MediumPurple</name>
-                                 <description>CSS-color 0x9370DB</description>
-                              </node>
-                              <node>
-                                 <name>MediumSlateBlue</name>
-                                 <description>CSS-color 0x7B68EE</description>
-                              </node>
-                              <node>
-                                 <name>SlateBlue</name>
-                                 <description>CSS-color 0x6A5ACD</description>
-                              </node>
-                              <node>
-                                 <name>DarkSlateBlue</name>
-                                 <description>CSS-color 0x483D8B</description>
-                              </node>
-                              <node>
-                                 <name>RebeccaPurple</name>
-                                 <description>CSS-color 0x663399</description>
-                              </node>
-                              <node>
-                                 <name>Indigo</name>
-                                 <description>CSS-color 0x4B0082</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Red-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>LightSalmon</name>
-                                 <description>CSS-color 0xFFA07A</description>
-                              </node>
-                              <node>
-                                 <name>Salmon</name>
-                                 <description>CSS-color 0xFA8072</description>
-                              </node>
-                              <node>
-                                 <name>DarkSalmon</name>
-                                 <description>CSS-color 0xE9967A</description>
-                              </node>
-                              <node>
-                                 <name>LightCoral</name>
-                                 <description>CSS-color 0xF08080</description>
-                              </node>
-                              <node>
-                                 <name>IndianRed</name>
-                                 <description>CSS-color 0xCD5C5C</description>
-                              </node>
-                              <node>
-                                 <name>Crimson</name>
-                                 <description>CSS-color 0xDC143C</description>
-                              </node>
-                              <node>
-                                 <name>Red</name>
-                                 <description>CSS-color 0xFF0000</description>
-                              </node>
-                              <node>
-                                 <name>FireBrick</name>
-                                 <description>CSS-color 0xB22222</description>
-                              </node>
-                              <node>
-                                 <name>DarkRed</name>
-                                 <description>CSS-color 0x8B0000</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Yellow-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>Gold</name>
-                                 <description>CSS-color 0xFFD700</description>
-                              </node>
-                              <node>
-                                 <name>Yellow</name>
-                                 <description>CSS-color 0xFFFF00</description>
-                              </node>
-                              <node>
-                                 <name>LightYellow</name>
-                                 <description>CSS-color 0xFFFFE0</description>
-                              </node>
-                              <node>
-                                 <name>LemonChiffon</name>
-                                 <description>CSS-color 0xFFFACD</description>
-                              </node>
-                              <node>
-                                 <name>LightGoldenRodYellow</name>
-                                 <description>CSS-color 0xFAFAD2</description>
-                              </node>
-                              <node>
-                                 <name>PapayaWhip</name>
-                                 <description>CSS-color 0xFFEFD5</description>
-                              </node>
-                              <node>
-                                 <name>Moccasin</name>
-                                 <description>CSS-color 0xFFE4B5</description>
-                              </node>
-                              <node>
-                                 <name>PeachPuff</name>
-                                 <description>CSS-color 0xFFDAB9</description>
-                              </node>
-                              <node>
-                                 <name>PaleGoldenRod</name>
-                                 <description>CSS-color 0xEEE8AA</description>
-                              </node>
-                              <node>
-                                 <name>Khaki</name>
-                                 <description>CSS-color 0xF0E68C</description>
-                              </node>
-                              <node>
-                                 <name>DarkKhaki</name>
-                                 <description>CSS-color 0xBDB76B</description>
-                              </node>
-                           </node>
-                           <node>
-                              <name>White-color</name>
-                              <description>CSS color group</description>
-                              <node>
-                                 <name>White</name>
-                                 <description>CSS-color 0xFFFFFF</description>
-                              </node>
-                              <node>
-                                 <name>Snow</name>
-                                 <description>CSS-color 0xFFFAFA</description>
-                              </node>
-                              <node>
-                                 <name>HoneyDew</name>
-                                 <description>CSS-color 0xF0FFF0</description>
-                              </node>
-                              <node>
-                                 <name>MintCream</name>
-                                 <description>CSS-color 0xF5FFFA</description>
-                              </node>
-                              <node>
-                                 <name>Azure</name>
-                                 <description>CSS-color 0xF0FFFF</description>
-                              </node>
-                              <node>
-                                 <name>AliceBlue</name>
-                                 <description>CSS-color 0xF0F8FF</description>
-                              </node>
-                              <node>
-                                 <name>GhostWhite</name>
-                                 <description>CSS-color 0xF8F8FF</description>
-                              </node>
-                              <node>
-                                 <name>WhiteSmoke</name>
-                                 <description>CSS-color 0xF5F5F5</description>
-                              </node>
-                              <node>
-                                 <name>SeaShell</name>
-                                 <description>CSS-color 0xFFF5EE</description>
-                              </node>
-                              <node>
-                                 <name>Beige</name>
-                                 <description>CSS-color 0xF5F5DC</description>
-                              </node>
-                              <node>
-                                 <name>OldLace</name>
-                                 <description>CSS-color 0xFDF5E6</description>
-                              </node>
-                              <node>
-                                 <name>FloralWhite</name>
-                                 <description>CSS-color 0xFFFAF0</description>
-                              </node>
-                              <node>
-                                 <name>Ivory</name>
-                                 <description>CSS-color 0xFFFFF0</description>
-                              </node>
-                              <node>
-                                 <name>AntiqueWhite</name>
-                                 <description>CSS-color 0xFAEBD7</description>
-                              </node>
-                              <node>
-                                 <name>Linen</name>
-                                 <description>CSS-color 0xFAF0E6</description>
-                              </node>
-                              <node>
-                                 <name>LavenderBlush</name>
-                                 <description>CSS-color 0xFFF0F5</description>
-                              </node>
-                              <node>
-                                 <name>MistyRose</name>
-                                 <description>CSS-color 0xFFE4E1</description>
-                              </node>
-                           </node>
-                        </node>
-                        <node>
-                           <name>Color-shade</name>
-                           <description>A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.</description>
-                           <node>
-                              <name>Dark-shade</name>
-                              <description>A color tone not reflecting much light.</description>
-                           </node>
-                           <node>
-                              <name>Light-shade</name>
-                              <description>A color tone reflecting more light.</description>
-                           </node>
-                        </node>
-                        <node>
-                           <name>Grayscale</name>
-                           <description>Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.</description>
+                           <name>Hue</name>
+                           <description>Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.</description>
                            <node>
                               <name>#</name>
-                              <description>White intensity between 0 and 1</description>
+                              <description>Angular value between 0 and 360</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -4473,508 +4492,489 @@
                            </node>
                         </node>
                         <node>
-                           <name>HSV-color</name>
-                           <description>A color representation that models how colors appear under light.</description>
+                           <name>Saturation</name>
+                           <description>Colorfulness of a stimulus relative to its own brightness.</description>
                            <node>
-                              <name>Hue</name>
-                              <description>Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.</description>
-                              <node>
-                                 <name>#</name>
-                                 <description>Angular value between 0 and 360</description>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
-                           </node>
-                           <node>
-                              <name>Saturation</name>
-                              <description>Colorfulness of a stimulus relative to its own brightness.</description>
-                              <node>
-                                 <name>#</name>
-                                 <description>B value of RGB between 0 and 1</description>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
-                           </node>
-                           <node>
-                              <name>HSV-value</name>
-                              <description>AAttribute of a visual sensation according to which an area appears to emit more or less light.</description>
-                              <node>
-                                 <name>#</name>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
+                              <name>#</name>
+                              <description>B value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
                            </node>
                         </node>
                         <node>
-                           <name>RGB-color</name>
-                           <description>A color from the RGB schema.</description>
+                           <name>HSV-value</name>
+                           <description>AAttribute of a visual sensation according to which an area appears to emit more or less light.</description>
                            <node>
-                              <name>RGB-red</name>
-                              <description>The red component.</description>
-                              <node>
-                                 <name>#</name>
-                                 <description>R value of RGB between 0 and 1</description>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
-                           </node>
-                           <node>
-                              <name>RGB-blue</name>
-                              <description>The blue component.</description>
-                              <node>
-                                 <name>#</name>
-                                 <description>B value of RGB between 0 and 1</description>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
-                           </node>
-                           <node>
-                              <name>RGB-green</name>
-                              <description>The green component.</description>
-                              <node>
-                                 <name>#</name>
-                                 <description>G value of RGB between 0 and 1</description>
-                                 <attribute>
-                                    <name>takesValue</name>
-                                 </attribute>
-                                 <attribute>
-                                    <name>valueClass</name>
-                                    <value>numericClass</value>
-                                 </attribute>
-                              </node>
+                              <name>#</name>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
                            </node>
                         </node>
                      </node>
                      <node>
-                        <name>View</name>
-                        <description>A specific visual representation of data, situations, topics, etc.</description>
+                        <name>RGB-color</name>
+                        <description>A color from the RGB schema.</description>
                         <node>
-                           <name>2D-view</name>
-                           <description>A view showing only two dimensions.</description>
-                        </node>
-                        <node>
-                           <name>3D-view</name>
-                           <description>A view showing three dimensions.</description>
-                        </node>
-                        <node>
-                           <name>Background-view</name>
-                           <description>Parts of the view that are farthest from the viewer and usually the not part of the visual focus.</description>
-                        </node>
-                        <node>
-                           <name>Bistable-view</name>
-                           <description>Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.</description>
-                        </node>
-                        <node>
-                           <name>Foreground-view</name>
-                           <description>Parts of the view that are closest to the viewer and usually the most important part of the visual focus.</description>
-                        </node>
-                        <node>
-                           <name>Foveal-view</name>
-                           <description>Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.</description>
-                        </node>
-                        <node>
-                           <name>Map-view</name>
-                           <description>A diagrammatic representation of an area of land or sea showing physical features, cities, roads.</description>
+                           <name>RGB-red</name>
+                           <description>The red component.</description>
                            <node>
-                              <name>Aerial-view</name>
-                              <description>Elevated view of an object from above, with a perspective as though the observer were a bird.</description>
-                           </node>
-                           <node>
-                              <name>Satellite-view</name>
-                              <description>A representation as captured by technology such as a satellite.</description>
-                           </node>
-                           <node>
-                              <name>Street-view</name>
-                              <description>A 360-degrees panoramic view from a position on the ground.</description>
+                              <name>#</name>
+                              <description>R value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
                            </node>
                         </node>
                         <node>
-                           <name>Peripheral-view</name>
-                           <description>Indirect vision as it occurs outside the point of fixation.</description>
+                           <name>RGB-blue</name>
+                           <description>The blue component.</description>
+                           <node>
+                              <name>#</name>
+                              <description>B value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
                         </node>
+                        <node>
+                           <name>RGB-green</name>
+                           <description>The green component.</description>
+                           <node>
+                              <name>#</name>
+                              <description>G value of RGB between 0 and 1</description>
+                              <attribute>
+                                 <name>takesValue</name>
+                              </attribute>
+                              <attribute>
+                                 <name>valueClass</name>
+                                 <value>numericClass</value>
+                              </attribute>
+                           </node>
+                        </node>
+                     </node>
+                  </node>
+                  <node>
+                     <name>View</name>
+                     <description>A specific visual representation of data, situations, topics, etc.</description>
+                     <node>
+                        <name>2D-view</name>
+                        <description>A view showing only two dimensions.</description>
+                     </node>
+                     <node>
+                        <name>3D-view</name>
+                        <description>A view showing three dimensions.</description>
+                     </node>
+                     <node>
+                        <name>Background-view</name>
+                        <description>Parts of the view that are farthest from the viewer and usually the not part of the visual focus.</description>
+                     </node>
+                     <node>
+                        <name>Bistable-view</name>
+                        <description>Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.</description>
+                     </node>
+                     <node>
+                        <name>Foreground-view</name>
+                        <description>Parts of the view that are closest to the viewer and usually the most important part of the visual focus.</description>
+                     </node>
+                     <node>
+                        <name>Foveal-view</name>
+                        <description>Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.</description>
+                     </node>
+                     <node>
+                        <name>Map-view</name>
+                        <description>A diagrammatic representation of an area of land or sea showing physical features, cities, roads.</description>
+                        <node>
+                           <name>Aerial-view</name>
+                           <description>Elevated view of an object from above, with a perspective as though the observer were a bird.</description>
+                        </node>
+                        <node>
+                           <name>Satellite-view</name>
+                           <description>A representation as captured by technology such as a satellite.</description>
+                        </node>
+                        <node>
+                           <name>Street-view</name>
+                           <description>A 360-degrees panoramic view from a position on the ground.</description>
+                        </node>
+                     </node>
+                     <node>
+                        <name>Peripheral-view</name>
+                        <description>Indirect vision as it occurs outside the point of fixation.</description>
                      </node>
                   </node>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Task-property</name>
+            <description>Something that pertains to a task.</description>
+            <attribute>
+               <name>extensionAllowed</name>
+            </attribute>
             <node>
-               <name>Task-property</name>
-               <description>Something that pertains to a task.</description>
-               <attribute>
-                  <name>extensionAllowed</name>
-               </attribute>
+               <name>Task-attentional-demand</name>
+               <description>Strategy for allocating attention toward goal-relevant information.</description>
                <node>
-                  <name>Task-attentional-demand</name>
-                  <description>Strategy for allocating attention toward goal-relevant information.</description>
-                  <node>
-                     <name>Bottom-up-attention</name>
-                     <description>Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Top-down-attention</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Covert-attention</name>
-                     <description>Paying attention without moving the eyes.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Overt-attention</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Divided-attention</name>
-                     <description>Integrating parallel multiple stimuli. Behavior involving responding simultaneously to multiple tasks or multiple task demands.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Focused-attention</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Focused-attention</name>
-                     <description>Responding discretely to specific visual, auditory, or tactile stimuli.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Divided-attention</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Orienting-attention</name>
-                     <description>Directing attention to a target stimulus.</description>
-                  </node>
-                  <node>
-                     <name>Overt-attention</name>
-                     <description>Selectively processing one location over others by moving the eyes to point at that location.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Covert-attention</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Selective-attention</name>
-                     <description>Maintaining a behavioral or cognitive set in the face of distracting or competing stimuli. Ability to pay attention to a limited array of all available sensory information.</description>
-                  </node>
-                  <node>
-                     <name>Sustained-attention</name>
-                     <description>Maintaining a consistent behavioral response during continuous and repetitive activity.</description>
-                  </node>
-                  <node>
-                     <name>Switched-attention</name>
-                     <description>Having to switch attention between two or more modalities of presentation.</description>
-                  </node>
-                  <node>
-                     <name>Top-down-attention</name>
-                     <description>Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Bottom-up-attention</value>
-                     </attribute>
-                  </node>
+                  <name>Bottom-up-attention</name>
+                  <description>Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Top-down-attention</value>
+                  </attribute>
                </node>
                <node>
-                  <name>Task-effect-evidence</name>
-                  <description>The evidence supporting the conclusion that the event had the specified effect.</description>
-                  <node>
-                     <name>Computational-evidence</name>
-                     <description>A type of evidence in which data are produced, and/or generated, and/or analyzed on a computer.</description>
-                  </node>
-                  <node>
-                     <name>External-evidence</name>
-                     <description>A phenomenon that follows and is caused by some previous phenomenon.</description>
-                  </node>
-                  <node>
-                     <name>Intended-effect</name>
-                     <description>A phenomenon that is intended to follow and be caused by some previous phenomenon.</description>
-                  </node>
-                  <node>
-                     <name>Behavioral-evidence</name>
-                     <description>An indication or conclusion based on the behavior of an agent.</description>
-                  </node>
+                  <name>Covert-attention</name>
+                  <description>Paying attention without moving the eyes.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Overt-attention</value>
+                  </attribute>
                </node>
                <node>
-                  <name>Task-event-role</name>
-                  <description>The purpose of an event with respect to the task.</description>
-                  <node>
-                     <name>Experimental-stimulus</name>
-                     <description>Part of something designed to elicit a response in the experiment.</description>
-                  </node>
-                  <node>
-                     <name>Incidental</name>
-                     <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
-                  </node>
-                  <node>
-                     <name>Instructional</name>
-                     <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
-                  </node>
-                  <node>
-                     <name>Mishap</name>
-                     <description>Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.</description>
-                  </node>
-                  <node>
-                     <name>Participant-response</name>
-                     <description>Something related to a participant actions in performing the task.</description>
-                  </node>
-                  <node>
-                     <name>Task-activity</name>
-                     <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
-                  </node>
-                  <node>
-                     <name>Warning</name>
-                     <description>Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.</description>
-                  </node>
+                  <name>Divided-attention</name>
+                  <description>Integrating parallel multiple stimuli. Behavior involving responding simultaneously to multiple tasks or multiple task demands.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Focused-attention</value>
+                  </attribute>
                </node>
                <node>
-                  <name>Task-action-type</name>
-                  <description>How an agent action should be interpreted in terms of the task specification.</description>
-                  <node>
-                     <name>Appropriate-action</name>
-                     <description>An action suitable or proper in the circumstances.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Inappropriate-action</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Correct-action</name>
-                     <description>An action that was a correct response in the context of the task.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Incorrect-action</value>
-                        <value>Indeterminate-action</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Correction</name>
-                     <description>An action offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
-                  </node>
-                  <node>
-                     <name>Incorrect-action</name>
-                     <description>An action considered wrong or incorrect in the context of the task.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Correct-action</value>
-                        <value>Indeterminate-action</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Imagined-action</name>
-                     <description>Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
-                  </node>
-                  <node>
-                     <name>Inappropriate-action</name>
-                     <description>An action not in keeping with what is correct or proper for the task.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Appropriate-action</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Indeterminate-action</name>
-                     <description>An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Correct-action</value>
-                        <value>Incorrect-action</value>
-                        <value>Miss</value>
-                        <value>Near-miss</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Omitted-action</name>
-                     <description>An expected response was skipped.</description>
-                  </node>
-                  <node>
-                     <name>Miss</name>
-                     <description>An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Near-miss</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Near-miss</name>
-                     <description>An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Miss</value>
-                     </attribute>
-                  </node>
+                  <name>Focused-attention</name>
+                  <description>Responding discretely to specific visual, auditory, or tactile stimuli.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Divided-attention</value>
+                  </attribute>
                </node>
                <node>
-                  <name>Task-relationship</name>
-                  <description>Specifying organizational importance of sub-tasks.</description>
-                  <node>
-                     <name>Background-subtask</name>
-                     <description>A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.</description>
-                  </node>
-                  <node>
-                     <name>Primary-subtask</name>
-                     <description>A part of the task which should be the primary focus of the participant.</description>
-                  </node>
+                  <name>Orienting-attention</name>
+                  <description>Directing attention to a target stimulus.</description>
                </node>
                <node>
-                  <name>Task-stimulus-role</name>
-                  <description>The role the stimulus plays in the task.</description>
-                  <node>
-                     <name>Cue</name>
-                     <description>A signal for an action, a pattern of stimuli indicating a particular response.</description>
-                  </node>
-                  <node>
-                     <name>Distractor</name>
-                     <description>A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In pyschological studies this is sometimes referred to as a foil.</description>
-                  </node>
-                  <node>
-                     <name>Expected</name>
-                     <description>Considered likely, probable or anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unexpected</value>
-                     </attribute>
-                     <attribute>
-                        <name>suggestedTag</name>
-                        <value>Target</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Extraneous</name>
-                     <description>Irrelevant or unrelated to the subject being dealt with.</description>
-                  </node>
-                  <node>
-                     <name>Feedback</name>
-                     <description>An evaluative response to an inquiry, process, event, or activity.</description>
-                  </node>
-                  <node>
-                     <name>Go-signal</name>
-                     <description>An indicator to proceed with a planned action.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Stop-signal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Meaningful</name>
-                     <description>Conveying significant or relevant information.</description>
-                  </node>
-                  <node>
-                     <name>Newly-learned</name>
-                     <description>Representing recently acquired information or understanding.</description>
-                  </node>
-                  <node>
-                     <name>Non-informative</name>
-                     <description>Something that is not useful in forming an opinion or judging an outcome.</description>
-                  </node>
-                  <node>
-                     <name>Non-target</name>
-                     <description>Something other than that done or looked for. Also tag Expected if the Non-target is frequent.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Target</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Not-meaningful</name>
-                     <description>Not having a serious, important, or useful quality or purpose.</description>
-                  </node>
-                  <node>
-                     <name>Novel</name>
-                     <description>Having no previous example or precedent or parallel; of a kind not seen before.</description>
-                  </node>
-                  <node>
-                     <name>Oddball</name>
-                     <description>Something unusual, or infrequent.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unexpected</value>
-                     </attribute>
-                     <attribute>
-                        <name>suggestedTag</name>
-                        <value>Target</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Planned</name>
-                     <description>Something that was decided on or arranged in advance.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Unplanned</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Penalty</name>
-                     <description>A disadvantage, loss, or hardship due to some action.</description>
-                  </node>
-                  <node>
-                     <name>Priming</name>
-                     <description>An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.</description>
-                  </node>
-                  <node>
-                     <name>Query</name>
-                     <description>A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).</description>
-                  </node>
-                  <node>
-                     <name>Reward</name>
-                     <description>A positive reinforcement for a desired action, behavior or response.</description>
-                  </node>
-                  <node>
-                     <name>Stop-signal</name>
-                     <description>An indicator that the agent should stop the current activity.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Go-signal</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Target</name>
-                     <description>Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.</description>
-                  </node>
-                  <node>
-                     <name>Threat</name>
-                     <description>An indicator that signifies hostility and predicts an increased probability of attack.</description>
-                  </node>
-                  <node>
-                     <name>Timed</name>
-                     <description>Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.</description>
-                  </node>
-                  <node>
-                     <name>Unexpected</name>
-                     <description>Something that is not anticipated.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Expected</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Unplanned</name>
-                     <description>Something that has not been planned as part of the task.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Planned</value>
-                     </attribute>
-                  </node>
+                  <name>Overt-attention</name>
+                  <description>Selectively processing one location over others by moving the eyes to point at that location.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Covert-attention</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Selective-attention</name>
+                  <description>Maintaining a behavioral or cognitive set in the face of distracting or competing stimuli. Ability to pay attention to a limited array of all available sensory information.</description>
+               </node>
+               <node>
+                  <name>Sustained-attention</name>
+                  <description>Maintaining a consistent behavioral response during continuous and repetitive activity.</description>
+               </node>
+               <node>
+                  <name>Switched-attention</name>
+                  <description>Having to switch attention between two or more modalities of presentation.</description>
+               </node>
+               <node>
+                  <name>Top-down-attention</name>
+                  <description>Voluntary allocation of attention to certain features. Sometimes this is referred to goal-oriented attention.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Bottom-up-attention</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Task-effect-evidence</name>
+               <description>The evidence supporting the conclusion that the event had the specified effect.</description>
+               <node>
+                  <name>Computational-evidence</name>
+                  <description>A type of evidence in which data are produced, and/or generated, and/or analyzed on a computer.</description>
+               </node>
+               <node>
+                  <name>External-evidence</name>
+                  <description>A phenomenon that follows and is caused by some previous phenomenon.</description>
+               </node>
+               <node>
+                  <name>Intended-effect</name>
+                  <description>A phenomenon that is intended to follow and be caused by some previous phenomenon.</description>
+               </node>
+               <node>
+                  <name>Behavioral-evidence</name>
+                  <description>An indication or conclusion based on the behavior of an agent.</description>
+               </node>
+            </node>
+            <node>
+               <name>Task-event-role</name>
+               <description>The purpose of an event with respect to the task.</description>
+               <node>
+                  <name>Experimental-stimulus</name>
+                  <description>Part of something designed to elicit a response in the experiment.</description>
+               </node>
+               <node>
+                  <name>Incidental</name>
+                  <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
+               </node>
+               <node>
+                  <name>Instructional</name>
+                  <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
+               </node>
+               <node>
+                  <name>Mishap</name>
+                  <description>Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.</description>
+               </node>
+               <node>
+                  <name>Participant-response</name>
+                  <description>Something related to a participant actions in performing the task.</description>
+               </node>
+               <node>
+                  <name>Task-activity</name>
+                  <description>Something that is part of the overall task or is necessary to the overall experiment but is not directly part of a stimulus-response cycle. Examples would be taking a survey or provided providing a silva sample.</description>
+               </node>
+               <node>
+                  <name>Warning</name>
+                  <description>Something that should warn the participant that the parameters of the task have been or are about to be exceeded such as a warning message about getting too close to the shoulder of the road in a driving task.</description>
+               </node>
+            </node>
+            <node>
+               <name>Task-action-type</name>
+               <description>How an agent action should be interpreted in terms of the task specification.</description>
+               <node>
+                  <name>Appropriate-action</name>
+                  <description>An action suitable or proper in the circumstances.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Inappropriate-action</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Correct-action</name>
+                  <description>An action that was a correct response in the context of the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Incorrect-action</value>
+                     <value>Indeterminate-action</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Correction</name>
+                  <description>An action offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
+               </node>
+               <node>
+                  <name>Incorrect-action</name>
+                  <description>An action considered wrong or incorrect in the context of the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Correct-action</value>
+                     <value>Indeterminate-action</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Imagined-action</name>
+                  <description>Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.</description>
+               </node>
+               <node>
+                  <name>Inappropriate-action</name>
+                  <description>An action not in keeping with what is correct or proper for the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Appropriate-action</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Indeterminate-action</name>
+                  <description>An action that cannot be distinguished between two or more possibibities in the current context. This tag might be applied when an outside evaluator or a classification algorithm cannot determine a definitive result.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Correct-action</value>
+                     <value>Incorrect-action</value>
+                     <value>Miss</value>
+                     <value>Near-miss</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Omitted-action</name>
+                  <description>An expected response was skipped.</description>
+               </node>
+               <node>
+                  <name>Miss</name>
+                  <description>An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Near-miss</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Near-miss</name>
+                  <description>An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Miss</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Task-relationship</name>
+               <description>Specifying organizational importance of sub-tasks.</description>
+               <node>
+                  <name>Background-subtask</name>
+                  <description>A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.</description>
+               </node>
+               <node>
+                  <name>Primary-subtask</name>
+                  <description>A part of the task which should be the primary focus of the participant.</description>
+               </node>
+            </node>
+            <node>
+               <name>Task-stimulus-role</name>
+               <description>The role the stimulus plays in the task.</description>
+               <node>
+                  <name>Cue</name>
+                  <description>A signal for an action, a pattern of stimuli indicating a particular response.</description>
+               </node>
+               <node>
+                  <name>Distractor</name>
+                  <description>A person or thing that distracts or a plausible but incorrect option in a multiple-choice question. In pyschological studies this is sometimes referred to as a foil.</description>
+               </node>
+               <node>
+                  <name>Expected</name>
+                  <description>Considered likely, probable or anticipated. Something of low information value as in frequent non-targets in an RSVP paradigm.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Unexpected</value>
+                  </attribute>
+                  <attribute>
+                     <name>suggestedTag</name>
+                     <value>Target</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Extraneous</name>
+                  <description>Irrelevant or unrelated to the subject being dealt with.</description>
+               </node>
+               <node>
+                  <name>Feedback</name>
+                  <description>An evaluative response to an inquiry, process, event, or activity.</description>
+               </node>
+               <node>
+                  <name>Go-signal</name>
+                  <description>An indicator to proceed with a planned action.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Stop-signal</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Meaningful</name>
+                  <description>Conveying significant or relevant information.</description>
+               </node>
+               <node>
+                  <name>Newly-learned</name>
+                  <description>Representing recently acquired information or understanding.</description>
+               </node>
+               <node>
+                  <name>Non-informative</name>
+                  <description>Something that is not useful in forming an opinion or judging an outcome.</description>
+               </node>
+               <node>
+                  <name>Non-target</name>
+                  <description>Something other than that done or looked for. Also tag Expected if the Non-target is frequent.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Target</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Not-meaningful</name>
+                  <description>Not having a serious, important, or useful quality or purpose.</description>
+               </node>
+               <node>
+                  <name>Novel</name>
+                  <description>Having no previous example or precedent or parallel; of a kind not seen before.</description>
+               </node>
+               <node>
+                  <name>Oddball</name>
+                  <description>Something unusual, or infrequent.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Unexpected</value>
+                  </attribute>
+                  <attribute>
+                     <name>suggestedTag</name>
+                     <value>Target</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Planned</name>
+                  <description>Something that was decided on or arranged in advance.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Unplanned</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Penalty</name>
+                  <description>A disadvantage, loss, or hardship due to some action.</description>
+               </node>
+               <node>
+                  <name>Priming</name>
+                  <description>An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.</description>
+               </node>
+               <node>
+                  <name>Query</name>
+                  <description>A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).</description>
+               </node>
+               <node>
+                  <name>Reward</name>
+                  <description>A positive reinforcement for a desired action, behavior or response.</description>
+               </node>
+               <node>
+                  <name>Stop-signal</name>
+                  <description>An indicator that the agent should stop the current activity.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Go-signal</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Target</name>
+                  <description>Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.</description>
+               </node>
+               <node>
+                  <name>Threat</name>
+                  <description>An indicator that signifies hostility and predicts an increased probability of attack.</description>
+               </node>
+               <node>
+                  <name>Timed</name>
+                  <description>Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.</description>
+               </node>
+               <node>
+                  <name>Unexpected</name>
+                  <description>Something that is not anticipated.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Expected</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Unplanned</name>
+                  <description>Something that has not been planned as part of the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Planned</value>
+                  </attribute>
                </node>
             </node>
          </node>
