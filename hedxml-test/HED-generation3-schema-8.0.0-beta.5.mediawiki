@@ -683,60 +683,59 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
 *** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
 * Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
-** Informational <nowiki>[A quality that pertains to information.]</nowiki>
-*** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=textClass}</nowiki>
-*** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
-**** <nowiki># {takesValue, valueClass=textClass}</nowiki>
-*** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
-**** <nowiki># {takesValue, valueClass=textClass}</nowiki>
-*** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
-**** CogAtlas <nowiki>[The Cognitive Atlas ID number of somthing.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
-***** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
-**** Library-name <nowiki>[Official name of a HED library.]</nowiki>
-***** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-**** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
-***** <nowiki># {takesValue}</nowiki> 
-**** Subject-identifier <nowiki>[A sequence of characters used to identify, name, or characterize a trial or study subject.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Version-identifier <nowiki>[An alphanumeric character string that identifies a form or variant of a type or original.]</nowiki>
-***** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
-*** Parameter <nowiki>[Any factor that defines a system and determines or limits its performance. A variable whose value changes the characteristics of a system or a function.]</nowiki> 
+** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
+*** <nowiki># {takesValue, valueClass=textClass}</nowiki>
+** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
+*** <nowiki># {takesValue, valueClass=textClass}</nowiki>
+** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
+*** <nowiki># {takesValue, valueClass=textClass}</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
+*** CogAtlas <nowiki>[The Cognitive Atlas ID number of somthing.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
-*** Value <nowiki>[A numerical quantity measured or assigned or computed. Non-numeric values are specified with the Label tag.]</nowiki>
+*** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
-** Organizational <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
-*** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
-*** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-*** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-*** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
+*** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
+**** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
+*** Library-name <nowiki>[Official name of a HED library.]</nowiki>
 **** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-*** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
-*** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
-*** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
-*** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
-*** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
-*** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
-*** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
-*** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
-*** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
+*** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
+**** <nowiki># {takesValue}</nowiki> 
+*** Subject-identifier <nowiki>[A sequence of characters used to identify, name, or characterize a trial or study subject.]</nowiki>
+**** <nowiki># {takesValue}</nowiki>
+*** Version-identifier <nowiki>[An alphanumeric character string that identifies a form or variant of a type or original.]</nowiki>
+**** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
+** Parameter <nowiki>[Any factor that defines a system and determines or limits its performance. A variable whose value changes the characteristics of a system or a function.]</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
+** Value <nowiki>[A numerical quantity measured or assigned or computed. Non-numeric values are specified with the Label tag.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+* Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
+** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
+** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
+** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
+** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
+** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
+** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
+** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
+** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
 ** Auditory <nowiki>[Pertaining to the sense of hearing.]</nowiki>
 *** Sound-type
 **** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
 **** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
 **** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
-*** Auditory-quality <nowiki>[Using the sense of hearing.]</nowiki>
+*** Sound-quality <nowiki>[A characteristic of sound.]</nowiki>
 **** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Timbre <nowiki>[The quality of tone distinctive of a particular singing voice or musical instrument.]</nowiki>  
@@ -758,7 +757,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Vestibular <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
 ** Visual <nowiki>[Pertaining to the sense of sight.]</nowiki>
 *** Optical-quality <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
-**** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
 ****** Blue-color <nowiki>[CSS color group]</nowiki>
@@ -931,7 +929,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** RGB-blue <nowiki>[The blue component.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
 ****** RGB-green <nowiki>[The green component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki>
+**** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
+**** Opacity <nowiki>[A measure of impenetrability to light.]<nowiki>
 *** View-type <nowiki>[A specific visual representation of data, situations, topics, etc.]</nowiki>
 **** 2D-view <nowiki>[A view showing only two dimensions.]</nowiki>
 **** 3D-view <nowiki>[A view showing three dimensions.]</nowiki>
