@@ -478,6 +478,55 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Expert-annotation <nowiki>[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
 *** Instrument-measurement <nowiki>[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
 *** Observation <nowiki>[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
+** Data-type <nowiki>[Designation of the type of a data item.]</nowiki>
+** Categorical-type <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
+*** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
+**** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
+**** Correct <nowiki>{relatedTag=Incorrect}[Free from error. Especially conforming to fact or truth.]</nowiki>
+**** Explicit <nowiki>{relatedTag=Implicit}[Stated clearly and in detail, leaving no room for confusion or doubt.]</nowiki>
+**** False <nowiki>{relatedTag=True}[Not in accordance with facts, reality or definitive criteria.]</nowiki>
+**** Implicit <nowiki>{relatedTag=Explicit}[Implied though not plainly expressed.]</nowiki>
+**** Invalid <nowiki>{relatedTag=Valid}[Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.]</nowiki>
+**** None <nowiki>{relatedTag=All, relatedTag=Some}[No person or thing, nobody, not any.]</nowiki>
+**** Some <nowiki>{relatedTag=All, relatedTag=None}[At least a small amount or number of, but not a large amount of, or often.]</nowiki>
+**** True <nowiki>{relatedTag=False}[Conforming to facts, reality or definitive criteria.]</nowiki>
+**** Valid <nowiki>{relatedTag=Invalid}[Allowable, usable, or acceptable.]</nowiki>
+**** Wrong <nowiki>{relatedTag=Correct}[Not accurate, correct, or appropriate.]</nowiki>
+*** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
+**** Abnormal <nowiki>{relatedTag=Normal}[Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.]</nowiki>
+**** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.]</nowiki>
+**** Audible <nowiki>{relatedTag=Inaudible}[A sound that can be perceived by the participant.]</nowiki>
+**** Congruent <nowiki>{relatedTag=Incongruent}[Concordance of multiple evidence lines. In agreement or harmony.]</nowiki>
+**** Complex <nowiki>{relatedTag=Simple}[Hard, involved or complicated, elaborate, having many parts.]</nowiki>
+**** Constrained <nowiki>{relatedTag=Unconstrained}[Keeping something within particular limits or bounds.]</nowiki>
+**** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
+**** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Recognized, familiar, or within the scope of knowledge.]</nowiki>
+**** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}{relatedTag=Familiar, relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.]</nowiki>
+**** Inaudible <nowiki>{relatedTag=Audible}[A sound below the threshold of perception of the participant.]</nowiki>
+**** Incongruent <nowiki>{relatedTag=Congruent}[Not in agreement or harmony.]</nowiki>
+**** Involuntary <nowiki>{relatedTag=Voluntary}[An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.]</nowiki>
+**** Masked <nowiki>{relatedTag=Unmasked}[Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.]</nowiki>
+**** Normal <nowiki>{relatedTag=Abnormal}[Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.]</nowiki>
+**** Ordered <nowiki>{relatedTag=Disordered}[Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.]</nowiki>
+**** Simple <nowiki>{relatedTag=Complex}[Easily understood or presenting no difficulties.]</nowiki>
+**** Symmetrical <nowiki>{relatedTag=Asymmetrical}[Made up of exactly similar parts facing each other or around an axis; showing symmetry.]</nowiki>
+**** Unconstrained <nowiki>{relatedTag=Constrained}[Moving without restriction.]</nowiki>
+**** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Not having knowledge or experience of.]</nowiki>
+**** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
+**** Voluntary <nowiki>{relatedTag=Involuntary}[Using free will or design; not forced or compelled; controlled by individual volition.]</nowiki>
+*** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
+**** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
+**** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
+**** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
+**** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
+**** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
+**** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
+**** Positive <nowiki>{relatedTag=Negative}[Involving advantage or good.]</nowiki>
+**** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
+**** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold; imperceptible or not capable of eliciting a response.]</nowiki>
+**** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
+**** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
+**** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
 ** Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 *** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 *** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
@@ -632,54 +681,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
 *** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
 * Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
-** Categorical <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
-*** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
-**** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
-**** Correct <nowiki>{relatedTag=Incorrect}[Free from error; especially conforming to fact or truth.]</nowiki>
-**** Explicit <nowiki>{relatedTag=Implicit}[Stated clearly and in detail, leaving no room for confusion or doubt.]</nowiki>
-**** False <nowiki>{relatedTag=True}[Not in accordance with facts, reality or definitive criteria.]</nowiki>
-**** Implicit <nowiki>{relatedTag=Explicit}[Implied though not plainly expressed.]</nowiki>
-**** Invalid <nowiki>{relatedTag=Valid}[Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.]</nowiki>
-**** None <nowiki>{relatedTag=All, relatedTag=Some}[No person or thing, nobody, not any.]</nowiki>
-**** Some <nowiki>{relatedTag=All, relatedTag=None}[At least a small amount or number of, but not a large amount of, or often.]</nowiki>
-**** True <nowiki>{relatedTag=False}[Conforming to facts, reality or definitive criteria.]</nowiki>
-**** Valid <nowiki>{relatedTag=Invalid}[Allowable, usable, or acceptable.]</nowiki>
-**** Wrong <nowiki>{relatedTag=Correct}[Not accurate, correct, or appropriate.]</nowiki>
-*** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
-**** Abnormal <nowiki>{relatedTag=Normal}[Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.]</nowiki>
-**** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.]</nowiki>
-**** Audible <nowiki>{relatedTag=Inaudible}[A sound that can be perceived by the participant.]</nowiki>
-**** Congruent <nowiki>{relatedTag=Incongruent}[Concordance of multiple evidence lines. In agreement or harmony.]</nowiki>
-**** Complex <nowiki>{relatedTag=Simple}[Hard, involved or complicated, elaborate, having many parts.]</nowiki>
-**** Constrained <nowiki>{relatedTag=Unconstrained}[Keeping something within particular limits or bounds.]</nowiki>
-**** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
-**** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Recognized, familiar, or within the scope of knowledge.]</nowiki>
-**** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}{relatedTag=Familiar, relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.]</nowiki>
-**** Inaudible <nowiki>{relatedTag=Audible}[A sound below the threshold of perception of the participant.]</nowiki>
-**** Incongruent <nowiki>{relatedTag=Congruent}[Not in agreement or harmony.]</nowiki>
-**** Involuntary <nowiki>{relatedTag=Voluntary}[An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.]</nowiki>
-**** Masked <nowiki>{relatedTag=Unmasked}[Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.]</nowiki>
-**** Normal <nowiki>{relatedTag=Abnormal}[Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.]</nowiki>
-**** Ordered <nowiki>{relatedTag=Disordered}[Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.]</nowiki>
-**** Simple <nowiki>{relatedTag=Complex}[Easily understood or presenting no difficulties.]</nowiki>
-**** Symmetrical <nowiki>{relatedTag=Asymmetrical}[Made up of exactly similar parts facing each other or around an axis; showing symmetry.]</nowiki>
-**** Unconstrained <nowiki>{relatedTag=Constrained}[Moving without restriction.]</nowiki>
-**** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Not having knowledge or experience of.]</nowiki>
-**** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
-**** Voluntary <nowiki>{relatedTag=Involuntary}[Using free will or design; not forced or compelled; controlled by individual volition.]</nowiki>
-*** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
-**** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
-**** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
-**** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
-**** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
-**** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
-**** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
-**** Positive <nowiki>{relatedTag=Negative}[Involving advantage or good.]</nowiki>
-**** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
-**** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold; imperceptible or not capable of eliciting a response.]</nowiki>
-**** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
-**** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
-**** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
 ** Informational <nowiki>[A quality that pertains to information.]</nowiki>
 *** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=textClass}</nowiki>
