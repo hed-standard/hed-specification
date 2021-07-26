@@ -515,8 +515,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
 **** Voluntary <nowiki>{relatedTag=Involuntary}[Using free will or design; not forced or compelled; controlled by individual volition.]</nowiki>
 *** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
+**** Cold <nowiki>{relatedTag=Hot}[Characterized by an absence of heat.]</nowiki>
 **** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
 **** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
+**** Hot <nowiki>{relatedTag=Cold}[Characterized by an excess of heat.]</nowiki>
 **** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
 **** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
 **** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
@@ -1094,12 +1096,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
 *** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
 *** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
-* Thermal-relation <nowiki>[A relationship related to temperature.]</nowiki>
-** Cold <nowiki>[Characterized by an absence of heat.]</nowiki>
-** Colder-than <nowiki>[(A (Colder-than B)) means A has less heat energy than the object against which it is compared; the absence of heat.]</nowiki>
-** Hot <nowiki>[Characterized by an excess of heat.]</nowiki>
-** Hotter-than <nowiki>[(A (Hotter-than B)) means A has more heat energy than the object against which it is compared; the absence of heat.]</nowiki>
-
 
 !# end schema 
 
