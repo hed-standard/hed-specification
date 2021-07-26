@@ -3716,42 +3716,25 @@
             <name>Sensory-property</name>
             <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
             <node>
-               <name>Sensory-modality</name>
-               <description>Indication of which senses are affected by or used to perceive something.</description>
+               <name>Auditory</name>
+               <description>Pertaining to the sense of hearing.</description>
                <node>
-                  <name>Auditory</name>
-                  <description>Using the sense of hearing.</description>
+                  <name>Sound-type</name>
+                  <node>
+                     <name>Monophonic</name>
+                     <description>Relating to sound transmission, recording, or reproduction involving a single transmission path.</description>
+                  </node>
+                  <node>
+                     <name>Silent</name>
+                     <description>The absence of ambient audible sound or the state of having ceased to produce sounds.</description>
+                  </node>
+                  <node>
+                     <name>Stereophonic</name>
+                     <description>Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.</description>
+                  </node>
                </node>
                <node>
-                  <name>Gustatory</name>
-                  <description>Using the sense of taste.</description>
-               </node>
-               <node>
-                  <name>Olfactory</name>
-                  <description>Using the sense of smell.</description>
-               </node>
-               <node>
-                  <name>Somatic</name>
-                  <description>Using the feelings in the body or of the nervous system.</description>
-               </node>
-               <node>
-                  <name>Tactile</name>
-                  <description>Using the sense of touch.</description>
-               </node>
-               <node>
-                  <name>Vestibular</name>
-                  <description>Using the sense of balance or body position.</description>
-               </node>
-               <node>
-                  <name>Visual</name>
-                  <description>Using the sense of sight.</description>
-               </node>
-            </node>
-            <node>
-               <name>Sensory-quality</name>
-               <description>A property related to something sensed or perceived.</description>
-               <node>
-                  <name>Auditory-property</name>
+                  <name>Auditory-quality</name>
                   <description>Using the sense of hearing.</description>
                   <node>
                      <name>Loudness</name>
@@ -3768,25 +3751,17 @@
                      </node>
                   </node>
                   <node>
-                     <name>Monophonic</name>
-                     <description>Relating to sound transmission, recording, or reproduction involving a single transmission path.</description>
-                  </node>
-                  <node>
-                     <name>Silent</name>
-                     <description>The absence of ambient audible sound or the state of having ceased to produce sounds.</description>
-                  </node>
-                  <node>
-                     <name>Stereophonic</name>
-                     <description>Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.</description>
-                  </node>
-                  <node>
                      <name>Timbre</name>
                      <description>The quality of tone distinctive of a particular singing voice or musical instrument.</description>
                   </node>
                </node>
+            </node>
+            <node>
+               <name>Gustatory</name>
+               <description>Pertaining to the sense of taste.</description>
                <node>
-                  <name>Gustatory-property</name>
-                  <description>Concerned with tasting or the sense of taste.</description>
+                  <name>Taste-type</name>
+                  <description>Type of taste.</description>
                   <node>
                      <name>Bitter</name>
                      <description>Having a sharp, pungent taste.</description>
@@ -3808,44 +3783,48 @@
                      <description>Having or resembling the taste of sugar.</description>
                   </node>
                </node>
+            </node>
+            <node>
+               <name>Olfactory</name>
+               <description>Pertaining to the sense of smell.</description>
+            </node>
+            <node>
+               <name>Somatic</name>
+               <description>Pertaining to the feelings in the body or of the nervous system.</description>
                <node>
-                  <name>Olfactory-property</name>
-                  <description>Having to do with the faculty of smell.</description>
+                  <name>Pain</name>
+                  <description>The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.</description>
                </node>
                <node>
-                  <name>Somatic-property</name>
-                  <description>Having to do with feelings in the body.</description>
-                  <node>
-                     <name>Pain</name>
-                     <description>The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.</description>
-                  </node>
-                  <node>
-                     <name>Stress</name>
-                     <description>The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.</description>
-                  </node>
+                  <name>Stress</name>
+                  <description>The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.</description>
+               </node>
+            </node>
+            <node>
+               <name>Tactile</name>
+               <description>Pertaining to the sense of touch.</description>
+               <node>
+                  <name>Tactile-pressure</name>
+                  <description>Having a feeling of heaviness.</description>
                </node>
                <node>
-                  <name>Tactile-property</name>
-                  <description>Of or connected with the sense of touch.</description>
-                  <node>
-                     <name>Tactile-pressure</name>
-                     <description>Having a feeling of heaviness.</description>
-                  </node>
-                  <node>
-                     <name>Tactile-texture</name>
-                     <description>Having a feeling of roughness.</description>
-                  </node>
-                  <node>
-                     <name>Tactile-vibration</name>
-                     <description>Having a feeling of mechanical oscillation.</description>
-                  </node>
+                  <name>Tactile-texture</name>
+                  <description>Having a feeling of roughness.</description>
                </node>
                <node>
-                  <name>Vestibular-property</name>
-                  <description>Relating to or affecting the perception of body position and movement.</description>
+                  <name>Tactile-vibration</name>
+                  <description>Having a feeling of mechanical oscillation.</description>
                </node>
+            </node>
+            <node>
+               <name>Vestibular</name>
+               <description>Pertaining to the sense of balance or body position.</description>
+            </node>
+            <node>
+               <name>Visual</name>
+               <description>Pertaining to the sense of sight.</description>
                <node>
-                  <name>Visual-property</name>
+                  <name>Optical-quality</name>
                   <description>Relating to or using sight; able to be seen.</description>
                   <node>
                      <name>Luminance</name>
@@ -4591,53 +4570,53 @@
                         </node>
                      </node>
                   </node>
+               </node>
+               <node>
+                  <name>View-type</name>
+                  <description>A specific visual representation of data, situations, topics, etc.</description>
                   <node>
-                     <name>View</name>
-                     <description>A specific visual representation of data, situations, topics, etc.</description>
+                     <name>2D-view</name>
+                     <description>A view showing only two dimensions.</description>
+                  </node>
+                  <node>
+                     <name>3D-view</name>
+                     <description>A view showing three dimensions.</description>
+                  </node>
+                  <node>
+                     <name>Background-view</name>
+                     <description>Parts of the view that are farthest from the viewer and usually the not part of the visual focus.</description>
+                  </node>
+                  <node>
+                     <name>Bistable-view</name>
+                     <description>Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.</description>
+                  </node>
+                  <node>
+                     <name>Foreground-view</name>
+                     <description>Parts of the view that are closest to the viewer and usually the most important part of the visual focus.</description>
+                  </node>
+                  <node>
+                     <name>Foveal-view</name>
+                     <description>Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.</description>
+                  </node>
+                  <node>
+                     <name>Map-view</name>
+                     <description>A diagrammatic representation of an area of land or sea showing physical features, cities, roads.</description>
                      <node>
-                        <name>2D-view</name>
-                        <description>A view showing only two dimensions.</description>
+                        <name>Aerial-view</name>
+                        <description>Elevated view of an object from above, with a perspective as though the observer were a bird.</description>
                      </node>
                      <node>
-                        <name>3D-view</name>
-                        <description>A view showing three dimensions.</description>
+                        <name>Satellite-view</name>
+                        <description>A representation as captured by technology such as a satellite.</description>
                      </node>
                      <node>
-                        <name>Background-view</name>
-                        <description>Parts of the view that are farthest from the viewer and usually the not part of the visual focus.</description>
+                        <name>Street-view</name>
+                        <description>A 360-degrees panoramic view from a position on the ground.</description>
                      </node>
-                     <node>
-                        <name>Bistable-view</name>
-                        <description>Something having two stable visual forms that have two distinguishable stable forms as in optical illusions.</description>
-                     </node>
-                     <node>
-                        <name>Foreground-view</name>
-                        <description>Parts of the view that are closest to the viewer and usually the most important part of the visual focus.</description>
-                     </node>
-                     <node>
-                        <name>Foveal-view</name>
-                        <description>Visual presentation directly on the fovea. A view projected on the small depression in the retina containing only cones and where vision is most acute.</description>
-                     </node>
-                     <node>
-                        <name>Map-view</name>
-                        <description>A diagrammatic representation of an area of land or sea showing physical features, cities, roads.</description>
-                        <node>
-                           <name>Aerial-view</name>
-                           <description>Elevated view of an object from above, with a perspective as though the observer were a bird.</description>
-                        </node>
-                        <node>
-                           <name>Satellite-view</name>
-                           <description>A representation as captured by technology such as a satellite.</description>
-                        </node>
-                        <node>
-                           <name>Street-view</name>
-                           <description>A 360-degrees panoramic view from a position on the ground.</description>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Peripheral-view</name>
-                        <description>Indirect vision as it occurs outside the point of fixation.</description>
-                     </node>
+                  </node>
+                  <node>
+                     <name>Peripheral-view</name>
+                     <description>Indirect vision as it occurs outside the point of fixation.</description>
                   </node>
                </node>
             </node>
