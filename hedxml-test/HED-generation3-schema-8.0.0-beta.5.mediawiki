@@ -524,30 +524,17 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
 ***** Hot <nowiki>{relatedTag=Cold}[Characterized by an excess of heat.]</nowiki>
 ***** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
+***** Loud <nowiki>{relatedTag=Quiet}[Characterizing a perceived high intensity of sound.]</nowiki>
 ***** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
 ***** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
 ***** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
 ***** Positive <nowiki>{relatedTag=Negative}[Involving advantage or good.]</nowiki>
+***** Quiet <nowiki>{relatedTag=Loud}[Characterizing a perceived low intensity of sound.]</nowiki>
 ***** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
 ***** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold; imperceptible or not capable of eliciting a response.]</nowiki>
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
-** Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
-*** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
-*** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
-**** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
-*** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
-**** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
 *** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
@@ -743,6 +730,21 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
+* Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
+** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
+** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
+*** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
+** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
+*** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
 ** Auditory-property <nowiki>[Pertaining to the sense of hearing.]</nowiki>
 *** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
