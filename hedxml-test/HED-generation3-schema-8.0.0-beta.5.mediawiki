@@ -742,27 +742,36 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
-** Auditory <nowiki>[Pertaining to the sense of hearing.]</nowiki>
+** Auditory-property <nowiki>[Pertaining to the sense of hearing.]</nowiki>
+*** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Sound-type
 **** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
 **** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
 **** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
-*** Sound-quality <nowiki>[A characteristic of sound.]</nowiki>
-**** Loudness <nowiki>[A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Timbre <nowiki>[The quality of tone distinctive of a particular singing voice or musical instrument.]</nowiki>  
-** Gustatory <nowiki>[Pertaining to the sense of taste.]</nowiki>
-*** Taste-type <nowiki>[Type of taste.]</nowiki>
-**** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
-**** Salty <nowiki>[Tasting of or like salt.]</nowiki>
-**** Savory <nowiki>[Belonging to a taste that is salty or spicy rather than sweet.]</nowiki>
-**** Sour <nowiki>[Having a sharp, acidic taste.]</nowiki>
-**** Sweet <nowiki>[Having or resembling the taste of sugar.]</nowiki>
-** Olfactory <nowiki>[Pertaining to the sense of smell.]</nowiki>
-** Somatic <nowiki>[Pertaining to the feelings in the body or of the nervous system.]</nowiki>
+*** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
+*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+** Gustatory-property <nowiki>[Pertaining to the sense of taste.]</nowiki>
+*** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
+*** Salty <nowiki>[Tasting of or like salt.]</nowiki>
+*** Savory <nowiki>[Belonging to a taste that is salty or spicy rather than sweet.]</nowiki>
+*** Sour <nowiki>[Having a sharp, acidic taste.]</nowiki>
+*** Sweet <nowiki>[Having or resembling the taste of sugar.]</nowiki>
+** Olfactory-property <nowiki>[Pertaining to the sense of smell.]</nowiki>
+** Somatic-property <nowiki>[Pertaining to the feelings in the body or of the nervous system.]</nowiki>
 *** Pain <nowiki>[The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.]</nowiki>
 *** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
-** Tactile <nowiki>[Pertaining to the sense of touch.]</nowiki>
+** Sensory-modality <nowiki>[A user-sense is used in the presentation to the user.]</nowiki>
+*** Auditory-modality <nowiki>[The sense of hearing is used in the presentation to the user.]</nowiki>
+*** Gustatory-modality <nowiki>[The sense of taste used in the presentation to the user.]</nowiki>
+*** Olfactory-modality <nowiki>[The sense of smell used in the presentation to the user.]</nowiki>
+*** Somatic-modality <nowiki>[The nervous system is used in the presentation to the user.]</nowiki>
+*** Tactile-modality <nowiki>[The sense of touch used in the presentation to the user.]</nowiki>
+*** Vestibular-modality <nowiki>[The sense balance used in the presentation to the user.]</nowiki>
+*** Visual-modality <nowiki>[The sense of sight used in the presentation to the user.]</nowiki>
+** Tactile-property <nowiki>[Pertaining to the sense of touch.]</nowiki>
 *** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
 *** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
 *** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
@@ -1023,7 +1032,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 '''Relation''' <nowiki>[Concerns the way in which two or more people or things are connected.]</nowiki>
 * Comparative-relation <nowiki>[Something considered in comparison to something else.]</nowiki>
-** Less-than <nowiki>[(A (Less-than B)) indicates that the relative size or order of A is smaller than that of B.]</nowiki>
+** Less-than <nowiki>[(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than-or-equal-to <nowiki>[(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
 ** Greater-than <nowiki>[(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
 ** Greater-than-or-equal-to <nowiki>[(A (Greater-than-or-equal-to B)) indicates that the relative size or order of A is bigger than or the same as that of B.]</nowiki>
@@ -1042,9 +1051,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Part-of <nowiki>[(A (Part-of B)) indicates A is a part of the whole B.]</nowiki>
 ** Performed-by <nowiki>[(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.]</nowiki>
 ** Related-to <nowiki>[(A (Relative-to B)) indicates A is a part of the whole B.]</nowiki>
-** Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
-*** Away-from <nowiki>[Go away from a place or object.]</nowiki>
-*** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
+* Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
+** Away-from <nowiki>[Go away from a place or object.]</nowiki>
+** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
 * Ordering-relation <nowiki>[A relation describing the systematic arrangement of data items.]</nowiki>
 ** Early-item <nowiki>[An item near the beginning of a course, process, or series.]</nowiki>
 ** First-item <nowiki>[A first item at the beginning of a course, process, or series.]</nowiki>
