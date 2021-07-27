@@ -692,7 +692,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 ** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
-*** CogAtlas <nowiki>[The Cognitive Atlas ID number of somthing.]</nowiki>
+*** CogAtlas <nowiki>[The Cognitive Atlas ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
@@ -700,6 +700,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
 **** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** OBO-identifier <nowiki>[The identifier of a term in some Open Biology Ontology (OBO) ontology.]</nowiki>
 *** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
 **** <nowiki># {takesValue}</nowiki> 
 *** Subject-identifier <nowiki>[A sequence of characters used to identify, name, or characterize a trial or study subject.]</nowiki>

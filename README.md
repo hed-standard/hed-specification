@@ -25,12 +25,19 @@ markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-spec
 ## Viewing and using HED schema
 The current generation of HED infrastructure is referred to as HED-3G 
 (HED third generation). HED-3G schema is under beta release (HED8.0.0-beta.1), and the
-<b>official release of HED-3G schema (HED8.0.0) is planned for July 27.</b> Users are
+<b>official release of HED-3G schema (HED8.0.0) is now Aug. 10.</b> Users are
 strongly recommended to use the latest version of the HED schema in doing their annotations.
 
-The pre-release  of HED8.0.0 is available in the hedxml-test directory
-> [**HTML view of HED8.0.0-beta.4**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.4)  
-> Note: this version is in the new XML format and has not officially been moved to the hedxml directory. The XML is in the hedxml-test directory.  
+The pre-release versions of HED8.0.0 are available in the hedxml-test directory. The current proposal is Beta.5
+> [**HTML view of HED8.0.0-beta.5**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.5) 
+> The proposed Beta.5 has a different top-level schema organization with *Property* and *Relation* as
+> top-level terms rather than *Agent-property*, *Data-property*, *Task-property*, and *Attribute*.
+> This change is motivated by the need to make a clear separation from properties and binary relations.
+> The change only affects the position in the schema of most terms, so short-form tagging will not be
+> greatly affected.
+
+**Note:** this version is in the new XML format and has not officially been moved to the hedxml directory. 
+The XML is in the hedxml-test directory.  
 
 To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1).
 The current version of the HED specification document is available as: 
