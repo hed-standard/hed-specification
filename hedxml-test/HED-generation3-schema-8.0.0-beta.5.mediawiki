@@ -442,6 +442,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Tired <nowiki>{relatedTag=Rested}[Feeling in need of sleep or rest.]</nowiki>
 *** Agent-postural-state <nowiki>[Pertaining to the position in which agent holds their body.]</nowiki> 
 **** Crouching <nowiki>[Adopting a position where the knees are bent and the upper body is brought forward and down, sometimes to avoid detection or to defend oneself.]</nowiki>
+**** Eyes-closed <nowiki>[Keeping eyes closed with no blinking.]</nowiki>
+**** Eyes-open <nowiki>[Keeping eyes open with occasional blinking.]</nowiki>
 **** Kneeling <nowiki>[Positioned where one or both knees are on the ground.]</nowiki>
 **** On-treadmill <nowiki>[Ambulation on an exercise apparatus with an endless moving belt to support moving in place.]</nowiki>
 **** Prone <nowiki>[Positioned in a recumbent body position whereby the person lies on its stomach and faces downward.]</nowiki>
@@ -775,8 +777,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
 *** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
 *** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
-** Vestibular <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
-** Visual <nowiki>[Pertaining to the sense of sight.]</nowiki>
+** Vestibular-property <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
+** Visual-property <nowiki>[Pertaining to the sense of sight.]</nowiki>
 *** Optical-quality <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
