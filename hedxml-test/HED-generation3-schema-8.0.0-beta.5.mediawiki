@@ -132,9 +132,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Taste <nowiki>[Sense a flavor in the mouth and throat on contact with a substance.]</nowiki>
 ** Sense-by-touch <nowiki>[Sense something through receptors in the skin.]</nowiki>
 * Perform <nowiki>[Carry out or accomplish an action, task, or function.]</nowiki>
+** Close <nowiki>[Act as to blocked against entry or passage.]</nowiki>
 ** Collide-with <nowiki>[Hit with force when moving.]</nowiki>
 ** Halt <nowiki>[Bring or come to an abrupt stop.]</nowiki>
 ** Modify <nowiki>[Change something.]</nowiki>
+** Open <nowiki>[Widen an aperture, door, or gap, especially one allowing access to something.]</nowiki>
 ** Operate <nowiki>[Control the functioning of a machine, process, or system.]</nowiki>
 ** Play  <nowiki>[Engage in activity for enjoyment and recreation rather than a serious or practical purpose.]</nowiki>
 ** Read <nowiki>[Interpret something that is written or printed.]</nowiki>
@@ -562,6 +564,15 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Repetition-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
 ** Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
+*** Directional-property <nowiki>[Property of an element involving space.]</nowiki>
+**** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
+**** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
+**** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
+**** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+**** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
+**** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+**** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+**** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 *** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 **** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
@@ -1031,6 +1042,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Part-of <nowiki>[(A (Part-of B)) indicates A is a part of the whole B.]</nowiki>
 ** Performed-by <nowiki>[(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.]</nowiki>
 ** Related-to <nowiki>[(A (Relative-to B)) indicates A is a part of the whole B.]</nowiki>
+** Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
+*** Away-from <nowiki>[Go away from a place or object.]</nowiki>
+*** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
 * Ordering-relation <nowiki>[A relation describing the systematic arrangement of data items.]</nowiki>
 ** Early-item <nowiki>[An item near the beginning of a course, process, or series.]</nowiki>
 ** First-item <nowiki>[A first item at the beginning of a course, process, or series.]</nowiki>
@@ -1042,19 +1056,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Approximated <nowiki>[Not quite exact or correct; almost exact or correct.]</nowiki>
 ** Exact <nowiki>[Marked by strict and particular and complete accordance with fact.]</nowiki>
 * Spatiotemporal-relation <nowiki>[A space and or temporal relationship.]</nowiki>
-** Directional-relation <nowiki>[A relationship indicating direction.]</nowiki>
-*** Away-from <nowiki>[Go away from (a place).]</nowiki>
-*** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
-*** Closing <nowiki>[Not affording passage or access; blocked against entry.]</nowiki>
-*** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
-*** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
-*** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-*** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
-*** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
-*** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
-*** Opening <nowiki>[Widening an aperture, door, or gap, especially one allowing access.]</nowiki>
-*** Towards <nowiki>[Moving in the direction of.]</nowiki>
-*** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 ** Orientational-relation <nowiki>[Indicating relative physical position or direction of something.]</nowiki>
 *** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
 *** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>

@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.0.0-beta.5" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
+<HED version="8.0.0-beta.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
    <prologue>This schema is the first version that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 </prologue>
    <schema>
@@ -613,6 +613,10 @@
             <name>Perform</name>
             <description>Carry out or accomplish an action, task, or function.</description>
             <node>
+               <name>Close</name>
+               <description>Act as to blocked against entry or passage.</description>
+            </node>
+            <node>
                <name>Collide-with</name>
                <description>Hit with force when moving.</description>
             </node>
@@ -623,6 +627,10 @@
             <node>
                <name>Modify</name>
                <description>Change something.</description>
+            </node>
+            <node>
+               <name>Open</name>
+               <description>Widen an aperture, door, or gap, especially one allowing access to something.</description>
             </node>
             <node>
                <name>Operate</name>
@@ -2650,6 +2658,42 @@
                <name>Spatiotemporal-property</name>
                <description>A property relating to space and/or time.</description>
                <node>
+                  <name>Directional-property</name>
+                  <description>Property of an element involving space.</description>
+                  <node>
+                     <name>Backward</name>
+                     <description>Directed behind or to the rear.</description>
+                  </node>
+                  <node>
+                     <name>Decreasing</name>
+                     <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
+                  </node>
+                  <node>
+                     <name>Downward</name>
+                     <description>Moving or leading toward a lower place or level.</description>
+                  </node>
+                  <node>
+                     <name>Forward</name>
+                     <description>At or near or directed toward the front.</description>
+                  </node>
+                  <node>
+                     <name>Increasing</name>
+                     <description>Becoming greater in size, amount, or degree; growing.</description>
+                  </node>
+                  <node>
+                     <name>Leftward</name>
+                     <description>Going toward or facing the left.</description>
+                  </node>
+                  <node>
+                     <name>Rightward</name>
+                     <description>Going toward or situated on the right.</description>
+                  </node>
+                  <node>
+                     <name>Upward</name>
+                     <description>Moving, pointing, or leading to a higher place, point, or level.</description>
+                  </node>
+               </node>
+               <node>
                   <name>Rate-of-change</name>
                   <description>The amount of change accumulated per unit time.</description>
                   <node>
@@ -3491,7 +3535,7 @@
                <description>Data about data; information that describes another set of data.</description>
                <node>
                   <name>CogAtlas</name>
-                  <description>The Cognitive Atlas ID number of somthing.</description>
+                  <description>The Cognitive Atlas ID number of something.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -3539,6 +3583,10 @@
                         <value>nameClass</value>
                      </attribute>
                   </node>
+               </node>
+               <node>
+                  <name>OBO-identifier</name>
+                  <description>The identifier of a term in some Open Biology Ontology (OBO) ontology.</description>
                </node>
                <node>
                   <name>Pathname</name>
@@ -5060,6 +5108,18 @@
                <name>Related-to</name>
                <description>(A (Relative-to B)) indicates A is a part of the whole B.</description>
             </node>
+            <node>
+               <name>Directional-relation</name>
+               <description>A relationship indicating direction of change.</description>
+               <node>
+                  <name>Away-from</name>
+                  <description>Go away from a place or object.</description>
+               </node>
+               <node>
+                  <name>Towards</name>
+                  <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
+               </node>
+            </node>
          </node>
          <node>
             <name>Ordering-relation</name>
@@ -5104,58 +5164,6 @@
          <node>
             <name>Spatiotemporal-relation</name>
             <description>A space and or temporal relationship.</description>
-            <node>
-               <name>Directional-relation</name>
-               <description>A relationship indicating direction.</description>
-               <node>
-                  <name>Away-from</name>
-                  <description>Go away from (a place).</description>
-               </node>
-               <node>
-                  <name>Backward</name>
-                  <description>Directed behind or to the rear.</description>
-               </node>
-               <node>
-                  <name>Closing</name>
-                  <description>Not affording passage or access; blocked against entry.</description>
-               </node>
-               <node>
-                  <name>Decreasing</name>
-                  <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
-               </node>
-               <node>
-                  <name>Downward</name>
-                  <description>Moving or leading toward a lower place or level.</description>
-               </node>
-               <node>
-                  <name>Forward</name>
-                  <description>At or near or directed toward the front.</description>
-               </node>
-               <node>
-                  <name>Increasing</name>
-                  <description>Becoming greater in size, amount, or degree; growing.</description>
-               </node>
-               <node>
-                  <name>Leftward</name>
-                  <description>Going toward or facing the left.</description>
-               </node>
-               <node>
-                  <name>Rightward</name>
-                  <description>Going toward or situated on the right.</description>
-               </node>
-               <node>
-                  <name>Opening</name>
-                  <description>Widening an aperture, door, or gap, especially one allowing access.</description>
-               </node>
-               <node>
-                  <name>Towards</name>
-                  <description>Moving in the direction of.</description>
-               </node>
-               <node>
-                  <name>Upward</name>
-                  <description>Moving, pointing, or leading to a higher place, point, or level.</description>
-               </node>
-            </node>
             <node>
                <name>Orientational-relation</name>
                <description>Indicating relative physical position or direction of something.</description>
