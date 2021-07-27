@@ -3760,8 +3760,36 @@
             <name>Sensory-property</name>
             <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
             <node>
-               <name>Auditory</name>
+               <name>Auditory-property</name>
                <description>Pertaining to the sense of hearing.</description>
+               <node>
+                  <name>Loudness</name>
+                  <description>Perceived intensity of a sound.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Pitch</name>
+                  <description>A perceptual property that allows the user to order sounds on a frequency scale.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
                <node>
                   <name>Sound-type</name>
                   <node>
@@ -3778,62 +3806,50 @@
                   </node>
                </node>
                <node>
-                  <name>Sound-quality</name>
-                  <description>A characteristic of sound.</description>
-                  <node>
-                     <name>Loudness</name>
-                     <description>A physical quality inhering in a sound wave by virtue of the maximum magnitude (value without regard to sign) of its disturbance.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Timbre</name>
-                     <description>The quality of tone distinctive of a particular singing voice or musical instrument.</description>
-                  </node>
+                  <name>Timbre</name>
+                  <description>The perceived sound quality of a singing voice or musical instrument.</description>
+               </node>
+               <node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>numericClass</value>
+                  </attribute>
                </node>
             </node>
             <node>
-               <name>Gustatory</name>
+               <name>Gustatory-property</name>
                <description>Pertaining to the sense of taste.</description>
                <node>
-                  <name>Taste-type</name>
-                  <description>Type of taste.</description>
-                  <node>
-                     <name>Bitter</name>
-                     <description>Having a sharp, pungent taste.</description>
-                  </node>
-                  <node>
-                     <name>Salty</name>
-                     <description>Tasting of or like salt.</description>
-                  </node>
-                  <node>
-                     <name>Savory</name>
-                     <description>Belonging to a taste that is salty or spicy rather than sweet.</description>
-                  </node>
-                  <node>
-                     <name>Sour</name>
-                     <description>Having a sharp, acidic taste.</description>
-                  </node>
-                  <node>
-                     <name>Sweet</name>
-                     <description>Having or resembling the taste of sugar.</description>
-                  </node>
+                  <name>Bitter</name>
+                  <description>Having a sharp, pungent taste.</description>
+               </node>
+               <node>
+                  <name>Salty</name>
+                  <description>Tasting of or like salt.</description>
+               </node>
+               <node>
+                  <name>Savory</name>
+                  <description>Belonging to a taste that is salty or spicy rather than sweet.</description>
+               </node>
+               <node>
+                  <name>Sour</name>
+                  <description>Having a sharp, acidic taste.</description>
+               </node>
+               <node>
+                  <name>Sweet</name>
+                  <description>Having or resembling the taste of sugar.</description>
                </node>
             </node>
             <node>
-               <name>Olfactory</name>
+               <name>Olfactory-property</name>
                <description>Pertaining to the sense of smell.</description>
             </node>
             <node>
-               <name>Somatic</name>
+               <name>Somatic-property</name>
                <description>Pertaining to the feelings in the body or of the nervous system.</description>
                <node>
                   <name>Pain</name>
@@ -3845,7 +3861,39 @@
                </node>
             </node>
             <node>
-               <name>Tactile</name>
+               <name>Sensory-modality</name>
+               <description>A user-sense is used in the presentation to the user.</description>
+               <node>
+                  <name>Auditory-modality</name>
+                  <description>The sense of hearing is used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Gustatory-modality</name>
+                  <description>The sense of taste used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Olfactory-modality</name>
+                  <description>The sense of smell used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Somatic-modality</name>
+                  <description>The nervous system is used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Tactile-modality</name>
+                  <description>The sense of touch used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Vestibular-modality</name>
+                  <description>The sense balance used in the presentation to the user.</description>
+               </node>
+               <node>
+                  <name>Visual-modality</name>
+                  <description>The sense of sight used in the presentation to the user.</description>
+               </node>
+            </node>
+            <node>
+               <name>Tactile-property</name>
                <description>Pertaining to the sense of touch.</description>
                <node>
                   <name>Tactile-pressure</name>
@@ -5034,7 +5082,7 @@
             <description>Something considered in comparison to something else.</description>
             <node>
                <name>Less-than</name>
-               <description>(A (Less-than B)) indicates that the relative size or order of A is smaller than that of B.</description>
+               <description>(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.</description>
             </node>
             <node>
                <name>Less-than-or-equal-to</name>
@@ -5108,17 +5156,17 @@
                <name>Related-to</name>
                <description>(A (Relative-to B)) indicates A is a part of the whole B.</description>
             </node>
+         </node>
+         <node>
+            <name>Directional-relation</name>
+            <description>A relationship indicating direction of change.</description>
             <node>
-               <name>Directional-relation</name>
-               <description>A relationship indicating direction of change.</description>
-               <node>
-                  <name>Away-from</name>
-                  <description>Go away from a place or object.</description>
-               </node>
-               <node>
-                  <name>Towards</name>
-                  <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
-               </node>
+               <name>Away-from</name>
+               <description>Go away from a place or object.</description>
+            </node>
+            <node>
+               <name>Towards</name>
+               <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
             </node>
          </node>
          <node>
