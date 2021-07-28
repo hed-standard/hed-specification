@@ -442,6 +442,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Tired <nowiki>{relatedTag=Rested}[Feeling in need of sleep or rest.]</nowiki>
 *** Agent-postural-state <nowiki>[Pertaining to the position in which agent holds their body.]</nowiki> 
 **** Crouching <nowiki>[Adopting a position where the knees are bent and the upper body is brought forward and down, sometimes to avoid detection or to defend oneself.]</nowiki>
+**** Eyes-closed <nowiki>[Keeping eyes closed with no blinking.]</nowiki>
+**** Eyes-open <nowiki>[Keeping eyes open with occasional blinking.]</nowiki>
 **** Kneeling <nowiki>[Positioned where one or both knees are on the ground.]</nowiki>
 **** On-treadmill <nowiki>[Ambulation on an exercise apparatus with an endless moving belt to support moving in place.]</nowiki>
 **** Prone <nowiki>[Positioned in a recumbent body position whereby the person lies on its stomach and faces downward.]</nowiki>
@@ -522,30 +524,17 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
 ***** Hot <nowiki>{relatedTag=Cold}[Characterized by an excess of heat.]</nowiki>
 ***** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
+***** Loud <nowiki>{relatedTag=Quiet}[Characterizing a perceived high intensity of sound.]</nowiki>
 ***** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
 ***** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
 ***** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
 ***** Positive <nowiki>{relatedTag=Negative}[Involving advantage or good.]</nowiki>
+***** Quiet <nowiki>{relatedTag=Loud}[Characterizing a perceived low intensity of sound.]</nowiki>
 ***** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
 ***** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold; imperceptible or not capable of eliciting a response.]</nowiki>
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
-** Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
-*** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
-*** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
-**** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
-*** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
-**** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
 *** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
@@ -563,95 +552,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>
 *** Repetition-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
-** Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
-*** Directional-property <nowiki>[Property of an element involving space.]</nowiki>
-**** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
-**** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
-**** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
-**** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-**** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
-**** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
-**** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
-**** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
-*** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
-**** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
-**** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerkUnits}</nowiki>
-**** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
-***** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki> 
-**** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
-**** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
-***** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
-*** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
-**** IO-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.]</nowiki>
-***** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
-****** <nowiki># {takesValue} </nowiki>
-***** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
-****** <nowiki># {takesValue} </nowiki>
-**** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
-***** <nowiki># {takesValue}</nowiki>
-**** Spectral-resolution <nowiki>[Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.]</nowiki>
-***** <nowiki># {takesValue}</nowiki> 
-**** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
-***** <nowiki># {takesValue} </nowiki>  
-*** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
-**** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-**** Orientation <nowiki>[The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-**** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
-***** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-***** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>  
-***** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>   
-**** Size <nowiki>[The physical magnitude of something.]</nowiki>
-***** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
-***** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-***** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
-***** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-***** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
-**** Surface-property <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
-***** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
-***** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
-*** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
-**** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-**** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-**** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>   
-**** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
-**** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
-**** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
-**** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-**** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
-**** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-*** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
-**** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
-**** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
-**** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
-**** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
-**** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
-**** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
-**** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
-**** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
-**** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
-**** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
-**** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
 ** Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
 *** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -673,6 +573,19 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+*** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
+*** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
+*** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
+*** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
+*** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
+*** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
+*** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
+*** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
+*** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
+*** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
+*** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
+
 * Environmental-property <nowiki>[Relating to or arising from the surroundings of an agent.]</nowiki>
 ** Indoors <nowiki>[Located inside a building or enclosure.]</nowiki>
 ** Outdoors <nowiki>[Any area outside a building or shelter.]</nowiki>
@@ -741,6 +654,21 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
 ** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
+* Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
+** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
+** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
+*** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
+** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
+*** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
 ** Auditory-property <nowiki>[Pertaining to the sense of hearing.]</nowiki>
 *** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
@@ -775,8 +703,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
 *** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
 *** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
-** Vestibular <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
-** Visual <nowiki>[Pertaining to the sense of sight.]</nowiki>
+** Vestibular-property <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
+** Visual-property <nowiki>[Pertaining to the sense of sight.]</nowiki>
 *** Optical-quality <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
@@ -965,6 +893,84 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
+
+* Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
+** Directional-property <nowiki>[Property of an element involving space.]</nowiki>
+*** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
+*** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
+*** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
+*** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+*** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
+*** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+*** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+*** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
+** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
+*** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
+*** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerkUnits}</nowiki>
+*** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
+**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki> 
+*** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
+*** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
+**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
+** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
+*** IO-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.]</nowiki>
+**** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
+***** <nowiki># {takesValue} </nowiki>
+**** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
+***** <nowiki># {takesValue} </nowiki>
+*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
+**** <nowiki># {takesValue}</nowiki>
+*** Spectral-resolution <nowiki>[Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.]</nowiki>
+**** <nowiki># {takesValue}</nowiki> 
+*** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
+**** <nowiki># {takesValue} </nowiki>  
+** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
+*** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+*** Orientation <nowiki>[The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
+*** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+**** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+**** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>  
+**** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>   
+*** Size <nowiki>[The physical magnitude of something.]</nowiki>
+**** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
+**** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+**** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
+**** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+**** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
+*** Surface-property <nowiki>[Property of the outer boundary of a three-dimensional object.]</nowiki>
+**** Rough <nowiki>[A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.]</nowiki>
+**** Smooth <nowiki>[Having a surface free from roughness or bumps or ridges or irregularities.]</nowiki>
+** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
+*** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
+*** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
+*** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>   
+*** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
+*** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
+*** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
+*** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
+*** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
+*** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 * Task-property <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Task-attentional-demand <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
 *** Bottom-up-attention <nowiki>{relatedTag=Top-down-attention}[Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.]</nowiki>

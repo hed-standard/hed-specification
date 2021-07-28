@@ -1895,6 +1895,14 @@
                      <description>Adopting a position where the knees are bent and the upper body is brought forward and down, sometimes to avoid detection or to defend oneself.</description>
                   </node>
                   <node>
+                     <name>Eyes-closed</name>
+                     <description>Keeping eyes closed with no blinking.</description>
+                  </node>
+                  <node>
+                     <name>Eyes-open</name>
+                     <description>Keeping eyes open with occasional blinking.</description>
+                  </node>
+                  <node>
                      <name>Kneeling</name>
                      <description>Positioned where one or both knees are on the ground.</description>
                   </node>
@@ -2403,6 +2411,14 @@
                         </attribute>
                      </node>
                      <node>
+                        <name>Loud</name>
+                        <description>Characterizing a perceived high intensity of sound.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Quiet</value>
+                        </attribute>
+                     </node>
+                     <node>
                         <name>Low</name>
                         <description>A minimum level or position or degree; less than normal in degree, intensity or amount.</description>
                         <attribute>
@@ -2433,6 +2449,14 @@
                         <attribute>
                            <name>relatedTag</name>
                            <value>Negative</value>
+                        </attribute>
+                     </node>
+                     <node>
+                        <name>Quiet</name>
+                        <description>Characterizing a perceived low intensity of sound.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Loud</value>
                         </attribute>
                      </node>
                      <node>
@@ -2475,96 +2499,6 @@
                         <attribute>
                            <name>relatedTag</name>
                            <value>Thick</value>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Physical-property</name>
-               <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
-               <node>
-                  <name>Electromagnetic-property</name>
-                  <description>A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.</description>
-               </node>
-               <node>
-                  <name>Mechanical-property</name>
-                  <description>A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.</description>
-                  <node>
-                     <name>Pressure</name>
-                     <description>The force applied to a unit area of surface.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Weight</name>
-                     <description>The relative mass or the quantity of matter contained in a body, giving rise to a downward force.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Organic-property</name>
-                  <description>Relating to or containing elemental carbon or carbon compounds.</description>
-               </node>
-               <node>
-                  <name>Thermodynamic-property</name>
-                  <description>Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.</description>
-                  <node>
-                     <name>Energy</name>
-                     <description>The capacity of a physical system to do work.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Entropy</name>
-                     <description>A thermodynamic property which acts as a measure of the state of disorder of a system.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Temperature</name>
-                     <description>A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
                         </attribute>
                      </node>
                   </node>
@@ -2651,583 +2585,6 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Spatiotemporal-property</name>
-               <description>A property relating to space and/or time.</description>
-               <node>
-                  <name>Directional-property</name>
-                  <description>Property of an element involving space.</description>
-                  <node>
-                     <name>Backward</name>
-                     <description>Directed behind or to the rear.</description>
-                  </node>
-                  <node>
-                     <name>Decreasing</name>
-                     <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
-                  </node>
-                  <node>
-                     <name>Downward</name>
-                     <description>Moving or leading toward a lower place or level.</description>
-                  </node>
-                  <node>
-                     <name>Forward</name>
-                     <description>At or near or directed toward the front.</description>
-                  </node>
-                  <node>
-                     <name>Increasing</name>
-                     <description>Becoming greater in size, amount, or degree; growing.</description>
-                  </node>
-                  <node>
-                     <name>Leftward</name>
-                     <description>Going toward or facing the left.</description>
-                  </node>
-                  <node>
-                     <name>Rightward</name>
-                     <description>Going toward or situated on the right.</description>
-                  </node>
-                  <node>
-                     <name>Upward</name>
-                     <description>Moving, pointing, or leading to a higher place, point, or level.</description>
-                  </node>
-               </node>
-               <node>
-                  <name>Rate-of-change</name>
-                  <description>The amount of change accumulated per unit time.</description>
-                  <node>
-                     <name>Acceleration</name>
-                     <description>Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>accelerationUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Jerk-rate</name>
-                     <description>Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>jerkUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Sampling-rate</name>
-                     <description>The number of digital samples taken or recorded per unit of time.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>frequencyUnits</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Refresh-rate</name>
-                     <description>The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Speed</name>
-                     <description>A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>speedUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Temporal-rate</name>
-                     <description>The number of items per unit of time.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>frequencyUnits</value>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Resolution</name>
-                  <description>The size of the smallest element that can be separated from neighboring elements.</description>
-                  <node>
-                     <name>IO-resolution</name>
-                     <description>Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.</description>
-                     <node>
-                        <name>Screen-resolution</name>
-                        <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Printer-resolution</name>
-                        <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                        </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Spatial-resolution</name>
-                     <description>Linear spacing of a spatial measurement.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Spectral-resolution</name>
-                     <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Temporal-resolution</name>
-                     <description>Measures the ability of a sensor to  resolve features in time.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Spatial-property</name>
-                  <description>Property of an element involving space.</description>
-                  <node>
-                     <name>Direction</name>
-                     <description>The spatial relation between something and the course along which it points or moves.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Distance</name>
-                     <description>A measure of the space separating two objects or points.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>physicalLengthUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Orientation</name>
-                     <description>The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Position</name>
-                     <description>A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
-                     <node>
-                        <name>X-position</name>
-                        <description>The position along the x-axis of the frame of reference.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Y-position</name>
-                        <description>The position along the y-axis of the frame of reference.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Z-position</name>
-                        <description>The position along the z-axis of the frame of reference.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Size</name>
-                     <description>The physical magnitude of something.</description>
-                     <node>
-                        <name>Area</name>
-                        <description>The extent of a 2-dimensional surface enclosed within a boundary.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>areaUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Length</name>
-                        <description>The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Width</name>
-                        <description>The extent or measurement of something from side to side.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Height</name>
-                        <description>The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>physicalLengthUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                     <node>
-                        <name>Volume</name>
-                        <description>The amount of three dimensional space occupied by an object or the capacity of a space or container.</description>
-                        <node>
-                           <name>#</name>
-                           <attribute>
-                              <name>takesValue</name>
-                           </attribute>
-                           <attribute>
-                              <name>unitClass</name>
-                              <value>volumeUnits</value>
-                           </attribute>
-                           <attribute>
-                              <name>valueClass</name>
-                              <value>numericClass</value>
-                           </attribute>
-                        </node>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Surface-property</name>
-                     <description>Property of the outer boundary of a three-dimensional object.</description>
-                     <node>
-                        <name>Rough</name>
-                        <description>A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.</description>
-                     </node>
-                     <node>
-                        <name>Smooth</name>
-                        <description>Having a surface free from roughness or bumps or ridges or irregularities.</description>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Temporal-property</name>
-                  <description>A characteristic of or relating to time or limited by time.</description>
-                  <node>
-                     <name>Delay</name>
-                     <description>Time during which some action is awaited; inactivity resulting in something being put off until a later time.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>timeUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Duration</name>
-                     <description>The period of time during which something occurs or continues.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>timeUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Frequency</name>
-                     <description>Frequency is the number of occurrences of a repeating event per unit time.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>frequencyUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Onset</name>
-                     <description>Labels the start or beginning of something, usually an event.</description>
-                     <attribute>
-                        <name>topLevelTagGroup</name>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Offset</name>
-                     <description>Labels the time at which something stops.</description>
-                     <attribute>
-                        <name>topLevelTagGroup</name>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Pause</name>
-                     <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
-                  </node>
-                  <node>
-                     <name>Time-value</name>
-                     <description>A value with units of time. Usually grouped with tags identifying what the value represents.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>timeUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Time-out</name>
-                     <description>A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.</description>
-                  </node>
-                  <node>
-                     <name>Time-sync</name>
-                     <description>A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
-                  </node>
-               </node>
-               <node>
-                  <name>Variability-property</name>
-                  <description>An attribute describing how something changes or varies.</description>
-                  <node>
-                     <name>Abrupt</name>
-                     <description>Marked by sudden change.</description>
-                  </node>
-                  <node>
-                     <name>Constant</name>
-                     <description>Continually recurring or continuing without interruption. Not changing in time or space.</description>
-                  </node>
-                  <node>
-                     <name>Continuous</name>
-                     <description>Uninterrupted in time, sequence, substance, or extent.</description>
-                  </node>
-                  <node>
-                     <name>Deterministic</name>
-                     <description>No randomness is involved in the development of the future states of the element.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Random</value>
-                        <value>Stochastic</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Discrete</name>
-                     <description>Constituting a separate entities or parts.</description>
-                  </node>
-                  <node>
-                     <name>Flickering</name>
-                     <description>Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.</description>
-                  </node>
-                  <node>
-                     <name>Fractal</name>
-                     <description>Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.</description>
-                  </node>
-                  <node>
-                     <name>Random</name>
-                     <description>Governed by or depending on chance; lacking any definite plan or order or purpose.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Deterministic</value>
-                        <value>Stochastic</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Repetitive</name>
-                     <description>A recurring action that is often non-purposeful.</description>
-                  </node>
-                  <node>
-                     <name>Stochastic</name>
-                     <description>Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Deterministic</value>
-                        <value>Random</value>
-                     </attribute>
-                  </node>
-                  <node>
-                     <name>Varying</name>
-                     <description>Differing in size, amount, degree, or nature.</description>
                   </node>
                </node>
             </node>
@@ -3376,6 +2733,69 @@
                         <value>numericClass</value>
                      </attribute>
                   </node>
+               </node>
+            </node>
+            <node>
+               <name>Variability-property</name>
+               <description>An attribute describing how something changes or varies.</description>
+               <node>
+                  <name>Abrupt</name>
+                  <description>Marked by sudden change.</description>
+               </node>
+               <node>
+                  <name>Constant</name>
+                  <description>Continually recurring or continuing without interruption. Not changing in time or space.</description>
+               </node>
+               <node>
+                  <name>Continuous</name>
+                  <description>Uninterrupted in time, sequence, substance, or extent.</description>
+               </node>
+               <node>
+                  <name>Deterministic</name>
+                  <description>No randomness is involved in the development of the future states of the element.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Random</value>
+                     <value>Stochastic</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Discrete</name>
+                  <description>Constituting a separate entities or parts.</description>
+               </node>
+               <node>
+                  <name>Flickering</name>
+                  <description>Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.</description>
+               </node>
+               <node>
+                  <name>Fractal</name>
+                  <description>Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.</description>
+               </node>
+               <node>
+                  <name>Random</name>
+                  <description>Governed by or depending on chance; lacking any definite plan or order or purpose.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Deterministic</value>
+                     <value>Stochastic</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Repetitive</name>
+                  <description>A recurring action that is often non-purposeful.</description>
+               </node>
+               <node>
+                  <name>Stochastic</name>
+                  <description>Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Deterministic</value>
+                     <value>Random</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Varying</name>
+                  <description>Differing in size, amount, degree, or nature.</description>
                </node>
             </node>
          </node>
@@ -3757,6 +3177,96 @@
             </node>
          </node>
          <node>
+            <name>Physical-property</name>
+            <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
+            <node>
+               <name>Electromagnetic-property</name>
+               <description>A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.</description>
+            </node>
+            <node>
+               <name>Mechanical-property</name>
+               <description>A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.</description>
+               <node>
+                  <name>Pressure</name>
+                  <description>The force applied to a unit area of surface.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Weight</name>
+                  <description>The relative mass or the quantity of matter contained in a body, giving rise to a downward force.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Organic-property</name>
+               <description>Relating to or containing elemental carbon or carbon compounds.</description>
+            </node>
+            <node>
+               <name>Thermodynamic-property</name>
+               <description>Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.</description>
+               <node>
+                  <name>Energy</name>
+                  <description>The capacity of a physical system to do work.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Entropy</name>
+                  <description>A thermodynamic property which acts as a measure of the state of disorder of a system.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temperature</name>
+                  <description>A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+         </node>
+         <node>
             <name>Sensory-property</name>
             <description>Relating to sensation or the physical senses; transmitted or perceived by the senses.</description>
             <node>
@@ -3909,11 +3419,11 @@
                </node>
             </node>
             <node>
-               <name>Vestibular</name>
+               <name>Vestibular-property</name>
                <description>Pertaining to the sense of balance or body position.</description>
             </node>
             <node>
-               <name>Visual</name>
+               <name>Visual-property</name>
                <description>Pertaining to the sense of sight.</description>
                <node>
                   <name>Optical-quality</name>
@@ -4714,6 +4224,520 @@
                      <name>Peripheral-view</name>
                      <description>Indirect vision as it occurs outside the point of fixation.</description>
                   </node>
+               </node>
+            </node>
+         </node>
+         <node>
+            <name>Spatiotemporal-property</name>
+            <description>A property relating to space and/or time.</description>
+            <node>
+               <name>Directional-property</name>
+               <description>Property of an element involving space.</description>
+               <node>
+                  <name>Backward</name>
+                  <description>Directed behind or to the rear.</description>
+               </node>
+               <node>
+                  <name>Decreasing</name>
+                  <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
+               </node>
+               <node>
+                  <name>Downward</name>
+                  <description>Moving or leading toward a lower place or level.</description>
+               </node>
+               <node>
+                  <name>Forward</name>
+                  <description>At or near or directed toward the front.</description>
+               </node>
+               <node>
+                  <name>Increasing</name>
+                  <description>Becoming greater in size, amount, or degree; growing.</description>
+               </node>
+               <node>
+                  <name>Leftward</name>
+                  <description>Going toward or facing the left.</description>
+               </node>
+               <node>
+                  <name>Rightward</name>
+                  <description>Going toward or situated on the right.</description>
+               </node>
+               <node>
+                  <name>Upward</name>
+                  <description>Moving, pointing, or leading to a higher place, point, or level.</description>
+               </node>
+            </node>
+            <node>
+               <name>Rate-of-change</name>
+               <description>The amount of change accumulated per unit time.</description>
+               <node>
+                  <name>Acceleration</name>
+                  <description>Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>accelerationUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Jerk-rate</name>
+                  <description>Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>jerkUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Sampling-rate</name>
+                  <description>The number of digital samples taken or recorded per unit of time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>frequencyUnits</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Refresh-rate</name>
+                  <description>The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Speed</name>
+                  <description>A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>speedUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temporal-rate</name>
+                  <description>The number of items per unit of time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>frequencyUnits</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Resolution</name>
+               <description>The size of the smallest element that can be separated from neighboring elements.</description>
+               <node>
+                  <name>IO-resolution</name>
+                  <description>Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.</description>
+                  <node>
+                     <name>Screen-resolution</name>
+                     <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Printer-resolution</name>
+                     <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+               </node>
+               <node>
+                  <name>Spatial-resolution</name>
+                  <description>Linear spacing of a spatial measurement.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Spectral-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temporal-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Spatial-property</name>
+               <description>Property of an element involving space.</description>
+               <node>
+                  <name>Direction</name>
+                  <description>The spatial relation between something and the course along which it points or moves.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Distance</name>
+                  <description>A measure of the space separating two objects or points.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>physicalLengthUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Orientation</name>
+                  <description>The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Position</name>
+                  <description>A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.</description>
+                  <node>
+                     <name>X-position</name>
+                     <description>The position along the x-axis of the frame of reference.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Y-position</name>
+                     <description>The position along the y-axis of the frame of reference.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Z-position</name>
+                     <description>The position along the z-axis of the frame of reference.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+               </node>
+               <node>
+                  <name>Size</name>
+                  <description>The physical magnitude of something.</description>
+                  <node>
+                     <name>Area</name>
+                     <description>The extent of a 2-dimensional surface enclosed within a boundary.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>areaUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Length</name>
+                     <description>The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Width</name>
+                     <description>The extent or measurement of something from side to side.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Height</name>
+                     <description>The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>physicalLengthUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Volume</name>
+                     <description>The amount of three dimensional space occupied by an object or the capacity of a space or container.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>volumeUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+               </node>
+               <node>
+                  <name>Surface-property</name>
+                  <description>Property of the outer boundary of a three-dimensional object.</description>
+                  <node>
+                     <name>Rough</name>
+                     <description>A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.</description>
+                  </node>
+                  <node>
+                     <name>Smooth</name>
+                     <description>Having a surface free from roughness or bumps or ridges or irregularities.</description>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Temporal-property</name>
+               <description>A characteristic of or relating to time or limited by time.</description>
+               <node>
+                  <name>Delay</name>
+                  <description>Time during which some action is awaited; inactivity resulting in something being put off until a later time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>timeUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Duration</name>
+                  <description>The period of time during which something occurs or continues.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>timeUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Frequency</name>
+                  <description>Frequency is the number of occurrences of a repeating event per unit time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>frequencyUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Onset</name>
+                  <description>Labels the start or beginning of something, usually an event.</description>
+                  <attribute>
+                     <name>topLevelTagGroup</name>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Offset</name>
+                  <description>Labels the time at which something stops.</description>
+                  <attribute>
+                     <name>topLevelTagGroup</name>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Pause</name>
+                  <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
+               </node>
+               <node>
+                  <name>Time-value</name>
+                  <description>A value with units of time. Usually grouped with tags identifying what the value represents.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>unitClass</name>
+                        <value>timeUnits</value>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Time-out</name>
+                  <description>A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.</description>
+               </node>
+               <node>
+                  <name>Time-sync</name>
+                  <description>A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
                </node>
             </node>
          </node>
