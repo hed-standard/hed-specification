@@ -1038,6 +1038,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 '''Relation''' <nowiki>[Concerns the way in which two or more people or things are connected.]</nowiki>
 * Comparative-relation <nowiki>[Something considered in comparison to something else.]</nowiki>
+** Approximately-equal-to <nowiki>[(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than <nowiki>[(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than-or-equal-to <nowiki>[(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
 ** Greater-than <nowiki>[(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
