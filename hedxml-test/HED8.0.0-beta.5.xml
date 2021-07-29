@@ -2263,7 +2263,6 @@
                         <attribute>
                            <name>relatedTag</name>
                            <value>Familiar</value>
-                           <value>UnfamiliarrelatedTag</value>
                            <value>Unfamiliar</value>
                         </attribute>
                      </node>
@@ -2588,6 +2587,70 @@
                <node>
                   <name>Repetition-number</name>
                   <description>An integer that identifies the particular occurrence of a repeating activity or entity.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
+               <name>Resolution</name>
+               <description>Smallest change in a quality being measured by an sensor that causes a perceptible change.</description>
+               <node>
+                  <name>Printer-resolution</name>
+                  <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Screen-resolution</name>
+                  <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Sensory-resolution</name>
+                  <description>Resolution of measurements by a sensing device.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Spatial-resolution</name>
+                  <description>Linear spacing of a spatial measurement.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Spectral-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temporal-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in time.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -4370,64 +4433,6 @@
                      <attribute>
                         <name>unitClass</name>
                         <value>frequencyUnits</value>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Resolution</name>
-               <description>The size of the smallest element that can be separated from neighboring elements.</description>
-               <node>
-                  <name>IO-resolution</name>
-                  <description>Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.</description>
-                  <node>
-                     <name>Screen-resolution</name>
-                     <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Printer-resolution</name>
-                     <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Spatial-resolution</name>
-                  <description>Linear spacing of a spatial measurement.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Spectral-resolution</name>
-                  <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Temporal-resolution</name>
-                  <description>Measures the ability of a sensor to  resolve features in time.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
                      </attribute>
                   </node>
                </node>
