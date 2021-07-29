@@ -482,8 +482,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Expert-annotation <nowiki>[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
 *** Instrument-measurement <nowiki>[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
 *** Observation <nowiki>[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
-** Data-type <nowiki>[Designation of the type of a data item.]</nowiki>
-*** Categorical-type <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
+** Data-value-type <nowiki>[Designation of the type of a data item.]</nowiki>
+*** Categorical-value <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 **** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 ***** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
 ***** Correct <nowiki>{relatedTag=Incorrect}[Free from error. Especially conforming to fact or truth.]</nowiki>
@@ -535,7 +535,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
-** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
+*** Estimated-value <nowiki>[A value that has been calculated or measured approximately.]</nowiki>
+*** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
+*** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
 *** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
 *** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
@@ -585,7 +587,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
 *** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
 *** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
-
 * Environmental-property <nowiki>[Relating to or arising from the surroundings of an agent.]</nowiki>
 ** Indoors <nowiki>[Located inside a building or enclosure.]</nowiki>
 ** Outdoors <nowiki>[Any area outside a building or shelter.]</nowiki>
@@ -893,7 +894,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
-
 * Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
 ** Directional-property <nowiki>[Property of an element involving space.]</nowiki>
 *** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
@@ -1067,10 +1067,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Next-item-of <nowiki>[(A (Next-item-of B)) means that A is the next item of B. Here B is an iterator for something that has a linear order such as a course, process, or list.]</nowiki> 
 ** Later-item-of <nowiki>[A (Later-item-of B)) means that A occurs near the end of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
 ** Last-item-of <nowiki>[(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
-* Quantitative-relation <nowiki>[A quantitative or numerical relationship.]</nowiki>
-** Estimated <nowiki>[Calculated approximately.]</nowiki>
-** Approximated <nowiki>[Not quite exact or correct; almost exact or correct.]</nowiki>
-** Exact <nowiki>[Marked by strict and particular and complete accordance with fact.]</nowiki>
 * Spatiotemporal-relation <nowiki>[A space and or temporal relationship.]</nowiki>
 ** Orientational-relation <nowiki>[Indicating relative physical position or direction of something.]</nowiki>
 *** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
