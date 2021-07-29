@@ -568,25 +568,25 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
 **** <nowiki># {takesValue} </nowiki>  
 ** Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
-*** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Data-mean <nowiki>[The sum of a set of values divided by the number of values in the set.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Data-median <nowiki>[The value which has an equal number of values greater and less than it.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-*** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}[]</nowiki> 
+*** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Standard-deviation <nowiki>[A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
+*** Statistical-accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Statistical-precision <nowiki>[A quantitative representation of the degree of accuracy necessary for or associated with a particular action.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Statistical-recall <nowiki>[Sensitivity is a measurement datum qualifying a binary classification test and is computed by substracting the false negative rate to the integral numeral 1.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-*** Standard-deviation <nowiki>[A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-*** Uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
+*** Statistical-uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
