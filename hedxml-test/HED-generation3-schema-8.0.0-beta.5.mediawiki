@@ -550,9 +550,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>  
 *** Ratio <nowiki>[A quotient of quantities of the same kind for different components within the same system.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
-*** Repetition-interval <nowiki>[The amount of time between successive occurrences.]</nowiki>
+*** Recurrence-interval <nowiki>[The number of items an Event-stream since the last one of these. A Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
-*** Repetition-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity.]</nowiki>
+*** Occurrence-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity usually in a specified Event-stream.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 ** Resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
