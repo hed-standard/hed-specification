@@ -2575,8 +2575,8 @@
                   </node>
                </node>
                <node>
-                  <name>Repetition-interval</name>
-                  <description>The amount of time between successive occurrences.</description>
+                  <name>Recurrence-interval</name>
+                  <description>The number of items an Event-stream since the last one of these. A Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2585,8 +2585,8 @@
                   </node>
                </node>
                <node>
-                  <name>Repetition-number</name>
-                  <description>An integer that identifies the particular occurrence of a repeating activity or entity.</description>
+                  <name>Occurrence-number</name>
+                  <description>An integer that identifies the particular occurrence of a repeating activity or entity usually in a specified Event-stream.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2666,20 +2666,6 @@
                   <name>extensionAllowed</name>
                </attribute>
                <node>
-                  <name>Accuracy</name>
-                  <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
                   <name>Data-mean</name>
                   <description>The sum of a set of values divided by the number of values in the set.</description>
                   <node>
@@ -2708,20 +2694,6 @@
                   </node>
                </node>
                <node>
-                  <name>Data-minimum</name>
-                  <description>The smallest possible quantity.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
                   <name>Data-maximum</name>
                   <description>The largest possible quantity or degree.</description>
                   <node>
@@ -2736,8 +2708,50 @@
                   </node>
                </node>
                <node>
+                  <name>Data-minimum</name>
+                  <description>The smallest possible quantity.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
                   <name>Probability</name>
                   <description>A measure of the expectation of the occurrence of a particular event.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Standard-deviation</name>
+                  <description>A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Statistical-accuracy</name>
+                  <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2778,21 +2792,7 @@
                   </node>
                </node>
                <node>
-                  <name>Standard-deviation</name>
-                  <description>A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Uncertainty</name>
+                  <name>Statistical-uncertainty</name>
                   <description>A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.</description>
                   <node>
                      <name>#</name>
