@@ -537,7 +537,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
 *** Estimated-value <nowiki>[A value that has been calculated or measured approximately.]</nowiki>
 *** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
-*** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
+** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
 *** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
 *** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
