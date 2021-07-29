@@ -2511,10 +2511,10 @@
                   <name>Exact-value</name>
                   <description>A value that is viewed to the true value according to some standard.</description>
                </node>
-               <node>
-                  <name>Quantitative-property</name>
-                  <description>Something capable of being estimated or expressed with numeric values.</description>
-               </node>
+            </node>
+            <node>
+               <name>Quantitative-property</name>
+               <description>Something capable of being estimated or expressed with numeric values.</description>
                <node>
                   <name>Angle</name>
                   <description>The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.</description>
