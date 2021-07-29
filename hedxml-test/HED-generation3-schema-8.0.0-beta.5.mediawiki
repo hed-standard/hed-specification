@@ -1093,11 +1093,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
 *** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
 *** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Left-side <nowiki>[(A (Left-side B)) means A is located on the left side of B usually as part of B.]</nowiki>
+*** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
 *** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
 *** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
 *** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Right-side <nowiki>[(A (Right-side B)) means A is located on the right side of B usually as part of B.]</nowiki>
+*** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
 *** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
 *** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
 *** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
