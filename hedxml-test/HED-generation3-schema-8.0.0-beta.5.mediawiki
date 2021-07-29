@@ -505,7 +505,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Constrained <nowiki>{relatedTag=Unconstrained}[Keeping something within particular limits or bounds.]</nowiki>
 ***** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
 ***** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Recognized, familiar, or within the scope of knowledge.]</nowiki>
-***** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}{relatedTag=Familiar, relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.]</nowiki>
+***** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.]</nowiki>
 ***** Inaudible <nowiki>{relatedTag=Audible}[A sound below the threshold of perception of the participant.]</nowiki>
 ***** Incongruent <nowiki>{relatedTag=Congruent}[Not in agreement or harmony.]</nowiki>
 ***** Involuntary <nowiki>{relatedTag=Voluntary}[An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.]</nowiki>
@@ -553,7 +553,20 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Repetition-interval <nowiki>[The amount of time between successive occurrences.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** Repetition-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity.]</nowiki>
-**** <nowiki># {takesValue}</nowiki>  
+**** <nowiki># {takesValue}</nowiki>
+** Resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
+*** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
+**** <nowiki># {takesValue} </nowiki>
+*** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
+**** <nowiki># {takesValue} </nowiki>
+*** Sensory-resolution <nowiki>[Resolution of measurements by a sensing device.]</nowiki> 
+**** <nowiki># {takesValue} </nowiki>
+*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
+**** <nowiki># {takesValue}</nowiki>
+*** Spectral-resolution <nowiki>[Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.]</nowiki>
+**** <nowiki># {takesValue}</nowiki> 
+*** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
+**** <nowiki># {takesValue} </nowiki>  
 ** Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
 *** Accuracy <nowiki>[A measure of closeness to true value expressed as a number between 0 and 1.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -917,18 +930,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
 *** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
 **** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
-** Resolution <nowiki>[The size of the smallest element that can be separated from neighboring elements.]</nowiki>
-*** IO-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change in the IO device.]</nowiki>
-**** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-**** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
-***** <nowiki># {takesValue} </nowiki>
-*** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
-**** <nowiki># {takesValue}</nowiki>
-*** Spectral-resolution <nowiki>[Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.]</nowiki>
-**** <nowiki># {takesValue}</nowiki> 
-*** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
-**** <nowiki># {takesValue} </nowiki>  
 ** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
 *** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
