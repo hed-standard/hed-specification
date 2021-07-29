@@ -5105,6 +5105,10 @@
             <name>Comparative-relation</name>
             <description>Something considered in comparison to something else.</description>
             <node>
+               <name>Approximately-equal-to</name>
+               <description>(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.</description>
+            </node>
+            <node>
                <name>Less-than</name>
                <description>(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.</description>
             </node>
@@ -5197,24 +5201,24 @@
             <name>Ordering-relation</name>
             <description>A relation describing the systematic arrangement of data items.</description>
             <node>
-               <name>Early-item</name>
-               <description>An item near the beginning of a course, process, or series.</description>
+               <name>Early-item-of</name>
+               <description>(A (Early-item-of B)) means that A is near the beginning of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
             </node>
             <node>
-               <name>First-item</name>
-               <description>A first item at the beginning of a course, process, or series.</description>
+               <name>First-item-of</name>
+               <description>(A (First-item-of B)) means that A is the first item of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
             </node>
             <node>
-               <name>Next-item</name>
-               <description>A subsequent or immediately following item in the order.</description>
+               <name>Next-item-of</name>
+               <description>(A (Next-item-of B)) means that A is the next item of B. Here B is an iterator for something that has a linear order such as a course, process, or list.</description>
             </node>
             <node>
-               <name>Later-item</name>
-               <description>An item occurring near the end of a group of ordered items.</description>
+               <name>Later-item-of</name>
+               <description>A (Later-item-of B)) means that A occurs near the end of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
             </node>
             <node>
-               <name>Last-item</name>
-               <description>An item occurring at the end of a group of ordered items.</description>
+               <name>Last-item-of</name>
+               <description>(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
             </node>
          </node>
          <node>
@@ -5324,8 +5328,12 @@
                   <description>(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
                </node>
                <node>
-                  <name>Left-side</name>
-                  <description>(A (Left-side B)) means A is located on the left side of B usually as part of B.</description>
+                  <name>Left-side-of</name>
+                  <description>(A (Left-side-of B)) means A is located on the left side of B usually as part of B.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Right-side-of</value>
+                  </attribute>
                </node>
                <node>
                   <name>Outside-of</name>
@@ -5340,8 +5348,12 @@
                   <description>(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
                </node>
                <node>
-                  <name>Right-side</name>
-                  <description>(A (Right-side B)) means A is located on the right side of B usually as part of B.</description>
+                  <name>Right-side-of</name>
+                  <description>(A (Right-side-of B)) means A is located on the right side of B usually as part of B.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Left-side-of</value>
+                  </attribute>
                </node>
                <node>
                   <name>Top-of</name>

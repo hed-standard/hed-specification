@@ -1038,6 +1038,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 '''Relation''' <nowiki>[Concerns the way in which two or more people or things are connected.]</nowiki>
 * Comparative-relation <nowiki>[Something considered in comparison to something else.]</nowiki>
+** Approximately-equal-to <nowiki>[(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than <nowiki>[(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than-or-equal-to <nowiki>[(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
 ** Greater-than <nowiki>[(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
@@ -1061,11 +1062,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Away-from <nowiki>[Go away from a place or object.]</nowiki>
 ** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
 * Ordering-relation <nowiki>[A relation describing the systematic arrangement of data items.]</nowiki>
-** Early-item <nowiki>[An item near the beginning of a course, process, or series.]</nowiki>
-** First-item <nowiki>[A first item at the beginning of a course, process, or series.]</nowiki>
-** Next-item <nowiki>[A subsequent or immediately following item in the order.]</nowiki> 
-** Later-item <nowiki>[An item occurring near the end of a group of ordered items.]</nowiki>
-** Last-item <nowiki>[An item occurring at the end of a group of ordered items.]</nowiki>
+** Early-item-of <nowiki>[(A (Early-item-of B)) means that A is near the beginning of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
+** First-item-of <nowiki>[(A (First-item-of B)) means that A is the first item of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
+** Next-item-of <nowiki>[(A (Next-item-of B)) means that A is the next item of B. Here B is an iterator for something that has a linear order such as a course, process, or list.]</nowiki> 
+** Later-item-of <nowiki>[A (Later-item-of B)) means that A occurs near the end of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
+** Last-item-of <nowiki>[(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
 * Quantitative-relation <nowiki>[A quantitative or numerical relationship.]</nowiki>
 ** Estimated <nowiki>[Calculated approximately.]</nowiki>
 ** Approximated <nowiki>[Not quite exact or correct; almost exact or correct.]</nowiki>
@@ -1093,11 +1094,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
 *** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
 *** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Left-side <nowiki>[(A (Left-side B)) means A is located on the left side of B usually as part of B.]</nowiki>
+*** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
 *** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
 *** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
 *** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Right-side <nowiki>[(A (Right-side B)) means A is located on the right side of B usually as part of B.]</nowiki>
+*** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
 *** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
 *** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
 *** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
