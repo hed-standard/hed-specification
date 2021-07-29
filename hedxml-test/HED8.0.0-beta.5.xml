@@ -2089,10 +2089,10 @@
                </node>
             </node>
             <node>
-               <name>Data-type</name>
+               <name>Data-value-type</name>
                <description>Designation of the type of a data item.</description>
                <node>
-                  <name>Categorical-type</name>
+                  <name>Categorical-value</name>
                   <description>Indicates that something can take on a limited and usually fixed number of possible values.</description>
                   <node>
                      <name>Categorical-class</name>
@@ -2503,10 +2503,18 @@
                      </node>
                   </node>
                </node>
-            </node>
-            <node>
-               <name>Quantitative-property</name>
-               <description>Something capable of being estimated or expressed with numeric values.</description>
+               <node>
+                  <name>Estimated-value</name>
+                  <description>A value that has been calculated or measured approximately.</description>
+               </node>
+               <node>
+                  <name>Exact-value</name>
+                  <description>A value that is viewed to the true value according to some standard.</description>
+               </node>
+               <node>
+                  <name>Quantitative-property</name>
+                  <description>Something capable of being estimated or expressed with numeric values.</description>
+               </node>
                <node>
                   <name>Angle</name>
                   <description>The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.</description>
@@ -5219,22 +5227,6 @@
             <node>
                <name>Last-item-of</name>
                <description>(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
-            </node>
-         </node>
-         <node>
-            <name>Quantitative-relation</name>
-            <description>A quantitative or numerical relationship.</description>
-            <node>
-               <name>Estimated</name>
-               <description>Calculated approximately.</description>
-            </node>
-            <node>
-               <name>Approximated</name>
-               <description>Not quite exact or correct; almost exact or correct.</description>
-            </node>
-            <node>
-               <name>Exact</name>
-               <description>Marked by strict and particular and complete accordance with fact.</description>
             </node>
          </node>
          <node>
