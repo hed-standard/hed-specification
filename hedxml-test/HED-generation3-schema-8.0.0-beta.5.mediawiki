@@ -921,8 +921,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
 *** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
 *** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+*** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
 *** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+*** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
 *** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+*** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 *** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 ** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 *** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
@@ -1069,11 +1072,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
 ** Away-from <nowiki>[Go away from a place or object.]</nowiki>
 ** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
-* Spatiotemporal-relation <nowiki>[A space and or temporal relationship.]</nowiki>
-** Orientational-relation <nowiki>[Indicating relative physical position or direction of something.]</nowiki>
-*** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
-*** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
-*** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 *** Vertically-oriented <nowiki>[Oriented in an upright in position or posture.]</nowiki>
 * Spatial-relation <nowiki>[Indicating information about position.]</nowiki>
 ** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>

@@ -2820,6 +2820,19 @@
                <node>
                   <name>Continuous</name>
                   <description>Uninterrupted in time, sequence, substance, or extent.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Discrete</value>
+                     <value>Discontinuous</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Decreasing</name>
+                  <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Increasing</value>
+                  </attribute>
                </node>
                <node>
                   <name>Deterministic</name>
@@ -2831,8 +2844,21 @@
                   </attribute>
                </node>
                <node>
+                  <name>Discontinuous</name>
+                  <description>Having a gap in time, sequence, substance, or extent.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Continuous</value>
+                  </attribute>
+               </node>
+               <node>
                   <name>Discrete</name>
                   <description>Constituting a separate entities or parts.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Continuous</value>
+                     <value>Discontinuous</value>
+                  </attribute>
                </node>
                <node>
                   <name>Flickering</name>
@@ -2841,6 +2867,14 @@
                <node>
                   <name>Fractal</name>
                   <description>Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.</description>
+               </node>
+               <node>
+                  <name>Increasing</name>
+                  <description>Becoming greater in size, amount, or degree.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Decreasing</value>
+                  </attribute>
                </node>
                <node>
                   <name>Random</name>
@@ -3078,6 +3112,16 @@
                <node>
                   <name>OBO-identifier</name>
                   <description>The identifier of a term in some Open Biology Ontology (OBO) ontology.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                     </attribute>
+                  </node>
                </node>
                <node>
                   <name>Pathname</name>
@@ -4359,15 +4403,11 @@
             <name>Spatiotemporal-property</name>
             <description>A property relating to space and/or time.</description>
             <node>
-               <name>Directional-property</name>
+               <name>Orientation-property</name>
                <description>Property of an element involving space.</description>
                <node>
                   <name>Backward</name>
                   <description>Directed behind or to the rear.</description>
-               </node>
-               <node>
-                  <name>Decreasing</name>
-                  <description>Becoming smaller or fewer in size, amount, intensity, or degree.</description>
                </node>
                <node>
                   <name>Downward</name>
@@ -4378,16 +4418,24 @@
                   <description>At or near or directed toward the front.</description>
                </node>
                <node>
-                  <name>Increasing</name>
-                  <description>Becoming greater in size, amount, or degree; growing.</description>
+                  <name>Horizontally-oriented</name>
+                  <description>Oriented parallel to or in the plane of the horizon.</description>
                </node>
                <node>
                   <name>Leftward</name>
                   <description>Going toward or facing the left.</description>
                </node>
                <node>
+                  <name>Oblique</name>
+                  <description>Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.</description>
+               </node>
+               <node>
                   <name>Rightward</name>
                   <description>Going toward or situated on the right.</description>
+               </node>
+               <node>
+                  <name>Rotated</name>
+                  <description>Move or cause to move in a circle around an axis or center.</description>
                </node>
                <node>
                   <name>Upward</name>
@@ -5265,190 +5313,142 @@
             <node>
                <name>Towards</name>
                <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
-            </node>
-         </node>
-         <node>
-            <name>Ordering-relation</name>
-            <description>A relation describing the systematic arrangement of data items.</description>
-            <node>
-               <name>Early-item-of</name>
-               <description>(A (Early-item-of B)) means that A is near the beginning of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
-            </node>
-            <node>
-               <name>First-item-of</name>
-               <description>(A (First-item-of B)) means that A is the first item of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
-            </node>
-            <node>
-               <name>Next-item-of</name>
-               <description>(A (Next-item-of B)) means that A is the next item of B. Here B is an iterator for something that has a linear order such as a course, process, or list.</description>
-            </node>
-            <node>
-               <name>Later-item-of</name>
-               <description>A (Later-item-of B)) means that A occurs near the end of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
-            </node>
-            <node>
-               <name>Last-item-of</name>
-               <description>(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.</description>
-            </node>
-         </node>
-         <node>
-            <name>Spatiotemporal-relation</name>
-            <description>A space and or temporal relationship.</description>
-            <node>
-               <name>Orientational-relation</name>
-               <description>Indicating relative physical position or direction of something.</description>
-               <node>
-                  <name>Horizontally-oriented</name>
-                  <description>Oriented parallel to or in the plane of the horizon.</description>
-               </node>
-               <node>
-                  <name>Oblique</name>
-                  <description>Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.</description>
-               </node>
-               <node>
-                  <name>Rotated</name>
-                  <description>Move or cause to move in a circle around an axis or center.</description>
-               </node>
                <node>
                   <name>Vertically-oriented</name>
                   <description>Oriented in an upright in position or posture.</description>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Spatial-relation</name>
+            <description>Indicating information about position.</description>
             <node>
-               <name>Positional-relation</name>
-               <description>Indicating information about position.</description>
-               <node>
-                  <name>Above</name>
-                  <description>(A (Adjacent-to B)) means A is in a place or position that is higher than B.</description>
-               </node>
-               <node>
-                  <name>Across-from</name>
-                  <description>(A (Across-from B)) means A is on the opposite side of something from B.</description>
-               </node>
-               <node>
-                  <name>Adjacent-to</name>
-                  <description>(A (Adjacent-to B)) indicates that A is next to B in time or space.</description>
-               </node>
-               <node>
-                  <name>Ahead-of</name>
-                  <description>(A (Ahead-of B)) indicates that A is further forward in time or space in B.</description>
-               </node>
-               <node>
-                  <name>Around</name>
-                  <description>(A (Around B)) means A is in or near the present place or situation of B.</description>
-               </node>
-               <node>
-                  <name>Behind</name>
-                  <description>(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.</description>
-               </node>
-               <node>
-                  <name>Below</name>
-                  <description>(A (Below B)) means A is in a place or position that is lower than the position of B.</description>
-               </node>
-               <node>
-                  <name>Between</name>
-                  <description>(A (Between, (B, C))) means A is in the space or interval separating B and C.</description>
-               </node>
-               <node>
-                  <name>Bilateral-to</name>
-                  <description>(A (Bilateral B)) means A is on both sides of B or affects both sides of B.</description>
-               </node>
-               <node>
-                  <name>Bottom-of</name>
-                  <description>(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.</description>
-               </node>
-               <node>
-                  <name>Boundary-of</name>
-                  <description>(A (Boundary-of B)) means A is on or part of the edge or boundary of B.</description>
-               </node>
-               <node>
-                  <name>Center-of</name>
-                  <description>(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.</description>
-               </node>
-               <node>
-                  <name>Close-to</name>
-                  <description>(A (Close-to B)) means A is at a small distance from or is located near in space to B.</description>
-               </node>
-               <node>
-                  <name>Far-from</name>
-                  <description>(A (Far-from B)) means A is at a large distance from or is not located near in space to B.</description>
-               </node>
-               <node>
-                  <name>In-front-of</name>
-                  <description>(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
-               </node>
-               <node>
-                  <name>Left-of</name>
-                  <description>(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
-               </node>
-               <node>
-                  <name>Left-side-of</name>
-                  <description>(A (Left-side-of B)) means A is located on the left side of B usually as part of B.</description>
-                  <attribute>
-                     <name>relatedTag</name>
-                     <value>Right-side-of</value>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Outside-of</name>
-                  <description>(A (Outside-of B)) means A is located in the space around but not including B.</description>
-               </node>
-               <node>
-                  <name>Over</name>
-                  <description>(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
-               </node>
-               <node>
-                  <name>Right-of</name>
-                  <description>(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
-               </node>
-               <node>
-                  <name>Right-side-of</name>
-                  <description>(A (Right-side-of B)) means A is located on the right side of B usually as part of B.</description>
-                  <attribute>
-                     <name>relatedTag</name>
-                     <value>Left-side-of</value>
-                  </attribute>
-               </node>
-               <node>
-                  <name>Top-of</name>
-                  <description>(A (Top-of B)) means A is on the uppermost part, side, or surface of B.</description>
-               </node>
-               <node>
-                  <name>Underneath</name>
-                  <description>(A (Underneath B)) means A is situated directly below and may be concealed by B.</description>
-               </node>
-               <node>
-                  <name>Within</name>
-                  <description>(A (Within B)) means A is on the inside of or contained in B.</description>
-               </node>
+               <name>Above</name>
+               <description>(A (Adjacent-to B)) means A is in a place or position that is higher than B.</description>
             </node>
             <node>
-               <name>Temporal-relation</name>
-               <description>Any relationship which includes a temporal or time-based component.</description>
-               <node>
-                  <name>After</name>
-                  <description>(A After B) means A happens at a time subsequent to a reference time related to B.</description>
-               </node>
-               <node>
-                  <name>Asynchronous-with</name>
-                  <description>(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.</description>
-               </node>
-               <node>
-                  <name>Before</name>
-                  <description>(A Before B) means A happens at a time earlier in time or order than B.</description>
-               </node>
-               <node>
-                  <name>During</name>
-                  <description>(A During B) means A happens at some point in a given period of time in which B is ongoing.</description>
-               </node>
-               <node>
-                  <name>Synchronous-with</name>
-                  <description>(A Synchronous-with B) means A happens at occurs at the same time or rate as B.</description>
-               </node>
-               <node>
-                  <name>Waiting-for</name>
-                  <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
-               </node>
+               <name>Across-from</name>
+               <description>(A (Across-from B)) means A is on the opposite side of something from B.</description>
+            </node>
+            <node>
+               <name>Adjacent-to</name>
+               <description>(A (Adjacent-to B)) indicates that A is next to B in time or space.</description>
+            </node>
+            <node>
+               <name>Ahead-of</name>
+               <description>(A (Ahead-of B)) indicates that A is further forward in time or space in B.</description>
+            </node>
+            <node>
+               <name>Around</name>
+               <description>(A (Around B)) means A is in or near the present place or situation of B.</description>
+            </node>
+            <node>
+               <name>Behind</name>
+               <description>(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.</description>
+            </node>
+            <node>
+               <name>Below</name>
+               <description>(A (Below B)) means A is in a place or position that is lower than the position of B.</description>
+            </node>
+            <node>
+               <name>Between</name>
+               <description>(A (Between, (B, C))) means A is in the space or interval separating B and C.</description>
+            </node>
+            <node>
+               <name>Bilateral-to</name>
+               <description>(A (Bilateral B)) means A is on both sides of B or affects both sides of B.</description>
+            </node>
+            <node>
+               <name>Boundary-of</name>
+               <description>(A (Boundary-of B)) means A is on or part of the edge or boundary of B.</description>
+            </node>
+            <node>
+               <name>Center-of</name>
+               <description>(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.</description>
+            </node>
+            <node>
+               <name>Close-to</name>
+               <description>(A (Close-to B)) means A is at a small distance from or is located near in space to B.</description>
+            </node>
+            <node>
+               <name>Far-from</name>
+               <description>(A (Far-from B)) means A is at a large distance from or is not located near in space to B.</description>
+            </node>
+            <node>
+               <name>In-front-of</name>
+               <description>(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
+            </node>
+            <node>
+               <name>Left-of</name>
+               <description>(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
+            </node>
+            <node>
+               <name>Left-side-of</name>
+               <description>(A (Left-side-of B)) means A is located on the left side of B usually as part of B.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Right-side-of</value>
+               </attribute>
+            </node>
+            <node>
+               <name>Outside-of</name>
+               <description>(A (Outside-of B)) means A is located in the space around but not including B.</description>
+            </node>
+            <node>
+               <name>Over</name>
+               <description>(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
+            </node>
+            <node>
+               <name>Right-of</name>
+               <description>(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
+            </node>
+            <node>
+               <name>Right-side-of</name>
+               <description>(A (Right-side-of B)) means A is located on the right side of B usually as part of B.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Left-side-of</value>
+               </attribute>
+            </node>
+            <node>
+               <name>Top-of</name>
+               <description>(A (Top-of B)) means A is on the uppermost part, side, or surface of B.</description>
+            </node>
+            <node>
+               <name>Underneath</name>
+               <description>(A (Underneath B)) means A is situated directly below and may be concealed by B.</description>
+            </node>
+            <node>
+               <name>Within</name>
+               <description>(A (Within B)) means A is on the inside of or contained in B.</description>
+            </node>
+         </node>
+         <node>
+            <name>Temporal-relation</name>
+            <description>Any relationship which includes a temporal or time-based component.</description>
+            <node>
+               <name>After</name>
+               <description>(A After B) means A happens at a time subsequent to a reference time related to B.</description>
+            </node>
+            <node>
+               <name>Asynchronous-with</name>
+               <description>(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.</description>
+            </node>
+            <node>
+               <name>Before</name>
+               <description>(A Before B) means A happens at a time earlier in time or order than B.</description>
+            </node>
+            <node>
+               <name>During</name>
+               <description>(A During B) means A happens at some point in a given period of time in which B is ongoing.</description>
+            </node>
+            <node>
+               <name>Synchronous-with</name>
+               <description>(A Synchronous-with B) means A happens at occurs at the same time or rate as B.</description>
+            </node>
+            <node>
+               <name>Waiting-for</name>
+               <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
             </node>
          </node>
       </node>
