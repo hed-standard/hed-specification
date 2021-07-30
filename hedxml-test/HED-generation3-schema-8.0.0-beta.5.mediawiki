@@ -538,7 +538,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Estimated-value <nowiki>[A value that has been calculated or measured approximately.]</nowiki>
 *** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 ** Quantitative-property <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki>
-*** Angle<nowiki>[The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
 *** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 **** <nowiki># {takesValue}</nowiki> 
@@ -679,6 +678,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
+** Material-property <nowiki>[A physical property that does not depend on the amount of the material.]</nowiki>
+*** Density <nowiki>[The force applied to a unit area of surface.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 ** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
 *** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -921,12 +923,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
 *** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
 *** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-*** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
+*** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
 *** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
 *** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
 *** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
 *** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 *** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
+*** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 ** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 *** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
@@ -941,12 +944,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
 **** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
 ** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
-*** Direction <nowiki>[The spatial relation between something and the course along which it points or moves.]</nowiki>
+*** Angle<nowiki>{unitClass=angleUnits}[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-*** Orientation <nowiki>[The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 *** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
 **** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
@@ -1072,7 +1073,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
 ** Away-from <nowiki>[Go away from a place or object.]</nowiki>
 ** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
-*** Vertically-oriented <nowiki>[Oriented in an upright in position or posture.]</nowiki>
 * Spatial-relation <nowiki>[Indicating information about position.]</nowiki>
 ** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>
 ** Across-from <nowiki>[(A (Across-from B)) means A is on the opposite side of something from B.]</nowiki>
@@ -1088,12 +1088,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
 ** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
 ** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
-** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
 ** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
 ** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
 ** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
-** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
 ** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
+** To-left-of <nowiki>[(A (To-left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** To-right-of <nowiki>[(A (To-right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
 ** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
 ** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
 ** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>

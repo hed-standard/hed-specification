@@ -2515,14 +2515,10 @@
                <name>Quantitative-property</name>
                <description>Something capable of being estimated or expressed with numeric values.</description>
                <node>
-                  <name>Angle</name>
-                  <description>The inclination of one line to another or the plane of one object to another. Angles are assumed clockwise from vertical unless grouped with axis.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
                </node>
                <node>
                   <name>Fraction</name>
@@ -3354,6 +3350,24 @@
             <node>
                <name>Electromagnetic-property</name>
                <description>A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.</description>
+            </node>
+            <node>
+               <name>Material-property</name>
+               <description>A physical property that does not depend on the amount of the material.</description>
+               <node>
+                  <name>Density</name>
+                  <description>The force applied to a unit area of surface.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
             </node>
             <node>
                <name>Mechanical-property</name>
@@ -4441,6 +4455,10 @@
                   <name>Upward</name>
                   <description>Moving, pointing, or leading to a higher place, point, or level.</description>
                </node>
+               <node>
+                  <name>Vertically-oriented</name>
+                  <description>Oriented perpendicular to the plane of the horizon.</description>
+               </node>
             </node>
             <node>
                <name>Rate-of-change</name>
@@ -4546,8 +4564,12 @@
                <name>Spatial-property</name>
                <description>Property of an element involving space.</description>
                <node>
-                  <name>Direction</name>
-                  <description>The spatial relation between something and the course along which it points or moves.</description>
+                  <name>Angle</name>
+                  <description>The amount of inclination of one line to another or the plane of one object to another.</description>
+                  <attribute>
+                     <name>unitClass</name>
+                     <value>angleUnits</value>
+                  </attribute>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -4570,20 +4592,6 @@
                      <attribute>
                         <name>unitClass</name>
                         <value>physicalLengthUnits</value>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Orientation</name>
-                  <description>The position or alignment of something relative to points of the compass, other specific directions, or some other indexing system.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
                      </attribute>
                      <attribute>
                         <name>valueClass</name>
@@ -5313,10 +5321,6 @@
             <node>
                <name>Towards</name>
                <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
-               <node>
-                  <name>Vertically-oriented</name>
-                  <description>Oriented in an upright in position or posture.</description>
-               </node>
             </node>
          </node>
          <node>
@@ -5379,10 +5383,6 @@
                <description>(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
             </node>
             <node>
-               <name>Left-of</name>
-               <description>(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
-            </node>
-            <node>
                <name>Left-side-of</name>
                <description>(A (Left-side-of B)) means A is located on the left side of B usually as part of B.</description>
                <attribute>
@@ -5399,16 +5399,20 @@
                <description>(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
             </node>
             <node>
-               <name>Right-of</name>
-               <description>(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
-            </node>
-            <node>
                <name>Right-side-of</name>
                <description>(A (Right-side-of B)) means A is located on the right side of B usually as part of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Left-side-of</value>
                </attribute>
+            </node>
+            <node>
+               <name>To-left-of</name>
+               <description>(A (To-left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
+            </node>
+            <node>
+               <name>To-right-of</name>
+               <description>(A (To-right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
             </node>
             <node>
                <name>Top-of</name>
