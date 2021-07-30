@@ -591,11 +591,14 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
-*** Continuous <nowiki>[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
+*** Continuous <nowiki>{relatedTag=Discrete,relatedTag=Discontinuous}[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
+*** Decreasing <nowiki>{relatedTag=Increasing}[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
 *** Deterministic <nowiki>{relatedTag=Random,relatedTag=Stochastic}[No randomness is involved in the development of the future states of the element.]</nowiki>
-*** Discrete <nowiki>[Constituting a separate entities or parts.]</nowiki>
+*** Discontinuous <nowiki>{relatedTag=Continuous}[Having a gap in time, sequence, substance, or extent.]</nowiki>
+*** Discrete <nowiki>{relatedTag=Continuous,relatedTag=Discontinuous}[Constituting a separate entities or parts.]</nowiki>
 *** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
 *** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
+*** Increasing <nowiki>{relatedTag=Decreasing}[Becoming greater in size, amount, or degree.]</nowiki>
 *** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
 *** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
 *** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
