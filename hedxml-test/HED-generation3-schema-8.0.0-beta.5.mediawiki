@@ -642,6 +642,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
 **** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** OBO-identifier <nowiki>[The identifier of a term in some Open Biology Ontology (OBO) ontology.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** Pathname <nowiki>[The specification of a node (file or directory) in a hierarchical file system, usually specified by listing the nodes top-down.]</nowiki>
 **** <nowiki># {takesValue}</nowiki> 
 *** Subject-identifier <nowiki>[A sequence of characters used to identify, name, or characterize a trial or study subject.]</nowiki>
