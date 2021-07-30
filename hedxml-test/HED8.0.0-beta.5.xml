@@ -2576,7 +2576,7 @@
                </node>
                <node>
                   <name>Recurrence-interval</name>
-                  <description>The number of items an Event-stream since the last one of these. A Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
+                  <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2586,7 +2586,7 @@
                </node>
                <node>
                   <name>Occurrence-number</name>
-                  <description>An integer that identifies the particular occurrence of a repeating activity or entity usually in a specified Event-stream.</description>
+                  <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -2666,6 +2666,20 @@
                   <name>extensionAllowed</name>
                </attribute>
                <node>
+                  <name>Data-maximum</name>
+                  <description>The largest possible quantity or degree.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
                   <name>Data-mean</name>
                   <description>The sum of a set of values divided by the number of values in the set.</description>
                   <node>
@@ -2682,20 +2696,6 @@
                <node>
                   <name>Data-median</name>
                   <description>The value which has an equal number of values greater and less than it.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Data-maximum</name>
-                  <description>The largest possible quantity or degree.</description>
                   <node>
                      <name>#</name>
                      <attribute>
@@ -3138,14 +3138,47 @@
             <node>
                <name>Collection</name>
                <description>A tag designating a grouping of items such as in a set or list.</description>
+               <node>
+                  <name>#</name>
+                  <description>Name of the collection.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Condition-variable</name>
                <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
+               <node>
+                  <name>#</name>
+                  <description>Name of the condition variable.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Control-variable</name>
                <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
+               <node>
+                  <name>#</name>
+                  <description>Name of the control variable.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Def</name>
@@ -3155,6 +3188,7 @@
                </attribute>
                <node>
                   <name>#</name>
+                  <description>Name of the definition.</description>
                   <attribute>
                      <name>takesValue</name>
                   </attribute>
@@ -3195,6 +3229,7 @@
                </attribute>
                <node>
                   <name>#</name>
+                  <description>Name of the definition.</description>
                   <attribute>
                      <name>takesValue</name>
                   </attribute>
@@ -3217,6 +3252,17 @@
             <node>
                <name>Event-stream</name>
                <description>A special HED tag indicating that this event is a member of an ordered succession of events.</description>
+               <node>
+                  <name>#</name>
+                  <description>Name of the event stream.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Experimental-intertrial</name>
@@ -3229,6 +3275,17 @@
             <node>
                <name>Indicator-variable</name>
                <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.</description>
+               <node>
+                  <name>#</name>
+                  <description>Name of the indicator variable.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
             </node>
             <node>
                <name>Permutation</name>

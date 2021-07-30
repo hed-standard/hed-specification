@@ -550,9 +550,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>  
 *** Ratio <nowiki>[A quotient of quantities of the same kind for different components within the same system.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>  
-*** Recurrence-interval <nowiki>[The number of items an Event-stream since the last one of these. A Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
+*** Recurrence-interval <nowiki>[The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
-*** Occurrence-number <nowiki>[An integer that identifies the particular occurrence of a repeating activity or entity usually in a specified Event-stream.]</nowiki>
+*** Occurrence-number <nowiki>[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 ** Resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
@@ -568,12 +568,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
 **** <nowiki># {takesValue} </nowiki>  
 ** Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
+*** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}[]</nowiki> 
 *** Data-mean <nowiki>[The sum of a set of values divided by the number of values in the set.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Data-median <nowiki>[The value which has an equal number of values greater and less than it.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
-*** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}[]</nowiki> 
 *** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
@@ -651,22 +651,27 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** <nowiki># {takesValue}</nowiki>
 * Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the collection.]</nowiki>
 ** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the condition variable.]</nowiki>
 ** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the control variable.]</nowiki>
 ** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
 ** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 ** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
-*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
 ** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
 ** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the event stream.]</nowiki>
 ** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
 ** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
 ** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}[Name of the indicator variable.]</nowiki>
 ** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
 ** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
-** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki> 
+** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki>
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
