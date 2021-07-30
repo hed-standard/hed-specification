@@ -499,7 +499,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Observation <nowiki>[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
 ** Data-value-type <nowiki>[Designation of the type of a data item.]</nowiki>
 *** Categorical-value <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
-**** Categorical-class <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
+**** Categorical-class-value <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 ***** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
 ***** Correct <nowiki>{relatedTag=Incorrect}[Free from error. Especially conforming to fact or truth.]</nowiki>
 ***** Explicit <nowiki>{relatedTag=Implicit}[Stated clearly and in detail, leaving no room for confusion or doubt.]</nowiki>
@@ -511,7 +511,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** True <nowiki>{relatedTag=False}[Conforming to facts, reality or definitive criteria.]</nowiki>
 ***** Valid <nowiki>{relatedTag=Invalid}[Allowable, usable, or acceptable.]</nowiki>
 ***** Wrong <nowiki>{relatedTag=Correct}[Not accurate, correct, or appropriate.]</nowiki>
-**** Categorical-judgment <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
+**** Categorical-judgment-value <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
 ***** Abnormal <nowiki>{relatedTag=Normal}[Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.]</nowiki>
 ***** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.]</nowiki>
 ***** Audible <nowiki>{relatedTag=Inaudible}[A sound that can be perceived by the participant.]</nowiki>
@@ -533,7 +533,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Not having knowledge or experience of.]</nowiki>
 ***** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
 ***** Voluntary <nowiki>{relatedTag=Involuntary}[Using free will or design; not forced or compelled; controlled by individual volition.]</nowiki>
-**** Categorical-level <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
+**** Categorical-level-value <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
 ***** Cold <nowiki>{relatedTag=Hot}[Characterized by an absence of heat.]</nowiki>
 ***** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
 ***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
@@ -552,6 +552,17 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
+**** Categorical-orientation-value <nowiki>[Value indicating the orientation or direction of something.]</nowiki>
+***** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
+***** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
+***** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+***** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
+***** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+***** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
+***** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+***** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
+***** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
+***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki> 
@@ -567,7 +578,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** <nowiki># {takesValue}</nowiki>
 **** Occurrence-number <nowiki>[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>
-*** Statistical-property <nowiki>{extensionAllowed}[A property relating to, based on, or employing the principles of statistics.]</nowiki>
+*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
 **** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}[]</nowiki> 
 **** Data-mean <nowiki>[The sum of a set of values divided by the number of values in the set.]</nowiki>
@@ -588,7 +599,58 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 **** Statistical-uncertainty <nowiki> [A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Data-variability <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+*** Spatiotemporal-value <nowiki>[A property relating to space and/or time.]</nowiki>
+**** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
+***** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
+***** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>   
+***** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerkUnits}</nowiki>
+***** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
+****** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki> 
+***** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
+****** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
+***** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
+****** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
+**** Spatial-value <nowiki>[Value of an item involving space.]</nowiki>
+***** Angle<nowiki>{unitClass=angleUnits}[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+***** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
+****** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+****** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>  
+****** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>   
+***** Size <nowiki>[The physical magnitude of something.]</nowiki>
+****** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
+****** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+****** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
+****** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
+****** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
+**** Temporal-value <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
+***** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
+***** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
+***** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
+***** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
+***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
+***** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
+***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
+***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+** Data-variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
 *** Continuous <nowiki>{relatedTag=Discrete,relatedTag=Discontinuous}[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
@@ -919,68 +981,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
-* Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
-** Orientation-property <nowiki>[Property of an element involving space.]</nowiki>
-*** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
-*** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
-*** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-*** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
-*** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
-*** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
-*** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
-*** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
-*** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
-*** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
-** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
-*** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
-*** Jerk-rate <nowiki>[Magnitude of the rate at which the acceleration of an object changes with respect to time. The direction of change should be given separately.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=jerkUnits}</nowiki>
-*** Sampling-rate <nowiki>[The number of digital samples taken or recorded per unit of time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki> 
-*** Refresh-rate <nowiki>[The frequency with which the image on a computer monitor or similar electronic display screen is refreshed, usually expressed in hertz.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
-*** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
-**** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
-** Spatial-property <nowiki>[Property of an element involving space.]</nowiki>
-*** Angle<nowiki>{unitClass=angleUnits}[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-*** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
-**** X-position <nowiki>[The position along the x-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-**** Y-position <nowiki>[The position along the y-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>  
-**** Z-position <nowiki>[The position along the z-axis of the frame of reference.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>   
-*** Size <nowiki>[The physical magnitude of something.]</nowiki>
-**** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
-**** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-**** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
-**** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
-**** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
-** Temporal-property <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
-*** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-*** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-*** Frequency <nowiki>[Frequency is the number of occurrences of a repeating event per unit time.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>   
-*** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
-*** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
-*** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
-*** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-*** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
-*** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
+
 * Task-property <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Task-attentional-demand <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
 *** Bottom-up-attention <nowiki>{relatedTag=Top-down-attention}[Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.]</nowiki>
