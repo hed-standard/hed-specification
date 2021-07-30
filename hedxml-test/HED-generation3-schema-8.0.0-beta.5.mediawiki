@@ -1075,38 +1075,37 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
 *** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 *** Vertically-oriented <nowiki>[Oriented in an upright in position or posture.]</nowiki>
-** Positional-relation <nowiki>[Indicating information about position.]</nowiki>
-*** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>
-*** Across-from <nowiki>[(A (Across-from B)) means A is on the opposite side of something from B.]</nowiki>
-*** Adjacent-to <nowiki>[(A (Adjacent-to B)) indicates that A is next to B in time or space.]</nowiki>
-*** Ahead-of <nowiki>[(A (Ahead-of B)) indicates that A is further forward in time or space in B.]</nowiki>
-*** Around <nowiki>[(A (Around B)) means A is in or near the present place or situation of B.]</nowiki>
-*** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
-*** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
-*** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
-*** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
-*** Bottom-of <nowiki>[(A (Bottom-of B)) means A is on the lowest part, side, or surface of B.]</nowiki>
-*** Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
-*** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
-*** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
-*** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
-*** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
-*** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
-*** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
-*** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
-*** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-*** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
-*** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
-*** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
-*** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
-** Temporal-relation <nowiki>[Any relationship which includes a temporal or time-based component.]</nowiki>
-*** After <nowiki>[(A After B) means A happens at a time subsequent to a reference time related to B.]</nowiki>
-*** Asynchronous-with <nowiki>[(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.]</nowiki>
-*** Before <nowiki>[(A Before B) means A happens at a time earlier in time or order than B.]</nowiki>
-*** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
-*** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
-*** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
+* Spatial-relation <nowiki>[Indicating information about position.]</nowiki>
+** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>
+** Across-from <nowiki>[(A (Across-from B)) means A is on the opposite side of something from B.]</nowiki>
+** Adjacent-to <nowiki>[(A (Adjacent-to B)) indicates that A is next to B in time or space.]</nowiki>
+** Ahead-of <nowiki>[(A (Ahead-of B)) indicates that A is further forward in time or space in B.]</nowiki>
+** Around <nowiki>[(A (Around B)) means A is in or near the present place or situation of B.]</nowiki>
+** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
+** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
+** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
+** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+**  Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
+** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
+** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
+** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
+** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
+** Left-of <nowiki>[(A (Left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
+** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
+** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
+** Right-of <nowiki>[(A (Right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
+** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
+** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
+** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
+* Temporal-relation <nowiki>[Any relationship which includes a temporal or time-based component.]</nowiki>
+** After <nowiki>[(A After B) means A happens at a time subsequent to a reference time related to B.]</nowiki>
+** Asynchronous-with <nowiki>[(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.]</nowiki>
+** Before <nowiki>[(A Before B) means A happens at a time earlier in time or order than B.]</nowiki>
+** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
+** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
+** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
 
 !# end schema 
 
