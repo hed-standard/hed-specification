@@ -552,6 +552,18 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
+**** Categorical-orientation-value <nowiki>[Property of an element involving space.]</nowiki>
+***** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
+***** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
+***** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
+***** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
+***** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
+***** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
+***** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
+***** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
+***** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
+***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
+
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki> 
@@ -920,17 +932,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
 * Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
-** Orientation-property <nowiki>[Property of an element involving space.]</nowiki>
-*** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
-*** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
-*** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-*** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
-*** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
-*** Oblique <nowiki>[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
-*** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
-*** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
-*** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
-*** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 ** Rate-of-change <nowiki>[The amount of change accumulated per unit time.]</nowiki>
 *** Acceleration <nowiki>[Magnitude of the rate of change in either speed or direction. The direction of change should be given separately.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass, unitClass=accelerationUnits}</nowiki>  
