@@ -2065,6 +2065,78 @@
                <name>extensionAllowed</name>
             </attribute>
             <node>
+               <name>Data-resolution</name>
+               <description>Smallest change in a quality being measured by an sensor that causes a perceptible change.</description>
+               <node>
+                  <name>Estimated-value</name>
+                  <description>A value that has been calculated or measured approximately.</description>
+               </node>
+               <node>
+                  <name>Exact-value</name>
+                  <description>A value that is viewed to the true value according to some standard.</description>
+               </node>
+               <node>
+                  <name>Printer-resolution</name>
+                  <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Screen-resolution</name>
+                  <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Sensory-resolution</name>
+                  <description>Resolution of measurements by a sensing device.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Spatial-resolution</name>
+                  <description>Linear spacing of a spatial measurement.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Spectral-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Temporal-resolution</name>
+                  <description>Measures the ability of a sensor to  resolve features in time.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
+            <node>
                <name>Data-source-type</name>
                <description>The type of place, person, or thing from which the data comes or can be obtained.</description>
                <node>
@@ -2459,11 +2531,27 @@
                         </attribute>
                      </node>
                      <node>
+                        <name>Rough</name>
+                        <description>Having a surface with perceptible bumps, ridges, or irregularities.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Smooth</value>
+                        </attribute>
+                     </node>
+                     <node>
                         <name>Shallow</name>
                         <description>Having a depth which is relatively low.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Deep</value>
+                        </attribute>
+                     </node>
+                     <node>
+                        <name>Smooth</name>
+                        <description>Having a surface free from bumps, ridges, or irregularities.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Rough</value>
                         </attribute>
                      </node>
                      <node>
@@ -2503,307 +2591,229 @@
                   </node>
                </node>
                <node>
-                  <name>Estimated-value</name>
-                  <description>A value that has been calculated or measured approximately.</description>
+                  <name>Quantitative-value</name>
+                  <description>Something capable of being estimated or expressed with numeric values.</description>
+                  <node>
+                     <name>Fraction</name>
+                     <description>A numerical value betwee 0 and 1.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Interval</name>
+                     <description>A period of time or the distance separating two instances, events, or occurrences.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Item-count</name>
+                     <description>An integer and represented the number of instances or occurences of an entity.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Percentage</name>
+                     <description>A fraction or ratio with 100 understood as the denominator.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Ratio</name>
+                     <description>A quotient of quantities of the same kind for different components within the same system.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Recurrence-interval</name>
+                     <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Occurrence-number</name>
+                     <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                     </node>
+                  </node>
                </node>
                <node>
-                  <name>Exact-value</name>
-                  <description>A value that is viewed to the true value according to some standard.</description>
-               </node>
-            </node>
-            <node>
-               <name>Quantitative-property</name>
-               <description>Something capable of being estimated or expressed with numeric values.</description>
-               <node>
-                  <name>#</name>
+                  <name>Statistical-property</name>
+                  <description>A property relating to, based on, or employing the principles of statistics.</description>
                   <attribute>
-                     <name>takesValue</name>
+                     <name>extensionAllowed</name>
                   </attribute>
-               </node>
-               <node>
-                  <name>Fraction</name>
-                  <description>A numerical value betwee 0 and 1.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Data-maximum</name>
+                     <description>The largest possible quantity or degree.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Interval</name>
-                  <description>A period of time or the distance separating two instances, events, or occurrences.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Data-mean</name>
+                     <description>The sum of a set of values divided by the number of values in the set.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Item-count</name>
-                  <description>An integer and represented the number of instances or occurences of an entity.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Data-median</name>
+                     <description>The value which has an equal number of values greater and less than it.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Percentage</name>
-                  <description>A fraction or ratio with 100 understood as the denominator.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Data-minimum</name>
+                     <description>The smallest possible quantity.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Ratio</name>
-                  <description>A quotient of quantities of the same kind for different components within the same system.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Probability</name>
+                     <description>A measure of the expectation of the occurrence of a particular event.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Recurrence-interval</name>
-                  <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Standard-deviation</name>
+                     <description>A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Occurrence-number</name>
-                  <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Statistical-accuracy</name>
+                     <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-            </node>
-            <node>
-               <name>Resolution</name>
-               <description>Smallest change in a quality being measured by an sensor that causes a perceptible change.</description>
-               <node>
-                  <name>Printer-resolution</name>
-                  <description>Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Statistical-precision</name>
+                     <description>A quantitative representation of the degree of accuracy necessary for or associated with a particular action.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Screen-resolution</name>
-                  <description>Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
+                     <name>Statistical-recall</name>
+                     <description>Sensitivity is a measurement datum qualifying a binary classification test and is computed by substracting the false negative rate to the integral numeral 1.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
-               </node>
-               <node>
-                  <name>Sensory-resolution</name>
-                  <description>Resolution of measurements by a sensing device.</description>
                   <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Spatial-resolution</name>
-                  <description>Linear spacing of a spatial measurement.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Spectral-resolution</name>
-                  <description>Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Temporal-resolution</name>
-                  <description>Measures the ability of a sensor to  resolve features in time.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Statistical-property</name>
-               <description>A property relating to, based on, or employing the principles of statistics.</description>
-               <attribute>
-                  <name>extensionAllowed</name>
-               </attribute>
-               <node>
-                  <name>Data-maximum</name>
-                  <description>The largest possible quantity or degree.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Data-mean</name>
-                  <description>The sum of a set of values divided by the number of values in the set.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Data-median</name>
-                  <description>The value which has an equal number of values greater and less than it.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Data-minimum</name>
-                  <description>The smallest possible quantity.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Probability</name>
-                  <description>A measure of the expectation of the occurrence of a particular event.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Standard-deviation</name>
-                  <description>A measure of the range of values in a set of numbers. Standard deviation is a statistic used as a measure of the dispersion or variation in a distribution, equal to the square root of the arithmetic mean of the squares of the deviations from the arithmetic mean.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Statistical-accuracy</name>
-                  <description>A measure of closeness to true value expressed as a number between 0 and 1.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Statistical-precision</name>
-                  <description>A quantitative representation of the degree of accuracy necessary for or associated with a particular action.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Statistical-recall</name>
-                  <description>Sensitivity is a measurement datum qualifying a binary classification test and is computed by substracting the false negative rate to the integral numeral 1.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Statistical-uncertainty</name>
-                  <description>A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
+                     <name>Statistical-uncertainty</name>
+                     <description>A measure of the inherent variability of repeated observation measurements of a quantity including quantities evaluated by statistical methods and by other means.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
                </node>
             </node>
             <node>
-               <name>Variability-property</name>
+               <name>Data-variability</name>
                <description>An attribute describing how something changes or varies.</description>
                <node>
                   <name>Abrupt</name>
@@ -4749,18 +4759,6 @@
                            <value>numericClass</value>
                         </attribute>
                      </node>
-                  </node>
-               </node>
-               <node>
-                  <name>Surface-property</name>
-                  <description>Property of the outer boundary of a three-dimensional object.</description>
-                  <node>
-                     <name>Rough</name>
-                     <description>A texture quality inhering in a bearer by virtue of the irregular surface of the bearer.</description>
-                  </node>
-                  <node>
-                     <name>Smooth</name>
-                     <description>Having a surface free from roughness or bumps or ridges or irregularities.</description>
                   </node>
                </node>
             </node>
