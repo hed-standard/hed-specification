@@ -917,12 +917,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
 * Spatiotemporal-property <nowiki>[A property relating to space and/or time.]</nowiki>
-** Directional-property <nowiki>[Property of an element involving space.]</nowiki>
+** Orientation-property <nowiki>[Property of an element involving space.]</nowiki>
 *** Backward <nowiki>[Directed behind or to the rear.]</nowiki>
-*** Decreasing <nowiki>[Becoming smaller or fewer in size, amount, intensity, or degree.]</nowiki>
 *** Downward <nowiki>[Moving or leading toward a lower place or level.]</nowiki>
 *** Forward <nowiki>[At or near or directed toward the front.]</nowiki>
-*** Increasing <nowiki>[Becoming greater in size, amount, or degree; growing.]</nowiki>
 *** Leftward <nowiki>[Going toward or facing the left.]</nowiki>
 *** Rightward <nowiki>[Going toward or situated on the right.]</nowiki>
 *** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
