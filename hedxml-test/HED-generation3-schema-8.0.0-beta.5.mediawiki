@@ -1069,12 +1069,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
 ** Away-from <nowiki>[Go away from a place or object.]</nowiki>
 ** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
-* Ordering-relation <nowiki>[A relation describing the systematic arrangement of data items.]</nowiki>
-** Early-item-of <nowiki>[(A (Early-item-of B)) means that A is near the beginning of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
-** First-item-of <nowiki>[(A (First-item-of B)) means that A is the first item of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
-** Next-item-of <nowiki>[(A (Next-item-of B)) means that A is the next item of B. Here B is an iterator for something that has a linear order such as a course, process, or list.]</nowiki> 
-** Later-item-of <nowiki>[A (Later-item-of B)) means that A occurs near the end of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
-** Last-item-of <nowiki>[(A (Last-item-of B)) means that A is the last item of B. Here B could be anything that has a linear order such as a course, process, or list.]</nowiki>
 * Spatiotemporal-relation <nowiki>[A space and or temporal relationship.]</nowiki>
 ** Orientational-relation <nowiki>[Indicating relative physical position or direction of something.]</nowiki>
 *** Horizontally-oriented <nowiki>[Oriented parallel to or in the plane of the horizon.]</nowiki>
