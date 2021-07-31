@@ -477,8 +477,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
 * Data-property <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
 ** Data-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
-*** Estimated-value <nowiki>[A value that has been calculated or measured approximately.]</nowiki>
-*** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
 **** <nowiki># {takesValue} </nowiki>
 *** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
@@ -650,7 +648,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 ***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-** Data-variability-property <nowiki>[An attribute describing how something changes or varies.]</nowiki>
+** Data-variability<nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
 *** Continuous <nowiki>{relatedTag=Discrete,relatedTag=Discontinuous}[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
@@ -659,6 +657,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Discontinuous <nowiki>{relatedTag=Continuous}[Having a gap in time, sequence, substance, or extent.]</nowiki>
 *** Discrete <nowiki>{relatedTag=Continuous,relatedTag=Discontinuous}[Constituting a separate entities or parts.]</nowiki>
 *** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
+*** Estimated <nowiki>[Something that has been calculated or measured approximately.]</nowiki>
+*** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 *** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
 *** Increasing <nowiki>{relatedTag=Decreasing}[Becoming greater in size, amount, or degree.]</nowiki>
 *** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
@@ -757,43 +757,31 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
 **** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-* Sensory-property <nowiki>[Relating to sensation or the physical senses; transmitted or perceived by the senses.]</nowiki>
-** Auditory-property <nowiki>[Pertaining to the sense of hearing.]</nowiki>
-*** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Sound-type
-**** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
-**** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
-**** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
-*** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-*** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
-** Gustatory-property <nowiki>[Pertaining to the sense of taste.]</nowiki>
-*** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
-*** Salty <nowiki>[Tasting of or like salt.]</nowiki>
-*** Savory <nowiki>[Belonging to a taste that is salty or spicy rather than sweet.]</nowiki>
-*** Sour <nowiki>[Having a sharp, acidic taste.]</nowiki>
-*** Sweet <nowiki>[Having or resembling the taste of sugar.]</nowiki>
-** Olfactory-property <nowiki>[Pertaining to the sense of smell.]</nowiki>
-** Somatic-property <nowiki>[Pertaining to the feelings in the body or of the nervous system.]</nowiki>
-*** Pain <nowiki>[The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.]</nowiki>
-*** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
-** Sensory-modality <nowiki>[A user-sense is used in the presentation to the user.]</nowiki>
-*** Auditory-modality <nowiki>[The sense of hearing is used in the presentation to the user.]</nowiki>
-*** Gustatory-modality <nowiki>[The sense of taste used in the presentation to the user.]</nowiki>
-*** Olfactory-modality <nowiki>[The sense of smell used in the presentation to the user.]</nowiki>
-*** Somatic-modality <nowiki>[The nervous system is used in the presentation to the user.]</nowiki>
-*** Tactile-modality <nowiki>[The sense of touch used in the presentation to the user.]</nowiki>
-*** Vestibular-modality <nowiki>[The sense balance used in the presentation to the user.]</nowiki>
-*** Visual-modality <nowiki>[The sense of sight used in the presentation to the user.]</nowiki>
-** Tactile-property <nowiki>[Pertaining to the sense of touch.]</nowiki>
-*** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
-*** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
-*** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
-** Vestibular-property <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
-** Visual-property <nowiki>[Pertaining to the sense of sight.]</nowiki>
-*** Optical-quality <nowiki>[Relating to or using sight; able to be seen.]</nowiki>
+* Sensory-property <nowiki>[Relating to sensation or the physical senses.]</nowiki>
+** Sensory-attribute <nowiki>[A sensory characteristic associated with another entity.]</nowiki>
+*** Auditory-attribute <nowiki>[Pertaining to the sense of hearing.]</nowiki>
+**** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+**** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+**** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+*** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
+**** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
+**** Salty <nowiki>[Tasting of or like salt.]</nowiki>
+**** Savory <nowiki>[Belonging to a taste that is salty or spicy rather than sweet.]</nowiki>
+**** Sour <nowiki>[Having a sharp, acidic taste.]</nowiki>
+**** Sweet <nowiki>[Having or resembling the taste of sugar.]</nowiki>
+*** Olfactory-attribute <nowiki>[Having a smell.]</nowiki>
+*** Somatic-attribute <nowiki>[Pertaining to the feelings in the body or of the nervous system.]</nowiki>
+**** Pain <nowiki>[The sensation of discomfort, distress, or agony, resulting from the stimulation of specialized nerve endings.]</nowiki>
+**** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
+*** Tactile-attribute <nowiki>[Pertaining to the sense of touch.]</nowiki>
+**** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
+**** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
+**** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
+*** Vestibular-attribute <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
+*** Visual-attribute <nowiki>[Pertaining to the sense of sight.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
 ***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
 ****** Blue-color <nowiki>[CSS color group]</nowiki>
@@ -969,7 +957,17 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki>
 **** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
 **** Opacity <nowiki>[A measure of impenetrability to light.]<nowiki>
-*** View-type <nowiki>[A specific visual representation of data, situations, topics, etc.]</nowiki>
+** Sensory-presentation <nowiki>[The entity has a sensory manifestation.]</nowiki>
+*** Auditory-presentation <nowiki>[The sense of hearing is used in the presentation to the user.]</nowiki>
+**** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
+**** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
+**** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
+*** Gustatory-presentation <nowiki>[The sense of taste used in the presentation to the user.]</nowiki>
+*** Olfactory-presentation <nowiki>[The sense of smell used in the presentation to the user.]</nowiki>
+*** Somatic-presentation <nowiki>[The nervous system is used in the presentation to the user.]</nowiki>
+*** Tactile-presentation <nowiki>[The sense of touch used in the presentation to the user.]</nowiki>
+*** Vestibular-presentation <nowiki>[The sense balance used in the presentation to the user.]</nowiki>
+*** Visual-presentation <nowiki>[The sense of sight used in the presentation to the user.]</nowiki>
 **** 2D-view <nowiki>[A view showing only two dimensions.]</nowiki>
 **** 3D-view <nowiki>[A view showing three dimensions.]</nowiki>
 **** Background-view <nowiki>[Parts of the view that are farthest from the viewer and usually the not part of the visual focus.]</nowiki>
