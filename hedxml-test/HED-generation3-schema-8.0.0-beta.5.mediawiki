@@ -648,7 +648,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 ***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-** Data-variability<nowiki>[An attribute describing how something changes or varies.]</nowiki>
+** Data-variability-attribute<nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
 *** Continuous <nowiki>{relatedTag=Discrete,relatedTag=Discontinuous}[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
@@ -657,7 +657,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Discontinuous <nowiki>{relatedTag=Continuous}[Having a gap in time, sequence, substance, or extent.]</nowiki>
 *** Discrete <nowiki>{relatedTag=Continuous,relatedTag=Discontinuous}[Constituting a separate entities or parts.]</nowiki>
 *** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
-*** Estimated <nowiki>[Something that has been calculated or measured approximately.]</nowiki>
+*** Estimated-value <nowiki>[Something that has been calculated or measured approximately.]</nowiki>
 *** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 *** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
 *** Increasing <nowiki>{relatedTag=Decreasing}[Becoming greater in size, amount, or degree.]</nowiki>
