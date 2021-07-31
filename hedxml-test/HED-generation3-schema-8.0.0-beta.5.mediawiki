@@ -497,7 +497,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Expert-annotation <nowiki>[An explanatory or critical comment or other in-context information provided by an authority.]</nowiki>
 *** Instrument-measurement <nowiki>[Information obtained from a device that is used to measure material properties or make other observations.]</nowiki>
 *** Observation <nowiki>[Active acquisition of information from a primary source. Should be grouped with a label of the form AgentID_featureName.]</nowiki>
-** Data-value-type <nowiki>[Designation of the type of a data item.]</nowiki>
+** Data-value <nowiki>[Designation of the type of a data item.]</nowiki>
 *** Categorical-value <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 **** Categorical-class-value <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 ***** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
@@ -566,7 +566,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki> 
-**** Interval <nowiki>[A period of time or the distance separating two instances, events, or occurrences.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>  
 **** Item-count <nowiki>[An integer and represented the number of instances or occurences of an entity.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>  
@@ -645,7 +644,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ***** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
 ***** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
-***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>    
+***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
+**** Time-interval <nowiki>[The period of time separating two instances, events, or occurrences.]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>     
 ***** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
