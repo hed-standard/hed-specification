@@ -765,7 +765,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
