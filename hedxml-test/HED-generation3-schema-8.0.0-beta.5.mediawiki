@@ -648,7 +648,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
 ***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
-** Data-variability<nowiki>[An attribute describing how something changes or varies.]</nowiki>
+** Data-variability-attribute<nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
 *** Continuous <nowiki>{relatedTag=Discrete,relatedTag=Discontinuous}[Uninterrupted in time, sequence, substance, or extent.]</nowiki>
@@ -657,7 +657,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Discontinuous <nowiki>{relatedTag=Continuous}[Having a gap in time, sequence, substance, or extent.]</nowiki>
 *** Discrete <nowiki>{relatedTag=Continuous,relatedTag=Discontinuous}[Constituting a separate entities or parts.]</nowiki>
 *** Flickering <nowiki>[Moving irregularly or unsteadily or burning or shining fitfully or with a fluctuating light.]</nowiki>
-*** Estimated <nowiki>[Something that has been calculated or measured approximately.]</nowiki>
+*** Estimated-value <nowiki>[Something that has been calculated or measured approximately.]</nowiki>
 *** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 *** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
 *** Increasing <nowiki>{relatedTag=Decreasing}[Becoming greater in size, amount, or degree.]</nowiki>
@@ -688,8 +688,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 * Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 *** <nowiki># {takesValue, valueClass=textClass}</nowiki>
-** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
-*** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 ** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
 *** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 ** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
@@ -701,6 +699,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>
 *** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
 **** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
+*** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
+**** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
 **** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** OBO-identifier <nowiki>[The identifier of a term in some Open Biology Ontology (OBO) ontology.]</nowiki>
@@ -711,34 +711,34 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>
 *** Version-identifier <nowiki>[An alphanumeric character string that identifies a form or variant of a type or original.]</nowiki>
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
-** Parameter <nowiki>[Any factor that defines a system and determines or limits its performance. A variable whose value changes the characteristics of a system or a function.]</nowiki> 
-*** <nowiki># {takesValue}</nowiki>
-** Value <nowiki>[A numerical quantity measured or assigned or computed. Non-numeric values are specified with the Label tag.]</nowiki>
-*** <nowiki># {takesValue}</nowiki>
-* Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
-** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the collection.]</nowiki>
-** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the condition variable.]</nowiki>
-** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the control variable.]</nowiki>
-** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
-** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
-** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
-** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the event stream.]</nowiki>
-** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
-** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
-** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
-*** <nowiki># {takesValue, valueClass=nameClass}[Name of the indicator variable.]</nowiki>
-** Permutation <nowiki>[A set of elements are rearranged or reindexed in various and different orders. In the rearrangement process, none of the elements are lost, added, or changed.]</nowiki>
-** Recording <nowiki>[The process of copying the information in a signal into a persistent information bearer. Indicates an uninterrupted block of time during which data was acquired using a fixed scanning protocol or sensor positioning. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
-** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki>
-** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
+** Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
+*** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the collection.]</nowiki>
+*** Condition-variable <nowiki>[An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the condition variable.]</nowiki>
+*** Control-variable <nowiki>[An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the control variable.]</nowiki>
+*** Def <nowiki>{requireChild} [A HED-specific utility tag used with a defined name to represent the tags associated with that definition.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
+*** Def-expand <nowiki>{requireChild, tagGroup} [A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+*** Definition <nowiki>{requireChild, topLevelTagGroup}[A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the definition.]</nowiki>
+*** Event-context <nowiki>{topLevelTagGroup, unique}[A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.]</nowiki>
+*** Event-stream <nowiki>[A special HED tag indicating that this event is a member of an ordered succession of events.]</nowiki> 
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the event stream.]</nowiki>
+*** Experimental-intertrial <nowiki>[A tag used to indicate a part of the experiment between trials usually where nothing is happening.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the intertrial block.]</nowiki>
+*** Experimental-trial <nowiki>[Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the trial (often a numerical string).]</nowiki>
+*** Indicator-variable <nowiki>[An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Name of the indicator variable.]</nowiki>
+*** Recording <nowiki>[A tag designating the data recording. Recording tags are usually have temporal scope which is the entire recording.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the recording.]</nowiki>
+*** Task <nowiki>[An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
+*** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
+**** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
 * Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
 ** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
 ** Material-property <nowiki>[A physical property that does not depend on the amount of the material.]</nowiki>
@@ -765,7 +765,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
