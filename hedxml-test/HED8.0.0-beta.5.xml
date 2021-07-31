@@ -2161,7 +2161,7 @@
                </node>
             </node>
             <node>
-               <name>Data-value-type</name>
+               <name>Data-value</name>
                <description>Designation of the type of a data item.</description>
                <node>
                   <name>Categorical-value</name>
@@ -2640,16 +2640,6 @@
                   <node>
                      <name>Fraction</name>
                      <description>A numerical value betwee 0 and 1.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Interval</name>
-                     <description>A period of time or the distance separating two instances, events, or occurrences.</description>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -3224,6 +3214,24 @@
                      <node>
                         <name>Pause</name>
                         <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Time-interval</name>
+                     <description>The period of time separating two instances, events, or occurrences.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>timeUnits</value>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Time-value</name>
