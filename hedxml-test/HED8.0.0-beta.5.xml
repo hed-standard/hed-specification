@@ -4779,7 +4779,7 @@
             </node>
             <node>
                <name>Sensory-presentation</name>
-               <description>A user-sense is used in the presentation to the user.</description>
+               <description>The entity has a sensory manifestation.</description>
                <node>
                   <name>Auditory-presentation</name>
                   <description>The sense of hearing is used in the presentation to the user.</description>
