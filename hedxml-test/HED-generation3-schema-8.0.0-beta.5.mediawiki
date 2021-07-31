@@ -565,7 +565,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
-***** <nowiki># {takesValue}</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>  
 **** Item-count <nowiki>[An integer and represented the number of instances or occurences of an entity.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>  
