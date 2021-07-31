@@ -644,7 +644,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
 ***** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
 ***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
-**** Time-interval <nowiki>[The period of time separating two instances, events, or occurrences.]</nowiki>
+***** Time-interval <nowiki>[The period of time separating two instances, events, or occurrences.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>     
 ***** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 

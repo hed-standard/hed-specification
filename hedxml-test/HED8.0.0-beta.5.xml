@@ -3215,23 +3215,23 @@
                         <name>Pause</name>
                         <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
                      </node>
-                  </node>
-                  <node>
-                     <name>Time-interval</name>
-                     <description>The period of time separating two instances, events, or occurrences.</description>
                      <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                        <attribute>
-                           <name>unitClass</name>
-                           <value>timeUnits</value>
-                        </attribute>
-                        <attribute>
-                           <name>valueClass</name>
-                           <value>numericClass</value>
-                        </attribute>
+                        <name>Time-interval</name>
+                        <description>The period of time separating two instances, events, or occurrences.</description>
+                        <node>
+                           <name>#</name>
+                           <attribute>
+                              <name>takesValue</name>
+                           </attribute>
+                           <attribute>
+                              <name>unitClass</name>
+                              <value>timeUnits</value>
+                           </attribute>
+                           <attribute>
+                              <name>valueClass</name>
+                              <value>numericClass</value>
+                           </attribute>
+                        </node>
                      </node>
                      <node>
                         <name>Time-value</name>
