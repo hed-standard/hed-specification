@@ -3611,227 +3611,227 @@
                   </node>
                </node>
             </node>
+         </node>
+         <node>
+            <name>Organizational-property</name>
+            <description>Relating to an organization or the action of organizing something.</description>
             <node>
-               <name>Organizational-property</name>
-               <description>Relating to an organization or the action of organizing something.</description>
+               <name>Collection</name>
+               <description>A tag designating a grouping of items such as in a set or list.</description>
                <node>
-                  <name>Collection</name>
-                  <description>A tag designating a grouping of items such as in a set or list.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the collection.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Condition-variable</name>
-                  <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the condition variable.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Control-variable</name>
-                  <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the control variable.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Def</name>
-                  <description>A HED-specific utility tag used with a defined name to represent the tags associated with that definition.</description>
+                  <name>#</name>
+                  <description>Name of the collection.</description>
                   <attribute>
-                     <name>requireChild</name>
-                  </attribute>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the definition.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Def-expand</name>
-                  <description>A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.</description>
-                  <attribute>
-                     <name>requireChild</name>
+                     <name>takesValue</name>
                   </attribute>
                   <attribute>
-                     <name>tagGroup</name>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
                   </attribute>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
                </node>
+            </node>
+            <node>
+               <name>Condition-variable</name>
+               <description>An aspect of the experiment or task that is to be varied during the experiment. Task-conditions are sometimes called independent variables or contrasts.</description>
                <node>
-                  <name>Definition</name>
-                  <description>A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.</description>
+                  <name>#</name>
+                  <description>Name of the condition variable.</description>
                   <attribute>
-                     <name>requireChild</name>
+                     <name>takesValue</name>
                   </attribute>
                   <attribute>
-                     <name>topLevelTagGroup</name>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
                   </attribute>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the definition.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
                </node>
+            </node>
+            <node>
+               <name>Control-variable</name>
+               <description>An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.</description>
                <node>
-                  <name>Event-context</name>
-                  <description>A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.</description>
+                  <name>#</name>
+                  <description>Name of the control variable.</description>
                   <attribute>
-                     <name>topLevelTagGroup</name>
+                     <name>takesValue</name>
                   </attribute>
                   <attribute>
-                     <name>unique</name>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
                   </attribute>
                </node>
+            </node>
+            <node>
+               <name>Def</name>
+               <description>A HED-specific utility tag used with a defined name to represent the tags associated with that definition.</description>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
                <node>
-                  <name>Event-stream</name>
-                  <description>A special HED tag indicating that this event is a member of an ordered succession of events.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the event stream.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Name of the definition.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Def-expand</name>
+               <description>A HED specific utility tag that is grouped with an expanded definition. The child value of the Def-expand is the name of the expanded definition.</description>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
+               <attribute>
+                  <name>tagGroup</name>
+               </attribute>
                <node>
-                  <name>Experimental-intertrial</name>
-                  <description>A tag used to indicate a part of the experiment between trials usually where nothing is happening.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Optional label for the intertrial block.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Definition</name>
+               <description>A HED-specific utility tag whose child value is the name of the concept and the tag group associated with the tag is an English language explanation of a concept.</description>
+               <attribute>
+                  <name>requireChild</name>
+               </attribute>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
                <node>
-                  <name>Experimental-trial</name>
-                  <description>Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Optional label for the trial (often a numerical string).</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Name of the definition.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Event-context</name>
+               <description>A special HED tag inserted as part of a top-level tag group to contain information about the interrelated conditions under which the event occurs. The event context includes information about other events that are ongoing when this event happens.</description>
+               <attribute>
+                  <name>topLevelTagGroup</name>
+               </attribute>
+               <attribute>
+                  <name>unique</name>
+               </attribute>
+            </node>
+            <node>
+               <name>Event-stream</name>
+               <description>A special HED tag indicating that this event is a member of an ordered succession of events.</description>
                <node>
-                  <name>Indicator-variable</name>
-                  <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Name of the indicator variable.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Name of the event stream.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Experimental-intertrial</name>
+               <description>A tag used to indicate a part of the experiment between trials usually where nothing is happening.</description>
                <node>
-                  <name>Recording</name>
-                  <description>A tag designating the data recording. Recording tags are usually have temporal scope which is the entire recording.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Optional label for the recording.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Optional label for the intertrial block.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Experimental-trial</name>
+               <description>Designates a run or execution of an activity, for example, one execution of a script. A tag used to indicate a particular organizational part in the experimental design often containing a stimulus-response pair or stimulus-response-feedback triad.</description>
                <node>
-                  <name>Task</name>
-                  <description>An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Optional label for the task block.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Optional label for the trial (often a numerical string).</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
+            </node>
+            <node>
+               <name>Indicator-variable</name>
+               <description>An aspect of the experiment or task that is measured as task conditions are varied during the experiment. Experiment indicators are sometimes called dependent variables.</description>
                <node>
-                  <name>Time-block</name>
-                  <description>A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.</description>
-                  <node>
-                     <name>#</name>
-                     <description>Optional label for the task block.</description>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>nameClass</value>
-                     </attribute>
-                  </node>
+                  <name>#</name>
+                  <description>Name of the indicator variable.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Recording</name>
+               <description>A tag designating the data recording. Recording tags are usually have temporal scope which is the entire recording.</description>
+               <node>
+                  <name>#</name>
+                  <description>Optional label for the recording.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Task</name>
+               <description>An assigned piece of work, usually with a time allotment. A tag used to indicate a linkage the structured activities performed as part of the experiment.</description>
+               <node>
+                  <name>#</name>
+                  <description>Optional label for the task block.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
+               </node>
+            </node>
+            <node>
+               <name>Time-block</name>
+               <description>A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.</description>
+               <node>
+                  <name>#</name>
+                  <description>Optional label for the task block.</description>
+                  <attribute>
+                     <name>takesValue</name>
+                  </attribute>
+                  <attribute>
+                     <name>valueClass</name>
+                     <value>nameClass</value>
+                  </attribute>
                </node>
             </node>
          </node>
