@@ -476,6 +476,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Right-handed <nowiki>[Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 **** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
 * Data-property <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
+** Data-marker <nowiki>[An indicator placed to mark something.]</nowiki>
+*** Temporal-marker<nowiki>[An indicator placed at a particular time in the data.]</nowiki>
+**** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
+**** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
+**** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
+**** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
+**** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Data-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
 **** <nowiki># {takesValue} </nowiki>
@@ -633,15 +640,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-***** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
-***** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
-***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
 ***** Time-interval <nowiki>[The period of time separating two instances, events, or occurrences.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>     
 ***** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
-***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Data-variability-attribute<nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
