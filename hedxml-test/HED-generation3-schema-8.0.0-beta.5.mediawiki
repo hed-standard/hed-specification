@@ -564,15 +564,15 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>  
-**** Item-count <nowiki>[An integer and represented the number of instances or occurences of an entity.]</nowiki>
+**** Item-count <nowiki>{relatedTag=Occurrence-position, relatedTag=Recurrence-interval}[An integer representing the number of times an item has appeared so far.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>  
 **** Percentage <nowiki>[A fraction or ratio with 100 understood as the denominator.]</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>  
 **** Ratio <nowiki>[A quotient of quantities of the same kind for different components within the same system.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>  
-**** Recurrence-interval <nowiki>[The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>
-**** Occurrence-number <nowiki>[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
+**** Occurrence-number <nowiki>{relatedTag=Item-count, relatedTag=Recurrence-interval}[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
+***** <nowiki># {takesValue}</nowiki>
+**** Recurrence-interval <nowiki>{relatedTag=Item-count, relatedTag=Occurrence-number}[The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>
 *** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
 **** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
@@ -610,7 +610,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Speed <nowiki>[A scalar measure of the rate of movement of the object expressed either as the distance travelled divided by the time taken (average speed) or the rate of change of position with respect to time at a particular point (instantaneous speed). The direction of change should be given separately.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=speedUnits}</nowiki>
 ***** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
-****** <nowiki># {takesValue, unitClass=frequencyUnits}</nowiki>  
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>  
 **** Spatial-value <nowiki>[Value of an item involving space.]</nowiki>
 ***** Angle<nowiki>{unitClass=angleUnits}[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
