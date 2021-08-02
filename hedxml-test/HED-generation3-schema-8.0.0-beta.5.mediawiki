@@ -707,6 +707,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>
 *** Version-identifier <nowiki>[An alphanumeric character string that identifies a form or variant of a type or original.]</nowiki>
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
+** Parameter <nowiki>[Something user-defined for this experiment.]</nowiki>
+*** Parameter-label <nowiki>[The name of the parameter.]</nowiki>
+**** # <nowiki>{takesValue, valueClass=labelClass}</nowiki>
+*** Parameter-value <nowiki>[The value of the parameter.]</nowiki>
+**** # <nowiki>{takesValue, valueClass=textClass}</nowiki>
 * Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}[Name of the collection.]</nowiki>
@@ -741,9 +746,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=labelClass}</nowiki>  
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
@@ -756,6 +761,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
 *** Tactile-attribute <nowiki>[Pertaining to the sense of touch.]</nowiki>
 **** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
+**** Tactile-temperature <nowiki>[Having a feeling of hotness or coldness.]</nowiki>
 **** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
 **** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
 *** Vestibular-attribute <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>

@@ -2065,6 +2065,40 @@
                <name>extensionAllowed</name>
             </attribute>
             <node>
+               <name>Data-marker</name>
+               <description>An indicator placed to mark something.</description>
+               <node>
+                  <name>Temporal-marker</name>
+                  <description>An indicator placed at a particular time in the data.</description>
+                  <node>
+                     <name>Onset</name>
+                     <description>Labels the start or beginning of something, usually an event.</description>
+                     <attribute>
+                        <name>topLevelTagGroup</name>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Offset</name>
+                     <description>Labels the time at which something stops.</description>
+                     <attribute>
+                        <name>topLevelTagGroup</name>
+                     </attribute>
+                  </node>
+                  <node>
+                     <name>Pause</name>
+                     <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
+                  </node>
+                  <node>
+                     <name>Time-out</name>
+                     <description>A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.</description>
+                  </node>
+                  <node>
+                     <name>Time-sync</name>
+                     <description>A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
+                  </node>
+               </node>
+            </node>
+            <node>
                <name>Data-resolution</name>
                <description>Smallest change in a quality being measured by an sensor that causes a perceptible change.</description>
                <node>
@@ -2640,21 +2674,6 @@
                      </node>
                   </node>
                   <node>
-                     <name>Item-count</name>
-                     <description>An integer representing the number of times an item has appeared so far.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Occurrence-position</value>
-                        <value>Recurrence-interval</value>
-                     </attribute>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
                      <name>Percentage</name>
                      <description>A fraction or ratio with 100 understood as the denominator.</description>
                      <node>
@@ -2667,36 +2686,6 @@
                   <node>
                      <name>Ratio</name>
                      <description>A quotient of quantities of the same kind for different components within the same system.</description>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Occurrence-number</name>
-                     <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Item-count</value>
-                        <value>Recurrence-interval</value>
-                     </attribute>
-                     <node>
-                        <name>#</name>
-                        <attribute>
-                           <name>takesValue</name>
-                        </attribute>
-                     </node>
-                  </node>
-                  <node>
-                     <name>Recurrence-interval</name>
-                     <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
-                     <attribute>
-                        <name>relatedTag</name>
-                        <value>Item-count</value>
-                        <value>Occurrence-number</value>
-                     </attribute>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -3209,24 +3198,6 @@
                         </node>
                      </node>
                      <node>
-                        <name>Onset</name>
-                        <description>Labels the start or beginning of something, usually an event.</description>
-                        <attribute>
-                           <name>topLevelTagGroup</name>
-                        </attribute>
-                     </node>
-                     <node>
-                        <name>Offset</name>
-                        <description>Labels the time at which something stops.</description>
-                        <attribute>
-                           <name>topLevelTagGroup</name>
-                        </attribute>
-                     </node>
-                     <node>
-                        <name>Pause</name>
-                        <description>Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.</description>
-                     </node>
-                     <node>
                         <name>Time-interval</name>
                         <description>The period of time separating two instances, events, or occurrences.</description>
                         <node>
@@ -3261,14 +3232,6 @@
                               <value>numericClass</value>
                            </attribute>
                         </node>
-                     </node>
-                     <node>
-                        <name>Time-out</name>
-                        <description>A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.</description>
-                     </node>
-                     <node>
-                        <name>Time-sync</name>
-                        <description>A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.</description>
                      </node>
                   </node>
                </node>
@@ -3630,6 +3593,38 @@
                   </node>
                </node>
             </node>
+            <node>
+               <name>Parameter</name>
+               <description>Something user-defined for this experiment.</description>
+               <node>
+                  <name>Parameter-label</name>
+                  <description>The name of the parameter.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>labelClass</value>
+                     </attribute>
+                  </node>
+               </node>
+               <node>
+                  <name>Parameter-value</name>
+                  <description>The value of the parameter.</description>
+                  <node>
+                     <name>#</name>
+                     <attribute>
+                        <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>textClass</value>
+                     </attribute>
+                  </node>
+               </node>
+            </node>
          </node>
          <node>
             <name>Organizational-property</name>
@@ -3855,114 +3850,6 @@
             </node>
          </node>
          <node>
-            <name>Physical-property</name>
-            <description>A characteristic that defines the nature of matter or forces that act upon it.</description>
-            <node>
-               <name>Electromagnetic-property</name>
-               <description>A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.</description>
-            </node>
-            <node>
-               <name>Material-property</name>
-               <description>A physical property that does not depend on the amount of the material.</description>
-               <node>
-                  <name>Density</name>
-                  <description>The force applied to a unit area of surface.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Mechanical-property</name>
-               <description>A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.</description>
-               <node>
-                  <name>Pressure</name>
-                  <description>The force applied to a unit area of surface.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Weight</name>
-                  <description>The relative mass or the quantity of matter contained in a body, giving rise to a downward force.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
-            <node>
-               <name>Organic-property</name>
-               <description>Relating to or containing elemental carbon or carbon compounds.</description>
-            </node>
-            <node>
-               <name>Thermodynamic-property</name>
-               <description>Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.</description>
-               <node>
-                  <name>Energy</name>
-                  <description>The capacity of a physical system to do work.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Entropy</name>
-                  <description>A thermodynamic property which acts as a measure of the state of disorder of a system.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-               <node>
-                  <name>Temperature</name>
-                  <description>A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.</description>
-                  <node>
-                     <name>#</name>
-                     <attribute>
-                        <name>takesValue</name>
-                     </attribute>
-                     <attribute>
-                        <name>valueClass</name>
-                        <value>numericClass</value>
-                     </attribute>
-                  </node>
-               </node>
-            </node>
-         </node>
-         <node>
             <name>Sensory-property</name>
             <description>Relating to sensation or the physical senses.</description>
             <node>
@@ -3994,6 +3881,10 @@
                            <name>takesValue</name>
                         </attribute>
                         <attribute>
+                           <name>unitClass</name>
+                           <value>frequencyUnits</value>
+                        </attribute>
+                        <attribute>
                            <name>valueClass</name>
                            <value>numericClass</value>
                         </attribute>
@@ -4009,7 +3900,7 @@
                         </attribute>
                         <attribute>
                            <name>valueClass</name>
-                           <value>numericClass</value>
+                           <value>labelClass</value>
                         </attribute>
                      </node>
                   </node>
@@ -4060,6 +3951,10 @@
                   <node>
                      <name>Tactile-pressure</name>
                      <description>Having a feeling of heaviness.</description>
+                  </node>
+                  <node>
+                     <name>Tactile-temperature</name>
+                     <description>Having a feeling of hotness or coldness.</description>
                   </node>
                   <node>
                      <name>Tactile-texture</name>
