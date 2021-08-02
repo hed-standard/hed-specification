@@ -563,16 +563,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>  
-**** Item-count <nowiki>{relatedTag=Occurrence-position, relatedTag=Recurrence-interval}[An integer representing the number of times an item has appeared so far.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>  
+***** <nowiki># {takesValue}</nowiki>   
 **** Percentage <nowiki>[A fraction or ratio with 100 understood as the denominator.]</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>  
 **** Ratio <nowiki>[A quotient of quantities of the same kind for different components within the same system.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Occurrence-number <nowiki>{relatedTag=Item-count, relatedTag=Recurrence-interval}[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Recurrence-interval <nowiki>{relatedTag=Item-count, relatedTag=Occurrence-number}[The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>
 *** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
 **** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
