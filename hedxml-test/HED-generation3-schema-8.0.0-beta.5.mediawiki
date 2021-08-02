@@ -476,6 +476,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Right-handed <nowiki>[Preference for using the right hand or foot for tasks requiring the use of a single hand or foot.]</nowiki>
 **** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
 * Data-property <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
+** Data-marker <nowiki>[An indicator placed to mark something.]</nowiki>
+*** Temporal-marker<nowiki>[An indicator placed at a particular time in the data.]</nowiki>
+**** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
+**** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
+**** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
+**** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
+**** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Data-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
 **** <nowiki># {takesValue} </nowiki>
@@ -563,16 +570,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>  
-**** Item-count <nowiki>{relatedTag=Occurrence-position, relatedTag=Recurrence-interval}[An integer representing the number of times an item has appeared so far.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>  
+***** <nowiki># {takesValue}</nowiki>   
 **** Percentage <nowiki>[A fraction or ratio with 100 understood as the denominator.]</nowiki> 
 ***** <nowiki># {takesValue}</nowiki>  
 **** Ratio <nowiki>[A quotient of quantities of the same kind for different components within the same system.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Occurrence-number <nowiki>{relatedTag=Item-count, relatedTag=Recurrence-interval}[An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.]</nowiki>
-***** <nowiki># {takesValue}</nowiki>
-**** Recurrence-interval <nowiki>{relatedTag=Item-count, relatedTag=Occurrence-number}[The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.]</nowiki>
 ***** <nowiki># {takesValue}</nowiki>
 *** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
 **** Data-maximum <nowiki>[The largest possible quantity or degree.]</nowiki>
@@ -639,15 +640,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-***** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
-***** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
-***** Pause <nowiki>[Indicates the temporary interruption of  the operation a process and subsequently wait for a signal to continue.]</nowiki>
 ***** Time-interval <nowiki>[The period of time separating two instances, events, or occurrences.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>     
 ***** Time-value <nowiki>[A value with units of time. Usually grouped with tags identifying what the value represents.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
-***** Time-out <nowiki>[A cancellation or cessation that automatically occurs when a predefined interval of time has passed without a certain event occurring.]</nowiki>
-***** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Data-variability-attribute<nowiki>[An attribute describing how something changes or varies.]</nowiki>
 *** Abrupt <nowiki>[Marked by sudden change.]</nowiki>
 *** Constant <nowiki>[Continually recurring or continuing without interruption. Not changing in time or space.]</nowiki>
@@ -711,6 +707,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** <nowiki># {takesValue}</nowiki>
 *** Version-identifier <nowiki>[An alphanumeric character string that identifies a form or variant of a type or original.]</nowiki>
 **** <nowiki># {takesValue}[Usually is a semantic version.]</nowiki> 
+** Parameter <nowiki>[Something user-defined for this experiment.]</nowiki>
+*** Parameter-label <nowiki>[The name of the parameter.]</nowiki>
+**** # <nowiki>{takesValue, valueClass=labelClass}</nowiki>
+*** Parameter-value <nowiki>[The value of the parameter.]</nowiki>
+**** # <nowiki>{takesValue, valueClass=textClass}</nowiki>
 * Organizational-property <nowiki>[Relating to an organization or the action of organizing something.]</nowiki>
 ** Collection <nowiki>[A tag designating a grouping of items such as in a set or list.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}[Name of the collection.]</nowiki>
@@ -739,33 +740,15 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
-* Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
-** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
-** Material-property <nowiki>[A physical property that does not depend on the amount of the material.]</nowiki>
-*** Density <nowiki>[The force applied to a unit area of surface.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
-*** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
-** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
-*** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses.]</nowiki>
 ** Sensory-attribute <nowiki>[A sensory characteristic associated with another entity.]</nowiki>
 *** Auditory-attribute <nowiki>[Pertaining to the sense of hearing.]</nowiki>
 **** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=labelClass}</nowiki>  
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
@@ -778,6 +761,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Stress <nowiki>[The negative mental, emotional, and physical reactions that occur when environmental stressors are perceived as exceeding the adaptive capacities of the individual.]</nowiki>
 *** Tactile-attribute <nowiki>[Pertaining to the sense of touch.]</nowiki>
 **** Tactile-pressure <nowiki>[Having a feeling of heaviness.]</nowiki>
+**** Tactile-temperature <nowiki>[Having a feeling of hotness or coldness.]</nowiki>
 **** Tactile-texture <nowiki>[Having a feeling of roughness.]</nowiki>
 **** Tactile-vibration <nowiki>[Having a feeling of mechanical oscillation.]</nowiki>
 *** Vestibular-attribute <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
