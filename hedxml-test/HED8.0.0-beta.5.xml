@@ -2641,7 +2641,12 @@
                   </node>
                   <node>
                      <name>Item-count</name>
-                     <description>An integer and represented the number of instances or occurences of an entity.</description>
+                     <description>An integer representing the number of times an item has appeared so far.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Occurrence-position</value>
+                        <value>Recurrence-interval</value>
+                     </attribute>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -2670,8 +2675,13 @@
                      </node>
                   </node>
                   <node>
-                     <name>Recurrence-interval</name>
-                     <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
+                     <name>Occurrence-number</name>
+                     <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Item-count</value>
+                        <value>Recurrence-interval</value>
+                     </attribute>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -2680,8 +2690,13 @@
                      </node>
                   </node>
                   <node>
-                     <name>Occurrence-number</name>
-                     <description>An integer that identifies the position this item occupies in a specified Event-stream. Occurrence-number/1 indicates the first item in the Event-stream.</description>
+                     <name>Recurrence-interval</name>
+                     <description>The number of items in an Event-stream since the last one of these. Recurrence-interval/1 indicates consecutive items in the Event-stream.</description>
+                     <attribute>
+                        <name>relatedTag</name>
+                        <value>Item-count</value>
+                        <value>Occurrence-number</value>
+                     </attribute>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -2954,6 +2969,10 @@
                            <attribute>
                               <name>unitClass</name>
                               <value>frequencyUnits</value>
+                           </attribute>
+                           <attribute>
+                              <name>valueClass</name>
+                              <value>numericClass</value>
                            </attribute>
                         </node>
                      </node>
