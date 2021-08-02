@@ -735,24 +735,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
 ** Time-block <nowiki>[A tag used to indicate a contiguous time block in the experiment during which something is fixed or noted.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}[Optional label for the task block.]</nowiki>
-* Physical-property <nowiki>[A characteristic that defines the nature of matter or forces that act upon it.]</nowiki>
-** Electromagnetic-property <nowiki>[A characteristic of matter such as electrical conductivity that governs its interaction with electrical or magnetic forces.]</nowiki>
-** Material-property <nowiki>[A physical property that does not depend on the amount of the material.]</nowiki>
-*** Density <nowiki>[The force applied to a unit area of surface.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Mechanical-property <nowiki>[A physical quality that inheres in an bearer by virtue of how that bearer behaves when subjected to forces or displacements and the effect of their bodies on their environment.]</nowiki>
-*** Pressure <nowiki>[The force applied to a unit area of surface.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Weight <nowiki>[The relative mass or the quantity of matter contained in a body, giving rise to a downward force.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-** Organic-property <nowiki>[Relating to or containing elemental carbon or carbon compounds.]</nowiki>
-** Thermodynamic-property <nowiki>[Property related to heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.]</nowiki>
-*** Energy  <nowiki>[The capacity of a physical system to do work.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Entropy  <nowiki>[A thermodynamic property which acts as a measure of the state of disorder of a system.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Temperature <nowiki>[A measure of the average kinetic energy of a system of particles. Temperature may be quantified, in the context of thermodynamics, as the potential of one system to transfer thermal energy to another system until both systems reach a state of thermal equilibrium.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 * Sensory-property <nowiki>[Relating to sensation or the physical senses.]</nowiki>
 ** Sensory-attribute <nowiki>[A sensory characteristic associated with another entity.]</nowiki>
 *** Auditory-attribute <nowiki>[Pertaining to the sense of hearing.]</nowiki>
