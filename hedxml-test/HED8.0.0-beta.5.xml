@@ -2671,6 +2671,28 @@
                         <attribute>
                            <name>takesValue</name>
                         </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Item-count</name>
+                     <description>The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.</description>
+                  </node>
+                  <node>
+                     <name>Item-interval</name>
+                     <description>An integer indicating how many items or entities have passed since the last one of these. An item interval of 0 indicates the current item.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
                      </node>
                   </node>
                   <node>
@@ -2681,6 +2703,10 @@
                         <attribute>
                            <name>takesValue</name>
                         </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
                      </node>
                   </node>
                   <node>
@@ -2690,6 +2716,10 @@
                         <name>#</name>
                         <attribute>
                            <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
                         </attribute>
                      </node>
                   </node>
