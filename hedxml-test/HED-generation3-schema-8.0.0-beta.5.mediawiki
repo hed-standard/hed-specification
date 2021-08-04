@@ -697,7 +697,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** Creation-date <nowiki>{requireChild}[The date on which data creation of this element began.]</nowiki>
-**** <nowiki># {takesValue, valueClass=dateTime}</nowiki>
+**** <nowiki># {takesValue, valueClass=dateTimeClass}</nowiki>
 *** Experimental-note <nowiki>[A brief written record about the experiment.]</nowiki>
 **** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 *** Library-name <nowiki>[Official name of a HED library.]</nowiki>
@@ -1180,15 +1180,15 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 
 '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
-* dateTime <nowiki>{allowedCharacter=-,allowedCharacter=:}[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
-* nameClass <nowiki>[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
-* numericClass <nowiki>[Value must be a valid numeric.]</nowiki>
-* posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
-* textClass <nowiki>[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>
+* dateTimeClass <nowiki>{allowedCharacter=digits,allowedCharacter=T,allowedCharacter=-,allowedCharacter=:}[Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.]</nowiki> 
+* nameClass <nowiki>{allowedCharacter=letters,allowedCharacter=digits,allowedCharacter=_,allowedCharacter=-}[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
+* numericClass <nowiki>{allowedCharacter=digits,allowedCharacter=E,allowedCharacter=e,allowedCharacter=+,allowedCharacter=-,allowedCharacter=.}[Value must be a valid numerical value.]</nowiki>
+* posixPath <nowiki>{allowedCharacter=digits,allowedCharacter=letters,allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
+* textClass <nowiki>{allowedCharacter=letters, allowedCharacter=digits, allowedCharacter=blank,allowedCharacter=+, allowedCharacter=-, allowedCharacter=:, allowedCharacter=;allowedCharacter=, allowedCharacter=., allowedCharacter=/, allowedCharacter=(, allowedCharacter=),allowedCharacter=?, allowedCharacter=*, allowedCharacter=%, allowedCharacter=$, allowedCharacter=@}[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>
 
 
 '''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
-* allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
+* allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki> 
 * extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
 * recommended  <nowiki>{boolProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 
