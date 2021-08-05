@@ -630,6 +630,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Size <nowiki>[The physical magnitude of something.]</nowiki>
 ****** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
+****** Depth <nowiki>[The distance from the surface of something especially from the perspective of looking from the front.]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
