@@ -462,10 +462,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Expert-level {relatedTag=Intermediate-experience-level, relatedTag=Novice-level}<nowiki>[Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.]</nowiki>
 **** Intermediate-experience-level <nowiki>{relatedTag=Expert-level, relatedTag=Novice-level}[Having a moderate amount of knowledge or skill related to the task.]</nowiki>
 **** Novice-level <nowiki>{relatedTag=Expert-level, relatedTag=Intermediate-experience-level} [Being inexperienced in a field or situation related to the task.]</nowiki>
-*** Agent-height <nowiki>[The vertical dimension of an agent.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Agent-weight <nowiki>[The heaviness of an agent.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Gender <nowiki>[Characteristics that are socially constructed, including norms, behaviors, and roles based on sex.]</nowiki>
 *** Sex <nowiki>[Physical properties or qualities by which male is distinguished from female.]</nowiki>
 **** Female <nowiki>[Biological sex of an individual with female sexual organs such ova.]</nowiki>
