@@ -51,7 +51,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
 *** Cry <nowiki>[Shed tears associated with emotions, usually sadness but also joy or frustration.]</nowiki>
 *** Groan <nowiki>[Make a deep inarticulate sound in response to pain or despair.]</nowiki>
-*** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 ***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
 *** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
 *** Shout <nowiki>[Say something very loudly.]</nowiki>
@@ -66,7 +65,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
 *** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
 *** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
-*** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
+*** Sniff <nowiki>[Draw in air audibly through the nose to detect a smell, to stop it from running, or to express contempt.]</nowiki>
 ** Move-body <nowiki>[Move entire body.]</nowiki>
 *** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
 *** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
@@ -93,6 +92,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
 **** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
 **** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+***** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 **** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 *** Move-head <nowiki>[Move head.]</nowiki>
 *** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
