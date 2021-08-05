@@ -203,9 +203,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Shin <nowiki>[Front part of the leg below the knee.]</nowiki>
 ***** Thigh <nowiki>[Upper part of the leg between hip and knee.]</nowiki>
 **** Torso <nowiki>[The body excluding the head and neck and limbs.]</nowiki>
-***** Back-torso <nowiki>[The rear surface of the human body from the shoulders to the hips.]</nowiki>
+***** Torso-back <nowiki>[The rear surface of the human body from the shoulders to the hips.]</nowiki>
 ***** Buttocks <nowiki>[The round fleshy parts that form the lower rear area of a human trunk.]</nowiki>
-***** Chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
+***** Torso-chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
 ***** Gentalia <nowiki>[The external organs of reproduction.]</nowiki>
 ***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
