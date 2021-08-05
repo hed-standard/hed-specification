@@ -60,6 +60,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Whisper <nowiki>[Speak very softly using breath without vocal cords.]</nowiki>
 * Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
 ** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
+*** Blow <nowiki>[Expel air through pursed lips.]</nowiki>
 *** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
 *** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
 *** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
@@ -223,8 +224,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
 ***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
 ***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
-*** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
-*** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
 ** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
 *** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
 *** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
