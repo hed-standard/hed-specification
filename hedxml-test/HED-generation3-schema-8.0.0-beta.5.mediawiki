@@ -90,6 +90,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
 **** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
 **** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
+**** Squint <nowiki>[Squeeze one or both eyes partly closed in an attempt to see more clearly or as a reaction to strong light.]</nowiki>
 **** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
 *** Move-face <nowiki>[Move the face or jaw.]</nowiki>
 **** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
@@ -103,7 +104,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Lift-head <nowiki>[Tilt head back lifting chin.]</nowiki>
 **** Lower-head <nowiki>[Move head downward so that eyes are in a lower position.]</nowiki>
 **** Turn-head <nowiki>[Rotate head horizontally to look in a different direction.]</nowiki>
-
 *** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
 **** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
 **** Hop <nowiki>[Jump on one foot.]</nowiki>
