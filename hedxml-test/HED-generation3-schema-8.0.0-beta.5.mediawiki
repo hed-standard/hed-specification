@@ -311,7 +311,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******** Screen-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
 ****** Auditory-device <nowiki>[A device designed to produce sound.]</nowiki>
 ******* Headphones <nowiki>[An instrument that consists of a pair of small loudspeakers, or less commonly a single speaker, held close to ears and connected to a signal source such as an audio amplifier, radio, CD player or portable media player.]</nowiki>
-******* Speaker-device <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
+******* Loudspeaker <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
 ***** Recording-device <nowiki>[A device that copies information in a signal into a persistent information bearer.]</nowiki>
 ****** EEG-recorder <nowiki>[A device for recording electric currents in the brain using electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.]</nowiki>
 ****** File-storage <nowiki>[A device for recording digital information to a permanent media.]</nowiki>
