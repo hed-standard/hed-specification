@@ -100,6 +100,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 **** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 *** Move-head <nowiki>[Move head.]</nowiki>
+**** Lift-head <nowiki>[Tilt head back lifting chin.]</nowiki>
+**** Lower-head <nowiki>[Move head downward so that eyes are in a lower position.]</nowiki>
+**** Turn-head <nowiki>[Rotate head horizontally to look in a different direction.]</nowiki>
+
 *** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
 **** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
 **** Hop <nowiki>[Jump on one foot.]</nowiki>
