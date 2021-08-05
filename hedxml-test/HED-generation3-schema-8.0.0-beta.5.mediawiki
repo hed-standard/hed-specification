@@ -72,6 +72,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
 *** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
 *** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
+***	Lie-down <nowiki>[Move to a horizontal or resting position.]</nowiki>
+***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
+***	Sit-down <nowiki>[Move from a standing to a sitting position.]</nowiki>
+***	Sit-up <nowiki>[Move from lying down to a sitting position.]</nowiki>
+***	Stand-up <nowiki>[Move from a sitting to a standing position.]</nowiki>
 ***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
 *** Stretch <nowiki>[Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.]</nowiki> 
 *** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
