@@ -568,6 +568,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 ***** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 ***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
+*** Physical-value <nowiki>[The value of some physical property of something.] </nowiki> 
+**** Weight <nowiki>[The relative mass or the quantity of matter contained by something.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=weightUnits}</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -1134,6 +1137,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** day 
 ** minute 
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* weightUnits <nowiki>{defaultUnits=g}</nowiki>
+** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** gram <nowiki>{SIUnit}</nowiki> 
+** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** pound
+** lb 
 * volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
