@@ -198,7 +198,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
 ***** Calf <nowiki>[The fleshy part at the back of the leg below the knee.]</nowiki>
 ***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
-****** Toe <nowiki>[One of the terminal digits of the foot.]</nowiki>
+****** Big-toe <nowiki>[The largest toe on the inner side of the foot.]</nowiki>
+****** Heel <nowiki>[The back of the foot below the ankle.]</nowiki>
+****** Instep <nowiki>[The part of the foot between the ball and the heel on the inner side.]</nowiki>
+****** Little-toe <nowiki>[The smallest toe located on the outer side of the foot.]</nowiki>
+****** Toes <nowiki>[The terminal digits of the foot.]</nowiki>
 ***** Knee <nowiki>[A joint connecting the lower part of the femur with the upper part of the tibia.]</nowiki>
 ***** Shin <nowiki>[Front part of the leg below the knee.]</nowiki>
 ***** Thigh <nowiki>[Upper part of the leg between hip and knee.]</nowiki>
@@ -219,7 +223,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
 ******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
 ******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
-****** Hand-palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
+****** Palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
 ****** Knuckles <nowiki>[A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.]</nowiki>
 ***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
 ***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
