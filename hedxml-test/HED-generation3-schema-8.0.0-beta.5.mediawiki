@@ -32,6 +32,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Nod-head <nowiki>{relatedTag=Move-head}[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
 ***	Pump-fist <nowiki>{relatedTag=Move-upper-extremity}[Raise with fist clenched in triumph or affirmation.]</nowiki>
 *** Raise-eyebrows <nowiki>{relatedTag=Move-face, relatedTag=Move-eyes}[Move eyebrows upward.]</nowiki>
+*** Shake-fist <nowiki>{relatedTag=Move-upper-extremity}[Clench hand into a fist and shake to demonstrate anger.]</nowiki>
 *** Shake-head <nowiki>{relatedTag=Move-head}[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
 ***	Shhh <nowiki>{relatedTag=Move-upper-extremity}[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
 ***	Shrug <nowiki>{relatedTag=Move-upper-extremity, relatedTag=Move-torso}[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
