@@ -295,7 +295,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Head-mounted-display <nowiki>[An instrument that functions as a display device, worn on the head or as part of a helmet, that has a small display optic in front of one (monocular HMD) or each eye (binocular HMD).]</nowiki>
 ******* LED-display <nowiki>[A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display.]</nowiki>
 ******* Computer-screen <nowiki>[An electronic device designed as a display or a physical device designed to be a protective meshwork.]</nowiki>
-******** Computer-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
+******** Screen-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
 ****** Auditory-device <nowiki>[A device designed to produce sound.]</nowiki>
 ******* Headphones <nowiki>[An instrument that consists of a pair of small loudspeakers, or less commonly a single speaker, held close to ears and connected to a signal source such as an audio amplifier, radio, CD player or portable media player.]</nowiki>
 ******* Speaker-device <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
