@@ -32,6 +32,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Nod-head <nowiki>{relatedTag=Move-head}[Tilt head in alternating up and down arcs along the sagittal plane. It is most commonly, but not universally, used to indicate agreement, acceptance, or acknowledgement.]</nowiki>
 ***	Pump-fist <nowiki>{relatedTag=Move-upper-extremity}[Raise with fist clenched in triumph or affirmation.]</nowiki>
 *** Raise-eyebrows <nowiki>{relatedTag=Move-face, relatedTag=Move-eyes}[Move eyebrows upward.]</nowiki>
+*** Shake-fist <nowiki>{relatedTag=Move-upper-extremity}[Clench hand into a fist and shake to demonstrate anger.]</nowiki>
 *** Shake-head <nowiki>{relatedTag=Move-head}[Turn head from side to side as a way of showing disagreement or refusal.]</nowiki>
 ***	Shhh <nowiki>{relatedTag=Move-upper-extremity}[Place finger over lips and possibly uttering the syllable shhh to indicate the need to be quiet.]</nowiki>
 ***	Shrug <nowiki>{relatedTag=Move-upper-extremity, relatedTag=Move-torso}[Lift shoulders up towards head to indicate a lack of knowledge about a particular topic.]</nowiki>
@@ -51,7 +52,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Communicate-vocally <nowiki>[Communicate using mouth or vocal cords.]</nowiki>
 *** Cry <nowiki>[Shed tears associated with emotions, usually sadness but also joy or frustration.]</nowiki>
 *** Groan <nowiki>[Make a deep inarticulate sound in response to pain or despair.]</nowiki>
-*** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 ***	Laugh <nowiki>[Make the spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement and sometimes also of contempt or derision.]</nowiki>
 *** Scream <nowiki>[Make loud, vociferous cries or yells to express pain, excitement, or fear.]</nowiki>
 *** Shout <nowiki>[Say something very loudly.]</nowiki>
@@ -60,19 +60,25 @@ This schema is the first version that includes an xsd and requires unit class, u
 *** Whisper <nowiki>[Speak very softly using breath without vocal cords.]</nowiki>
 * Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
 ** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
+*** Blow <nowiki>[Expel air through pursed lips.]</nowiki>
 *** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
 *** Exhale <nowiki>[Blow out or expel breath.]</nowiki>
 *** Hiccup <nowiki>[Involuntarily spasm  the diaphragm and respiratory organs, with a sudden closure of the glottis and a characteristic sound like that of a cough.]</nowiki>
 *** Hold-breath <nowiki>[Interrupt normal breathing by ceasing to inhale or exhale.]</nowiki>
 *** Inhale <nowiki>[Draw in with the breath through the nose or mouth.]</nowiki>
 *** Sneeze <nowiki>[Suddenly and violently expel breath through the nose and mouth.]</nowiki>
-*** Sniffle <nowiki>[Inhale through nose slightly or repeatedly, typically because of a cold or fit of crying.]</nowiki>
+*** Sniff <nowiki>[Draw in air audibly through the nose to detect a smell, to stop it from running, or to express contempt.]</nowiki>
 ** Move-body <nowiki>[Move entire body.]</nowiki>
 *** Bend <nowiki>[Move body in a bowed or curved manner.]</nowiki>
 *** Dance <nowiki>[Perform a purposefully selected sequences of human movement often with aesthetic or symbolic value. Move rhythmically to music, typically following a set sequence of steps.]</nowiki>
 *** Fall-down <nowiki>[Lose balance and collapse.]</nowiki>
 *** Flex <nowiki>[Cause a muscle to stand out by contracting or tensing it. Bend a limb or joint.]</nowiki>
 *** Jerk <nowiki>[Make a quick, sharp, sudden movement.]</nowiki>
+***	Lie-down <nowiki>[Move to a horizontal or resting position.]</nowiki>
+***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
+***	Sit-down <nowiki>[Move from a standing to a sitting position.]</nowiki>
+***	Sit-up <nowiki>[Move from lying down to a sitting position.]</nowiki>
+***	Stand-up <nowiki>[Move from a sitting to a standing position.]</nowiki>
 ***	Recover-balance <nowiki>[Return to a stable, upright body position.]</nowiki>
 *** Stretch <nowiki>[Straighten or extend body or a part of body to its full length, typically so as to tighten muscles or in order to reach something.]</nowiki> 
 *** Shudder <nowiki>[Tremble convulsively, sometimes as a result of fear or revulsion.]</nowiki>
@@ -86,6 +92,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Inhibit-blinks <nowiki>[Purposely prevent blinking.]</nowiki>
 **** Open-eyes <nowiki>[Raise eyelids to expose pupil.]</nowiki>
 **** Saccade <nowiki>[Move eyes rapidly between fixation points.]</nowiki>
+**** Squint <nowiki>[Squeeze one or both eyes partly closed in an attempt to see more clearly or as a reaction to strong light.]</nowiki>
 **** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
 *** Move-face <nowiki>[Move the face or jaw.]</nowiki>
 **** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
@@ -93,8 +100,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
 **** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
 **** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
+***** Gulp  <nowiki>[Swallow quickly or in large mouthfuls, often audibly, sometimes to indicate apprehension.]</nowiki>
 **** Yawn <nowiki>[Take a deep involuntary  inhalation with the mouth open often as a sign of drowsiness or boredom.]</nowiki>
 *** Move-head <nowiki>[Move head.]</nowiki>
+**** Lift-head <nowiki>[Tilt head back lifting chin.]</nowiki>
+**** Lower-head <nowiki>[Move head downward so that eyes are in a lower position.]</nowiki>
+**** Turn-head <nowiki>[Rotate head horizontally to look in a different direction.]</nowiki>
 *** Move-lower-extremity <nowiki>[Move leg and/or foot.]</nowiki>
 **** Curl-toes <nowiki>[Bend toes sometimes to grip.]</nowiki>
 **** Hop <nowiki>[Jump on one foot.]</nowiki>
@@ -187,14 +198,18 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Ankle <nowiki>[A gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus.]</nowiki>
 ***** Calf <nowiki>[The fleshy part at the back of the leg below the knee.]</nowiki>
 ***** Foot <nowiki>[The structure found below the ankle joint required for locomotion.]</nowiki>
-****** Toe <nowiki>[One of the terminal digits of the foot.]</nowiki>
+****** Big-toe <nowiki>[The largest toe on the inner side of the foot.]</nowiki>
+****** Heel <nowiki>[The back of the foot below the ankle.]</nowiki>
+****** Instep <nowiki>[The part of the foot between the ball and the heel on the inner side.]</nowiki>
+****** Little-toe <nowiki>[The smallest toe located on the outer side of the foot.]</nowiki>
+****** Toes <nowiki>[The terminal digits of the foot.]</nowiki>
 ***** Knee <nowiki>[A joint connecting the lower part of the femur with the upper part of the tibia.]</nowiki>
 ***** Shin <nowiki>[Front part of the leg below the knee.]</nowiki>
 ***** Thigh <nowiki>[Upper part of the leg between hip and knee.]</nowiki>
 **** Torso <nowiki>[The body excluding the head and neck and limbs.]</nowiki>
-***** Back-torso <nowiki>[The rear surface of the human body from the shoulders to the hips.]</nowiki>
+***** Torso-back <nowiki>[The rear surface of the human body from the shoulders to the hips.]</nowiki>
 ***** Buttocks <nowiki>[The round fleshy parts that form the lower rear area of a human trunk.]</nowiki>
-***** Chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
+***** Torso-chest <nowiki>[The anterior side of the thorax from the neck to the abdomen.]</nowiki>
 ***** Gentalia <nowiki>[The external organs of reproduction.]</nowiki>
 ***** Hip <nowiki>[The lateral prominence of the pelvis from the waist to the thigh.]</nowiki>
 ***** Waist <nowiki>[The abdominal circumference at the navel.]</nowiki>
@@ -208,13 +223,11 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Middle-finger <nowiki>[The middle or third finger from the radial side of the hand.]</nowiki>
 ******* Ring-finger <nowiki>[The fourth finger from the radial side of the hand.]</nowiki>
 ******* Thumb <nowiki>[The thick and short hand digit which is next to the index finger in humans.]</nowiki>
-****** Hand-palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
+****** Palm <nowiki>[The part of the inner surface of the hand that extends from the wrist to the bases of the fingers.]</nowiki>
 ****** Knuckles <nowiki>[A part of a finger at a joint where the bone is near the surface, especially where the finger joins the hand.]</nowiki>
 ***** Shoulder <nowiki>[Joint attaching upper arm to trunk.]</nowiki>
 ***** Upper-arm <nowiki>[Portion of arm between shoulder and elbow.]</nowiki>
 ***** Wrist <nowiki>[A joint between the distal end of the radius and the proximal row of carpal bones.]</nowiki>
-*** Organ <nowiki>[A unique macroscopic anatomic structure that is composed of various tissues and performs specific functions as for example heart or liver.]</nowiki>
-*** Tissue <nowiki>[An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.]</nowiki>
 ** Organism <nowiki>[A living entity, more specifically a biological entity that consists of one or more cells and is capable of genomic replication (independently or not).]</nowiki>
 *** Animal <nowiki>[A living organism that has membranous cell walls, requires oxygen and organic foods, and is capable of voluntary movement.]</nowiki>
 *** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
@@ -295,10 +308,10 @@ This schema is the first version that includes an xsd and requires unit class, u
 ******* Head-mounted-display <nowiki>[An instrument that functions as a display device, worn on the head or as part of a helmet, that has a small display optic in front of one (monocular HMD) or each eye (binocular HMD).]</nowiki>
 ******* LED-display <nowiki>[A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display.]</nowiki>
 ******* Computer-screen <nowiki>[An electronic device designed as a display or a physical device designed to be a protective meshwork.]</nowiki>
-******** Computer-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
+******** Screen-window <nowiki>[A part of a computer screen that contains a display different from the rest of the screen. A window is a graphical control element consisting of a visual area containing some of the graphical user interface of the program it belongs to and is framed by a window decoration.]</nowiki>
 ****** Auditory-device <nowiki>[A device designed to produce sound.]</nowiki>
 ******* Headphones <nowiki>[An instrument that consists of a pair of small loudspeakers, or less commonly a single speaker, held close to ears and connected to a signal source such as an audio amplifier, radio, CD player or portable media player.]</nowiki>
-******* Speaker-device <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
+******* Loudspeaker <nowiki>[A device designed to convert electrical signals to sounds that can be heard.]</nowiki>
 ***** Recording-device <nowiki>[A device that copies information in a signal into a persistent information bearer.]</nowiki>
 ****** EEG-recorder <nowiki>[A device for recording electric currents in the brain using electrodes applied to the scalp, to the surface of the brain, or placed within the substance of the brain.]</nowiki>
 ****** File-storage <nowiki>[A device for recording digital information to a permanent media.]</nowiki>
@@ -462,10 +475,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Expert-level {relatedTag=Intermediate-experience-level, relatedTag=Novice-level}<nowiki>[Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.]</nowiki>
 **** Intermediate-experience-level <nowiki>{relatedTag=Expert-level, relatedTag=Novice-level}[Having a moderate amount of knowledge or skill related to the task.]</nowiki>
 **** Novice-level <nowiki>{relatedTag=Expert-level, relatedTag=Intermediate-experience-level} [Being inexperienced in a field or situation related to the task.]</nowiki>
-*** Agent-height <nowiki>[The vertical dimension of an agent.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-*** Agent-weight <nowiki>[The heaviness of an agent.]</nowiki>
-**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Gender <nowiki>[Characteristics that are socially constructed, including norms, behaviors, and roles based on sex.]</nowiki>
 *** Sex <nowiki>[Physical properties or qualities by which male is distinguished from female.]</nowiki>
 **** Female <nowiki>[Biological sex of an individual with female sexual organs such ova.]</nowiki>
@@ -568,6 +577,9 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Rotated <nowiki>[Move or cause to move in a circle around an axis or center.]</nowiki>
 ***** Upward <nowiki>[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 ***** Vertically-oriented <nowiki>{related-Tag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
+*** Physical-value <nowiki>[The value of some physical property of something.] </nowiki> 
+**** Weight <nowiki>[The relative mass or the quantity of matter contained by something.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=weightUnits}</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -630,6 +642,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Size <nowiki>[The physical magnitude of something.]</nowiki>
 ****** Area <nowiki>[The extent of a 2-dimensional surface enclosed within a boundary.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=areaUnits}</nowiki> 
+****** Depth <nowiki>[The distance from the surface of something especially from the perspective of looking from the front.]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Length <nowiki>[The linear extent in space from one end of something to the other end, or the extent of something from beginning to end.]</nowiki> 
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
@@ -750,6 +764,15 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>
+**** Sound-envelope <nowiki>[Description of how a sound changes over time.]</nowiki>
+***** Sound-envelope-attack <nowiki>[The time taken for initial run-up of level from nil to peak usually beginning when the key on a musical instrument is pressed.]</nowiki>
+****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
+***** Sound-envelope-decay <nowiki>[The time taken for the subsequent run down from the attack level to the designated sustain level.]</nowiki>
+****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
+***** Sound-envelope-release <nowiki>[The time taken for the level to decay from the sustain level to zero after the key is released]</nowiki>
+****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
+***** Sound-envelope-sustain <nowiki>[The time taken for the main sequence of the sound duration, until the key is released.]</nowiki>
+****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=labelClass}</nowiki>  
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
@@ -946,6 +969,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Opacity <nowiki>[A measure of impenetrability to light.]<nowiki>
 ** Sensory-presentation <nowiki>[The entity has a sensory manifestation.]</nowiki>
 *** Auditory-presentation <nowiki>[The sense of hearing is used in the presentation to the user.]</nowiki>
+**** Loudspeaker-separation <nowiki>{suggestedTag=Distance}[The distance between two loudspeakers. Grouped with the Distance tag.]</nowiki>
 **** Monophonic <nowiki> [Relating to sound transmission, recording, or reproduction involving a single transmission path.]</nowiki>  
 **** Silent <nowiki>[The absence of ambient audible sound or the state of having ceased to produce sounds.]</nowiki>
 **** Stereophonic <nowiki> [Relating to, or constituting sound reproduction involving the use of separated microphones and two transmission channels to achieve the sound separation of a live hearing.]</nowiki> 
@@ -966,7 +990,6 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Satellite-view <nowiki>[A representation as captured by technology such as a satellite.]</nowiki>
 ***** Street-view <nowiki>[A 360-degrees panoramic view from a position on the ground.]</nowiki>
 **** Peripheral-view <nowiki>[Indirect vision as it occurs outside the point of fixation.]</nowiki>
-
 * Task-property <nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Task-attentional-demand <nowiki>[Strategy for allocating attention toward goal-relevant information.]</nowiki>
 *** Bottom-up-attention <nowiki>{relatedTag=Top-down-attention}[Attentional guidance purely by externally driven factors to stimuli that are salient because of their inherent properties relative to the background. Sometimes this is referred to as stimulus driven.]</nowiki>
@@ -1067,18 +1090,27 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
 ** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
 ** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+** Bottom-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A (Bottom-edge-of B)) means A is on the bottom most part or or near the boundary of B.]</nowiki>
 **  Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
 ** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
 ** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
 ** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
 ** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
+** Left-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A (Left-edge-of B)) means A is located on the left side of B on or near the boundary of B.]</nowiki>
 ** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
+** Lower-left-of <nowiki>{relatedTag=Lower-right-of,RelatedTag=Upper-left-of,RelatedTag=Upper-right-of}[(A (Lower-left-of B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Lower-right-of <nowiki>{relatedTag=Upper-left-of,RelatedTag=Upper-left-of,RelatedTag=Lower-right-of}[(A (Lower-right-of B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
 ** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
 ** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
+** Right-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Left-edge-of,relatedTag=Top-edge-of}[(A (Right-edge-of B)) means A is located on the right side of B on or near the boundary of B.]</nowiki>
 ** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
 ** To-left-of <nowiki>[(A (To-left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
 ** To-right-of <nowiki>[(A (To-right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** Top-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Bottom-edge-of}[(A (Top-edge-of B)) means A is on the uppermost part or or near the boundary of B.]</nowiki>
 ** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
+** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
+** Upper-left-of <nowiki>{relatedTag=Lower-left-of,RelatedTag=Upper-left-of,RelatedTag=Upper-right-of}[(A (Upper-left-of B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Upper-right-of <nowiki>{relatedTag=Lower-left-of,RelatedTag=Upper-left-of,RelatedTag=Lower-right-of}[(A (Upper-right-of B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
 ** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
 ** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
 * Temporal-relation <nowiki>[Any relationship which includes a temporal or time-based component.]</nowiki>
@@ -1132,6 +1164,12 @@ This schema is the first version that includes an xsd and requires unit class, u
 ** day 
 ** minute 
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* weightUnits <nowiki>{defaultUnits=g}</nowiki>
+** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** gram <nowiki>{SIUnit}</nowiki> 
+** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** pound
+** lb 
 * volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
 ** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
