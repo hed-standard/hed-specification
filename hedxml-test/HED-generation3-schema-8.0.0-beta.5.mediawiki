@@ -765,13 +765,13 @@ This schema is the first version that includes an xsd and requires unit class, u
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>
 **** Sound-envelope <nowiki>[Description of how a sound changes over time.]</nowiki>
-***** Sound-envelope-attack <nowiki>[The time taken for initial run-up of level from nil to peak, usually beginning when the key on a musical instrument is pressed.]</nowiki>
+***** Sound-envelope-attack <nowiki>[The time taken for initial run-up of level from nil to peak usually beginning when the key on a musical instrument is pressed.]</nowiki>
 ****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ***** Sound-envelope-decay <nowiki>[The time taken for the subsequent run down from the attack level to the designated sustain level.]</nowiki>
 ****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ***** Sound-envelope-release <nowiki>[The time taken for the level to decay from the sustain level to zero after the key is released]</nowiki>
 ****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-***** Sound-envelope-sustain <nowiki>[The time taken for the main sequence of the sound's duration, until the key is released.]</nowiki>
+***** Sound-envelope-sustain <nowiki>[The time taken for the main sequence of the sound duration, until the key is released.]</nowiki>
 ****** # {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=labelClass}</nowiki>  
