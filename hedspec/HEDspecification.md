@@ -477,17 +477,11 @@ A **HED string** is a comma-separated list of HED tags and/or HED tag groups. A 
     ((Agent/Human-agent,
     Property/Agent-property/Agent-task-role/Experiment-participant),
     (Action/Move/Move-body-part/Move-upper-extremity/Press,
+    Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button))
 
+The syntax and errors for HED tags and HED strings are summarized in **Appendix C**
 
-    _ Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/**Mouse-button**))     _
-
-The syntax and errors for HED tags and HED strings are summarized in 
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix C"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix C](#heading=h.xbfhv6nhlpfn). 
-
-**HED # placeholders **cannot have siblings. Thus, tags that have placeholder children cannot be extended even if they inherit an <code><em>extensionAllowed</em></code> attribute from an ancestor. The parsers treat any child of these tags as a value rather than a tag.  
+**HED # placeholders** cannot have siblings. Thus, tags that have placeholder children cannot be extended even if they inherit an `extensionAllowed` attribute from an ancestor. The parsers treat any child of these tags as a value rather than a tag.  
 
 **HED values** can be strings or numeric values followed by a unit specification. If a `unitClass` is specified as an attribute of the `#` node, then the units specified must be valid units for that `unitClass`. **HED parsers assume that units are separated from values by at least one blank.**
 
@@ -507,7 +501,7 @@ This section describes HED annotation of time-marked events. A time-marked event
 
 This section illustrates basic HED descriptions of four types of events that are often annotated as time-marked events or point events: **stimulus events**, **response events**, **experiment control events**, and **data features**. HED-3G now also allows more sophisticated models of events that have extended duration. The remaining sections of Chapter 3 develop the HED concepts needed to capture these advanced models of events as well as event and task inter-relationships. This specification is meant to provide guidelines for tool-builders. Additional tutorials and user guides provide more specific guidance for annotators.
 
-We use a simple EEG target detection experiment to illustrate time-marked event annotation. In this experiment geometric shapes of different colors are presented on a computer screen at two-second intervals. After every visual shape presentation, the subject is asked to press the left mouse button if the shape is a green triangle or the right mouse button otherwise. After a block of 30 such presentation-response sequences (trials), the control software sounds a buzzer to indicate that the subject can rest for 5 minutes before continuing to the next block of trials. After the experiment is completed, the experiment runs an eyeblink-detection tool on the EEG data and inserts an event marker at the amplitude maximum of each detected blink artifact.
+An typical example of an experiment using time-marked event annotation is simple target detection. In this experiment geometric shapes of different colors are presented on a computer screen at two-second intervals. After every visual shape presentation, the subject is asked to press the left mouse button if the shape is a green triangle or the right mouse button otherwise. After a block of 30 such presentation-response sequences (trials), the control software sounds a buzzer to indicate that the subject can rest for 5 minutes before continuing to the next block of trials. After the experiment is completed, the experiment runs an eyeblink-detection tool on the EEG data and inserts an event marker at the amplitude maximum of each detected blink artifact.
 
 
 #### 3.1.1. A stimulus event
@@ -518,32 +512,20 @@ A stimulus event can be annotated at different levels of detail. When not needed
 
 **Example:** Version 1 of HED annotation of a green triangle visual stimulus presentation event.
 
+**Short form:** 
 
-    **Short form:** 
+    Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)
 
+**Long form:**
 
-    _Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)_
+    Event/**Sensory-event**,  
+    Property/task-property/Task-event-role/Experimental-stimulus,
+    Property/Sensory-property/Visual-presentation,
+    (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
+    Item/Object/Geometric-object/2D-shape/Triangle),
+    Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.
 
-
-    **Long form:  _  _**
-
-
-    _Event/**Sensory-event**, _
-
-_      Property/task-property/Task-event-role/**Experimental-stimulus**, _
-
-_      Property/Sensory-property/**Visual-presentation**,_
-
-
-    _(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-_
-
-
-    _color/**Green**, Item/Object/Geometric-object/2D-shape/**Triangle**),_
-
-
-    _Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen._
-
-The example HED string above illustrates the most basic form of point event annotation. The annotation indicates that this is a visual sensory event intended to be an experiment stimulus. _Sensory-event_ is in the _Event_ rooted tree and indicates the general class that this event falls into. In general, the annotation for each event should include at least one tag from the _Event_ tree. If there are multiple sensory presentations in the same event, a single _Sensory-event_ tag covers the general category for all of the presentations in the event. The individual presentations (which may include different modalities) are grouped with their descriptive tags, while the _Sensory-event_ tag applies overall. In this case there is only one, so the grouping is not necessary. 
+The example HED string above illustrates the most basic form of point event annotation. The annotation indicates that this is a visual sensory event intended to be an experiment stimulus. _Sensory-event_ is in the _Event_ rooted tree and indicates the general class that this event falls into. In general, the annotation for each event should include at least one tag from the _Event_ tree. If there are multiple sensory presentations in the same event, a single _Sensory-event_ tag covers the general category for all presentations in the event. The individual presentations (which may include different modalities) are grouped with their descriptive tags, while the _Sensory-event_ tag applies overall. In this case there is only one, so the grouping is not necessary. 
 
 The _Experimental-stimulus_ is a _Task-property_ tag. Whether a particular sensory event is an experiment stimulus depends on the particular task, hence _Experimental-stimulus_ is a _Task-property_. Sensory events that are extraneous to the task can also occur, so it is important to distinguish those that are related to the intent of the task.
 
@@ -560,47 +542,27 @@ In deciding what additional information should be included, the annotator should
 
 **Example:** Version 2 of the green triangle presentation conveys more task intent.
 
+**Short form:**
 
-    **Short form:** 
+    Sensory-event, Experimental-stimulus, Visual-presentation,
+    (Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)
 
+**Long form:**
 
-    _Sensory-event, Experimental-stimulus, Visual-presentation, _
-
-
-    _(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)_
-
-
-    **Long form:  _ _**
-
-
-    _Event/**Sensory-event**, Property/Task-property/Task-event-role/**Experimental-stimulus**, Property/Sensory-property/Sensory-presentation/**Visual-presentation**,_
-
-
-    _(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-_
-
-
-    _color/**Green**, Item/Object/Geometric-object/2D-shape/**Triangle**),          _
-
-
-    _(Property/Task-property/Task-effect-evidence/**Intended-effect**, _
-
-
-    _Property/Task-property/Task-stimulus-role/**Oddball**), _
-
-
-    _(Property/Task-property/Task-effect-evidence/**Intended-effect**, Property/Task-property/Task-stimulus-role/**Target**),_
-
-
-    _Property/Informational-property/Description/A green triangle target oddball is_
-
-
-    _presented in the center of the screen with probability 0.1._
-
-_                    _
+    Event/Sensory-event, 
+    Property/Task-property/Task-event-role/Experimental-stimulus,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,
+    (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,
+    Item/Object/Geometric-object/2D-shape/Triangle),
+    (Property/Task-property/Task-effect-evidence/Intended-effect,
+    Property/Task-property/Task-stimulus-role/Oddball),
+    (Property/Task-property/Task-effect-evidence/Intended-effect,
+    Property/Task-property/Task-stimulus-role/Target),
+    Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.
 
 The _Intended-effect_ tag is a _Task-effect-evidence_ tag that describes the effect expected to be elicited from the participant experiencing the stimulus. This tag indicates, that based on the specification of the task, we can conclude that the subject will be looking for the triangle (_Target_) and that its appearance is unusual (_Oddball_). 
 
-Three other tags in the _Task-effect-evidence _are_ Computational-evidence, External-evidence, _and_ Behavioral-evidence. _In many experiments, a subject indicates that something occurs by performing an action such as pushing the left mouse button for a green triangle and the right button otherwise. When the left-mouse button is pushed, one may conclude that the participant has behaved as though the green triangle appears. If the button push is tagged with _Behavioral-evidence_, automated tools can check whether the intended effect agrees with subject behavior. An example of _External-evidence_ is annotation by a speech therapist about whether the participant stuttered in a speech experiment. _Computational-evidence_ might be generated from BCI annotation.
+Three other tags in the _Task-effect-evidence_ are _Computational-evidence_, _External-evidence_, and _Behavioral-evidence_. In many experiments, a subject indicates that something occurs by performing an action such as pushing the left mouse button for a green triangle and the right button otherwise. When the left-mouse button is pushed, one may conclude that the participant has behaved as though the green triangle appears. If the button push is tagged with _Behavioral-evidence_, automated tools can check whether the intended effect agrees with subject behavior. An example of _External-evidence_ is annotation by a speech therapist about whether the participant stuttered in a speech experiment. _Computational-evidence_ might be generated from BCI annotation.
 
 Notice that the long form version also includes a _Description_ tag that gives a text description of the event. Users should always include a _Description_ tag in the annotation of each event type. The_ Description_ tag is omitted for readability in the short form examples. As a matter of practice, however, users should start with a detailed text description of each type of event before starting the annotation. This description can serve as a check on the consistency and completeness of the annotation. Generally users annotate using the short form for HED tags and use tools to map the short form into the long form during validation or analysis.
 
@@ -613,51 +575,34 @@ In many experiments, the participant is asked to press (or select and press) a f
 
 **Example:** Version 1 of a HED annotation of a button press in response to a stimulus.
 
+**Short form:**  
 
-    **Short form:**  
+    Agent-action, (Participant-response, (Press, Mouse-button))
 
+The _Participant-response_ tag indicates that this event represents a task-related response to a stimulus. The_ Press_ tag is from the _Action_ subtree and is grouped with the _Mouse-button_ to indicate the pressing of a button. In general, _Action_ elements can be considered verbs, while _Items_ and _Agents_ can be considered nouns. These elements form a natural sentence structure: (subject, (verb, direct object)), with the subject and direct object being formed by noun elements. _Attribute_ elements are the adjectives, adverbs, and prepositions that modify and connect these elements.
 
-    _Agent-action_, _(Participant-response, (Press, Mouse-button))_
+**Example:** A more detailed HED annotation of a button press in response to a stimulus.
 
-The _Participant-response_ tag is used to indicate that this event represents a task-related response to a stimulus. The_ Press_ tag is from the _Action_ subtree and is grouped with the _Mouse-button_ to indicate the pressing of a button. In general, _Action_ elements can be considered verbs, while _Items_ and _Agents_ can be considered nouns. These elements form a natural sentence structure: (subject, (verb, direct object)), with the subject and direct object being formed by noun elements. _Attribute_ elements are the adjectives, adverbs, and prepositions that modify and connect these elements.
+**Short form:**   
 
-**Example:** Version 2 of a HED annotation of a button press in response to a stimulus.
+    Agent-action, Participant-response, 
+    ((Human-agent, Experiment-participant), (Press, Mouse-button)),
+    (Behavioral-evidence, Oddball), (Behavioral-evidence, Target)
 
+**Long form:**
 
-    **Short form:**   
-
-
-    _Agent-action, Participant-response, ((Human-agent, Experiment-participant), _
-
-
-    _(Press, Mouse-button))_, _(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)_
-
-
-    **Long form: **
-
-
-    _Event/**Agent-action**, Property/Task-property/Task-event-role/**Participant-response**,_
-
-
-    _((Agent/**Human-agent**, Property/Agent-property/Agent-task-role/**Experimental-participant**), _
-
-
-    _(Action/Move/Move-body-part/Move-upper-extremity/**Press**, _
-
-
-    _Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/**Mouse-button**)),_
-
-
-    _(Property/Task-property/Task-effect-evidence/**Behavioral-evidence**,   Property/Task-property/Task-stimulus-role/**Oddball**), _
-
-
-    _(Property/Task-property/Task-effect-evidence/**Behavioral-evidence**, Property/Task-property/Task-stimulus-role/**Target**),_
-
-
-    _Property/Informational-property/Description/The subject pushes the left _
-
-
-    _mouse button to indicate the appearance of an oddball target using index finger on the left hand._
+    Event/Agent-action,
+    Property/Task-property/Task-event-role/Participant-response,
+    ((Agent/Human-agent, 
+    Property/Agent-property/Agent-task-role/Experiment-participant),
+    (Action/Move/Move-body-part/Move-upper-extremity/Press,
+    Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),
+    (Property/Task-property/Task-effect-evidence/Behavioral-evidence,
+    Property/Task-property/Task-stimulus-role/Oddball),
+    (Property/Task-property/Task-effect-evidence/Behavioral-evidence,
+    Property/Task-property/Task-stimulus-role/Target),
+    Property/Informational-property/Description/The subject pushes the left
+    mouse button to indicate the appearance of an oddball target using index finger on the left hand.
 
 The _Participant-response_ tag is modified by tags that indicate that the participant is reacting by responding as though the stimulus were an oddball target. Specifically the _Behavioral-evidence_ tag documents that the subject gave a response indicating an oddball target. In other words, the participant pressed the left mouse button indicating an oddball target, which may or may not match the stimulus that was presented. Other details should be annotated, including whether the subject’s left, right, or dominant hand was used to press the mouse button and whether the left mouse button or right mouse button was pressed. (This factor was indicated in the _Description_, but not in the machine-actionable tags.)
 
@@ -668,23 +613,20 @@ Experiments may have experiment control events written into the event record, of
 
 **Example:** A buzzer is sounded to indicate that the subject can rest.
 
+**Short form:**
 
-    **Short form:** _Sensory-event, Instructional, Auditory-presentation, (Buzz, (Intended-effect, Rest))_
+    Sensory-event, Instructional, Auditory-presentation,
+    (Buzz, (Intended-effect, Rest))
 
+**Long form:** 
 
-    **Long form: ** 
-
-
-    _Event/**Sensory-event**, Property/Task-property/Task-event-role/**Instructional**, _
-
-
-    _Property/Sensory-property/Sensory-presentation/**Auditory-presentation**, (Item/Sound/Named-object-sound/**Buzz**,_
-
-
-    _(Property/Task-property/Task-effect-evidence/**Intended-effect, **Action/Perform/**Rest**)),_
-
-
-    _Property/Informational-property/Description/A buzzer sounds indicating a rest period._
+    Event/Sensory-event, 
+    Property/Task-property/Task-event-role/Instructional,
+    Property/Sensory-property/Sensory-presentation/Auditory-presentation,
+    (Item/Sound/Named-object-sound/Buzz,
+    (Property/Task-property/Task-effect-evidence/Intended-effect,
+    Action/Perform/Rest)),
+    Property/Informational-property/Description/A buzzer sounds indicating a rest period.
 
 
 #### 3.1.5. A data feature event
@@ -693,20 +635,16 @@ Another type of tagging documents computed data features and expert annotations 
 
 **Example:** HED tag for a computational feature inserted post hoc by the Blinker tool.
 
+**Short form:**  
 
-    **Short form:**  
+    Data-feature, (Computed-feature, Label/Blinker_BlinkMax)
 
+**Long form:**
 
-    _Data-feature_, _(Computed-feature, Label/Blinker_BlinkMax)_
-
-
-    **Long form:_ _**
-
-
-    _Event/**Data-feature**, (Property/Data-property/Data-source-type/**Computed-feature**, Property/Informational-property/**Label/Blinker_BlinkMax**),_
-
-
-    _Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool._
+    Event/Data-feature,
+    (Property/Data-property/Data-source-type/Computed-feature, 
+    Property/Informational-property/Label/Blinker_BlinkMax),
+    Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.
 
 As shown by this example, the _Computed-feature_ tag is grouped with a label of the form _toolName_featureName_. In this example, the computed property is just a marker of where a feature was detected. If a value was computed at this point, an additional _Value_ tag would be included.
 
@@ -714,54 +652,31 @@ Clinical evaluations are observational features and many fields have standardize
 
 **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
-     
+**Short form:**
+
+    Data-feature, (Observation, Label/AnnotatorAJM_K-complex)
 
 
-    **Short form:** 
+**Long form:**
 
-
-    _Data-feature, (Observation, Label/AnnotatorAJM_K-complex)_
-
-
-    **Long form: _ _**
-
-
-    _Event/**Data-feature**, (Property/Data-property/Data-source-type/**Observation**,_
-
-
-    _Property/Informational-property/**Label/AnnotatorAJM_K-complex**),_
-
-
-    _Property/Informational-property/Description/K-complex defined by AASM guide._
+    Event/Data-feature,
+    (Property/Data-property/Data-source-type/Observation,
+    Property/Informational-property/Label/AnnotatorAJM_K-complex),
+    Property/Informational-property/Description/K-complex defined by AASM guide.
 
 
 #### 3.1.6. What else should be documented?
 
 Most event annotation focuses on basic identification and description of stimuli and the participant’s direct response to that stimuli. However, for accurate comparisons across studies, much more information is required and should be documented with HED tags rather than just with text descriptions. This is particularly true if this information is relevant to the experimental intent, varied during the experiment, or likely to evoke a neural response. In the example of 3.1.1, the green triangle might be displayed for an extended period (during which other events might occur), and the disappearance of the triangle is likely to elicit a neural response. Exactly how this information should be represented is discussed in Section 3.3 with the introduction of temporal scope and its use with _Onset_ and _Offset_.
 
-Even for a standard setup, aspects such as the screen size, the distance and position of the participant relative to the screen and the stimulus, as well as other details of the environment, should be documented as part of the overall experiment context. These details allow analysis tools to compare and contrast studies or to translate visual stimuli into visual field information. _Event-context_ tags, which are introduced in 
+Even for a standard setup, aspects such as the screen size, the distance and position of the participant relative to the screen and the stimulus, as well as other details of the environment, should be documented as part of the overall experiment context. These details allow analysis tools to compare and contrast studies or to translate visual stimuli into visual field information. _Event-context_ tags, which are introduced in **Section 3.4**, allow this information to be propagated to recording events in a manner that is convenient for analysis.
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.4"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 3.4](#heading=h.3atdoi75g1dr), allow this information to be propagated to recording events in a manner that is convenient for analysis.
-
-Of primary importance and perhaps the most difficult to convey with annotation is how specific stimuli relate to task intent and how the conditions are varied to achieve this intent. 
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.5"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 3.5](#heading=h.ikvwtjixky50) describes HED mechanisms for annotating this information.
-
-
-### 
+Of primary importance and perhaps the most difficult to convey with annotation is how specific stimuli relate to task intent and how the conditions are varied to achieve this intent. **Section 3.5** describes HED mechanisms for annotating this information.
 
 
 ### 3.2. HED definitions and the _Definition_ tag
 
-HED-3G introduces the _Definition _tag to facilitate tag reuse and to allow implementation of concepts such as _temporal scope_. The _Definition_ tag allows researchers to create a name to represent a group of tags and then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce the chance of errors. Often laboratories have a standard setup and event codes with particular meanings. Researchers can define names and reuse them  for multiple experiments. Another important role of definitions is to provide the structure for implementing temporal scope as introduced in 
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.3"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 3.3](#heading=h.bggaovcqkr7u).
+HED-3G introduces the _Definition_ tag to facilitate tag reuse and to allow implementation of concepts such as _temporal scope_. The _Definition_ tag allows researchers to create a name to represent a group of tags and then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce the chance of errors. Often laboratories have a standard setup and event codes with particular meanings. Researchers can define names and reuse them  for multiple experiments. Another important role of definitions is to provide the structure for implementing temporal scope as introduced in **Section 3.3**.
 
 A **HED definition** is a tag group that includes one _Definition_ tag whose required child value names. The definition usually includes an optional tag-group specifying the actual definition information. Table 3.1 summarizes the syntax rules for definitions.
 
@@ -779,7 +694,7 @@ A **HED definition** is a tag group that includes one _Definition_ tag whose req
   <tr>
    <td><strong>Short forms:</strong> 
 <p>
-<em>(Definition/XXX, <span style="text-decoration:underline;">(tag-group)</span>)</em>
+<em>(Definition/XXX, (tag-group))</em>
 <p>
 <em>(Definition/XXX/#, (tag-group))</em>
    </td>
@@ -787,11 +702,7 @@ A **HED definition** is a tag group that includes one _Definition_ tag whose req
 <p>
 If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.
 <p>
-The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See 
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.3"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-<a href="#heading=h.bggaovcqkr7u">Section 3.3</a>.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.
+The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See **Section 3.3**.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.
    </td>
   </tr>
   <tr>
@@ -799,7 +710,7 @@ The <em>tag-group</em> may be omitted if the only purpose of the definition is t
 <p>
 <em>(Property/Organizational-</em>
 <p>
-<em>property/Definition/XXX, <span style="text-decoration:underline;">(tag-group)</span>)</em>
+<em>property/Definition/XXX, (tag-group))</em>
 <p>
 <em>(Property/Organizational-</em>
 <p>
@@ -811,57 +722,37 @@ The <em>tag-group</em> may be omitted if the only purpose of the definition is t
 
 **Example:** Create a definition called _PlayMovie_ that represents playing a movie on the screen.
 
+**Short form:** 
 
-    **Short form:** 
+    (Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))
 
+**Long form:** 
 
-    _(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))_ 
-
-
-    **Long form:** 
-
-
-    _(Property/Organization-property/Definition/**PlayMovie**,_
-
-
-    _(Property/Sensory-property/Sensory-presentation/**Visual-presentation**, Item/Object/Man-made-object/Media/Visualization/**Movie**,_
-
-
-    _Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/**Computer-**_
-
-
-    **_screen))_**
+    (Property/Organization-property/Definition/PlayMovie,
+    (Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+    Item/Object/Man-made-object/Media/Visualization/Movie,
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computerscreen))
 
 The placeholder form of the definition is used, for example, to annotate an experimental parameter whose value is selected at random for each occurrence. The annotator can use a single definition name and just substitute the value for each occurrence. 
 
 **Example:** Define _PresentationRate_ to annotate the rate of visual presentation of a stimulus.
 
+**Short form:**
 
-    **Short form: **
+    (Definition/PresentationRate/#,
+    (Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))
 
+**Long form:**
 
-    _(Definition/PresentationRate/#, _
+    (Property/Organizational-property/Definition/PresentationRate/#,
+    (Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+    Property/Task-property/Task-event-role/Experimental-stimulus,
+    Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
 
-
-    _(Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))_
-
-
-    **Long form:**
-
-
-    _(Property/Organizational-property/Definition/**PresentationRate**/#, _
-
-
-    _(Property/Sensory-property/Sensory-presentation/**Visual-presentation**, Property/Task-property/Task-event-role/**Experimental-stimulus**,_
-
-
-    _Data-property/Data-value/Spatiotemporal-value/Rate-of-change/T**emporal-rate**/#))_
-
-When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an annotation, the name is prefixed by _Def/_ to indicate that the name represents a defined name. In other words, _Def/PlayMovie_ is shorthand for _(Visual, Movie, Screen). _Table 3.2 summarizes _Def/_ syntax rules.
+When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an annotation, the name is prefixed by _Def/_ to indicate that the name represents a defined name. In other words, _Def/PlayMovie_ is shorthand for _(Visual, Movie, Screen)_. Table 3.2 summarizes _Def/_ syntax rules.
 
 
 ##### **Table 3.2.** Syntax for using definitions in annotations with _Def/._
-
 
 <table>
   <tr>
@@ -895,31 +786,21 @@ If the XXX/# form is used, the definition <em>(tag-group)</em> for <em>XXX </em>
 
 **Example:** Use the _PresentationRate_ definition to annotate a presentation rate of 1.5 Hz.
 
+**Short form:**
 
-    **Short form: **
+    Def/PresentationRate/1.5 Hz
 
+**Long form:**
 
-    _Def/PresentationRate/1.5 Hz_
-
-
-    **Long form:**
-
-
-    _Property/Organizational-property/**Def/PresentationRate/1.5 Hz**_
+    Property/Organizational-property/Def/PresentationRate/1.5 Hz
 
 During analysis, tools usually replace _Def/PlayMovie_ with a fully expanded tag string. Tools must retain the association of the expanded tag string with the definition name for identification during searching and substitution. When a definition is expanded, the resulting tag string should include the definition name using the _Def-expand tag_. In other words, the tools should expand the definition as _(Def-expand/PlayMovie, Visual, Movie, Screen)_. The _Def-expand/PlayMovie_ is inserted in the definition tag group as part of the expansion to keep the association with the original definition.
 
-**Usually definitions do not contain tags from the _Event_ subtree. **The standard practice is to use the elements of the _Event_ subtree as top-level tags to designate the general category of an event. This practice makes it easier for search and analysis tools to filter events without extensive parsing. The annotator can use tags such as _Experimental-stimulus _(Long form: _Property/Task-property/Task-event-role/Experimental-stimulus_) to explain the role of a particular sensory presentation element in the experiment within the definition.
+**Usually definitions do not contain tags from the _Event_ subtree.** The standard practice is to use the elements of the _Event_ subtree as top-level tags to designate the general category of an event. This practice makes it easier for search and analysis tools to filter events without extensive parsing. The annotator can use tags such as _Experimental-stimulus_ (Long form: _Property/Task-property/Task-event-role/Experimental-stimulus_) to explain the role of a particular sensory presentation element in the experiment within the definition.
 
-Definitions may appear anywhere in a HED event file or in auxiliary files associating metadata with HED tags such as JSON sidecars in BIDS datasets. Multiple definitions can be defined or used in the same HED string annotation, but definitions cannot be nested. Further, definitions must appear as top-level tag groups. Tools generally make a pass through the event information to extract the definitions prior to other processing. The validation checks made by the HED validator when assembling and processing definitions are summarized in 
+Definitions may appear anywhere in a HED event file or in auxiliary files associating metadata with HED tags such as JSON sidecars in BIDS datasets. Multiple definitions can be defined or used in the same HED string annotation, but definitions cannot be nested. Further, definitions must appear as top-level tag groups. Tools generally make a pass through the event information to extract the definitions prior to other processing. The validation checks made by the HED validator when assembling and processing definitions are summarized in **Appendix C**.
 
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix C"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix C](#heading=h.xbfhv6nhlpfn). In addition to syntax checks, which occur in early processing passes, HED validators check that names are defined before they are used as definitions. Additional checks for temporal scope are discussed in 
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.3"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 3.3](#heading=h.bggaovcqkr7u). 
+In addition to syntax checks, which occur in early processing passes, HED validators check that names are defined before they are used as definitions. Additional checks for temporal scope are discussed in **Section 3.3**.
 
 
 ### 3.3. Temporal scope
@@ -929,11 +810,10 @@ Events are often modeled as instantaneous occurrences that occur at single point
 
 #### 3.3.1. _Onset_/_Offset_ tags to express temporal scope
 
-HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses _Onset_ and _Offset_ tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a _(Def_/_XXX_,_ Onset_). The end of the event’s temporal scope is marked either by a _(Def_/_XXX_,_ Offset_) or by another _(Def_/_XXX_,_ Onset_). Table 3.3 summarizes _Onset_ and _Offset_ usage.
+HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses _Onset_ and _Offset_ tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a _(Def/XXX, Onset)_. The end of the event’s temporal scope is marked either by a _(Def/XXX, Offset)_ or by another _(Def/XXX, Onset)_. Table 3.3 summarizes _Onset_ and _Offset_ usage.
 
 
-##### **Table 3.**3**.** Syntax for _Onset_ and _Offset_ use with defined names.
-
+##### **Table 3.3.** Syntax for _Onset_ and _Offset_ use with defined names.
 
 <table>
   <tr>
@@ -945,9 +825,9 @@ HED events are assumed to be point events unless they are given an explicit temp
   <tr>
    <td><strong>Short forms:</strong> 
 <p>
-<em>(Def/XXX,  Onset, <span style="text-decoration:underline;">(tag-group</span>))</em>
+<em>(Def/XXX,  Onset, (tag-group))</em>
 <p>
-<em>(Def/XXX/#,  Onset, <span style="text-decoration:underline;">(tag-group)</span>)</em>
+<em>(Def/XXX/#,  Onset, (tag-group))</em>
 <p>
 <em>(Def/XXX,  Offset)</em>
    </td>
@@ -975,53 +855,36 @@ If the <em>Def/XXX/#</em> form is used, the <em>#</em> must be replaced by an ac
 
 For example, the _PlayMovie_ definition of the previous section just defines the playing of a movie clip on the screen. The _(tag-group)_ might include tags identifying which clip is playing in this instance. This syntax allows one definition name to be used for the playing of many different clips. 
 
- 
-
 **Example:** An event sequence representing the playing of a Star Wars clip using_ PlayMovie_.
 
+**Short form:** 
 
-    **Short form:** 
-
-
-    **[event 1]_ Sensory-event, (Def/PlayMovie_**, _Onset, (Label/StarWars, (Media-clip, ID/3284)))_
-
-
-                                           **.... [The Star Wars movie clip is playing]** ....
-
-
-    **[event n]**  _Sensory-event, (Def/PlayMovie_, _Offset_)
+    [event 1] Sensory-event, 
+    (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))
+    
+         .... [The Star Wars movie clip is playing] ....
+    
+    [event n]  Sensory-event, (Def/PlayMovie, Offset)
 
 
-    **_Long form: _**
+**Long form:**
 
+    [event 1] Event/Sensory-event,
+    (Attribute/Informational/Def/PlayMovie, 
+    Data-property/Data-marker/Temporal-marker/Onset,
+    (Attribute/Informational/Label/StarWars,
+    (Item/Object/Man-made-object/Media/Media-clip,
+    Attribute/Informational/ID/3284)))                                           
 
-    **[event 1]_  Event/Sensory-event, _**
+        .... [The Star Wars movie clip is playing] ....
 
-
-    _(Attribute/Informational/**Def/PlayMovie**,  Data-property/Spatiotemporal-property/Temporal-property/**Onset**,_
-
-
-    _(Attribute/Informational/**Label/StarWars**,_
-
-
-    _(Item/Object/Man-made-object/Media/**Media-clip**, Attribute/Informational/**ID/3284**)))                                            _
-
-
-                                      **     .... [The Star Wars movie clip is playing] ....**
-
-
-    **[event n]**  _Event/**Sensory-event**, _
-
-
-    _(Attribute/Informational/**Def/PlayMovie**_,_ Data-property/Spatiotemporal-property/Temporal-property/**Offset**)_
+    [event n]  Event/Sensory-event,
+    (Attribute/Informational/Def/PlayMovie,
+    Data-property/Data-marker/Temporal-marker/Offset)
 
 The _PlayMovie_ scoped event type can be reused to annotate the playing of other movie clips. However, scoped events with the same defined name (e.g., _PlayMovie_) cannot be nested. The temporal scope of a _PlayMovie_ event ends with a _PlayMovie_ _Offset_ or with the _Onset_ of another _PlayMovie_ event. 
 
-Because tools need to have the definitions in hand when fully expanding during validation and analysis, tools must gather applicable definitions before final processing. Library functions in Python, Matlab, and JavaScript are being developed to support gathering of definitions and the expansion as described in 
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 5"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 5](#heading=h.nsy9b53deo4u). 
+Because tools need to have the definitions in hand when fully expanding during validation and analysis, tools must gather applicable definitions before final processing. Library functions in Python, Matlab, and JavaScript are being developed to support gathering of definitions and the expansion as described in **Section 5**. 
 
 
 #### 3.3.2. _Duration_ as an alternative for expressing temporal scope
@@ -1030,35 +893,22 @@ The _Duration_ tag is an alternative method for specifying an event with tempora
 
 **Example:** Use _Duration_ to represent the playing of a 2-second movie clip of Star Wars.
 
+**Short form:**
 
-    **Short form: **
+    Sensory-event,
+    (Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)
 
+**Long form:**
 
-    _Sensory-event, (Duration/2 s, Visual-presentation, Movie, Computer-screen, Label/StarWars)_
+    Event/Sensory-event, 
+    (Property/Data-value/Spatiotemporal-value/Temporal-value/Duration/2 s
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,
+    (Item/Object/Man-made-object/Media/Visualization/Movie,
+    Property/Informational-property/Label/StarWars),
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+    Property/Informational-property/Description/Play a movie clip for 2 s.)
 
-
-    **Long form:** _Event/**Sensory-event**, (Property/Data-value/Spatiotemporal-value/Temporal-value/**Duration/2 s**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-visualization**, Item/Object/Man-made-object/Media/Visualization/**Movie**,_
-
-
-    _Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-
-
-    _device/**Computer-screen**,_
-
-
-    _Property/Informational-property/**Label/StarWars**,_
-
-
-    _Property/Informational-property/Description/Play a movie clip for 2 s.)_
-
-The _Duration_ tag is convenient because its use does not require a _Definition_. The _Duration_ tag has the same effect on event context as the _Onset/Offset_ mechanism (as explained in 
-
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 3.4"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 3.4](#heading=h.3atdoi75g1dr)). However the ending of the temporal scope for events defined with _Duration_ is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for most events involving visual or auditory presentations.
+The _Duration_ tag is convenient because its use does not require a _Definition_. The _Duration_ tag has the same effect on event context as the _Onset/Offset_ mechanism (as explained in **Section 3.4**.) However the ending of the temporal scope for events defined with _Duration_ is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for most events involving visual or auditory presentations.
 
 
 #### 3.3.3. The _Delay_ tag for expressing temporal offsets to current event
@@ -1067,67 +917,39 @@ The _Delay_ tag is grouped with a set of tags to indicate that the associated _t
 
 **Example:** A trial consists of the presentation of a cross on the center of the screen. The participant responds with a button press upon seeing the cross. The response time of the button push is recorded relative to the stimulus presentation as part of the stimulus event.
 
+**Short form:**
 
-    **Short form: **
-
-
-    _Sensory-event, Experimental-stimulus, Visual-presentation, (Cross, (Center-of, Computer-screen)),_
-
-
-    _(Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))_
+    Sensory-event, Experimental-stimulus, Visual-presentation,
+    (Cross, (Center-of, Computer-screen)),
+    (Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))
 
 
-    **Long form:** _  _
+**Long form:**
 
+    Event/Sensory-event, 
+    Property/Task-property/Task-event-role/Experimental-stimulus,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,
+    (Item/Object/Geometric-object/2D-shape/Cross,
+    (Relation/Spatial-relation/Center-of,
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
+    device/Computer-screen)),
 
-    _Event/**Sensory-event**, Property/Task-property/Task-event-role/**Experimental-stimulus**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-presentation**,_
-
-
-    _(Item/Object/Geometric-object/2D-shape/**Cross**,_
-
-
-    _(Relation/Spatial-relation/**Center-of**,_
-
-
-    _Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-
-
-    _device/**Computer-screen**)),_
-
-
-    _(Event/**Agent-action**, _
-
-
-    _Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/**Delay/2.83 ms**,_
-
-
-    _(Property/Task-property/Task-event-role/**Participant-response**,_
-
-
-    _(Action/Move/Move-body-part/Move-upper-extremity/**Press**,_
-
-
-    _Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/**Mouse-button**)))_
-
-
-    _Property/Informational-property/Description/A cross is displayed in the center of the screen and the participant responds by pushing a button._
+    (Event/Agent-action, 
+    Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Delay/2.83 ms,
+    (Property/Task-property/Task-event-role/Participant-response,
+    (Action/Move/Move-body-part/Move-upper-extremity/Press,
+    Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button)))
+    Property/Informational-property/Description/A cross is displayed in the center of the screen and the participant responds by pushing a button.
 
 Notice that the _Agent-action_ tag from the _Event_ subtree is included in the _Delay_ tag-group. This allows tools to identify this tag-group as representing a distinct event. For BIDS datasets, such response delays would be in value columns of the `_events.tsv` event files. The HED annotation for the JSON sidecar corresponding to these files would contain a _#_. At HED expansion time, tools replace the _#_ with the column value (2.83) corresponding to each event. 
 
 
 #### 3.3.4. Validation errors for _Onset_, _Offset_, _Duration_, and _Delay_
 
-Validation of _Onset_ and _Offset_ cannot be completed until all of the annotations for a data recording have been assembled. The applicable validation errors are described in 
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix C"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix C](#heading=h.xbfhv6nhlpfn).
+Validation of _Onset_ and _Offset_ cannot be completed until all of the annotations for a data recording have been assembled. The applicable validation errors are described in **Appendix C**.
 
 
-### 3.4_. _The _Event-stream tag_
+### 3.4. The _Event-stream_ tag
 
 An event stream is a sequence of events in a data recording. The most obvious event stream is the sequence consisting of all of the events in the recording, but there are many other possible streams such as the stream consisting of all sensory events or the stream consisting of all participant response events. 
 
@@ -1135,28 +957,22 @@ Event streams can be identified and tagged using the _Event-stream_ tag, allowin
 
 **Example:** Tag a face event indicating that it is part of the _Face-stream_ event stream. 
 
+**Short form:**
 
-    **Short form: **
+    Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)
 
-
-    _Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)_
-
-
-    **Long form:** _Event/**Sensory-event**, _
-
-
-    _Property/Organizational-property/**Event-stream/Face-stream**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-visualization**, (Item/Object/Man-made-object/Media/Visualization/**Image**,_
-
-
-    _Item/Biological-item/Anatomical-item/Body-part/Head/Face)_
+**Long form:** 
+    
+    Event/Sensory-event,
+    Property/Organizational-property/Event-stream/Face-stream,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,  
+    (Item/Object/Man-made-object/Media/Visualization/Image,
+    Item/Biological-item/Anatomical-item/Body-part/Head/Face)
 
 Using a tag to identify an event stream makes it easier for downstream tools to compute relationships among subsets of events.
 
 
-### 3.5_. _The _Event-context tag_
+### 3.5. The _Event-context_ tag
 
 Event annotations generally focus on describing what happened at the instant an event was initiated. However, the details of the setting in which the event occurs also influence neural responses. For the _PlayMovie_ example of the previous section, events that occur between the _Onset_ and _Offset_ pairs for _PlayMovie_ should inherit the information that a particular movie is playing without requiring the user to explicitly enter those tags for every intervening event. This process should be deferred until analysis time because other events might be added to the event file after the initial annotation of the recording. For example, a user might run a tool to mark blink or other features as events prior to doing other analyses. HED uses the _Event-context_ tag to accomplish the required context mapping.
 
