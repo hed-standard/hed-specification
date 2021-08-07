@@ -2,7 +2,7 @@
 ### HED-3G (HED version 8.0.0) has been officially released
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
-want to annotate your data, please visit > [**HED organization website**](https://www.hedtags.org).
+want to annotate your data, please visit  [**HED organization website**](https://www.hedtags.org).
 
 ## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
@@ -107,7 +107,7 @@ of the [hed-python](https://github.com/hed-standard/hed-python) repository of
 
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-specification/tree/master/hedxml)
 
-> [**Stable  link for the latest version of the HED-generation2 schema**](https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml)
+> [**Stable link for the latest version of the HED**](https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedxml/HEDLatest.xml)
 
 
 ## HED-3G library schema
