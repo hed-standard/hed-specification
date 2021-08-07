@@ -979,7 +979,7 @@ Event annotations generally focus on describing what happened at the instant an 
 Table 3.4 summarizes the syntax of the _Event-context_ tag. In normal usage, **this tag is not used directly by annotators**.  Rather, tools insert the _Event-context_ tag at analysis time to handle the implicit context created by enduring or scoped events. However, annotators may use the tag when an event has explicit context information that must be accounted for.
 
 
-##### **Table 3.**4**.** Syntax for HED _Event-context_.
+##### **Table 3.4.** Syntax for HED _Event-context_.
 
 
 <table>
@@ -992,11 +992,11 @@ Table 3.4 summarizes the syntax of the _Event-context_ tag. In normal usage, **t
   <tr>
    <td><strong>Short form: </strong>
 <p>
-<em>(Event-context, <span style="text-decoration:underline;">other-tags</span>)</em>
+<em>(Event-context, other-tags)</em>
    </td>
    <td rowspan="2" >An event can have at most one <em>Event-context</em> tag group. 
 <p>
-HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
+HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em></em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
 <p>
 Other task-event relationships may be inserted as tags within the <em>Event-context</em> tag group either at annotation time or analysis time.
    </td>
@@ -1008,7 +1008,6 @@ Other task-event relationships may be inserted as tags within the <em>Event-cont
    </td>
   </tr>
 </table>
-
 
 
 ### 3.6. Experimental controls, conditions, and responses
@@ -1027,119 +1026,61 @@ To illustrate the use of condition-variables to document experiment design, cons
 
 In analysis, the researcher would typically combine all of the “slow presentation” trials into one group and all “fast presentation” trials into another group even though the exact task condition varies within the group varies according This type of grouping structure is very common in experiment design and can be captured by HED tags in a straightforward manner by defining condition variables for each group and using the # to capture variability within the group.
 
-**Example: **Definitions of condition variables for slow and fast visual presentation rates.
+**Example:** Definitions of condition variables for slow and fast visual presentation rates.
 
+**Short form:**
 
-    **Short form: **
+    (Definition/SlowPresentation/#,
+    (Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))
+    (Definition/FastPresentation/#,
+    (Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))        
 
+**Long form:**
 
-    _(Definition/SlowPresentation/#,  _
-
-
-    _(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))_
-
-
-    _(Definition/FastPresentation/#,  _
-
-
-    _(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))_         
-
-
-    **Long form:**
-
-
-    _(Property/Informational-property/Definition/**SlowPresentation/#**,_
-
-
-    _(Property/Organizational-property/**Condition-variable/Presentation**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-presentation**, Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-
-
-    _    device/**Computer-screen**,_
-
-
-    _Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/**Temporal-rate/#**))_
-
-
-    _(Property/Informational-property/Definition/**FastPresentation/#**,_
-
-
-    _(Property/Organizational-property/**Condition-variable/Presentation**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-presentation**, Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-
-
-    _    device/**Computer-screen**,_
-
-
-    _Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/**Temporal-rate/#**))_
+    (Property/Informational-property/Definition/SlowPresentation/#,
+    (Property/Organizational-property/Condition-variable/Presentation,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen, 
+    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
+    (Property/Informational-property/Definition/FastPresentation/#,
+    (Property/Organizational-property/**Condition-variable/Presentation,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
 
 _Organizational_ tags such as _Condition-variable_ are often used in the tag-groups of temporally scoped events. The _Onset_ of such an event represents the start of the _Condition-variable_. The corresponding _Offset_ marks the end of the period during which this condition is in effect. This type of annotation makes it straightforward to extract the experimental design from the events.
 
 **Example:** Annotation of a sensory presentation under the _SlowPresentation_ condition.
 
+**Short form:**
 
-    **Short form:_  _**
+    Sensory-event, (Def/SlowPresentation/1 Hz, Onset)
 
+**Long form:**
 
-    _Sensory-event_, _(Def/SlowPresentation/1 Hz, Onset)_
-
-
-    **Long form:**
-
-
-    _Event/**Sensory-event**, _
-
-
-    _(Property/Organizational-property/Def/**SlowPresentation/1 Hz**,_
-
-
-    _Property/Data-property/Data-marker/Temporal-marker/**Onset**)_
+    Event/Sensory-event, 
+    (Property/Organizational-property/Def/SlowPresentation/1 Hz,
+    Property/Data-property/Data-marker/Temporal-marker/Onset)
 
 During analysis, the _Def_ tags will be replaced with the actual definition’s tag group with an included _Def-expand_ tag giving the definition’s name. Note: expansion is done by tools at analysis time.
 
-**Example: **Show the expanded form of the sensory event of the previous example.
+**Example:** Show the expanded form of the sensory event of the previous example.
 
+Short form with expansion:**
 
-    **Short form with expansion:_  _**
+    Sensory-event,
+    ((Def-expand/SlowPresentation, Condition-variable/Presentation,
+    Visual-presentation, Computer-screen, Temporal-rate/1 Hz), Onset)
 
+**Long form with expansion:**
 
-    _Sensory-event_, 
-
-
-    _((Def-expand/SlowPresentation, Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/1 Hz), Onset)_   
-
-
-    **Long form with expansion:**
-
-
-    _Event/**Sensory-event**,_
-
-
-    _((Property/Organizational/Def-expand/**SlowPresentation**,_
-
-
-    _Property/Organizational/**Condition-variable/Presentation**,_
-
-
-    _Property/Sensory-property/Sensory-presentation/**Visual-presentation**,_
-
-
-    _Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-
-
-    _    device/**Computer-screen**,_
-
-
-    _Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/**Temporal-rate/1 Hz**),_
-
-
-    _Property/Data-property/Data-marker/Temporal-marker/**Onset**)_
-
-                         
+    Event/Sensory-event,
+    ((Property/Organizational/Def-expand/SlowPresentation,
+    Property/Organizational/Condition-variable/Presentation,
+    Property/Sensory-property/Sensory-presentation/Visual-presentation,
+    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/1 Hz),
+    Property/Data-property/Data-marker/Temporal-marker/Onset)
 
 Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (Analysis of Variance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags _Time-block_ and _Task-trial_ and used for visualizations of experimental layout.
 
@@ -1152,45 +1093,26 @@ A significant problem with schema design is term accretion. Each type of experim
 
 The _Parameter_ tag and its children _Parameter-label_ and _Parameter-value_ are general-purpose tags designed to fill the missing term gap. They can be used to tag important specific concepts in a way that can be used for automated tools without triggering problems of accretion. For example, consider the problem of how to annotate repetition lag between successive presentations of a particular face image. There are several ways to annotate, but annotating with Parameter is a good compromise between machine
 
-**Example: **Annotate the number of times a face image has appeared and the interval since last time this face was shown using _Parameter-value_:
+**Example:** Annotate the number of times a face image has appeared and the interval since last time this face was shown using _Parameter-value_:
 
+**Short form:**
 
-    **Short form: **
+    (Parameter-label/Count-of-this-face, Parameter-value/2)
+    (Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)
 
+**Example:** Annotate the number of times a face image has appeared and the interval since last time this face was shown using more specific tags for the value _Parameter-value_:
 
-    _(Parameter-label/Count-of-this-face, Parameter-value/2)_
+**Short form:**
 
+    (Parameter-label/Count-of-this-face, Item-count/2)
+    (Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15)
 
-    _(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)_
+**Long form:**
 
-**Example: **Annotate the number of times a face image has appeared and the interval since last time this face was shown using more specific tags for the value _Parameter-value_:
-
-
-    **Short form: **
-
-
-    _(Parameter-label/Count-of-this-face, Item-count/2)_
-
-
-    _(Parameter-label/Face-count-since-this-face-last-shown, Item-count-interval/15)_
-
-
-    **Long form:**
-
-
-    _(Property/Informational-property/Parameter/**Parameter-label/Count-of-this-face**,_
-
-
-    _Property/Data-property/Data-value/Quantitative-value/**Item-count/2**),_
-
-
-    _(Property/Informational-property/Parameter/**Parameter-**_
-
-
-    **_      label/Face-count-since-this-face-last-shown,_**
-
-
-    _Property/Data-property/Data-value/Quantitative-value/**Item-count-interval/15**),_
+    (Property/Informational-property/Parameter/Parameter-label/Count-of-this-face,
+    Property/Data-property/Data-value/Quantitative-value/Item-count/2),
+    (Property/Informational-property/Parameter/Parameter-label/Face-count-since-this-face-last-shown,
+    Property/Data-property/Data-value/Quantitative-value/Item-count-interval/15),
 
 Using more specific tags as in the second version allows downstream tools to treat the value as numeric integers, facilitating automated processing. The use of _Parameter_ alerts downstream tools that this entity represents something that annotators regard as important to compute or record for analysis. Summary tools can extract all of the experimental parameters and their values, while statistical tools can look for dependencies on these variables. The parameter names are designed to be self-documenting. Parameters are often used for derived values such as response times that are used as indicator variables in the experiment. They are also sometimes used as part of control variable definitions.
 
@@ -1203,8 +1125,6 @@ Third generation HED instead introduces the concept of the **HED library schema*
 
 Similar to the design principles imposed on function names and subclass organization in software development, HED library schemas must conform to some basic rules:
 
-
-
 1. Every term must be unique _within_ the library schema and must conform to the rules for HED schema terms.
 2. Schema terms should be readily understood by most users. The terms should not be ambiguous and should be meaningful in themselves without reference to their position in the schema hierarchy.
 3. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
@@ -1215,14 +1135,9 @@ As in Python programming, we anticipate that many different HED schema libraries
 
 ### 4.1. Defining a HED library schema
 
-A HED library schema is defined in the same way as the base HED schema except that it has an additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an illustration a library schema for driving. Syntax details for a library schema are similar to those for the base HED schema. 
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix B"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix B](#heading=h.gt7zln6326rb) explains these in more detail.
+A HED library schema is defined in the same way as the base HED schema except that it has an additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an illustration a library schema for driving. Syntax details for a library schema are similar to those for the base HED schema. **Appendix B** explains these in more detail.
 
 **Example:** A template of the _.mediawiki_ format of a HED library schema for driving: 
-
 
 ```
     HED library="driving" version="1.0.0" 
@@ -1233,13 +1148,9 @@ A HED library schema is defined in the same way as the base HED schema except th
     !# end hed
 ```
 
-
-The required sections specifying the schema attributes  are _unit-class-specification_, _unit-modifier-specification_, _value-class-specification_,_ schema-attribute-specification_, and
-
-_property-specification_.
+The required sections specifying the schema attributes  are _unit-class-specification_, _unit-modifier-specification_, _value-class-specification_, _schema-attribute-specification_, and _property-specification_.
 
 **Example:** A template for the XML version of the HED driving library.
-
 
 ```
    <?xml version="1.0" ?>
@@ -1248,9 +1159,7 @@ _property-specification_.
    </HED>
 ```
 
-
 The schema XML file should be saved as HED_driving_1.0.0.xml to facilitate specification in tools.
-
 
 ### 4.2. Defining a library schema namespace for tagging
 
@@ -1260,14 +1169,9 @@ The user must pass information about the library schema and their associated loc
 
 **Example:** _Action/Drive/Change-lanes_ is a tag from the driving library schema with local name _dp_. The following tags are all possible tags:
 
-
-    _dp:Action/Drive/Change-lanes_
-
-
-    _dp:Drive/Change-lanes_
-
-
-    _dp:Change-lanes_
+    dp:Action/Drive/Change-lanes
+    dp:Drive/Change-lanes
+    dp:Change-lanes
 
 A colon (:) is used to separate the qualifying local name from the remainder of the tag. Notice that _Action_ also appears in the standard HED schema. Identical terms may be used in a library schema and the standard HED schema. Use of the same term implies a similar purpose. Library schema developers should try not to reuse terms in the standard schema unless the intention is to convey a close or identical relationship.
 
@@ -1276,14 +1180,12 @@ A colon (:) is used to separate the qualifying local name from the remainder of 
 
 In addition to the specification of tags in the main part of a schema, a HED schema has sections that specify unit classes, unit modifiers, value classes, schema attributes, and properties. The rules for the handling of these sections for a library schema are as follows:
 
-
-
-1. The required sections of a library schema are: the <code><em>schema-specification </em></code>section, the <em>unit-class-specification </em>section, the<em> unit-modifier-specification </em>section, the <em>value-class-specification</em> section, the<em> schema-attribute-specification </em>section, and the <em>property-specification</em>. The library schema must include all required schema sections even if the content of these sections is empty.
+1. The required sections of a library schema are: the _schema-specification_, the _unit-class-specification_, the _unit-modifier-specification_, the _value-class-specification_ section, the _schema-attribute-specification_ section, and the _property-specification_. The library schema must include all required schema sections even if the content of these sections is empty.
 2. Any schema attribute, unit class, unit modifier, value class, or property used in the library schema must be specified in the appropriate section of the library schema regardless of whether these appear in base schema. Validators check the library schema strictly on the basis of its own specification without reference to another schema.
-3. HED only supports the schema properties listed in Table B.2: <em>boolProperty</em>, <em>unitClassProperty</em>, <em>unitModifierProperty</em>, <em>unitProperty</em>, and <em>valueClassProperty</em>.  If the library schema uses one of these in the library schema specification, then its specification must appear in the <em>property-specification</em> section of the library schema.
+3. HED only supports the schema properties listed in Table B.2: _boolProperty_, _unitClassProperty_, _unitModifierProperty_, _unitProperty_, and _valueClassProperty_.  If the library schema uses one of these in the library schema specification, then its specification must appear in the _property-specification_ section of the library schema.
 4. The library schema may define unit classes and units as desired or include unit classes or units from the base schema. Similarly, library schema may define unit modifiers or reuse unit modifiers from the base schema. HED validation and basic analysis tools validate these based strictly on the schema specification and do not use any outside information for these.
-5. The standard value classes (<em>dateTimeClass*</em>, <em>nameClass</em>, <em>numericClass*</em>, <em>posixPath*</em>, <em>textClass</em>) if used, should have the same meaning as in the base schema. The hard-coded behavior associated with the starred (*) value classes will be the same. Library schema may define additional value classes and specify their allowed characters, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
-6. The standard schema attributes (<em>allowedCharacter</em>, <em>defaultUnits</em>, <em>extensionAllowed</em>, <em>recommended</em>, <em>relatedTag</em>, <em>requireChild</em>, <em>required</em>, <em>SIUnit</em>, <em>SIUnitModifier</em>, <em>SIUnitSymbolModifier</em>, <em>suggestedTag</em>, <em>tagGroup</em>, <em>takesValue</em>, <em>topLevelTagGroup, unique, unitClass, unitPrefix, unitSymbol, valueClass</em>) should have the same meaning as in the base schema. The hard-coded behavior associated with the schema attributes will be the same. Library schema may define additional schema attributes. They will be checked for syntax, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
+5. The standard value classes (_dateTimeClass_*, _nameClass_, _numericClass*</em>, _posixPath_*, _textClass_) if used, should have the same meaning as in the base schema. The hard-coded behavior associated with the starred (*) value classes will be the same. Library schema may define additional value classes and specify their allowed characters, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
+6. The standard schema attributes (_allowedCharacter_, _defaultUnits_, _extensionAllowed_, _recommended_, _relatedTag_, <em>requireChild</em>, _required_, _SIUnit_, _SIUnitModifier_, _SIUnitSymbolModifier_, _suggestedTag_, _tagGroup_, _takesValue_, _topLevelTagGroup_, _unique_, _unitClass_, _unitPrefix_, _unitSymbol_, _valueClass_) should have the same meaning as in the base schema. The hard-coded behavior associated with the schema attributes will be the same. Library schema may define additional schema attributes. They will be checked for syntax, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
 7. Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking:
     1. All attributes used in the schema proper must be defined in the schema attribute section of the schema. Undefined attributes cause an error in schema validation.
     2. Similar rules apply to unit classes, unit modifiers, value classes, and properties.
@@ -1296,7 +1198,6 @@ The most common use case (for 99.9% of the HED users) is to use one of the stand
 
 **Example:** A portion of the `dataset_description.json` of a dataset using `HED8.0.0.xml` stored on GitHub.
 
-
 ```
     {
        "Name": "A wonderful experiment",
@@ -1305,44 +1206,36 @@ The most common use case (for 99.9% of the HED users) is to use one of the stand
     }
 ```
 
-
-
 #### 4.4.1 Proposed changes for HED library schemas handling in BIDS
 
-This section explains the changes that are being proposed in BIDS to accommodate access to HED library schemas. 
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix A.5.2.3"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix A.5.2.3](#heading=h.y21e401jv0vs)  explains the proposed programmatic interface to support library schemas within the BIDS validator and the accompanying JavaScript HED validator. This section will be updated as the proposals progress though the BIDS review process. All `"fileName"` keys in the following discussion point to the names of files located in the `./code` directory of the dataset tree.
+This section explains the changes that are being proposed in BIDS to accommodate access to HED library schemas. **Appendix A.5.2.3** explains the proposed programmatic interface to support library schemas within the BIDS validator and the accompanying JavaScript HED validator. This section will be updated as the proposals progress though the BIDS review process. All `"fileName"` keys in the following discussion point to the names of files located in the `./code` directory of the dataset tree.
 
 The major change to the BIDS specification is to allow the value associated with the `"HEDVersion"` key in the `dataset_description.json` file to be a dictionary rather than a string expressing the HED version. This proposed change will allow users more flexibility in specifying the base HED schema and will accommodate an arbitrary number of library schemas. The allowed top-level keys in this dictionary are: `"version"`, `"fileName"`, and `"libraries"`. The `"version"` and `"fileName"` keys pertain to the base HED schema, and if both are specified, `"version"` always takes precedence. 
 
 The `"libraries"` key points to a libraries dictionary. The keys of the libraries dictionary are the nicknames used in the dataset to reference the schema. The values  The `"version"` key specifies the HED version number of a schema in the standard library and has the same effect as directly specifying.  `"fileName"`
 
-**Example:** The following example specifies a base HED schema located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas with nicknames `"la"` and `"lb"`. 
-
+**Example:** The following example specifies a base HED schema located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas with nicknames `"la"` and `"lb"`.
 
 ```
     {
        "Name": "A wonderful experiment",
        "BIDSVersion": "1.4.0",
-    "HEDVersion": {
-        "fileName": "mylocalSchema.xml",
-        "libraries": {
-         "la": {
-             "libraryName": "libraryA",
-             "version": "1.0.2"
-         },
-         "lb": {
-             "fileName": "HED_libraryB_0.5.3.xml"
-         }
-           }
-    }
+       "HEDVersion": {
+          "fileName": "mylocalSchema.xml",
+          "libraries": {
+             "la": {
+               "libraryName": "libraryA",
+               "version": "1.0.2"
+             },
+             "lb": {
+                "fileName": "HED_libraryB_0.5.3.xml"
+              }
+          }
+       }
     }
 ```
 
-
-The `"la" library `schema is the `./hedxml/HED_libraryA_1.0.2.xml `file found in the <code>[hed-schema-library](https://github.com/hed-standard/hed-schema-library)</code> repository on the <code>[hed-standard](https://github.com/hed-standard)</code> working group GitHub site. HED tags from this library have the <code><em>la:</em></code> prefix (e.g., <code><em>la:XXX</em></code>).  The <code>"lb"</code> library schema can be found in the <code>./code/HED_libraryB_0.5.3.xml</code> file in the BIDS dataset. Tags from this library are prefixed with <code><em>lb:</em>. </code>NOTE: This specification is preliminary and is waiting the resolution of BIDS formats for specifying external files as outline in [BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/820).
+The `"la"` library schema is the `./hedxml/HED_libraryA_1.0.2.xml` file found in the [`hed-schema-library`](https://github.com/hed-standard/hed-schema-library) repository on the [`hed-standard`](https://github.com/hed-standard) working group GitHub site. HED tags from this library have the `la:` prefix (e.g., `la:XXX`).  The `"lb"` library schema can be found in the `./code/HED_libraryB_0.5.3.xml` file in the BIDS dataset. Tags from this library are prefixed with `lb:`. NOTE: This specification is preliminary and is waiting the resolution of BIDS formats for specifying external files as outline in [BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/820).
 
 
 ## 5. Behavior of HED tools
@@ -1363,8 +1256,7 @@ The HED tools require that each column of an event file contains items of the sa
 
 BIDS uses tab-separated-value (.tsv) format for event files, with a required `onset` column containing the time of the event in seconds. BIDS also requires a `duration` column for event files. 
 
-**Example: **Excerpt from a BIDS event file:
-
+**Example:** Excerpt from a BIDS event file:
 
 ```
     onset  duration  trial_type  response_time stim_file
@@ -1387,7 +1279,6 @@ BIDS allows the tagging of both categorical and non-categorical columns in these
 Each events file spreadsheet column containing categorical values may also have a categorical dictionary that documents the meaning of the data in that column. HED also provides for the HED tagging of non-categorical columns as explained below. The following example shows the JSON sidecar format for annotating the same event file of the previous section. The `"HED"` key for the `"trial_type"` column indexes the categorical dictionary associated with the `trial_type` column in the event file. 
 
 **Example:** JSON sidecar for annotating the columns of an events file.
-
 
 ```
     {
@@ -1435,7 +1326,7 @@ There are five levels of validation: tag level, string level, dictionary level, 
 
 #### 5.4.1. HED tag level validation
 
-HED tag level validation checks each individual HED tag against its associated schema. The long-form tag must be in the schema. HED tags that take a value (have a # child in the schema) must have values that only contain appropriate characters. If the HED tag # has a _unitClass_ attribute, the units must comply with those of the specified _unitClass_. If the HED tag has additional nodes beyond the leaf node in the schema, the _extensionAllowed_ attribute must be in effect for the leaf node. 
+HED tag level validation checks each individual HED tag against its associated schema. The long-form tag must be in the schema. HED tags that take a value (have a # child in the schema) must have values that only contain appropriate characters. If the HED tag `#` has a _unitClass_ attribute, the units must comply with those of the specified _unitClass_. If the HED tag has additional nodes beyond the leaf node in the schema, the _extensionAllowed_ attribute must be in effect for the leaf node. 
 
 
 #### 5.4.2. HED string level validation
@@ -1445,11 +1336,7 @@ HED string level validation focuses on the proper formation of HED strings and t
 
 #### 5.4.3. HED dictionary level validation
 
-HED dictionary validation assumes that the dictionaries have been written in the JSON format of 
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 5.3"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 5.3](#heading=h.m2k5zfg4zv7v). The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
+HED dictionary validation assumes that the dictionaries have been written in the JSON format of **Section 5.3**. The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
 
 
 #### 5.4.4. HED event-level validation
@@ -1475,11 +1362,7 @@ Third-generation HED analysis tools also require some additional infrastructure.
 
 ### 5.6. HED-annotated data in BIDS
 
-[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification along with supporting tools for organizing and describing brain imaging and behavioral data. BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`) files in various places in the dataset hierarchy. BIDS event files must have an `onset` column and a `duration` column. The example in 
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 5.2"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 5.2](#heading=h.n3ssop9weq2i) shows such a BIDS event file. BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. The example in Section 5.2 also includes a JSON data dictionary.  
+[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification along with supporting tools for organizing and describing brain imaging and behavioral data. BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`) files in various places in the dataset hierarchy. BIDS event files must have an `onset` column and a `duration` column. The example in **Section 5.2** shows such a BIDS event file. BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. The example in Section 5.2 also includes a JSON data dictionary.  
 
 HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). The [BIDS validator](https://github.com/bids-standard/bids-validator) incorporates calls to this package to validate HED tags in BIDS datasets.
 
@@ -1492,21 +1375,8 @@ The HED system is now in its third generation of development. HED was introduced
 
 The second-generation of HED is sometimes referred to as HED-2G. HED-2G has multiple hierarchies with concepts that vary independently in different hierarchies. For example, if red-triangles and green-triangles are terms in a hierarchy, one is also likely to need red-squares and green-squares as well as all of the other colors.  Separating independent concepts such as shapes and colors into separate hierarchies, eliminates an exponential vocabulary growth due to term duplication in different branches of the hierarchy.  HED-2G also introduced nested parentheses to allow clear grouping of related terms.  A number of datasets have been annotated in HED-2G and released. HED-2G versions are HED 5.0.0 to HED 7.x.x. Third generation HED or HED-3G starts with HED 8.0.0.
 
-To facilitate retagging of datasets previously tagged using HED-2G, we have created a mapping of HED-2G tags into HED-3G as described in [Mapping of HED7.1.1 to HED8.0.0](https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/ed).   We have also created python function `map_hed_versions`, which takes a mapping file and a spreadsheet and maps the tags in the spreadsheet from version A to version B. Each non-blank line of the mapping file is of the form:
-
-     Version-A-tag | Version-B-string [Notes]
-
-The mapping file contains mappings for all possible Version A HED tags. The vertical bar separates the Version A HED tag from the equivalent Version B HED string. The Version B HED string may contain placeholders of the form XXX, YYY, and ZZZ. When additional details need to be supplied that aren’t documented in Version A, a description of what is needed appears in square brackets. The `map_hed_versions` maps the Version A spreadsheet into the version B spreadsheet. Tags that need additional work by the user are marked. While not a complete automated mapping, the `map_hed_versions` function greatly reduces the conversion effort.
-
-While this remapping is convenient, a complete redesign of events and annotation is recommended to take advantage of the more powerful annotation capabilities of HED-3G.
-
-
-
 
 ## Appendices
-
-
-## 
 
 
 ## A. Resources in support of third generation HED
@@ -1516,59 +1386,30 @@ While this remapping is convenient, a complete redesign of events and annotation
 
 The following white paper explains the history, development, and motivation for third generation HED: 
 
-
-    Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).
-
-
-    Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).
-
-
-    [https://doi.org/10.31219/osf.io/5fg73](https://doi.org/10.31219/osf.io/5fg73)
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).
+> Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).
+> [https://doi.org/10.31219/osf.io/5fg73](https://doi.org/10.31219/osf.io/5fg73)
 
 The following white paper gives a detailed case study in using HED-3G for tagging:
 
-
-    Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
-
-
-    Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-
-
-    BioRxiv, 2021.05.06.442841. 
-
-
-    https://doi.org/10.1101/2021.05.06.442841
-
-The current specification document is this document, which is available at:
-
-
-    [https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing)
+> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
+> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
+> BioRxiv, 2021.05.06.442841. 
+> https://doi.org/10.1101/2021.05.06.442841
 
 A working document with the mapping of HED-3G terms and their descriptions to known ontologies is:
 
-
-    [https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing)
+> [https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing)
 
 Two other working documents hold portions of the HED-3G specification that are under development and will not be finalized for release 1:
 
+> HED-3G Working Document on Spatial Annotation
+> [https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing](https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing)
 
-    HED-3G Working Document on Spatial Annotation
-
-
-    [https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing](https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing)
-
-
-    HED-3G Working Document on Task Annotation
-
-
-    [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
-
-
-##### 
-
+> HED-3G Working Document on Task Annotation
+> [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
 
 ##### Table A.1. List of websites containing code and documentation.
-
 
 <table>
   <tr>
@@ -1670,7 +1511,6 @@ The HED schema is usually developed in _.mediawiki_ format and converted to XML 
 
 
 ##### **Table A.2.** HED web-based schema vocabulary viewers.
-
 
 <table>
   <tr>
@@ -1831,16 +1671,12 @@ The user enters the URL of a HED schema or uploads a HED schema file in either <
 </table>
 
 
-   
-
-
 #### A.4.2. HED web services
 
 HED services are accessed by passing a JSON dictionary of parameters in a request to the online server. All requests include a `service` name and additional parameters. Table A.5. summarizes the available web-services and their parameters. The meaning of the different parameters is given in Table A.6.  
 
 
 ##### Table A.5. Summary of available web-services. 
-
 
 <table>
   <tr>
@@ -1965,12 +1801,10 @@ check_for_warnings
   </tr>
 </table>
 
-
  The request is given as in JSON format. The possible keys and their types are described in Table A.6.
 
 
 ##### Table A.6. Top-level JSON parameter dictionary for HED services.
-
 
 <table>
   <tr>
@@ -2082,9 +1916,7 @@ check_for_warnings
 
 The web-services always return a JSON dictionary with four keys: `service`, `results`, `error_type`, and `error_msg`. If `error_type` and `error_msg` are not empty, the operation failed, while if these fields are empty, the operation completed. Completed operations always return their results in the `results` dictionary. The field of the `results` dictionary are shown in Table A.7
 
-
 ##### Table A.7. Keys in the `results` dictionary return as part of a HED web service response.
-
 
 <table>
   <tr>
@@ -2137,45 +1969,37 @@ The web-services always return a JSON dictionary with four keys: `service`, `res
   </tr>
 </table>
 
-
 The `hedweb/examples/matlab` directory of the `hed-python` repository gives running MATLAB examples of how to call these services in MATLAB.
-
 
 ### A.5. HED validation source code
 
-
 #### A.5.1. HED validation in python
 
-The python code for validation is in the` hedtools` project located in the `hed-python` repository [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). You can install the tools using `pip` if you have downloaded the `hed-python` repository:
+The python code for validation is in the  `hedtools` project located in the `hed-python` repository [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). You can install the tools using `pip` if you have downloaded the `hed-python` repository:
 
-      `pip install &lt;hedtools-local-path>`
+    pip install <hedtools-local-path>
 
-The validation functions are in the `hed.validator` module. The data representations for various items such as dictionaries or event files can be found in the `hed.models` module. The hed_input.py module reads in a spreadsheet and possibly a dictionary and creates a `HedInput` object representing the spreadsheet. The `hed-validator.py` module creates a `HedValidator` object that takes a `HedSchema` object to use in subsequent validation. The `validate_input` method of `HedValidator` validates HED input in various formats and returns a list of issues. 
-
+The validation functions are in the `hed.validator` module. The data representations for various items such as dictionaries or event files can be found in the `hed.models` module. The hed_input.py module reads in a spreadsheet and possibly a dictionary and creates a `HedInput` object representing the spreadsheet. The `hed-validator.py` module creates a `HedValidator` object that takes a `HedSchema` object to use in subsequent validation. The `validate_input` method of `HedValidator` validates HED input in various formats and returns a list of issues.
 
 #### A.5.2. HED validation in JavaScript
 
 The JavaScript code for HED validation is in the validation directory of the `hed-javascript` repository located at [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript).  
 
-
 ##### A.5.2.1. Installation
 
 You can install the validator using `npm`:
 
-      `npm install hed-validator`
-
+    npm install hed-validator
 
 ##### A.5.2.2. Usage
 
 This package contains two sub-packages. `hedValidator.validator` validates HED strings and contains the functions: `buildSchema`, which imports a HED schema and returns a JavaScript Promise object, and `validateHedString`, which validates a single HED string using the returned schema object. `hedValidator.converter` converts HED 3 strings between short and long forms and contains the following functions: `buildSchema`, which behaves similarly to the `buildSchema` function in `hedValidator.validator` except that it does not work with attributes, `convertHedStringToShort`, which converts HED strings from long form to short form, and `convertHedStringToLong`, which converts HED strings from short form to long form.
 
-
 ##### A.5.2.3. Programmatic interface
 
 The programmatic interface to the HED JavaScript `buildSchema` must be modified to accommodate a base HED schema and arbitrary library schemas. Section 4.3.1 outlined the proposed changes in the BIDS specification from the viewpoint of the user.  The BIDS validator will require additional changes to locate the relevant HED schemas from the specification given by `"HEDVersion"` in `dataset_description.json`. The programmatic interface is similar to the JSON specification of section 4.3.1, except that the `"fileName"` key has been replaced by a `"path"` key to emphasize that callers must replace filenames with full paths before calling `buildSchema`. 
 
-**Example: **JSON passed to `buildSchema` to construct the schemas needed for the example in Section 4.3.1. Here the dataset is located in `/data/wonderful`.
-
+**Example:** JSON passed to `buildSchema` to construct the schemas needed for the example in Section 4.3.1. Here the dataset is located in `/data/wonderful`.
 
 ```
     {
@@ -2193,13 +2017,11 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
     }
 ```
 
-
 **NOTE:** This interface is proposed and is awaiting resolution of BIDS PR #820 on file passing to BIDS.
-
 
 #### A.5.3. HED validation in MATLAB
 
-HED validation can be done using the online web-services from MATLAB as shown in the `./examples/matlab` directory of the <code>[hedweb](https://github.com/hed-standard/hed-python/tree/master/webtools)</code> project in the <code>[hed-python](https://github.com/hed-standard/hed-python)</code> repository.
+HED validation can be done using the online web-services from MATLAB as shown in the `./examples/matlab` directory of the [hedweb](https://github.com/hed-standard/hed-python/tree/master/webtools) project in the [hed-python](https://github.com/hed-standard/hed-python) repository.
 
 
 ### 
@@ -2207,24 +2029,18 @@ HED validation can be done using the online web-services from MATLAB as shown in
 
 ## B. HED schema specification and validation
 
-HED schema developers generally do initial development of the schema using _.mediawiki_ format. The tools to convert schema between _.mediawiki_ and _.xml_ format are located in the <code><em>hed.schema</em></code> module of the <code>[hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools)</code> project of the hed-python repository located at  [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). All conversions are performed by converting the schema to a HedSchema object and then The modules <em>wiki2xml.py</em> and <em>xml2wiki.py</em> provide top-level functions to perform these conversions. This appendix presents the rules for HED base and library schema in <em>.mediawiki</em> and <code><em>.xml</em></code> formats.
-
+HED schema developers generally do initial development of the schema using _.mediawiki_ format. The tools to convert schema between _.mediawiki_ and _.xml_ format are located in the `hed.schema` module of the [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) project of the hed-python repository located at  [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). All conversions are performed by converting the schema to a HedSchema object and then The modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these conversions. This appendix presents the rules for HED base and library schema in `.mediawiki` and `.xml` formats.
 
 ### B.1. Mediawiki file specification
 
-The rules for creating a valid _.mediawiki_ specification of a HED schema are given below. 
+The rules for creating a valid `.mediawiki` specification of a HED schema are given below. 
 
+#### B.1.1. The layout of the `.mediawiki` file
 
-#### B.1.1. The layout of the _.mediawiki_ file
+The overall layout of is `.mediawiki` schema file is:
 
-The overall layout of is _.mediawiki_ schema file is:
-
-
-    _header-line: HED . . ._
-
-
-    _prologue_
-
+    header-line: HED . . ._
+    prologue
 
 ```
     !# start schema
@@ -2232,9 +2048,7 @@ The overall layout of is _.mediawiki_ schema file is:
 
 
 
-    _schema-specification_
-
-
+    schema-specification
     !# end schema
 
 
@@ -2312,40 +2126,37 @@ The first line of the _.mediawiki_ file should be a _header-line_ that starts wi
   </tr>
 </table>
 
-
-The `library` and `version` values are used to form the official xml file name and appear as attributes in the `&lt;HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to verify the format `(>= 8.0.0-beta.3) have xmlns:xi and xsi:xsi:noNamespaceSchemaLocation` attributes.
+The `library` and `version` values are used to form the official xml file name and appear as attributes in the `&lt;HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xi` and `xsi:xsi:noNamespaceSchemaLocation` attributes.
 
 **Example:** Specify version 8.0.0-beta.1 of the HED base schema.
 
-       **The _.mediawiki_ _header-line_: ** `HED version="8.0.0-beta.1"`
+The `.mediawiki` file has a header line:
 
-       **The resulting XML root:** `&lt;HED version="8.0.0-beta.1">`
+    HED version="8.0.0-beta.1"
 
+The resulting XML root is:
 
-```
-    The file name in hedxml in hed-specification:  HED8.0.0-beta.1.xml
-```
+    <HED version="8.0.0-beta.1">
 
+The file name in hedxml in hed-specification is `HED8.0.0-beta.1.xml`.
 
-**Example:** Specify version 1.0.2 of the HED library schema _test_.
+**Example:** Specify version 1.0.2 of the HED library schema `test`.
 
-       **The _.mediawiki_ _header-line_:**  `HED library="test" version="1.0.2"  `
+The `.mediawiki`  has a header line:
 
-      ** The resulting XML root:** `&lt;HED library="test" version="1.0.2">`
+    HED library="test" version="1.0.2"
 
+The resulting XML root is:
 
-```
-    The file name in hedxml in hed schema library test:  HED_test_1.0.2.xml
-```
+    <HED library="test" version="1.0.2">`
 
+The file name in `hedxml` in the hed schema library `test` is `HED_test_1.0.2.xml`.
 
-Unknown _header-line_ attributes are translated as attributes of the `HED` root node of the `.xml` version, but a warning is used when the _.mediawiki_ file is validated.
-
+Unknown _header-line_ attributes are translated as attributes of the `HED` root node of the `.xml` version, but a warning is used when the `.mediawiki` file is validated.
 
 #### B.1.3. The _.mediawiki _specification format
 
 The beginning of the HED specification is marked by the _start-line_:
-
 
      `!# start schema`
 
@@ -2358,20 +2169,17 @@ The end of the main HED-specification is marked by the end-line:
     !# end schema
 ```
 
-
 The section separator lines (`!# start schema`, `!# end schema`, `!# end hed`) must only appear once in the file and must appear in that order within the file. A section separator is a line starting with !#.
 
-The body of the HED specification consists of two types of lines: top-level node-specification specifications and other node specifications. Each specification is a single line in the _.mediawiki_ file. Empty lines or lines containing only blanks are ignored. The basic format for a node-specification is:
+The body of the HED specification consists of two types of lines: top-level node-specification specifications and other node specifications. Each specification is a single line in the `.mediawiki` file. Empty lines or lines containing only blanks are ignored. The basic format for a node-specification is:
 
+    node-name  <nowiki>{attributes}[description]</nowiki>
 
-    `node-name  &lt;nowiki>{attributes}[description]&lt;/nowiki>` 
-
-Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`), while other node names have at least one preceding asterisk (*) followed by a blank and then the name. The number of asterisks indicates the level of the node in the subtree. HED-3G node names can only contain alphanumeric characters, hyphens, and underbars. They cannot contain blanks and must be unique. HED (2G) and earlier versions allow blanks.   Everything after the node name must be contained within `&lt;nowiki>&lt;/nowiki>` tags. Placeholder nodes have an empty node name, but are followed by a # enclosed in  `&lt;nowiki>&lt;/nowiki>` tags.
+Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`), while other node names have at least one preceding asterisk (*) followed by a blank and then the name. The number of asterisks indicates the level of the node in the subtree. HED-3G node names can only contain alphanumeric characters, hyphens, and underbars. They cannot contain blanks and must be unique. HED (2G) and earlier versions allow blanks.   Everything after the node name must be contained within `<nowiki></nowiki>` tags. Placeholder nodes have an empty node name, but are followed by a # enclosed in  `<nowiki></nowiki>` tags.
 
 **Example:** Different types of HED node specifications.
 
 **Top-level:**
-
 
 ```
     '''Property''' <nowiki>{extensionAllowed} [Subtree of properties.]</nowiki>
@@ -2382,13 +2190,11 @@ Normal-level:
 
 **Placeholder-level:**
 
-
 ```
     ****** <nowiki># {takesValue, unitClass=time, valueClass=numericClass}</nowiki>
 ```
 
-
-The _Duration_ tag of this example is at the fifth level below the root of its subtree. The tag: Property/_Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration_ is the long form. The placeholder in the example is the node directly below _Duration_ in the hierarchy.
+The _Duration_ tag of this example is at the fifth level below the root of its subtree. The tag: _Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration_ is the long form. The placeholder in the example is the node directly below _Duration_ in the hierarchy.
 
 
 #### B.1.4. Specification of different schema sections 
@@ -2399,7 +2205,6 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the HED unit class specification for time.
 
-
 ```
     '''Unit classes''' 
     * time <nowiki>{defaultUnits=s}</nowiki> 
@@ -2407,9 +2212,7 @@ The unit class specification section starts with `'''Unit classes'''`
     ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ```
 
-
 **Example:**  Part of the HED unit modifier specification.
-
 
 ```
     '''Unit modifiers''' 
@@ -2417,18 +2220,14 @@ The unit class specification section starts with `'''Unit classes'''`
     * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10^1]</nowiki>
 ```
 
-
 **Example:**  Part of the HED value class specification.
-
 
 ```
     '''Value classes'''
     * posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 ```
 
-
 **Example:**  Part of the HED schema attribute specification.
-
 
 ```
     '''Schema attributes'''
@@ -2436,16 +2235,12 @@ The unit class specification section starts with `'''Unit classes'''`
     * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
 ```
 
-
 **Example:**  Part of the property specification.
-
 
 ```
     '''Properties''' 
     * valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki> 
 ```
-
-
 
 ### B.2. HED XML format
 
@@ -2491,13 +2286,11 @@ The XML schema file format has a header, prologue, main schema, definitions, and
     </HED>
 ```
 
-
-The `&lt;prologue>xxx&lt;/prologue>` and `&lt;epilogue>xxx&lt;/epilogue>` elements are meant to be treated as opaque as far as schema processing goes. In earlier versions of HED the prologue section contained a Change Log for the schema as well as some basic documentation of syntax. The epilogue section contained additional metadata to be ignored during processing. The following subsections give a more detailed description of the format of these sections.
-
+The `<prologue>xxx</prologue>` and `<epilogue>xxx</epilogue>` elements are meant to be treated as opaque as far as schema processing goes. In earlier versions of HED the prologue section contained a Change Log for the schema as well as some basic documentation of syntax. The epilogue section contained additional metadata to be ignored during processing. The following subsections give a more detailed description of the format of these sections.
 
 #### B.2.1. The schema node specification
 
-The schema section of the HED XML document consists of an arbitrary number of `&lt;node>&lt;/node>` elements enclosed in a single `&lt;schema>&lt;/schema>` element.
+The schema section of the HED XML document consists of an arbitrary number of `<node></node>` elements enclosed in a single `<schema></schema>` element.
 
 
 ```
@@ -2508,9 +2301,7 @@ The schema section of the HED XML document consists of an arbitrary number of `&
     </schema>
 ```
 
-
-A `&lt;node>` element contains of a required `&lt;name>` child element, an optional `&lt;description> child element`, and an optional number of additional `&lt;attribute> `child elements:
-
+A `<node>` element contains a required `<name>` child element, an optional `<description>` child element, and an optional number of additional `<attribute>` child elements:
 
 ```
     <node>
@@ -2523,25 +2314,21 @@ A `&lt;node>` element contains of a required `&lt;name>` child element, an optio
     </node>
 ```
 
+The `<name>` element text must conform to the rules for naming HED schema nodes. It corresponds to the _node-name_ in the `mediawiki` specification and must not be empty. A `#` value is used to represent value place-holder elements.
 
-The &lt;name> element text must conform to the rules for naming HED schema nodes. It corresponds to the _node-name_ in the _.mediawiki_ specification and must not be empty. A # value is used to represent value place-holder elements.
+The `<description>` element has the text contained in the square brackets `[]` in the `.mediawiki` node specification. If the `.mediawiki` specification is missing or has an empty `[]`, the `<description>` element is omitted.
 
-The `&lt;description>` element has the text contained in the square brackets `[]` in the _.mediawiki_ node specification. If the _.mediawiki_ specification is missing or has an empty `[]`, the `&lt;description>` element is omitted.
+The optional `<attribute>` elements are derived from the attribute list contained in curly braces `{}` of the `.mediawiki` specification. An `<attribute>` element has a single non-empty `<name></name>` child element whose text value corresponds to the node-name of attribute in the corresponding `.mediawiki` file. If the attribute does not have the `boolProperty`, then the `<attribute>` element should also have one or more child `<value></value>` elements giving the value(s) of the attribute. 
 
-The optional `&lt;attribute>` elements are derived from the attribute list contained in curly braces `{}` of the _.mediawiki_ specification. An `&lt;attribute>` element has a single non-empty `&lt;name>&lt;/name>` child element whose text value corresponds to the node-name of attribute in the corresponding _.mediawiki_ file. If `the attribute does not have the boolProperty, then the &lt;attribute>` element should also have one or more child` &lt;value>&lt;/value>` elements giving the value(s) of the attribute. 
-
-**Example: **The `requireChild` attribute represents a boolean value. In the _.mediawiki _representation this attribute appears as `{requireChild}` if present and is omitted if absent.
+**Example:** The `requireChild` attribute represents a boolean value. In the `.mediawiki` representation this attribute appears as `{requireChild}` if present and is omitted if absent.
 
 **Old xml if true:**     
-
 
 ```
     <node requireChild="true"><name>xxx</name></node>
 ```
 
-
-**New xml if true:`  `**
-
+**New xml if true:**
 
 ```
     <node>
@@ -2552,19 +2339,15 @@ The optional `&lt;attribute>` elements are derived from the attribute list conta
     </node>
 ```
 
-
-**Example: **The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
-
+**Example:** The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
 
 ```
     {suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
 ```
 
-
 The `suggestedTag` attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are  valid HED tags in any form (short, long, or intermediate).
 
-**Old xml if present:     **
-
+**Old xml if present:**
 
 ```
     <node suggestedTag="Sweet,Gustatory/Salty, Attribute/Sensory/Gustatory/Sour">
@@ -2572,9 +2355,7 @@ The `suggestedTag` attribute is meant to be used by tagging tools to suggest add
     </node>
 ```
 
-
-**New xml if present:`  `**
-
+**New xml if present:**
 
 ```
     <node>
@@ -2585,17 +2366,12 @@ The `suggestedTag` attribute is meant to be used by tagging tools to suggest add
     	   <value>Gustatory/Salty</value>
     	   <value>Attribute/Sensory/Gustatory/Sour</value>
        </attribute>
+    </node>
 ```
-
-
-
-    `&lt;/node>` 
-
 
 #### B.2.2. Unit class and unit modifier definitions
 
-The valid HED-3G unit classes are defined in the `&lt;unitClassDefinitions> section of the XML schema file, and valid HED-3G unit modifiers are defined in the &lt;unitModifierDefinitions> section. These sections follow a format similar to the &lt;node> element in the &lt;schema>:`
-
+The valid HED-3G unit classes are defined in the `<unitClassDefinitions>` section of the XML schema file, and valid HED-3G unit modifiers are defined in the `<unitModifierDefinitions>` section. These sections follow a format similar to the `<node>` element in the `<schema>` section:
 
 ```
     <unitClassDefinitions>
@@ -2605,9 +2381,7 @@ The valid HED-3G unit classes are defined in the `&lt;unitClassDefinitions> sect
     </unitClassDefinitions>
 ```
 
-
-The `&lt;unitClassDefinition> elements have a required &lt;name>, an optional &lt;description> and an arbitrary number of additional &lt;attribute> child elements. These &lt;attribute> elements describe properties of the unit class rather than of individual unit types. In addition &lt;unitClassDefinition> elements may have an arbitrary number of &lt;unit> child elements.`
-
+The `<unitClassDefinition>` elements have a required `<name>`, an optional `<description>` and an arbitrary number of additional `<attribute>` child elements. These `<attribute>` elements describe properties of the unit class rather than of individual unit types. In addition, `<unitClassDefinition>` elements may have an arbitrary number of `<unit>` child elements.
 
 ```
     <unitClassDefinition>
@@ -2637,15 +2411,12 @@ The `&lt;unitClassDefinition> elements have a required &lt;name>, an optional &l
     </unitClassDefinition>
 ```
 
-
-
 #### B.2.2. Value class definitions and behavior
 
-HED has very strict rules about what characters are allowed in various elements of the HED schema, HED tags and the substitutions made for # placeholders. These rules are encoded in the schema using value classes. When a node name or placeholder substitution is given a particular value class, that name or substituted value can only contain the characters allowed for that value class. The allowed characters for a value class are specified in the definition of the value class. The HED validator and other HED tools may hardcode information about behavior of certain value classes (for example the `numericClass` value class). ** HED does not allow commas or quotes in any of its values.**
+HED has very strict rules about what characters are allowed in various elements of the HED schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in the schema using value classes. When a node name or placeholder substitution is given a particular value class, that name or substituted value can only contain the characters allowed for that value class. The allowed characters for a value class are specified in the definition of the value class. The HED validator and other HED tools may hardcode information about behavior of certain value classes (for example the `numericClass` value class). **HED does not allow commas or quotes in any of its values.**
 
 
 ##### Table B.2. Value classes.
-
 
 <table>
   <tr>
@@ -2699,11 +2470,9 @@ HED has very strict rules about what characters are allowed in various elements 
 </table>
 
 
-
 ##### * indicates additional syntax checks
 
-Value classes are defined in the `&lt;valueClassDefinitions> section of the XML schema file. These sections follow a format similar to the &lt;node> element in the &lt;schema>:`
-
+Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
 ```
     <valueClassDefinitions>
@@ -2713,12 +2482,9 @@ Value classes are defined in the `&lt;valueClassDefinitions> section of the XML 
     </valueClassDefinitions>
 ```
 
-
-
 #### B.2.3. Schema attribute definitions and properties
 
-The `&lt;schemaAttributeDefinitions> section` specifies the allowed attributes of the other elements including the `&lt;node>, &lt;unitClassDefinition>, &lt;unitModifierDefinition>`, and` &lt;valueClassDefinition> elements. The specifications of individual attributes are given in &lt;schemaAttributeDefinition> elements.`
-
+The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and `<valueClassDefinition>` elements. The specifications of individual attributes are given in `<schemaAttributeDefinition>` elements.
 
 ```
     <schemaAttributeDefinitions>
