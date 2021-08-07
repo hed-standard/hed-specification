@@ -3,18 +3,15 @@
 ## **HED Hierarchical Event Descriptors**
 
 
-### **Third generation specification beta version (HED-3G)**
+##### **Third generation specification(HED-3G)**
 
-
-### Available under the CC-BY 4.0 International license.
+##### Available under the CC-BY 4.0 International license.
 
 
 [TOC]
 
 
-
 ## 
-
 
 ## 1. Introduction
 
@@ -27,29 +24,27 @@ HED (an acronym for ‘Hierarchical Event Descriptors’) is an evolving framewo
 
 Third generation HED represents a significant advance in documenting the content and intent of experiments in a format that enables large-scale cross-study analysis of time-series behavioral and neuroimaging data, including but not limited to EEG, MEG, iEEG, eye-tracking, motion-capture, EKG, and audiovisual recording. In principle, third generation HED might be extended or adapted to annotate events in any other type of ordered or time series data. Without adequate documentation of the nature as well as the timing of these events, time series data may have limited value for further analysis beyond the specific analysis goal for which they were acquired. By adequately documenting experiment events using HED-3G, researchers can expand the utility of their data for a broader and longer lasting range of uses. 
 
-Recorded _events_ in behavioral and neuroimaging time series data** **may be of several types: (1) planned and delivered _sensory stimulation events_, or unplanned _sensory presentations_ experienced by the imaged participant(s) _or_ by other agents (e.g., human, animal, real, virtual, storied), (2) participant or other agent _action events_ (e.g., time-recorded onsets or other features of body and eye movements, facial expressions), (3) _data feature events _(e.g., emergent data features or phenomena, whether detected online by the recording application or noted _post hoc _through machine or expert inspection), (4) _control events_ (e.g., changes in experiment parameters, task conditions), (5) _procedure events_ (e.g., activities that occur during the course of the experiment such as administering a survey or taking a saliva swab), (6) _structural events_ (e.g., markers inserted for information about the experiment including metadata that might be useful for analysis), and (7) _measurement events_ (e.g., are markers inserted by external monitoring).
+Recorded events in behavioral and neuroimaging time series data may be of several types: (1) planned and delivered _sensory stimulation events_, or unplanned _sensory presentations_ experienced by the imaged participant(s) or by other agents (e.g., human, animal, real, virtual, storied), (2) participant or other agent _action events_ (e.g., time-recorded onsets or other features of body and eye movements, facial expressions), (3) _data feature events_ (e.g., emergent data features or phenomena, whether detected online by the recording application or noted post hoc through machine or expert inspection), (4) _control events_ (e.g., changes in experiment parameters, task conditions), (5) _procedure events_ (e.g., activities that occur during the course of the experiment such as administering a survey or taking a saliva swab), (6) _structural events_ (e.g., markers inserted for information about the experiment including metadata that might be useful for analysis), and (7) _measurement events_ (e.g., are markers inserted by external monitoring).
 
 First generation HED attempted to describe events using a strictly hierarchical vocabulary. Difficulties inherent in early approaches led to extension of the formal structure into a second and now third generation. The structure of the HED-3G vocabulary may now be better described as heterarchical collections of terms, each of which may have hierarchical syntax and definition. 
 
-HED-3G is also designed to be modular, thereby remaining compact in its core instantiation but allowing any number of ontological extensions for notating events in fields _beyond_ neuroimaging in which event-related interpretation of time series requires that events be adequately described to support analysis within a common framework. To enable and regulate the extension process, the root HED-3G head schema specified here includes, for the first time, _HED library schema_ to extend the HED vocabulary to include terms and concepts of importance to individual user communities — for example researchers who design and perform experiments to study brain and language, brain and music, or brain dynamics in natural or virtual reality environments. The HED library schema concept may also be used to extend HED annotation to encompass specialized vocabularies used in clinical research and practice. **When the term HED is used in this document, it refers to HED-3G unless explicitly stated otherwise. **
+HED-3G is also designed to be modular, thereby remaining compact in its core instantiation but allowing any number of ontological extensions for notating events in fields _beyond_ neuroimaging in which event-related interpretation of time series requires that events be adequately described to support analysis within a common framework. To enable and regulate the extension process, the root HED-3G head schema specified here includes, for the first time, _HED library schema_ to extend the HED vocabulary to include terms and concepts of importance to individual user communities — for example researchers who design and perform experiments to study brain and language, brain and music, or brain dynamics in natural or virtual reality environments. The HED library schema concept may also be used to extend HED annotation to encompass specialized vocabularies used in clinical research and practice. **When the term HED is used in this document, it refers to third generation (HED-3G) unless explicitly stated otherwise.**
 
 This document is a specification document that articulates syntax and processing rules for HED tool developers. The document provides some examples to illustrate these rules, but several separate tutorials and user guides are in the process of being developed. All HED-related source and documentation repositories are housed on the HED-standard GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard). A detailed list of HED resources appears in Appendix A. HED development is open-source and community-based. We encourage those interested to contribute to the development process. Users are encouraged to use the _Issues_ mechanism of the `hed-specification` repository on the GitHub `hed-standard` working group website: [https://github.com/hed-standard/hed-specification/issues](https://github.com/hed-standard/hed-specification/issues).
 
 
 ### 2.1. Goals of HED
 
-Event annotation documents the _things happening_ _during data recording_ whether or not they are necessarily relevant to data analysis and interpretation_. _Commonly recorded events in electrophysiological data collection include the initiation, termination, or other features of **stimulus presentations** and **participant** **actions**. Other events may be **unplanned environmental events **(for example, sudden onset of noise and vibration from construction work unrelated to the experiment, or a laboratory device malfunction), events recording **changes in experiment control** parameters as well as **data feature events** and control **mishap events** that cause operation to fall outside of normal experiment parameters. 
+Event annotation documents the _things happening during data recording_ whether or not they are necessarily relevant to data analysis and interpretation. Commonly recorded events in electrophysiological data collection include the initiation, termination, or other features of **stimulus presentations** and **participant** **actions**. Other events may be **unplanned environmental events** (for example, sudden onset of noise and vibration from construction work unrelated to the experiment, or a laboratory device malfunction), events recording **changes in experiment control** parameters as well as **data feature events** and control **mishap events** that cause operation to fall outside of normal experiment parameters. 
 
 The goals of HED are to provide a standardized annotation system that allows researchers to:
-
-
 
 1. _Document_ the exact natures of events (sensory, behavioral, environmental, and other) that occur during recorded time series data that may inform data analysis and interpretation.
 2. _Describe_ in detail the design of the experiment including participant task(s).
 3. _Relate_ event occurrences both to the experiment design and to participant tasks and experience.
 4. _Provide_ a basic infrastructure for building and using machine-actionable tools to systematically analyze data associated with recorded events in and across data sets, studies, paradigms, and modalities.
 
-Current systems in neuroimaging experiments do not record events beyond simple number (‘Event type 3’) or text (‘Event type ‘Target’’) labels whose more complete and precise meanings are known only to the experimenter(s). A central goal of HED is to enable building of archives of brain imaging data in a form amenable to new forms of larger scale analysis, both within _and_ _across_ studies. Such event-related analysis requires that the nature(s) of the recorded events be specified in a common language. The HED project seeks to formalize the development of this language, to develop and distribute tools that maximize its ease of use, and to inform new and existing researchers of its purpose and value.
+Current systems in neuroimaging experiments do not record events beyond simple numerical (‘3’) or text (‘Event type Target’) labels whose more complete and precise meanings are known only to the experimenter(s). A central goal of HED is to enable building of archives of brain imaging data in a form amenable to new forms of larger scale analysis, both within _and_ _across_ studies. Such event-related analysis requires that the nature(s) of the recorded events be specified in a common language. The HED project seeks to formalize the development of this language, to develop and distribute tools that maximize its ease of use, and to inform new and existing researchers of its purpose and value.
 
 
 ### 2.2. HED design principles
@@ -57,13 +52,12 @@ Current systems in neuroimaging experiments do not record events beyond simple n
 The near decade-long effort to develop effective event annotation for neurophysiological and behavioral data, culminating to date in HED-3G, has revealed the importance of four principals (aka the PASS principles), all of which have roots in other fields:
 
 
-
 1. **P**reserve orthogonality of concepts in specifying vocabularies.
 2. **A**bstract functionality into layers (e.g., more general vs. more specific).
 3. **S**eparate implementation from the interface (for flexibility).
 4. **S**eparate content from presentation (to maintain a unique, sufficient internal representation, while presenting data to users in forms they can more readily review and understand).
 
-	Orthogonality, the notion of keeping independently applicable concepts in separate hierarchies (1 above), has long been recognized as a fundamental principle in reusable software design, distilled in the design rule: _Favor composition over inheritance_ (Gamma et al. 1994). Abstraction of functionality into layers_ _(2)_ _and separation of content from presentation (4) are well-known principles in user-interface and graphics design that allow tools to maintain a single internal representation of needed information while emphasizing different aspects of the information when presenting it to users. Similarly, making validation code independent of the schema (3) allows redesign of the schema without having to re-implement the annotation validation tools.
+Orthogonality, the notion of keeping independently applicable concepts in separate hierarchies (1 above), has long been recognized as a fundamental principle in reusable software design, distilled in the design rule: _Favor composition over inheritance_ (Gamma et al. 1994). _Abstraction of functionality into layers_ (2) and _Separation of content from presentation_ (4) are well-known principles in user-interface and graphics design that allow tools to maintain a single internal representation of needed information while emphasizing different aspects of the information when presenting it to users. Similarly, making validation code independent of the schema (3) allows redesign of the schema without having to re-implement the annotation validation tools.
 
 
 ### 2.3. HED terminology
@@ -81,39 +75,27 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 
     An aspect of the experiment that is set or manipulated during the experiment to observe an effect or to manage bias. Condition variables are sometimes called independent variables.
 
-
 ##### Control-variable*
-
 
     An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.
 
-
 ##### Dataset
-
 
     A set of neuroimaging and behavioral data acquired for a purpose of a particular study. A dataset consists of data recordings acquired from one or more subjects, possibly from multiple sessions and sensor modalities. A dataset is often referred to as a study.
 
-
 ##### Event*
-
 
     _Something that happens during the recording_, or may be perceived by a participant as happening, to which a time of occurrence (most typically onset or offset) can be identified. Something expected by a participant to happen at a certain time that _does not_ happen can also be a meaningful recording event. The nature of other events may be known only to the experimenter or to the experiment control application (e.g., undisclosed condition changes in task parameters).
 
-
 ##### Event-context*
-
 
     Circumstances forming or contributing to the setting in which an event occurs that are relevant to its interpretation, assessment, and consequences.
 
-
 ##### Event-stream*
-
 
     A named sequence of events such as all of the events that are face stimuli or all of the events that are participant responses.
 
-
 ##### Experimental-participant*
-
 
     A living agent, particularly a human from whom data is acquired during an experiment, though in some paradigms other human participants may also play roles.
 
@@ -129,63 +111,43 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 
     A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in XML (_.xml_) format. The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
 
-
 ##### HED string
-
 
     A comma-separated list of HED tags and/or tag-groups. 
 
-
 ##### HED tag
 
-
-    A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: _Property/Agent-property_/_Agent-task-role_/_Experimental-participant_. Valid short-form tags are _Experimental-participant_, _Agent-task-role_/_Experimental-participant_, and _Agent-property_/_Agent-task-role_/_Experimental-participant_. HED tools should treat long-form and short-form tags interchangeably.
-
+    A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: _Property/Agent-property/Agent-task-role/Experimental-participant_. Valid short-form tags are _Experimental-participant_, _Agent-task-role/Experimental-participant_, and _Agent-property/Agent-task-role/Experimental-participant_. HED tools should treat long-form and short-form tags interchangeably.
 
 ##### Indicator-variable*
 
-
     An aspect of the experiment or task that is measured or calculated for analysis. Indicator variables, sometimes called dependent variables, can be data features that are calculated from measurements rather than aspects that are directly measured. 
-
 
 ##### Parameter*
 
-
     An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
-
 
 ##### Recording*
 
-
     A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
-
 
 ##### Reference-frame*
 
-
     A specified set of axes, primary orientation centered at a specified point of origin and having a specified scale. HED reference frames are usually anchored to some physical location or to an object or to another reference-frame that has an anchor.
-
 
 ##### Tag-group
 
-
     One or more valid, comma-separated HED tags or enclosed in parentheses to indicate that these tags belong together. Tag-groups may contain arbitrary nestings of other tags and tag-groups.
-
 
 ##### Task* 
 
-
     A set of structured activities performed by the participant that are integrally related to the purpose of the experiment. Tasks often include observations and responses to sensory presentations as well as specified actions in response to presented situations.
-
 
 ##### Temporal scope
 
-
     The time interval between events marking the beginning and end of something in the experiment. 
 
-
 ##### Time-block*
-
 
     A contiguous portion of the data recording during which some aspect of the experiment is fixed or noted.
 
@@ -194,29 +156,16 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 
 A HED schema is the formal specification of the HED vocabulary and rules for annotating events. A HED schema vocabulary is organized hierarchically so that similar concepts and terms appear close to one another in the organizational hierarchy. A HED schema is used to validate event annotations. Past, present, and future versions of the HED schema adhere to [semantic versioning](https://semver.org/) with version numbers of the form _x.y.z_ representing _major.minor.patch_ versions. Although schema developers work with HED schema in _.mediawiki_ format for ease in editing,  HED tools generally use XML versions of the HED schema. An expandable HTML browser is also available.
 
-HED schema XML filenames use the standardized format _HEDx.y.z.xml_. These standardized names make it easier for tools to locate the appropriate HED schema version in the HED working group [GitHub website](https://github.com/hed-standard). All schema versions are stored in the _hedxml_ directory of the [HED specification repository](https://github.com/hed-standard/hed-specification). Third generation HED begins with schema version _8.0.0xxx_. Thus, the first official release of the third generation HED schema will have the filename _HED8.0.0.xml_. Currently, HED-3G is in pre-release version _8.0.0-beta.1_ stored in the _HED8.0.0-beta.1.xml_ file in the _[hedxml-test](https://github.com/hed-standard/hed-specification/tree/master/hedxml-test)_ directory of the specification repository.
+HED schema XML filenames use the standardized format _HEDx.y.z.xml_. These standardized names make it easier for tools to locate the appropriate HED schema version in the HED working group [GitHub website](https://github.com/hed-standard). All schema versions are stored in the _hedxml_ directory of the [HED specification repository](https://github.com/hed-standard/hed-specification). Third generation HED begins with schema version _8.0.0_. Thus, the first official release of the third generation HED schema is _HED8.0.0.xml_. Releases are stored in _[hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)_ directory of the  _[hed-specification](https://github.com/hed-standard/hed-specification)_ repository. Deprecated versions of the HED schema are stored in the _[hedxml/deprecated](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated)_ directory of the _[hed-specification](https://github.com/hed-standard/hed-specification)_ repository.
 
-All of the data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Section 4"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Section 4](#heading=h.z3jbhrjhu638) of this document. A more detailed discussion of the HED schema format appears in 
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix B"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix B](#heading=h.gt7zln6326rb).
+All of the data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in **Appendix B**.
 
 
 #### 2.4.1. Mediawiki format for HED schemas
 
-HED schema developers can specify a new schema version or revision in _.mediawiki_ format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in 
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Appendix B"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Appendix B](#heading=h.gt7zln6326rb). 
+HED schema developers can specify a new schema version or revision in _.mediawiki_ format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in **Appendix B**.
 
 **Example:** An excerpt of a small portion of a HED schema in _.mediawiki_ format.
-
 
 ```
     HED version="8.0.0" 
@@ -253,41 +202,31 @@ HED schema developers can specify a new schema version or revision in _.mediawik
 ```
 
 
-Beginning with third generation HED (HED schema versions 8.0.0xxx and later), **_terms in a given schema must be unique within that schema._** This uniqueness rule allows automated expansion of short form HED strings into their full long forms. 
+Beginning with third generation HED (HED schema versions 8.0.0 and later), **terms in a given schema must be unique within that schema.** This uniqueness rule allows automated expansion of short form HED strings into their full long forms. 
 
 Top level tree root elements are enclosed by triple single quotes. Each child term within the schema must be on a single line that begins with a certain number of asterisks(*) corresponding to the term’s level within the hierarchy. 
 
-Everything after each HED term must be enclosed by `&lt;nowiki>&lt;/nowiki>` markup elements. Items within these markup elements include a term description and term attributes. Term (node element) descriptions, which are enclosed in square brackets in the mediawiki specification, indicate the meaning of the term or tag they modify. HED schema attributes, which are enclosed with curly braces, provide additional rules about how the tags and its modifying values should be used and handled by tools. Allowed HED schema attributes for HED terms are those schema attributes that do not have the `unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. 
+Everything after each HED term must be enclosed by `<nowiki></nowiki>` markup elements. Items within these markup elements include a term description and term attributes. Term (node element) descriptions, which are enclosed in square brackets in the mediawiki specification, indicate the meaning of the term or tag they modify. HED schema attributes, which are enclosed with curly braces, provide additional rules about how the tags and its modifying values should be used and handled by tools. Allowed HED schema attributes for HED terms are those schema attributes that do not have the `unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. 
 
 Attributes appear in the schema specification either as `name` attributes or as `name=value` pairs. The presence of a `name` attribute for a schema node element indicates that the attribute is true for that node, while the presence of a `name=value` attribute indicates that the attribute has the specified value for that node. If multiple values of a particular attribute are applicable, they should be specified as separate name-value pairs.
 
-The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a `#` node indicates that the user must supply a value consistent with the unit classes and value classes of the `#` node if it has any. Unit classes and value classes are specified in curly braces and treated like other schema attributes.  Lines with hashtag (#) placeholders should have everything after the asterisks enclosed by `&lt;nowiki>&lt;/nowiki>` markup elements. The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  In the above example, the `#` that is a child of the _Label_ node must include _Label_ when used (e.g., _Label/myLabel_). 
+The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a `#` node indicates that the user must supply a value consistent with the unit classes and value classes of the `#` node if it has any. Unit classes and value classes are specified in curly braces and treated like other schema attributes.  Lines with hashtag (#) placeholders should have everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements. The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  In the above example, the `#` that is a child of the _Label_ node must include _Label_ when used (e.g., _Label/myLabel_). 
 
 **Example:** The above syntax will render on GitHub as follows:
 
+    HED version="8.0.0" 
 
-    HED version=`"`8.0.0`"` 
-
-
-    **Prologue** 
-
-
+    '''Prologue'''
     This prologue introduces the schema.
-
 
     !# start schema
 
+    '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
+    * Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
 
-    **Event **[Something that happens at a given place and time.]
-
-
-
-* Sensory-event {suggestedTask=Task-event-role} [Something perceivable by an agent.]
-
-    **Property **{extensionAllowed} [A characteristic.]
-
-* Informational-property [A quality that pertains to information.]
-    * Label {requireChild} [A string of 20 or fewer characters.]
+    '''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
+    * Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
+    ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
         * # {takesValue, valueClass=nameClass} 
 
     !# end schema
@@ -390,18 +329,17 @@ The following is a translation of the _.mediawiki_ example from the previous sec
     </HED>
 ```
 
+Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the _.mediawiki_ version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the _.mediawiki_ file) are translated into `<attribute>` child elements of `<node>` in the _.xml_.  These schema attributes are not to be confused with the HED _Attribute_ tag that is part of the HED vocabulary. 
 
-Each `&lt;node>` element must have a `&lt;name>` child element corresponding to the HED tag term that it specifies. A `&lt;node>` element may also have a `&lt;description>` child element containing the text that appears in square brackets `[]` in the _.mediawiki_ version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the _.mediawiki_ file) are translated into &lt;attribute> child elements of `&lt;node>` in the _.xml_.  These schema attributes are not to be confused with the HED _Attribute_ tag that is part of the HED vocabulary. 
+The HED schema also includes a `<unitClassDefinitions> section that` specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
 
-The HED schema also includes a `&lt;unitClassDefinitions> section that` specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
+The `<unitModifierDefinitions>` section lists the SI unit multiples and submultiples that are allowed to be prepended to units that have the SIUnit schema attribute. 
 
-The `&lt;unitModifierDefinitions>` section lists the SI unit multiples and submultiples that are allowed to be prepended to units that have the SIUnit schema attribute. 
+The `<valueClassDefinitions> `section specifies rules for the values that are substituted for placeholders (`#`). Examples are special characters that are allowed for numeric values or dates. Placeholders that have no `valueClass` attributes, are assumed to follow the rules for HED tag naming described in the next section.
 
-The `&lt;valueClassDefinitions> `section specifies rules for the values that are substituted for placeholders (#). Examples are special characters that are allowed for numeric values or dates. Placeholders that have no `valueClass` attributes, are assumed to follow the rules for HED tag naming described in the next section.
+The `<schemaAttributeDefinitions>` section lists the schema attributes that apply to some nodes and definitions in other sections of the schema. The specification of which type of elements an attribute may apply to is specified by the property attributes of these schema attributes. 
 
-The `&lt;schemaAttributeDefinitions>` section lists the schema attributes that apply to some nodes and definitions in other sections of the schema. The specification of which type of elements an attribute may apply to is specified by the property attributes of these schema attributes. 
-
-The `&lt;schemaAttributeDefinitions>` section lists the schema attributes that apply to some nodes and definitions in other sections of the schema. The specification of which type of elements an attribute may apply to is specified by the property attributes of these schema attributes. 
+The `<schemaAttributeDefinitions>` section lists the schema attributes that apply to some nodes and definitions in other sections of the schema. The specification of which type of elements an attribute may apply to is specified by the property attributes of these schema attributes. 
 
 
 #### 2.4.3. Allowed characters in the HED schema
@@ -466,10 +404,9 @@ user-defined values.
 </table>
 
 
-
 ### 2.5. HED vocabulary top-level organization
 
-The HED-3G schema (version 8.0.0 and above) contains eight root trees of HED terms:_ **Event, Agent, Action, Item, Property, **_and **_Relation_**. 
+The HED-3G schema (version 8.0.0 and above) contains eight root trees of HED terms: **_Event_**, **_Agent_**, **_Action_**, **_Item_**, **_Property_**, and **_Relation_**. 
 
 The **_Event_** root tree terms indicate the general category of the event — such as whether it is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure. The HED annotations describing each event may be assembled from a number of sources during processing. The assembled HED string annotating an event should have at least one tag from the _Event_ tree, as many analysis tools use the _Event_ tags as a primary means of segregating, epoching and processing the data. Ideally, tags from the _Event_ subtree should appear at the top level of the HED annotation describing an event to facilitate analysis.
 
