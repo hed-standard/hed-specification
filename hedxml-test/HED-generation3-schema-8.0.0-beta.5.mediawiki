@@ -7,8 +7,8 @@ This schema is the first version that includes an xsd and requires unit class, u
 
 '''Event''' <nowiki>{suggestedTag=Task-property}[Something that happens at a given time and (typically) place. Elements of this tag subtree designate the general category in which an event falls.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-event-role, suggestedTag=Attribute/Sensory}[Something perceivable by the participant. An event meant to be an experimental stimulus should include the tag Task-property/Task-event-role/Experimental-stimulus.]</nowiki>
-* Agent-action <nowiki>{suggestedTag=Task-event-role, suggestedTag=Agent}[Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experimental-participant.]</nowiki>
-* Data-feature <nowiki>{suggestedTag=Data-property}[An event marking the occurrence of a data feature such as an interictal spike or alpha burst, often added post hoc to the data record.]</nowiki>
+* Agent-action <nowiki>{suggestedTag=Task-event-role, suggestedTag=Agent}[Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experiment-participant.]</nowiki>
+* Data-feature <nowiki>{suggestedTag=Data-property}[An event marking the occurrence of a data feature such as an interictal spike or alpha burst that is often added post hoc to the data record.]</nowiki>
 * Experiment-control <nowiki>[An event pertaining to the physical control of the experiment during its operation.]</nowiki>
 * Experiment-procedure <nowiki>[An event indicating an experimental procedure, as in performing a saliva swab during the experiment or administering a survey.]</nowiki>  
 * Experiment-structure <nowiki>[An event specifying a change-point of the structure of experiment. This event is typically used to indicate a change in experimental conditions or tasks.]</nowiki>
@@ -120,6 +120,7 @@ This schema is the first version that includes an xsd and requires unit class, u
 ***** Toe-off <nowiki>[Push with toe as part of a stride.]</nowiki>
 **** Trot <nowiki>[Run at a moderate pace, typically with short steps.]</nowiki>
 **** Walk <nowiki>[Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.]</nowiki>
+*** Move-torso <nowiki>[Move body trunk.]</nowiki>
 *** Move-upper-extremity <nowiki>[Move arm, shoulder, and/or hand.]</nowiki>
 **** Drop <nowiki>[Let or cause to fall vertically.]</nowiki>
 **** Grab <nowiki>[Seize suddenly or quickly. Snatch or clutch.]</nowiki>
