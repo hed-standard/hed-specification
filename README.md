@@ -1,4 +1,5 @@
 # Hierarchical Event Descriptors (HED)
+### HED-3G (HED version 8.0.0 has been officially released)
 HED is an evolving framework for the description and formal annotation of events 
 identified in time series data. The HED ecosystem includes a structured vocabulary
 together with tools for validation and for using HED annotations in data search, 
@@ -24,25 +25,13 @@ markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-spec
 
 ## Viewing and using HED schema
 The current generation of HED infrastructure is referred to as HED-3G 
-(HED third generation). HED-3G schema is under beta release (HED8.0.0-beta.1), and the
-<b>official release of HED-3G schema (HED8.0.0) is now Aug. 10.</b> Users are
-strongly recommended to use the latest version of the HED schema in doing their annotations.
+(HED third generation). Users are strongly recommended to use the latest version of the HED schema in doing their annotations. The latest version of the redesigned HED vocabulary is 8.0.0 which can be viewed at:
 
-The pre-release versions of HED8.0.0 are available in the hedxml-test directory. The current proposal is Beta.5
-> [**HTML view of HED8.0.0-beta.5**](https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.5) 
-> The proposed Beta.5 has a different top-level schema organization with *Property* and *Relation* as
-> top-level terms rather than *Agent-property*, *Data-property*, *Task-property*, and *Attribute*.
-> This change is motivated by the need to make a clear separation from properties and binary relations.
-> The change only affects the position in the schema of most terms, so short-form tagging will not be
-> greatly affected.
+> [**Expandable html view of HED8.0.0**](http://www.hedtags.org/display_hed.html?version=8.0.0) 
 
-**Note:** this version is in the new XML format and has not officially been moved to the hedxml directory. 
-The XML is in the hedxml-test directory.  
-
-To become acquainted with the HED vocabulary, open the [**expandable view of HED**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1).
-The current version of the HED specification document is available as: 
+A HED specification document, which describes the format and behavior of HED tools is available at : 
  
-> [HED-3G Hierarchical Event Descriptors specification-version beta.1](https://docs.google.com/document/d/1yGeGO6hpWmZYc8M_jyDyQ5clNhQRtV4i0wKx_12UJTI/view?usp=sharing). 
+> [HED-3G Hierarchical Event Descriptors specification](https://https://github.com/hed-standard/hed-specification/hed-spec/HEDspecification/md). 
 
 The following white papers give an overview of HED and how it is used.
 
@@ -55,26 +44,6 @@ The following white papers give an overview of HED and how it is used.
 > BioRxiv, 2021.05.06.442841. 
 > https://doi.org/10.1101/2021.05.06.442841
 
-### HED-3G vocabulary views
-The latest version of the redesigned HED vocabulary is 8.0.0-beta.1. This is a pre-release version 
-pending community comments:
-
-> [**Expandable html view of HED8.0.0-beta.1**](http://www.hedtags.org/display_hed.html?version=8.0.0-beta.1) 
-
-> [**Readable mediawiki view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0-beta.1.mediawiki) 
-
-> [**XML view of HED8.0.0-beta.1**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-beta.1.xml)  
-
-
-### HED-2G vocabulary views
-
-The latest version of HED-2G is 7.2.0:
-> [**Expandable html view of HED7.2.0**](https://www.hedtags.org/display_hed.html?version=7.2.0)  
-
-> [**Readable mediawiki view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation2-schema-7.2.0.mediawiki)
-
-> [**XML view of HED7.2.0**](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml)  
-
 
 ## HED generations and schema versions 
 The HED system has gone through two major restructurings since the original system
@@ -85,9 +54,8 @@ HED version number and the design generation.
 | --- | --- | --- |
 | 1.0 | 2011-01-01 | HED-1G |
 | 4.0.0 | 2016-02-25 | HED-2G |
-| 8.0.0 | 2021-07-15? | HED-3G |
+| 8.0.0 | 2021-08-07 | HED-3G |
 
-_? = release date tentative_
 
 HED-1G introduced the basic ideas of annotation using path strings and is
 still in use in the [HEADIT archive](https://headit.ucsd.edu). 

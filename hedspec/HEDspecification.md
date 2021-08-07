@@ -416,7 +416,7 @@ The **_Action_** root tree terms describe actions performed by agents.
 
 The **_Item_** root tree terms describe things with (actual or virtual) physical existence such as objects, sounds, or language. 
 
-Descriptive elements are organized in the **_Property _**rooted tree, and binary relations are in the **_Relation_** rooted tree. These descriptive elements should always be grouped with the elements they describe using parentheses. 
+Descriptive elements are organized in the **_Property_** rooted tree, and binary relations are in the **_Relation_** rooted tree. These descriptive elements should always be grouped with the elements they describe using parentheses. 
 
 
 ### 2.6. HED tag syntax and requirements
@@ -427,7 +427,6 @@ Table 2.2 compares the long forms of several representative tags to various equi
 
 
 ##### Table 2.2. Valid HED tags described by the excerpt of the previous sections.
-
 
 <table>
   <tr>
@@ -465,29 +464,19 @@ Table 2.2 compares the long forms of several representative tags to various equi
 </table>
 
 
- 
-
 A **HED string** is a comma-separated list of HED tags and/or HED tag groups. A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in parentheses. Tag groups may include other tag groups. Parentheses convey association, since HED strings are _unordered_ lists. The terms in a HED string must be unique, thus, a HED string forms a set.
 
 **Example:** A nested HED tag group indicating that the experiment’s subject pressed a mouse button.
 
+**Short form:**
 
-    **Short form: **
+    ((Human-agent, Experiment-participant), (Press, Mouse-button))
 
+**Long form:**
 
-    _((Human-agent, Experiment-participant), (Press, Mouse-button))_
-
-
-    **Long form: **
-
-
-    _((Agent/**Human-agent**, _
-
-
-    _ Property/Agent-property/Agent-task-role/**Experiment-participant**),_
-
-
-    _ (Action/Move/Move-body-part/Move-upper-extremity/**Press**, _
+    ((Agent/Human-agent,
+    Property/Agent-property/Agent-task-role/Experiment-participant),
+    (Action/Move/Move-body-part/Move-upper-extremity/Press,
 
 
     _ Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/**Mouse-button**))     _
