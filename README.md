@@ -1,12 +1,12 @@
 # Hierarchical Event Descriptors (HED)
-### HED-3G (HED version 8.0.0) has been officially released
+### HED-3G (HED schema version 8.0.0) has been officially released
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
 want to annotate your data, please visit the [**HED organization website**](https://www.hedtags.org).
 
 ## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
-identified in time series data. The HED ecosystem includes a structured vocabulary
+identified in time series data. The HED ecosystem includes a structured vocabulary (HED schema)
 together with tools for validation and for using HED annotations in data search, 
 extraction, and analysis. While HED can be used to annotate any type of event, 
 the current HED community focuses on annotation of events in human 
@@ -22,7 +22,7 @@ string: *Red* instead of *Attribute/Sensory/Sensory-property/Visual/Color/CSS-co
 
 This repository contains the HED schema specification, where discussions on schema terms and syntax are held via Github issue mechanism and where HED-supporting tools can find machine-readable format of the schema. The HED schema is available in MediaWiki and XML. The MediaWiki markdown format, stored in [`hedwiki`](https://github.com/hed-standard/hed-specification/tree/master/hedwiki),
 allows vocabulary developers to view and edit the vocabulary tree using a human-readable markdown 
-language available in Wikis and on GitHub repositories. In addition, an expandable non-editable HTML viewer is available
+language available in Wikis and on GitHub repositories. In addition, an expandable non-editable [HTML viewer](http://www.hedtags.org/display_hed.html)  is available
 to help users explore the vocabulary.
 
 All analysis and validation tools operate on an XML translation of the vocabulary 
@@ -30,9 +30,9 @@ markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-spec
 
 ## Viewing and using HED schema
 The current generation of HED infrastructure is referred to as HED-3G 
-(HED third generation). Users are strongly recommended to use the latest version of the HED schema in doing their annotations. The latest version of the redesigned HED vocabulary is 8.0.0 which can be viewed at:
+(HED third generation), starting with HED schema version 8.0.0. Users are strongly recommended to use the latest version of the HED schema in doing their annotations, which can be viewed at:
 
-> [**Expandable html view of HED8.0.0**](http://www.hedtags.org/display_hed.html?version=8.0.0) 
+> [**Expandable html view of the latest version of the HED schema**](http://www.hedtags.org/display_hed.html) 
 
 A HED specification document, which describes the format and behavior of HED tools is available at : 
  
@@ -53,9 +53,9 @@ The following white papers give an overview of HED and how it is used.
 ## HED generations and schema versions 
 The HED system has gone through two major restructurings since the original system
 (HED-1G) was introduced. The following table shows the correspondence between 
-HED version number and the design generation.
+HED schema version number and the design generation.
 
-| version | release date | HED generation |
+| schema version | release date | HED generation |
 | --- | --- | --- |
 | 1.0 | 2011-01-01 | HED-1G |
 | 4.0.0 | 2016-02-25 | HED-2G |
@@ -65,11 +65,11 @@ HED version number and the design generation.
 HED-1G introduced the basic ideas of annotation using path strings and is
 still in use in the [HEADIT archive](https://headit.ucsd.edu). 
 
-A major redesign of HED, HED-2G released in 2016 (4.0.0 <= HED version < 8.0.0), 
+A major redesign of HED, HED-2G released in 2016 (4.0.0 <= schema version < 8.0.0), 
 orthongonalized the vocabularly terms and introduced parentheses for grouping modifiers
 with the terms they modify, resulting in much improved annotation. 
 
-The second majoring restructuring, HED-3G (7.x.x < HED version), 
+The second majoring restructuring, HED-3G (7.x.x < schema version), 
 has resulted in a dramatic improvement in capabilities, including the 
 introduction of annotations of condition variables and experimental 
 design within the data as well as the ability to handle event context 
