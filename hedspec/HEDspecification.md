@@ -996,7 +996,7 @@ Table 3.4 summarizes the syntax of the _Event-context_ tag. In normal usage, **t
    </td>
    <td rowspan="2" >An event can have at most one <em>Event-context</em> tag group. 
 <p>
-HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em></em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
+HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
 <p>
 Other task-event relationships may be inserted as tags within the <em>Event-context</em> tag group either at annotation time or analysis time.
    </td>
@@ -2494,9 +2494,7 @@ The `<schemaAttributeDefinitions>` section specifies the allowed attributes of t
     </schemaAttributeDefinitions>
 ```
 
-
-The individual `&lt;schemaAttributeDefinition> elements have the following format:`
-
+The individual `<schemaAttributeDefinition>` elements have the following format:
 
 ```
     <schemaAttributeDefinition>
@@ -2509,12 +2507,10 @@ The individual `&lt;schemaAttributeDefinition> elements have the following forma
     <schemaAttributeDefinition>
 ```
 
-
-The `&lt;property>` elements indicate where various schema attributes apply. Their meanings are hard-coded into the schema processors. Table B.3 lists the names of these properties.
+The `<property>` elements indicate where various schema attributes apply. Their meanings are hard-coded into the schema processors. Table B.3 lists the names of these properties.
 
 
 ##### Table B.3. HED schema attribute properties.
-
 
 <table>
   <tr>
@@ -2526,7 +2522,7 @@ The `&lt;property>` elements indicate where various schema attributes apply. The
   <tr>
    <td><code>boolProperty</code>
    </td>
-   <td>If a schema attribute has this property, then its values are either true or false. The schema processing translates the attribute into an <code>&lt;attribute> element </code>with a <code>&lt;name> </code>child but no<code> &lt;value> </code>child<code>.</code> 
+   <td>If a schema attribute has this property, then its values are either true or false. The schema processing translates the attribute into an <code>&lt;attribute></code> element with a <code>&lt;name></code> child but no <code>value</code> child.
    </td>
   </tr>
   <tr>
@@ -2556,13 +2552,12 @@ The `&lt;property>` elements indicate where various schema attributes apply. The
 </table>
 
 
-A given schema attribute can only apply to one type of element (`&lt;node>, ` `&lt;unitClassDefinition>,` `&lt;unitModifierDefinition>` or `&lt;unit>`). Attributes that don’t have one of `&lt;unitClassProperty>`, `&lt;unitClassProperty>` or `&lt;unitProperty>` are assumed to apply to `&lt;node>` elements.
+A given schema attribute can only apply to one type of element (`<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>` or `<unit>`). Attributes that don’t have one of `<unitClassProperty>`, `<unitClassProperty>` or `<unitProperty>` are assumed to apply to `<node>` elements.
 
 Table B.4 gives a list of the supported HED schema attributes. These attributes apply to different parts of the schema as indicated by their properties. 
 
 
 ##### Table B.4. HED schema attributes.
-
 
 <table>
   <tr>
@@ -2687,17 +2682,12 @@ Table B.4 gives a list of the supported HED schema attributes. These attributes 
   </tr>
 </table>
 
-
 * indicates an attribute that is new to HED-3G.
 
 In addition to the attributes listed in Table B.4, some schema attributes have been deprecated and are no longer supported in HED-3G, although they are still present in earlier versions of the schema. Table B.5 lists these attributes.
 
 
-##### 
-
-
 ##### Table B.5. Deprecated HED schema attributes.
-
 
 <table>
   <tr>
@@ -2734,9 +2724,7 @@ In addition to the attributes listed in Table B.4, some schema attributes have b
 
 Table B.6 lists the current unit classes for HED-3G.
 
-
 ##### Table B.6. Unit classes for HED-3G.
-
 
 <table>
   <tr>
@@ -2878,13 +2866,9 @@ Table B.6 lists the current unit classes for HED-3G.
 </table>
 
 
-
-
 Table B.7 lists the current unit modifiers for HED-3G.
 
-
 ##### Table B.7. SI unit modifiers for HED-3G. 
-
 
 <table>
   <tr>
@@ -3021,11 +3005,7 @@ Table B.7 lists the current unit modifiers for HED-3G.
 
 ### B.3. HED schema errors
 
-This section is organized by the type of schema format that results in the error. Errors that might be detected regardless of the schema format start with HED_SCHEMA. Errors that are specific to the _.mediawiki_ format start with HED_WIKI.  Errors that occur in the construction of the XML version or that are detected by XML validators when the planned XSD validation is implemented start with HED_XML. All of the schema errors are summarized in 
-
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "Table B.8"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-[Table B.8](#heading=h.owg0famlc396).
+This section is organized by the type of schema format that results in the error. Errors that might be detected regardless of the schema format start with HED_SCHEMA. Errors that are specific to the _.mediawiki_ format start with HED_WIKI.  Errors that occur in the construction of the XML version or that are detected by XML validators when the planned XSD validation is implemented start with HED_XML. All of the schema errors are summarized in **Table B.8**.
 
 
 #### B.3.1. General schema errors
@@ -3047,7 +3027,7 @@ This section is organized by the type of schema format that results in the error
 
 #### B.3.2. HED format-specific schema errors.
 
-**HED_WIKI_DELIMITERS_INVALID**: Line content after node name is not enclosed with `&lt;nowiki>&lt;/nowiki> `delimiters; or the line has unmatched or multiple `&lt;nowiki>&lt;/nowiki>`, `[ ]`, or` { }` delimiters.
+**HED_WIKI_DELIMITERS_INVALID**: Line content after node name is not enclosed with `<nowiki></nowiki> `delimiters; or the line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or` { }` delimiters.
 
 **HED_WIKI_LINE_START_INVALID**: Start of body line not `'''` or `*`.
 
@@ -3060,9 +3040,7 @@ This section is organized by the type of schema format that results in the error
 
 Table B.9 summarizes the errors relevant for HED schema.
 
-
 ##### **Table B.**9**.** Validation errors for HED schema.
-
 
 <table>
   <tr>
@@ -3140,10 +3118,6 @@ Table B.9 summarizes the errors relevant for HED schema.
 </table>
 
 
-
-### 
-
-
 ## C. HED syntax details and validation errors
 
 This appendix specifies the details and requirements for HED tags. It also summarizes the error codes used by the HED validators. 
@@ -3153,9 +3127,7 @@ This appendix specifies the details and requirements for HED tags. It also summa
 
 **HED_INVALID_CHARACTER**: HED uses ASCII encoding and does not support UTF-8. The allowed punctuation is limited. Table C.1 lists the allowed characters for various HED elements and explains some associated rules. 
 
-
 ##### Table C.1. Valid characters for various HED elements.
-
 
 <table>
   <tr>
@@ -3169,13 +3141,13 @@ This appendix specifies the details and requirements for HED tags. It also summa
    </td>
    <td>Upper or lower case letters, numbers, hyphens, underbars.
 <p>
-The # is allowed as a placeholder in some situations. 
+The `#` is allowed as a placeholder in some situations. 
 <p>
-No blanks are allowed for HED versions > 8.0.0-alpha.1
+No blanks are allowed for HED versions >  8.0.0-alpha.1
 <p>
 Blanks around comma and parentheses delimiters are not considered to be part of the HED tag, but rather part of the separating delimiters. 
 <p>
-<strong>Style recommendation: </strong>HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.
+<strong>Style recommendation:</strong>HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.
    </td>
   </tr>
   <tr>
@@ -3204,7 +3176,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 ### C.2. HED validation errors 
 
-**HED_CHARACTER_INVALID: **String contains an invalid character. HED uses ANSI encoding and does not support UTF-8. Different parts of a HED string have different rules for acceptable characters as outlined in the specification (Section C.1).
+**HED_CHARACTER_INVALID**: String contains an invalid character. HED uses ANSI encoding and does not support UTF-8. Different parts of a HED string have different rules for acceptable characters as outlined in the specification (Section C.1).
 
 **HED_COMMA_MISSING**: HED tag groups must be separated from other HED tags and tag groups with commas. Commas missing between two HED tags are generally detected as invalid HED tags, rather than as missing commas.
 
@@ -3226,7 +3198,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_PARENTHESES_MISMATCH**: The number of opening and closing parentheses in a HED string must be equal. 
 
-**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (#) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
+**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (`#`) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
 
 **HED_REQUIRED_TAG_MISSING**: A tag has the required attribute but is not present in the assembled event string.
 
@@ -3238,23 +3210,23 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_TAG_EXTENDED**: (WARNING) Issued to warn annotators that this tag represents an extension of the HED schema. Often such tags were really spelling errors and not meant to extend the schema.
 
-**HED_TAG_GROUP_ERROR:** A tag has <code><em>tagGroup</em></code> or <code><em>topLevelTagGroup</em></code> attribute but is not in an appropriate tag group or a <em>topLevelTagGroup</em> tag appears in the same tag group as other tags with the <em>topLevelTagGroup</em> attribute.
+**HED_TAG_GROUP_ERROR:** A tag has `tagGroup` or `topLevelTagGroup` attribute but is not in an appropriate tag group or a `topLevelTagGroup` tag appears in the same tag group as other tags with the `topLevelTagGroup` attribute.
 
 **HED_TAG_INVALID**: The tag is not valid in this schema, has incorrect format, or is used as a tag extension or placeholder value while appearing elsewhere in the schema. Note: an existing HED node cannot be used as a value or extension.
 
 **HED_TAG_NOT_UNIQUE**: This event-level HED string has multiple occurrences of a tag with the _unique_ schema attribute.
 
-**HED_TAG_REPEATED**: HED tags or tag-group cannot be repeated in grouping. _(A, (A, B))_ is not considered to be a duplicate, while  _(A, (B, C), A) _and _(A, (B, C), (C, B))_ are repeated. HED strings are not ordered, so _(B, C)_ is considered to be equivalent to _(B, C)_.
+**HED_TAG_REPEATED**: HED tags or tag-group cannot be repeated in grouping. _(A, (A, B))_ is not considered to be a duplicate, while  _(A, (B, C), A)_ and _(A, (B, C), (C, B))_ are repeated. HED strings are not ordered, so _(B, C)_ is considered to be equivalent to _(B, C)_.
 
 **HED_TAG_REQUIRES_CHILD**: A HED tag requires an additional ending node because its current ending node has the _requireChild_ schema attribute.
 
-**HED_TILDES_UNSUPPORTED**: The tilde notation is no longer supported. Replace (a ~ b ~ c) with (a, (b, c)). Replace (a ~ b) with (a, b).
+**HED_TILDES_UNSUPPORTED**: The tilde notation is no longer supported. Replace _(A ~ B ~ C)_ with _(A, (B, C))_. Replace _(A ~ B)_ with _(A, B)_.
 
 **HED_UNITS_DEFAULT_USED**: (WARNING) A HED tag value is missing units so the default units are used.
 
 **HED_UNITS_INVALID**: The HED tag has a value with units that are invalid or not of the correct unit class for the tag. A typical mistake is to use unit modifiers with units that are not SI units.
 
-**HED_VALUE_INVALID**: The value substituted for a placeholder (#) is not valid or compatible with the specified value class.
+**HED_VALUE_INVALID**: The value substituted for a placeholder (`#`) is not valid or compatible with the specified value class.
 
 **HED_VALUE_IS_NODE**: An existing HED node name cannot be used as a value or extension. This is true for all HED schemas regardless of version.
 
