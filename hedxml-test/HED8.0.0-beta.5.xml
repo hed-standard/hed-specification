@@ -21,7 +21,7 @@
          </node>
          <node>
             <name>Agent-action</name>
-            <description>Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experimental-participant.</description>
+            <description>Any action engaged in by an agent (see the Agent subtree for agent categories). A participant response to an experiment stimulus should include the tag Agent-property/Agent-task-role/Experiment-participant.</description>
             <attribute>
                <name>suggestedTag</name>
                <value>Task-event-role</value>
@@ -30,7 +30,7 @@
          </node>
          <node>
             <name>Data-feature</name>
-            <description>An event marking the occurrence of a data feature such as an interictal spike or alpha burst, often added post hoc to the data record.</description>
+            <description>An event marking the occurrence of a data feature such as an interictal spike or alpha burst that is often added post hoc to the data record.</description>
             <attribute>
                <name>suggestedTag</name>
                <value>Data-property</value>
@@ -554,6 +554,10 @@
                      <name>Walk</name>
                      <description>Move at a regular pace by lifting and setting down each foot in turn never having both feet off the ground at once.</description>
                   </node>
+               </node>
+               <node>
+                  <name>Move-torso</name>
+                  <description>Move body trunk.</description>
                </node>
                <node>
                   <name>Move-upper-extremity</name>
@@ -2645,14 +2649,28 @@
                      <node>
                         <name>Backward</name>
                         <description>Directed behind or to the rear.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Forward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Downward</name>
                         <description>Moving or leading toward a lower place or level.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Leftward</value>
+                           <value>Rightward</value>
+                           <value>Upward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Forward</name>
                         <description>At or near or directed toward the front.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Backward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Horizontally-oriented</name>
@@ -2661,22 +2679,44 @@
                      <node>
                         <name>Leftward</name>
                         <description>Going toward or facing the left.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Downward</value>
+                           <value>Rightward</value>
+                           <value>Upward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Oblique</name>
                         <description>Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Rotated</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Rightward</name>
                         <description>Going toward or situated on the right.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Downward</value>
+                           <value>Leftward</value>
+                           <value>Upward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Rotated</name>
-                        <description>Move or cause to move in a circle around an axis or center.</description>
+                        <description>Positioned offset around an axis or center.</description>
                      </node>
                      <node>
                         <name>Upward</name>
                         <description>Moving, pointing, or leading to a higher place, point, or level.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Downward</value>
+                           <value>Leftward</value>
+                           <value>Rightward</value>
+                        </attribute>
                      </node>
                      <node>
                         <name>Vertically-oriented</name>
