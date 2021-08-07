@@ -1,5 +1,10 @@
 # Hierarchical Event Descriptors (HED)
-### HED-3G (HED version 8.0.0 has been officially released)
+### HED-3G (HED version 8.0.0) has been officially released
+
+**Note** This repository is primarily for managing the HED vocabulary. If you just 
+want to annotate your data, please visit > [**HED organization website**](https://www.hedtags.org).
+
+## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
 identified in time series data. The HED ecosystem includes a structured vocabulary
 together with tools for validation and for using HED annotations in data search, 
@@ -81,11 +86,6 @@ All of the HED software is open-source and organized into various repositories o
 
 > [**HED organization github repository**](https://github.com/hed-standard)
 
-### HED-3G document mapping to defined terms in existing ontologies
-
-The following working document describes the origin of the descriptions associated with individual nodes in the HED-3G hierarchy. Many terms appear in the NCIT ontology (National Cancer Institute Thesaurus OBO edition).
-
-> [**Google doc with mapping of HED-3G term descriptions to existing ontology terms**](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing) 
 
 ## Tools to help with HED annotations
 The GUI tool [_CTagger_](https://github.com/hed-standard/CTagger) is available to help users with the annotation process. CTagger can be used as a standalone application or can be called from EEGLAB via the [hedtools plug-in](https://github.com/hed-standard/hed-matlab) to annotate an EEGLAB dataset/STUDY directly. Please refer to the linked repositories for more documentation on how to start HED-tagging using CTagger.
@@ -116,3 +116,9 @@ HED-3G supports library schema, which are specialized vocabularies used in conju
 base vocabulary to support annotation of specialized datasets. Communities may develop and submit
 library schema.  HED library schema are hosted on the repository: 
 [https://github.com/hed-standard/hed-schema-library](https://github.com/hed-standard/hed-schema-library)
+
+### HED-3G document mapping to defined terms in existing ontologies
+
+The following working document describes the origin of the descriptions associated with individual nodes in the HED-3G hierarchy. Many terms appear in the NCIT ontology (National Cancer Institute Thesaurus OBO edition).
+
+> [**Google doc with mapping of HED-3G term descriptions to existing ontology terms**](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing) 
