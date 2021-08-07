@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<HED version="8.0.0-beta.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
-   <prologue>This schema is the first version that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
+<HED version="8.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd">
+   <prologue>This schema is the first official release that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 </prologue>
    <schema>
       <node>
