@@ -36,7 +36,7 @@ The current generation of HED infrastructure is referred to as HED-3G
 
 A HED specification document, which describes the format and behavior of HED tools is available at : 
  
-> [HED-3G Hierarchical Event Descriptors specification](https://https://github.com/hed-standard/hed-specification/hed-spec/HEDspecification/md). 
+> [HED-3G Hierarchical Event Descriptors specification](https://github.com/hed-standard/hed-specification/blob/master/hedspec/HEDspecification.md). 
 
 The following white papers give an overview of HED and how it is used.
 
