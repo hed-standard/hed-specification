@@ -2,7 +2,7 @@
 ### HED-3G (HED version 8.0.0) has been officially released
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
-want to annotate your data, please visit  [**HED organization website**](https://www.hedtags.org).
+want to annotate your data, please visit the [**HED organization website**](https://www.hedtags.org).
 
 ## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
@@ -36,7 +36,7 @@ The current generation of HED infrastructure is referred to as HED-3G
 
 A HED specification document, which describes the format and behavior of HED tools is available at : 
  
-> [HED-3G Hierarchical Event Descriptors specification](https://https://github.com/hed-standard/hed-specification/hed-spec/HEDspecification/md). 
+> [HED-3G Hierarchical Event Descriptors specification](https://github.com/hed-standard/hed-specification/blob/master/hedspec/HEDspecification.md). 
 
 The following white papers give an overview of HED and how it is used.
 
