@@ -209,7 +209,7 @@ The hashtag character (`#`) is a placeholder for a user-supplied value. Within t
 
 **Example:** The above syntax will render on GitHub as follows:
 
-```.mediawiki
+````markdown
 
 HED version="8.0.0" 
 '''Prologue'''
@@ -222,13 +222,13 @@ This prologue introduces the schema.
 
 '''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
 * Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
+  ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
         * # {takesValue, valueClass=nameClass} 
 
-    !# end schema
+!# end schema
 
 
-    **Unit classes **[Unit classes and units for the nodes.]
+** Unit classes [Unit classes and units for the nodes.]
 
 
     **Unit modifiers **[Unit multiples and submultiples.]
@@ -247,7 +247,7 @@ This prologue introduces the schema.
     This epilogue is a place for notes and is ignored in HED processing.
 
     !# end hed
-```
+````
 
 
 #### 2.4.2. XML format for a HED schema
