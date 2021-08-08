@@ -209,7 +209,7 @@ The hashtag character (`#`) is a placeholder for a user-supplied value. Within t
 
 **Example:** The above syntax will render on GitHub as follows:
 
-```wiki
+```.mediawiki
 
 HED version="8.0.0" 
 '''Prologue'''
