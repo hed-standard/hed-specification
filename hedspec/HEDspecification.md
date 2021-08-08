@@ -302,51 +302,31 @@ The different parts of the HED schema have different rules for the characters th
 
 <table>
   <tr>
-   <td> **Item** </td>
+   <td><strong>Item</strong></td>
    <td><strong>Allowed characters</strong></td>
    <td><strong>Style suggestions and other rules</strong></td>
   </tr>
   <tr>
-   <td>Node elements
-<p>
-(HED tag names)
-<p>
-<code>valueClass=nameClass</code>
-   </td>
+   <td>Node elements<br>(HED tag names)<br><code>valueClass=nameClass</code></td>
    <td>Alphanumeric characters, hyphens, and underbars with no white space.
    </td>
    <td>The first letter of a term should be capitalized for readability. The remaining characters should be lowercase.
    </td>
   </tr>
   <tr>
-   <td>Descriptions
-<p>
-<code>valueClass=textClass</code>
-   </td>
-   <td>Alphanumeric characters, blanks, commas, periods, semicolons, colons, hyphens, underbars, forward slashes, carets (^), and parentheses are allowed.  No square brackets, curly braces, quotes, or other punctuation and symbols are allowed.
-   </td>
-   <td>Descriptions should be concise sentences, possibly with clarifying examples.
-   </td>
+   <td>Descriptions<br><code>valueClass=textClass</code></td>
+   <td>Alphanumeric characters, blanks, commas, periods, semicolons, colons, hyphens, underbars, forward slashes, carets (^), and parentheses are allowed.  No square brackets, curly braces, quotes, or other punctuation and symbols are allowed.</td>
+   <td>Descriptions should be concise sentences, possibly with clarifying examples.</td>
   </tr>
   <tr>
-   <td>Placeholder (#)
-<p>
-substitutions by
-<p>
-user-defined values.
-   </td>
-   <td>The characters allowed depend on the <code>valueClass</code> for the value plus the actual characters in the units and in the unit modifiers if applicable. 
-   </td>
-   <td>If the # has <code>valueClass</code> attributes, the value may have special characters as specified by in the class definition. For example, the colon (:) is specifically allowed for the <code>dateTime</code> unit class. Units are separated from the value by at least one blank whether prefix or suffix.
-   </td>
+   <td>Placeholder (<code>#</code>) substitutions by user-defined values.</td>
+   <td>The characters allowed depend on the <code>valueClass</code> for the value plus the actual characters in the units and in the unit modifiers if applicable.</td>
+   <td>If the <code>#</code> has <code>valueClass</code> attributes, the value may have special characters as specified by in the class definition. For example, the colon (:) is specifically allowed for the <code>dateTime</code> unit class. Units are separated from the value by at least one blank whether prefix or suffix.</td>
   </tr>
   <tr>
-   <td>Library names and nicknames
-   </td>
-   <td>A single word containing only alphabetic characters. 
-   </td>
-   <td>Library nicknames are followed by a single colon when used in a tag string.
-   </td>
+   <td>Library names and nicknames</td>
+   <td>A single word containing only alphabetic characters.</td>
+   <td>Library nicknames are followed by a single colon when used in a tag string.</td>
   </tr>
 </table>
 
@@ -377,36 +357,20 @@ Table 2.2 compares the long forms of several representative tags to various equi
 
 <table>
   <tr>
-   <td><strong>Long form (full path from node to root) </strong>
-   </td>
-   <td><strong>Short form(s)</strong>
-   </td>
+   <td><strong>Long form (full path from node to root)</strong></td>
+   <td><strong>Short form(s)</strong></td>
   </tr>
   <tr>
-   <td><em>Event/Sensory-event</em>
-   </td>
-   <td><em>Sensory-event</em>
-   </td>
+   <td><em>Event/Sensory-event</em></td>
+   <td><em>Sensory-event</em></td>
   </tr>
   <tr>
-   <td><em>Property/Informational-property/Label/Image1</em>
-   </td>
-   <td><em>Label/Image1</em>
-<p>
-<em>Informational-property/Label/Image1</em>
-   </td>
+   <td><em>Property/Informational-property/Label/Image1</em></td>
+   <td><em>Label/Image1</em><br><em>Informational-property/Label/Image1</em><br></td>
   </tr>
   <tr>
-   <td><em>Item/Object/Geometric-object/2D-shape/Triangle</em>
-   </td>
-   <td><em>Triangle</em>
-<p>
-<em>2D-shape/Triangle</em>
-<p>
-<em>Geometric-object/2D-shape/Triangle</em>
-<p>
-<em>Object/Geometric-object/2D-shape/Triangle</em>
-   </td>
+   <td><em>Item/Object/Geometric-object/2D-shape/Triangle</em></td>
+   <td><em>Triangle</em><br><em>2D-shape/Triangle</em><br><em>Geometric-object/2D-shape/Triangle</em><br><em>Object/Geometric-object/2D-shape/Triangle</em></td>
   </tr>
 </table>
 
@@ -465,7 +429,7 @@ A stimulus event can be annotated at different levels of detail. When not needed
 
 **Long form:**
 
-    Event/**Sensory-event**,  
+    Event/Sensory-event,  
     Property/task-property/Task-event-role/Experimental-stimulus,
     Property/Sensory-property/Visual-presentation,
     (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
@@ -627,42 +591,29 @@ HED-3G introduces the _Definition_ tag to facilitate tag reuse and to allow impl
 
 A **HED definition** is a tag group that includes one _Definition_ tag whose required child value names. The definition usually includes an optional tag-group specifying the actual definition information. Table 3.1 summarizes the syntax rules for definitions.
 
-
 ##### Table 3.1. Syntax for HED definitions. Optional items are underlined.
-
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
+   <td><strong>Syntax</strong></td>
+   <td><strong>Explanation</strong></td>
+  </tr>
+  <tr>
+   <td><p><strong>Short forms:</strong></p>
+<p><em>(Definition/XXX, (tag-group))</em></p>
+<p><em>(Definition/XXX/#, (tag-group))</em></p>
+<p><strong>Long forms:</strong><br>
+<em>(Property/Organizational-property/Definition/XXX, (tag-group))</em><br>
+<em>(Property/Organizational-property/Definition/XXX/#, (tag-group))</em>
+</p>
    </td>
-   <td><strong>Explanation</strong>
+   <td><p><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value.</p>
+    <p>If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.</p>
+<p>The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See Section 3.3.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.</p>
    </td>
   </tr>
   <tr>
-   <td><strong>Short forms:</strong> 
-<p>
-<em>(Definition/XXX, (tag-group))</em>
-<p>
-<em>(Definition/XXX/#, (tag-group))</em>
-   </td>
-   <td rowspan="2" ><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value. 
-<p>
-If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.
-<p>
-The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See **Section 3.3**.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long forms:</strong> 
-<p>
-<em>(Property/Organizational-</em>
-<p>
-<em>property/Definition/XXX, (tag-group))</em>
-<p>
-<em>(Property/Organizational-</em>
-<p>
-<em>property/Definition/XXX/#, (tag-group))</em>
-   </td>
+   <td>
   </tr>
 </table>
 
@@ -701,18 +652,6 @@ When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an a
 
 ##### **Table 3.2.** Syntax for using definitions in annotations with _Def/._
 
-|              **Syntax**          | **Explanation** | 
-| --------------------------------------- | --------------------- |
-| **Short forms:** <br/> _Def/XXX_ <br/> _Def/XXX/#_ <br/><br/>**Long forms:** <br/> _Property/Organizational-property/Def/XXX_ <br/> <br/>_Property/Organizational-property/Def/XXX/#_ | _XXX_ is the name of the definition. <br/>If the XXX/# form is used, the definition (tag-group) for XXX must contain a single # that represents the value to be substituted for the # placeholder in the Def/XXX/#. In other words, a Def tag cannot include #. |
-
-
-
-
-
-Def/XXX/#
-
-
----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 <table>
   <tr>
    <td><strong>Syntax</strong>
