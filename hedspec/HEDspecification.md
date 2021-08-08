@@ -8,7 +8,7 @@
 ##### Available under the CC-BY 4.0 International license.
 
 
-[TOC]
+[[_TOC_]]
 
 
 ## 
@@ -754,6 +754,18 @@ When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an a
 
 ##### **Table 3.2.** Syntax for using definitions in annotations with _Def/._
 
+|              **Syntax**          | **Explanation** | 
+| --------------------------------------- | --------------------- |
+| **Short forms:** <br/> _Def/XXX_ <br/> _Def/XXX/#_ <br/><br/>**Long forms:** <br/> _Property/Organizational-property/Def/XXX_ <br/> <br/>_Property/Organizational-property/Def/XXX/#_ | _XXX_ is the name of the definition. <br/>If the XXX/# form is used, the definition (tag-group) for XXX must contain a single # that represents the value to be substituted for the # placeholder in the Def/XXX/#. In other words, a Def tag cannot include #. |
+
+
+
+
+
+Def/XXX/#
+
+
+---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 <table>
   <tr>
    <td><strong>Syntax</strong>
