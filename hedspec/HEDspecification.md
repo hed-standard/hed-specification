@@ -220,9 +220,9 @@ This prologue introduces the schema.
 '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
 * Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
 
-    '''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
-    * Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
-    ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
+'''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
+* Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
         * # {takesValue, valueClass=nameClass} 
 
     !# end schema
