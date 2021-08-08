@@ -207,52 +207,10 @@ Attributes appear in the schema specification either as `name` attributes or as 
 
 The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a `#` node indicates that the user must supply a value consistent with the unit classes and value classes of the `#` node if it has any. Unit classes and value classes are specified in curly braces and treated like other schema attributes.  Lines with hashtag (#) placeholders should have everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements. The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  In the above example, the `#` that is a child of the _Label_ node must include _Label_ when used (e.g., _Label/myLabel_). 
 
-**Example:** The above syntax will render on GitHub as follows:
-
-````markdown
-
-HED version="8.0.0" 
-'''Prologue'''
-This prologue introduces the schema.
-
-!# start schema
-
-'''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
-* Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
-
-'''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
-* Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
-  ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
-        * # {takesValue, valueClass=nameClass} 
-
-!# end schema
-
-
-** Unit classes [Unit classes and units for the nodes.]
-
-
-    **Unit modifiers **[Unit multiples and submultiples.]
-
-
-    **Value classes **[Rules for the values provided by users.]
-
-
-    **Schema attributes **[Allowed node attributes.]
-
-
-    **Properties **[Properties of the schema attributes.]
-
-
-    **Epilogue **
-    This epilogue is a place for notes and is ignored in HED processing.
-
-    !# end hed
-````
-
 
 #### 2.4.2. XML format for a HED schema
 
-The HED XML schema format encodes the hierarchical vocabulary as nested `&lt;node>&lt;/node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between _.mediawiki_ and _.xml_ formats. An expandable HTML browser view is also available for easy viewing. The _.xml_ format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
+The HED XML schema format encodes the hierarchical vocabulary as nested `<node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between _.mediawiki_ and _.xml_ formats. An expandable HTML browser view is also available for easy viewing. The _.xml_ format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
 
 
 
@@ -263,68 +221,67 @@ The HED XML schema format encodes the hierarchical vocabulary as nested `&lt;nod
 
 The following is a translation of the _.mediawiki_ example from the previous section in the new XML format. A complete specification of the format is given in Appendix B.
 
-**Example: **The XML version of the HED schema segment of the previous example.
+**Example:** The XML version of the HED schema segment of the previous example.
 
 
-```
-    <?xml version="1.0" ?>
-    <HED version="8.0.0">
-    <prologue>This prologue introduces the schema.<prologue>
+````xml
+<?xml version="1.0" ?>
+<HED version="8.0.0">
+    <prologue>This prologue introduces the schema.</prologue>
     <schema>
-       <node>
-          <name>Event</name>
-          <description>Something that happens at a given place and time.
-         </description>
-          <node>
-             <name>Sensory-event</name>
-             <description>Something perceivable by an agent.</description>
-             <attribute>
-                <name>suggestedTag</name>
-                <value>Task-event-role</value>
-             </attribute>
-          </node>
+        <node>
+           <name>Event</name>
+           <description>Something that happens at a given place and time.</description>
+           <node>
+               <name>Sensory-event</name>
+               <description>Something perceivable by an agent.</description>
+               <attribute>
+                   <name>suggestedTag</name>
+                   <value>Task-event-role</value>
+               </attribute>
+           </node>
+        </node>
                          . . .
-          <node>
-             <name>Property</name>
-             <description>A characteristic of some entity.</description>
-             <attribute>
+        <node>
+            <name>Property</name>
+            <description>A characteristic of some entity.</description>
+            <attribute>
                 <name>extensionAllowed</name>
-             </attribute>
-             <node>
+            </attribute>
+            <node>
                 <name>Informational-property</name>
                 <description>A quality pertaining to information.</description>
                 <node>
-                   <name>Label</name>
-                   <description>A string of less than 20.</description>
-                   <attribute>
-                      <name>requireChild</name>
-                   </attribute>
-                   <node>
-                      <name>#</name>
-                      <attribute>
-                         <name>takesValue</name>
-                      </attribute>
-                      <attribute>
-                         <name>valueClass</name>
-                         <value>nameClass</value>
-                      </attribute>
-                   </node>
-                </node>
+                    <name>Label</name>
+                    <description>A string of less than 20.</description>
+                    <attribute>
+                        <name>requireChild</name>
+                    </attribute>
+                <node>
+                    <name>#</name>
+                    <attribute>
+                        <name>takesValue</name>
+                    </attribute>
+                    <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                    </attribute>
+                </node></node>
               </node>
-          </node>
-        </schema>
-        <unitClassDefinitions> ...</unitClassDefinitions>
-        <unitModifierDefinitions>...</unitModifierDefinitions>
-        <valueClassDefinitions>...</valueClassDefinitions>
-        <schemaAttributeDefinitions>...</schemaAttributeDefinitions>
-        <propertyDefinitions>...</propertyDefinitions>
-        <epilogue>This epilogue is a place for notes and is ignored in HED processing.<epilogue>
-    </HED>
-```
+        </node>
+    </schema>
+    <unitClassDefinitions> ...</unitClassDefinitions>
+    <unitModifierDefinitions>...</unitModifierDefinitions>
+    <valueClassDefinitions>...</valueClassDefinitions>
+    <schemaAttributeDefinitions>...</schemaAttributeDefinitions>
+    <propertyDefinitions>...</propertyDefinitions>
+    <epilogue>This epilogue is a place for notes and is ignored in HED processing.</epilogue>
+</HED>
+````
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the _.mediawiki_ version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the _.mediawiki_ file) are translated into `<attribute>` child elements of `<node>` in the _.xml_.  These schema attributes are not to be confused with the HED _Attribute_ tag that is part of the HED vocabulary. 
 
-The HED schema also includes a `<unitClassDefinitions> section that` specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
+The HED schema also includes a `<unitClassDefinitions>` section that specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
 
 The `<unitModifierDefinitions>` section lists the SI unit multiples and submultiples that are allowed to be prepended to units that have the SIUnit schema attribute. 
 
@@ -345,12 +302,9 @@ The different parts of the HED schema have different rules for the characters th
 
 <table>
   <tr>
-   <td><strong>Item</strong>
-   </td>
-   <td><strong>Allowed characters</strong>
-   </td>
-   <td><strong>Style suggestions and other rules</strong>
-   </td>
+   <td> **Item** </td>
+   <td><strong>Allowed characters</strong></td>
+   <td><strong>Style suggestions and other rules</strong></td>
   </tr>
   <tr>
    <td>Node elements
