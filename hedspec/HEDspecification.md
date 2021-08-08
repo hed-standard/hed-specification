@@ -104,7 +104,6 @@ A living agent, particularly a human from whom data is acquired during an experi
 ##### Experimental-trial* 
 A contiguous data period that is considered a unit used to observe or measure something, typically a data period including an expected event sequence that is repeated many times during the experiment (possibly with variations). Example: a repeating sequence of stimulus presentation, participant response action, and sensory feedback delivery events in a sensory judgment task.
 
-
 ##### HED schema
 A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in XML (_.xml_) format. The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
 
@@ -122,7 +121,7 @@ An aspect of the experiment or task that is measured or calculated for analysis.
 
 ##### Parameter*
 
-    An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
+An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
 
 ##### Recording*
 
@@ -210,15 +209,16 @@ The hashtag character (`#`) is a placeholder for a user-supplied value. Within t
 
 **Example:** The above syntax will render on GitHub as follows:
 
-    HED version="8.0.0" 
+```mediawiki
 
-    '''Prologue'''
-    This prologue introduces the schema.
+HED version="8.0.0" 
+'''Prologue'''
+This prologue introduces the schema.
 
-    !# start schema
+!# start schema
 
-    '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
-    * Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
+'''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
+* Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
 
     '''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
     * Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
@@ -244,13 +244,10 @@ The hashtag character (`#`) is a placeholder for a user-supplied value. Within t
 
 
     **Epilogue **
-
-
     This epilogue is a place for notes and is ignored in HED processing.
 
-
     !# end hed
-
+```
 
 
 #### 2.4.2. XML format for a HED schema
