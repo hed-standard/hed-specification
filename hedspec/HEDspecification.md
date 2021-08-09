@@ -873,33 +873,31 @@ Event annotations generally focus on describing what happened at the instant an 
 
 Table 3.4 summarizes the syntax of the _Event-context_ tag. In normal usage, **this tag is not used directly by annotators**.  Rather, tools insert the _Event-context_ tag at analysis time to handle the implicit context created by enduring or scoped events. However, annotators may use the tag when an event has explicit context information that must be accounted for.
 
-
 ##### **Table 3.4.** Syntax for HED _Event-context_.
-
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+   <td><strong>Syntax</strong></td>
+   <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short form: </strong>
-<p>
-<em>(Event-context, other-tags)</em>
+   <td>
+      <p><strong>Short form:</strong></p>
+      <p><em>(Event-context, other-tags)</em></p>
+      <p><hr>
+      <p><strong>Long form:</strong></p>
+      <p><em>(Property/Organizational-property/Event-context, other-tags)</em></p>
    </td>
-   <td rowspan="2" >An event can have at most one <em>Event-context</em> tag group. 
-<p>
-HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
-<p>
-Other task-event relationships may be inserted as tags within the <em>Event-context</em> tag group either at annotation time or analysis time.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long form: <em>(Property/Organizational-property/Event-</em></strong>
-<p>
-<em>context, <span style="text-decoration:underline;">other-tags</span>)</em>
+   <td> 
+      <p>An event can have at most one <em>Event-context</em> 
+      tag group.</p> 
+      <p>HED-compliant analysis tools should insert the annotations 
+      describing each temporally scoped event into the 
+      <em>Event-context</em> tag group of the events within its 
+      temporal scope during final assembly before analysis of the event.</p> 
+      <p>Other task-event relationships may be inserted as tags 
+      within the <em>Event-context</em> tag group either at 
+      annotation time or analysis time.</p>
    </td>
   </tr>
 </table>
