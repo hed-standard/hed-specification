@@ -654,29 +654,26 @@ When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an a
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+   <td><strong>Syntax</strong></td>
+   <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short forms:</strong> 
-<p>
-<em>Def/XXX</em>
-<p>
-<em>Def/XXX/#</em>
+   <td>
+       <p><strong>Short forms:</strong></p>
+       <p><em>Def/XXX</em></p>
+       <p><em>Def/XXX/#</em></p>
+       <p><hr/>
+       <p><strong>Long forms:</strong></p>
+       <p><em>Property/Organizational-property/Def/XXX</em></p>
+       <p><em>Property/Organizational-property/Def/XXX/#</em></p>
    </td>
-   <td rowspan="2" ><em>XXX</em> is the name of the definition.
-<p>
-If the XXX/# form is used, the definition <em>(tag-group)</em> for <em>XXX </em>must contain a single # that represents the value to be substituted for the # placeholder in the <em>Def/XXX/#</em>. In other words, a <em>Def</em> tag cannot include #.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long forms:</strong> 
-<p>
-<em>Property/Organizational-property/Def/XXX</em>
-<p>
-<em>Property/Organizational-property/Def/XXX/#</em>
+   <td>
+       <p><em>XXX</em> is the name of the definition.</p>
+       <p>If the XXX/# form is used, the definition <em>(tag-group) 
+          </em> for <em>XXX </em>must contain a single # that 
+          represents the value to be substituted for the # 
+          placeholder in the <em>Def/XXX/#</em>. In other words, a 
+          <em>Def</em> tag cannot include #.</p>
    </td>
   </tr>
 </table>
@@ -1319,7 +1316,7 @@ Two other working documents hold portions of the HED-3G specification that are u
   <tr>
    <td><strong>HED organization website</strong>
    </td>
-   <td><a href="http://www.hedtags.org">www.hedtags.org</a>
+   <td><a href="https://www.hedtags.org">www.hedtags.org</a>
    </td>
   </tr>
   <tr>
