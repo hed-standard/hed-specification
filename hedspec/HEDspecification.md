@@ -163,7 +163,7 @@ HED schema developers can specify a new schema version or revision in _.mediawik
 
 **Example:** An excerpt of a small portion of a HED schema in _.mediawiki_ format.
 
-````mediawiki
+```mediawiki
 HED version="8.0.0" 
 
 '''Prologue'''
@@ -193,7 +193,7 @@ This prologue introduces the schema.
 An optional section that is the place for notes and is ignored in HED processing.
 
 !# end hed
-````
+```
 
 Beginning with third generation HED (HED schema versions 8.0.0 and later), **terms in a given schema must be unique within that schema.** This uniqueness rule allows automated expansion of short form HED strings into their full long forms. 
 
@@ -219,7 +219,7 @@ The following is a translation of the _.mediawiki_ example from the previous sec
 
 **Example:** The XML version of the HED schema segment of the previous example.
 
-````xml
+```xml
 <?xml version="1.0" ?>
 <HED version="8.0.0">
     <prologue>This prologue introduces the schema.</prologue>
@@ -272,7 +272,7 @@ The following is a translation of the _.mediawiki_ example from the previous sec
     <propertyDefinitions>...</propertyDefinitions>
     <epilogue>This epilogue is a place for notes and is ignored in HED processing.</epilogue>
 </HED>
-````
+```
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the _.mediawiki_ version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the _.mediawiki_ file) are translated into `<attribute>` child elements of `<node>` in the _.xml_.  These schema attributes are not to be confused with the HED _Attribute_ tag that is part of the HED vocabulary. 
 
@@ -1049,25 +1049,25 @@ A HED library schema is defined in the same way as the base HED schema except th
 
 **Example:** A template of the _.mediawiki_ format of a HED library schema for driving: 
 
-````mediawiki
+```mediawiki
 HED library="driving" version="1.0.0" 
 !# start schema 
    [... contents of the HED driving schema ...]
 !# end schema
    [... required sections specifying schema attribute definitions ...]
 !# end hed
-````
+```
 
 The required sections specifying the schema attributes  are _unit-class-specification_, _unit-modifier-specification_, _value-class-specification_, _schema-attribute-specification_, and _property-specification_.
 
 **Example:** A template for the XML version of the HED driving library.
 
-````xml
+```xml
 <?xml version="1.0" ?>
 <HED library="driving" version="1.0.0">
     [... contents of the HED_DRIVE schema ... ]
 </HED>
-````
+```
 
 The schema XML file should be saved as HED_driving_1.0.0.xml to facilitate specification in tools.
 
@@ -1110,13 +1110,13 @@ The most common use case (for 99.9% of the HED users) is to use one of the stand
 
 **Example:** A portion of the `dataset_description.json` of a dataset using `HED8.0.0.xml` stored on GitHub.
 
-````json
+```json
 {
    "Name": "A wonderful experiment",
    "BIDSVersion": "1.4.0", 
    "HEDVersion": "8.0.0"
 }
-````
+```
 
 #### 4.4.1 Proposed changes for HED library schemas handling in BIDS
 
@@ -1192,7 +1192,7 @@ Each events file spreadsheet column containing categorical values may also have 
 
 **Example:** JSON sidecar for annotating the columns of an events file.
 
-````json
+```json
 {
     "trial_type": {
         "LongName": "Event category",
@@ -1218,7 +1218,7 @@ Each events file spreadsheet column containing categorical values may also have 
         "HED": "Pathname/#, Description/Relative path of the stimulus image file"
     }
 }
-````
+```
 
 Non-categorical columns such as `response_time` and `stim_file` have a dictionary “HED” value consisting of a HED string rather than another dictionary. This HED string must have a single # placeholder. The corresponding value in the spreadsheet column replaces the # when the event annotation is assembled.
 
@@ -1715,7 +1715,7 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
 
 **Example:** JSON passed to `buildSchema` to construct the schemas needed for the example in Section 4.3.1. Here the dataset is located in `/data/wonderful`.
 
-````json
+```json
 {
     "path": "/data/wonderful/code/mylocal.xml",
     "libraries": {
@@ -1729,7 +1729,7 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
         }
     }
 }
-````
+```
 
 **NOTE:** This interface is proposed and is awaiting resolution of BIDS PR #820 on file passing to BIDS.
 
@@ -1750,7 +1750,7 @@ The rules for creating a valid `.mediawiki` specification of a HED schema are gi
 
 The overall layout of is `.mediawiki` schema file is:
 
-````mediawiki
+```mediawiki
 header-line: HED . . .
 prologue
              . . .
@@ -1764,7 +1764,7 @@ schema-attribute-specification
 property-specification
 !# end hed
 epilogue
-````
+```
 
 Empty lines and lines containing only blanks are ignored.
 
@@ -1809,9 +1809,9 @@ The `library` and `version` values are used to form the official xml file name a
 
 The `.mediawiki` file has a header line:
 
-````mediawiki
+```mediawiki
 HED version="8.0.0"
-````
+```
 
 The resulting XML root is:
 
@@ -1832,7 +1832,7 @@ HED library="test" version="1.0.2"
 The resulting XML root is:
 
 ```xml
-<HED library="test" version="1.0.2">`
+<HED library="test" version="1.0.2">
 ```
 
 The file name in `hedxml` in the hed schema library `test` is `HED_test_1.0.2.xml`.
@@ -2030,9 +2030,9 @@ The optional `<attribute>` elements are derived from the attribute list containe
 
 **Example:** The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
 
-````mediawiki
-    {suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
-````
+```mediawiki
+{suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
+```
 
 The `suggestedTag` attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are  valid HED tags in any form (short, long, or intermediate).
 
@@ -2114,29 +2114,29 @@ HED has very strict rules about what characters are allowed in various elements 
      <td><strong>Description</strong></td>
   </tr>
   <tr>
-     <td><code>dateTimeClass*</code></td>
-     <td><code>digits, T, :, -</code></td>
+     <td><code>dateTimeClass</code>*</td>
+     <td><code>digits</code>, <code>T</code>, <code>:</code>, <code>-</code></td>
    <td>Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.</td>
   </tr>
   <tr>
      <td><code>nameClass</code></td>
-     <td><code>letters, digits, _, -</code></td>
+     <td><code>letters</code>, <code>digits</code>, <code>_</code>, <code>-</code></td>
      <td>Value class of node names and labels.</td>
   </tr>
   <tr>
-     <td><code>numericClass*</code></td>
-     <td><code>digits, ., -, +, E, e</code></td>
+     <td><code>numericClass</code>*</td>
+     <td><code>digits</code>, <code>.</code>, <code>-</code>, <code>+</code>, <code>E</code>, <code>e</code></td>
      <td>Value must be a valid numerical value.</td>
   </tr>
   <tr>
-     <td><code>posixPath*</code></td>
+     <td><code>posixPath</code>*</td>
      <td></td>
      <td>Specifies strings conforming to Posix path specification. This is not implemented and currently allows everything except commas.</td>
   </tr>
   <tr>
    <td><code>textClass</code>
    </td>
-   <td><code>letters, digits, blank,+, -, :, ;, ., /, (, ),?, *, %, $, @</code>
+   <td><code>letters</code>, <code>digits</code>, <code>blank</code>, <code>+</code>, <code>-</code>, <code>:</code>, <code>;</code>, <code>.</code>, <code>/</code>, <code>(</code>, <code>)</code>, <code>?</code>, <code>*</code>, <code>%</code>, <code>$</code>, <code>@</code>
    </td>
    <td>Value class for text descriptions.
    </td>
@@ -2148,37 +2148,36 @@ HED has very strict rules about what characters are allowed in various elements 
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
-```
-    <valueClassDefinitions>
-       <valueClassDefinition> ... </valueClassDefinition>
+```xml
+<valueClassDefinitions>
+    <valueClassDefinition> ... </valueClassDefinition>
                              ... 
-       <valueClassDefinition> ... </valueClassDefinition>
-    </valueClassDefinitions>
+    <valueClassDefinition> ... </valueClassDefinition>
+</valueClassDefinitions>
 ```
 
 #### B.2.3. Schema attribute definitions and properties
 
 The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and `<valueClassDefinition>` elements. The specifications of individual attributes are given in `<schemaAttributeDefinition>` elements.
 
-```
-    <schemaAttributeDefinitions>
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+```xml
+<schemaAttributeDefinitions>
+    <schemaAttributeDefinition> ...</schemaAttributeDefinition>
                                    ... 
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
-    </schemaAttributeDefinitions>
+    <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+</schemaAttributeDefinitions>
 ```
 
 The individual `<schemaAttributeDefinition>` elements have the following format:
 
-```
-    <schemaAttributeDefinition>
-       <name>allowedCharacter</name>
-       <description>An attribute of value classes indicating a special character 
-          that is allowed in expressing the value of that placeholder.</description>
-       <property>
-          <name>valueClassProperty</name>
-       </property>
-    <schemaAttributeDefinition>
+```xml
+<schemaAttributeDefinition>
+    <name>allowedCharacter</name>
+    <description>An attribute of value classes indicating a special character that is allowed in expressing the value of that placeholder.</description>
+    <property>
+        <name>valueClassProperty</name>
+    </property>
+</schemaAttributeDefinition>
 ```
 
 The `<property>` elements indicate where various schema attributes apply. Their meanings are hard-coded into the schema processors. Table B.3 lists the names of these properties.
@@ -2188,45 +2187,33 @@ The `<property>` elements indicate where various schema attributes apply. Their 
 
 <table>
   <tr>
-   <td><strong>Schema attribute property</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute property</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>boolProperty</code>
-   </td>
-   <td>If a schema attribute has this property, then its values are either true or false. The schema processing translates the attribute into an <code>&lt;attribute></code> element with a <code>&lt;name></code> child but no <code>value</code> child.
-   </td>
+     <td><code>boolProperty</code></td>
+     <td><p>If a schema attribute has this property, then its values are either true or false.</p> <p>The schema processing translates the attribute into an <code>attribute</code> element with a <code>&lt;name></code> child but no <code>value</code> child.</p></td>
   </tr>
   <tr>
-   <td><code>unitClassProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unitClassDefinition> elements.</code>
-   </td>
+     <td><code>unitClassProperty</code>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitClassDefinition</code> elements.</td>
   </tr>
   <tr>
-   <td><code>unitModifierProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unitModifierDefinition> elements.</code>
-   </td>
+     <td><code>unitModifierProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitModifierDefinition</code> elements.</td>
   </tr>
   <tr>
-   <td><code>unitProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unit> elements.</code>
-   </td>
+     <td><code>unitProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unit</code> elements.</td>
   </tr>
   <tr>
-   <td><code>valueClassProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;valueClassDefinition> elements.</code>
-   </td>
+     <td><code>valueClassProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>valueClassDefinition</code> elements.</td>
   </tr>
 </table>
 
 
-A given schema attribute can only apply to one type of element (`<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>` or `<unit>`). Attributes that don’t have one of `<unitClassProperty>`, `<unitClassProperty>` or `<unitProperty>` are assumed to apply to `<node>` elements.
+A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`, `unitClassProperty` or `unitProperty` are assumed to apply to `node` elements.
 
 Table B.4 gives a list of the supported HED schema attributes. These attributes apply to different parts of the schema as indicated by their properties. 
 
@@ -2235,128 +2222,88 @@ Table B.4 gives a list of the supported HED schema attributes. These attributes 
 
 <table>
   <tr>
-   <td><strong>Schema attribute</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>allowedCharacter*</code>
-   </td>
-   <td>A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word <code>letters</code> designates upper and lower case alphabetic characters. The word <code>digits</code> indicates the digits 0-9.
-   </td>
+     <td><code>allowedCharacter</code>*</td>
+     <td><p>A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.</p> <p>Normally the allowed characters are listed individually. However, the word <code>letters</code> designates upper and lower case alphabetic characters.</p><p>The word <code>digits</code> indicates the digits 0-9.</p></td>
   </tr>
   <tr>
-   <td><code>defaultUnits</code>
-   </td>
-   <td>A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units. For example, when a <code>#</code> placeholder of the <code>time</code> unit class is replaced with an actual value and the units are not explicitly listed, they are assumed to be seconds (s) because the time unit class has <code>defaultUnits=s</code>.
-   </td>
+     <td><code>defaultUnits</code></td>
+     <td><p>A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.</p> <p>For example, when a <code>#</code> placeholder of the <code>time</code> unit class is replaced with an actual value and the units are not explicitly listed, they are assumed to be seconds (s) because the time unit class has <code>defaultUnits=s</code>.</p></td>
   </tr>
   <tr>
-   <td><code>extensionAllowed</code>
-   </td>
-   <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders.
-   </td>
+     <td><code>extensionAllowed</code></td>
+     <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders</td>
   </tr>
   <tr>
-   <td><code>recommended</code>
-   </td>
-   <td>A schema attribute indicating that the event-level HED string should include this tag.
-   </td>
+     <td><code>recommended</code></td>
+     <td>A schema attribute indicating that the event-level HED string should include this tag.</td>
   </tr>
   <tr>
-   <td><code>relatedTag*</code>
-   </td>
-   <td>A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools. Related categorical tags may have this attribute.
-   </td>
+     <td><code>relatedTag</code>*</td>
+     <td>A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools. Related categorical tags may have this attribute.</td>
   </tr>
   <tr>
-   <td><code>requireChild</code>
-   </td>
-   <td>A schema attribute indicating that one of the node elements descendants must be included when using this tag.
-   </td>
+     <td><code>requireChild</code></td>
+     <td>A schema attribute indicating that one of the node elements descendants must be included when using this tag.</td>
   </tr>
   <tr>
-   <td><code>required</code>
-   </td>
-   <td>A schema attribute indicating that every event-level HED string should include this tag.
-   </td>
+     <td><code>required</code></td>
+     <td>A schema attribute indicating that every event-level HED string should include this tag.</td>
   </tr>
   <tr>
-   <td><code>SIUnit</code>
-   </td>
-   <td>A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.
-   </td>
+     <td><code>SIUnit</code></td>
+     <td><p>A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names.</p><p>Note that some units such as byte are designated as SI units although they are not part of the standard.<p></td>
   </tr>
   <tr>
-   <td><code>SIUnitModifier</code>
-   </td>
-   <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.
-   </td>
+     <td><code>SIUnitModifier</code></td>
+     <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.</td>
   </tr>
   <tr>
-   <td><code>SIUnitSymbolModifier</code>
-   </td>
-   <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.
-   </td>
+     <td><code>SIUnitSymbolModifier</code></td>
+     <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.</td>
   </tr>
   <tr>
-   <td><code>suggestedTag*</code>
-   </td>
-   <td>A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.
-   </td>
+     <td><code>suggestedTag</code>*</td>
+     <td>A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.</td>
   </tr>
   <tr>
-   <td><code>tagGroup*</code>
-   </td>
-   <td>A schema attribute indicating the tag can only appear inside a tag group.
-   </td>
+     <td><code>tagGroup</code>*</td>
+     <td>A schema attribute indicating the tag can only appear inside a tag group.</td>
   </tr>
   <tr>
-   <td><code>takesValue</code>
-   </td>
-   <td>A schema attribute indicating the tag is a # placeholder that is expected to be replaced with a user-defined value.
-   </td>
+     <td><code>takesValue</code></td>
+     <td>A schema attribute indicating the tag is a <em>#</em>> placeholder that is expected to be replaced with a user-defined value.</td>
   </tr>
   <tr>
-   <td><code>topLevelTagGroup*</code>
-   </td>
-   <td>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.
-   </td>
+     <td><code>topLevelTagGroup</code>*</td>
+     <td>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.</td>
   </tr>
   <tr>
-   <td><code>unique</code>
-   </td>
-   <td>A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.
-   </td>
+     <td><code>unique</code></td>
+     <td>A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.</td>
   </tr>
   <tr>
-   <td><code>unitClass</code>
-   </td>
-   <td>A schema attribute specifying which unit class this value tag belongs to.
-   </td>
+     <td><code>unitClass</code></td>
+     <td>A schema attribute specifying which unit class this value tag belongs to.</td>
   </tr>
   <tr>
-   <td><code>unitPrefix</code>
-   </td>
-   <td>A schema attribute applied specifically to <code>unit</code> elements to designate that the unit indicator is a prefix (e.g., <code>$</code> in the<code> currency</code> units).
-   </td>
+     <td><code>unitPrefix</code></td>
+     <td>A schema attribute applied specifically to <code>unit</code> elements to designate that the unit indicator is a prefix (e.g., <code>$</code> in the<code> currency</code> units).</td>
   </tr>
   <tr>
-   <td><code>unitSymbol</code>
-   </td>
-   <td>A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.
-   </td>
+     <td><code>unitSymbol</code></td>
+     <td>A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.</td>
   </tr>
   <tr>
-   <td><code>valueClass*</code>
-   </td>
-   <td>A schema attribute specifying which value class this value tag belongs to.
-   </td>
+     <td><code>valueClass</code>*</td>
+     <td>A schema attribute specifying which value class this value tag belongs to.</td>
   </tr>
 </table>
 
-* indicates an attribute that is new to HED-3G.
+  _*_ indicates an attribute that is new to HED-3G.
 
 In addition to the attributes listed in Table B.4, some schema attributes have been deprecated and are no longer supported in HED-3G, although they are still present in earlier versions of the schema. Table B.5 lists these attributes.
 
@@ -2365,178 +2312,103 @@ In addition to the attributes listed in Table B.4, some schema attributes have b
 
 <table>
   <tr>
-   <td><strong>Schema attribute</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>default
-   </td>
-   <td>Indicates a tag assumed to be present if not explicitly given. This tag was not implemented in existing tools. Only the defaultUnits for the unit class will be implemented going forward.
-   </td>
+     <td><code>default</code></td>
+     <td><p>Indicates a tag assumed to be present if not explicitly given.</p><p>Note: This tag was not implemented in existing tools. Only the defaultUnits for the unit class will be implemented going forward.</p></td>
   </tr>
   <tr>
-   <td>position
-   </td>
-   <td>Indicates the order within the overall tag string that this tag should appear during display. This was used to assist annotation tools, which sought to display required and recommend tags before others. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering. Because of the design of the schema vocabulary, this tag is not applicable in HED-3G.
-   </td>
+     <td><code>position</code></td>
+     <td><p>Indicates the order within the overall tag string that this tag should appear during display.</p> <p>This attribute was used to assist annotation tools, which sought to display required and recommend tags before others. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.</p><p>Because of the design of the schema vocabulary, this tag is not applicable in HED-3G.</p></td>
   </tr>
   <tr>
-   <td>predicateType
-   </td>
-   <td>This attribute has a value which is one of <code>propertyOf</code>, <code>subclassOf</code>, or <code>passThrough</code>. This tag was added to facilitate mapping to OWL or RDF in earlier versions of the schema where property and subclass types appeared in the same hierarchy. The schema vocabulary redesign of HED-3G eliminated this issue.
-   </td>
+     <td><code>predicateType</code></td>
+     <td><p>This attribute has a value which is one of <code>propertyOf</code>, <code>subclassOf</code>, or <code>passThrough</code>.</p><p>This tag was added to facilitate mapping to OWL or RDF in earlier versions of the schema where property and subclass types appeared in the same hierarchy. The schema vocabulary redesign of HED-3G eliminated this issue.</p></td>
   </tr>
 </table>
 
 
 
-
-
 #### B.2.5. HED unit classes and unit modifiers
 
-Table B.6 lists the current unit classes for HED-3G.
+Table B.6 lists the current unit classes for HED.
 
-##### Table B.6. Unit classes for HED-3G.
+##### Table B.6. Unit classes for HED.
 
 <table>
   <tr>
-   <td><strong>Unit class</strong>
-   </td>
-   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong>
-   </td>
-   <td><strong>defaultUnits</strong>
-   </td>
+   <td><strong>Unit class</strong></td>
+   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong></td>
+   <td><strong>defaultUnits</strong></td>
   </tr>
   <tr>
-   <td>time
-   </td>
-   <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour
-   </td>
-   <td><strong>s*</strong>
-   </td>
+     <td><code>accelerationUnits</code></td>
+     <td><strong>m-per-s^2*</strong></td>
+     <td>m-per-s^2*</td>
   </tr>
   <tr>
-   <td>dateTime
-   </td>
-   <td>YYYY-MM-DDThh:mm:ss
-   </td>
-   <td>YYYY-MM-DDThh:mm:ss
-   </td>
+     <td><code>angleUnits</code></td>
+     <td><strong>radian</strong>, <strong>rad*</strong>, degree</td>
+     <td>rad</td>
   </tr>
   <tr>
-   <td>clockTime
-   </td>
-   <td>hour:min, hour:min:sec
-   </td>
-   <td>hour:min
-   </td>
+     <td><code>areaUnits</code></td>
+     <td><strong>metre^2</strong>, <strong>m^2*</strong></td>
+     <td>m^2*</td>
   </tr>
   <tr>
-   <td>frequency
-   </td>
-   <td><strong>hertz</strong>, <strong>Hz*</strong>
-   </td>
-   <td><strong>Hz*</strong>
-   </td>
+     <td><code>currencyUnits</code></td>
+     <td>dollar, $, point</td>
+     <td>$</td>
   </tr>
   <tr>
-   <td>angle
-   </td>
-   <td><strong>radian</strong>, <strong>rad*</strong>, degree
-   </td>
-   <td><strong>rad*</strong>
-   </td>
+     <td><code>frequencyUnits</code></td>
+     <td><strong>hertz</strong>, <strong>Hz*</strong></td>
+     <td>Hz</td>
   </tr>
   <tr>
-   <td>physicalLength
-   </td>
-   <td><strong>metre</strong>, <strong>m*</strong>, foot, mile
-   </td>
-   <td><strong>m*</strong>
-   </td>
+     <td><code>intensityUnits</code></td>
+     <td>dB, candela, cd</td>
+     <td>dB</td>
   </tr>
   <tr>
-   <td>pixels
-   </td>
-   <td>pixel, px
-   </td>
-   <td>px*
-   </td>
+     <td><code>jerkUnits</code></td>
+     <td><strong>m-per-s^3*</strong></td>
+     <td>m-per-s^3*</td>
   </tr>
   <tr>
-   <td>area
-   </td>
-   <td><strong>metre^2</strong>, <strong>m^2*</strong>
-   </td>
-   <td><strong>m^2*</strong>
-   </td>
+     <td><code>memorySizeUnits</code></td>
+     <td>byte, B</td>
+     <td>B</td>
   </tr>
   <tr>
-   <td>volume
-   </td>
-   <td><strong>metre^3</strong>, <strong>m^3*</strong>
-   </td>
-   <td><strong>m^3*</strong>
-   </td>
+     <td><code>physicalLength</code></td>
+     <td><strong>metre</strong>, <strong>m*</strong>, inch, foot, mile</td>
+     <td>m*</td>
   </tr>
   <tr>
-   <td>speed
-   </td>
-   <td><strong>m-per-s</strong>*, mph, kph 
-   </td>
-   <td><strong>m-per-s*</strong>
-   </td>
+     <td><code>speedUnits</code></td>
+     <td><strong>m-per-s</strong>*, mph, kph</td>
+     <td>m-per-s*</td>
   </tr>
   <tr>
-   <td>acceleration
-   </td>
-   <td><strong>m-per-s^2*</strong>
-   </td>
-   <td><strong>m-per-s^2*</strong>
-   </td>
+     <td><code>timeUnits</code></td>
+     <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour</td>
+     <td>s*</td>
   </tr>
   <tr>
-   <td>jerk
-   </td>
-   <td><strong>m-per-s^3*</strong>
-   </td>
-   <td><strong>m-per-s^3*</strong>
-   </td>
+     <td><code>volumeUnits</code></td>
+     <td><strong>metre^3</strong>, <strong>m^3*</strong></td>
+     <td>m^3*</td>
   </tr>
   <tr>
-   <td>intensity
-   </td>
-   <td>dB
-   </td>
-   <td>dB
-   </td>
+     <td><code>weightUnits</code></td>
+     <td><strong>gram</strong>, <strong>g*</strong>, pound, lb</td>
+     <td>m^3*</td>
   </tr>
-  <tr>
-   <td>luminousIntensity
-   </td>
-   <td>candela, cd
-   </td>
-   <td>cd
-   </td>
-  </tr>
-  <tr>
-   <td>memorySize
-   </td>
-   <td>byte, B
-   </td>
-   <td>B
-   </td>
-  </tr>
-  <tr>
-   <td>currency
-   </td>
-   <td>dollar, $, point, fraction
-   </td>
-   <td>$
-   </td>
-  </tr>
+
 </table>
 
 
@@ -2546,135 +2418,92 @@ Table B.7 lists the current unit modifiers for HED-3G.
 
 <table>
   <tr>
-   <td><strong>SI unit modifier</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>SI unit modifier</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>deca, da*
-   </td>
-   <td>SI unit multiple representing 10^1
-   </td>
+     <td>deca, da*</td>
+     <td>SI unit multiple representing 10^1</td>
   </tr>
   <tr>
-   <td>hecto, h*
-   </td>
-   <td>SI unit multiple representing 10^2
-   </td>
+     <td>hecto, h*</td>
+     <td>SI unit multiple representing 10^2</td>
   </tr>
   <tr>
-   <td>kilo, k*
-   </td>
-   <td>SI unit multiple representing 10^3
-   </td>
+     <td>kilo, k*</td>
+     <td>SI unit multiple representing 10^3</td>
   </tr>
   <tr>
-   <td>mega, M*
-   </td>
-   <td>SI unit multiple representing 10^6
-   </td>
+     <td>mega, M*</td>
+     <td>SI unit multiple representing 10^6</td>
   </tr>
   <tr>
-   <td>giga, G*
-   </td>
-   <td>SI unit multiple representing 10^9
-   </td>
+     <td>giga, G*</td>
+     <td>SI unit multiple representing 10^9</td>
   </tr>
   <tr>
-   <td>tera, T*
-   </td>
-   <td>SI unit multiple representing 10^12
-   </td>
+     <td>tera, T*</td>
+     <td>SI unit multiple representing 10^12</td>
   </tr>
   <tr>
-   <td>peta, P*
-   </td>
-   <td>SI unit multiple representing 10^15
-   </td>
+     <td>peta, P*</td>
+     <td>SI unit multiple representing 10^15</td>
   </tr>
   <tr>
-   <td>exa, E*
-   </td>
-   <td>SI unit multiple representing 10^18
-   </td>
+     <td>exa, E*</td>
+     <td>SI unit multiple representing 10^18</td>
   </tr>
   <tr>
-   <td>zetta, Z*
-   </td>
-   <td>SI unit multiple representing 10^21
-   </td>
+     <td>zetta, Z*</td>
+     <td>SI unit multiple representing 10^21</td>
   </tr>
   <tr>
-   <td>yotta, Y*
-   </td>
-   <td>SI unit multiple representing 10^24
-   </td>
+     <td>yotta, Y*</td>
+     <td>SI unit multiple representing 10^24</td>
   </tr>
   <tr>
-   <td>deci, d*
-   </td>
-   <td>SI unit submultiple representing 10^−1
-   </td>
+     <td>deci, d*</td>
+     <td>SI unit submultiple representing 10^−1</td>
   </tr>
   <tr>
-   <td>centi, c*
-   </td>
-   <td>SI unit submultiple representing 10^−2
-   </td>
+     <td>centi, c*</td>
+     <td>SI unit submultiple representing 10^−2</td>
   </tr>
   <tr>
-   <td>milli, m*
-   </td>
-   <td>SI unit submultiple representing 10^−3
-   </td>
+     <td>milli, m*</td>
+     <td>SI unit submultiple representing 10^−3</td>
   </tr>
   <tr>
-   <td>micro, u*
-   </td>
-   <td>SI unit submultiple representing 10^−6
-   </td>
+     <td>micro, u*</td>
+     <td>SI unit submultiple representing 10^−6</td>
   </tr>
   <tr>
-   <td>nano, n*
-   </td>
-   <td>SI unit submultiple representing 10^−9
-   </td>
+     <td>nano, n*</td>
+     <td>SI unit submultiple representing 10^−9</td>
   </tr>
   <tr>
-   <td>pico, p*
-   </td>
-   <td>SI unit submultiple representing 10^−12
-   </td>
+     <td>pico, p*</td>
+     <td>SI unit submultiple representing 10^−12</td>
   </tr>
   <tr>
-   <td>femto, f*
-   </td>
-   <td>SI unit submultiple representing 10^−15
-   </td>
+     <td>femto, f*</td>
+     <td>SI unit submultiple representing 10^−15</td>
   </tr>
   <tr>
-   <td>atto, a*
-   </td>
-   <td>SI unit submultiple representing 10^−18
-   </td>
+     <td>atto, a*</td>
+     <td>SI unit submultiple representing 10^−18</td>
   </tr>
   <tr>
-   <td>zepto, z*
-   </td>
-   <td>SI unit submultiple representing 10^−21
-   </td>
+     <td>zepto, z*</td>
+     <td>SI unit submultiple representing 10^−21</td>
   </tr>
   <tr>
-   <td>yocto, y*
-   </td>
-   <td>SI unit submultiple representing 10^−24
-   </td>
+     <td>yocto, y*</td>
+     <td>SI unit submultiple representing 10^−24</td>
   </tr>
 </table>
 
-
-* indicates an SI unit symbol modifier.
+ _*_ indicates an SI unit symbol modifier.
 
 
 ### B.3. HED schema errors
@@ -2718,76 +2547,52 @@ Table B.9 summarizes the errors relevant for HED schema.
 
 <table>
   <tr>
-   <td><strong>Error or warning</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Error or warning</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_ATTRIBUTE_INVALID</code>
-   </td>
-   <td>Attribute not defined in one of the definition sections: <code>unitClassDefinitions</code>, <code>valueClassDefinitions</code>, <code>schemaAttributeDefinitions</code>.
-   </td>
+     <td><code>HED_SCHEMA_ATTRIBUTE_INVALID</code></td>
+     <td>Attribute not defined in one of the definition sections: <code>unitClassDefinitions</code>, <code>valueClassDefinitions</code>, <code>schemaAttributeDefinitions</code></td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_CHARACTER_INVALID</code>
-   </td>
-   <td>The specification contains an invalid character.
-   </td>
+     <td><code>HED_SCHEMA_CHARACTER_INVALID</code></td>
+     <td>The specification contains an invalid character.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_DUPLICATE_NODE</code>
-   </td>
-   <td>Node name appears in the schema more than once.
-   </td>
+     <td><code>HED_SCHEMA_DUPLICATE_NODE</code></td>
+     <td>Node name appears in the schema more than once.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_HEADER_INVALID</code>
-   </td>
-   <td>The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.
-   </td>
+     <td><code>HED_SCHEMA_HEADER_INVALID</code></td>
+     <td>The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_NODE_NAME_INVALID</code>
-   </td>
-   <td>Node element name is empty or contains invalid characters.
-   </td>
+     <td><code>HED_SCHEMA_NODE_NAME_INVALID</code></td>
+     <td>Node element name is empty or contains invalid characters</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_REQUIRED_SECTION_MISSING</code>
-   </td>
-   <td>One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.
-   </td>
+     <td><code>HED_SCHEMA_REQUIRED_SECTION_MISSING</code></td>
+     <td>One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_VERSION_INVALID</code>
-   </td>
-   <td>The version is invalid or does not use  semantic versioning.
-   </td>
+     <td><code>HED_SCHEMA_VERSION_INVALID</code></td>
+     <td>The version is invalid or does not use  semantic versioning</td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_DELIMITERS_INVALID</code>
-   </td>
-   <td>Line content after node name is not enclosed with <code>&lt;nowiki>&lt;/nowiki> </code>delimiters; or the line has unmatched or multiple <code>&lt;nowiki>&lt;/nowiki></code>, <code>[ ]</code>, or<code> { }</code> delimiters.
-   </td>
+     <td><code>HED_WIKI_DELIMITERS_INVALID</code></td>
+     <td>Line content after node name is not enclosed with <code>&lt;nowiki>&lt;/nowiki> </code>delimiters; or the line has unmatched or multiple <code>&lt;nowiki>&lt;/nowiki></code>, <code>[ ]</code>, or<code> { }</code> delimiters.</td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_LINE_START_INVALID</code>
-   </td>
-   <td>Start of body line not <code>''' or *.</code>
-   </td>
+     <td><code>HED_WIKI_LINE_START_INVALID</code></td>
+     <td>Start of body line not <code>''' or *.</code></td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_SEPARATOR_INVALID</code>
-   </td>
-   <td>One of the required wiki section separators is missing or in the wrong place. The required separators are: <code>!# start schema</code>, <code>!# end schema</code>, and  <code>!# end hed</code>.
-   </td>
+     <td><code>HED_WIKI_SEPARATOR_INVALID</code></td>
+     <td>One of the required wiki section separators is missing or in the wrong place. The required separators are: <code>!# start schema</code>, <code>!# end schema</code>, and  <code>!# end hed</code>.</td>
   </tr>
   <tr>
-   <td>HED_XML_SYNTAX_INVALID
-   </td>
-   <td>XML syntax or or does not comply with specified XSD.
-   </td>
+     <td><code>HED_XML_SYNTAX_INVALID</code></td>
+     <td>XML syntax or or does not comply with specified XSD.</td>
   </tr>
 </table>
 
@@ -2805,42 +2610,30 @@ This appendix specifies the details and requirements for HED tags. It also summa
 
 <table>
   <tr>
-   <td><strong>HED element</strong>
-   </td>
-   <td><strong>Allowed characters and rules</strong>
+     <td><strong>HED element</strong></td>
+     <td><strong>Allowed characters and rules</strong></td>
+  </tr>
+  <tr>
+     <td>HED node element names</td>
+     <td>
+        <p>Upper or lower case letters, numbers, hyphens, underbars.</p>
+        <p>The `#` is allowed as a placeholder in some situations.</p>
+        <p>No blanks are allowed for HED versions >  8.0.0-alpha.1</p>
+        <p>Blanks around comma and parentheses delimiters are not considered to be part of the HED tag, but rather part of the separating delimiters.</p>
+<p><strong>Style recommendation:</strong> HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.</p></td>
+  </tr>
+  <tr>
+     <td>HED labels and definition names</td>
+     <td>The values substituted for # in the HED tags /Attribute/Informational/Label/# and Attribute/Informational/Definition/# can only contain upper and lower case letters, numbers, hyphens, underbars, or periods.
    </td>
   </tr>
   <tr>
-   <td>HED node element names
-   </td>
-   <td>Upper or lower case letters, numbers, hyphens, underbars.
-<p>
-The `#` is allowed as a placeholder in some situations. 
-<p>
-No blanks are allowed for HED versions >  8.0.0-alpha.1
-<p>
-Blanks around comma and parentheses delimiters are not considered to be part of the HED tag, but rather part of the separating delimiters. 
-<p>
-<strong>Style recommendation:</strong>HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.
-   </td>
+     <td>HED element values</td>
+     <td><p>Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification.</p> <p>Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the <em>allowedCharacter</em> attribute. Examples of this are the forward slash in the <em>fileType</em> unit class and the colon in the dateTime unit class.</p></td>
   </tr>
   <tr>
-   <td>HED labels and definition names
-   </td>
-   <td>The values substituted for # in the HED tags /Attribute/Informational/Label/# and Attribute/Informational/Definition/# can only contain upper and lower case letters, numbers, hyphens, underbars, or periods.
-   </td>
-  </tr>
-  <tr>
-   <td>HED element values
-   </td>
-   <td>Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification. Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the <em>allowedCharacter</em> attribute. Examples of this are the forward slash in the <em>fileType</em> unit class and the colon in the dateTime unit class.
-   </td>
-  </tr>
-  <tr>
-   <td>Library nicknames
-   </td>
-   <td>Can only be a single word containing alphabetic characters. The name must be followed by a single colon and then the remainder of the tag. 
-   </td>
+      <td>Library nicknames</td>
+      <td>Can only be a single word containing alphabetic characters. The name must be followed by a single colon and then the remainder of the tag.</td>
   </tr>
 </table>
 
@@ -2858,7 +2651,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_DEF_INVALID**: A _Def_ tag is incorrectly used, usually because of a mismatch between its _Definition_ placeholder and _Def_’s value.  This error is detected if the _Definition_ has a placeholder, but the _Def_ is used without a value, or the _Definition_ does not have a placeholder, but the _Def_ is used with a value.
 
-**HED_DEFINITION_INVALID**: The _Definition_ syntax is incorrect or the _Definition_ contains other _Def_ or _Definition _tags.  Potential syntax errors include invalid definition names or a definition value that is not a single valid tag-group. Definitions that include a # placeholder must have exactly two # characters: one after the definition name and one in the definition body. Definitions that have too many # placeholders, not enough placeholders, or placeholders in the incorrect positions also generate this error.
+**HED_DEFINITION_INVALID**: The _Definition_ syntax is incorrect or the _Definition_ contains other _Def_ or _Definition_ tags.  Potential syntax errors include invalid definition names or a definition value that is not a single valid tag-group. Definitions that include a _#_ placeholder must have exactly two _#_ characters: one after the definition name and one in the definition body. Definitions that have too many _#_ placeholders, not enough placeholders, or placeholders in the incorrect positions also generate this error.
 
 **HED_GENERIC_ERROR**: The expression raised an error that did not fall into other categories.
 
@@ -2866,13 +2659,13 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_LIBRARY_UNMATCHED**: A tag that starts with **_name:_** is interpreted as a library schema nickname name. The association of **_name_** with an actual HED library schema must be passed to the validator when the string containing the tag is validated.
 
-**HED_NODE_NAME_EMPTY**:** **A HED string cannot start or end with a slash, nor can a tag have consecutive slashes as all of these imply an empty tag node name within a HED tag.
+**HED_NODE_NAME_EMPTY**: A HED string cannot start or end with a slash, nor can a tag have consecutive slashes as all of these imply an empty tag node name within a HED tag.
 
 **HED_ONSET_OFFSET_ERROR**: An _Onset_ or _Offset_ tag appears without being grouped with a defined name (using _Def_) with a tag-group containing a _Def-expand_. An _Offset_ tag appears before an _Offset_ tag of the same name.
 
 **HED_PARENTHESES_MISMATCH**: The number of opening and closing parentheses in a HED string must be equal. 
 
-**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (`#`) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
+**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (_#_) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
 
 **HED_REQUIRED_TAG_MISSING**: A tag has the required attribute but is not present in the assembled event string.
 
@@ -2900,7 +2693,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_UNITS_INVALID**: The HED tag has a value with units that are invalid or not of the correct unit class for the tag. A typical mistake is to use unit modifiers with units that are not SI units.
 
-**HED_VALUE_INVALID**: The value substituted for a placeholder (`#`) is not valid or compatible with the specified value class.
+**HED_VALUE_INVALID**: The value substituted for a placeholder (_#_) is not valid or compatible with the specified value class.
 
 **HED_VALUE_IS_NODE**: An existing HED node name cannot be used as a value or extension. This is true for all HED schemas regardless of version.
 
@@ -2914,177 +2707,119 @@ Table C.2 Lists the validation errors checked for by the validator.
 
 ##### Table C.2. Summary of HED validator errors and warnings.
 
-
 <table>
   <tr>
-   <td><strong>Error or warning</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Error or warning</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td>HED_CHARACTER_INVALID
-   </td>
-   <td>String contains an invalid character.
-   </td>
+     <td><code>HED_CHARACTER_INVALID</code></td>
+     <td><code>String contains an invalid character.</code></td>
   </tr>
   <tr>
-   <td>HED_COMMA_MISSING
-   </td>
-   <td>Comma missing, usually separating tag groups.
-   </td>
+     <td><code>HED_COMMA_MISSING</code></td>
+     <td>Comma missing, usually separating tag groups.</td>
   </tr>
   <tr>
-   <td>HED_DEF_UNMATCHED
-   </td>
-   <td>A <em>Def</em> tag cannot be matched to definition.
-   </td>
+      <td><code>HED_DEF_UNMATCHED</code></td>
+      <td>A <em>Def</em> tag cannot be matched to definition.</td>
   </tr>
   <tr>
-   <td>HED_DEF_INVALID
-   </td>
-   <td>A <em>Def</em>’s value is incorrect or does not match its <em>Definition</em> #. 
-   </td>
+      <td><code>HED_DEF_INVALID</code></td>
+      <td>A <em>Def</em>’s value is incorrect or does not match its <em>Definition</em>.</td>
   </tr>
   <tr>
-   <td>HED_DEFINITION_INVALID
-   </td>
-   <td>A <em>Definition</em>’s syntax is invalid or definitions are nested.
-   </td>
+     <td><code>HED_DEFINITION_INVALID</code></td>
+     <td>A <em>Definition</em>’s syntax is invalid or definitions are nested.</td>
   </tr>
   <tr>
-   <td>HED_GENERIC_ERROR
-   </td>
-   <td>HED expression raised an uncategorized error.
-   </td>
+     <td><code>HED_GENERIC_ERROR</code></td>
+     <td>HED expression raised an uncategorized error.</td>
   </tr>
   <tr>
-   <td>HED_GENERIC_WARNING
-   </td>
-   <td>HED expression raised an uncategorized warning.
-   </td>
+     <td><code>HED_GENERIC_WARNING</code></td>
+     <td>HED expression raised an uncategorized warning.</td>
   </tr>
   <tr>
-   <td>HED_LIBRARY_UNMATCHED
-   </td>
-   <td>A tag starting with <em>name:</em> does not have an associated library.
-   </td>
+     <td><code>HED_LIBRARY_UNMATCHED</code></td>
+     <td>A tag starting with <em>name:</em> does not have an associated library.</td>
   </tr>
   <tr>
-   <td>HED_NODE_NAME_EMPTY
-   </td>
-   <td>Extra slashes at beginning, end, or within a tag imply empty node names.
-   </td>
+     <td><code>HED_NODE_NAME_EMPTY</code></td>
+     <td>Extra slashes at beginning, end, or within a tag imply empty node names.</td>
   </tr>
   <tr>
-   <td>HED_ONSET_OFFSET_ERROR
-   </td>
-   <td>Unnamed or unmatched <em>Onset</em> or <em>Offset</em> tag.
-   </td>
+     <td><code>HED_ONSET_OFFSET_ERROR</code></td>
+     <td>Unnamed or unmatched <em>Onset</em> or <em>Offset</em> tag.</td>
   </tr>
   <tr>
-   <td>HED_PARENTHESES_MISMATCH
-   </td>
-   <td>HED string has mismatched parentheses.
-   </td>
+     <td><code>HED_PARENTHESES_MISMATCH</code></td>
+     <td>HED string has mismatched parentheses.</td>
   </tr>
   <tr>
-   <td>HED_PLACEHOLDER_INVALID
-   </td>
-   <td>A # is missing or appears in a place that it should not. 
-   </td>
+     <td><code>HED_PLACEHOLDER_INVALID</code></td>
+     <td>A <em>#</em> is missing or appears in a place that it should not.</td>
   </tr>
   <tr>
-   <td>HED_REQUIRED_TAG_MISSING
-   </td>
-   <td>Event annotation missing a required tag.
-   </td>
+     <td><code>HED_REQUIRED_TAG_MISSING</code></td>
+     <td>Event annotation missing a required tag.</td>
   </tr>
   <tr>
-   <td>HED_SIDECAR_KEY_MISSING*
-   </td>
-   <td>A categorical value is missing HED tags.
-   </td>
+     <td><code>HED_SIDECAR_KEY_MISSING</code>*</td>
+     <td>A categorical value is missing HED tags.</td>
   </tr>
   <tr>
-   <td>HED_STYLE_WARNING*
-   </td>
-   <td>Extension or label does not follow HED naming conventions.
-   </td>
+     <td><code>HED_STYLE_WARNING</code>*</td>
+     <td>Extension or label does not follow HED naming conventions.</td>
   </tr>
   <tr>
-   <td>HED_TAG_EMPTY
-   </td>
-   <td>Extra commas or empty parentheses indicate empty tags.
-   </td>
+      <td><code>HED_TAG_EMPTY</code></td>
+      <td>Extra commas or empty parentheses indicate empty tags.</td>
   </tr>
   <tr>
-   <td>HED_TAG_EXTENDED*
-   </td>
-   <td>HED tag represents an extension from the schema.
-   </td>
+      <td><code>HED_TAG_EXTENDED</code>*</td>
+      <td>HED tag represents an extension from the schema.</td>
   </tr>
   <tr>
-   <td>HED_TAG_GROUP_ERROR
-   </td>
-   <td>A tag has <code><em>tagGroup</em></code> or <code><em>topLevelTagGroup</em></code> attribute but is not in an appropriate tag group or a <em>topLevelTagGroup</em> tag appears in the same tag group as other tags with the <em>topLevelTagGroup</em> attribute.
-   </td>
+      <td><code>HED_TAG_GROUP_ERROR</code></td>
+      <td>A tag has <code><em>tagGroup</em></code> or <code><em>topLevelTagGroup</em></code> attribute but is not in an appropriate tag group or a <em>topLevelTagGroup</em> tag appears in the same tag group as other tags with the <em>topLevelTagGroup</em> attribute.</td>
   </tr>
   <tr>
-   <td>HED_TAG_INVALID
-   </td>
-   <td>HED tag has incorrect format, does not exist in schema, or is a tag extension that appears elsewhere in the schema.
-   </td>
+     <td><code>HED_TAG_INVALID</code></td>
+     <td>HED tag has incorrect format, does not exist in schema, or is a tag extension that appears elsewhere in the schema.</td>
   </tr>
   <tr>
-   <td>HED_TAG_NOT_UNIQUE
-   </td>
-   <td>HED tag with <em>unique</em> attribute appears more than once.
-   </td>
+     <td><code>HED_TAG_NOT_UNIQUE</code></td>
+     <td>HED tag with <em>unique</em> attribute appears more than once.</td>
   </tr>
   <tr>
-   <td>HED_TAG_REPEATED
-   </td>
-   <td>Tags cannot be repeated in the same tag group or level.
-   </td>
+     <td><code>HED_TAG_REPEATED</code></td>
+     <td>Tags cannot be repeated in the same tag group or level.</td>
   </tr>
   <tr>
-   <td>HED_TAG_REQUIRES_CHILD
-   </td>
-   <td>HED tag requires an additional ending node.
-   </td>
+     <td><code>HED_TAG_REQUIRES_CHILD</code></td>
+     <td>HED tag requires an additional ending node.</td>
   </tr>
   <tr>
-   <td>HED_TILDES_UNSUPPORTED
-   </td>
-   <td>Replace (a ~ b ~ c) with (a, (b, c)).
-   </td>
+     <td><code>HED_TILDES_UNSUPPORTED</code></td>
+     <td>Replace <em>(a ~ b ~ c)</em> with <em>(a, (b, c))</em>.</td>
   </tr>
   <tr>
-   <td>HED_UNITS_DEFAULT_USED*
-   </td>
-   <td>HED tag value has a unit class but no units are specified. Default units are used if available.
-   </td>
+     <td><code>HED_UNITS_DEFAULT_USED</code>*</td>
+     <td>HED tag value has a unit class but no units are specified. Default units are used if available.</td>
   </tr>
   <tr>
-   <td>HED_UNITS_INVALID
-   </td>
-   <td>HED tag value has incorrect or invalid units.
-   </td>
+     <td><code>HED_UNITS_INVALID</code></td>
+     <td>HED tag value has incorrect or invalid units.</td>
   </tr>
   <tr>
-   <td>HED_VALUE_INVALID
-   </td>
-   <td>The value substituted for a placeholder is invalid.
-   </td>
+     <td><code>HED_VALUE_INVALID</code></td>
+     <td>The value substituted for a placeholder is invalid.</td>
   </tr>
   <tr>
-   <td>HED_VERSION_WARNING*
-   </td>
-   <td>The HED version is not provided, so the latest is used.
-   </td>
+     <td><code>HED_VERSION_WARNING</code>*</td>
+     <td>The HED version is not provided, so the latest is used.</td>
   </tr>
 </table>
 
-
-* Indicates a warning
+_*_ Indicates a warning
