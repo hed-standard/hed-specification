@@ -5951,6 +5951,22 @@
             <description>Should be in 24-hour format.</description>
          </unit>
       </unitClassDefinition>
+	  <unitClassDefinition>
+         <name>volumeUnits</name>
+         <attribute>
+            <name>defaultUnits</name>
+            <value>m^3</value>
+         </attribute>
+         <unit>
+            <name>m^3</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
+         </unit>
+      </unitClassDefinition>
       <unitClassDefinition>
          <name>weightUnits</name>
          <attribute>
@@ -5973,35 +5989,10 @@
             </attribute>
          </unit>
          <unit>
-            <name>g</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
-         </unit>
-         <unit>
             <name>pound</name>
          </unit>
          <unit>
             <name>lb</name>
-         </unit>
-      </unitClassDefinition>
-      <unitClassDefinition>
-         <name>volumeUnits</name>
-         <attribute>
-            <name>defaultUnits</name>
-            <value>m^3</value>
-         </attribute>
-         <unit>
-            <name>m^3</name>
-            <attribute>
-               <name>SIUnit</name>
-            </attribute>
-            <attribute>
-               <name>unitSymbol</name>
-            </attribute>
          </unit>
       </unitClassDefinition>
    </unitClassDefinitions>

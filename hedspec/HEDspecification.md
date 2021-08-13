@@ -8,7 +8,8 @@
 ##### Available under the CC-BY 4.0 International license.
 
 
-[TOC]
+* TOC {:toc}
+
 
 
 ## 
@@ -69,87 +70,82 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 
 ##### Agent*
 
-    A person or thing, living or virtual, that produces (or appears to participants to be ready and capable of producing) specified effects. Agents include the study participants from whom data is collected. Virtual agents may be human or other actors in virtual-reality or augmented-reality paradigms or on-screen in video or cartoon presentations (e.g., an actor interacting with the recorded participant in a social neuroscience experiment, or a dog or robot active in a live action or animated video).
+A person or thing, living or virtual, that produces (or appears to participants to be ready and capable of producing) specified effects. Agents include the study participants from whom data is collected. Virtual agents may be human or other actors in virtual-reality or augmented-reality paradigms or on-screen in video or cartoon presentations (e.g., an actor interacting with the recorded participant in a social neuroscience experiment, or a dog or robot active in a live action or animated video).
 
 ##### Condition-variable*
 
-    An aspect of the experiment that is set or manipulated during the experiment to observe an effect or to manage bias. Condition variables are sometimes called independent variables.
+An aspect of the experiment that is set or manipulated during the experiment to observe an effect or to manage bias. Condition variables are sometimes called independent variables.
 
 ##### Control-variable*
 
-    An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.
+An aspect of the experiment that is fixed throughout the study and usually is explicitly controlled.
 
 ##### Dataset
 
-    A set of neuroimaging and behavioral data acquired for a purpose of a particular study. A dataset consists of data recordings acquired from one or more subjects, possibly from multiple sessions and sensor modalities. A dataset is often referred to as a study.
+A set of neuroimaging and behavioral data acquired for a purpose of a particular study. A dataset consists of data recordings acquired from one or more subjects, possibly from multiple sessions and sensor modalities. A dataset is often referred to as a study.
 
 ##### Event*
 
-    _Something that happens during the recording_, or may be perceived by a participant as happening, to which a time of occurrence (most typically onset or offset) can be identified. Something expected by a participant to happen at a certain time that _does not_ happen can also be a meaningful recording event. The nature of other events may be known only to the experimenter or to the experiment control application (e.g., undisclosed condition changes in task parameters).
+_Something that happens during the recording_, or may be perceived by a 
+participant as happening, to which a time of occurrence (most typically onset or offset) can be identified. Something expected by a participant to happen at a certain time that _does not_ happen can also be a meaningful recording event. The nature of other events may be known only to the experimenter or to the experiment control application (e.g., undisclosed condition changes in task parameters).
 
 ##### Event-context*
 
-    Circumstances forming or contributing to the setting in which an event occurs that are relevant to its interpretation, assessment, and consequences.
+Circumstances forming or contributing to the setting in which an event occurs that are relevant to its interpretation, assessment, and consequences.
 
 ##### Event-stream*
 
-    A named sequence of events such as all of the events that are face stimuli or all of the events that are participant responses.
+A named sequence of events such as all of the events that are face stimuli or all of the events that are participant responses.
 
 ##### Experimental-participant*
 
-    A living agent, particularly a human from whom data is acquired during an experiment, though in some paradigms other human participants may also play roles.
+A living agent, particularly a human from whom data is acquired during an experiment, though in some paradigms other human participants may also play roles.
 
-
-##### Experimental-trial*
-
-
-    A contiguous data period that is considered a unit used to observe or measure something, typically a data period including an expected event sequence that is repeated many times during the experiment (possibly with variations). Example: a repeating sequence of stimulus presentation, participant response action, and sensory feedback delivery events in a sensory judgment task.
-
+##### Experimental-trial* 
+A contiguous data period that is considered a unit used to observe or measure something, typically a data period including an expected event sequence that is repeated many times during the experiment (possibly with variations). Example: a repeating sequence of stimulus presentation, participant response action, and sensory feedback delivery events in a sensory judgment task.
 
 ##### HED schema
-
-
-    A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in XML (_.xml_) format. The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
+A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in XML (_.xml_) format. The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
 
 ##### HED string
 
-    A comma-separated list of HED tags and/or tag-groups. 
+A comma-separated list of HED tags and/or tag-groups. 
 
 ##### HED tag
 
-    A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: _Property/Agent-property/Agent-task-role/Experimental-participant_. Valid short-form tags are _Experimental-participant_, _Agent-task-role/Experimental-participant_, and _Agent-property/Agent-task-role/Experimental-participant_. HED tools should treat long-form and short-form tags interchangeably.
+A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: _Property/Agent-property/Agent-task-role/Experimental-participant_. Valid short-form tags are _Experimental-participant_, _Agent-task-role/Experimental-participant_, and _Agent-property/Agent-task-role/Experimental-participant_. HED tools should treat long-form and short-form tags interchangeably.
 
 ##### Indicator-variable*
 
-    An aspect of the experiment or task that is measured or calculated for analysis. Indicator variables, sometimes called dependent variables, can be data features that are calculated from measurements rather than aspects that are directly measured. 
+An aspect of the experiment or task that is measured or calculated for analysis. Indicator variables, sometimes called dependent variables, can be data features that are calculated from measurements rather than aspects that are directly measured. 
 
 ##### Parameter*
 
-    An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
+An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
 
 ##### Recording*
 
-    A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
+A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
 
 ##### Reference-frame*
 
-    A specified set of axes, primary orientation centered at a specified point of origin and having a specified scale. HED reference frames are usually anchored to some physical location or to an object or to another reference-frame that has an anchor.
+A specified set of axes, primary orientation centered at a specified point of origin and having a specified scale. HED reference frames are usually anchored to some physical location or to an object or to another reference-frame that has an anchor.
 
 ##### Tag-group
 
-    One or more valid, comma-separated HED tags or enclosed in parentheses to indicate that these tags belong together. Tag-groups may contain arbitrary nestings of other tags and tag-groups.
+One or more valid, comma-separated HED tags or enclosed in parentheses to indicate that these tags belong together. Tag-groups may contain arbitrary nestings of other tags and tag-groups.
 
 ##### Task* 
 
-    A set of structured activities performed by the participant that are integrally related to the purpose of the experiment. Tasks often include observations and responses to sensory presentations as well as specified actions in response to presented situations.
+A set of structured activities performed by the participant that are integrally related to the purpose of the experiment. Tasks often include observations and responses to sensory presentations as well as specified actions in response to presented situations.
 
 ##### Temporal scope
 
-    The time interval between events marking the beginning and end of something in the experiment. 
+The time interval between events marking the beginning and end of something in the experiment. 
 
 ##### Time-block*
 
-    A contiguous portion of the data recording during which some aspect of the experiment is fixed or noted.
+A contiguous portion of the data recording during which some aspect of the experiment is fixed or noted.
 
 
 ### 2.4. The HED schema
@@ -167,40 +163,37 @@ HED schema developers can specify a new schema version or revision in _.mediawik
 
 **Example:** An excerpt of a small portion of a HED schema in _.mediawiki_ format.
 
-```
-    HED version="8.0.0" 
+```mediawiki
+HED version="8.0.0" 
 
-    '''Prologue'''
-    This prologue introduces the schema.
+'''Prologue'''
+This prologue introduces the schema.
 
-    !# start schema
-
-    '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
-    * Sensory-event <nowiki>{suggestedTask=Task-event-role}[Something perceivable by an agent.]</nowiki>
+!# start schema
+'''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
+* Sensory-event <nowiki>{suggestedTask=Task-event-role}[Something perceivable by an agent.]</nowiki>
                               . . .
-    '''Property'''<nowiki>{extensionAllowed}[A characteristic.] </nowiki>
-    * Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
-    ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
-    *** <nowiki># {takesValue, valueClass=nameClass}</nowiki> 
-    !# end schema
+'''Property'''<nowiki>{extensionAllowed}[A characteristic.] </nowiki>
+* Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
+*** <nowiki># {takesValue, valueClass=nameClass}</nowiki> 
+!# end schema
 
-    '''Unit classes''' <nowiki>[Unit classes and units for the nodes.]</nowiki>
+'''Unit classes''' <nowiki>[Unit classes and units for the nodes.]</nowiki>
                         . . .
-    '''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
+'''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
                        . . .
-    '''Value classes''' <nowiki>[Rules for the values provided by users.]</nowiki>
+'''Value classes''' <nowiki>[Rules for the values provided by users.]</nowiki>
                        . . .
-    '''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
+'''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
                         . . .
-    '''Properties''' <nowiki>[Properties of the schema attributes.]</nowiki>
+'''Properties''' <nowiki>[Properties of the schema attributes.]</nowiki>
                         . . .
-    '''Epilogue'''
-    An optional section that is the place for notes and is ignored 
-    in HED processing.
+'''Epilogue'''
+An optional section that is the place for notes and is ignored in HED processing.
 
-    !# end hed
+!# end hed
 ```
-
 
 Beginning with third generation HED (HED schema versions 8.0.0 and later), **terms in a given schema must be unique within that schema.** This uniqueness rule allows automated expansion of short form HED strings into their full long forms. 
 
@@ -212,56 +205,10 @@ Attributes appear in the schema specification either as `name` attributes or as 
 
 The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a `#` node indicates that the user must supply a value consistent with the unit classes and value classes of the `#` node if it has any. Unit classes and value classes are specified in curly braces and treated like other schema attributes.  Lines with hashtag (#) placeholders should have everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements. The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  In the above example, the `#` that is a child of the _Label_ node must include _Label_ when used (e.g., _Label/myLabel_). 
 
-**Example:** The above syntax will render on GitHub as follows:
-
-    HED version="8.0.0" 
-
-    '''Prologue'''
-    This prologue introduces the schema.
-
-    !# start schema
-
-    '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
-    * Sensory-event <nowiki>{suggestedTask=Task-event-role} [Something perceivable by an agent.]</nowiki>
-
-    '''Property''' <nowiki>{extensionAllowed} [A characteristic.]</nowiki>
-    * Informational-property <nowiki>[A quality that pertains to information.]</nowiki>
-    ** Label <nowiki>{requireChild} [A string of 20 or fewer characters.]</nowiki>
-        * # {takesValue, valueClass=nameClass} 
-
-    !# end schema
-
-
-    **Unit classes **[Unit classes and units for the nodes.]
-
-
-    **Unit modifiers **[Unit multiples and submultiples.]
-
-
-    **Value classes **[Rules for the values provided by users.]
-
-
-    **Schema attributes **[Allowed node attributes.]
-
-
-    **Properties **[Properties of the schema attributes.]
-
-
-    **Epilogue **
-
-
-    This epilogue is a place for notes and is ignored in HED processing.
-
-
-    !# end hed
-
-
 
 #### 2.4.2. XML format for a HED schema
 
-The HED XML schema format encodes the hierarchical vocabulary as nested `&lt;node>&lt;/node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between _.mediawiki_ and _.xml_ formats. An expandable HTML browser view is also available for easy viewing. The _.xml_ format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
-
-
+The HED XML schema format encodes the hierarchical vocabulary as nested `<node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between _.mediawiki_ and _.xml_ formats. An expandable HTML browser view is also available for easy viewing. The _.xml_ format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
 
 1. To correctly handle multiple values of schema attributes.
 2. To preserve the prologue and epilogue information present in _.mediawiki_ files.
@@ -270,68 +217,66 @@ The HED XML schema format encodes the hierarchical vocabulary as nested `&lt;nod
 
 The following is a translation of the _.mediawiki_ example from the previous section in the new XML format. A complete specification of the format is given in Appendix B.
 
-**Example: **The XML version of the HED schema segment of the previous example.
+**Example:** The XML version of the HED schema segment of the previous example.
 
-
-```
-    <?xml version="1.0" ?>
-    <HED version="8.0.0">
-    <prologue>This prologue introduces the schema.<prologue>
+```xml
+<?xml version="1.0" ?>
+<HED version="8.0.0">
+    <prologue>This prologue introduces the schema.</prologue>
     <schema>
-       <node>
-          <name>Event</name>
-          <description>Something that happens at a given place and time.
-         </description>
-          <node>
-             <name>Sensory-event</name>
-             <description>Something perceivable by an agent.</description>
-             <attribute>
-                <name>suggestedTag</name>
-                <value>Task-event-role</value>
-             </attribute>
-          </node>
+        <node>
+           <name>Event</name>
+           <description>Something that happens at a given place and time.</description>
+           <node>
+               <name>Sensory-event</name>
+               <description>Something perceivable by an agent.</description>
+               <attribute>
+                   <name>suggestedTag</name>
+                   <value>Task-event-role</value>
+               </attribute>
+           </node>
+        </node>
                          . . .
-          <node>
-             <name>Property</name>
-             <description>A characteristic of some entity.</description>
-             <attribute>
+        <node>
+            <name>Property</name>
+            <description>A characteristic of some entity.</description>
+            <attribute>
                 <name>extensionAllowed</name>
-             </attribute>
-             <node>
+            </attribute>
+            <node>
                 <name>Informational-property</name>
                 <description>A quality pertaining to information.</description>
                 <node>
-                   <name>Label</name>
-                   <description>A string of less than 20.</description>
-                   <attribute>
-                      <name>requireChild</name>
-                   </attribute>
-                   <node>
-                      <name>#</name>
-                      <attribute>
-                         <name>takesValue</name>
-                      </attribute>
-                      <attribute>
-                         <name>valueClass</name>
-                         <value>nameClass</value>
-                      </attribute>
-                   </node>
-                </node>
+                    <name>Label</name>
+                    <description>A string of less than 20.</description>
+                    <attribute>
+                        <name>requireChild</name>
+                    </attribute>
+                <node>
+                    <name>#</name>
+                    <attribute>
+                        <name>takesValue</name>
+                    </attribute>
+                    <attribute>
+                        <name>valueClass</name>
+                        <value>nameClass</value>
+                    </attribute>
+                </node></node>
               </node>
-          </node>
-        </schema>
-        <unitClassDefinitions> ...</unitClassDefinitions>
-        <unitModifierDefinitions>...</unitModifierDefinitions>
-        <valueClassDefinitions>...</valueClassDefinitions>
-        <schemaAttributeDefinitions>...</schemaAttributeDefinitions>
-        <propertyDefinitions>...</propertyDefinitions>
-        <epilogue>This epilogue is a place for notes and is ignored in HED processing.<epilogue>
-    </HED>
+        </node>
+    </schema>
+    <unitClassDefinitions> ...</unitClassDefinitions>
+    <unitModifierDefinitions>...</unitModifierDefinitions>
+    <valueClassDefinitions>...</valueClassDefinitions>
+    <schemaAttributeDefinitions>...</schemaAttributeDefinitions>
+    <propertyDefinitions>...</propertyDefinitions>
+    <epilogue>This epilogue is a place for notes and is ignored in HED processing.</epilogue>
+</HED>
 ```
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the _.mediawiki_ version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the _.mediawiki_ file) are translated into `<attribute>` child elements of `<node>` in the _.xml_.  These schema attributes are not to be confused with the HED _Attribute_ tag that is part of the HED vocabulary. 
 
-The HED schema also includes a `<unitClassDefinitions> section that` specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
+The HED schema also includes a `<unitClassDefinitions>` section that specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
 
 The `<unitModifierDefinitions>` section lists the SI unit multiples and submultiples that are allowed to be prepended to units that have the SIUnit schema attribute. 
 
@@ -346,60 +291,33 @@ The `<schemaAttributeDefinitions>` section lists the schema attributes that appl
 
 The different parts of the HED schema have different rules for the characters that are allowed. Table 2.1 summarizes the rules. UTF-8 characters are not supported. Values that don’t have an associated valueClass attribute are assumed to have `valueClass=nameClass`.
 
-
 ##### Table 2.1. Rules for valid characters in HED schema.
-
 
 <table>
   <tr>
-   <td><strong>Item</strong>
-   </td>
-   <td><strong>Allowed characters</strong>
-   </td>
-   <td><strong>Style suggestions and other rules</strong>
-   </td>
+     <td><strong>Item</strong></td>
+     <td><strong>Allowed characters</strong></td>
+     <td><strong>Style suggestions and other rules</strong></td>
   </tr>
   <tr>
-   <td>Node elements
-<p>
-(HED tag names)
-<p>
-<code>valueClass=nameClass</code>
-   </td>
-   <td>Alphanumeric characters, hyphens, and underbars with no white space.
-   </td>
-   <td>The first letter of a term should be capitalized for readability. The remaining characters should be lowercase.
-   </td>
+     <td>Node elements<br>(HED tag names<br><code>valueClass=nameClass</code></td>
+     <td>Alphanumeric characters, hyphens, and underbars with no white space.</td>
+     <td>The first letter of a term should be capitalized for readability. The remaining characters should be lowercase.</td>
   </tr>
   <tr>
-   <td>Descriptions
-<p>
-<code>valueClass=textClass</code>
-   </td>
-   <td>Alphanumeric characters, blanks, commas, periods, semicolons, colons, hyphens, underbars, forward slashes, carets (^), and parentheses are allowed.  No square brackets, curly braces, quotes, or other punctuation and symbols are allowed.
-   </td>
-   <td>Descriptions should be concise sentences, possibly with clarifying examples.
-   </td>
+     <td>Descriptions<br><code>valueClass=textClass</code></td>
+     <td>Alphanumeric characters, blanks, commas, periods, semicolons, colons, hyphens, underbars, forward slashes, carets (^), and parentheses are allowed.  No square brackets, curly braces, quotes, or other punctuation and symbols are allowed.</td>
+     <td>Descriptions should be concise sentences, possibly with clarifying examples.</td>
   </tr>
   <tr>
-   <td>Placeholder (#)
-<p>
-substitutions by
-<p>
-user-defined values.
-   </td>
-   <td>The characters allowed depend on the <code>valueClass</code> for the value plus the actual characters in the units and in the unit modifiers if applicable. 
-   </td>
-   <td>If the # has <code>valueClass</code> attributes, the value may have special characters as specified by in the class definition. For example, the colon (:) is specifically allowed for the <code>dateTime</code> unit class. Units are separated from the value by at least one blank whether prefix or suffix.
-   </td>
+     <td>Placeholder (<code>#</code>) substitutions by user-defined values.</td>
+     <td>The characters allowed depend on the <code>valueClass</code> for the value plus the actual characters in the units and in the unit modifiers if applicable.</td>
+   <td><p>If the <code>#</code> has <code>valueClass</code> attributes, the value may have special characters as specified by in the class definition. For example, the colon (:) is specifically allowed for the <code>dateTime</code> unit class.</p><p>Units are separated from the value by at least one blank whether prefix or suffix.</p> </td>
   </tr>
   <tr>
-   <td>Library names and nicknames
-   </td>
-   <td>A single word containing only alphabetic characters. 
-   </td>
-   <td>Library nicknames are followed by a single colon when used in a tag string.
-   </td>
+     <td>Library names and nicknames</td>
+     <td>A single word containing only alphabetic characters.</td>
+     <td>Library nicknames are followed by a single colon when used in a tag string.</td>
   </tr>
 </table>
 
@@ -430,39 +348,22 @@ Table 2.2 compares the long forms of several representative tags to various equi
 
 <table>
   <tr>
-   <td><strong>Long form (full path from node to root) </strong>
-   </td>
-   <td><strong>Short form(s)</strong>
-   </td>
+     <td><strong>Long form (full path from node to root)</strong></td>
+     <td><strong>Short form(s)</strong></td>
   </tr>
   <tr>
-   <td><em>Event/Sensory-event</em>
-   </td>
-   <td><em>Sensory-event</em>
-   </td>
+     <td><em>Event/Sensory-event</em></td>
+     <td><em>Sensory-event</em></td>
   </tr>
   <tr>
-   <td><em>Property/Informational-property/Label/Image1</em>
-   </td>
-   <td><em>Label/Image1</em>
-<p>
-<em>Informational-property/Label/Image1</em>
-   </td>
+     <td><em>Property/Informational-property/Label/Image1</em></td>
+     <td><em>Label/Image1</em><br><em>Informational-property/Label/Image1</em><br></td>
   </tr>
   <tr>
-   <td><em>Item/Object/Geometric-object/2D-shape/Triangle</em>
-   </td>
-   <td><em>Triangle</em>
-<p>
-<em>2D-shape/Triangle</em>
-<p>
-<em>Geometric-object/2D-shape/Triangle</em>
-<p>
-<em>Object/Geometric-object/2D-shape/Triangle</em>
-   </td>
+     <td><em>Item/Object/Geometric-object/2D-shape/Triangle</em></td>
+     <td><em>Triangle</em><br><em>2D-shape/Triangle</em><br><em>Geometric-object/2D-shape/Triangle</em><br><em>Object/Geometric-object/2D-shape/Triangle</em></td>
   </tr>
 </table>
-
 
 A **HED string** is a comma-separated list of HED tags and/or HED tag groups. A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in parentheses. Tag groups may include other tag groups. Parentheses convey association, since HED strings are _unordered_ lists. The terms in a HED string must be unique, thus, a HED string forms a set.
 
@@ -470,14 +371,17 @@ A **HED string** is a comma-separated list of HED tags and/or HED tag groups. A 
 
 **Short form:**
 
+```
     ((Human-agent, Experiment-participant), (Press, Mouse-button))
+```
 
 **Long form:**
-
-    ((Agent/Human-agent,
+```
+((Agent/Human-agent,
     Property/Agent-property/Agent-task-role/Experiment-participant),
-    (Action/Move/Move-body-part/Move-upper-extremity/Press,
-    Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button))
+(Action/Move/Move-body-part/Move-upper-extremity/Press,
+ Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button))
+```
 
 The syntax and errors for HED tags and HED strings are summarized in **Appendix C**
 
@@ -514,16 +418,19 @@ A stimulus event can be annotated at different levels of detail. When not needed
 
 **Short form:** 
 
-    Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)
+```
+Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)
+```
 
 **Long form:**
-
-    Event/**Sensory-event**,  
-    Property/task-property/Task-event-role/Experimental-stimulus,
-    Property/Sensory-property/Visual-presentation,
-    (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
-    Item/Object/Geometric-object/2D-shape/Triangle),
-    Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.
+```
+Event/Sensory-event,  
+Property/task-property/Task-event-role/Experimental-stimulus,
+Property/Sensory-property/Visual-presentation,
+(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
+Item/Object/Geometric-object/2D-shape/Triangle),
+Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.
+```
 
 The example HED string above illustrates the most basic form of point event annotation. The annotation indicates that this is a visual sensory event intended to be an experiment stimulus. _Sensory-event_ is in the _Event_ rooted tree and indicates the general class that this event falls into. In general, the annotation for each event should include at least one tag from the _Event_ tree. If there are multiple sensory presentations in the same event, a single _Sensory-event_ tag covers the general category for all presentations in the event. The individual presentations (which may include different modalities) are grouped with their descriptive tags, while the _Sensory-event_ tag applies overall. In this case there is only one, so the grouping is not necessary. 
 
@@ -543,22 +450,24 @@ In deciding what additional information should be included, the annotator should
 **Example:** Version 2 of the green triangle presentation conveys more task intent.
 
 **Short form:**
-
-    Sensory-event, Experimental-stimulus, Visual-presentation,
-    (Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)
+```
+Sensory-event, Experimental-stimulus, Visual-presentation,
+(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)
+```
 
 **Long form:**
-
-    Event/Sensory-event, 
-    Property/Task-property/Task-event-role/Experimental-stimulus,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,
-    (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,
-    Item/Object/Geometric-object/2D-shape/Triangle),
-    (Property/Task-property/Task-effect-evidence/Intended-effect,
-    Property/Task-property/Task-stimulus-role/Oddball),
-    (Property/Task-property/Task-effect-evidence/Intended-effect,
-    Property/Task-property/Task-stimulus-role/Target),
-    Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.
+```
+Event/Sensory-event, 
+Property/Task-property/Task-event-role/Experimental-stimulus,
+Property/Sensory-property/Sensory-presentation/Visual-presentation,
+(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,
+Item/Object/Geometric-object/2D-shape/Triangle),
+(Property/Task-property/Task-effect-evidence/Intended-effect,
+Property/Task-property/Task-stimulus-role/Oddball),
+(Property/Task-property/Task-effect-evidence/Intended-effect,
+Property/Task-property/Task-stimulus-role/Target),
+Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.
+```
 
 The _Intended-effect_ tag is a _Task-effect-evidence_ tag that describes the effect expected to be elicited from the participant experiencing the stimulus. This tag indicates, that based on the specification of the task, we can conclude that the subject will be looking for the triangle (_Target_) and that its appearance is unusual (_Oddball_). 
 
@@ -576,33 +485,35 @@ In many experiments, the participant is asked to press (or select and press) a f
 **Example:** Version 1 of a HED annotation of a button press in response to a stimulus.
 
 **Short form:**  
-
-    Agent-action, (Participant-response, (Press, Mouse-button))
+```
+Agent-action, (Participant-response, (Press, Mouse-button))
+```
 
 The _Participant-response_ tag indicates that this event represents a task-related response to a stimulus. The_ Press_ tag is from the _Action_ subtree and is grouped with the _Mouse-button_ to indicate the pressing of a button. In general, _Action_ elements can be considered verbs, while _Items_ and _Agents_ can be considered nouns. These elements form a natural sentence structure: (subject, (verb, direct object)), with the subject and direct object being formed by noun elements. _Attribute_ elements are the adjectives, adverbs, and prepositions that modify and connect these elements.
 
 **Example:** A more detailed HED annotation of a button press in response to a stimulus.
 
 **Short form:**   
-
-    Agent-action, Participant-response, 
-    ((Human-agent, Experiment-participant), (Press, Mouse-button)),
-    (Behavioral-evidence, Oddball), (Behavioral-evidence, Target)
+```
+Agent-action, Participant-response, 
+((Human-agent, Experiment-participant), (Press, Mouse-button)),
+(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)
+```
 
 **Long form:**
-
-    Event/Agent-action,
-    Property/Task-property/Task-event-role/Participant-response,
-    ((Agent/Human-agent, 
-    Property/Agent-property/Agent-task-role/Experiment-participant),
-    (Action/Move/Move-body-part/Move-upper-extremity/Press,
-    Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),
-    (Property/Task-property/Task-effect-evidence/Behavioral-evidence,
-    Property/Task-property/Task-stimulus-role/Oddball),
-    (Property/Task-property/Task-effect-evidence/Behavioral-evidence,
-    Property/Task-property/Task-stimulus-role/Target),
-    Property/Informational-property/Description/The subject pushes the left
-    mouse button to indicate the appearance of an oddball target using index finger on the left hand.
+```
+Event/Agent-action,
+Property/Task-property/Task-event-role/Participant-response,
+((Agent/Human-agent, 
+Property/Agent-property/Agent-task-role/Experiment-participant),
+(Action/Move/Move-body-part/Move-upper-extremity/Press,
+Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),
+(Property/Task-property/Task-effect-evidence/Behavioral-evidence,
+Property/Task-property/Task-stimulus-role/Oddball),
+(Property/Task-property/Task-effect-evidence/Behavioral-evidence,
+Property/Task-property/Task-stimulus-role/Target),
+Property/Informational-property/Description/The subject pushes the left mouse button to indicate the appearance of an oddball target using index finger on the left hand.
+```
 
 The _Participant-response_ tag is modified by tags that indicate that the participant is reacting by responding as though the stimulus were an oddball target. Specifically the _Behavioral-evidence_ tag documents that the subject gave a response indicating an oddball target. In other words, the participant pressed the left mouse button indicating an oddball target, which may or may not match the stimulus that was presented. Other details should be annotated, including whether the subject’s left, right, or dominant hand was used to press the mouse button and whether the left mouse button or right mouse button was pressed. (This factor was indicated in the _Description_, but not in the machine-actionable tags.)
 
@@ -614,20 +525,21 @@ Experiments may have experiment control events written into the event record, of
 **Example:** A buzzer is sounded to indicate that the subject can rest.
 
 **Short form:**
-
-    Sensory-event, Instructional, Auditory-presentation,
-    (Buzz, (Intended-effect, Rest))
+```
+Sensory-event, Instructional, Auditory-presentation,
+(Buzz, (Intended-effect, Rest))
+```
 
 **Long form:** 
-
-    Event/Sensory-event, 
-    Property/Task-property/Task-event-role/Instructional,
-    Property/Sensory-property/Sensory-presentation/Auditory-presentation,
-    (Item/Sound/Named-object-sound/Buzz,
-    (Property/Task-property/Task-effect-evidence/Intended-effect,
-    Action/Perform/Rest)),
-    Property/Informational-property/Description/A buzzer sounds indicating a rest period.
-
+```
+Event/Sensory-event, 
+Property/Task-property/Task-event-role/Instructional,
+Property/Sensory-property/Sensory-presentation/Auditory-presentation,
+(Item/Sound/Named-object-sound/Buzz,
+(Property/Task-property/Task-effect-evidence/Intended-effect,
+Action/Perform/Rest)),
+Property/Informational-property/Description/A buzzer sounds indicating a rest period.
+```
 
 #### 3.1.5. A data feature event
 
@@ -636,15 +548,17 @@ Another type of tagging documents computed data features and expert annotations 
 **Example:** HED tag for a computational feature inserted post hoc by the Blinker tool.
 
 **Short form:**  
-
-    Data-feature, (Computed-feature, Label/Blinker_BlinkMax)
+```
+Data-feature, (Computed-feature, Label/Blinker_BlinkMax)
+```
 
 **Long form:**
-
-    Event/Data-feature,
-    (Property/Data-property/Data-source-type/Computed-feature, 
-    Property/Informational-property/Label/Blinker_BlinkMax),
-    Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.
+```
+Event/Data-feature,
+(Property/Data-property/Data-source-type/Computed-feature, 
+Property/Informational-property/Label/Blinker_BlinkMax),
+Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.
+```
 
 As shown by this example, the _Computed-feature_ tag is grouped with a label of the form _toolName_featureName_. In this example, the computed property is just a marker of where a feature was detected. If a value was computed at this point, an additional _Value_ tag would be included.
 
@@ -653,17 +567,17 @@ Clinical evaluations are observational features and many fields have standardize
 **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
 **Short form:**
-
-    Data-feature, (Observation, Label/AnnotatorAJM_K-complex)
-
+```
+Data-feature, (Observation, Label/AnnotatorAJM_K-complex)
+```
 
 **Long form:**
-
-    Event/Data-feature,
-    (Property/Data-property/Data-source-type/Observation,
-    Property/Informational-property/Label/AnnotatorAJM_K-complex),
-    Property/Informational-property/Description/K-complex defined by AASM guide.
-
+```
+Event/Data-feature,
+(Property/Data-property/Data-source-type/Observation,
+Property/Informational-property/Label/AnnotatorAJM_K-complex),
+Property/Informational-property/Description/K-complex defined by AASM guide.
+```
 
 #### 3.1.6. What else should be documented?
 
@@ -680,42 +594,27 @@ HED-3G introduces the _Definition_ tag to facilitate tag reuse and to allow impl
 
 A **HED definition** is a tag group that includes one _Definition_ tag whose required child value names. The definition usually includes an optional tag-group specifying the actual definition information. Table 3.1 summarizes the syntax rules for definitions.
 
-
 ##### Table 3.1. Syntax for HED definitions. Optional items are underlined.
-
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Syntax</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short forms:</strong> 
-<p>
-<em>(Definition/XXX, (tag-group))</em>
-<p>
-<em>(Definition/XXX/#, (tag-group))</em>
-   </td>
-   <td rowspan="2" ><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value. 
-<p>
-If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.
-<p>
-The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See **Section 3.3**.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.
-   </td>
+     <td><p><strong>Short forms:</strong></p>
+<p><em>(Definition/XXX, (tag-group))</em></p>
+<p><em>(Definition/XXX/#, (tag-group))</em></p>
+<p><strong>Long forms:</strong><br>
+<em>(Property/Organizational-property/Definition/XXX, (tag-group))</em><br>
+<em>(Property/Organizational-property/Definition/XXX/#, (tag-group))</em>
+</p></td>
+     <td><p><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value.</p>
+    <p>If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.</p>
+<p>The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See Section 3.3.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.</p></td>
   </tr>
   <tr>
-   <td><strong>Long forms:</strong> 
-<p>
-<em>(Property/Organizational-</em>
-<p>
-<em>property/Definition/XXX, (tag-group))</em>
-<p>
-<em>(Property/Organizational-</em>
-<p>
-<em>property/Definition/XXX/#, (tag-group))</em>
-   </td>
+   <td>
   </tr>
 </table>
 
@@ -723,31 +622,35 @@ The <em>tag-group</em> may be omitted if the only purpose of the definition is t
 **Example:** Create a definition called _PlayMovie_ that represents playing a movie on the screen.
 
 **Short form:** 
-
-    (Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))
+```
+(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))
+```
 
 **Long form:** 
-
-    (Property/Organization-property/Definition/PlayMovie,
-    (Property/Sensory-property/Sensory-presentation/Visual-presentation, 
-    Item/Object/Man-made-object/Media/Visualization/Movie,
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computerscreen))
+```
+(Property/Organization-property/Definition/PlayMovie,
+(Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+Item/Object/Man-made-object/Media/Visualization/Movie,
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computerscreen))
+```
 
 The placeholder form of the definition is used, for example, to annotate an experimental parameter whose value is selected at random for each occurrence. The annotator can use a single definition name and just substitute the value for each occurrence. 
 
 **Example:** Define _PresentationRate_ to annotate the rate of visual presentation of a stimulus.
 
 **Short form:**
-
-    (Definition/PresentationRate/#,
-    (Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))
+```
+(Definition/PresentationRate/#,
+(Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))
+```
 
 **Long form:**
-
-    (Property/Organizational-property/Definition/PresentationRate/#,
-    (Property/Sensory-property/Sensory-presentation/Visual-presentation, 
-    Property/Task-property/Task-event-role/Experimental-stimulus,
-    Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
+```
+(Property/Organizational-property/Definition/PresentationRate/#,
+(Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+Property/Task-property/Task-event-role/Experimental-stimulus,
+Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
+```
 
 When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an annotation, the name is prefixed by _Def/_ to indicate that the name represents a defined name. In other words, _Def/PlayMovie_ is shorthand for _(Visual, Movie, Screen)_. Table 3.2 summarizes _Def/_ syntax rules.
 
@@ -756,43 +659,41 @@ When a definition name such as _PlayMovie_ or _PresentationRate_ is used in an a
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Syntax</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short forms:</strong> 
-<p>
-<em>Def/XXX</em>
-<p>
-<em>Def/XXX/#</em>
-   </td>
-   <td rowspan="2" ><em>XXX</em> is the name of the definition.
-<p>
-If the XXX/# form is used, the definition <em>(tag-group)</em> for <em>XXX </em>must contain a single # that represents the value to be substituted for the # placeholder in the <em>Def/XXX/#</em>. In other words, a <em>Def</em> tag cannot include #.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long forms:</strong> 
-<p>
-<em>Property/Organizational-property/Def/XXX</em>
-<p>
-<em>Property/Organizational-property/Def/XXX/#</em>
-   </td>
+     <td>
+       <p><strong>Short forms:</strong></p>
+       <p><em>Def/XXX</em></p>
+       <p><em>Def/XXX/#</em></p>
+       <p><hr/>
+       <p><strong>Long forms:</strong></p>
+       <p><em>Property/Organizational-property/Def/XXX</em></p>
+       <p><em>Property/Organizational-property/Def/XXX/#</em></p>
+     </td>
+     <td>
+       <p><em>XXX</em> is the name of the definition.</p>
+       <p>If the XXX/# form is used, the definition <em>(tag-group) 
+          </em> for <em>XXX </em>must contain a single # that 
+          represents the value to be substituted for the # 
+          placeholder in the <em>Def/XXX/#</em>. In other words, a 
+          <em>Def</em> tag cannot include #.</p>
+     </td>
   </tr>
 </table>
-
 
 **Example:** Use the _PresentationRate_ definition to annotate a presentation rate of 1.5 Hz.
 
 **Short form:**
-
-    Def/PresentationRate/1.5 Hz
+```
+Def/PresentationRate/1.5 Hz
+```
 
 **Long form:**
-
-    Property/Organizational-property/Def/PresentationRate/1.5 Hz
+```
+Property/Organizational-property/Def/PresentationRate/1.5 Hz
+```
 
 During analysis, tools usually replace _Def/PlayMovie_ with a fully expanded tag string. Tools must retain the association of the expanded tag string with the definition name for identification during searching and substitution. When a definition is expanded, the resulting tag string should include the definition name using the _Def-expand tag_. In other words, the tools should expand the definition as _(Def-expand/PlayMovie, Visual, Movie, Screen)_. The _Def-expand/PlayMovie_ is inserted in the definition tag group as part of the expansion to keep the association with the original definition.
 
@@ -817,70 +718,62 @@ HED events are assumed to be point events unless they are given an explicit temp
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Syntax</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short forms:</strong> 
+     <td>
+        <p><strong>Short forms:</strong> 
+        <p><em>(Def/XXX, Onset, (tag-group))</em></p>
+        <p><em>(Def/XXX/#, Onset, (tag-group))</em></p>
+        <p><em>(Def/XXX, Offset)</em></p>
+        <hr></br>
+        <p><strong>Long forms:</strong> 
 <p>
-<em>(Def/XXX,  Onset, (tag-group))</em>
-<p>
-<em>(Def/XXX/#,  Onset, (tag-group))</em>
-<p>
-<em>(Def/XXX,  Offset)</em>
-   </td>
-   <td rowspan="2" ><em>XXX</em> is the name of the definition and <em>tag-group</em> is an optional group of tags <strong>in addition</strong> to the tags in the definition. The additional <em>tag-group</em> is only in effect for that particular scoped event and <strong>not</strong> for all uses of <em>XXX</em>.
-<p>
-If the <em>Def/XXX/#</em> form is used, the <em>#</em> must be replaced by an actual value. The definition for <em>XXX</em> must have a single # placeholder in its tag-group representing a value.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long forms:</strong> 
-<p>
-<em>(Property/Organizational-property/Def/XXX,  </em>
-<p>
-<em>Property/Data-property/Data-value/Spatiotemporal-</em>
-<p>
-<em>value/Temporal-value/Onset, <span style="text-decoration:underline;">(tag-group)</span></em>)
-<p>
-<em>(Attribute/Informational/Def/XXX/#, Data-property/Spatiotemporal-property/Temporal-property/Onset, <span style="text-decoration:underline;">(tag-group)</span>)</em>
-<p>
-<em>(Attribute/Informational/Def/XXX/#, Data-property/Spatiotemporal-property/Temporal/Offset</em>
+        <p><em>(Property/Organizational-property/Def/XXX,Property/Data-property/Data-marker/Temporal-marker/Onset, (tag-group)</em>)</p>
+        <p><em>(Attribute/Informational/Def/XXX/#, Property/Data-property/Data-marker/Temporal-marker/Onset,(tag-group))</em></p>
+        <p><em>(Attribute/Informational/Def/XXX/#, Data-property/Data-marker/Temporal/Offset</em></p>
+     </td>
+   <td>
+       <p><em>XXX</em> is the name of the definition and <em>tag-group</em> is an optional group of tags <strong>in addition</strong> to the tags in the definition.</p>
+       <p>The additional <em>tag-group</em> is only in effect for that particular scoped event and <strong>not</strong> for all uses of <em>XXX</em>.</p>
+       <p>If the <em>Def/XXX/#</em> form is used, the <em>#</em> must be replaced by an actual value.</p>
+       <p>The definition for <em>XXX</em> must have a single # placeholder in its tag-group representing a value.</p>
    </td>
   </tr>
 </table>
 
-
 For example, the _PlayMovie_ definition of the previous section just defines the playing of a movie clip on the screen. The _(tag-group)_ might include tags identifying which clip is playing in this instance. This syntax allows one definition name to be used for the playing of many different clips. 
 
-**Example:** An event sequence representing the playing of a Star Wars clip using_ PlayMovie_.
+**Example:** An event sequence representing the playing of a Star Wars clip using _PlayMovie_.
 
 **Short form:** 
-
-    [event 1] Sensory-event, 
-    (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))
-    
+```
+[event 1] 
+Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))
+ 
          .... [The Star Wars movie clip is playing] ....
     
-    [event n]  Sensory-event, (Def/PlayMovie, Offset)
-
+[event n] 
+Sensory-event, (Def/PlayMovie, Offset)
+```
 
 **Long form:**
-
-    [event 1] Event/Sensory-event,
-    (Attribute/Informational/Def/PlayMovie, 
-    Data-property/Data-marker/Temporal-marker/Onset,
-    (Attribute/Informational/Label/StarWars,
-    (Item/Object/Man-made-object/Media/Media-clip,
-    Attribute/Informational/ID/3284)))                                           
+```
+[event 1] 
+Event/Sensory-event,
+(Attribute/Informational/Def/PlayMovie, 
+Data-property/Data-marker/Temporal-marker/Onset,
+(Attribute/Informational/Label/StarWars,
+(Item/Object/Man-made-object/Media/Media-clip, Attribute/Informational/ID/3284)))                                           
 
         .... [The Star Wars movie clip is playing] ....
 
-    [event n]  Event/Sensory-event,
-    (Attribute/Informational/Def/PlayMovie,
-    Data-property/Data-marker/Temporal-marker/Offset)
+[event n]  
+Event/Sensory-event,
+(Attribute/Informational/Def/PlayMovie,
+Data-property/Data-marker/Temporal-marker/Offset)
+```
 
 The _PlayMovie_ scoped event type can be reused to annotate the playing of other movie clips. However, scoped events with the same defined name (e.g., _PlayMovie_) cannot be nested. The temporal scope of a _PlayMovie_ event ends with a _PlayMovie_ _Offset_ or with the _Onset_ of another _PlayMovie_ event. 
 
@@ -894,19 +787,20 @@ The _Duration_ tag is an alternative method for specifying an event with tempora
 **Example:** Use _Duration_ to represent the playing of a 2-second movie clip of Star Wars.
 
 **Short form:**
-
-    Sensory-event,
-    (Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)
-
+```
+Sensory-event,
+(Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)
+```
 **Long form:**
-
-    Event/Sensory-event, 
-    (Property/Data-value/Spatiotemporal-value/Temporal-value/Duration/2 s
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,
-    (Item/Object/Man-made-object/Media/Visualization/Movie,
-    Property/Informational-property/Label/StarWars),
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
-    Property/Informational-property/Description/Play a movie clip for 2 s.)
+```
+Event/Sensory-event, 
+(Property/Data-value/Spatiotemporal-value/Temporal-value/Duration/2 s
+Property/Sensory-property/Sensory-presentation/Visual-presentation,
+(Item/Object/Man-made-object/Media/Visualization/Movie,
+Property/Informational-property/Label/StarWars),
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+Property/Informational-property/Description/Play a movie clip for 2 s.)
+```
 
 The _Duration_ tag is convenient because its use does not require a _Definition_. The _Duration_ tag has the same effect on event context as the _Onset/Offset_ mechanism (as explained in **Section 3.4**.) However the ending of the temporal scope for events defined with _Duration_ is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for most events involving visual or auditory presentations.
 
@@ -918,28 +812,31 @@ The _Delay_ tag is grouped with a set of tags to indicate that the associated _t
 **Example:** A trial consists of the presentation of a cross on the center of the screen. The participant responds with a button press upon seeing the cross. The response time of the button push is recorded relative to the stimulus presentation as part of the stimulus event.
 
 **Short form:**
+```
+Sensory-event, Experimental-stimulus, Visual-presentation,
+(Cross, (Center-of, Computer-screen)),
 
-    Sensory-event, Experimental-stimulus, Visual-presentation,
-    (Cross, (Center-of, Computer-screen)),
-    (Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))
-
+(Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))
+```
 
 **Long form:**
+```
+Event/Sensory-event, 
+Property/Task-property/Task-event-role/Experimental-stimulus,
+Property/Sensory-property/Sensory-presentation/Visual-presentation,
+(Item/Object/Geometric-object/2D-shape/Cross,
+(Relation/Spatial-relation/Center-of,
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen)),
 
-    Event/Sensory-event, 
-    Property/Task-property/Task-event-role/Experimental-stimulus,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,
-    (Item/Object/Geometric-object/2D-shape/Cross,
-    (Relation/Spatial-relation/Center-of,
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-_
-    device/Computer-screen)),
+(Event/Agent-action, 
+Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Delay/2.83 ms,
+(Property/Task-property/Task-event-role/Participant-response,
+(Action/Move/Move-body-part/Move-upper-extremity/Press,
+Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button))),
 
-    (Event/Agent-action, 
-    Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Delay/2.83 ms,
-    (Property/Task-property/Task-event-role/Participant-response,
-    (Action/Move/Move-body-part/Move-upper-extremity/Press,
-    Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button)))
-    Property/Informational-property/Description/A cross is displayed in the center of the screen and the participant responds by pushing a button.
+Property/Informational-property/Description/A cross is displayed 
+in the center of the screen and the participant responds by pushing a button.
+```
 
 Notice that the _Agent-action_ tag from the _Event_ subtree is included in the _Delay_ tag-group. This allows tools to identify this tag-group as representing a distinct event. For BIDS datasets, such response delays would be in value columns of the `_events.tsv` event files. The HED annotation for the JSON sidecar corresponding to these files would contain a _#_. At HED expansion time, tools replace the _#_ with the column value (2.83) corresponding to each event. 
 
@@ -958,19 +855,21 @@ Event streams can be identified and tagged using the _Event-stream_ tag, allowin
 **Example:** Tag a face event indicating that it is part of the _Face-stream_ event stream. 
 
 **Short form:**
-
-    Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)
+```
+Sensory-event, 
+Event-stream/Face-stream, Visual-presentation, (Image, Face)
+```
 
 **Long form:** 
-    
-    Event/Sensory-event,
-    Property/Organizational-property/Event-stream/Face-stream,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,  
-    (Item/Object/Man-made-object/Media/Visualization/Image,
-    Item/Biological-item/Anatomical-item/Body-part/Head/Face)
+```    
+Event/Sensory-event,
+Property/Organizational-property/Event-stream/Face-stream,
+Property/Sensory-property/Sensory-presentation/Visual-presentation,  
+(Item/Object/Man-made-object/Media/Visualization/Image,
+Item/Biological-item/Anatomical-item/Body-part/Head/Face)
+```
 
 Using a tag to identify an event stream makes it easier for downstream tools to compute relationships among subsets of events.
-
 
 ### 3.5. The _Event-context_ tag
 
@@ -978,33 +877,31 @@ Event annotations generally focus on describing what happened at the instant an 
 
 Table 3.4 summarizes the syntax of the _Event-context_ tag. In normal usage, **this tag is not used directly by annotators**.  Rather, tools insert the _Event-context_ tag at analysis time to handle the implicit context created by enduring or scoped events. However, annotators may use the tag when an event has explicit context information that must be accounted for.
 
-
 ##### **Table 3.4.** Syntax for HED _Event-context_.
-
 
 <table>
   <tr>
-   <td><strong>Syntax</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+   <td><strong>Syntax</strong></td>
+   <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><strong>Short form: </strong>
-<p>
-<em>(Event-context, other-tags)</em>
+   <td>
+      <p><strong>Short form:</strong></p>
+      <p><em>(Event-context, other-tags)</em></p>
+      <p><hr>
+      <p><strong>Long form:</strong></p>
+      <p><em>(Property/Organizational-property/Event-context, other-tags)</em></p>
    </td>
-   <td rowspan="2" >An event can have at most one <em>Event-context</em> tag group. 
-<p>
-HED-compliant analysis tools should insert the annotations describing each temporally scoped event into the <em>Event-context</em> tag group of the events within its temporal scope during final assembly before analysis of the event. 
-<p>
-Other task-event relationships may be inserted as tags within the <em>Event-context</em> tag group either at annotation time or analysis time.
-   </td>
-  </tr>
-  <tr>
-   <td><strong>Long form: <em>(Property/Organizational-property/Event-</em></strong>
-<p>
-<em>context, <span style="text-decoration:underline;">other-tags</span>)</em>
+   <td> 
+      <p>An event can have at most one <em>Event-context</em> 
+      tag group.</p> 
+      <p>HED-compliant analysis tools should insert the annotations 
+      describing each temporally scoped event into the 
+      <em>Event-context</em> tag group of the events within its 
+      temporal scope during final assembly before analysis of the event.</p> 
+      <p>Other task-event relationships may be inserted as tags 
+      within the <em>Event-context</em> tag group either at 
+      annotation time or analysis time.</p>
    </td>
   </tr>
 </table>
@@ -1014,11 +911,11 @@ Other task-event relationships may be inserted as tags within the <em>Event-cont
 
 Most experiments are conducted by varying certain aspects of the experiment and measuring the resulting responses while carefully controlling other aspects. The intention of the experiment is annotated using the HED _Condition-variable_, _Control-variable_, and _Indicator-variable_ tags. 
 
-The _Condition-variable tag _is used to mark the independent variables of the experiment — those aspects of an experiment that are explicitly varied in order to observe an effect or to control bias. Contrasts, a term that appears in the neuroscience and statistical literature, are examples of experimental conditions, as are factors in experimental designs.
+The _Condition-variable_ tag is used to mark the independent variables of the experiment — those aspects of an experiment that are explicitly varied in order to observe an effect or to control bias. Contrasts, a term that appears in the neuroscience and statistical literature, are examples of experimental conditions, as are factors in experimental designs.
 
 The _Indicator-variable_ tag is used to mark quantities that are explicitly measured or calculated to evaluate the effect of varying the experimental conditions. Indicator variables often fall into the _Event/Data-feature_ category. Sometimes the values of these data features are explicitly annotated as events. Researchers should provide a sufficiently detailed description of how to compute these data features so that they can be reproduced. 
 
-The _Control-variable_ tag_ _represents an aspect of the experiment that is held constant throughout the experiment, often to remove variability.
+The _Control-variable_ tag represents an aspect of the experiment that is held constant throughout the experiment, often to remove variability.
 
 Researchers should use _Condition-variable_, _Control-variable_, and _Indicator-variable_ tags to capture the experiment intent and organization in as much detail as possible. Consistent and detailed description allows tools to extract the experiment design from the data in a machine-actionable form. Good tagging processes suggest creating definitions with understandable names to define these aspects of the dataset. This promotes easy searching and extraction for analyses such as regression or other modeling of the experimental design.
 
@@ -1029,65 +926,75 @@ In analysis, the researcher would typically combine all of the “slow presentat
 **Example:** Definitions of condition variables for slow and fast visual presentation rates.
 
 **Short form:**
+```
+(Definition/SlowPresentation/#,
+(Condition-variable/Presentation, Visual-presentation,
+Computer-screen, Temporal-rate/#))
 
-    (Definition/SlowPresentation/#,
-    (Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))
-    (Definition/FastPresentation/#,
-    (Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))        
+(Definition/FastPresentation/#,
+(Condition-variable/Presentation, Visual-presentation,
+Computer-screen, Temporal-rate/#))        
+```
 
 **Long form:**
+```
+(Property/Informational-property/Definition/SlowPresentation/#,
+(Property/Organizational-property/Condition-variable/Presentation,
+Property/Sensory-property/Sensory-presentation/Visual-presentation,
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen, 
+Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
 
-    (Property/Informational-property/Definition/SlowPresentation/#,
-    (Property/Organizational-property/Condition-variable/Presentation,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen, 
-    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
-    (Property/Informational-property/Definition/FastPresentation/#,
-    (Property/Organizational-property/**Condition-variable/Presentation,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation, 
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
-    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
+(Property/Informational-property/Definition/FastPresentation/#,
+(Property/Organizational-property/**Condition-variable/Presentation,
+Property/Sensory-property/Sensory-presentation/Visual-presentation, 
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
+```
 
 _Organizational_ tags such as _Condition-variable_ are often used in the tag-groups of temporally scoped events. The _Onset_ of such an event represents the start of the _Condition-variable_. The corresponding _Offset_ marks the end of the period during which this condition is in effect. This type of annotation makes it straightforward to extract the experimental design from the events.
 
 **Example:** Annotation of a sensory presentation under the _SlowPresentation_ condition.
 
 **Short form:**
-
-    Sensory-event, (Def/SlowPresentation/1 Hz, Onset)
+```
+Sensory-event, (Def/SlowPresentation/1 Hz, Onset)
+```
 
 **Long form:**
-
-    Event/Sensory-event, 
-    (Property/Organizational-property/Def/SlowPresentation/1 Hz,
-    Property/Data-property/Data-marker/Temporal-marker/Onset)
+```
+Event/Sensory-event, 
+(Property/Organizational-property/Def/SlowPresentation/1 Hz,
+Property/Data-property/Data-marker/Temporal-marker/Onset)
+```
 
 During analysis, the _Def_ tags will be replaced with the actual definition’s tag group with an included _Def-expand_ tag giving the definition’s name. Note: expansion is done by tools at analysis time.
 
 **Example:** Show the expanded form of the sensory event of the previous example.
 
-Short form with expansion:**
-
-    Sensory-event,
-    ((Def-expand/SlowPresentation, Condition-variable/Presentation,
-    Visual-presentation, Computer-screen, Temporal-rate/1 Hz), Onset)
+**Short form with expansion:**
+```
+Sensory-event,
+((Def-expand/SlowPresentation, Condition-variable/Presentation,
+Visual-presentation, Computer-screen, Temporal-rate/1 Hz), Onset)
+```
 
 **Long form with expansion:**
+```
+Event/Sensory-event,
+((Property/Organizational/Def-expand/SlowPresentation,
+Property/Organizational/Condition-variable/Presentation,
+Property/Sensory-property/Sensory-presentation/Visual-presentation,
+Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
+Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/1 Hz),
+Property/Data-property/Data-marker/Temporal-marker/Onset)
+```
 
-    Event/Sensory-event,
-    ((Property/Organizational/Def-expand/SlowPresentation,
-    Property/Organizational/Condition-variable/Presentation,
-    Property/Sensory-property/Sensory-presentation/Visual-presentation,
-    Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen,
-    Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/1 Hz),
-    Property/Data-property/Data-marker/Temporal-marker/Onset)
-
-Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (Analysis of Variance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags _Time-block_ and _Task-trial_ and used for visualizations of experimental layout.
+Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (ANalysis Of VAriance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags _Time-block_ and _Task-trial_ and used for visualizations of experimental layout.
 
 A typical experiment usually consists of a sequence of subject task-related activities interspersed with rest periods and/or off-line activities such as filling in a survey. The _Time-block_ tag is used to mark a contiguous portion of the data recording during which some aspect of the experiment conditions is fixed. _Time-block_ tags can be used to represent temporal organization in a manner similar to the way _Condition-variable_ tags are used to represent factors in an experiment design. 
 
 
-### 3.7. Using the Parameter tag to annotate specific information
+### 3.7. Using the _Parameter_ tag to annotate specific information
 
 A significant problem with schema design is term accretion. Each type of experiment will have specific terms or concepts that are important for the experiment’s purpose or design but are not widely applicable to other experiments. Schema designers might be tempted to add terms specific to familiar experiments or for annotators to extend the schema tree with terms specific to their experiments during annotation. 
 
@@ -1096,23 +1003,26 @@ The _Parameter_ tag and its children _Parameter-label_ and _Parameter-value_ are
 **Example:** Annotate the number of times a face image has appeared and the interval since last time this face was shown using _Parameter-value_:
 
 **Short form:**
-
-    (Parameter-label/Count-of-this-face, Parameter-value/2)
-    (Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)
+```
+(Parameter-label/Count-of-this-face, Parameter-value/2)
+(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)
+```
 
 **Example:** Annotate the number of times a face image has appeared and the interval since last time this face was shown using more specific tags for the value _Parameter-value_:
 
 **Short form:**
-
-    (Parameter-label/Count-of-this-face, Item-count/2)
-    (Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15)
+```
+(Parameter-label/Count-of-this-face, Item-count/2)
+(Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15)
+```
 
 **Long form:**
-
-    (Property/Informational-property/Parameter/Parameter-label/Count-of-this-face,
-    Property/Data-property/Data-value/Quantitative-value/Item-count/2),
-    (Property/Informational-property/Parameter/Parameter-label/Face-count-since-this-face-last-shown,
-    Property/Data-property/Data-value/Quantitative-value/Item-count-interval/15),
+```
+(Property/Informational-property/Parameter/Parameter-label/Count-of-this-face,
+Property/Data-property/Data-value/Quantitative-value/Item-count/2),
+(Property/Informational-property/Parameter/Parameter-label/Face-count-since-this-face-last-shown,
+Property/Data-property/Data-value/Quantitative-value/Item-count-interval/15),
+```
 
 Using more specific tags as in the second version allows downstream tools to treat the value as numeric integers, facilitating automated processing. The use of _Parameter_ alerts downstream tools that this entity represents something that annotators regard as important to compute or record for analysis. Summary tools can extract all of the experimental parameters and their values, while statistical tools can look for dependencies on these variables. The parameter names are designed to be self-documenting. Parameters are often used for derived values such as response times that are used as indicator variables in the experiment. They are also sometimes used as part of control variable definitions.
 
@@ -1139,24 +1049,24 @@ A HED library schema is defined in the same way as the base HED schema except th
 
 **Example:** A template of the _.mediawiki_ format of a HED library schema for driving: 
 
-```
-    HED library="driving" version="1.0.0" 
-    !# start schema 
-        [... contents of the HED_DRIVE schema ... ]
-    !# end schema
-        [... required sections specifying schema attribute definitions ... ]
-    !# end hed
+```mediawiki
+HED library="driving" version="1.0.0" 
+!# start schema 
+   [... contents of the HED driving schema ...]
+!# end schema
+   [... required sections specifying schema attribute definitions ...]
+!# end hed
 ```
 
 The required sections specifying the schema attributes  are _unit-class-specification_, _unit-modifier-specification_, _value-class-specification_, _schema-attribute-specification_, and _property-specification_.
 
 **Example:** A template for the XML version of the HED driving library.
 
-```
-   <?xml version="1.0" ?>
-   <HED library="driving" version="1.0.0">
-        [... contents of the HED_DRIVE schema ... ]
-   </HED>
+```xml
+<?xml version="1.0" ?>
+<HED library="driving" version="1.0.0">
+    [... contents of the HED_DRIVE schema ... ]
+</HED>
 ```
 
 The schema XML file should be saved as HED_driving_1.0.0.xml to facilitate specification in tools.
@@ -1169,9 +1079,11 @@ The user must pass information about the library schema and their associated loc
 
 **Example:** _Action/Drive/Change-lanes_ is a tag from the driving library schema with local name _dp_. The following tags are all possible tags:
 
-    dp:Action/Drive/Change-lanes
-    dp:Drive/Change-lanes
-    dp:Change-lanes
+```
+dp:Action/Drive/Change-lanes
+dp:Drive/Change-lanes
+dp:Change-lanes
+```
 
 A colon (:) is used to separate the qualifying local name from the remainder of the tag. Notice that _Action_ also appears in the standard HED schema. Identical terms may be used in a library schema and the standard HED schema. Use of the same term implies a similar purpose. Library schema developers should try not to reuse terms in the standard schema unless the intention is to convey a close or identical relationship.
 
@@ -1184,7 +1096,7 @@ In addition to the specification of tags in the main part of a schema, a HED sch
 2. Any schema attribute, unit class, unit modifier, value class, or property used in the library schema must be specified in the appropriate section of the library schema regardless of whether these appear in base schema. Validators check the library schema strictly on the basis of its own specification without reference to another schema.
 3. HED only supports the schema properties listed in Table B.2: _boolProperty_, _unitClassProperty_, _unitModifierProperty_, _unitProperty_, and _valueClassProperty_.  If the library schema uses one of these in the library schema specification, then its specification must appear in the _property-specification_ section of the library schema.
 4. The library schema may define unit classes and units as desired or include unit classes or units from the base schema. Similarly, library schema may define unit modifiers or reuse unit modifiers from the base schema. HED validation and basic analysis tools validate these based strictly on the schema specification and do not use any outside information for these.
-5. The standard value classes (_dateTimeClass_*, _nameClass_, _numericClass*</em>, _posixPath_*, _textClass_) if used, should have the same meaning as in the base schema. The hard-coded behavior associated with the starred (*) value classes will be the same. Library schema may define additional value classes and specify their allowed characters, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
+5. The standard value classes (_dateTimeClass*_, _nameClass_, _numericClass*_, _posixPath*_, _textClass_) if used, should have the same meaning as in the base schema. The hard-coded behavior associated with the starred (*) value classes will be the same. Library schema may define additional value classes and specify their allowed characters, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
 6. The standard schema attributes (_allowedCharacter_, _defaultUnits_, _extensionAllowed_, _recommended_, _relatedTag_, <em>requireChild</em>, _required_, _SIUnit_, _SIUnitModifier_, _SIUnitSymbolModifier_, _suggestedTag_, _tagGroup_, _takesValue_, _topLevelTagGroup_, _unique_, _unitClass_, _unitPrefix_, _unitSymbol_, _valueClass_) should have the same meaning as in the base schema. The hard-coded behavior associated with the schema attributes will be the same. Library schema may define additional schema attributes. They will be checked for syntax, but no additional hard-coded behavior will be available in the standard toolset. This does not preclude special-purpose tools from incorporating their own behavior.
 7. Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking:
     1. All attributes used in the schema proper must be defined in the schema attribute section of the schema. Undefined attributes cause an error in schema validation.
@@ -1198,12 +1110,12 @@ The most common use case (for 99.9% of the HED users) is to use one of the stand
 
 **Example:** A portion of the `dataset_description.json` of a dataset using `HED8.0.0.xml` stored on GitHub.
 
-```
-    {
-       "Name": "A wonderful experiment",
-       "BIDSVersion": "1.4.0",
-       "HEDVersion": "8.0.0"
-    }
+```json
+{
+   "Name": "A wonderful experiment",
+   "BIDSVersion": "1.4.0", 
+   "HEDVersion": "8.0.0"
+}
 ```
 
 #### 4.4.1 Proposed changes for HED library schemas handling in BIDS
@@ -1216,23 +1128,23 @@ The `"libraries"` key points to a libraries dictionary. The keys of the librarie
 
 **Example:** The following example specifies a base HED schema located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas with nicknames `"la"` and `"lb"`.
 
-```
-    {
-       "Name": "A wonderful experiment",
-       "BIDSVersion": "1.4.0",
-       "HEDVersion": {
-          "fileName": "mylocalSchema.xml",
-          "libraries": {
-             "la": {
-               "libraryName": "libraryA",
-               "version": "1.0.2"
-             },
-             "lb": {
+```json
+{
+    "Name": "A wonderful experiment",
+    "BIDSVersion": "1.4.0",
+    "HEDVersion": {
+        "fileName": "mylocalSchema.xml",
+        "libraries": {
+            "la": {
+                "libraryName": "libraryA",
+                "version": "1.0.2"
+            },
+            "lb": {
                 "fileName": "HED_libraryB_0.5.3.xml"
-              }
-          }
-       }
+            }
+        }
     }
+}
 ```
 
 The `"la"` library schema is the `./hedxml/HED_libraryA_1.0.2.xml` file found in the [`hed-schema-library`](https://github.com/hed-standard/hed-schema-library) repository on the [`hed-standard`](https://github.com/hed-standard) working group GitHub site. HED tags from this library have the `la:` prefix (e.g., `la:XXX`).  The `"lb"` library schema can be found in the `./code/HED_libraryB_0.5.3.xml` file in the BIDS dataset. Tags from this library are prefixed with `lb:`. NOTE: This specification is preliminary and is waiting the resolution of BIDS formats for specifying external files as outline in [BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/820).
@@ -1240,7 +1152,7 @@ The `"la"` library schema is the `./hedxml/HED_libraryA_1.0.2.xml` file found in
 
 ## 5. Behavior of HED tools
 
-This section gives an overview of the HED tools. Additional details and links to specific tools are available in Appendix A.
+This section gives an overview of the HED tools. Additional details and links to specific tools are available in **Appendix A**.
 
 
 ### 5.1. Short-form and long-form
@@ -1254,20 +1166,20 @@ Dataset events are often represented using spreadsheets either in `.tsv` or Exce
 
 The HED tools require that each column of an event file contains items of the same class (categorical or value) and that value columns contain items of the same basic type. Files not satisfying these requirements may need additional processing before being handled by HED tools. BIDS (Brain Imaging Data Structure) datasets do have event files that satisfy these criteria.
 
-BIDS uses tab-separated-value (.tsv) format for event files, with a required `onset` column containing the time of the event in seconds. BIDS also requires a `duration` column for event files. 
+BIDS uses tab-separated-value (`.tsv`) format for event files, with a required `onset` column containing the time of the event in seconds. BIDS also requires a `duration` column for event files. 
 
 **Example:** Excerpt from a BIDS event file:
 
 ```
-    onset  duration  trial_type  response_time stim_file
-    1.2    0.6       go          1.435         images/red_square.jpg
-    5.6    0.6       stop        1.739         images/blue_square.jpg
+onset  duration  trial_type  response_time stim_file
+1.2    0.6       go          1.435         images/red_square.jpg
+5.6    0.6       stop        1.739         images/blue_square.jpg
 ```
 
 
 The `trial_type` column contains categorical values, while the `response_time` and `stim_file` columns contain non-categorical values. In theory `stim_file` could be considered a categorical column if there were just a few possible images, but this would not be common usage. BIDS allows an optional column named `HED` to contain HED strings relevant for the event instance. The above example does not have this column. 
 
-Processing tools read these event files and create their own event representation. The Python version of HEDTools uses the Pandas DataFrame for its low-level representations. For MATLAB programs, the dataset events are often held in `struct` arrays.  In EEGLAB, for example, the events for an EEG data recording appear in the `EEG.event` structure array. The time of the event is given in frames in the `EEG.event.latency` field for data that has not been epoched. 
+Processing tools read these event files and create their own event representation. The Python version of HEDTools uses the Pandas `DataFrame` for its low-level representations. For MATLAB programs, the dataset events are often held in `struct` arrays.  In EEGLAB, for example, the events for an EEG data recording appear in the `EEG.event` structure array. The time of the event is given in frames in the `EEG.event.latency` field for data that has not been epoched. 
 
 
 ### 5.3. Event dictionary sidecar format (BIDS)
@@ -1280,39 +1192,33 @@ Each events file spreadsheet column containing categorical values may also have 
 
 **Example:** JSON sidecar for annotating the columns of an events file.
 
-```
-    {
-       "trial_type": {
-           "LongName": "Event category",
-           "Description": "Indicator of type of action that is expected.",
-           "Levels": {
-              "go": "A red square is displayed to indicate starting",
-              "stop": "A blue square is displayed to indicate stopping.",
-           },
-           "HED": {
-              "go": "Sensory-event, Visual-presentation, (Square, Red), 
-                    (Computer-screen, Center-of), 
-                     Description/A red square is displayed to indicate starting.",
-              "stop": "Sensory-event, Visual-presentation, (Square, Blue), 
-                    (Computer-screen, Center-of)
-                     Description/A blue square is displayed to indicate stopping.",
-           }
-       },
-       "response_time": {
-           "LongName": "Response time after stimulus",
-           "Description": "Time from stimulus until subject presses button.",
-           "Units": "ms",
-           "HED": "(Delay/# ms, Agent-action, Experiment-participant, Press, Mouse-button,                        
-                   Description/Time from stimulus until subject presses button)"
-       },
-       "stim_file": {
-           "LongName": "Stimulus file name",
-           "Description": "Relative path of the stimulus image file",
-           "HED": "Pathname/#, Description/Relative path of the stimulus image file"
-       }
+```json
+{
+    "trial_type": {
+        "LongName": "Event category",
+        "Description": "Indicator of type of action that is expected.",
+        "Levels": {
+            "go": "A red square is displayed to indicate starting",
+            "stop": "A blue square is displayed to indicate stopping."
+        },
+        "HED": {
+            "go": "Sensory-event, Visual-presentation, (Square, Red), (Computer-screen, Center-of), Description/A red square is displayed to indicate starting.",
+            "stop": "Sensory-event, Visual-presentation, (Square, Blue), (Computer-screen, Center-of), Description/A blue square is displayed to indicate stopping."
+        }
+    },
+    "response_time": {
+        "LongName": "Response time after stimulus",
+        "Description": "Time from stimulus until subject presses button.",
+        "Units": "ms",
+        "HED": "(Delay/# ms, Agent-action, Experiment-participant, Press, Mouse-button, Description/Time from stimulus until subject presses button)"
+    },
+    "stim_file": {
+        "LongName": "Stimulus file name",
+        "Description": "Relative path of the stimulus image file",
+        "HED": "Pathname/#, Description/Relative path of the stimulus image file"
     }
+}
 ```
-
 
 Non-categorical columns such as `response_time` and `stim_file` have a dictionary “HED” value consisting of a HED string rather than another dictionary. This HED string must have a single # placeholder. The corresponding value in the spreadsheet column replaces the # when the event annotation is assembled.
 
@@ -1373,7 +1279,7 @@ The [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) 
 
 The HED system is now in its third generation of development. HED was introduced in 2013 to support annotation of events in [HeadIT](https://headit.ucsd.edu/), an early public repository of EEG data hosted by the Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al. 2013). HED-1G was partially based on CogPO (Turner and Laird 2012). Event annotation in HED-1G was organized around a single hierarchy whose root was the _Time-Locked Event_. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes.
 
-The second-generation of HED is sometimes referred to as HED-2G. HED-2G has multiple hierarchies with concepts that vary independently in different hierarchies. For example, if red-triangles and green-triangles are terms in a hierarchy, one is also likely to need red-squares and green-squares as well as all of the other colors.  Separating independent concepts such as shapes and colors into separate hierarchies, eliminates an exponential vocabulary growth due to term duplication in different branches of the hierarchy.  HED-2G also introduced nested parentheses to allow clear grouping of related terms.  A number of datasets have been annotated in HED-2G and released. HED-2G versions are HED 5.0.0 to HED 7.x.x. Third generation HED or HED-3G starts with HED 8.0.0.
+The second-generation of HED is sometimes referred to as HED-2G. HED-2G has multiple hierarchies with concepts that vary independently in different hierarchies. For example, if red-triangles and green-triangles are terms in a hierarchy, one is also likely to need red-squares and green-squares as well as  other colors.  Separating independent concepts such as shapes and colors into separate hierarchies, eliminates an exponential vocabulary growth due to term duplication in different branches of the hierarchy.  HED-2G also introduced nested parentheses to allow clear grouping of related terms.  A number of datasets have been annotated in HED-2G and released. HED-2G versions are HED 5.0.0 to HED 7.x.x. Third generation HED or HED-3G starts with HED 8.0.0.
 
 
 ## Appendices
@@ -1401,7 +1307,7 @@ A working document with the mapping of HED-3G terms and their descriptions to kn
 
 > [https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing)
 
-Two other working documents hold portions of the HED-3G specification that are under development and will not be finalized for release 1:
+Two other working documents hold portions of the HED-3G specification that are under development and will not be finalized for Release 1:
 
 > HED-3G Working Document on Spatial Annotation
 > [https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing](https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing)
@@ -1413,162 +1319,107 @@ Two other working documents hold portions of the HED-3G specification that are u
 
 <table>
   <tr>
-   <td><strong>Description</strong>
-   </td>
-   <td><strong>Site</strong>
-   </td>
+   <td><strong>Description</strong></td>
+   <td><strong>Site</strong></td>
+  </tr>
+  <tr><td colspan="2"><strong>Information and documentation</strong></td></tr>
+  <tr>
+   <td>HED organization website</td>
+   <td><a href="https://www.hedtags.org">www.hedtags.org</a></td>
   </tr>
   <tr>
-   <td><strong>HED organization website</strong>
-   </td>
-   <td><a href="http://www.hedtags.org">www.hedtags.org</a>
-   </td>
+   <td>HED organization github</td>
+   <td><a href="https://github.com/hed-standard">https://github.com/hed-standard</a></td>
   </tr>
   <tr>
-   <td><strong>HED organization github</strong>
-   </td>
-   <td><a href="https://github.com/hed-standard">https://github.com/hed-standard</a>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>HED specification repository</strong>
-   </td>
+   <td>HED specification repository</td>
    <td><a href="https://github.com/hed-standard/hed-specification">https://github.com/hed-standard/hed-specification</a>
    </td>
   </tr>
+  <tr><td colspan="2"><strong>HED Python resources</strong></td></tr>
   <tr>
-   <td><strong>HED Python resources</strong>
-<p>
-   Python repository
-<p>
-   Python validator and tools
-<p>
-   Online tools/Docker
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-python">https://github.com/hed-standard/hed-python</a>
-<p>
-<a href="https://github.com/hed-standard/hed-python/tree/master/hedtools">https://github.com/hed-standard/hed-python/tree/master/hedtools</a>
-<p>
-<a href="https://github.com/hed-standard/hed-python/tree/master/hedweb">https://github.com/hed-standard/hed-python/tree/master/hedweb</a>
-   </td>
+    <td>Python code repository</td>
+    <td><a href="https://github.com/hed-standard/hed-python">https://github.com/hed-standard/hed-python</a></td>
+   </tr>
+   <tr>
+      <td>Python validator and tools</td>
+      <td><a href="https://github.com/hed-standard/hed-python/tree/master/hedtools">https://github.com/hed-standard/hed-python/tree/master/hedtools</a></td>
+</tr>
+ <tr>
+    <td>Online tools/Docker deployment</td>
+<td><a href="https://github.com/hed-standard/hed-python/tree/master/hedweb">https://github.com/hed-standard/hed-python/tree/master/hedweb</a></td>
+</tr>
+  <tr>
+   <td colspan="2"><strong>HED JavaScript resources</strong></td>
   </tr>
   <tr>
-   <td><strong>HED JavaScript resources</strong>
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-javascript">https://github.com/hed-standard/hed-javascript</a>
-   </td>
+   <td>HED JavaScript code</td>
+   <td><a href="https://github.com/hed-standard/hed-javascript">https://github.com/hed-standard/hed-javascript</a></td>
+   </tr>
+   <tr>
+   <td>BIDS validator</td>
+   <td><a href="https://github.com/bids-standard/bids-validator"></a>href="https://github.com/bids-standard/bids-validator</td>
   </tr>
   <tr>
-   <td><strong>HED MATLAB resources</strong>
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-matlab">https://github.com/hed-standard/hed-matlab</a>
-   </td>
+   <td colspan="2"><strong>HED Matlab resources</strong></td>
   </tr>
   <tr>
-   <td><strong>CTAGGER resources</strong>
-<p>
-    Java repository     
-<p>
-    CTAGGER executable jar
-<p>
-    CTAGGER repository
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-java">https://github.com/hed-standard/hed-java</a> 
-<p>
-<a href="https://github.com/hed-standard/hed-java/raw/master/ctagger.jar">https://github.com/hed-standard/hed-java/raw/master/ctagger.jar</a>
-<p>
-<a href="https://github.com/hed-standard/CTagger">https://github.com/hed-standard/CTagger</a>
-   </td>
+     <td>Matlab source code</td>
+     <td><a href="https://github.com/hed-standard/hed-matlab">https://github.com/hed-standard/hed-matlab</a></td>
   </tr>
   <tr>
-   <td><strong>HED-Gen2 to HED-Gen3</strong>
-<p>
-    Mapping code
-<p>
-    Mapping document
-   </td>
-   <td>map_tag_versions is in Python hedtools (this needs revision)
-<p>
-<a href="https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/edit?usp=sharing">https://docs.google.com/document/d/1MKjJzpxyZULXVRenFhiIvJ_-BpaEqHp3-bMvKxkcoL0/view?usp=sharing</a>
-   </td>
+     <td colspan="2"><strong>CTAGGER resources</strong></td>
+  </tr>
+   <tr>
+     <td>CTAGGER executable jar</td>
+     <td><a href="https://github.com/hed-standard/hed-java/raw/master/ctagger.jar">https://github.com/hed-standard/hed-java/raw/master/ctagger.jar</a></td>
+    </tr>
+   <tr>
+     <td>CTAGGER repository</td>
+     <td><a href="https://github.com/hed-standard/CTagger">https://github.com/hed-standard/CTagger</a></td>
+    </tr>
+   <tr>
+     <td>Java repository</td>
+     <td><a href="https://github.com/hed-standard/hed-java">https://github.com/hed-standard/hed-java</a> </td>
+    </tr>
+  <tr>
+   <td colspan="2"><strong>Online HED tools</strong></td>
   </tr>
   <tr>
-   <td><strong>Online HED tools</strong>
-   </td>
-   <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a>  
-   </td>
+     <td>Online website</td>
+     <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a></td>
+  </tr>
+   <tr>
+     <td>Docker deployment</td>
+     <td><a href="https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed">https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed</a></td>
   </tr>
 </table>
-
-
-
-### 
 
 
 ### A.2. Schema viewers
 
 The HED schema is usually developed in _.mediawiki_ format and converted to XML for use by tools. However, researchers wishing to tag datasets will find both of these views hard to read. For this reason, we provide links to three versions of the schema in Table A.2. The expandable HTML viewer is easier to navigate. Annotators can also use CTAGGER which includes a schema viewer and tagging hints.
 
-
 ##### **Table A.2.** HED web-based schema vocabulary viewers.
 
 <table>
   <tr>
-   <td><strong>Viewer</strong>
-   </td>
-   <td><strong>Link</strong>
-   </td>
+   <td><strong>Viewer</strong></td>
+   <td><strong>Link</strong></td>
   </tr>
   <tr>
-   <td><strong>Expandable HTML:</strong>
-<p>
-   HED-Gen2
-<p>
-   HED-Gen3
-<p>
-   HED-Gen3-Test
-   </td>
-   <td><a href="https://www.hedtags.org/display_hed.html?version=7.2.0">https://www.hedtags.org/display_hed.html?version=7.2.0</a>
-<p>
-<a href="https://www.hedtags.org/display_hed.html?version=8.0.0-beta.1">https://www.hedtags.org/display_hed.html?version=8.0.0-beta.1</a>
-<p>
-<a href="https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.3">https://www.hedtags.org/display_hed_test.html?version=8.0.0-beta.3</a>
-   </td>
+   <td>Expandable HTML</td>
+   <td><a href="https://www.hedtags.org/display_hed.html?version=8.0.0">https://www.hedtags.org/display_hed.html?version=8.0.0</a></td>
+   </tr>
+  <tr>
+   <td>Mediawiki</td>
+   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0.mediawiki">https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0.mediawiki</a></td>
   </tr>
   <tr>
-   <td><strong>Mediawiki: </strong>
-<p>
-   HED-Gen2
-<p>
-   
-<p>
-   HED-Gen3
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-7.2.0.mediawiki">https://github.com/hed-standard/hed-specification/blob/master/HED-generation2-schema-7.2.0.mediawiki</a>
-<p>
-<a href="https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-beta-1.mediawiki">https://github.com/hed-standard/hed-specification/blob/master/HED-generation3-schema-8.0.0-beta-1.mediawiki</a>
-   </td>
-  </tr>
-  <tr>
-   <td><strong>XML:</strong>
-<p>
-   HED-Gen2
-<p>
-   
-<p>
-   HED-Gen3
-<p>
-<strong>   </strong>HED-Gen3-Test
-   </td>
-   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml">https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED7.2.0.xml</a>
-<p>
-<a href="https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-beta.1.xml">https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0-beta.1.xml</a>
-<p>
-<a href="https://github.com/hed-standard/hed-specification/blob/master/hedxml-test/HED8.0.0-beta.3.xml">https://github.com/hed-standard/hed-specification/blob/master/hedxml-test/HED8.0.0-beta.3.xml</a>
-   </td>
+   <td>XML</td>
+   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml">https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml</a></td>
   </tr>
 </table>
-
 
 
 ### A.3. CTagger for annotating data
@@ -1580,96 +1431,66 @@ The CTagger tool for annotating data provides a graphical user interface (GUI) t
 
 HED supports a number of web-based tools for HED validation, schema conversion and validation, JSON dictionary validation (as for a BIDS JSON sidecar for events), and validation of a single BIDS event file with supporting JSON sidecar. Additional web-based tools are planned for various analysis and conversion tasks. In addition, a HED web service interface is available for accessing many of the tools programmatically, including from MATLAB and Python programs. Table A.3. summarizes the location of the relevant URLs for online deployments of HED web-based tools and services.
 
-
 ##### Table A.3. URLs for accessing HED web-based tools and services online.
-
 
 <table>
   <tr>
-   <td><strong>URL</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>URL</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a>
-   </td>
-   <td>Main access point for online HED tools.
-   </td>
+     <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a></td>
+     <td>Main access point for online HED tools.</td>
   </tr>
   <tr>
-   <td><a href="https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services</a>
-   </td>
-   <td>Get the initial access CSRF token.
-   </td>
+     <td><a href="https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services</a></td>
+     <td>Get the initial access CSRF token.</td>
   </tr>
   <tr>
-   <td><a href="https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit</a> 
-   </td>
-   <td>Send the request for the service.
-   </td>
+     <td><a href="https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit</a></td>
+     <td>Send the request for the service.</td>
   </tr>
 </table>
-
 
 
 #### A.4.1. HED web-based tools
 
 The web-based tools are summarized in Table A.3. All of the tools are available from the main access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are implemented in a Docker module and can be deployed locally provided that Docker is installed on the local machine. 
 
-
 ##### Table A.4. Web-based HED tools currently available.
-
 
 <table>
   <tr>
-   <td><strong>Tool</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Tool</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><strong>Validate events</strong>
-   </td>
-   <td><strong>Validate a BIDS-style events file with optional JSON sidecar.</strong>
-<p>
-The user uploads the two files to validate. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema. The tool first validates the sidecar if present and if the sidecar contains no errors validates the events file in conjunction with the sidecar. If there are errors, the tool returns a downloadable file of error messages. 
-   </td>
+     <td>Validate events</td>
+     <td><p>Validate a BIDS-style events file with optional JSON sidecar.</p>
+<p>The user uploads the two files to validate. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p> <p>The tool first validates the sidecar if present and if the sidecar contains no errors validates the events file in conjunction with the sidecar. If there are errors, the tool returns a downloadable file of error messages.</p></td>
   </tr>
   <tr>
-   <td><strong>Validate dictionary</strong>
-   </td>
-   <td><strong>Validate a single BIDS-style events JSON sidecar. </strong>
-<p>
-The user uploads the file. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema. If there are errors, the tool returns a downloadable file of error messages.
-   </td>
+     <td>Validate dictionary</td>
+     <td><p>Validate a single BIDS-style events JSON sidecar.</p>
+   <p>The user uploads the file. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p> 
+  <p>If there are errors, the tool returns a downloadable file of error messages.</p></td>
   </tr>
   <tr>
-   <td><strong>Validate spreadsheet</strong>
-   </td>
-   <td><strong>Validate an Excel or tsv file containing HED tags.</strong> 
-<p>
-The user uploads an Excel or tsv file and selects a worksheet if the file is an Excel file. The user indicates which columns contain HED tags. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema. If there are errors, the tool returns a downloadable file of error messages.
-   </td>
+     <td>Validate spreadsheet</td>
+     <td><p>Validate an Excel or tsv file containing HED tags.</p> 
+<p>The user uploads an Excel or tsv file and selects a worksheet if the file is an Excel file. The user indicates which columns contain HED tags. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p><p>If there are errors, the tool returns a downloadable file of error messages.</p></td>
   </tr>
   <tr>
-   <td><strong>Process string</strong>
-   </td>
-   <td><strong>Validate or convert a HED string.</strong>
-<p>
-The user enters or pastes a HED string into a text box. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema. The user selects one of three processing options: 1) Validate,  2) Convert from long to short form, or 3) Convert from short to long form. The results appear in the results text box.
-   </td>
+    <td>Process string</td>
+    <td><p>Validate or convert a HED string.</p>
+<p>The user enters or pastes a HED string into a text box. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p><p>The user selects one of three processing options: 1) Validate,  2) Convert from long to short form, or 3) Convert from short to long form.</p> <p>The results appear in the results text box.</p></td>
   </tr>
   <tr>
-   <td><strong>Process schema</strong>
-   </td>
-   <td><strong>Validate or check a HED schema.</strong>
-<p>
-The user enters the URL of a HED schema or uploads a HED schema file in either <em>.mediawiki</em> or <em>.xml</em> format. The user selects either the validate or convert option and presses the Submit button. If the convert option was selected, the tools convert the schema to the other format and make the converted file available for download. If the validate option was selected, button, the tools check the file for compliance errors. 
-   </td>
+     <td>Process schema</td>
+     <td><p>Validate or check a HED schema.</p>
+<p>The user enters the URL of a HED schema or uploads a HED schema file in either <em>.mediawiki</em> or <em>.xml</em> format. The user selects either the validate or convert option and presses the Submit button.</p><p>If the convert option was selected, the tools convert the schema to the other format and make the converted file available for download. If the validate option was selected, button, the tools check the file for compliance errors.</p></td>
   </tr>
 </table>
-
 
 #### A.4.2. HED web services
 
@@ -1680,236 +1501,147 @@ HED services are accessed by passing a JSON dictionary of parameters in a reques
 
 <table>
   <tr>
-   <td><strong>Service</strong>
-   </td>
-   <td><strong>Parameters</strong>
-   </td>
-   <td><strong>Descriptions</strong>
-   </td>
+     <td><strong>Service</strong></td>
+     <td><strong>Parameters</strong></td>
+     <td><strong>Descriptions</strong></td>
   </tr>
   <tr>
-   <td>get_services
-   </td>
-   <td>none
-   </td>
-   <td>Returns a list of available services.
-   </td>
+     <td><code>get_services</code></td>
+     <td><code>none</code></td>
+     <td>Returns a list of available services.</td>
   </tr>
   <tr>
-   <td>dictionary_to_long
-   </td>
-   <td>json_string,
-<p>
-[schema_version, hed_schema_string]
-   </td>
-   <td>Returns either an error file or a JSON file converted to long form depending on whether conversion was successful or not.
-   </td>
+     <td><code>dictionary_to_long</code></td>
+     <td><code>json_string</code>,<br>
+     <code>[schema_version, hed_schema_string]</code></td>
+     <td>Returns either an error file or a JSON file converted to long form depending on whether conversion was successful or not.</td>
   </tr>
   <tr>
-   <td>dictionary_to_short
-   </td>
-   <td>json_string,
-<p>
-[schema_version, hed_schema_string]
-   </td>
-   <td>Returns either an error file or a JSON file converted to long form depending on whether conversion was successful or not.
-   </td>
+     <td><code>dictionary_to_short</code></td>
+     <td><code>json_string</code>,<br>
+         <code>[schema_version, hed_schema_string]</code></td>
+     <td>Returns either an error file or a JSON file converted to long form depending on whether conversion was successful or not.</td>
   </tr>
   <tr>
-   <td>dictionary_validate
-   </td>
-   <td>json_string,
-<p>
-[schema_version, hed_schema_string],
-<p>
-check_for_warnings
-   </td>
-   <td>Returns an error file ifthe JSON file has validation errors.
-   </td>
+     <td><code>dictionary_validate</code></td>
+     <td><code>json_string</code>,<br><code>[schema_version, hed_schema_string]</code>,<br>
+       <code>check_for_warnings</code></td>
+     <td>Returns an error file if the JSON file has validation errors.</td>
   </tr>
   <tr>
-   <td>events_assemble
-   </td>
-   <td>events_string,
-<p>
-json_string,
-<p>
-[schema_version, hed_schema_string],
-<p>
-check_for_warnings,
-<p>
-defs_expand
-   </td>
-   <td>Returns an error file if the JSON file or events file has validation errors otherwise returns a file of assembled events.
-   </td>
+    <td><code>events_assemble</code></td>
+    <td><code>events_string</code>,<br>
+        <code>json_string</code>,<br>
+        <code>[schema_version, hed_schema_string]</code>,<br>
+        <code>check_for_warnings</code>,<br>
+        <code>defs_expand</code></td>
+    <td>Returns an error file if the JSON file or events file has validation errors otherwise returns a file of assembled events.</td>
   </tr>
   <tr>
-   <td>events_validate
-   </td>
-   <td>events_string,
-<p>
-json_string,
-<p>
-[schema_version, hed_schema_string],
-<p>
-check_for_warnings
-   </td>
-   <td>Returns an error file if the JSON file or events file has validation errors.
-   </td>
+     <td><code>events_validate</code></td>
+     <td><code>events_string</code>,<br>
+         <code>json_string</code>,<br>
+<code>[schema_version, hed_schema_string]</code>,<br>
+<code>check_for_warnings</code></td>
+     <td>Returns an error file if the JSON file or events file has validation errors.</td>
   </tr>
   <tr>
-   <td>spreadsheet_validate
-   </td>
-   <td>spreadsheet_string,
-<p>
-[schema_version, hed_schema_string],
-<p>
-check_for_warnings
-   </td>
-   <td>A tsv spreadsheet of event codes and their tags is sent to be validated. Returns an error file if the spreadsheet has validation errors.
-   </td>
+     <td><code>spreadsheet_validate</code></td>
+     <td><code>spreadsheet_string</code>,<br>
+<code>[schema_version, hed_schema_string]</code>,<br>
+<code>check_for_warnings</code></td>
+    <td>A tsv spreadsheet of event codes and their tags is sent to be validated. Returns an error file if the spreadsheet has validation errors.</td>
   </tr>
   <tr>
-   <td>strings_to_long
-   </td>
-   <td>string_list,
-<p>
-[schema_version, hed_schema_string]
-   </td>
-   <td>Convert a list of strings to long form if valid, otherwise return errors.
-   </td>
+     <td><code>strings_to_long</code></td>
+     <td><code>string_list</code>,<br>
+<code>[schema_version, hed_schema_string]</code></td>
+     <td>Convert a list of strings to long form if valid, otherwise return errors.</td>
   </tr>
   <tr>
-   <td>strings_to_short
+     <td><code>strings_to_short</code></td>
+     <td><code>string_list</code>,<br>
+     <code>[schema_version, hed_schema_string]</code>
    </td>
-   <td>string_list,
-<p>
-[schema_version, hed_schema_string]
-   </td>
-   <td>Convert a list of strings to short form if valid, otherwise return errors.
-   </td>
+     <td>Convert a list of strings to short form if valid, otherwise return errors.</td>
   </tr>
   <tr>
-   <td>strings_validate
-   </td>
-   <td>hed_strings,
-<p>
-[schema_version, hed_schema_string]
-   </td>
-   <td>Validates a list of hed strings using the specified HED schema and returns a list of the same length as hed strings. Each entry in the return list is either empty if the corresponding string has no errors or contains a string with the errors in readable form.
-   </td>
+    <td><code>strings_validate</code></td>
+    <td><code>hed_strings</code>,<br>
+     <code>[schema_version, hed_schema_string]</code></td>
+    <td><p>Validates a list of hed strings using the specified HED schema and returns a list of the same length as hed strings.</p><p> Each entry in the return list is either empty if the corresponding string has no errors or contains a string with the errors in readable form.</p></td>
   </tr>
 </table>
 
- The request is given as in JSON format. The possible keys and their types are described in Table A.6.
-
+The request is given as in JSON format. The possible keys and their types are described in Table A.6.
 
 ##### Table A.6. Top-level JSON parameter dictionary for HED services.
 
 <table>
   <tr>
-   <td><strong>Key</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Key</strong></td>
+     <td><strong>Value</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>check_for_warnings
-   </td>
-   <td>boolean
-   </td>
-   <td>If true, check for warnings when validating.
-   </td>
+     <td><code>check_for_warnings</code></td>
+     <td>boolean</td>
+     <td>If true, check for warnings when validating.</td>
   </tr>
   <tr>
-   <td>defs_expand
-   </td>
-   <td>boolean
-   </td>
-   <td>If true assembly expands definitions, replacing <em>def/XXX</em> with <em>def-expand/XXX</em>.
-   </td>
+     <td><code>defs_expand</code></td>
+     <td>boolean</td>
+     <td>If true assembly expands definitions, replacing <em>def/XXX</em> with <em>def-expand/XXX</em>.</td>
   </tr>
   <tr>
-   <td>events_string
-   </td>
-   <td>string
-   </td>
-   <td>Events tsv file with header passed as a string.
-   </td>
+     <td><code>events_string</code></td>
+     <td>string</td>
+     <td>Events tsv file with header passed as a string.</td>
   </tr>
   <tr>
-   <td>hed_columns
-   </td>
-   <td>list of numbers
-   </td>
-   <td>A list of column numbers (starting with 1) of columns containing HED strings. If empty, all columns are used.
-   </td>
+     <td><code>hed_columns</code></td>
+     <td>list of numbers</td>
+     <td>A list of column numbers (starting with 1) of columns containing HED strings. If empty, all columns are used.</td>
   </tr>
   <tr>
-   <td>hed_schema_string
-   </td>
-   <td>string
-   </td>
-   <td>HED schema in XML format as a string
-   </td>
+     <td><code>hed_schema_string</code></td>
+     <td>string</td>
+     <td>HED schema in XML format as a string.</td>
   </tr>
   <tr>
-   <td>hed_strings
-   </td>
-   <td>list of strings
-   </td>
-   <td>A list containing HED strings.
-   </td>
+     <td><code>hed_strings</code></td>
+     <td>list of strings</td>
+     <td>A list containing HED strings.</td>
   </tr>
   <tr>
-   <td>json_string
-   </td>
-   <td>string
-   </td>
-   <td>BIDS-style JSON events sidecar as a string.
-   </td>
+     <td><code>json_string</code></td>
+     <td>string</td>
+     <td>BIDS-style JSON events sidecar as a string.</td>
   </tr>
   <tr>
-   <td>json_strings
-   </td>
-   <td>string
-   </td>
-   <td>A list of BIDS-style JSON sidecars as strings.
-   </td>
+     <td><code>json_strings</code></td>
+     <td>string</td>
+     <td>A list of BIDS-style JSON sidecars as strings.</td>
   </tr>
   <tr>
-   <td>schema_string
-   </td>
-   <td>string
-   </td>
-   <td>A HED schema file as a string.
-   </td>
+     <td><code>schema_string</code></td>
+     <td>string</td>
+     <td>A HED schema file as a string.</td>
   </tr>
   <tr>
-   <td>schema_version
-   </td>
-   <td>string 
-   </td>
-   <td>Version of HED to be accessed if relevant.
-   </td>
+     <td><code>schema_version</code></td>
+     <td>string</td>
+     <td>Version of HED to be accessed if relevant.</td>
   </tr>
   <tr>
-   <td>service
-   </td>
-   <td>string
-   </td>
-   <td>The name of the requested service.
-   </td>
+     <td><code>service</code></td>
+     <td>string</td>
+     <td>The name of the requested service.</td>
   </tr>
   <tr>
-   <td>spreadsheet_string
-   </td>
-   <td>string
-   </td>
-   <td>A spreadsheet tsv as a string.
-   </td>
+     <td><code>spreadsheet_string</code></td>
+     <td>string</td>
+     <td>A spreadsheet tsv as a string.</td>
   </tr>
 </table>
 
@@ -1920,52 +1652,34 @@ The web-services always return a JSON dictionary with four keys: `service`, `res
 
 <table>
   <tr>
-   <td><strong>Key</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Key</strong></td>
+     <td><strong>Value</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>command</code>
-   </td>
-   <td>string
-   </td>
-   <td>The command that was executed in response to the service request.
-   </td>
+     <td><code>command</code></td>
+     <td>string</td>
+     <td>The command that was executed in response to the service request.</td>
   </tr>
   <tr>
-   <td><code>data</code>
-   </td>
-   <td>string
-   </td>
-   <td>The data returned by the service. This could be a list of errors or the processed result depending on what happened.
-   </td>
+     <td><code>data</code></td>
+     <td>string</td>
+     <td>The data returned by the service. This could be a list of errors or the processed result depending on what happened.</td>
   </tr>
   <tr>
-   <td><code>schema_version</code>
-   </td>
-   <td>string
-   </td>
-   <td>The version of the HED schema used in the processing.
-   </td>
+     <td><code>schema_version</code></td>
+     <td>string</td>
+     <td>The version of the HED schema used in the processing.</td>
   </tr>
   <tr>
-   <td><code>msg_category</code>
-   </td>
-   <td>string
-   </td>
-   <td>One of success, warning, or failure depending on the result of processing the service.
-   </td>
+     <td><code>msg_category</code></td>
+     <td>string</td>
+     <td>One of success, warning, or failure depending on the result of processing the service.</td>
   </tr>
   <tr>
-   <td><code>msg</code>
-   </td>
-   <td>string
-   </td>
-   <td>Explanation of the result of service processing.
-   </td>
+     <td><code>msg</code></td>
+     <td>string</td>
+     <td>Explanation of the result of service processing.</td>
   </tr>
 </table>
 
@@ -2001,20 +1715,20 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
 
 **Example:** JSON passed to `buildSchema` to construct the schemas needed for the example in Section 4.3.1. Here the dataset is located in `/data/wonderful`.
 
-```
-    {
-        "path": "/data/wonderful/code/mylocal.xml",
-        "libraries": {
-            "la": {
-                "libraryName": "libraryA",
-                "version": "1.0.2"
-            },
-            "lb": {
-                "libraryName": "libraryB",
-                "path": "/data/wonderful/code/HED_libraryB_0.5.3.xml"
-            }
+```json
+{
+    "path": "/data/wonderful/code/mylocal.xml",
+    "libraries": {
+        "la": {
+            "libraryName": "libraryA",
+            "version": "1.0.2"
+        },
+        "lb": {
+            "libraryName": "libraryB",
+            "path": "/data/wonderful/code/HED_libraryB_0.5.3.xml"
         }
     }
+}
 ```
 
 **NOTE:** This interface is proposed and is awaiting resolution of BIDS PR #820 on file passing to BIDS.
@@ -2022,9 +1736,6 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
 #### A.5.3. HED validation in MATLAB
 
 HED validation can be done using the online web-services from MATLAB as shown in the `./examples/matlab` directory of the [hedweb](https://github.com/hed-standard/hed-python/tree/master/webtools) project in the [hed-python](https://github.com/hed-standard/hed-python) repository.
-
-
-### 
 
 
 ## B. HED schema specification and validation
@@ -2039,116 +1750,90 @@ The rules for creating a valid `.mediawiki` specification of a HED schema are gi
 
 The overall layout of is `.mediawiki` schema file is:
 
-    header-line: HED . . ._
-    prologue
-
+```mediawiki
+header-line: HED . . .
+prologue
+             . . .
+!# start schema
+schema-specification
+!# end schema
+unit-class-specification
+unit-modifier-specification
+value-class-specification
+schema-attribute-specification
+property-specification
+!# end hed
+epilogue
 ```
-    !# start schema
-```
 
-
-
-    schema-specification
-    !# end schema
-
-
-    _unit-class-specification_
-
-
-    _unit-modifier-specification_
-
-
-    _value-class-specification_
-
-
-    _schema-attribute-specification_
-
-
-    _property-specification_
-
-
-    `!# end hed` 
-
-
-    _epilogue_
-
-Empty lines and lines containing only blanks are ignored. 
-
+Empty lines and lines containing only blanks are ignored.
 
 #### B.1.2. The _.mediawiki_ _header-line_
 
 The first line of the _.mediawiki_ file should be a _header-line_ that starts with the keyword `HED` followed by a blank-separated list of name-value pairs (Table B.1). 
 
-
 ##### **Table B.1.** Allowed parameters in the HED schema _.mediawiki_ header.
-
 
 <table>
   <tr>
-   <td><strong>Name</strong>
-   </td>
-   <td><strong>Level</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Name</strong></td>
+     <td><strong>Level</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>library</code>
-   </td>
-   <td>Optional
-   </td>
-   <td>Name of library to be used in <em>.xml</em> file names. The value should consist of alphabetic characters only.
-   </td>
+     <td><code>library</code></td>
+     <td>Optional</td>
+     <td>Name of library to be used in <em>.xml</em> file names. The value should consist of alphabetic characters only.</td>
   </tr>
   <tr>
-   <td><code>version</code>
-   </td>
-   <td>Required
-   </td>
-   <td>A valid semantic version number of the schema
-   </td>
+     <td><code>version</code></td>
+     <td>Required</td>
+     <td>A valid semantic version number of the schema</td>
   </tr>
   <tr>
-   <td><code>xmlns:xsi</code>
-   </td>
-   <td>Optional
-   </td>
-   <td>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   </td>
+     <td><code>xmlns:xsi</code></td>
+     <td>Optional</td>
+     <td><code>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</code></td>
   </tr>
   <tr>
-   <td><code>xsi:noNamespaceSchemaLocation</code>
-   </td>
-   <td>Required if xmlns:xi is given
-   </td>
-   <td>Location of the xsd in effect, for example: "https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd"
-   </td>
+      <td><code>xsi:noNamespaceSchemaLocation</code></td>
+      <td>Required/Optional</td>
+      <td><p>Location of the XSD in effect, for example: <code>"https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd"</code></p>
+<p>The <code>xsi</code> attribute is required if <code>xmlns:xsi</code> is given.</p></td>
   </tr>
 </table>
 
-The `library` and `version` values are used to form the official xml file name and appear as attributes in the `&lt;HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xi` and `xsi:xsi:noNamespaceSchemaLocation` attributes.
+The `library` and `version` values are used to form the official xml file name and appear as attributes in the `<HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
 
-**Example:** Specify version 8.0.0-beta.1 of the HED base schema.
+**Example:** Specify version 8.0.0 of the HED base schema.
 
 The `.mediawiki` file has a header line:
 
-    HED version="8.0.0-beta.1"
+```mediawiki
+HED version="8.0.0"
+```
 
 The resulting XML root is:
 
-    <HED version="8.0.0-beta.1">
+```xml
+<HED version="8.0.0">
+```
 
-The file name in hedxml in hed-specification is `HED8.0.0-beta.1.xml`.
+The file name in `hedxml` in `hed-specification` is `HED8.0.0.xml`.
 
 **Example:** Specify version 1.0.2 of the HED library schema `test`.
 
 The `.mediawiki`  has a header line:
 
-    HED library="test" version="1.0.2"
+```mediawiki
+HED library="test" version="1.0.2"
+```
 
 The resulting XML root is:
 
-    <HED library="test" version="1.0.2">`
+```xml
+<HED library="test" version="1.0.2">
+```
 
 The file name in `hedxml` in the hed schema library `test` is `HED_test_1.0.2.xml`.
 
@@ -2158,22 +1843,25 @@ Unknown _header-line_ attributes are translated as attributes of the `HED` root 
 
 The beginning of the HED specification is marked by the _start-line_:
 
-     `!# start schema`
+```mediawiki
+!# start schema
+```
 
 An arbitrary number of lines of informational text can be placed between the _header-line_ and the _start-line_. Older versions of HED have a CHANGE_LOG as well as information about the syntax and rules. New versions of HED generate a separate change log file for released versions. 
 
 The end of the main HED-specification is marked by the end-line:
 
-
-```
-    !# end schema
+```mediawiki
+!# end schema
 ```
 
 The section separator lines (`!# start schema`, `!# end schema`, `!# end hed`) must only appear once in the file and must appear in that order within the file. A section separator is a line starting with !#.
 
 The body of the HED specification consists of two types of lines: top-level node-specification specifications and other node specifications. Each specification is a single line in the `.mediawiki` file. Empty lines or lines containing only blanks are ignored. The basic format for a node-specification is:
 
-    node-name  <nowiki>{attributes}[description]</nowiki>
+```mediawiki
+node-name  <nowiki>{attributes}[description]</nowiki>
+```
 
 Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`), while other node names have at least one preceding asterisk (*) followed by a blank and then the name. The number of asterisks indicates the level of the node in the subtree. HED-3G node names can only contain alphanumeric characters, hyphens, and underbars. They cannot contain blanks and must be unique. HED (2G) and earlier versions allow blanks.   Everything after the node name must be contained within `<nowiki></nowiki>` tags. Placeholder nodes have an empty node name, but are followed by a # enclosed in  `<nowiki></nowiki>` tags.
 
@@ -2181,21 +1869,23 @@ Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`),
 
 **Top-level:**
 
-```
-    '''Property''' <nowiki>{extensionAllowed} [Subtree of properties.]</nowiki>
-Normal-level: 
-    ***** Duration <nowiki>{requireChild} [Time extent of something.]</nowiki>
+```mediawiki
+'''Property''' <nowiki>{extensionAllowed} [Subtree of properties.]</nowiki>
 ```
 
+**Normal-level:**
+
+```mediawiki
+***** Duration <nowiki>{requireChild} [Time extent of something.]</nowiki>
+```
 
 **Placeholder-level:**
 
-```
-    ****** <nowiki># {takesValue, unitClass=time, valueClass=numericClass}</nowiki>
+```mediawiki
+****** <nowiki># {takesValue, unitClass=time,valueClass=numericClass}</nowiki>
 ```
 
 The _Duration_ tag of this example is at the fifth level below the root of its subtree. The tag: _Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration_ is the long form. The placeholder in the example is the node directly below _Duration_ in the hierarchy.
-
 
 #### B.1.4. Specification of different schema sections 
 
@@ -2205,85 +1895,85 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the HED unit class specification for time.
 
-```
-    '''Unit classes''' 
-    * time <nowiki>{defaultUnits=s}</nowiki> 
-    ** second <nowiki>{SIUnit}</nowiki> 
-    ** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+```mediawiki
+'''Unit classes''' 
+* time <nowiki>{defaultUnits=s}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ```
 
 **Example:**  Part of the HED unit modifier specification.
 
-```
-    '''Unit modifiers''' 
-    * deca <nowiki>{SIUnitModifier} [SI unit multiple for 10^1]</nowiki> 
-    * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10^1]</nowiki>
+```mediawiki
+'''Unit modifiers''' 
+* deca <nowiki>{SIUnitModifier} [SI unit multiple for 10^1]</nowiki> 
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10^1]</nowiki>
 ```
 
 **Example:**  Part of the HED value class specification.
 
-```
-    '''Value classes'''
-    * posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
+```mediawiki
+'''Value classes'''
+* posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 ```
 
 **Example:**  Part of the HED schema attribute specification.
 
-```
-    '''Schema attributes'''
-    * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
-    * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
+```mediawiki
+'''Schema attributes'''
+* allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
+* defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
 ```
 
 **Example:**  Part of the property specification.
 
-```
-    '''Properties''' 
-    * valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki> 
+```mediawiki
+'''Properties''' 
+* valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki> 
 ```
 
 ### B.2. HED XML format
 
 The XML schema file format has a header, prologue, main schema, definitions, and epilogue sections. The general layout is as follows:
 
-
-```
-    <?xml version="1.0" ?>
-    <HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
-    <prologue>unique optional text blob</prologue>
-    <schema>
+```xml
+<?xml version="1.0" ?>
+<HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
+<prologue>unique optional text blob</prologue>
+<schema>
          ...  schema specification  ... 
-    </schema>
-    <unitClassDefinitions>
-       <unitClassDefinition> ... </unitClassDefinition>
-                             ... 
-       <unitClassDefinition> ... </unitClassDefinition>
-    </unitClassDefinitions>
-    <unitModifierDefinitions>
-       <unitModifierDefinition> ... </unitModifierDefinition>
-                                ... 
-       <unitModifierDefinition> ... </unitModifierDefinition>
-    </unitModifierDefinitions>
-    <valueClassDefinitions>
-       <valueClassDefinition> ... </valueClassDefinition>
-                             ... 
-       <valueClassDefinition> ... </valueClassDefinition>
-    </valueClassDefinitions>
+</schema>
+<unitClassDefinitions>
+   <unitClassDefinition> ... </unitClassDefinition>
+                         ...
+   <unitClassDefinition> ... </unitClassDefinition>
+</unitClassDefinitions>
+<unitModifierDefinitions>
+   <unitModifierDefinition> ... </unitModifierDefinition>
+                                ...
+   <unitModifierDefinition> ... </unitModifierDefinition>
+</unitModifierDefinitions>
+    
+<valueClassDefinitions>
+    <valueClassDefinition> ... </valueClassDefinition>
+                           ... 
+    <valueClassDefinition> ... </valueClassDefinition>
+</valueClassDefinitions>
 
-    <schemaAttributeDefinitions> 
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
-                                 ... 
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
-    </schemaAttributeDefinitions>
+<schemaAttributeDefinitions> 
+   <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+                               ... 
+   <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+</schemaAttributeDefinitions>
 
-    <propertyDefinitions>
-       <propertyDefinition> ... </propertyDefinition>
+<propertyDefinitions>
+    <propertyDefinition> ... </propertyDefinition>
                              ... 
-       <propertyDefinition> ... </propertyDefinition>
-    </propertyDefinitions>
+    <propertyDefinition> ... </propertyDefinition>
+</propertyDefinitions>
 
-    <epilogue>unique optional text blob</epilogue>
-    </HED>
+<epilogue>unique optional text blob</epilogue>
+</HED>
 ```
 
 The `<prologue>xxx</prologue>` and `<epilogue>xxx</epilogue>` elements are meant to be treated as opaque as far as schema processing goes. In earlier versions of HED the prologue section contained a Change Log for the schema as well as some basic documentation of syntax. The epilogue section contained additional metadata to be ignored during processing. The following subsections give a more detailed description of the format of these sections.
@@ -2292,26 +1982,25 @@ The `<prologue>xxx</prologue>` and `<epilogue>xxx</epilogue>` elements are meant
 
 The schema section of the HED XML document consists of an arbitrary number of `<node></node>` elements enclosed in a single `<schema></schema>` element.
 
-
-```
-    <schema>
+```xml
+<schema>
     <node> ... </node>
-                ...
+           ...
     <node> ... </node>
-    </schema>
+</schema>
 ```
 
 A `<node>` element contains a required `<name>` child element, an optional `<description>` child element, and an optional number of additional `<attribute>` child elements:
 
-```
-    <node>
-       <name>xxx</name>
-       <description>yyy</description>
-       <attribute> ... </attribute>
-       <attribute> ... </attribute>
-       <attribute> ... </attribute>   
-       <node> ... <node>
-    </node>
+```xml
+<node>
+    <name>xxx</name>
+    <description>yyy</description>
+    <attribute> ... </attribute>
+    <attribute> ... </attribute>
+    <attribute> ... </attribute>   
+    <node> ... <node>
+</node>
 ```
 
 The `<name>` element text must conform to the rules for naming HED schema nodes. It corresponds to the _node-name_ in the `mediawiki` specification and must not be empty. A `#` value is used to represent value place-holder elements.
@@ -2324,91 +2013,91 @@ The optional `<attribute>` elements are derived from the attribute list containe
 
 **Old xml if true:**     
 
-```
-    <node requireChild="true"><name>xxx</name></node>
+```xml
+<node requireChild="true"><name>xxx</name></node>
 ```
 
 **New xml if true:**
 
-```
-    <node>
-       <name>xxx</name>
-       <attribute>
-          <name>requireChild</name>
-       </attribute>
-    </node>
+```xml
+<node>
+    <name>xxx</name>
+    <attribute>
+       <name>requireChild</name>
+    </attribute>
+</node>
 ```
 
 **Example:** The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
 
-```
-    {suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
+```mediawiki
+{suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
 ```
 
 The `suggestedTag` attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are  valid HED tags in any form (short, long, or intermediate).
 
 **Old xml if present:**
 
-```
-    <node suggestedTag="Sweet,Gustatory/Salty, Attribute/Sensory/Gustatory/Sour">
-       <name>xxx</name>
-    </node>
+```xml
+<node suggestedTag="Sweet,Gustatory/Salty Attribute/Sensory/Gustatory/Sour">
+    <name>xxx</name>
+</node>
 ```
 
 **New xml if present:**
 
-```
-    <node>
-       <name>xxx</name>
-       <attribute>
-          <name>suggestedTag</name>
-    	   <value>Sweet</value>
-    	   <value>Gustatory/Salty</value>
-    	   <value>Attribute/Sensory/Gustatory/Sour</value>
-       </attribute>
-    </node>
+```xml
+<node>
+   <name>xxx</name>
+   <attribute>
+      <name>suggestedTag</name>
+    	 <value>Sweet</value>
+    	 <value>Gustatory/Salty</value>
+    	 <value>Attribute/Sensory/Gustatory/Sour</value>
+   </attribute>
+</node>
 ```
 
 #### B.2.2. Unit class and unit modifier definitions
 
 The valid HED-3G unit classes are defined in the `<unitClassDefinitions>` section of the XML schema file, and valid HED-3G unit modifiers are defined in the `<unitModifierDefinitions>` section. These sections follow a format similar to the `<node>` element in the `<schema>` section:
 
-```
-    <unitClassDefinitions>
-       <unitClassDefinition> ... </unitClassDefinition>
-                             ... 
-       <unitClassDefinition> ... </unitClassDefinition>
-    </unitClassDefinitions>
+```xml
+<unitClassDefinitions>
+    <unitClassDefinition> ... </unitClassDefinition>
+                          ... 
+    <unitClassDefinition> ... </unitClassDefinition>
+</unitClassDefinitions>
 ```
 
 The `<unitClassDefinition>` elements have a required `<name>`, an optional `<description>` and an arbitrary number of additional `<attribute>` child elements. These `<attribute>` elements describe properties of the unit class rather than of individual unit types. In addition, `<unitClassDefinition>` elements may have an arbitrary number of `<unit>` child elements.
 
-```
-    <unitClassDefinition>
-       <name>time</name>
-       <description>Temporal values except date and time of day.</description>
+```xml
+<unitClassDefinition>
+    <name>time</name>
+    <description>Temporal values except date and time of day.</description>
+    <attribute>
+       <name>defaultUnits</name>
+       <value>s</value>
+    </attribute>
+    <unit>
+       <name>second</name>
+       <description>SI unit second.</description>
        <attribute>
-          <name>defaultUnits</name>
-          <value>s</value>
+          <name>SIUnit</name>
        </attribute>
-       <unit>
-          <name>second</name>
-          <description>SI unit second.</description>
-          <attribute>
-             <name>SIUnit</name>
-          </attribute>
-       </unit>
-       <unit>
-          <name>s</name>
-          <description>SI unit second in abbreviated form.</description>
-          <attribute>
-             <name>SIUnit</name>
-          </attribute>
-          <attribute>
-             <name>unitSymbol</name>
-          </attribute>
-       </unit>  
-    </unitClassDefinition>
+    </unit>
+    <unit>
+       <name>s</name>
+       <description>SI unit second in abbreviated form.</description>
+       <attribute>
+          <name>SIUnit</name>
+       </attribute>
+       <attribute>
+          <name>unitSymbol</name>
+       </attribute>
+    </unit>  
+</unitClassDefinition>
 ```
 
 #### B.2.2. Value class definitions and behavior
@@ -2420,49 +2109,34 @@ HED has very strict rules about what characters are allowed in various elements 
 
 <table>
   <tr>
-   <td><strong>Class name </strong>
-   </td>
-   <td><strong>Allowed characters</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Class name </strong></td>
+     <td><strong>Allowed characters</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>dateTimeClass*</code>
-   </td>
-   <td><code>digits, T, :, -</code>
-   </td>
-   <td>Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.
-   </td>
+     <td><code>dateTimeClass</code>*</td>
+     <td><code>digits</code>, <code>T</code>, <code>:</code>, <code>-</code></td>
+   <td>Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.</td>
   </tr>
   <tr>
-   <td><code>nameClass</code>
-   </td>
-   <td><code>letters, digits, _, -</code>
-   </td>
-   <td>Value class of node names and labels.
-   </td>
+     <td><code>nameClass</code></td>
+     <td><code>letters</code>, <code>digits</code>, <code>_</code>, <code>-</code></td>
+     <td>Value class of node names and labels.</td>
   </tr>
   <tr>
-   <td><code>numericClass*</code>
-   </td>
-   <td><code>digits, ., -, +, E, e</code>
-   </td>
-   <td>Value must be a valid numerical value.
-   </td>
+     <td><code>numericClass</code>*</td>
+     <td><code>digits</code>, <code>.</code>, <code>-</code>, <code>+</code>, <code>E</code>, <code>e</code></td>
+     <td>Value must be a valid numerical value.</td>
   </tr>
   <tr>
-   <td><code>posixPath*</code>
-   </td>
-   <td>
-   </td>
-   <td>Specifies strings conforming to Posix path specification. This is not implemented and currently allows everything except commas.
-   </td>
+     <td><code>posixPath</code>*</td>
+     <td></td>
+     <td>Specifies strings conforming to Posix path specification. This is not implemented and currently allows everything except commas.</td>
   </tr>
   <tr>
    <td><code>textClass</code>
    </td>
-   <td><code>letters, digits, blank,+, -, :, ;, ., /, (, ),?, *, %, $, @</code>
+   <td><code>letters</code>, <code>digits</code>, <code>blank</code>, <code>+</code>, <code>-</code>, <code>:</code>, <code>;</code>, <code>.</code>, <code>/</code>, <code>(</code>, <code>)</code>, <code>?</code>, <code>*</code>, <code>%</code>, <code>$</code>, <code>@</code>
    </td>
    <td>Value class for text descriptions.
    </td>
@@ -2474,37 +2148,36 @@ HED has very strict rules about what characters are allowed in various elements 
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
-```
-    <valueClassDefinitions>
-       <valueClassDefinition> ... </valueClassDefinition>
+```xml
+<valueClassDefinitions>
+    <valueClassDefinition> ... </valueClassDefinition>
                              ... 
-       <valueClassDefinition> ... </valueClassDefinition>
-    </valueClassDefinitions>
+    <valueClassDefinition> ... </valueClassDefinition>
+</valueClassDefinitions>
 ```
 
 #### B.2.3. Schema attribute definitions and properties
 
 The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and `<valueClassDefinition>` elements. The specifications of individual attributes are given in `<schemaAttributeDefinition>` elements.
 
-```
-    <schemaAttributeDefinitions>
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+```xml
+<schemaAttributeDefinitions>
+    <schemaAttributeDefinition> ...</schemaAttributeDefinition>
                                    ... 
-       <schemaAttributeDefinition> ... </schemaAttributeDefinition>
-    </schemaAttributeDefinitions>
+    <schemaAttributeDefinition> ... </schemaAttributeDefinition>
+</schemaAttributeDefinitions>
 ```
 
 The individual `<schemaAttributeDefinition>` elements have the following format:
 
-```
-    <schemaAttributeDefinition>
-       <name>allowedCharacter</name>
-       <description>An attribute of value classes indicating a special character 
-          that is allowed in expressing the value of that placeholder.</description>
-       <property>
-          <name>valueClassProperty</name>
-       </property>
-    <schemaAttributeDefinition>
+```xml
+<schemaAttributeDefinition>
+    <name>allowedCharacter</name>
+    <description>An attribute of value classes indicating a special character that is allowed in expressing the value of that placeholder.</description>
+    <property>
+        <name>valueClassProperty</name>
+    </property>
+</schemaAttributeDefinition>
 ```
 
 The `<property>` elements indicate where various schema attributes apply. Their meanings are hard-coded into the schema processors. Table B.3 lists the names of these properties.
@@ -2514,45 +2187,33 @@ The `<property>` elements indicate where various schema attributes apply. Their 
 
 <table>
   <tr>
-   <td><strong>Schema attribute property</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute property</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>boolProperty</code>
-   </td>
-   <td>If a schema attribute has this property, then its values are either true or false. The schema processing translates the attribute into an <code>&lt;attribute></code> element with a <code>&lt;name></code> child but no <code>value</code> child.
-   </td>
+     <td><code>boolProperty</code></td>
+     <td><p>If a schema attribute has this property, then its values are either true or false.</p> <p>The schema processing translates the attribute into an <code>attribute</code> element with a <code>&lt;name></code> child but no <code>value</code> child.</p></td>
   </tr>
   <tr>
-   <td><code>unitClassProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unitClassDefinition> elements.</code>
-   </td>
+     <td><code>unitClassProperty</code>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitClassDefinition</code> elements.</td>
   </tr>
   <tr>
-   <td><code>unitModifierProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unitModifierDefinition> elements.</code>
-   </td>
+     <td><code>unitModifierProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitModifierDefinition</code> elements.</td>
   </tr>
   <tr>
-   <td><code>unitProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;unit> elements.</code>
-   </td>
+     <td><code>unitProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unit</code> elements.</td>
   </tr>
   <tr>
-   <td><code>valueClassProperty</code>
-   </td>
-   <td>A schema attribute having this property can only apply to an <code>&lt;attribute></code> of <code>&lt;valueClassDefinition> elements.</code>
-   </td>
+     <td><code>valueClassProperty</code></td>
+     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>valueClassDefinition</code> elements.</td>
   </tr>
 </table>
 
 
-A given schema attribute can only apply to one type of element (`<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>` or `<unit>`). Attributes that don’t have one of `<unitClassProperty>`, `<unitClassProperty>` or `<unitProperty>` are assumed to apply to `<node>` elements.
+A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`, `unitClassProperty` or `unitProperty` are assumed to apply to `node` elements.
 
 Table B.4 gives a list of the supported HED schema attributes. These attributes apply to different parts of the schema as indicated by their properties. 
 
@@ -2561,128 +2222,88 @@ Table B.4 gives a list of the supported HED schema attributes. These attributes 
 
 <table>
   <tr>
-   <td><strong>Schema attribute</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>allowedCharacter*</code>
-   </td>
-   <td>A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word <code>letters</code> designates upper and lower case alphabetic characters. The word <code>digits</code> indicates the digits 0-9.
-   </td>
+     <td><code>allowedCharacter</code>*</td>
+     <td><p>A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.</p> <p>Normally the allowed characters are listed individually. However, the word <code>letters</code> designates upper and lower case alphabetic characters.</p><p>The word <code>digits</code> indicates the digits 0-9.</p></td>
   </tr>
   <tr>
-   <td><code>defaultUnits</code>
-   </td>
-   <td>A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units. For example, when a <code>#</code> placeholder of the <code>time</code> unit class is replaced with an actual value and the units are not explicitly listed, they are assumed to be seconds (s) because the time unit class has <code>defaultUnits=s</code>.
-   </td>
+     <td><code>defaultUnits</code></td>
+     <td><p>A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.</p> <p>For example, when a <code>#</code> placeholder of the <code>time</code> unit class is replaced with an actual value and the units are not explicitly listed, they are assumed to be seconds (s) because the time unit class has <code>defaultUnits=s</code>.</p></td>
   </tr>
   <tr>
-   <td><code>extensionAllowed</code>
-   </td>
-   <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders.
-   </td>
+     <td><code>extensionAllowed</code></td>
+     <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders</td>
   </tr>
   <tr>
-   <td><code>recommended</code>
-   </td>
-   <td>A schema attribute indicating that the event-level HED string should include this tag.
-   </td>
+     <td><code>recommended</code></td>
+     <td>A schema attribute indicating that the event-level HED string should include this tag.</td>
   </tr>
   <tr>
-   <td><code>relatedTag*</code>
-   </td>
-   <td>A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools. Related categorical tags may have this attribute.
-   </td>
+     <td><code>relatedTag</code>*</td>
+     <td>A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools. Related categorical tags may have this attribute.</td>
   </tr>
   <tr>
-   <td><code>requireChild</code>
-   </td>
-   <td>A schema attribute indicating that one of the node elements descendants must be included when using this tag.
-   </td>
+     <td><code>requireChild</code></td>
+     <td>A schema attribute indicating that one of the node elements descendants must be included when using this tag.</td>
   </tr>
   <tr>
-   <td><code>required</code>
-   </td>
-   <td>A schema attribute indicating that every event-level HED string should include this tag.
-   </td>
+     <td><code>required</code></td>
+     <td>A schema attribute indicating that every event-level HED string should include this tag.</td>
   </tr>
   <tr>
-   <td><code>SIUnit</code>
-   </td>
-   <td>A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.
-   </td>
+     <td><code>SIUnit</code></td>
+     <td><p>A schema attribute indicating that this unit element is an SI unit and can be modified by multiple and submultiple names.</p><p>Note that some units such as byte are designated as SI units although they are not part of the standard.<p></td>
   </tr>
   <tr>
-   <td><code>SIUnitModifier</code>
-   </td>
-   <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.
-   </td>
+     <td><code>SIUnitModifier</code></td>
+     <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a base unit rather than a unit symbol.</td>
   </tr>
   <tr>
-   <td><code>SIUnitSymbolModifier</code>
-   </td>
-   <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.
-   </td>
+     <td><code>SIUnitSymbolModifier</code></td>
+     <td>A schema attribute indicating that this SI unit modifier represents a multiple or submultiple of a unit symbol rather than a base symbol.</td>
   </tr>
   <tr>
-   <td><code>suggestedTag*</code>
-   </td>
-   <td>A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.
-   </td>
+     <td><code>suggestedTag</code>*</td>
+     <td>A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.</td>
   </tr>
   <tr>
-   <td><code>tagGroup*</code>
-   </td>
-   <td>A schema attribute indicating the tag can only appear inside a tag group.
-   </td>
+     <td><code>tagGroup</code>*</td>
+     <td>A schema attribute indicating the tag can only appear inside a tag group.</td>
   </tr>
   <tr>
-   <td><code>takesValue</code>
-   </td>
-   <td>A schema attribute indicating the tag is a # placeholder that is expected to be replaced with a user-defined value.
-   </td>
+     <td><code>takesValue</code></td>
+     <td>A schema attribute indicating the tag is a <em>#</em>> placeholder that is expected to be replaced with a user-defined value.</td>
   </tr>
   <tr>
-   <td><code>topLevelTagGroup*</code>
-   </td>
-   <td>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.
-   </td>
+     <td><code>topLevelTagGroup</code>*</td>
+     <td>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.</td>
   </tr>
   <tr>
-   <td><code>unique</code>
-   </td>
-   <td>A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.
-   </td>
+     <td><code>unique</code></td>
+     <td>A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.</td>
   </tr>
   <tr>
-   <td><code>unitClass</code>
-   </td>
-   <td>A schema attribute specifying which unit class this value tag belongs to.
-   </td>
+     <td><code>unitClass</code></td>
+     <td>A schema attribute specifying which unit class this value tag belongs to.</td>
   </tr>
   <tr>
-   <td><code>unitPrefix</code>
-   </td>
-   <td>A schema attribute applied specifically to <code>unit</code> elements to designate that the unit indicator is a prefix (e.g., <code>$</code> in the<code> currency</code> units).
-   </td>
+     <td><code>unitPrefix</code></td>
+     <td>A schema attribute applied specifically to <code>unit</code> elements to designate that the unit indicator is a prefix (e.g., <code>$</code> in the<code> currency</code> units).</td>
   </tr>
   <tr>
-   <td><code>unitSymbol</code>
-   </td>
-   <td>A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.
-   </td>
+     <td><code>unitSymbol</code></td>
+     <td>A schema attribute indicating this tag is an abbreviation or symbol representing a type of unit. Unit symbols represent both the singular and the plural and thus cannot be pluralized.</td>
   </tr>
   <tr>
-   <td><code>valueClass*</code>
-   </td>
-   <td>A schema attribute specifying which value class this value tag belongs to.
-   </td>
+     <td><code>valueClass</code>*</td>
+     <td>A schema attribute specifying which value class this value tag belongs to.</td>
   </tr>
 </table>
 
-* indicates an attribute that is new to HED-3G.
+  _*_ indicates an attribute that is new to HED-3G.
 
 In addition to the attributes listed in Table B.4, some schema attributes have been deprecated and are no longer supported in HED-3G, although they are still present in earlier versions of the schema. Table B.5 lists these attributes.
 
@@ -2691,178 +2312,103 @@ In addition to the attributes listed in Table B.4, some schema attributes have b
 
 <table>
   <tr>
-   <td><strong>Schema attribute</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>Schema attribute</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>default
-   </td>
-   <td>Indicates a tag assumed to be present if not explicitly given. This tag was not implemented in existing tools. Only the defaultUnits for the unit class will be implemented going forward.
-   </td>
+     <td><code>default</code></td>
+     <td><p>Indicates a tag assumed to be present if not explicitly given.</p><p>Note: This tag was not implemented in existing tools. Only the defaultUnits for the unit class will be implemented going forward.</p></td>
   </tr>
   <tr>
-   <td>position
-   </td>
-   <td>Indicates the order within the overall tag string that this tag should appear during display. This was used to assist annotation tools, which sought to display required and recommend tags before others. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering. Because of the design of the schema vocabulary, this tag is not applicable in HED-3G.
-   </td>
+     <td><code>position</code></td>
+     <td><p>Indicates the order within the overall tag string that this tag should appear during display.</p> <p>This attribute was used to assist annotation tools, which sought to display required and recommend tags before others. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.</p><p>Because of the design of the schema vocabulary, this tag is not applicable in HED-3G.</p></td>
   </tr>
   <tr>
-   <td>predicateType
-   </td>
-   <td>This attribute has a value which is one of <code>propertyOf</code>, <code>subclassOf</code>, or <code>passThrough</code>. This tag was added to facilitate mapping to OWL or RDF in earlier versions of the schema where property and subclass types appeared in the same hierarchy. The schema vocabulary redesign of HED-3G eliminated this issue.
-   </td>
+     <td><code>predicateType</code></td>
+     <td><p>This attribute has a value which is one of <code>propertyOf</code>, <code>subclassOf</code>, or <code>passThrough</code>.</p><p>This tag was added to facilitate mapping to OWL or RDF in earlier versions of the schema where property and subclass types appeared in the same hierarchy. The schema vocabulary redesign of HED-3G eliminated this issue.</p></td>
   </tr>
 </table>
 
 
 
-
-
 #### B.2.5. HED unit classes and unit modifiers
 
-Table B.6 lists the current unit classes for HED-3G.
+Table B.6 lists the current unit classes for HED.
 
-##### Table B.6. Unit classes for HED-3G.
+##### Table B.6. Unit classes for HED.
 
 <table>
   <tr>
-   <td><strong>Unit class</strong>
-   </td>
-   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong>
-   </td>
-   <td><strong>defaultUnits</strong>
-   </td>
+   <td><strong>Unit class</strong></td>
+   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong></td>
+   <td><strong>defaultUnits</strong></td>
   </tr>
   <tr>
-   <td>time
-   </td>
-   <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour
-   </td>
-   <td><strong>s*</strong>
-   </td>
+     <td><code>accelerationUnits</code></td>
+     <td><strong>m-per-s^2*</strong></td>
+     <td>m-per-s^2*</td>
   </tr>
   <tr>
-   <td>dateTime
-   </td>
-   <td>YYYY-MM-DDThh:mm:ss
-   </td>
-   <td>YYYY-MM-DDThh:mm:ss
-   </td>
+     <td><code>angleUnits</code></td>
+     <td><strong>radian</strong>, <strong>rad*</strong>, degree</td>
+     <td>rad</td>
   </tr>
   <tr>
-   <td>clockTime
-   </td>
-   <td>hour:min, hour:min:sec
-   </td>
-   <td>hour:min
-   </td>
+     <td><code>areaUnits</code></td>
+     <td><strong>metre^2</strong>, <strong>m^2*</strong></td>
+     <td>m^2*</td>
   </tr>
   <tr>
-   <td>frequency
-   </td>
-   <td><strong>hertz</strong>, <strong>Hz*</strong>
-   </td>
-   <td><strong>Hz*</strong>
-   </td>
+     <td><code>currencyUnits</code></td>
+     <td>dollar, $, point</td>
+     <td>$</td>
   </tr>
   <tr>
-   <td>angle
-   </td>
-   <td><strong>radian</strong>, <strong>rad*</strong>, degree
-   </td>
-   <td><strong>rad*</strong>
-   </td>
+     <td><code>frequencyUnits</code></td>
+     <td><strong>hertz</strong>, <strong>Hz*</strong></td>
+     <td>Hz</td>
   </tr>
   <tr>
-   <td>physicalLength
-   </td>
-   <td><strong>metre</strong>, <strong>m*</strong>, foot, mile
-   </td>
-   <td><strong>m*</strong>
-   </td>
+     <td><code>intensityUnits</code></td>
+     <td>dB, candela, cd</td>
+     <td>dB</td>
   </tr>
   <tr>
-   <td>pixels
-   </td>
-   <td>pixel, px
-   </td>
-   <td>px*
-   </td>
+     <td><code>jerkUnits</code></td>
+     <td><strong>m-per-s^3*</strong></td>
+     <td>m-per-s^3*</td>
   </tr>
   <tr>
-   <td>area
-   </td>
-   <td><strong>metre^2</strong>, <strong>m^2*</strong>
-   </td>
-   <td><strong>m^2*</strong>
-   </td>
+     <td><code>memorySizeUnits</code></td>
+     <td>byte, B</td>
+     <td>B</td>
   </tr>
   <tr>
-   <td>volume
-   </td>
-   <td><strong>metre^3</strong>, <strong>m^3*</strong>
-   </td>
-   <td><strong>m^3*</strong>
-   </td>
+     <td><code>physicalLength</code></td>
+     <td><strong>metre</strong>, <strong>m*</strong>, inch, foot, mile</td>
+     <td>m*</td>
   </tr>
   <tr>
-   <td>speed
-   </td>
-   <td><strong>m-per-s</strong>*, mph, kph 
-   </td>
-   <td><strong>m-per-s*</strong>
-   </td>
+     <td><code>speedUnits</code></td>
+     <td><strong>m-per-s</strong>*, mph, kph</td>
+     <td>m-per-s*</td>
   </tr>
   <tr>
-   <td>acceleration
-   </td>
-   <td><strong>m-per-s^2*</strong>
-   </td>
-   <td><strong>m-per-s^2*</strong>
-   </td>
+     <td><code>timeUnits</code></td>
+     <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour</td>
+     <td>s*</td>
   </tr>
   <tr>
-   <td>jerk
-   </td>
-   <td><strong>m-per-s^3*</strong>
-   </td>
-   <td><strong>m-per-s^3*</strong>
-   </td>
+     <td><code>volumeUnits</code></td>
+     <td><strong>metre^3</strong>, <strong>m^3*</strong></td>
+     <td>m^3*</td>
   </tr>
   <tr>
-   <td>intensity
-   </td>
-   <td>dB
-   </td>
-   <td>dB
-   </td>
+     <td><code>weightUnits</code></td>
+     <td><strong>gram</strong>, <strong>g*</strong>, pound, lb</td>
+     <td>m^3*</td>
   </tr>
-  <tr>
-   <td>luminousIntensity
-   </td>
-   <td>candela, cd
-   </td>
-   <td>cd
-   </td>
-  </tr>
-  <tr>
-   <td>memorySize
-   </td>
-   <td>byte, B
-   </td>
-   <td>B
-   </td>
-  </tr>
-  <tr>
-   <td>currency
-   </td>
-   <td>dollar, $, point, fraction
-   </td>
-   <td>$
-   </td>
-  </tr>
+
 </table>
 
 
@@ -2872,135 +2418,92 @@ Table B.7 lists the current unit modifiers for HED-3G.
 
 <table>
   <tr>
-   <td><strong>SI unit modifier</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+     <td><strong>SI unit modifier</strong></td>
+     <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>deca, da*
-   </td>
-   <td>SI unit multiple representing 10^1
-   </td>
+     <td>deca, da*</td>
+     <td>SI unit multiple representing 10^1</td>
   </tr>
   <tr>
-   <td>hecto, h*
-   </td>
-   <td>SI unit multiple representing 10^2
-   </td>
+     <td>hecto, h*</td>
+     <td>SI unit multiple representing 10^2</td>
   </tr>
   <tr>
-   <td>kilo, k*
-   </td>
-   <td>SI unit multiple representing 10^3
-   </td>
+     <td>kilo, k*</td>
+     <td>SI unit multiple representing 10^3</td>
   </tr>
   <tr>
-   <td>mega, M*
-   </td>
-   <td>SI unit multiple representing 10^6
-   </td>
+     <td>mega, M*</td>
+     <td>SI unit multiple representing 10^6</td>
   </tr>
   <tr>
-   <td>giga, G*
-   </td>
-   <td>SI unit multiple representing 10^9
-   </td>
+     <td>giga, G*</td>
+     <td>SI unit multiple representing 10^9</td>
   </tr>
   <tr>
-   <td>tera, T*
-   </td>
-   <td>SI unit multiple representing 10^12
-   </td>
+     <td>tera, T*</td>
+     <td>SI unit multiple representing 10^12</td>
   </tr>
   <tr>
-   <td>peta, P*
-   </td>
-   <td>SI unit multiple representing 10^15
-   </td>
+     <td>peta, P*</td>
+     <td>SI unit multiple representing 10^15</td>
   </tr>
   <tr>
-   <td>exa, E*
-   </td>
-   <td>SI unit multiple representing 10^18
-   </td>
+     <td>exa, E*</td>
+     <td>SI unit multiple representing 10^18</td>
   </tr>
   <tr>
-   <td>zetta, Z*
-   </td>
-   <td>SI unit multiple representing 10^21
-   </td>
+     <td>zetta, Z*</td>
+     <td>SI unit multiple representing 10^21</td>
   </tr>
   <tr>
-   <td>yotta, Y*
-   </td>
-   <td>SI unit multiple representing 10^24
-   </td>
+     <td>yotta, Y*</td>
+     <td>SI unit multiple representing 10^24</td>
   </tr>
   <tr>
-   <td>deci, d*
-   </td>
-   <td>SI unit submultiple representing 10^−1
-   </td>
+     <td>deci, d*</td>
+     <td>SI unit submultiple representing 10^−1</td>
   </tr>
   <tr>
-   <td>centi, c*
-   </td>
-   <td>SI unit submultiple representing 10^−2
-   </td>
+     <td>centi, c*</td>
+     <td>SI unit submultiple representing 10^−2</td>
   </tr>
   <tr>
-   <td>milli, m*
-   </td>
-   <td>SI unit submultiple representing 10^−3
-   </td>
+     <td>milli, m*</td>
+     <td>SI unit submultiple representing 10^−3</td>
   </tr>
   <tr>
-   <td>micro, u*
-   </td>
-   <td>SI unit submultiple representing 10^−6
-   </td>
+     <td>micro, u*</td>
+     <td>SI unit submultiple representing 10^−6</td>
   </tr>
   <tr>
-   <td>nano, n*
-   </td>
-   <td>SI unit submultiple representing 10^−9
-   </td>
+     <td>nano, n*</td>
+     <td>SI unit submultiple representing 10^−9</td>
   </tr>
   <tr>
-   <td>pico, p*
-   </td>
-   <td>SI unit submultiple representing 10^−12
-   </td>
+     <td>pico, p*</td>
+     <td>SI unit submultiple representing 10^−12</td>
   </tr>
   <tr>
-   <td>femto, f*
-   </td>
-   <td>SI unit submultiple representing 10^−15
-   </td>
+     <td>femto, f*</td>
+     <td>SI unit submultiple representing 10^−15</td>
   </tr>
   <tr>
-   <td>atto, a*
-   </td>
-   <td>SI unit submultiple representing 10^−18
-   </td>
+     <td>atto, a*</td>
+     <td>SI unit submultiple representing 10^−18</td>
   </tr>
   <tr>
-   <td>zepto, z*
-   </td>
-   <td>SI unit submultiple representing 10^−21
-   </td>
+     <td>zepto, z*</td>
+     <td>SI unit submultiple representing 10^−21</td>
   </tr>
   <tr>
-   <td>yocto, y*
-   </td>
-   <td>SI unit submultiple representing 10^−24
-   </td>
+     <td>yocto, y*</td>
+     <td>SI unit submultiple representing 10^−24</td>
   </tr>
 </table>
 
-
-* indicates an SI unit symbol modifier.
+ _*_ indicates an SI unit symbol modifier.
 
 
 ### B.3. HED schema errors
@@ -3044,76 +2547,52 @@ Table B.9 summarizes the errors relevant for HED schema.
 
 <table>
   <tr>
-   <td><strong>Error or warning</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Error or warning</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_ATTRIBUTE_INVALID</code>
-   </td>
-   <td>Attribute not defined in one of the definition sections: <code>unitClassDefinitions</code>, <code>valueClassDefinitions</code>, <code>schemaAttributeDefinitions</code>.
-   </td>
+     <td><code>HED_SCHEMA_ATTRIBUTE_INVALID</code></td>
+     <td>Attribute not defined in one of the definition sections: <code>unitClassDefinitions</code>, <code>valueClassDefinitions</code>, <code>schemaAttributeDefinitions</code></td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_CHARACTER_INVALID</code>
-   </td>
-   <td>The specification contains an invalid character.
-   </td>
+     <td><code>HED_SCHEMA_CHARACTER_INVALID</code></td>
+     <td>The specification contains an invalid character.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_DUPLICATE_NODE</code>
-   </td>
-   <td>Node name appears in the schema more than once.
-   </td>
+     <td><code>HED_SCHEMA_DUPLICATE_NODE</code></td>
+     <td>Node name appears in the schema more than once.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_HEADER_INVALID</code>
-   </td>
-   <td>The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.
-   </td>
+     <td><code>HED_SCHEMA_HEADER_INVALID</code></td>
+     <td>The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_NODE_NAME_INVALID</code>
-   </td>
-   <td>Node element name is empty or contains invalid characters.
-   </td>
+     <td><code>HED_SCHEMA_NODE_NAME_INVALID</code></td>
+     <td>Node element name is empty or contains invalid characters</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_REQUIRED_SECTION_MISSING</code>
-   </td>
-   <td>One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.
-   </td>
+     <td><code>HED_SCHEMA_REQUIRED_SECTION_MISSING</code></td>
+     <td>One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.</td>
   </tr>
   <tr>
-   <td><code>HED_SCHEMA_VERSION_INVALID</code>
-   </td>
-   <td>The version is invalid or does not use  semantic versioning.
-   </td>
+     <td><code>HED_SCHEMA_VERSION_INVALID</code></td>
+     <td>The version is invalid or does not use  semantic versioning</td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_DELIMITERS_INVALID</code>
-   </td>
-   <td>Line content after node name is not enclosed with <code>&lt;nowiki>&lt;/nowiki> </code>delimiters; or the line has unmatched or multiple <code>&lt;nowiki>&lt;/nowiki></code>, <code>[ ]</code>, or<code> { }</code> delimiters.
-   </td>
+     <td><code>HED_WIKI_DELIMITERS_INVALID</code></td>
+     <td>Line content after node name is not enclosed with <code>&lt;nowiki>&lt;/nowiki> </code>delimiters; or the line has unmatched or multiple <code>&lt;nowiki>&lt;/nowiki></code>, <code>[ ]</code>, or<code> { }</code> delimiters.</td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_LINE_START_INVALID</code>
-   </td>
-   <td>Start of body line not <code>''' or *.</code>
-   </td>
+     <td><code>HED_WIKI_LINE_START_INVALID</code></td>
+     <td>Start of body line not <code>''' or *.</code></td>
   </tr>
   <tr>
-   <td><code>HED_WIKI_SEPARATOR_INVALID</code>
-   </td>
-   <td>One of the required wiki section separators is missing or in the wrong place. The required separators are: <code>!# start schema</code>, <code>!# end schema</code>, and  <code>!# end hed</code>.
-   </td>
+     <td><code>HED_WIKI_SEPARATOR_INVALID</code></td>
+     <td>One of the required wiki section separators is missing or in the wrong place. The required separators are: <code>!# start schema</code>, <code>!# end schema</code>, and  <code>!# end hed</code>.</td>
   </tr>
   <tr>
-   <td>HED_XML_SYNTAX_INVALID
-   </td>
-   <td>XML syntax or or does not comply with specified XSD.
-   </td>
+     <td><code>HED_XML_SYNTAX_INVALID</code></td>
+     <td>XML syntax or or does not comply with specified XSD.</td>
   </tr>
 </table>
 
@@ -3131,42 +2610,30 @@ This appendix specifies the details and requirements for HED tags. It also summa
 
 <table>
   <tr>
-   <td><strong>HED element</strong>
-   </td>
-   <td><strong>Allowed characters and rules</strong>
+     <td><strong>HED element</strong></td>
+     <td><strong>Allowed characters and rules</strong></td>
+  </tr>
+  <tr>
+     <td>HED node element names</td>
+     <td>
+        <p>Upper or lower case letters, numbers, hyphens, underbars.</p>
+        <p>The `#` is allowed as a placeholder in some situations.</p>
+        <p>No blanks are allowed for HED versions >  8.0.0-alpha.1</p>
+        <p>Blanks around comma and parentheses delimiters are not considered to be part of the HED tag, but rather part of the separating delimiters.</p>
+<p><strong>Style recommendation:</strong> HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.</p></td>
+  </tr>
+  <tr>
+     <td>HED labels and definition names</td>
+     <td>The values substituted for # in the HED tags /Attribute/Informational/Label/# and Attribute/Informational/Definition/# can only contain upper and lower case letters, numbers, hyphens, underbars, or periods.
    </td>
   </tr>
   <tr>
-   <td>HED node element names
-   </td>
-   <td>Upper or lower case letters, numbers, hyphens, underbars.
-<p>
-The `#` is allowed as a placeholder in some situations. 
-<p>
-No blanks are allowed for HED versions >  8.0.0-alpha.1
-<p>
-Blanks around comma and parentheses delimiters are not considered to be part of the HED tag, but rather part of the separating delimiters. 
-<p>
-<strong>Style recommendation:</strong>HED node names should start with a capital letter, with the remainder lower case. Words within the name should be separated by hyphens.
-   </td>
+     <td>HED element values</td>
+     <td><p>Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification.</p> <p>Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the <em>allowedCharacter</em> attribute. Examples of this are the forward slash in the <em>fileType</em> unit class and the colon in the dateTime unit class.</p></td>
   </tr>
   <tr>
-   <td>HED labels and definition names
-   </td>
-   <td>The values substituted for # in the HED tags /Attribute/Informational/Label/# and Attribute/Informational/Definition/# can only contain upper and lower case letters, numbers, hyphens, underbars, or periods.
-   </td>
-  </tr>
-  <tr>
-   <td>HED element values
-   </td>
-   <td>Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification. Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the <em>allowedCharacter</em> attribute. Examples of this are the forward slash in the <em>fileType</em> unit class and the colon in the dateTime unit class.
-   </td>
-  </tr>
-  <tr>
-   <td>Library nicknames
-   </td>
-   <td>Can only be a single word containing alphabetic characters. The name must be followed by a single colon and then the remainder of the tag. 
-   </td>
+      <td>Library nicknames</td>
+      <td>Can only be a single word containing alphabetic characters. The name must be followed by a single colon and then the remainder of the tag.</td>
   </tr>
 </table>
 
@@ -3184,7 +2651,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_DEF_INVALID**: A _Def_ tag is incorrectly used, usually because of a mismatch between its _Definition_ placeholder and _Def_’s value.  This error is detected if the _Definition_ has a placeholder, but the _Def_ is used without a value, or the _Definition_ does not have a placeholder, but the _Def_ is used with a value.
 
-**HED_DEFINITION_INVALID**: The _Definition_ syntax is incorrect or the _Definition_ contains other _Def_ or _Definition _tags.  Potential syntax errors include invalid definition names or a definition value that is not a single valid tag-group. Definitions that include a # placeholder must have exactly two # characters: one after the definition name and one in the definition body. Definitions that have too many # placeholders, not enough placeholders, or placeholders in the incorrect positions also generate this error.
+**HED_DEFINITION_INVALID**: The _Definition_ syntax is incorrect or the _Definition_ contains other _Def_ or _Definition_ tags.  Potential syntax errors include invalid definition names or a definition value that is not a single valid tag-group. Definitions that include a _#_ placeholder must have exactly two _#_ characters: one after the definition name and one in the definition body. Definitions that have too many _#_ placeholders, not enough placeholders, or placeholders in the incorrect positions also generate this error.
 
 **HED_GENERIC_ERROR**: The expression raised an error that did not fall into other categories.
 
@@ -3192,13 +2659,13 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_LIBRARY_UNMATCHED**: A tag that starts with **_name:_** is interpreted as a library schema nickname name. The association of **_name_** with an actual HED library schema must be passed to the validator when the string containing the tag is validated.
 
-**HED_NODE_NAME_EMPTY**:** **A HED string cannot start or end with a slash, nor can a tag have consecutive slashes as all of these imply an empty tag node name within a HED tag.
+**HED_NODE_NAME_EMPTY**: A HED string cannot start or end with a slash, nor can a tag have consecutive slashes as all of these imply an empty tag node name within a HED tag.
 
 **HED_ONSET_OFFSET_ERROR**: An _Onset_ or _Offset_ tag appears without being grouped with a defined name (using _Def_) with a tag-group containing a _Def-expand_. An _Offset_ tag appears before an _Offset_ tag of the same name.
 
 **HED_PARENTHESES_MISMATCH**: The number of opening and closing parentheses in a HED string must be equal. 
 
-**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (`#`) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
+**HED_PLACEHOLDER_INVALID**: A JSON sidecar with HED annotations cannot have a placeholder (_#_) in the tag dictionary for a categorical column and must have exactly one placeholder in the tag string for a value column. 
 
 **HED_REQUIRED_TAG_MISSING**: A tag has the required attribute but is not present in the assembled event string.
 
@@ -3226,9 +2693,11 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_UNITS_INVALID**: The HED tag has a value with units that are invalid or not of the correct unit class for the tag. A typical mistake is to use unit modifiers with units that are not SI units.
 
-**HED_VALUE_INVALID**: The value substituted for a placeholder (`#`) is not valid or compatible with the specified value class.
+**HED_VALUE_INVALID**: The value substituted for a placeholder (_#_) is not valid or compatible with the specified value class.
 
 **HED_VALUE_IS_NODE**: An existing HED node name cannot be used as a value or extension. This is true for all HED schemas regardless of version.
+
+**HED_VERSION_DEPRECATED**: (WARNING) The HED version is deprecated. It is strongly recommended that a current version be used as these deprecated versions may not be supported in the future.
 
 **HED_VERSION_WARNING**: (WARNING) The HED version number or HED schema was not provided or was invalid, so the latest version is used.
 
@@ -3240,177 +2709,122 @@ Table C.2 Lists the validation errors checked for by the validator.
 
 ##### Table C.2. Summary of HED validator errors and warnings.
 
-
 <table>
   <tr>
-   <td><strong>Error or warning</strong>
-   </td>
-   <td><strong>Explanation</strong>
-   </td>
+     <td><strong>Error or warning</strong></td>
+     <td><strong>Explanation</strong></td>
   </tr>
   <tr>
-   <td>HED_CHARACTER_INVALID
-   </td>
-   <td>String contains an invalid character.
-   </td>
+     <td><code>HED_CHARACTER_INVALID</code></td>
+     <td><code>String contains an invalid character.</code></td>
   </tr>
   <tr>
-   <td>HED_COMMA_MISSING
-   </td>
-   <td>Comma missing, usually separating tag groups.
-   </td>
+     <td><code>HED_COMMA_MISSING</code></td>
+     <td>Comma missing, usually separating tag groups.</td>
   </tr>
   <tr>
-   <td>HED_DEF_UNMATCHED
-   </td>
-   <td>A <em>Def</em> tag cannot be matched to definition.
-   </td>
+      <td><code>HED_DEF_UNMATCHED</code></td>
+      <td>A <em>Def</em> tag cannot be matched to definition.</td>
   </tr>
   <tr>
-   <td>HED_DEF_INVALID
-   </td>
-   <td>A <em>Def</em>’s value is incorrect or does not match its <em>Definition</em> #. 
-   </td>
+      <td><code>HED_DEF_INVALID</code></td>
+      <td>A <em>Def</em>’s value is incorrect or does not match its <em>Definition</em>.</td>
   </tr>
   <tr>
-   <td>HED_DEFINITION_INVALID
-   </td>
-   <td>A <em>Definition</em>’s syntax is invalid or definitions are nested.
-   </td>
+     <td><code>HED_DEFINITION_INVALID</code></td>
+     <td>A <em>Definition</em>’s syntax is invalid or definitions are nested.</td>
   </tr>
   <tr>
-   <td>HED_GENERIC_ERROR
-   </td>
-   <td>HED expression raised an uncategorized error.
-   </td>
+     <td><code>HED_GENERIC_ERROR</code></td>
+     <td>HED expression raised an uncategorized error.</td>
   </tr>
   <tr>
-   <td>HED_GENERIC_WARNING
-   </td>
-   <td>HED expression raised an uncategorized warning.
-   </td>
+     <td><code>HED_GENERIC_WARNING</code>*</td>
+     <td>HED expression raised an uncategorized warning.</td>
   </tr>
   <tr>
-   <td>HED_LIBRARY_UNMATCHED
-   </td>
-   <td>A tag starting with <em>name:</em> does not have an associated library.
-   </td>
+     <td><code>HED_LIBRARY_UNMATCHED</code></td>
+     <td>A tag starting with <em>name:</em> does not have an associated library.</td>
   </tr>
   <tr>
-   <td>HED_NODE_NAME_EMPTY
-   </td>
-   <td>Extra slashes at beginning, end, or within a tag imply empty node names.
-   </td>
+     <td><code>HED_NODE_NAME_EMPTY</code></td>
+     <td>Extra slashes at beginning, end, or within a tag imply empty node names.</td>
   </tr>
   <tr>
-   <td>HED_ONSET_OFFSET_ERROR
-   </td>
-   <td>Unnamed or unmatched <em>Onset</em> or <em>Offset</em> tag.
-   </td>
+     <td><code>HED_ONSET_OFFSET_ERROR</code></td>
+     <td>Unnamed or unmatched <em>Onset</em> or <em>Offset</em> tag.</td>
   </tr>
   <tr>
-   <td>HED_PARENTHESES_MISMATCH
-   </td>
-   <td>HED string has mismatched parentheses.
-   </td>
+     <td><code>HED_PARENTHESES_MISMATCH</code></td>
+     <td>HED string has mismatched parentheses.</td>
   </tr>
   <tr>
-   <td>HED_PLACEHOLDER_INVALID
-   </td>
-   <td>A # is missing or appears in a place that it should not. 
-   </td>
+     <td><code>HED_PLACEHOLDER_INVALID</code></td>
+     <td>A <em>#</em> is missing or appears in a place that it should not.</td>
   </tr>
   <tr>
-   <td>HED_REQUIRED_TAG_MISSING
-   </td>
-   <td>Event annotation missing a required tag.
-   </td>
+     <td><code>HED_REQUIRED_TAG_MISSING</code></td>
+     <td>Event annotation missing a required tag.</td>
   </tr>
   <tr>
-   <td>HED_SIDECAR_KEY_MISSING*
-   </td>
-   <td>A categorical value is missing HED tags.
-   </td>
+     <td><code>HED_SIDECAR_KEY_MISSING</code>*</td>
+     <td>A categorical value is missing HED tags.</td>
   </tr>
   <tr>
-   <td>HED_STYLE_WARNING*
-   </td>
-   <td>Extension or label does not follow HED naming conventions.
-   </td>
+     <td><code>HED_STYLE_WARNING</code>*</td>
+     <td>Extension or label does not follow HED naming conventions.</td>
   </tr>
   <tr>
-   <td>HED_TAG_EMPTY
-   </td>
-   <td>Extra commas or empty parentheses indicate empty tags.
-   </td>
+      <td><code>HED_TAG_EMPTY</code></td>
+      <td>Extra commas or empty parentheses indicate empty tags.</td>
   </tr>
   <tr>
-   <td>HED_TAG_EXTENDED*
-   </td>
-   <td>HED tag represents an extension from the schema.
-   </td>
+      <td><code>HED_TAG_EXTENDED</code>*</td>
+      <td>HED tag represents an extension from the schema.</td>
   </tr>
   <tr>
-   <td>HED_TAG_GROUP_ERROR
-   </td>
-   <td>A tag has <code><em>tagGroup</em></code> or <code><em>topLevelTagGroup</em></code> attribute but is not in an appropriate tag group or a <em>topLevelTagGroup</em> tag appears in the same tag group as other tags with the <em>topLevelTagGroup</em> attribute.
-   </td>
+      <td><code>HED_TAG_GROUP_ERROR</code></td>
+      <td>A tag has <code><em>tagGroup</em></code> or <code><em>topLevelTagGroup</em></code> attribute but is not in an appropriate tag group or a <em>topLevelTagGroup</em> tag appears in the same tag group as other tags with the <em>topLevelTagGroup</em> attribute.</td>
   </tr>
   <tr>
-   <td>HED_TAG_INVALID
-   </td>
-   <td>HED tag has incorrect format, does not exist in schema, or is a tag extension that appears elsewhere in the schema.
-   </td>
+     <td><code>HED_TAG_INVALID</code></td>
+     <td>HED tag has incorrect format, does not exist in schema, or is a tag extension that appears elsewhere in the schema.</td>
   </tr>
   <tr>
-   <td>HED_TAG_NOT_UNIQUE
-   </td>
-   <td>HED tag with <em>unique</em> attribute appears more than once.
-   </td>
+     <td><code>HED_TAG_NOT_UNIQUE</code></td>
+     <td>HED tag with <em>unique</em> attribute appears more than once.</td>
   </tr>
   <tr>
-   <td>HED_TAG_REPEATED
-   </td>
-   <td>Tags cannot be repeated in the same tag group or level.
-   </td>
+     <td><code>HED_TAG_REPEATED</code></td>
+     <td>Tags cannot be repeated in the same tag group or level.</td>
   </tr>
   <tr>
-   <td>HED_TAG_REQUIRES_CHILD
-   </td>
-   <td>HED tag requires an additional ending node.
-   </td>
+     <td><code>HED_TAG_REQUIRES_CHILD</code></td>
+     <td>HED tag requires an additional ending node.</td>
   </tr>
   <tr>
-   <td>HED_TILDES_UNSUPPORTED
-   </td>
-   <td>Replace (a ~ b ~ c) with (a, (b, c)).
-   </td>
+     <td><code>HED_TILDES_UNSUPPORTED</code></td>
+     <td>Replace <em>(a ~ b ~ c)</em> with <em>(a, (b, c))</em>.</td>
   </tr>
   <tr>
-   <td>HED_UNITS_DEFAULT_USED*
-   </td>
-   <td>HED tag value has a unit class but no units are specified. Default units are used if available.
-   </td>
+     <td><code>HED_UNITS_DEFAULT_USED</code>*</td>
+     <td>HED tag value has a unit class but no units are specified. Default units are used if available.</td>
   </tr>
   <tr>
-   <td>HED_UNITS_INVALID
-   </td>
-   <td>HED tag value has incorrect or invalid units.
-   </td>
+     <td><code>HED_UNITS_INVALID</code></td>
+     <td>HED tag value has incorrect or invalid units.</td>
   </tr>
   <tr>
-   <td>HED_VALUE_INVALID
-   </td>
-   <td>The value substituted for a placeholder is invalid.
-   </td>
+     <td><code>HED_VALUE_INVALID</code></td>
+     <td>The value substituted for a placeholder is invalid.</td>
   </tr>
   <tr>
-   <td>HED_VERSION_WARNING*
-   </td>
-   <td>The HED version is not provided, so the latest is used.
-   </td>
+     <td><code>HED_VERSION_DEPRECATED</code>*</td>
+     <td>The HED version used has been deprecated and may not be supported in the future.</td>
+  <tr>
+     <td><code>HED_VERSION_WARNING</code>*</td>
+     <td>The HED version is not provided, so the latest is used.</td>
   </tr>
 </table>
 
-
-* Indicates a warning
+_*_ Indicates a warning
