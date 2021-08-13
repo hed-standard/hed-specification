@@ -1165,14 +1165,13 @@ This schema is the first official release that includes an xsd and requires unit
 ** day 
 ** minute 
 ** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * weightUnits <nowiki>{defaultUnits=g}</nowiki>
 ** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** gram <nowiki>{SIUnit}</nowiki> 
-** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** pound
 ** lb 
-* volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
-** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
 
 '''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
