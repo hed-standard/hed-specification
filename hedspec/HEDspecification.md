@@ -2697,6 +2697,8 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 
 **HED_VALUE_IS_NODE**: An existing HED node name cannot be used as a value or extension. This is true for all HED schemas regardless of version.
 
+**HED_VERSION_DEPRECATED**: (WARNING) The HED version is deprecated. It is strongly recommended that a current version be used as these deprecated versions may not be supported in the future.
+
 **HED_VERSION_WARNING**: (WARNING) The HED version number or HED schema was not provided or was invalid, so the latest version is used.
 
 
@@ -2737,7 +2739,7 @@ Table C.2 Lists the validation errors checked for by the validator.
      <td>HED expression raised an uncategorized error.</td>
   </tr>
   <tr>
-     <td><code>HED_GENERIC_WARNING</code></td>
+     <td><code>HED_GENERIC_WARNING</code>*</td>
      <td>HED expression raised an uncategorized warning.</td>
   </tr>
   <tr>
@@ -2816,6 +2818,9 @@ Table C.2 Lists the validation errors checked for by the validator.
      <td><code>HED_VALUE_INVALID</code></td>
      <td>The value substituted for a placeholder is invalid.</td>
   </tr>
+  <tr>
+     <td><code>HED_VERSION_DEPRECATED</code>*</td>
+     <td>The HED version used has been deprecated and may not be supported in the future.</td>
   <tr>
      <td><code>HED_VERSION_WARNING</code>*</td>
      <td>The HED version is not provided, so the latest is used.</td>
