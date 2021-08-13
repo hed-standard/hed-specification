@@ -58,7 +58,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Sigh <nowiki>[Emit a long, deep, audible breath expressing sadness, relief, tiredness, or a similar feeling.]</nowiki>
 *** Speak <nowiki>[Communicate using spoken language.]</nowiki>
 *** Whisper <nowiki>[Speak very softly using breath without vocal cords.]</nowiki>
-* Move <nowiki>[Move in a specified direction or manner; change position or posture.]</nowiki>
+* Move <nowiki>[Move in a specified direction or manner. Change position or posture.]</nowiki>
 ** Breathe <nowiki>[Inhale or exhale during respiration.]</nowiki>
 *** Blow <nowiki>[Expel air through pursed lips.]</nowiki>
 *** Cough <nowiki>[Suddenly and audibly expel air from the lungs through a partially closed glottis, preceded by inhalation.]</nowiki>
@@ -96,7 +96,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Stare <nowiki>[Look fixedly or vacantly at someone or something with eyes wide open.]</nowiki>
 *** Move-face <nowiki>[Move the face or jaw.]</nowiki>
 **** Bite <nowiki>[Seize with teeth or jaws an object or organism so as to grip or break the surface covering.]</nowiki>
-**** Burp <nowiki>[Noisily release air from the stomach through the mouth; belch.]</nowiki>
+**** Burp <nowiki>[Noisily release air from the stomach through the mouth. Belch.]</nowiki>
 **** Chew <nowiki>[Repeatedly grinding, tearing, and or crushing with teeth or jaws.]</nowiki>
 **** Gurgle <nowiki>[Make a hollow bubbling sound like that made by water running out of a bottle.]</nowiki>
 **** Swallow <nowiki>[Cause or allow something, especially food or drink to pass down the throat.]</nowiki>
@@ -132,7 +132,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Press <nowiki>{relatedTag=Push}[Apply pressure to something to flatten, shape, smooth or depress it. This action tag should be used to indicate key presses and mouse clicks.]</nowiki>
 **** Push <nowiki>{relatedTag=Press}[Apply force in order to move something away. Use Press to indicate a key press or mouse click.]</nowiki>
 **** Reach <nowiki>[Stretch out your arm in order to get or touch something.]</nowiki> 
-**** Release <nowiki>[Make available; set free.]</nowiki>
+**** Release <nowiki>[Make available or set free.]</nowiki>
 **** Retract <nowiki>[Draw or pull back.]</nowiki>
 **** Scratch <nowiki>[Drag claws or nails over a surface or on skin.]</nowiki>
 **** Snap-fingers <nowiki>[Make a noise by pushing second finger hard against thumb and then releasing it suddenly so that it hits the base of the thumb.]</nowiki>
@@ -234,9 +234,9 @@ This schema is the first official release that includes an xsd and requires unit
 *** Human <nowiki>[The bipedal primate mammal Homo sapiens.]</nowiki>
 *** Plant <nowiki>[Any living organism that typically synthesizes its food from inorganic substances and possesses cellulose cell walls.]</nowiki>
 * Language-item <nowiki>{suggestedTag=Attribute/Sensory}[An entity related to a systematic means of communicating by the use of sounds, symbols, or gestures.]</nowiki>
-** Character <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
+** Character <nowiki>[A mark or symbol used in writing.]</nowiki>
 ** Clause <nowiki>[A  unit of grammatical organization next below the sentence in rank, usually consisting of a subject and predicate.]</nowiki>
-** Glyph <nowiki>[A hieroglyphic character or symbol; a pictograph.]</nowiki>
+** Glyph <nowiki>[A hieroglyphic character, symbol, or pictograph.]</nowiki>
 ** Nonword <nowiki>[A group of letters or speech sounds that looks or sounds like a word but that is not accepted as such by native speakers.]</nowiki>
 ** Paragraph <nowiki>[A distinct section of a piece of writing, usually dealing with a single theme.]</nowiki>
 ** Phoneme <nowiki>[A speech sound that is distinguished by the speakers of a particular language.]</nowiki>
@@ -245,7 +245,7 @@ This schema is the first official release that includes an xsd and requires unit
 ** Syllable <nowiki>[A unit of spoken language larger than a phoneme.]</nowiki>
 ** Textblock <nowiki>[A block of text.]</nowiki>
 ** Word <nowiki>[A word is the smallest free form (an item that may be expressed in isolation with semantic or pragmatic content) in a language.]</nowiki>
-* Object <nowiki>{suggestedTag=Attribute/Sensory}[Something perceptible by one or more of the senses, especially by vision or touch; a material thing.]</nowiki>
+* Object <nowiki>{suggestedTag=Attribute/Sensory}[Something perceptible by one or more of the senses, especially by vision or touch. A material thing.]</nowiki>
 ** Geometric-object <nowiki>[An object or a representation that has structure and topology in space.]</nowiki>
 *** Pattern <nowiki>[An arrangement of objects, facts, behaviors, or other things which have scientific, mathematical, geometric, statistical, or other meaning.]</nowiki>
 **** Dots <nowiki>[A small round mark or spot.]</nowiki>
@@ -348,7 +348,7 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Art-installation <nowiki>[A large-scale, mixed-media constructions, often designed for a specific place or for a temporary period of time.]</nowiki>
 ***** Braille <nowiki>[A display using a system of raised dots that can be read with the fingers by people who are blind.]</nowiki>
 ***** Image <nowiki>[Any record of an imaging event whether physical or electronic.]</nowiki>
-****** Cartoon <nowiki>[A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either: an image or series of images intended for satire, caricature, or humor; or a motion picture that relies on a sequence of illustrations for its animation.]</nowiki>
+****** Cartoon <nowiki>[A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either an image or series of images intended for satire, caricature, or humor. A motion picture that relies on a sequence of illustrations for its animation.]</nowiki>
 ****** Drawing <nowiki>[A representation of an object or outlining a figure, plan, or sketch by means of lines.]</nowiki>
 ****** Icon <nowiki>[A sign (such as a word or graphic symbol) whose form suggests its meaning.]</nowiki>
 ****** Painting <nowiki>[A work produced through the art of painting.]</nowiki>
@@ -380,7 +380,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Mountain <nowiki>[A landform that extends above the surrounding terrain in a limited area.]</nowiki>
 **** River <nowiki>[A natural freshwater surface stream of considerable volume and a permanent or seasonal flow, moving in a definite channel toward a sea, lake, or another river.]</nowiki>
 **** Waterfall <nowiki>[A sudden descent of water over a step or ledge in the bed of a river.]</nowiki>
-* Sound <nowiki>[Mechanical vibrations transmitted by an elastic medium; something that can be heard.]</nowiki>
+* Sound <nowiki>[Mechanical vibrations transmitted by an elastic medium. Something that can be heard.]</nowiki>
 ** Environmental-sound<nowiki>[Sounds occuring in the environment. An accumulation of noise pollution that occurs outside. This noise can be caused by transport, industrial, and recreational activities.]</nowiki>
 *** Crowd-sound <nowiki>[Noise produced by a mixture of sounds from a large group of people.]</nowiki>
 *** Signal-noise <nowiki>[Any part of a signal that is not the true or original signal but is introduced by the communication mechanism.]</nowiki>
@@ -528,22 +528,22 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Wrong <nowiki>{relatedTag=Correct}[Not accurate, correct, or appropriate.]</nowiki>
 **** Categorical-judgment-value <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
 ***** Abnormal <nowiki>{relatedTag=Normal}[Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.]</nowiki>
-***** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.]</nowiki>
+***** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement.]</nowiki>
 ***** Audible <nowiki>{relatedTag=Inaudible}[A sound that can be perceived by the participant.]</nowiki>
 ***** Congruent <nowiki>{relatedTag=Incongruent}[Concordance of multiple evidence lines. In agreement or harmony.]</nowiki>
 ***** Complex <nowiki>{relatedTag=Simple}[Hard, involved or complicated, elaborate, having many parts.]</nowiki>
 ***** Constrained <nowiki>{relatedTag=Unconstrained}[Keeping something within particular limits or bounds.]</nowiki>
-***** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
+***** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged. Confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
 ***** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Recognized, familiar, or within the scope of knowledge.]</nowiki>
-***** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.]</nowiki>
+***** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments. A famous person.]</nowiki>
 ***** Inaudible <nowiki>{relatedTag=Audible}[A sound below the threshold of perception of the participant.]</nowiki>
 ***** Incongruent <nowiki>{relatedTag=Congruent}[Not in agreement or harmony.]</nowiki>
 ***** Involuntary <nowiki>{relatedTag=Voluntary}[An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.]</nowiki>
 ***** Masked <nowiki>{relatedTag=Unmasked}[Information exists but is not provided or is partially obscured due to security,  privacy, or other concerns.]</nowiki>
-***** Normal <nowiki>{relatedTag=Abnormal}[Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.]</nowiki>
-***** Ordered <nowiki>{relatedTag=Disordered}[Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.]</nowiki>
+***** Normal <nowiki>{relatedTag=Abnormal}[Being approximately average or within certain limits. Conforming with or constituting a norm or standard or level or type or social norm.]</nowiki>
+***** Ordered <nowiki>{relatedTag=Disordered}[Conforming to a logical or comprehensible arrangement of separate elements.]</nowiki>
 ***** Simple <nowiki>{relatedTag=Complex}[Easily understood or presenting no difficulties.]</nowiki>
-***** Symmetrical <nowiki>{relatedTag=Asymmetrical}[Made up of exactly similar parts facing each other or around an axis; showing symmetry.]</nowiki>
+***** Symmetrical <nowiki>{relatedTag=Asymmetrical}[Made up of exactly similar parts facing each other or around an axis. Showing aspects of symmetry.]</nowiki>
 ***** Unconstrained <nowiki>{relatedTag=Constrained}[Moving without restriction.]</nowiki>
 ***** Unfamiliar <nowiki>{relatedTag=Familiar,relatedTag=Famous}[Not having knowledge or experience of.]</nowiki>
 ***** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
@@ -551,11 +551,11 @@ This schema is the first official release that includes an xsd and requires unit
 **** Categorical-level-value <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
 ***** Cold <nowiki>{relatedTag=Hot}[Characterized by an absence of heat.]</nowiki>
 ***** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
-***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.]</nowiki>
+***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having a greater than normal degree, intensity, or amount.]</nowiki>
 ***** Hot <nowiki>{relatedTag=Cold}[Characterized by an excess of heat.]</nowiki>
-***** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold; barely perceptible or capable of eliciting a response.]</nowiki>
+***** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold that is barely perceptible or capable of eliciting a response.]</nowiki>
 ***** Loud <nowiki>{relatedTag=Quiet}[Characterizing a perceived high intensity of sound.]</nowiki>
-***** Low <nowiki>{relatedTag=High}[A minimum level or position or degree; less than normal in degree, intensity or amount.]</nowiki>
+***** Low <nowiki>{relatedTag=High}[Less than normal in degree, intensity or amount.]</nowiki>
 ***** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
 ***** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
 ***** Positive <nowiki>{relatedTag=Negative}[Involving advantage or good.]</nowiki>
@@ -563,8 +563,8 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Rough <nowiki>{relatedTag=Smooth}[Having a surface with perceptible bumps, ridges, or irregularities.]</nowiki>
 ***** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
 ***** Smooth <nowiki>{relatedTag=Rough}[Having a surface free from bumps, ridges, or irregularities.]</nowiki>
-***** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold; imperceptible or not capable of eliciting a response.]</nowiki>
-***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold; perceptible or capable of eliciting a response.]</nowiki>
+***** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold that is imperceptible or not capable of eliciting a response.]</nowiki>
+***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold that is perceptible or capable of eliciting a response.]</nowiki>
 ***** Thick <nowiki>{relatedTag=Thin}[Wide in width, extent or cross-section.]</nowiki>
 ***** Thin <nowiki>{relatedTag=Thick}[Narrow in width, extent or cross-section.]</nowiki>
 **** Categorical-orientation-value <nowiki>[Value indicating the orientation or direction of something.]</nowiki>
@@ -573,7 +573,7 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Forward <nowiki>{relatedTag=Backward}[At or near or directed toward the front.]</nowiki>
 ***** Horizontally-oriented <nowiki>{related-Tag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
 ***** Leftward <nowiki>{relatedTag=Downward,relatedTag=Rightward,relatedTag=Upward}[Going toward or facing the left.]</nowiki>
-***** Oblique <nowiki>{relatedTag=Rotated}[Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.]</nowiki>
+***** Oblique <nowiki>{relatedTag=Rotated}[Slanting or inclined in direction, course, or position that is neither parallel nor perpendicular nor right-angular.]</nowiki>
 ***** Rightward <nowiki>{relatedTag=Downward,relatedTag=Leftward,relatedTag=Upward}[Going toward or situated on the right.]</nowiki>
 ***** Rotated <nowiki>[Positioned offset around an axis or center.]</nowiki>
 ***** Upward <nowiki>{relatedTag=Downward,relatedTag=Leftward,relatedTag=Rightward}[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
@@ -649,12 +649,12 @@ This schema is the first official release that includes an xsd and requires unit
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Width <nowiki>[The extent or measurement of something from side to side.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki>
-****** Height <nowiki>[The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.]</nowiki>
+****** Height <nowiki>[The vertical measurement or distance from the base to the top of an object.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ****** Volume <nowiki>[The amount of three dimensional space occupied by an object or the capacity of a space or container.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass, unitClass=volumeUnits}</nowiki>
 **** Temporal-value <nowiki>[A characteristic of or relating to time or limited by time.]</nowiki>
-***** Delay <nowiki>[Time during which some action is awaited; inactivity resulting in something being put off until a later time.]</nowiki>
+***** Delay <nowiki>[Time during which some action is awaited.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki> 
 ***** Duration <nowiki>[The period of time during which something occurs or continues.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
@@ -675,7 +675,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Exact-value <nowiki>[A value that is viewed to the true value according to some standard.]</nowiki>
 *** Fractal <nowiki>[Having extremely irregular curves or shapes for which any suitably chosen part is similar in shape to a given larger or smaller part when magnified or reduced to the same size.]</nowiki>
 *** Increasing <nowiki>{relatedTag=Decreasing}[Becoming greater in size, amount, or degree.]</nowiki>
-*** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance; lacking any definite plan or order or purpose.]</nowiki>
+*** Random <nowiki>{relatedTag=Deterministic,relatedTag=Stochastic}[Governed by or depending on chance. Lacking any definite plan or order or purpose.]</nowiki>
 *** Repetitive <nowiki>[A recurring action that is often non-purposeful.]</nowiki>
 *** Stochastic <nowiki>{relatedTag=Deterministic,relatedTag=Random}[Uses  a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely to determine future states.]</nowiki>
 *** Varying <nowiki>[Differing in size, amount, degree, or nature.]</nowiki>
@@ -697,16 +697,16 @@ This schema is the first official release that includes an xsd and requires unit
 *** Muddy-terrain <nowiki>[Tracts of land covered by a liquid or semi-liquid mixture of water and some combination of soil, silt, and clay.]</nowiki>
 *** Paved-terrain <nowiki>[Tracts of land covered  with concrete, asphalt, stones, or bricks.]</nowiki>
 *** Rocky-terrain <nowiki>[Tracts of land consisting or full of rock or rocks.]</nowiki>
-*** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping position; inclined.]</nowiki>
+*** Sloped-terrain <nowiki>[Tracts of land arranged in a sloping  or inclined position.]</nowiki>
 *** Uneven-terrain <nowiki>[Tracts of land that are not level, smooth, or regular.]</nowiki>
 * Informational-property<nowiki>{extensionAllowed}[Something that pertains to a task.]</nowiki>
 ** Description <nowiki>{requireChild} [An explanation of what the tag group it is in means. If the description is at the top-level of an event string, the description applies to the event.]</nowiki> 
 *** <nowiki># {takesValue, valueClass=textClass}</nowiki>
 ** ID <nowiki>{requireChild} [An alphanumeric name that identifies either a unique object or a unique class of objects. Here the object or class may be an idea, physical countable object (or class), or physical uncountable substance (or class).]</nowiki>
 *** <nowiki># {takesValue, valueClass=textClass}</nowiki>
-** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.]</nowiki>
+** Label <nowiki>{requireChild} [A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification. An identifying or descriptive marker that is attached to an object.]</nowiki>
 *** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
-** Metadata <nowiki>[Data about data; information that describes another set of data.]</nowiki>
+** Metadata <nowiki>[Data about data. Information that describes another set of data.]</nowiki>
 *** CogAtlas <nowiki>[The Cognitive Atlas ID number of something.]</nowiki>
 **** <nowiki># {takesValue}</nowiki>
 *** CogPo <nowiki>[The CogPO ID number of something.]</nowiki>
@@ -1019,7 +1019,7 @@ This schema is the first official release that includes an xsd and requires unit
 ** Task-action-type <nowiki>[How an agent action should be interpreted in terms of the task specification.]</nowiki>
 *** Appropriate-action <nowiki>{relatedTag=Inappropriate-action}[An action suitable or proper in the circumstances.]</nowiki>
 *** Correct-action <nowiki>{relatedTag=Incorrect-action, relatedTag=Indeterminate-action}[An action that was a correct response in the context of the task.]</nowiki>
-*** Correction <nowiki>[An action offering an improvement to replace a mistake; setting right; something substituted for an error.]</nowiki>
+*** Correction <nowiki>[An action offering an improvement to replace a mistake or error.]</nowiki>
 *** Incorrect-action <nowiki>{relatedTag=Correct-action, relatedTag=Indeterminate-action}[An action considered wrong or incorrect in the context of the task.]</nowiki>
 *** Imagined-action <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
 *** Inappropriate-action <nowiki>{relatedTag=Appropriate-action}[An action not in keeping with what is correct or proper for the task.]</nowiki>
@@ -1042,15 +1042,15 @@ This schema is the first official release that includes an xsd and requires unit
 *** Non-informative <nowiki>[Something that is not useful in forming an opinion or judging an outcome.]</nowiki>
 *** Non-target <nowiki>{relatedTag=Target}[Something other than that done or looked for. Also tag Expected if the Non-target is frequent.] </nowiki> 
 *** Not-meaningful <nowiki>[Not having a serious, important, or useful quality or purpose.]</nowiki>
-*** Novel <nowiki>[Having no previous example or precedent or parallel; of a kind not seen before.]</nowiki> 
+*** Novel <nowiki>[Having no previous example or precedent or parallel.]</nowiki> 
 *** Oddball <nowiki> {relatedTag=Unexpected, suggestedTag=Target}[Something unusual, or infrequent.]</nowiki>
 *** Planned <nowiki>{relatedTag=Unplanned}[Something that was decided on or arranged in advance.]</nowiki>
 *** Penalty <nowiki>[A disadvantage, loss, or hardship due to some action.]</nowiki>
 *** Priming <nowiki>[An implicit memory effect in which exposure to a stimulus influences response to a later stimulus.]</nowiki>
-*** Query <nowiki>[A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).]</nowiki>
+*** Query <nowiki>[A sentence of inquiry that asks for a reply.]</nowiki>
 *** Reward <nowiki>[A positive reinforcement for a desired action, behavior or response.]</nowiki>
 *** Stop-signal <nowiki>{relatedTag=Go-signal}[An indicator that the agent should stop the current activity.]</nowiki>
-*** Target <nowiki>[Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.]</nowiki> 
+*** Target <nowiki>[Something fixed as a goal, destination, or point of examination.]</nowiki> 
 *** Threat <nowiki>[An indicator that signifies hostility and predicts an increased probability of attack.]</nowiki>
 *** Timed <nowiki>[Something planned or scheduled to be done at a particular time or lasting for a specified amount of time.]</nowiki>
 *** Unexpected <nowiki>{relatedTag=Expected}[Something that is not anticipated.]</nowiki>
@@ -1222,7 +1222,7 @@ This schema is the first official release that includes an xsd and requires unit
 * nameClass <nowiki>{allowedCharacter=letters,allowedCharacter=digits,allowedCharacter=_,allowedCharacter=-}[Value class designating values that have the characteristics of node names. The allowed characters are alphanumeric, hyphen, and underbar.]</nowiki>
 * numericClass <nowiki>{allowedCharacter=digits,allowedCharacter=E,allowedCharacter=e,allowedCharacter=+,allowedCharacter=-,allowedCharacter=.}[Value must be a valid numerical value.]</nowiki>
 * posixPath <nowiki>{allowedCharacter=digits,allowedCharacter=letters,allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
-* textClass <nowiki>{allowedCharacter=letters, allowedCharacter=digits, allowedCharacter=blank,allowedCharacter=+, allowedCharacter=-, allowedCharacter=:, allowedCharacter=;allowedCharacter=, allowedCharacter=., allowedCharacter=/, allowedCharacter=(, allowedCharacter=),allowedCharacter=?, allowedCharacter=*, allowedCharacter=%, allowedCharacter=$, allowedCharacter=@}[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>
+* textClass <nowiki>{allowedCharacter=letters, allowedCharacter=digits, allowedCharacter=blank, allowedCharacter=+, allowedCharacter=-, allowedCharacter=:, allowedCharacter=;, allowedCharacter=., allowedCharacter=/, allowedCharacter=(, allowedCharacter=), allowedCharacter=?, allowedCharacter=*, allowedCharacter=%, allowedCharacter=$, allowedCharacter=@}[Value class designating values that have the characteristics of text such as in descriptions.]</nowiki>
 
 
 '''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
