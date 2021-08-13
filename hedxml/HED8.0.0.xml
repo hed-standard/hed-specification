@@ -315,7 +315,7 @@
          </node>
          <node>
             <name>Move</name>
-            <description>Move in a specified direction or manner; change position or posture.</description>
+            <description>Move in a specified direction or manner. Change position or posture.</description>
             <node>
                <name>Breathe</name>
                <description>Inhale or exhale during respiration.</description>
@@ -460,7 +460,7 @@
                   </node>
                   <node>
                      <name>Burp</name>
-                     <description>Noisily release air from the stomach through the mouth; belch.</description>
+                     <description>Noisily release air from the stomach through the mouth. Belch.</description>
                   </node>
                   <node>
                      <name>Chew</name>
@@ -612,7 +612,7 @@
                   </node>
                   <node>
                      <name>Release</name>
-                     <description>Make available; set free.</description>
+                     <description>Make available or set free.</description>
                   </node>
                   <node>
                      <name>Retract</name>
@@ -1025,7 +1025,7 @@
             </attribute>
             <node>
                <name>Character</name>
-               <description>A hieroglyphic character or symbol; a pictograph.</description>
+               <description>A mark or symbol used in writing.</description>
             </node>
             <node>
                <name>Clause</name>
@@ -1033,7 +1033,7 @@
             </node>
             <node>
                <name>Glyph</name>
-               <description>A hieroglyphic character or symbol; a pictograph.</description>
+               <description>A hieroglyphic character, symbol, or pictograph.</description>
             </node>
             <node>
                <name>Nonword</name>
@@ -1070,7 +1070,7 @@
          </node>
          <node>
             <name>Object</name>
-            <description>Something perceptible by one or more of the senses, especially by vision or touch; a material thing.</description>
+            <description>Something perceptible by one or more of the senses, especially by vision or touch. A material thing.</description>
             <attribute>
                <name>suggestedTag</name>
                <value>Attribute/Sensory</value>
@@ -1487,7 +1487,7 @@
                         <description>Any record of an imaging event whether physical or electronic.</description>
                         <node>
                            <name>Cartoon</name>
-                           <description>A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either: an image or series of images intended for satire, caricature, or humor; or a motion picture that relies on a sequence of illustrations for its animation.</description>
+                           <description>A type of illustration, sometimes animated, typically in a non-realistic or semi-realistic style. The specific meaning has evolved over time, but the modern usage usually refers to either an image or series of images intended for satire, caricature, or humor. A motion picture that relies on a sequence of illustrations for its animation.</description>
                         </node>
                         <node>
                            <name>Drawing</name>
@@ -1620,7 +1620,7 @@
          </node>
          <node>
             <name>Sound</name>
-            <description>Mechanical vibrations transmitted by an elastic medium; something that can be heard.</description>
+            <description>Mechanical vibrations transmitted by an elastic medium. Something that can be heard.</description>
             <node>
                <name>Environmental-sound</name>
                <description>Sounds occuring in the environment. An accumulation of noise pollution that occurs outside. This noise can be caused by transport, industrial, and recreational activities.</description>
@@ -2328,7 +2328,7 @@
                      </node>
                      <node>
                         <name>Asymmetrical</name>
-                        <description>Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry.</description>
+                        <description>Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Symmetrical</value>
@@ -2368,7 +2368,7 @@
                      </node>
                      <node>
                         <name>Disordered</name>
-                        <description>Not neatly arranged; confused and untidy. A structural quality in which the parts of an object are non-rigid.</description>
+                        <description>Not neatly arranged. Confused and untidy. A structural quality in which the parts of an object are non-rigid.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Ordered</value>
@@ -2385,7 +2385,7 @@
                      </node>
                      <node>
                         <name>Famous</name>
-                        <description>A person who has a high degree of recognition by the general population for his or her success or accomplishments; a famous person.</description>
+                        <description>A person who has a high degree of recognition by the general population for his or her success or accomplishments. A famous person.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Familiar</value>
@@ -2426,7 +2426,7 @@
                      </node>
                      <node>
                         <name>Normal</name>
-                        <description>Being approximately average or within certain limits; conforming with or constituting a norm or standard or level or type or social norm.</description>
+                        <description>Being approximately average or within certain limits. Conforming with or constituting a norm or standard or level or type or social norm.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Abnormal</value>
@@ -2434,7 +2434,7 @@
                      </node>
                      <node>
                         <name>Ordered</name>
-                        <description>Conforming to a logical or comprehensible arrangement of separate elements; a condition of regular or proper arrangement.</description>
+                        <description>Conforming to a logical or comprehensible arrangement of separate elements.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Disordered</value>
@@ -2450,7 +2450,7 @@
                      </node>
                      <node>
                         <name>Symmetrical</name>
-                        <description>Made up of exactly similar parts facing each other or around an axis; showing symmetry.</description>
+                        <description>Made up of exactly similar parts facing each other or around an axis. Showing aspects of symmetry.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Asymmetrical</value>
@@ -2511,7 +2511,7 @@
                      </node>
                      <node>
                         <name>High</name>
-                        <description>Having an elevated level or position or degree; having a greater than normal in degree or intensity or amount.</description>
+                        <description>Having a greater than normal degree, intensity, or amount.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Low</value>
@@ -2528,7 +2528,7 @@
                      </node>
                      <node>
                         <name>Liminal</name>
-                        <description>Situated at a sensory threshold; barely perceptible or capable of eliciting a response.</description>
+                        <description>Situated at a sensory threshold that is barely perceptible or capable of eliciting a response.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Subliminal</value>
@@ -2545,7 +2545,7 @@
                      </node>
                      <node>
                         <name>Low</name>
-                        <description>A minimum level or position or degree; less than normal in degree, intensity or amount.</description>
+                        <description>Less than normal in degree, intensity or amount.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>High</value>
@@ -2610,7 +2610,7 @@
                      </node>
                      <node>
                         <name>Subliminal</name>
-                        <description>Situated below a sensory threshold; imperceptible or not capable of eliciting a response.</description>
+                        <description>Situated below a sensory threshold that is imperceptible or not capable of eliciting a response.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Liminal</value>
@@ -2619,7 +2619,7 @@
                      </node>
                      <node>
                         <name>Supraliminal</name>
-                        <description>Situated above a sensory threshold; perceptible or capable of eliciting a response.</description>
+                        <description>Situated above a sensory threshold that is perceptible or capable of eliciting a response.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Liminal</value>
@@ -2688,7 +2688,7 @@
                      </node>
                      <node>
                         <name>Oblique</name>
-                        <description>Slanting or inclined in direction or course or position; neither parallel nor perpendicular nor right-angular.</description>
+                        <description>Slanting or inclined in direction, course, or position that is neither parallel nor perpendicular nor right-angular.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Rotated</value>
@@ -3256,7 +3256,7 @@
                         </node>
                         <node>
                            <name>Height</name>
-                           <description>The vertical measurement or distance from the base to the top of an object; the vertical dimension of extension.</description>
+                           <description>The vertical measurement or distance from the base to the top of an object.</description>
                            <node>
                               <name>#</name>
                               <attribute>
@@ -3297,7 +3297,7 @@
                      <description>A characteristic of or relating to time or limited by time.</description>
                      <node>
                         <name>Delay</name>
-                        <description>Time during which some action is awaited; inactivity resulting in something being put off until a later time.</description>
+                        <description>Time during which some action is awaited.</description>
                         <node>
                            <name>#</name>
                            <attribute>
@@ -3450,7 +3450,7 @@
                </node>
                <node>
                   <name>Random</name>
-                  <description>Governed by or depending on chance; lacking any definite plan or order or purpose.</description>
+                  <description>Governed by or depending on chance. Lacking any definite plan or order or purpose.</description>
                   <attribute>
                      <name>relatedTag</name>
                      <value>Deterministic</value>
@@ -3548,7 +3548,7 @@
                </node>
                <node>
                   <name>Sloped-terrain</name>
-                  <description>Tracts of land arranged in a sloping position; inclined.</description>
+                  <description>Tracts of land arranged in a sloping  or inclined position.</description>
                </node>
                <node>
                   <name>Uneven-terrain</name>
@@ -3598,7 +3598,7 @@
             </node>
             <node>
                <name>Label</name>
-               <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object.</description>
+               <description>A string of 20 or fewer characters identifying something. Labels usually refer to general classes of things while IDs refer to specific instances. A term that is associated with some entity. A brief description given for purposes of identification. An identifying or descriptive marker that is attached to an object.</description>
                <attribute>
                   <name>requireChild</name>
                </attribute>
@@ -3615,7 +3615,7 @@
             </node>
             <node>
                <name>Metadata</name>
-               <description>Data about data; information that describes another set of data.</description>
+               <description>Data about data. Information that describes another set of data.</description>
                <node>
                   <name>CogAtlas</name>
                   <description>The Cognitive Atlas ID number of something.</description>
@@ -5177,7 +5177,7 @@
                </node>
                <node>
                   <name>Correction</name>
-                  <description>An action offering an improvement to replace a mistake; setting right; something substituted for an error.</description>
+                  <description>An action offering an improvement to replace a mistake or error.</description>
                </node>
                <node>
                   <name>Incorrect-action</name>
@@ -5309,7 +5309,7 @@
                </node>
                <node>
                   <name>Novel</name>
-                  <description>Having no previous example or precedent or parallel; of a kind not seen before.</description>
+                  <description>Having no previous example or precedent or parallel.</description>
                </node>
                <node>
                   <name>Oddball</name>
@@ -5341,7 +5341,7 @@
                </node>
                <node>
                   <name>Query</name>
-                  <description>A sentence of inquiry that asks for a reply; a request for information (as in a formal request to a database or search engine or in interrogating a subject for an answer).</description>
+                  <description>A sentence of inquiry that asks for a reply.</description>
                </node>
                <node>
                   <name>Reward</name>
@@ -5357,7 +5357,7 @@
                </node>
                <node>
                   <name>Target</name>
-                  <description>Something fixed as a goal or point of examination; something to point at; a destination. Something an agent is looking for.</description>
+                  <description>Something fixed as a goal, destination, or point of examination.</description>
                </node>
                <node>
                   <name>Threat</name>
@@ -5951,7 +5951,7 @@
             <description>Should be in 24-hour format.</description>
          </unit>
       </unitClassDefinition>
-	  <unitClassDefinition>
+      <unitClassDefinition>
          <name>volumeUnits</name>
          <attribute>
             <name>defaultUnits</name>
@@ -6336,7 +6336,7 @@
             <value>+</value>
             <value>-</value>
             <value>:</value>
-            <value>;allowedCharacter</value>
+            <value>;</value>
             <value>.</value>
             <value>/</value>
             <value>(</value>
