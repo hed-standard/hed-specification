@@ -2031,7 +2031,7 @@ The optional `<attribute>` elements are derived from the attribute list containe
 **Example:** The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
 
 ```mediawiki
-{suggestedTag=Sweet,suggestedTag=Gustatory/Salty, suggestedTag=Attribute/Sensory/Gustatory/Sour}
+{suggestedTag=Sweet,suggestedTag=Gustatory-attribute/Salty, suggestedTag=Property/Sensory-property/Gustatory-attribute/Gustatory-attribute/Sour}
 ```
 
 The `suggestedTag` attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are  valid HED tags in any form (short, long, or intermediate).
@@ -2039,7 +2039,7 @@ The `suggestedTag` attribute is meant to be used by tagging tools to suggest add
 **Old xml if present:**
 
 ```xml
-<node suggestedTag="Sweet,Gustatory/Salty Attribute/Sensory/Gustatory/Sour">
+<node suggestedTag="Sweet,Gustatory-attribute/Salty Property/Sensory-property/Sensory-attribute/Gustatory-attribute/Sour">
     <name>xxx</name>
 </node>
 ```
@@ -2052,8 +2052,8 @@ The `suggestedTag` attribute is meant to be used by tagging tools to suggest add
    <attribute>
       <name>suggestedTag</name>
     	 <value>Sweet</value>
-    	 <value>Gustatory/Salty</value>
-    	 <value>Attribute/Sensory/Gustatory/Sour</value>
+    	 <value>Gustatory-attribute/Salty</value>
+    	 <value>Property/Sensory-property/Sensory-attribute/Gustatory-attribute/Sour</value>
    </attribute>
 </node>
 ```
