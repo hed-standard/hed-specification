@@ -585,6 +585,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Item-count <nowiki>[The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
 **** Item-interval <nowiki>[An integer indicating how many items or entities have passed since the last one of these. An item interval of 0 indicates the current item.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>      
 **** Percentage <nowiki>[A fraction or ratio with 100 understood as the denominator.]</nowiki> 

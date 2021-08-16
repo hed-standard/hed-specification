@@ -2766,6 +2766,16 @@
                   <node>
                      <name>Item-count</name>
                      <description>The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
                   </node>
                   <node>
                      <name>Item-interval</name>
