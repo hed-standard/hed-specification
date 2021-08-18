@@ -1279,7 +1279,7 @@
                               <description>A button on a keyboard usually representing letters, numbers, functions, or symbols.</description>
                               <node>
                                  <name>#</name>
-                                 <description>Value of a keyboard key.</description>
+                                 <description>Value of a keyboard key.TODO? Attribute valueClass seems missing?</description>
                                  <attribute>
                                     <name>takesValue</name>
                                  </attribute>
@@ -1294,7 +1294,7 @@
                               <description>A key on a separate section of a computer keyboard that groups together numeric keys and those for mathematical or other special functions in an arrangement like that of a calculator.</description>
                               <node>
                                  <name>#</name>
-                                 <description>Value of keypad key.</description>
+                                 <description>Value of keypad key.TODO? Attribute valueClass seems missing?</description>
                                  <attribute>
                                     <name>takesValue</name>
                                  </attribute>
