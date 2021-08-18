@@ -2,15 +2,15 @@
 
 This is a record of proposed changes/corrections to the HED schema for future release. As suggestions reach consensus they will be moved to this document. 
 
-### Proposed changes/corrections
+### Proposed changes/corrections (requiring more development/discussion)
 
-##### Add value class --- not sure what class this should be needs discussion (See issue #)
+##### Add value class --- not sure what class this should be needs discussion (See issue #324)
 - Item/Object/Man-made-object/Device/IO-device/Input-device/Keyboard/Keyboard-key/#
 - Item/Object/Man-made-object/Device/IO-device/Input-device/Keypad/Keypad-key/#
 - Property/Informational-property/Metadata/Pathname/#
 - Property/Informational-property/Metadata/CogAtlas/# (What are these?)
 
-#### Placeholders missing value class or other specification.
+### Placeholders clearly missing value class or other specification.
 
 ##### Add numericClass attribute (* indicates should consider unit class too)
 - Property/Agent-property/Agent-trait/Age/#
