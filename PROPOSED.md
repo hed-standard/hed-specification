@@ -22,7 +22,6 @@ This is a record of proposed changes/corrections to the HED schema for future re
 ### Typos/corrections
 This section lists typos or other errors that should be fixed.
 
-- Extra line
 - Correct the word between in `**** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>`
 - Rename `labelClass` to `nameClass` in `Property/Informational-property/Parameter/Parameter-label/#'
 - Rename `labelClass` to `nameClass` in `Property/Sensory-property/Sensory-attribute/auditory-attribute/Timbre/#'
