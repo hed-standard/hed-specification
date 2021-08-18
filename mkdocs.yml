@@ -2,7 +2,7 @@ site_name: Hierarchical Event Descriptors (HED v8.0.0)
 site_url: https://hed-specification.readthedocs.io/en/stable/
 theme:
     name: material
-    custom_dir: theme_customizations/
+    custom_dir: themes/
     favicon: images/favicon.png
     logo: images/logo.png
 extra_javascript:
@@ -25,6 +25,6 @@ nav:
     - The HED Specification:
       - All: HEDspecification.md
     - The HED ecosystem:
-      - GitHub specification repository: https://github.com/hed-standard/bids-starter-kit
+      - GitHub specification repository: https://github.com/hed-standard/hed-specification
       - HED home: https://www.hedtags.org
       - HED online tools: https://hedtools.ucsd.edu/hed
