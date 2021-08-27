@@ -1,3 +1,4 @@
+(a_schema_format)=
 # A.Schema format
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert schema between `.mediawiki` and `.xml` format are located in the `hed.schema` module of the [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) project of the hed-python repository located at  [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). All conversions are performed by converting the schema to a HedSchema object and then The modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these conversions. This appendix presents the rules for HED base and library schema in `.mediawiki` and `.xml` formats.
@@ -10,7 +11,7 @@ The rules for creating a valid `.mediawiki` specification of a HED schema are gi
 
 The overall layout of is `.mediawiki` schema file is:
 
-```mediawiki
+```moin
 header-line: HED . . .
 prologue
              . . .
@@ -69,7 +70,7 @@ The `library` and `version` values are used to form the official xml file name a
 
 The `.mediawiki` file has a header line:
 
-```mediawiki
+```moin
 HED version="8.0.0"
 ```
 
@@ -85,7 +86,7 @@ The file name in `hedxml` in `hed-specification` is `HED8.0.0.xml`.
 
 The `.mediawiki`  has a header line:
 
-```mediawiki
+```moin
 HED library="test" version="1.0.2"
 ```
 
@@ -103,7 +104,7 @@ Unknown _header-line_ attributes are translated as attributes of the `HED` root 
 
 The beginning of the HED specification is marked by the *start-line*:
 
-```mediawiki
+```moin
 !# start schema
 ```
 
@@ -111,7 +112,7 @@ An arbitrary number of lines of informational text can be placed between the *he
 
 The end of the main HED-specification is marked by the end-line:
 
-```mediawiki
+```moin
 !# end schema
 ```
 
@@ -119,7 +120,7 @@ The section separator lines (`!# start schema`, `!# end schema`, `!# end hed`) m
 
 The body of the HED specification consists of two types of lines: top-level node-specification specifications and other node specifications. Each specification is a single line in the `.mediawiki` file. Empty lines or lines containing only blanks are ignored. The basic format for a node-specification is:
 
-```mediawiki
+```moin
 node-name  <nowiki>{attributes}[description]</nowiki>
 ```
 
@@ -129,19 +130,19 @@ Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`),
 
 **Top-level:**
 
-```mediawiki
+```moin
 '''Property''' <nowiki>{extensionAllowed} [Subtree of properties.]</nowiki>
 ```
 
 **Normal-level:**
 
-```mediawiki
+```moin
 ***** Duration <nowiki>{requireChild} [Time extent of something.]</nowiki>
 ```
 
 **Placeholder-level:**
 
-```mediawiki
+```moin
 ****** <nowiki># {takesValue, unitClass=time,valueClass=numericClass}</nowiki>
 ```
 
@@ -155,7 +156,7 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the HED unit class specification for time.
 
-```mediawiki
+```moin
 '''Unit classes''' 
 * time <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit}</nowiki> 
@@ -164,7 +165,7 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the HED unit modifier specification.
 
-```mediawiki
+```moin
 '''Unit modifiers''' 
 * deca <nowiki>{SIUnitModifier} [SI unit multiple for 10^1]</nowiki> 
 * da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10^1]</nowiki>
@@ -172,14 +173,14 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the HED value class specification.
 
-```mediawiki
+```moin
 '''Value classes'''
 * posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 ```
 
 **Example:**  Part of the HED schema attribute specification.
 
-```mediawiki
+```moin
 '''Schema attributes'''
 * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
@@ -187,7 +188,7 @@ The unit class specification section starts with `'''Unit classes'''`
 
 **Example:**  Part of the property specification.
 
-```mediawiki
+```moin
 '''Properties''' 
 * valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki> 
 ```
@@ -290,7 +291,7 @@ The optional `<attribute>` elements are derived from the attribute list containe
 
 **Example:** The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as:
 
-```mediawiki
+```moin
 {suggestedTag=Sweet,suggestedTag=Gustatory-attribute/Salty, suggestedTag=Property/Sensory-property/Gustatory-attribute/Gustatory-attribute/Sour}
 ```
 

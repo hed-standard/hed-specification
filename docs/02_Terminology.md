@@ -31,9 +31,9 @@ Circumstances forming or contributing to the setting in which an event occurs th
 
 ## Event-stream[*]
 
-A named sequence of events such as all of the events that are face stimuli or all of the events that are participant responses.
+A named sequence of events such as all the events that are face stimuli or all of the events that are participant responses.
 
-## Experimental-participant[*]
+## Experiment-participant[*]
 
 A living agent, particularly a human from whom data is acquired during an experiment, though in some paradigms other human participants may also play roles.
 
@@ -63,10 +63,6 @@ An experiment-specific item, often a specific behavioral or computer measure, th
 
 A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
 
-## Reference-frame[*]
-
-A specified set of axes, primary orientation centered at a specified point of origin and having a specified scale. HED reference frames are usually anchored to some physical location or to an object or to another reference-frame that has an anchor.
-
 ## Tag-group
 
 One or more valid, comma-separated HED tags or enclosed in parentheses to indicate that these tags belong together. Tag-groups may contain arbitrary nestings of other tags and tag-groups.
@@ -75,9 +71,9 @@ One or more valid, comma-separated HED tags or enclosed in parentheses to indica
 
 A set of structured activities performed by the participant that are integrally related to the purpose of the experiment. Tasks often include observations and responses to sensory presentations as well as specified actions in response to presented situations.
 
-## Temporal scope[*]
+## Temporal scope
 
-The time interval between events marking the beginning and end of something in the experiment. 
+The time interval between events marking the beginning and end of something in the experiment. The time between and including the onset and offset of an event.
 
 ## Time-block[*]
 
