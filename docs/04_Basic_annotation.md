@@ -14,7 +14,7 @@ This section illustrates basic HED descriptions of four types of events that are
 An typical example of an experiment using time-marked event annotation is simple target detection. In this experiment geometric shapes of different colors are presented on a computer screen at two-second intervals. After every visual shape presentation, the subject is asked to press the left mouse button if the shape is a green triangle or the right mouse button otherwise. After a block of 30 such presentation-response sequences (trials), the control software sounds a buzzer to indicate that the subject can rest for 5 minutes before continuing to the next block of trials. After the experiment is completed, the experiment runs an eyeblink-detection tool on the EEG data and inserts an event marker at the amplitude maximum of each detected blink artifact.
 
 
-### 4.1.1. A stimulus event
+## 4.2. A stimulus event
 
 The target detection experiment described above is an example of a stimulus-response paradigm: perceptually distinct sensory stimuli are presented at precisely recorded times (typically with abrupt onsets) and ensuing and/or preceding precisely-timed changes in the behavioral and physiological data streams are annotated or analyzed. Stimulus onsets (typically) are annotated with the *Sensory-event* tag. Additional tags indicate task role. Separation of what an event is (as designated by a tag from the *Event* subtree) from its task role (as indicated by other descriptive tags) is an important design change that distinguishes HED-3G from earlier versions of HED and enables effective annotation in more complex situations.
 
@@ -49,7 +49,7 @@ HED has a number of qualitative relational tags designating spatial features suc
 The order of the tags doesn’t matter; HED strings are unordered lists of HED tags and tag groups. Where the grouping of associated tags needs to be indicated, most commonly in the case of tags with modifiers, the related tags should be put in a tag group enclosed by parentheses (as above).  
 
 
-### 4.1.2. Simple specification of task intention
+## 4.3. Simple specification of task intention
 
 In deciding what additional information should be included, the annotator should consider how to convey the nature and intent of the experiment and the EEG responses that are likely to be elicited. The brief description suggests that green triangles are something “looked for”, within the structure of the task that participants are asked to perform during the experiment.
 
@@ -84,7 +84,7 @@ Notice that the long form version also includes a *Description* tag that gives a
 HED-3G has more sophisticated methods of specifying the relationships of events and tasks. These require more advanced tagging mechanisms that are discussed later in this document.
 
 
-### 4.1.3. A participant action event
+## 4.4. A participant action event
 
 In many experiments, the participant is asked to press (or select and press) a finger button to indicate their perception of or judgment concerning the stimulus. These types of events, as well as participant actions not related to the task, are annotated as *Agent-action* events. *Agent-action* events can be annotated with varying levels of detail, as illustrated by the next examples.
 
@@ -124,7 +124,7 @@ Property/Informational-property/Description/The subject pushes the left mouse bu
 The *Participant-response* tag is modified by tags that indicate that the participant is reacting by responding as though the stimulus were an oddball target. Specifically the *Behavioral-evidence* tag documents that the subject gave a response indicating an oddball target. In other words, the participant pressed the left mouse button indicating an oddball target, which may or may not match the stimulus that was presented. Other details should be annotated, including whether the subject’s left, right, or dominant hand was used to press the mouse button and whether the left mouse button or right mouse button was pressed. (This factor was indicated in the *Description*, but not in the machine-actionable tags.)
 
 
-### 4.1.4. An experimental control event
+## 4.5. An experimental control event
 
 Experiments may have experiment control events written into the event record, often automatically by the presentation or control software. In the illustration provided above, a buzzer sounded by the control software indicates that the subject should rest.
 
@@ -147,7 +147,7 @@ Action/Perform/Rest)),
 Property/Informational-property/Description/A buzzer sounds indicating a rest period.
 ```
 
-### 4.1.5. A data feature event
+## 4.6. A data feature event
 
 Another type of tagging documents computed data features and expert annotations that have been inserted post-hoc into the experimental record as events. The *Computed-feature* and *Observation* tags designate whether the event came from a computation or from manual evaluation. 
 
@@ -185,7 +185,7 @@ Property/Informational-property/Label/AnnotatorAJM_K-complex),
 Property/Informational-property/Description/K-complex defined by AASM guide.
 ```
 
-### 4.1.6. What else should be documented?
+## 4.7. What else should be documented?
 
 Most event annotation focuses on basic identification and description of stimuli and the participant’s direct response to that stimuli. However, for accurate comparisons across studies, much more information is required and should be documented with HED tags rather than just with text descriptions. This is particularly true if this information is relevant to the experimental intent, varied during the experiment, or likely to evoke a neural response. In the example of 4.1.1, the green triangle might be displayed for an extended period (during which other events might occur), and the disappearance of the triangle is likely to elicit a neural response. Exactly how this information should be represented is discussed in Section 5.1 with the introduction of temporal scope and its use with *Onset* and *Offset*.
 

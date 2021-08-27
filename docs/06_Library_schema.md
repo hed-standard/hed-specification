@@ -14,7 +14,7 @@ Similar to the design principles imposed on function names and subclass organiza
 As in Python programming, we anticipate that many different HED schema libraries may be defined and used, in addition to the base HED schema. Libraries allow individual research communities to annotate details of events in experiments designed to answer questions of interest to particular research or clinical communities. Since it would be impossible to avoid naming conflicts across schema libraries that may be built in parallel by different user communities, HED supports schema library namespaces. Users will be able to add library tags qualified with namespace designators. All HED schemas, including library schemas, adhere to [semantic versioning](https://semver.org/). 
 
 
-## 6.1. Defining a HED library schema
+## 6.1. Defining a schema
 
 A HED library schema is defined in the same way as the base HED schema except that it has an additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an illustration a library schema for driving. Syntax details for a library schema are similar to those for the base HED schema. **Appendix B** explains these in more detail.
 
@@ -42,7 +42,7 @@ The required sections specifying the schema attributes  are *unit-class-specific
 
 The schema XML file should be saved as HED_driving_1.0.0.xml to facilitate specification in tools.
 
-## 6.2. Library schema namespaces
+## 6.2. Schema namespaces
 
 As part of the HED annotation process, users must associate a standard HED schema with their datasets. Users may also include tags from an arbitrary number of additional library schemas. For each library schema used to annotate a data recording, the user must associate a local name with the appropriate library schema name and version. Each library must be associated with a distinct local name within a recording’s annotations. The local names should be strictly alphabetic with no blanks or punctuation. 
 
@@ -59,7 +59,7 @@ dp:Change-lanes
 A colon (:) is used to separate the qualifying local name from the remainder of the tag. Notice that _Action_ also appears in the standard HED schema. Identical terms may be used in a library schema and the standard HED schema. Use of the same term implies a similar purpose. Library schema developers should try not to reuse terms in the standard schema unless the intention is to convey a close or identical relationship.
 
 
-## 6.3. Library attributes and classes
+## 6.3. Attributes and classes
 
 In addition to the specification of tags in the main part of a schema, a HED schema has sections that specify unit classes, unit modifiers, value classes, schema attributes, and properties. The rules for the handling of these sections for a library schema are as follows:
 
@@ -75,7 +75,7 @@ In addition to the specification of tags in the main part of a schema, a HED sch
     3. Actual handling of the semantics of any of these by HED tools only occurs for entities appearing in the base schema.
 
 
-## 6.4. Using library schema in BIDS datasets 
+## 6.4. library schemas in BIDS 
 
 The most common use case (for 99.9% of the HED users) is to use one of the standard HED schemas available on GitHub in the `hedxml` directory of the `hed-specification` repository ([https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)). The HED version is included as the value of the `"HEDVersion"` key in the `dataset_description.json` metadata file located at the top level in a BIDS dataset. HEDTools retrieve the appropriate HED schema directly from GitHub when needed.
 
@@ -89,7 +89,7 @@ The most common use case (for 99.9% of the HED users) is to use one of the stand
 }
 ```
 
-## 6.5 Proposed changes for HED library schemas handling in BIDS
+## 6.5 Proposed changes
 
 This section explains the changes that are being proposed in BIDS to accommodate access to HED library schemas. **Appendix A.5.2.3** explains the proposed programmatic interface to support library schemas within the BIDS validator and the accompanying JavaScript HED validator. This section will be updated as the proposals progress though the BIDS review process. All `"fileName"` keys in the following discussion point to the names of files located in the `./code` directory of the dataset tree.
 
