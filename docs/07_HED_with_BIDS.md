@@ -1,13 +1,13 @@
-# 7. Tools
+# 7. HED in BIDS
 
-This section gives an overview of the HED tools. Additional details and links to specific tools are available in **Appendix A**.
+This section gives an overview of the HED tools. Additional details and links to specific tools are available in **Section 8**.
 
 
 ## 7.1. Short and long forms
 
 Tools that are third-generation HED-compliant must be able to handle both short-form and long-form versions of HED strings. Analysis tools often need to transform all HED tags to long form before processing. To this end, mapping functions are being developed in Python, Matlab, and JavaScript. These libraries also provide mapping from long form to short form. As illustrated in the previous sections, the short form is much more readable and compact. 
 
-
+(bids_file_format)=
 ## 7.2. Event file format (BIDS)
 
 Dataset events are often represented using spreadsheets either in `.tsv` or Excel format. The rows of each spreadsheet correspond to events, while the columns contain identifying information pertaining to the events.  The first row of each spreadsheet usually contains column names that document what each column represents. Usually one column contains the time of the event. Other columns may contain categorical values, other values, or HED strings. Categorical column values are chosen from a small, explicitly defined subset. Value columns may contain numeric values or other types of values such as file names. HED tools assume that event files are spreadsheets, either in BIDS (`.tsv`) format or Excel format.
@@ -16,20 +16,21 @@ The HED tools require that each column of an event file contains items of the sa
 
 BIDS uses tab-separated-value (`.tsv`) format for event files, with a required `onset` column containing the time of the event in seconds. BIDS also requires a `duration` column for event files. 
 
-**Example:** Excerpt from a BIDS event file:
+````{admonition} **Example:** Excerpt from a BIDS event file:
 
 ```
 onset  duration  trial_type  response_time stim_file
 1.2    0.6       go          1.435         images/red_square.jpg
 5.6    0.6       stop        1.739         images/blue_square.jpg
 ```
+````
 
 
 The `trial_type` column contains categorical values, while the `response_time` and `stim_file` columns contain non-categorical values. In theory `stim_file` could be considered a categorical column if there were just a few possible images, but this would not be common usage. BIDS allows an optional column named `HED` to contain HED strings relevant for the event instance. The above example does not have this column. 
 
 Processing tools read these event files and create their own event representation. The Python version of HEDTools uses the Pandas `DataFrame` for its low-level representations. For MATLAB programs, the dataset events are often held in `struct` arrays.  In EEGLAB, for example, the events for an EEG data recording appear in the `EEG.event` structure array. The time of the event is given in frames in the `EEG.event.latency` field for data that has not been epoched. 
 
-
+(bids_sidecars)=
 ## 7.3. Sidecar format (BIDS)
 
 Systems that handle HED annotation should be capable of defining and using metadata dictionaries in JSON format to specify HED tags applicable to the values in different columns of an event file.  BIDS uses JSON dictionaries called sidecars in a particular format. HEDTools assume that dictionaries for event metadata are contained in BIDS-compatible sidecars.
@@ -90,7 +91,7 @@ HED string level validation focuses on the proper formation of HED strings and t
 
 ### 7.4.3. HED dictionary level validation
 
-HED dictionary validation assumes that the dictionaries have been written in the JSON format of **Section 5.3**. The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
+HED dictionary validation assumes that the dictionaries have been written in the JSON format of {ref}`**Section 7.3**<bids_sidecars>`. The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
 
 
 ### 7.4.4. HED event-level validation
@@ -116,15 +117,9 @@ Third-generation HED analysis tools also require some additional infrastructure.
 
 ## 7.6. HED-annotated data in BIDS
 
-[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification along with supporting tools for organizing and describing brain imaging and behavioral data. BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`) files in various places in the dataset hierarchy. BIDS event files must have an `onset` column and a `duration` column. The example in **Section 5.2** shows such a BIDS event file. BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. The example in Section 5.2 also includes a JSON data dictionary.  
+[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification along with supporting tools for organizing and describing brain imaging and behavioral data. BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`) files in various places in the dataset hierarchy. BIDS event files must have an `onset` column and a `duration` column. The example in {ref}`**Section 7.2**<bids_file_format>` shows such a BIDS event file. BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. The example in Section 7.2 also includes a JSON data dictionary.  
 
 HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). The [BIDS validator](https://github.com/bids-standard/bids-validator) incorporates calls to this package to validate HED tags in BIDS datasets.
 
 The [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) package includes input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal representations of HED-annotated event files. Plans are underway to make this package available on the [PyPI](https://pypi.org/) package index for easy installation.
 
-
-## 7.7. Mapping old HED tags into third generation HED tags
-
-The HED system is now in its third generation of development. HED was introduced in 2013 to support annotation of events in [HeadIT](https://headit.ucsd.edu/), an early public repository of EEG data hosted by the Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al. 2013). HED-1G was partially based on CogPO (Turner and Laird 2012). Event annotation in HED-1G was organized around a single hierarchy whose root was the *Time-Locked Event*. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes.
-
-The second-generation of HED is sometimes referred to as HED-2G. HED-2G has multiple hierarchies with concepts that vary independently in different hierarchies. For example, if red-triangles and green-triangles are terms in a hierarchy, one is also likely to need red-squares and green-squares as well as  other colors.  Separating independent concepts such as shapes and colors into separate hierarchies, eliminates an exponential vocabulary growth due to term duplication in different branches of the hierarchy.  HED-2G also introduced nested parentheses to allow clear grouping of related terms.  A number of datasets have been annotated in HED-2G and released. HED-2G versions are HED 5.0.0 to HED 7.x.x. Third generation HED or HED-3G starts with HED 8.0.0.

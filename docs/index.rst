@@ -13,9 +13,9 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    04_Basic_annotation.md
    05_Advanced_annotation.md
    06_Library_schema.md
-   07_Tools.md
+   07_HED_with_BIDS.md
    08_Resources.md
-   A_Appendix_A.md
+   a_appendix_a.md
    B_Appendix_B.md
 
 Indices and tables

@@ -1,7 +1,7 @@
 # 8. Resources
 
 
-### 8.1. Documentation
+## 8.1. Documentation
 
 The following white paper explains the history, development, and motivation for third generation HED: 
 
@@ -28,7 +28,7 @@ Two other working documents hold portions of the HED-3G specification that are u
 > HED-3G Working Document on Task Annotation
 > [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
 
-### **Table A.1**. List of websites containing code and documentation.
+### **Table 8.1**. List of websites containing code and documentation.
 
 <table>
   <tr>
