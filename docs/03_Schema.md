@@ -6,7 +6,9 @@ HED schema XML filenames use the standardized format `HEDx.y.z.xml`. These stand
 
 Third generation HED begins with schema version 8.0.0. Thus, the file containing the first official release of the third generation HED schema is `HED8.0.0.xml`. Releases are stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository. Deprecated versions of the HED schema are stored in the [`hedxml/deprecated`](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository.
 
-All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in {ref}`Appendix A <a_appendix_a.md/a_schema_format>`
+
+{ref}`./Appendix_A.md:schema_format`
+All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in [Appendix A](./Appendix_A.md#schema_format)
 
 
 ## 3.1. Mediawiki schema format
@@ -14,6 +16,7 @@ All data recordings in a dataset should be annotated using a single version of t
 HED schema developers can specify a new schema version or revision in `.mediawiki` format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in **Appendix B**.
 
 ````{admonition} Example: Excerpt of a HED schema (.mediawiki).
+
 ```moin
 HED version="8.0.0" 
 
@@ -45,6 +48,7 @@ An optional section that is the place for notes and is ignored in HED processing
 
 !# end hed
 ```
+
 ````
 
 Beginning with third generation HED (HED schema versions 8.0.0 and later), **terms in a given schema must be unique within that schema.** This uniqueness rule allows automated expansion of short form HED strings into their full long forms. 

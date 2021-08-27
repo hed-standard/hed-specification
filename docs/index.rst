@@ -15,8 +15,8 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    06_Library_schema.md
    07_HED_with_BIDS.md
    08_Resources.md
-   a_appendix_a.md
-   B_Appendix_B.md
+   Appendix_A.md
+   Appendix_B.md
 
 Indices and tables
 ==================

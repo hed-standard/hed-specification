@@ -91,7 +91,7 @@ HED string level validation focuses on the proper formation of HED strings and t
 
 ### 7.4.3. HED dictionary level validation
 
-HED dictionary validation assumes that the dictionaries have been written in the JSON format of {ref}`**Section 7.3**<bids_sidecars>`. The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
+HED dictionary validation assumes that the dictionaries have been written in the JSON format of {ref}`Section 7.3<bids_sidecars>`. The validation is similar to HED string evaluation, but the error messages are keyed to dictionary location rather than to line numbers in the event file or spreadsheet. The validator checks that there is exactly one # in the HED string annotation associated with each non-categorical column. The # placeholder should correspond to a # in the HED schema, indicating that the parent tag expects a value. If the placeholder is followed by a units designator, the validator checks that these units are consistent with the unit class of the corresponding # in the schema.  The units are not mandatory.
 
 
 ### 7.4.4. HED event-level validation

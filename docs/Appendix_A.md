@@ -1,5 +1,5 @@
-(a_schema_format)=
-# A.Schema format
+(schema_format)=
+# A. Schema format
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert schema between `.mediawiki` and `.xml` format are located in the `hed.schema` module of the [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) project of the hed-python repository located at  [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). All conversions are performed by converting the schema to a HedSchema object and then The modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these conversions. This appendix presents the rules for HED base and library schema in `.mediawiki` and `.xml` formats.
 
