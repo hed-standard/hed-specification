@@ -18,7 +18,7 @@ As in Python programming, we anticipate that many different HED schema libraries
 
 A HED library schema is defined in the same way as the base HED schema except that it has an additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an illustration a library schema for driving. Syntax details for a library schema are similar to those for the base HED schema. **Appendix B** explains these in more detail.
 
-**Example:** A template of the *.mediawiki* format of a HED library schema for driving: 
+**Example:** A template of the `.mediawiki` format of a HED library schema for driving: 
 
 ```moin
 HED library="driving" version="1.0.0" 

@@ -1,10 +1,7 @@
-.. HED specification documentation master file, created by
-   sphinx-quickstart on Wed Aug 25 09:34:56 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to HED specification's documentation!
+Welcome to HED specification documentation!
 =============================================
+
+A PDF version of this document can be found `here <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
 .. toctree::
    :maxdepth: 5
@@ -17,6 +14,9 @@ Welcome to HED specification's documentation!
    05_Advanced_annotation.md
    06_Library_schema.md
    07_Tools.md
+   08_Resources.md
+   A_Appendix_A.md
+   B_Appendix_B.md
 
 Indices and tables
 ==================

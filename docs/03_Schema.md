@@ -1,6 +1,6 @@
 # 3. The HED schema
 
-A HED schema is the formal specification of the HED vocabulary and rules for annotating events. A HED schema vocabulary is organized hierarchically so that similar concepts and terms appear close to one another in the organizational hierarchy. A HED schema is used to validate event annotations. Past, present, and future versions of the HED schema adhere to [semantic versioning](https://semver.org/) with version numbers of the form *x.y.z* representing *major.minor.patch* versions. Although schema developers work with HED schema in *.mediawiki* format for ease in editing,  HED tools generally use XML versions of the HED schema. An expandable HTML browser is also available.
+A HED schema is the formal specification of the HED vocabulary and rules for annotating events. A HED schema vocabulary is organized hierarchically so that similar concepts and terms appear close to one another in the organizational hierarchy. A HED schema is used to validate event annotations. Past, present, and future versions of the HED schema adhere to [semantic versioning](https://semver.org/) with version numbers of the form *x.y.z* representing *major.minor.patch* versions. Although schema developers work with HED schema in `.mediawiki` format for ease in editing,  HED tools generally use XML versions of the HED schema. An expandable HTML browser is also available.
 
 HED schema XML filenames use the standardized format _HEDx.y.z.xml_. These standardized names make it easier for tools to locate the appropriate HED schema version in the HED working group [GitHub website](https://github.com/hed-standard). All schema versions are stored in the *hedxml* directory of the [HED specification repository](https://github.com/hed-standard/hed-specification). Third generation HED begins with schema version *8.0.0*. Thus, the first official release of the third generation HED schema is *HED8.0.0.xml*. Releases are stored in *[hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)* directory of the  *[hed-specification](https://github.com/hed-standard/hed-specification)* repository. Deprecated versions of the HED schema are stored in the *[hedxml/deprecated](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated)* directory of the *[hed-specification](https://github.com/hed-standard/hed-specification)* repository.
 
@@ -9,9 +9,9 @@ All of the data recordings in a dataset should be annotated using a single versi
 
 ## 3.1. Mediawiki schema format
 
-HED schema developers can specify a new schema version or revision in *.mediawiki* format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in **Appendix B**.
+HED schema developers can specify a new schema version or revision in `.mediawiki` format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in **Appendix B**.
 
-**Example:** An excerpt of a small portion of a HED schema in *.mediawiki* format.
+**Example:** An excerpt of a small portion of a HED schema in `.mediawiki` format.
 
 ```moin
 HED version="8.0.0" 
@@ -58,14 +58,14 @@ The hashtag character (`#`) is a placeholder for a user-supplied value. Within t
 
 ## 3.2. XML schema format
 
-The HED XML schema format encodes the hierarchical vocabulary as nested `<node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between *.mediawiki* and *.xml* formats. An expandable HTML browser view is also available for easy viewing. The *.xml* format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
+The HED XML schema format encodes the hierarchical vocabulary as nested `<node>` elements. The HED XML version of the schema is used during validation and analysis. Tools including an online converter are available to convert between `.mediawiki` and `.xml` formats. An expandable HTML browser view is also available for easy viewing. The `.xml` format has changed with the release of HED-3G. This modification of the XML format was done for four reasons:
 
 1. To correctly handle multiple values of schema attributes.
-2. To preserve the prologue and epilogue information present in *.mediawiki* files.
+2. To preserve the prologue and epilogue information present in `.mediawiki` files.
 3. To allow schema attributes to be formally specified and validated.
 4. To allow an XSD specification of the HED schema for validation of the schema.
 
-The following is a translation of the *.mediawiki* example from the previous section in the new XML format. A complete specification of the format is given in Appendix B.
+The following is a translation of the `.mediawiki` example from the previous section in the new XML format. A complete specification of the format is given in Appendix B.
 
 **Example:** The XML version of the HED schema segment of the previous example.
 
@@ -124,7 +124,7 @@ The following is a translation of the *.mediawiki* example from the previous sec
 </HED>
 ```
 
-Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the *.mediawiki* version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the *.mediawiki* file) are translated into `<attribute>` child elements of `<node>` in the *.xml*.  These schema attributes are not to be confused with the HED *Attribute* tag that is part of the HED vocabulary. 
+Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the `.mediawiki` version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the `.mediawiki` file) are translated into `<attribute>` child elements of `<node>` in the `.xml`.  These schema attributes are not to be confused with the HED *Attribute* tag that is part of the HED vocabulary. 
 
 The HED schema also includes a `<unitClassDefinitions>` section that specifies the allowed unit classes and the corresponding allowed unit names. Only the singular version of each unit name is explicitly specified, but the corresponding plurals of the explicitly mentioned singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). HED uses a `pluralize` function available in both Python and Javascript to check validity.  
 
