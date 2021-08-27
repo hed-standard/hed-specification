@@ -8,7 +8,7 @@ Third generation HED begins with schema version 8.0.0. Thus, the file containing
 
 
 {ref}`./Appendix_A.md:schema_format`
-All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in [Appendix A](./Appendix_A.md#schema_format)
+All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in [Appendix A](./Appendix_A.md#a._schema_format)
 
 
 ## 3.1. Mediawiki schema format

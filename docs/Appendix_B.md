@@ -1,13 +1,13 @@
-# B. HED syntax details and validation errors
+# B. HED validation errors
 
 This appendix specifies the details and requirements for HED tags. It also summarizes the error codes used by the HED validators. 
 
 
 ## B.1. Valid characters
 
-**HED_INVALID_CHARACTER**: HED uses ASCII encoding and does not support UTF-8. The allowed punctuation is limited. Table C.1 lists the allowed characters for various HED elements and explains some associated rules. 
+**HED_INVALID_CHARACTER**: HED uses ASCII encoding and does not support UTF-8. The allowed punctuation is limited. Table B.1 lists the allowed characters for various HED elements and explains some associated rules. 
 
-### *Table C.1.* Valid characters for various HED elements.
+### **Table B.1.** Valid characters.
 
 <table>
   <tr>
@@ -108,7 +108,7 @@ Note: The **tilde syntax is no longer supported** for any version of HED and wil
 Table C.2 Lists the validation errors checked for by the validator.
 
 
-### **Table B.2.** Summary of HED validator errors and warnings.
+### **Table B.2.** Validation errors and warnings.
 
 <table>
   <tr>

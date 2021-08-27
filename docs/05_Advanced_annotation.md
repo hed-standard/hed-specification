@@ -1,12 +1,12 @@
 # 5. Advanced tagging concepts
 
-## 5.1. HED definitions and the *Definition* tag
+## 5.1. HED definitions
 
 HED-3G introduces the *Definition* tag to facilitate tag reuse and to allow implementation of concepts such as **temporal scope**. The *Definition* tag allows researchers to create a name to represent a group of tags and then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce the chance of errors. Often laboratories have a standard setup and event codes with particular meanings. Researchers can define names and reuse them  for multiple experiments. Another important role of definitions is to provide the structure for implementing temporal scope as introduced in **Section 3.3**.
 
 A **HED definition** is a tag group that includes one *Definition* tag whose required child value names. The definition usually includes an optional tag-group specifying the actual definition information. Table 3.1 summarizes the syntax rules for definitions.
 
-### Table 5.1. Syntax for HED definitions. Optional items are underlined.
+### **Table 5.1.** Syntax for *Definition*. Optional items are underlined.
 
 <table>
   <tr>
@@ -64,10 +64,12 @@ Property/Task-property/Task-event-role/Experimental-stimulus,
 Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
 ```
 
+## 5.2. Using definitions
+
 When a definition name such as *PlayMovie* or *PresentationRate* is used in an annotation, the name is prefixed by *Def/* to indicate that the name represents a defined name. In other words, *Def/PlayMovie* is shorthand for *(Visual, Movie, Screen)*. Table 5.2 summarizes _Def/_ syntax rules.
 
 
-### **Table 5.2.** Syntax for using definitions in annotations with *Def/*.
+### **Table 5.2.** Syntax for *Def/*.
 
 <table>
   <tr>
@@ -121,12 +123,12 @@ In addition to syntax checks, which occur in early processing passes, HED valida
 Events are often modeled as instantaneous occurrences that occur at single points in time (i.e., time-marked or point events). In reality, many events unfold over extended time periods. The interval between the initiation of an event and its completion is called the **temporal scope** of the event. Some events, such as the setup and initiation of the environmental controls for an experiment, may have a temporal scope that spans the entire data recording. Other events, such as the playing of a movie clip or a participant performing an action in response to a sensory presentation, may last for seconds or minutes. Temporal scope captures the effects of these extended events in a machine-actionable manner.
 
 
-### 5.3.1. *Onset* and *Offset* tags to express temporal scope
+### 5.3.1. *Onset* and *Offset* tags 
 
 HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses *Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
 
 
-### **Table 5.3.** *Onset* and *Offset*  with defined names.
+#### **Table 5.3.** *Onset* and *Offset*  syntax.
 
 <table>
   <tr>
@@ -192,7 +194,7 @@ The *PlayMovie* scoped event type can be reused to annotate the playing of other
 Because tools need to have the definitions in hand when fully expanding during validation and analysis, tools must gather applicable definitions before final processing. Library functions in Python, Matlab, and JavaScript are being developed to support gathering of definitions and the expansion as described in **Section 5**. 
 
 
-### 5.3.2. Using *Duration* for temporal scope
+### 5.3.2. *Duration* 
 
 The *Duration* tag is an alternative method for specifying an event with temporal scope. The start of the temporal scope is the event in which the *Duration* tag appears. The end of the temporal scope is implicit and may not coincide with an actual event appearing in the recording. Instead, tools calculate when the scope ends in the data recording. *Duration* tags do not need a defined label. *Duration* may be grouped with tags representing the additional information associated with the temporal scope of that event. This grouping usually does not include tags from the *Event* rooted tree.
 
@@ -251,11 +253,6 @@ in the center of the screen and the participant responds by pushing a button.
 ```
 
 Notice that the *Agent-action* tag from the *Event* subtree is included in the *Delay* tag-group. This allows tools to identify this tag-group as representing a distinct event. For BIDS datasets, such response delays would be in value columns of the `_events.tsv` event files. The HED annotation for the JSON sidecar corresponding to these files would contain a *#*. At HED expansion time, tools replace the *#* with the column value (2.83) corresponding to each event. 
-
-
-### 5.3.4. Validation errors for scoping
-
-Validation of *Onset* and *Offset* cannot be completed until all of the annotations for a data recording have been assembled. The applicable validation errors are described in **Appendix C**.
 
 
 ## 5.4. The *Event-stream* tag
@@ -319,7 +316,7 @@ Table 5.4 summarizes the syntax of the *Event-context* tag. In normal usage, **t
 </table>
 
 
-## 5.6. Experimental controls, conditions, and responses
+## 5.6. Experimental design
 
 Most experiments are conducted by varying certain aspects of the experiment and measuring the resulting responses while carefully controlling other aspects. The intention of the experiment is annotated using the HED *Condition-variable*, *Control-variable*, and *Indicator-variable* tags. 
 
@@ -406,7 +403,7 @@ Properly annotated condition variables and response variables can allow research
 A typical experiment usually consists of a sequence of subject task-related activities interspersed with rest periods and/or off-line activities such as filling in a survey. The *Time-block* tag is used to mark a contiguous portion of the data recording during which some aspect of the experiment conditions is fixed. *Time-block* tags can be used to represent temporal organization in a manner similar to the way *Condition-variable* tags are used to represent factors in an experiment design. 
 
 
-## 5.7. Using the *Parameter* tag to annotate specific information
+## 5.7. Specialized annotation
 
 A significant problem with schema design is term accretion. Each type of experiment will have specific terms or concepts that are important for the experiment’s purpose or design but are not widely applicable to other experiments. Schema designers might be tempted to add terms specific to familiar experiments or for annotators to extend the schema tree with terms specific to their experiments during annotation. 
 

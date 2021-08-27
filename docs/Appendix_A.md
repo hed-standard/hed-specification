@@ -33,7 +33,7 @@ Empty lines and lines containing only blanks are ignored.
 
 The first line of the `.mediawiki` file should be a _header-line_ that starts with the keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1). 
 
-#### **Table A.1.** Allowed parameters in the HED schema `.mediawiki` header.
+#### **Table A.1.** Allowed header parameters.
 
 <table>
   <tr>
@@ -366,7 +366,7 @@ The `<unitClassDefinition>` elements have a required `<name>`, an optional `<des
 HED has very strict rules about what characters are allowed in various elements of the HED schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in the schema using value classes. When a node name or placeholder substitution is given a particular value class, that name or substituted value can only contain the characters allowed for that value class. The allowed characters for a value class are specified in the definition of the value class. The HED validator and other HED tools may hardcode information about behavior of certain value classes (for example the `numericClass` value class). **HED does not allow commas or quotes in any of its values.**
 
 
-#### **Table B.2.** Value classes.
+#### **Table A.2.** Value classes.
 
 <table>
   <tr>
@@ -478,7 +478,7 @@ A given schema attribute can only apply to one type of element (`node`, `unitCla
 Table A.4 gives a list of the supported HED schema attributes. These attributes apply to different parts of the schema as indicated by their properties. 
 
 
-#### **Table A.4. Schema attributes.
+#### **Table A.4.** Schema attributes.
 
 <table>
   <tr>
@@ -568,7 +568,7 @@ Table A.4 gives a list of the supported HED schema attributes. These attributes 
 In addition to the attributes listed in Table B.4, some schema attributes have been deprecated and are no longer supported in HED-3G, although they are still present in earlier versions of the schema. Table A.5 lists these attributes.
 
 
-#### Table A.5. Deprecated HED schema attributes.
+#### **Table A.5.** Deprecated attributes.
 
 <table>
   <tr>
@@ -595,7 +595,7 @@ In addition to the attributes listed in Table B.4, some schema attributes have b
 
 Table A.6 lists the current unit classes for HED.
 
-#### *Table A.6.* Unit classes for HED.
+#### **Table A.6.** Unit classes.
 
 <table>
   <tr>
@@ -674,7 +674,7 @@ Table A.6 lists the current unit classes for HED.
 
 Table A.7 lists the current unit modifiers for HED-3G.
 
-#### *Table A.7.* SI unit modifiers. 
+#### **Table A.7.** SI unit modifiers. 
 
 <table>
   <tr>
@@ -801,9 +801,9 @@ This section is organized by the type of schema format that results in the error
 
 ### A.3.3. Summary of validation errors for HED schema.
 
-Table A.9 summarizes the errors relevant for HED schema.
+Table A.8 summarizes the errors relevant for HED schema.
 
-#### **Table A.9.** Validation errors for HED schema.
+#### **Table A.8.** Schema validation errors.
 
 <table>
   <tr>

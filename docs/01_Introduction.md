@@ -5,7 +5,7 @@ The aspects of HED that are described in this document are supported or will soo
 
 Several other aspects of HED annotation are being planned, but their specification has not been fully determined. These aspects are not contained in this specification document, but rather are contained in ancillary working documents which are open for discussion. These ancillary specifications include the HED working document on [spatial annotation](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) and the HED working document on [task annotation](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
 
-## 1.1 Scope of HED (third generation)
+## 1.1. Scope of HED (third generation)
 
 HED (an acronym for Hierarchical Event Descriptors) is an evolving framework that facilitates the description and formal annotation of events identified in time series data, together with tools for validation and for using HED annotations in data search, extraction, and analysis. This specification describes the third generation of HED or HED-3G, which is HED version 8.0.0.
 
@@ -15,7 +15,7 @@ datasets (https://bids.neuroimaging.io).
 
 Specifically, the goal of HED is to allow researchers to annotate what happened during an experiment, including experimental stimuli and other sensory events, participant responses and actions, experimental design, the role of events in the task, and the temporal structure of the experiment. The resulting annotation is machine-actionable, meaning that it can be used as input to algorithms without manual intervention. HED facilitates detailed comparisons of data across studies.
 
-## 1.2 Brief history of HED
+## 1.2. Brief history of HED
 HED was originally proposed by Nima Bigdely-Shamlo in 2010 to support annotation in [HeadIT](https://headit.ucsd.edu) and early public repository for EEG data hosted by the Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al. 2013). HED-1G was partially based on CogPO (Turner and Laird 2012). Event annotation in HED-1G was organized around a single hierarchy whose root was the *Time-Locked Event*. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes. First generation HED (HED-1G, versions < 5.0.0) attempted to describe events using a strictly hierarchical vocabulary. HED-1G was oriented toward annotating stimuli and responses, but its lack of orthogonality in vocabulary design presented major difficulties.  For example, if red/triangle and green/triangle are terms in a hierarchy, one is also likely to need red/square and green/square as well as other color and shape combinations.  
 
 HED-2G (versions 5.0.0 - 7.x.x) introduced a more orthogonal vocabulary, meaning that terms were independent were in different subtrees of the vocabulary tree. Separating independent concepts such as shapes and colors into separate hierarchies, eliminates an exponential vocabulary growth due to term duplication in different branches of the hierarchy.  Parentheses were introduced so that terms could be grouped. Tools for validation and epoching based on HED tags were built, and large-scale cross-study "mega-analyses" were performed. However, as more complicated and varied datasets were annotated using HED-2G, the vocabulary started to become less manageable as HED tried to adapt to more complex annotation demands.
