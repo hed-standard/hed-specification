@@ -41,7 +41,7 @@ We encourage those interested to contribute to the development process. Users ar
 
 ## 1.2. Goals of HED
 
-Event annotation documents the things happening during data recording regardless of relevance to data analysis and interpretation. Commonly recorded events in electrophysiological data collection include the initiation, termination, or other features of **sensory presentations** and **participant actions**. Other events may be **unplanned environmental events** (for example, sudden onset of noise and vibration from construction work unrelated to the experiment, or a laboratory device malfunction), events recording **changes in experiment control** parameters as well as **data feature events** and control **mishap events** that cause operation to fall outside of normal experiment parameters. 
+Event annotation documents the things happening during data recording regardless of relevance to data analysis and interpretation. Commonly recorded events in electrophysiological data collection include the initiation, termination, or other features of **sensory presentations** and **participant actions**. Other events may be **unplanned environmental events** (for example, sudden onset of noise and vibration from construction work unrelated to the experiment, or a laboratory device malfunction), events recording **changes in experiment control** parameters as well as **data feature events** and control **mishap events** that cause operation to fall outside of normal experiment parameters. [Term1](02_Terminology.md#2-hed-terminology)
 
 The goals of HED are to provide a standardized annotation system that allows researchers to:
 
@@ -57,7 +57,7 @@ A central goal of HED is to enable building of archives of brain imaging data in
 
 ## 1.3. HED design principles
 
-The near decade-long effort to develop effective event annotation for neurophysiological and behavioral data, culminating to date in HED-3G, has revealed the importance of four principals (aka the PASS principles), all of which have roots in other fields:
+The near decade-long effort to develop effective event annotation for neurophysiological and behavioral data, culminating to date in HED-3G, has revealed the importance of four principles (aka the PASS principles), all of which have roots in other fields:
 
 1. **Preserve orthogonality** of concepts in specifying vocabularies.
 2. **Abstract functionality** into layers (e.g., more general vs. more specific).
