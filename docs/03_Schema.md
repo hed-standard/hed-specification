@@ -7,13 +7,12 @@ HED schema XML filenames use the standardized format `HEDx.y.z.xml`. These stand
 Third generation HED begins with schema version 8.0.0. Thus, the file containing the first official release of the third generation HED schema is `HED8.0.0.xml`. Releases are stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository. Deprecated versions of the HED schema are stored in the [`hedxml/deprecated`](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository.
 
 
-{ref}`./Appendix_A.md:schema_format`
-All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in **Section 4** of this document. A more detailed discussion of the HED schema format appears in [Appendix A](./Appendix_A.md#a._schema_format)
+All data recordings in a dataset should be annotated using a single version of the standard HED schema. Validation and analysis tools are not expected to handle multiple versions of the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, as described in [Section 6](06_Library_schema.md#6-hed-library-schema) of this document. A more detailed discussion of the HED schema format appears in [Appendix A](Appendix_A.md#a-schema-format).
 
 
 ## 3.1. Mediawiki schema format
 
-HED schema developers can specify a new schema version or revision in `.mediawiki` format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in **Appendix B**.
+HED schema developers can specify a new schema version or revision in `.mediawiki` format for more convenient editing, display, and reference on GitHub. The following brief example illustrates the format. A full description of the format is given in [Appendix A](Appendix_A.md#a-schema-format).
 
 ````{admonition} Example: Excerpt of a HED schema (.mediawiki).
 
@@ -73,7 +72,7 @@ The HED XML schema format encodes the hierarchical vocabulary as nested `<node>`
 
 The following is a translation of the `.mediawiki` example from the previous section in the new XML format. A complete specification of the format is given in Appendix B.
 
-**Example:** The XML version of the HED schema segment of the previous example.
+````{admonition} Example: XML version of previous example.
 
 ```xml
 <?xml version="1.0" ?>
@@ -129,6 +128,7 @@ The following is a translation of the `.mediawiki` example from the previous sec
     <epilogue>This epilogue is a place for notes and is ignored in HED processing.</epilogue>
 </HED>
 ```
+````
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term that it specifies. A `<node>` element may also have a `<description>` child element containing the text that appears in square brackets `[]` in the `.mediawiki` version. The schema attributes (which appear as `name` values or `name-value` pairs enclosed in curly braces {} in the `.mediawiki` file) are translated into `<attribute>` child elements of `<node>` in the `.xml`.  These schema attributes are not to be confused with the HED *Attribute* tag that is part of the HED vocabulary. 
 
@@ -180,7 +180,7 @@ The different parts of the HED schema have different rules for the characters th
 
 ## 3.4. Vocabulary organization
 
-The HED-3G schema (version 8.0.0 and above) contains eight root trees of HED terms: *Event*, *Agent*, *Action*, *Item*, *Property*, and *Relation*. 
+The HED-3G schema (version 8.0.0 and above) contains six root trees of HED terms: *Event*, *Agent*, *Action*, *Item*, *Property*, and *Relation*. 
 
 The *Event* root tree terms indicate the general category of the event, such as whether it is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure. The HED annotations describing each event may be assembled from a number of sources during processing. The assembled HED string annotating an event should have at least one tag from the *Event* tree, as many analysis tools use the *Event* tags as a primary means of segregating, epoching and processing the data. Ideally, tags from the *Event* subtree should appear at the top level of the HED annotation describing an event to facilitate analysis.
 
