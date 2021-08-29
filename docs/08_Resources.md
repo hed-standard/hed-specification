@@ -1,7 +1,7 @@
 # 8. Resources
 
 
-## 8.1. Documentation
+## 8.1. HED publications
 
 The following white paper explains the history, development, and motivation for third generation HED: 
 
@@ -28,6 +28,7 @@ Two other working documents hold portions of the HED-3G specification that are u
 > HED-3G Working Document on Task Annotation
 > [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
 
+## 8.2. HED Websites
 ### **Table 8.1**. List of websites containing code and documentation.
 
 <table>
@@ -109,9 +110,13 @@ Two other working documents hold portions of the HED-3G specification that are u
 </table>
 
 
-## 8.2. Schema viewers
+## 8.3. Schema viewers
 
-The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools. However, researchers wishing to tag datasets will find both of these views hard to read. For this reason, we provide links to three versions of the schema in Table 8.2. The expandable HTML viewer is easier to navigate. Annotators can also use CTAGGER which includes a schema viewer and tagging hints.
+The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools.
+However, researchers wishing to tag datasets will find both of these views hard to read. 
+For this reason, we provide links to three versions of the schema in Table 8.2. The expandable
+HTML viewer is easier to navigate. Annotators can also use CTAGGER which includes a schema viewer
+and tagging hints.
 
 ### **Table A.2.** HED web-based schema vocabulary viewers.
 
@@ -137,14 +142,20 @@ The HED schema is usually developed in `.mediawiki` format and converted to XML 
 
 ## 8.3. CTagger for annotating data
 
-The CTagger tool for annotating data provides a graphical user interface (GUI) to assist HED users in the annotation process. CTagger can be run as a standalone application ([https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)) or using the HEDTools plug-in in EEGLAB. The tool is designed to ease the process of constructing HED strings, with features including tag search, an expandable schema-browser view, and free-form formatting. The interchangeability between long-short forms introduced in HED-3G is fully supported. CTagger is also compatible with BIDS, allowing users to import BIDS events.tsv and events.json files to extract the event structure. Once finished tagging, users can export their HED annotation into a json file compatible with BIDS events.json. See [CTagger Github repository](https://github.com/hed-standard/CTagger) for more details, guides, and tutorials.
+The CTagger tool for annotating data provides a graphical user interface (GUI) to assist HED users in the annotation process. CTagger can be run as a standalone application ([https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)) or using the HEDTools plug-in in EEGLAB. The tool is designed to ease the process of constructing HED strings, with features including tag search, an expandable schema-browser view, and free-form formatting. The interchangeability between long-short forms introduced in HED-3G is fully supported. CTagger is also compatible with BIDS, allowing users to import BIDS `events.tsv` and `events.json` files to extract the event structure. Once finished tagging, users can export their HED annotation into a json file compatible with BIDS events.json. See [CTagger Github repository](https://github.com/hed-standard/CTagger) for more details, guides, and tutorials.
 
 
 ## 8.4. Web-based services
 
-HED supports a number of web-based tools for HED validation, schema conversion and validation, JSON dictionary validation (as for a BIDS JSON sidecar for events), and validation of a single BIDS event file with supporting JSON sidecar. Additional web-based tools are planned for various analysis and conversion tasks. In addition, a HED web service interface is available for accessing many of the tools programmatically, including from MATLAB and Python programs. Table A.3. summarizes the location of the relevant URLs for online deployments of HED web-based tools and services.
+HED supports a number of web-based tools for HED validation, schema conversion and validation, 
+JSON dictionary validation (as for a BIDS JSON sidecar for events), and validation of a single
+BIDS event file with supporting JSON sidecar. Additional web-based tools are planned for various
+analysis and conversion tasks. In addition, a HED web service interface is available for
+accessing many of the tools programmatically, including from MATLAB and Python programs. 
+Table 8.3. summarizes the location of the relevant URLs for online deployments of HED 
+web-based tools and services.
 
-### **Table A.3.** URLs for services online.
+### **Table 8.3.** URLs for services online.
 
 <table>
   <tr>
@@ -168,7 +179,10 @@ HED supports a number of web-based tools for HED validation, schema conversion a
 
 ### 8.4.1. Web-based tools
 
-The web-based tools are summarized in Table A.3. All of the tools are available from the main access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are implemented in a Docker module and can be deployed locally provided that Docker is installed on the local machine. 
+The web-based tools are summarized in Table A.3. All of the tools are available from the main
+access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are
+implemented in a Docker module and can be deployed locally provided that Docker is installed on
+the local machine. 
 
 ### **Table A.4.** Web-based HED tools.
 
@@ -207,7 +221,10 @@ The web-based tools are summarized in Table A.3. All of the tools are available 
 
 ### 8.4.2. HED web services
 
-HED services are accessed by passing a JSON dictionary of parameters in a request to the online server. All requests include a `service` name and additional parameters. Table 8.5. summarizes the available web-services and their parameters. The meaning of the different parameters is given in Table 8.6.  
+HED services are accessed by passing a JSON dictionary of parameters in a request to the online
+server. All requests include a `service` name and additional parameters. Table 8.5. summarizes
+the available web-services and their parameters. The meaning of the different parameters is 
+given in Table 8.6.  
 
 
 ### *Table 8.5.* Summary of available web-services. 
@@ -286,7 +303,8 @@ HED services are accessed by passing a JSON dictionary of parameters in a reques
   </tr>
 </table>
 
-The request is given as in JSON format. The possible keys and their types are described in Table 8.6.
+The request is given as in JSON format. The possible keys and their types are described in 
+Table 8.6.
 
 ### *Table 8.6.* Top-level JSON parameter dictionary for HED services.
 
@@ -359,7 +377,11 @@ The request is given as in JSON format. The possible keys and their types are de
 </table>
 
 
-The web-services always return a JSON dictionary with four keys: `service`, `results`, `error_type`, and `error_msg`. If `error_type` and `error_msg` are not empty, the operation failed, while if these fields are empty, the operation completed. Completed operations always return their results in the `results` dictionary. The field of the `results` dictionary are shown in Table 8.7
+The web-services always return a JSON dictionary with four keys: `service`, `results`, 
+`error_type`, and `error_msg`. If `error_type` and `error_msg` are not empty, the operation
+failed, while if these fields are empty, the operation completed. Completed operations always
+return their results in the `results` dictionary. The field of the `results` dictionary are 
+shown in Table 8.7
 
 ### *Table 8.7.* Keys in the `results` dictionary return as part of a HED web service response.
 
@@ -396,21 +418,31 @@ The web-services always return a JSON dictionary with four keys: `service`, `res
   </tr>
 </table>
 
-The `hedweb/examples/matlab` directory of the `hed-python` repository gives running MATLAB examples of how to call these services in MATLAB.
+The `hedweb/examples/matlab` directory of the `hed-python` repository gives running MATLAB 
+examples of how to call these services in MATLAB.
 
 ## 8.5. HED validation source code
 
 ### 8.5.1. HED validation in python
 
-The python code for validation is in the  `hedtools` project located in the `hed-python` repository [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). You can install the tools using `pip` if you have downloaded the `hed-python` repository:
+The python code for validation is in the  `hedtools` project located in the `hed-python` 
+repository [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). You can install the tools using `pip` if you have downloaded 
+the `hed-python` repository:
 
     pip install <hedtools-local-path>
 
-The validation functions are in the `hed.validator` module. The data representations for various items such as dictionaries or event files can be found in the `hed.models` module. The hed_input.py module reads in a spreadsheet and possibly a dictionary and creates a `HedInput` object representing the spreadsheet. The `hed-validator.py` module creates a `HedValidator` object that takes a `HedSchema` object to use in subsequent validation. The `validate_input` method of `HedValidator` validates HED input in various formats and returns a list of issues.
+The validation functions are in the `hed.validator` module. The data representations for 
+various items such as dictionaries or event files can be found in the `hed.models` module. 
+The hed_input.py module reads in a spreadsheet and possibly a dictionary and creates a 
+`HedInput` object representing the spreadsheet. The `hed-validator.py` module creates a
+`HedValidator` object that takes a `HedSchema` object to use in subsequent validation. 
+The `validate_input` method of `HedValidator` validates HED input in various formats and
+returns a list of issues.
 
 ### 8.5.2. JavaScript validation 
 
-The JavaScript code for HED validation is in the validation directory of the `hed-javascript` repository located at [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript).  
+The JavaScript code for HED validation is in the validation directory of the 
+`hed-javascript` repository located at [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript).  
 
 #### 8.5.2.1. Installation
 
@@ -420,13 +452,27 @@ You can install the validator using `npm`:
 
 #### 8.5.2.2. Usage
 
-This package contains two sub-packages. `hedValidator.validator` validates HED strings and contains the functions: `buildSchema`, which imports a HED schema and returns a JavaScript Promise object, and `validateHedString`, which validates a single HED string using the returned schema object. `hedValidator.converter` converts HED 3 strings between short and long forms and contains the following functions: `buildSchema`, which behaves similarly to the `buildSchema` function in `hedValidator.validator` except that it does not work with attributes, `convertHedStringToShort`, which converts HED strings from long form to short form, and `convertHedStringToLong`, which converts HED strings from short form to long form.
+This package contains two sub-packages. `hedValidator.validator` validates HED strings and
+contains the functions: `buildSchema`, which imports a HED schema and returns a JavaScript
+Promise object, and `validateHedString`, which validates a single HED string using the returned
+schema object. `hedValidator.converter` converts HED 3 strings between short and long forms 
+and contains the following functions: `buildSchema`, which behaves similarly to the 
+`buildSchema` function in `hedValidator.validator` except that it does not work with attributes,
+`convertHedStringToShort`, which converts HED strings from long form to short form, 
+and `convertHedStringToLong`, which converts HED strings from short form to long form.
 
 #### 8.5.2.3. Programmatic interface
 
-The programmatic interface to the HED JavaScript `buildSchema` must be modified to accommodate a base HED schema and arbitrary library schemas. Section 4.3.1 outlined the proposed changes in the BIDS specification from the viewpoint of the user.  The BIDS validator will require additional changes to locate the relevant HED schemas from the specification given by `"HEDVersion"` in `dataset_description.json`. The programmatic interface is similar to the JSON specification of section 4.3.1, except that the `"fileName"` key has been replaced by a `"path"` key to emphasize that callers must replace filenames with full paths before calling `buildSchema`. 
+The programmatic interface to the HED JavaScript `buildSchema` must be modified to accommodate
+a base HED schema and arbitrary library schemas. Section 4.3.1 outlined the proposed changes in
+the BIDS specification from the viewpoint of the user.  The BIDS validator will require
+additional changes to locate the relevant HED schemas from the specification given by
+`"HEDVersion"` in `dataset_description.json`. The programmatic interface is similar to the JSON 
+specification of section 4.3.1, except that the `"fileName"` key has been replaced by a `"path"`
+key to emphasize that callers must replace filenames with full paths before calling 
+`buildSchema`. 
 
-**Example:** JSON passed to `buildSchema` to construct the schemas needed for the example in Section 4.3.1. Here the dataset is located in `/data/wonderful`.
+````{admonition} **Example:** JSON passed to buildSchema.
 
 ```json
 {
@@ -443,9 +489,13 @@ The programmatic interface to the HED JavaScript `buildSchema` must be modified 
     }
 }
 ```
+````
 
 **NOTE:** This interface is proposed and is awaiting resolution of BIDS PR #820 on file passing to BIDS.
 
 ### 8.5.3. HED validation in MATLAB
 
-HED validation can be done using the online web-services from MATLAB as shown in the `./examples/matlab` directory of the [hedweb](https://github.com/hed-standard/hed-python/tree/master/webtools) project in the [hed-python](https://github.com/hed-standard/hed-python) repository.
+HED validation can be done using the online web-services from MATLAB as shown in the
+`./examples/matlab` directory of the
+[hedweb](https://github.com/hed-standard/hed-python/tree/master/webtools) project in the
+[hed-python](https://github.com/hed-standard/hed-python) repository.
