@@ -14,9 +14,10 @@ The schema vocabulary can be viewed using an expandable
 All HED-related source and documentation repositories are housed on the HED-standard 
 organization GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard),
 which is maintained by the HED Working Group. A detailed list of HED resources appears in 
-Appendix A. HED development is open-source and community-based. 
+[Chapter 8: Resources](08_Resources.md#8-resources). HED development is open-source and
+community-based. 
 
-We encourage those interested to contribute to the development process. 
+The HED Working Group invites those interested in HED to contribute to the development process. 
 Users are encouraged to use the *Issues* mechanism of the `hed-specification`
 repository on the GitHub `hed-standard` working group website: 
 [https://github.com/hed-standard/hed-specification/issues](https://github.com/hed-standard/hed-specification/issues)
@@ -31,7 +32,7 @@ These ancillary specifications include the HED working document on
 [spatial annotation](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) and the HED working
 document on [task annotation](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
 
-## 1.1. Scope of HED (third generation)
+## 1.1. Scope of HED 
 
 HED (an acronym for Hierarchical Event Descriptors) is an evolving framework that facilitates 
 the description and formal annotation of events identified in time series data, 
@@ -66,17 +67,21 @@ HED-1G was partially based on CogPO (Turner and Laird 2012).
 Event annotation in HED-1G was organized around a single hierarchy whose root was the
 *Time-Locked Event*. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes.
 First generation HED (HED-1G, versions < 5.0.0) attempted to describe events using a strictly
-hierarchical vocabulary. HED-1G was oriented toward annotating stimuli and responses, 
-but its lack of orthogonality in vocabulary design presented major difficulties.  
-For example, if red/triangle and green/triangle are terms in a hierarchy, 
-one is also likely to need red/square and green/square as well as other color and shape 
+hierarchical vocabulary. 
+
+HED-1G was oriented toward annotating stimuli and responses, 
+but its lack of orthogonality in vocabulary design presented major difficulties.
+If *Red/Triangle* and *Green/Triangle* are terms in a hierarchy, 
+one is also likely to need *Red/Square* and Green/Square* as well as other color and shape 
 combinations.  
 
 HED-2G (versions 5.0.0 - 7.x.x) introduced a more orthogonal vocabulary, 
-meaning that terms were independent were in different subtrees of the vocabulary tree. 
+meaning that independent terms were in different subtrees of the vocabulary tree. 
 Separating independent concepts such as shapes and colors into separate hierarchies, 
 eliminates an exponential vocabulary growth due to term duplication in different 
-branches of the hierarchy.  Parentheses were introduced so that terms could be grouped. 
+branches of the hierarchy.  
+
+Parentheses were introduced so that terms could be grouped. 
 Tools for validation and epoching based on HED tags were built, and large-scale 
 cross-study "mega-analyses" were performed. However, as more complicated and varied 
 datasets were annotated using HED-2G, the vocabulary started to become less 
@@ -87,9 +92,9 @@ release of the third generation of HED (HED-3G) in August 2021. HED-3G represent
 dramatic increase in annotation capacity, but also a significant simplification of the
 user experience.
 
-````{admonition} New in HED-3G (versions > 7.x.x)
+````{admonition} New in HED-3G (versions 8.0.0+)
 
-1. An improved vocabulary structure
+1. Improved vocabulary structure
 2. Short-form annotation
 3. Library schema
 4. Definitions
@@ -99,12 +104,20 @@ user experience.
 ````
 
 Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to
-be organized in a balanced hierarchy with a limited number of subcategories at each node to 
-[Chapter2:Terminology](02_Terminology.md#2-hed-terminology)
-HED-3G is  designed to be modular, thereby remaining compact in its core instantiation but allowing any number of ontological extensions for notating events in fields beyond neuroimaging in which event-related interpretation of time series requires that events be adequately described to support analysis within a common framework. 
+be organized in a balanced hierarchy with a limited number of subcategories at each node. (See the
+[expandable schema browser](https://www.hedtags.org/display_hed.html) to browser the vocabulary
+and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology)
+defines some important HED tags and terminology used in HED.)
+
+A major improvement in vocabulary design was the adoption of the requirement that individual
+nodes or terms in the HED vocabulary must be unique. This allows users to use individual
+node names (short form) rather than the full paths to the schema root during annotation, 
+resulting in substantially simpler, more readable annotations.
 
 To enable and regulate the extension process, the root HED-3G head schema specified here includes, for the first time, *HED library schema* to extend the HED vocabulary to include terms and concepts of importance to individual user communities -- for example researchers who design and perform experiments to study brain and language, brain and music, or brain dynamics in natural or virtual reality environments. The HED library schema concept may also be used to extend HED annotation to encompass specialized vocabularies used in clinical research and practice. 
 
+HED-3G also introduced a number of advanced tagging concepts that allow users to represent
+events with temporal duration, as well as annotations that represent experimental design.
 
 ## 1.2. Goals of HED
 
