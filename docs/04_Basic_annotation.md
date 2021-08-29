@@ -1,4 +1,4 @@
-# 4. Annotation using HED tags
+# 4. Basic annotation
 
 This section illustrates the use of HED tags and discusses various tags that are used to document
 the structure and organization of electrophysiological experiments. The simplest annotations
@@ -37,7 +37,7 @@ develop the HED concepts needed to capture these advanced models of events as we
 and task inter-relationships. This specification is meant to provide guidelines for 
 tool-builders. Additional tutorials and user guides provide more specific guidance for annotators.
 
-An typical example of an experiment using time-marked event annotation is simple target
+A typical example of an experiment using time-marked event annotation is simple target
 detection. In this experiment geometric shapes of different colors are presented on a computer
 screen at two-second intervals. After every visual shape presentation, the subject is asked to
 press the left mouse button if the shape is a green triangle or the right mouse button otherwise.
@@ -76,19 +76,18 @@ that this event falls into.
 
 **Short form:** 
 
-```
-Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)
-```
+*Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)*
 
 **Long form:**
-```
-Event/Sensory-event,  
+
+*Event/Sensory-event,  
 Property/task-property/Task-event-role/Experimental-stimulus,
 Property/Sensory-property/Visual-presentation,
 (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
 Item/Object/Geometric-object/2D-shape/Triangle),
-Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.
-```
+Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.*
+
+
 ````
 
 The example HED string above illustrates the most basic form of point event annotation. 
@@ -144,14 +143,13 @@ presentation includes information about the role this stimulus appears in the ta
 ````{admonition} **Example:** Version 2 of a visual stimulus annotation.
 
 **Short form:**
-```
-Sensory-event, Experimental-stimulus, Visual-presentation,
-(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)
-```
+ 
+*Sensory-event, Experimental-stimulus, Visual-presentation,
+(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
 
 **Long form:**
-```
-Event/Sensory-event, 
+
+*Event/Sensory-event, 
 Property/Task-property/Task-event-role/Experimental-stimulus,
 Property/Sensory-property/Sensory-presentation/Visual-presentation,
 (Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,
@@ -160,14 +158,15 @@ Item/Object/Geometric-object/2D-shape/Triangle),
 Property/Task-property/Task-stimulus-role/Oddball),
 (Property/Task-property/Task-effect-evidence/Intended-effect,
 Property/Task-property/Task-stimulus-role/Target),
-Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.
-```
+Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.*
+
 ````
 
-The *Intended-effect* tag is a *Task-effect-evidence* tag that describes the effect expected to
-be elicited from the participant experiencing the stimulus. This tag indicates, that based 
-on the specification of the task, we can conclude that the subject will be looking for the
-triangle (*Target*) and that its appearance is unusual (*Oddball*). 
+The *Intended-effect* tag is a *Task-effect-evidence* tag that describes the effect
+expected to be elicited from the participant experiencing the stimulus. 
+This tag indicates, that based on the specification of the task, we can conclude
+that the subject will be looking for the triangle (*Target*) and that its appearance
+is unusual (*Oddball*). 
 
 Three other tags in the *Task-effect-evidence* are *Computational-evidence*, 
 *External-evidence*, and *Behavioral-evidence*. In many experiments, a subject indicates 
@@ -195,26 +194,29 @@ the next two examples.
 
 **Short form:**  
 ```
-Agent-action, (Participant-response, (Press, Mouse-button))
-```
-
-The *Participant-response* tag indicates that this event represents a task-related response to a stimulus. The *Press* tag is from the *Action* subtree and is grouped with the *Mouse-button* to indicate the pressing of a button. In general, *Action* elements can be considered verbs, while *Items* and *Agents* can be considered nouns. These elements form a natural sentence structure: (subject, (verb, direct object)), with the subject and direct object being formed by noun elements. *Attribute* elements are the adjectives, adverbs, and prepositions that modify and connect these elements.
-
+*Agent-action, (Participant-response, (Press, Mouse-button))*
 ````
 
+The *Participant-response* tag indicates that this event represents a task-related response 
+to a stimulus. The *Press* tag is from the *Action* subtree and is grouped with the 
+*Mouse-button* to indicate the pressing of a button. In general, *Action* elements can 
+be considered verbs, while *Items* and *Agents* can be considered nouns. 
+These elements form a natural sentence structure: (subject, (verb, direct object)), 
+with the subject and direct object being formed by noun elements. *Attribute* 
+elements are the adjectives, adverbs, and prepositions that modify and connect these elements.
+
+
 ````{admonition} **Example:** Version 2 of a button press annotation.
-**Example:** A more detailed HED annotation of a button press in response to a stimulus.
 
 **Short form:**   
-```
-Agent-action, Participant-response, 
+
+*Agent-action, Participant-response, 
 ((Human-agent, Experiment-participant), (Press, Mouse-button)),
-(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)
-```
+(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
 
 **Long form:**
-```
-Event/Agent-action,
+
+*Event/Agent-action,
 Property/Task-property/Task-event-role/Participant-response,
 ((Agent/Human-agent, 
 Property/Agent-property/Agent-task-role/Experiment-participant),
@@ -224,8 +226,8 @@ Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-b
 Property/Task-property/Task-stimulus-role/Oddball),
 (Property/Task-property/Task-effect-evidence/Behavioral-evidence,
 Property/Task-property/Task-stimulus-role/Target),
-Property/Informational-property/Description/The subject pushes the left mouse button to indicate the appearance of an oddball target using index finger on the left hand.
-```
+Property/Informational-property/Description/The subject pushes the left mouse button to indicate the appearance of an oddball target using index finger on the left hand.*
+
 ````
 
 The *Participant-response* tag is modified by tags that indicate that the participant is 
@@ -250,21 +252,20 @@ that the subject should rest.
 ````{admonition} **Example:** Version 1 of a simple feedback event.
 
 **Short form:**
-```
-Sensory-event, Instructional, Auditory-presentation,
-(Buzz, (Intended-effect, Rest))
-```
+
+*Sensory-event, Instructional, Auditory-presentation,
+(Buzz, (Intended-effect, Rest))*
 
 **Long form:** 
-```
-Event/Sensory-event, 
+
+*Event/Sensory-event, 
 Property/Task-property/Task-event-role/Instructional,
 Property/Sensory-property/Sensory-presentation/Auditory-presentation,
 (Item/Sound/Named-object-sound/Buzz,
 (Property/Task-property/Task-effect-evidence/Intended-effect,
 Action/Perform/Rest)),
-Property/Informational-property/Description/A buzzer sounds indicating a rest period.
-```
+Property/Informational-property/Description/A buzzer sounds indicating a rest period.*
+
 ````
 
 ## 4.6. Data features
@@ -278,17 +279,16 @@ a HED annotation from
 ````{admonition} **Example:** Annotation of an inserted computed feature.
 
 **Short form:**  
-```
-Data-feature, (Computed-feature, Label/Blinker_BlinkMax)
-```
+
+*Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*
 
 **Long form:**
-```
-Event/Data-feature,
+
+*Event/Data-feature,
 (Property/Data-property/Data-source-type/Computed-feature, 
 Property/Informational-property/Label/Blinker_BlinkMax),
-Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.
-```
+Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.*
+
 ````
 
 As shown by this example, the *Computed-feature* tag is grouped with a label of the form
@@ -306,17 +306,16 @@ a human expert can be annotated in HED.
 ````{admonition} **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
 **Short form:**
-```
-Data-feature, (Observation, Label/AnnotatorAJM_K-complex)
-```
+
+*Data-feature, (Observation, Label/AnnotatorAJM_K-complex)*
 
 **Long form:**
-```
-Event/Data-feature,
+
+*Event/Data-feature,
 (Property/Data-property/Data-source-type/Observation,
 Property/Informational-property/Label/AnnotatorAJM_K-complex),
-Property/Informational-property/Description/K-complex defined by AASM guide.
-```
+Property/Informational-property/Description/K-complex defined by AASM guide.*
+
 ````
 
 ## 4.7. What else?
