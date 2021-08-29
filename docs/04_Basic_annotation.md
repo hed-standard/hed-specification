@@ -80,12 +80,13 @@ that this event falls into.
 
 **Long form:**
 
-*Event/Sensory-event,  
-Property/task-property/Task-event-role/Experimental-stimulus,
-Property/Sensory-property/Visual-presentation,
-(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green, 
-Item/Object/Geometric-object/2D-shape/Triangle),
-Property/Informational-property/Description/An experimental stimulus consisting of a green triangle is displayed on the center of the screen.*
+*Event/Sensory-event,*  
+*Property/task-property/Task-event-role/Experimental-stimulus,*  
+*Property/Sensory-property/Visual-presentation,*  
+*(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,*    
+  *Item/Object/Geometric-object/2D-shape/Triangle),*  
+*Property/Informational-property/Description/An experimental stimulus consisting of*  
+  *a green triangle is displayed on the center of the screen.*  
 
 
 ````
@@ -144,21 +145,22 @@ presentation includes information about the role this stimulus appears in the ta
 
 **Short form:**
  
-*Sensory-event, Experimental-stimulus, Visual-presentation,
-(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
+*Sensory-event, Experimental-stimulus, Visual-presentation,*  
+  *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
 
 **Long form:**
 
-*Event/Sensory-event, 
-Property/Task-property/Task-event-role/Experimental-stimulus,
-Property/Sensory-property/Sensory-presentation/Visual-presentation,
-(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,
-Item/Object/Geometric-object/2D-shape/Triangle),
-(Property/Task-property/Task-effect-evidence/Intended-effect,
-Property/Task-property/Task-stimulus-role/Oddball),
-(Property/Task-property/Task-effect-evidence/Intended-effect,
-Property/Task-property/Task-stimulus-role/Target),
-Property/Informational-property/Description/A green triangle target oddball is presented in the center of the screen with probability 0.1.*
+*Event/Sensory-event,*   
+*Property/Task-property/Task-event-role/Experimental-stimulus,*  
+*Property/Sensory-property/Sensory-presentation/Visual-presentation,*  
+*(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,*  
+  *Item/Object/Geometric-object/2D-shape/Triangle),*  
+*(Property/Task-property/Task-effect-evidence/Intended-effect,*  
+*Property/Task-property/Task-stimulus-role/Oddball),*  
+*(Property/Task-property/Task-effect-evidence/Intended-effect,*  
+*Property/Task-property/Task-stimulus-role/Target),*  
+*Property/Informational-property/Description/A green triangle target oddball is presented*  
+  *in the center of the screen with probability 0.1.*
 
 ````
 
@@ -193,8 +195,9 @@ the next two examples.
 ````{admonition} **Example:** Version 1 of button press annotation.
 
 **Short form:**  
-```
+
 *Agent-action, (Participant-response, (Press, Mouse-button))*
+
 ````
 
 The *Participant-response* tag indicates that this event represents a task-related response 
@@ -210,23 +213,24 @@ elements are the adjectives, adverbs, and prepositions that modify and connect t
 
 **Short form:**   
 
-*Agent-action, Participant-response, 
-((Human-agent, Experiment-participant), (Press, Mouse-button)),
-(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
+*Agent-action, Participant-response,*   
+*((Human-agent, Experiment-participant), (Press, Mouse-button)),*  
+   *(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
 
 **Long form:**
 
-*Event/Agent-action,
-Property/Task-property/Task-event-role/Participant-response,
-((Agent/Human-agent, 
-Property/Agent-property/Agent-task-role/Experiment-participant),
-(Action/Move/Move-body-part/Move-upper-extremity/Press,
-Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),
-(Property/Task-property/Task-effect-evidence/Behavioral-evidence,
-Property/Task-property/Task-stimulus-role/Oddball),
-(Property/Task-property/Task-effect-evidence/Behavioral-evidence,
-Property/Task-property/Task-stimulus-role/Target),
-Property/Informational-property/Description/The subject pushes the left mouse button to indicate the appearance of an oddball target using index finger on the left hand.*
+*Event/Agent-action,*  
+*Property/Task-property/Task-event-role/Participant-response,*  
+*((Agent/Human-agent,*   
+*Property/Agent-property/Agent-task-role/Experiment-participant),*  
+*(Action/Move/Move-body-part/Move-upper-extremity/Press,*  
+*Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),* 
+*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*  
+  *Property/Task-property/Task-stimulus-role/Oddball),*
+*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*  
+  *Property/Task-property/Task-stimulus-role/Target),*  
+*Property/Informational-property/Description/The subject pushes the left mouse button*
+  *to indicate the appearance of an oddball target using index finger on the left hand.*
 
 ````
 
@@ -253,18 +257,18 @@ that the subject should rest.
 
 **Short form:**
 
-*Sensory-event, Instructional, Auditory-presentation,
-(Buzz, (Intended-effect, Rest))*
+*Sensory-event, Instructional, Auditory-presentation,*  
+*(Buzz, (Intended-effect, Rest))*
 
 **Long form:** 
 
-*Event/Sensory-event, 
-Property/Task-property/Task-event-role/Instructional,
-Property/Sensory-property/Sensory-presentation/Auditory-presentation,
-(Item/Sound/Named-object-sound/Buzz,
-(Property/Task-property/Task-effect-evidence/Intended-effect,
-Action/Perform/Rest)),
-Property/Informational-property/Description/A buzzer sounds indicating a rest period.*
+*Event/Sensory-event,*   
+*Property/Task-property/Task-event-role/Instructional,*  
+*Property/Sensory-property/Sensory-presentation/Auditory-presentation,*  
+*(Item/Sound/Named-object-sound/Buzz,*  
+  *(Property/Task-property/Task-effect-evidence/Intended-effect,*  
+      *Action/Perform/Rest)),*  
+*Property/Informational-property/Description/A buzzer sounds indicating a rest period.*  
 
 ````
 
@@ -284,10 +288,11 @@ a HED annotation from
 
 **Long form:**
 
-*Event/Data-feature,
-(Property/Data-property/Data-source-type/Computed-feature, 
-Property/Informational-property/Label/Blinker_BlinkMax),
-Property/Informational-property/Description/Event marking the maximum signal deviation caused by blink inserted by the Blinker tool.*
+*Event/Data-feature,*  
+*(Property/Data-property/Data-source-type/Computed-feature,*   
+   *Property/Informational-property/Label/Blinker_BlinkMax),*  
+*Property/Informational-property/Description/Event marking the maximum signal*  
+   *deviation caused by blink inserted by the Blinker tool.*
 
 ````
 
