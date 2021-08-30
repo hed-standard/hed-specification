@@ -5,13 +5,24 @@ the structure and organization of electrophysiological experiments. The simplest
 treat each event as happening at a single point in time. The annotation process for such
 time-marked or point events involves describing what happened during that event.
 
-Most experiments have a limited number of distinct event types, which are often identified in the
-original experiment by local event codes. The strategy for assigning local codes to individual
-events depends on the format of the data set. However, in practice, HED tagging usually involves
-annotating a few event types or codes for an entire study, not tagging individual instances of
-events in individual data recordings. Discussions of how tags for local event codes are
+This chapter illustrates basic HED descriptions of four types of events that are often annotated
+as time-marked events or point events: **stimulus events**, **response events**, 
+**experiment control events**, and **data features**. 
+
+HED-3G now also allows more sophisticated models of events that have extended duration.
+Downstream analyses often look for neurological effects directly following (or preceding) event markers. 
+The addition of HED context, allows information about events that occur over extended periods of time 
+to propagate to intermediate time points. 
+[Chapter 5: Advanced annotation](05_Advanced_annotation.md#5-advanced-annotation) 
+develops the HED concepts needed to capture these advanced models of events as well as event
+and task inter-relationships. 
+
+This specification is meant to provide guidelines for 
+tool-builders. Additional tutorials and user guides available at [hedtags.org](https://www.hedtags.org)
+provide more specific guidance for annotators.Discussions of how tags for local event codes are
 associated with event instances, as well as supporting tools, are deferred to 
-[Chapter 5: Basic annotation](05_Advanced_annotation.md#5-advanced-annotation).
+[Chapter 7: HED with BIDS](07_HED_in_BIDS.md#7-hed-in-bids) and
+[Chapter 8: Resources](08_Resources.md#8-resources).
 
 
 ## 4.1. Instantaneous events
@@ -21,21 +32,13 @@ happening at an instant in time. Generally, a marker is inserted in the data or 
 external event file containing the onset time of some action, relative to the beginning of the
 data recording. A time-marked event may also point to the end/offset of some happening or to time
 between the onset and offset (for example, the maximum velocity point in a participant arm
-movement or the maximum potential peak of an eye-blink artifact). Downstream analyses often look
-for neurological effects directly following (or preceding) event markers. The addition of HED
-context, allows information about events that occur over extended periods of time to propagate to
-intermediate time points. 
+movement or the maximum potential peak of an eye-blink artifact). 
 
-This chapter illustrates basic HED descriptions of four types of events that are often annotated
-as time-marked events or point events: **stimulus events**, **response events**, 
-**experiment control events**, and **data features**. 
-
-HED-3G now also allows more sophisticated models of events that have extended duration. 
-The remaining sections of 
-[Chapter 5: Basic annotation](05_Advanced_annotation.md#5-advanced-annotation) 
-develop the HED concepts needed to capture these advanced models of events as well as event
-and task inter-relationships. This specification is meant to provide guidelines for 
-tool-builders. Additional tutorials and user guides provide more specific guidance for annotators.
+Most experiments have a limited number of distinct event types, which are often identified in the
+original experiment by local event codes. The strategy for assigning local codes to individual
+events depends on the format of the data set. However, in practice, HED tagging usually involves
+annotating a few event types or codes for an entire study, not tagging individual instances of
+events in individual data recordings.
 
 A typical example of an experiment using time-marked event annotation is simple target
 detection. In this experiment geometric shapes of different colors are presented on a computer

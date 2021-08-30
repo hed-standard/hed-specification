@@ -19,7 +19,7 @@ The rules for creating a valid `.mediawiki` specification of a HED schema are gi
 The overall layout of is `.mediawiki` schema file is:
 
 ```moin
-header-line: HED . . .
+header-line
 prologue
              . . .
 !# start schema
@@ -43,6 +43,24 @@ keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1)
 
 #### **Table A.1.** Allowed header parameters.
 
+````{eval-rst}
+.. list-table:: Allowed HED schema header parameters
+   :widths: 20 20 40
+   :header-rows: 1
+
+   * - Name
+     - Level
+     - Description
+   * - library
+     - optional
+     - Name of library to be used in `xml` file names. 
+       The value should consist of alphabetic characters only.
+   * - version
+     - required
+     - A valid semantic version number of the schema.       
+````
+
+Here is a straight HTML version of the schema
 <table>
   <tr>
      <td><strong>Name</strong></td>
@@ -72,21 +90,27 @@ keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1)
   </tr>
 </table>
 
-The `library` and `version` values are used to form the official xml file name and appear as attributes in the `<HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
+The `library` and `version` values are used to form the official xml file name and appear as attributes
+in the `<HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to 
+verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
 
-````{admonition} **Example:** Specify version 8.0.0 of the HED base schema.
-
-The `.mediawiki` file has a header line:
+````{admonition} **Example:** Version 8.0.0 of the HED base schema (<code>.mediawiki</code>).
 
 ```moin
 HED version="8.0.0"
 ```
 
-The resulting XML root is:
+````
+
+The version line must be the first line of the `.mediawiki` file. The base `.mediawiki` file is
+found in 
+
+````{admonition} **Example:** Version 8.0.0 of the HED base schema (<code>.xml</code>).
 
 ```xml
 <HED version="8.0.0">
 ```
+````
 
 The file name in `hedxml` in `hed-specification` is `HED8.0.0.xml`.
 

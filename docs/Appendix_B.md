@@ -48,18 +48,17 @@ a HED_INVALID_CHARACTER error.  Annotators should replace the syntax *(A ~ B ~ C
 
 ## B.2. HED validation errors 
 
-**HED_CHARACTER_INVALID**: String contains an invalid character. HED uses ANSI encoding and 
-does not support UTF-8. Different parts of a HED string have different rules for acceptable
-characters as outlined in the specification (Section B.1).
+**HED_CHARACTER_INVALID**: String contains an invalid character.
+ ~ HED uses ANSI encoding and does not support UTF-8. Different parts of a HED string have different rules for acceptable characters as outlined in [Appendix B.1: Valid characters](Appendix_B.md#b1-valid-characters).
 
-**HED_COMMA_MISSING**: HED tag groups must be separated from other HED tags and tag groups 
-with commas. Commas missing between two HED tags are generally detected as invalid HED tags,
-rather than as missing commas.
+**HED_COMMA_MISSING**: HED tag groups and tags must be separated with commas.
+ ~ <p>Commas missing between two HED tags are generally detected as invalid HED tags,
+rather than as missing commas.</p>
 
 **HED_DEF_UNMATCHED**: A *Def* tag cannot be correctly matched to a definition because the 
 definition is missing or defined multiple times.
 
-**HED_DEF_INVALID**: A _Def_ tag is incorrectly used, usually because of a mismatch between 
+**HED_DEF_INVALID**: A *Def_ tag is incorrectly used, usually because of a mismatch between 
 its *Definition* placeholder and *Def* tag value.  This error is detected if the *Definition* 
 has a placeholder, but the *Def* is used without a value, or the *Definition* does not have a
 placeholder, but the *Def* is used with a value.

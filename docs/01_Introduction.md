@@ -93,6 +93,7 @@ dramatic increase in annotation capacity, but also a significant simplification 
 user experience.
 
 ````{admonition} New in HED-3G (versions 8.0.0+)
+:class: tip
 
 1. Improved vocabulary structure
 2. Short-form annotation
