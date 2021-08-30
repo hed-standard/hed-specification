@@ -18,9 +18,9 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    Appendix_A.md
    Appendix_B.md
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 5
+   :caption: Links:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   `Schema viewer<https://www.hedtags.org/display_hed.html>`_
+   `Online tools<https://hedtools.ucsd.edu/hed>`_
