@@ -15,7 +15,7 @@ Past, present, and future versions of the HED schema adhere to
 schema in `.mediawiki` format for ease in editing,  HED tools generally use XML versions
 of the HED schema. 
 
-````{tip} Standard development process for XML schema.
+````{tip} **Standard development process for XML schema.**
 1. Create or modify a `.mediawiki` file containing the schema.
 2. Convert to `.xml` using the [HED tools](https://hedtools.ucsd.edu/hed/schema).
 3. View in the [expandable schema viewer](https://www.hedtags.org/display_hed.html) to verify.
@@ -225,6 +225,21 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
 
 ### Table 3.1. Rules for valid schema characters.
 
+`````{list-table}
+:header-rows: 1
+:widths: 20 50
+
+* - Element
+  - Allowed characters
+* - Node
+  - Alphanumeric characters, hyphens, and underbars with no white space.
+    > The first letter of a term should be capitalized for readability. 
+    > The remaining characters should be lowercase.
+
+
+`````
+
+This is the second format
 <table>
   <tr>
      <td><strong>Item</strong></td>
@@ -253,6 +268,47 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
   </tr>
 </table>
 
+Here is another table:
+
+| abc | defghi | jklm |
+| :-: | ---------------------------------: | :-------------- |
+bar | baz | baz 
+
+Here is an alternative layout using boxes
+
+````{admonition} Rules for allowed characters
+
+**Schema node names**  
+> **Value class:** `valueClass=nameClass``
+> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
+> **Usage:** The first letter of a term should be capitalized for readability.
+  The remaining characters should be lowercase.
+  
+**Schema node names**  
+> **Value class:** `valueClass=nameClass``
+> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
+> **Usage:** The first letter of a term should be capitalized for readability.
+  The remaining characters should be lowercase.
+````    
+
+Still another:
+
+````{eval-rst}
+.. list-table:: Title
+   :widths: 25 40 20
+   :header-rows: 1
+
+   * - Heading row 1, column 1
+     - Heading row 1, column 2
+     - Heading row 1, column 3
+   * - Row 1, column 1
+     -
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+
+````
 
 ## 3.4. Vocabulary organization
 
@@ -294,20 +350,20 @@ sub-tree, these should be annotated using *(A, (Relation, B))*.
 
 A **HED tag** is a term in the HED vocabulary identified by a path consisting of the 
 individual node names from some branch of the HED schema hierarchy separated by forward 
-slashes (/). An important requirement of third generation HED is that the node names in 
-the HED schema **must be unique**. As a consequence, the user can specify as much of the path to the root as desired. The full path version is referred to as **long form** and truncated versions as **short form**. HED tools are available to map between shortened tags and long form as needed. Any intermediate form of the tag path is also allowed as illustrated by this example:
+slashes (/). 
+An important requirement of third generation HED is that the node names in 
+the HED schema **must be unique**. As a consequence, the user can specify as much of the path to the 
+root as desired. The full path version is referred to as **long form** and truncated versions as 
+**short form**. HED tools are available to map between shortened tags and long form as needed. 
+Any intermediate form of the tag path is also allowed as illustrated by this example:
 
 ````{admonition} Example: Equivalent forms for HED tag representing a triangle.
 
-*Item/Object/Geometric-object/2D-shape/Triangle*
-
-*Object/Geometric-object/2D-shape/Triangle*
-
-*Geometric-object/2D-shape/Triangle*
-
-*2D-shape/Triangle*
-
-*Triangle*
+> *Item/Object/Geometric-object/2D-shape/Triangle*  
+> *Object/Geometric-object/2D-shape/Triangle*  
+> *Geometric-object/2D-shape/Triangle*  
+> *2D-shape/Triangle*  
+> *Triangle* 
 ````
 
 For values that are substituted for a placeholder (`#`) child, the tag must include the parent
@@ -316,11 +372,10 @@ placeholders cannot be node names.
 
 ````{admonition} Example: Equivalent forms for HED tag the label Image1.
 
-*Property/Informational-property/Label/Image1*
-
-*Informational-property/Label/Image1*
-
-*Label/Image1*
+1. *Property/Informational-property/Label/Image1*  
+2. *Informational-property/Label/Image1*  
+3. *Label/Image1* 
+````
  
 A **HED string** is a comma-separated list of HED tags and/or HED tag groups. 
 A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in
@@ -330,14 +385,10 @@ thus, a HED string forms a set.
 
 ````{admonition} **Example:** Nested HED tag group indicated press.
 
-**Short form:**
-
-```
-    ((Human-agent, Experiment-participant), (Press, Mouse-button))
-```
+**Short form:**  
+> *((Human-agent, Experiment-participant), (Press, Mouse-button))*
 
 **Long form:**
-```
 ((Agent/Human-agent,
     Property/Agent-property/Agent-task-role/Experiment-participant),
 (Action/Move/Move-body-part/Move-upper-extremity/Press,

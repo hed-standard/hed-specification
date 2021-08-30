@@ -19,8 +19,12 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    Appendix_B.md
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :caption: Links:
 
-   `Schema viewer<https://www.hedtags.org/display_hed.html>`_
-   `Online tools<https://hedtools.ucsd.edu/hed>`_
+   [Online tools](https://hedtools.ucsd.edu/hed)
+
+   `Online tools <https://hedtools.ucsd.edu/hed>`_
+
+   <a href="https://www.hedtags.org/display_hed.html">Schema viewer</a><br>
+   <a href="https://hedtools.ucsd.edu/hed">Online tools</a>
