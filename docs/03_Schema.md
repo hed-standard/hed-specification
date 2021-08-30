@@ -268,6 +268,47 @@ This is the second format
   </tr>
 </table>
 
+Here is another table:
+
+| abc | defghi | jklm |
+| :-: | ---------------------------------: | :-------------- |
+bar | baz | baz 
+
+Here is an alternative layout using boxes
+
+````{admonition} Rules for allowed characters
+
+**Schema node names**  
+> **Value class:** `valueClass=nameClass``
+> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
+> **Usage:** The first letter of a term should be capitalized for readability.
+  The remaining characters should be lowercase.
+  
+**Schema node names**  
+> **Value class:** `valueClass=nameClass``
+> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
+> **Usage:** The first letter of a term should be capitalized for readability.
+  The remaining characters should be lowercase.
+````    
+
+Still another:
+
+````{eval-rst}
+.. list-table:: Title
+   :widths: 25 40 20
+   :header-rows: 1
+
+   * - Heading row 1, column 1
+     - Heading row 1, column 2
+     - Heading row 1, column 3
+   * - Row 1, column 1
+     -
+     - Row 1, column 3
+   * - Row 2, column 1
+     - Row 2, column 2
+     - Row 2, column 3
+
+````
 
 ## 3.4. Vocabulary organization
 
