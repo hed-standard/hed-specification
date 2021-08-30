@@ -80,14 +80,13 @@ that this event falls into.
 
 **Long form:**
 
-*Event/Sensory-event,*  
+*Event/Sensory-event,*   
 *Property/task-property/Task-event-role/Experimental-stimulus,*  
 *Property/Sensory-property/Visual-presentation,*  
 *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,*    
-  *Item/Object/Geometric-object/2D-shape/Triangle),*  
-*Property/Informational-property/Description/An experimental stimulus consisting of*  
-  *a green triangle is displayed on the center of the screen.*  
-
+   *Item/Object/Geometric-object/2D-shape/Triangle),*  
+*Property/Informational-property/Description/An experimental stimulus consisting of*   
+   *a green triangle is displayed on the center of the screen.*   
 
 ````
 
@@ -146,7 +145,7 @@ presentation includes information about the role this stimulus appears in the ta
 **Short form:**
  
 *Sensory-event, Experimental-stimulus, Visual-presentation,*  
-  *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
+*(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
 
 **Long form:**
 
@@ -154,13 +153,13 @@ presentation includes information about the role this stimulus appears in the ta
 *Property/Task-property/Task-event-role/Experimental-stimulus,*  
 *Property/Sensory-property/Sensory-presentation/Visual-presentation,*  
 *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/Green,*  
-  *Item/Object/Geometric-object/2D-shape/Triangle),*  
+*Item/Object/Geometric-object/2D-shape/Triangle),*  
 *(Property/Task-property/Task-effect-evidence/Intended-effect,*  
 *Property/Task-property/Task-stimulus-role/Oddball),*  
 *(Property/Task-property/Task-effect-evidence/Intended-effect,*  
 *Property/Task-property/Task-stimulus-role/Target),*  
 *Property/Informational-property/Description/A green triangle target oddball is presented*  
-  *in the center of the screen with probability 0.1.*
+*in the center of the screen with probability 0.1.*
 
 ````
 
@@ -215,22 +214,22 @@ elements are the adjectives, adverbs, and prepositions that modify and connect t
 
 *Agent-action, Participant-response,*   
 *((Human-agent, Experiment-participant), (Press, Mouse-button)),*  
-   *(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
+*(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
 
 **Long form:**
 
 *Event/Agent-action,*  
-*Property/Task-property/Task-event-role/Participant-response,*  
-*((Agent/Human-agent,*   
-*Property/Agent-property/Agent-task-role/Experiment-participant),*  
-*(Action/Move/Move-body-part/Move-upper-extremity/Press,*  
-*Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),* 
-*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*  
-  *Property/Task-property/Task-stimulus-role/Oddball),*
-*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*  
-  *Property/Task-property/Task-stimulus-role/Target),*  
-*Property/Informational-property/Description/The subject pushes the left mouse button*
-  *to indicate the appearance of an oddball target using index finger on the left hand.*
+*Property/Task-property/Task-event-role/Participant-response,*    
+*((Agent/Human-agent,*    
+*Property/Agent-property/Agent-task-role/Experiment-participant),*   
+*(Action/Move/Move-body-part/Move-upper-extremity/Press,*   
+*Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/Mouse-button)),*   
+*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*   
+*Property/Task-property/Task-stimulus-role/Oddball),*   
+*(Property/Task-property/Task-effect-evidence/Behavioral-evidence,*   
+*Property/Task-property/Task-stimulus-role/Target),*   
+*Property/Informational-property/Description/The subject pushes the left mouse button*   
+*to indicate the appearance of an oddball target using index finger on the left hand.*   
 
 ````
 
@@ -253,7 +252,7 @@ often automatically by the presentation or control software. In the illustration
 provided above, a buzzer sounded by the control software indicates 
 that the subject should rest.
 
-````{admonition} **Example:** Version 1 of a simple feedback event.
+````{seealso} **Example:** Version 1 of a simple feedback event.
 
 **Short form:**
 
@@ -266,8 +265,8 @@ that the subject should rest.
 *Property/Task-property/Task-event-role/Instructional,*  
 *Property/Sensory-property/Sensory-presentation/Auditory-presentation,*  
 *(Item/Sound/Named-object-sound/Buzz,*  
-  *(Property/Task-property/Task-effect-evidence/Intended-effect,*  
-      *Action/Perform/Rest)),*  
+*(Property/Task-property/Task-effect-evidence/Intended-effect,*   
+*Action/Perform/Rest)),*  
 *Property/Informational-property/Description/A buzzer sounds indicating a rest period.*  
 
 ````
@@ -283,16 +282,14 @@ a HED annotation from
 ````{admonition} **Example:** Annotation of an inserted computed feature.
 
 **Short form:**  
-
-*Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*
+> *Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*  
 
 **Long form:**
-
-*Event/Data-feature,*  
-*(Property/Data-property/Data-source-type/Computed-feature,*   
-   *Property/Informational-property/Label/Blinker_BlinkMax),*  
-*Property/Informational-property/Description/Event marking the maximum signal*  
-   *deviation caused by blink inserted by the Blinker tool.*
+> *Event/Data-feature,*   
+> *(Property/Data-property/Data-source-type/Computed-feature,*     
+> *Property/Informational-property/Label/Blinker_BlinkMax),*   
+> *Property/Informational-property/Description/Event marking the maximum signal*    
+> *deviation caused by blink inserted by the Blinker tool.*   
 
 ````
 
@@ -310,14 +307,12 @@ a human expert can be annotated in HED.
 
 ````{admonition} **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
-**Short form:**
+**Short form:**  
+> *Data-feature, (Observation, Label/AnnotatorAJM_K-complex)*
 
-*Data-feature, (Observation, Label/AnnotatorAJM_K-complex)*
-
-**Long form:**
-
-*Event/Data-feature,
-(Property/Data-property/Data-source-type/Observation,
+**Long form:**  
+*Event/Data-feature,*  
+*(Property/Data-property/Data-source-type/Observation,
 Property/Informational-property/Label/AnnotatorAJM_K-complex),
 Property/Informational-property/Description/K-complex defined by AASM guide.*
 
