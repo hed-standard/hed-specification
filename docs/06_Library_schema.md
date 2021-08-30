@@ -3,11 +3,15 @@
 The variety and complexity of events in electrophysiological experiments makes full 
 documentation challenging. As more experiments move out of controlled laboratory environments
 and into less controlled virtual and real-world settings, the terminology required to adequately
-describe events has the potential to grow exponentially. In addition, experiments in any given
-subfield can contribute to pressure to add overly-specific terms and jargon to the schema
-hierarchy—for example, adding musical terms to tag events in music-based experiments, video
-markup terms for experiments involving movie viewing, traffic terms for experiments involving
-virtual driving, and so forth. Clinical fields using neuroimaging also have their own specific
+describe events has the potential to grow exponentially.  
+
+In addition, experiments in any given subfield can contribute to pressure to add 
+overly-specific terms and jargon to the schema hierarchy—for example, adding musical 
+terms to tag events in music-based experiments, video markup terms for experiments 
+involving movie viewing, traffic terms for experiments involving
+virtual driving, and so forth. 
+
+Clinical fields using neuroimaging also have their own specific
 vocabularies for describing data features of clinical interest (e.g., seizure, sleep stage IV).
 Including these discipline-specific terms quickly makes the base HED schema unwieldy and less
 usable by the broader user community.
@@ -20,11 +24,15 @@ part of a library used in conjunction with core modules of the programming langu
 Similar to the design principles imposed on function names and subclass organization in 
 software development, HED library schemas must conform to some basic rules:
 
+````{annotation} Rules for HED library schema design.
+:class: tip
 1. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
 2. Schema terms should be readily understood by most users. The terms should not be ambiguous and should be meaningful in themselves without reference to their position in the schema hierarchy.
 3. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
 4. Terms that are used independently of one another should be in different sub-trees (orthogonality).
+
+````
 
 As in Python programming, we anticipate that many HED schema libraries may be defined 
 and used, in addition to the base HED schema. Libraries allow individual research 

@@ -155,7 +155,7 @@ that HED definitions have the proper form.
 ### 7.4.3. HED dictionary level validation
 
 HED dictionary validation assumes that the dictionaries have been written in the JSON format 
-of [Section 7.3: Sidecar format (BIDS)](07_HED_with_BIDS.md#73-sidecar-format-bids). 
+of [Section 7.3: Sidecar format (BIDS)](07_HED_in_BIDS.md#73-sidecar-format-bids). 
 The validation is similar to HED string evaluation, but the error messages are keyed to
 dictionary location rather than to line numbers in the event file or spreadsheet. 
 The validator checks that there is exactly one `#` in the HED string annotation associated 

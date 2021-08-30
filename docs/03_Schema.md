@@ -359,11 +359,11 @@ Any intermediate form of the tag path is also allowed as illustrated by this exa
 
 ````{admonition} Example: Equivalent forms for HED tag representing a triangle.
 
-> *Item/Object/Geometric-object/2D-shape/Triangle*  
-> *Object/Geometric-object/2D-shape/Triangle*  
-> *Geometric-object/2D-shape/Triangle*  
-> *2D-shape/Triangle*  
-> *Triangle* 
+1. *Item/Object/Geometric-object/2D-shape/Triangle*  
+2. *Object/Geometric-object/2D-shape/Triangle*  
+3. *Geometric-object/2D-shape/Triangle*  
+4. *2D-shape/Triangle*  
+5. *Triangle* 
 ````
 
 For values that are substituted for a placeholder (`#`) child, the tag must include the parent
@@ -389,14 +389,14 @@ thus, a HED string forms a set.
 > *((Human-agent, Experiment-participant), (Press, Mouse-button))*
 
 **Long form:**
-((Agent/Human-agent,
-    Property/Agent-property/Agent-task-role/Experiment-participant),
-(Action/Move/Move-body-part/Move-upper-extremity/Press,
- Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/Mouse-button))
-```
+> *((Agent/<strong>Human-agent</strong>,*  
+>    *Property/Agent-property/Agent-task-role/<strong>Experiment-participant</strong>),*  
+> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*  
+> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))*  
+
 ````
 
-The syntax and errors for HED tags and HED strings are summarized in
+The validation errors for HED tags and HED strings are summarized in
 [Appendix B: HED validation errors](Appendix_B.md#b-hed-validation-errors).
 
 **HED `#` placeholders** cannot have siblings. Thus, tags that have placeholder 

@@ -32,21 +32,35 @@ the actual definition information. Table 5.1 summarizes the syntax rules for def
   </tr>
 </table>
 
+``````{admonition} 
+**Short forms:**
+ ~ `(Definition/XXX, (tag-group))`
+ ~ `(Definition/XXX/#, (tag-group))`
+ 
+**Long forms:**
+ ~ `(Property/Organizational-property/Definition/XXX, (tag-group))`
+ ~ `(Property/Organizational-property/Definition/XXX/#, (tag-group))`
+ 
+````{admonition} Notes:
+<p><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value.</p>
+<p>If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.</p>
+<p>The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See Section 3.3.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.</p>
+````
 
-````**Example:** *PlayMovie* represents playing a movie on the screen.
+``````
+The following example defines the *PlayMovie* term. 
 
-**Short form:** 
-```
-(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))
-```
+````{admonition} **Example:** *PlayMovie* represents playing a movie on the screen.
 
-**Long form:** 
-```
-(Property/Organization-property/Definition/PlayMovie,
-(Property/Sensory-property/Sensory-presentation/Visual-presentation, 
-Item/Object/Man-made-object/Media/Visualization/Movie,
-Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computerscreen))
-```
+**Short form:** <br/> 
+*(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))* 
+
+**Long form:** <br/>
+*(Property/Organization-property/Definition/PlayMovie,*
+*(Property/Sensory-property/Sensory-presentation/Visual-presentation,* 
+*tem/Object/Man-made-object/Media/Visualization/Movie,*
+*Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen))*
+
 ````
 
 The placeholder form of the definition is used, for example, to annotate an experimental
