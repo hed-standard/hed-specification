@@ -15,7 +15,9 @@ Past, present, and future versions of the HED schema adhere to
 schema in `.mediawiki` format for ease in editing,  HED tools generally use XML versions
 of the HED schema. 
 
-````{tip} **Standard development process for XML schema.**
+````{admonition} **Standard development process for XML schema.**
+:class: tip
+
 1. Create or modify a `.mediawiki` file containing the schema.
 2. Convert to `.xml` using the [HED tools](https://hedtools.ucsd.edu/hed/schema).
 3. View in the [expandable schema viewer](https://www.hedtags.org/display_hed.html) to verify.
@@ -116,14 +118,19 @@ used (e.g., *Label/myLabel*).
 
 The HED XML version of the schema is used during validation and analysis. 
 The `.xml` format has changed with the release of HED-3G. This modification of the 
-XML format was done for four reasons:
+XML format was done for the following reasons.
+
+````{admonition} **Reasons for XML file format change for HED-3G.**
+:class: tip
 
 1. To correctly handle multiple values of schema attributes.
 2. To preserve the prologue and epilogue information present in `.mediawiki` files.
 3. To allow schema attributes to be formally specified and validated.
 4. To allow an XSD specification of the HED schema for validation of the schema.
+````
 
-The following is a translation of the `.mediawiki` example from the previous section in the new XML format. A complete specification of the format is given in 
+The following is a translation of the `.mediawiki` example from the previous section in 
+the new XML format. A complete specification of the format is given in 
 [Appendix A: Schema format](Appendix_A.md#a-schema-format).
 
 ````{admonition} Example: XML version of previous example.
@@ -184,7 +191,7 @@ The following is a translation of the `.mediawiki` example from the previous sec
 ```
 ````
 
-### 3.2.1 The <node> element
+### 3.2.1  The `<node>` element
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term 
 that it specifies. A `<node>` element may also have a `<description>` child element containing
@@ -217,6 +224,12 @@ nodes and definitions in other sections of the schema. The specification of whic
 elements an attribute may apply to is specified by the property attributes of these schema
 attributes. 
 
+### 3.2.5 Schema properties
+
+The `<schemaPropertyDefinitions>` section lists properties of the schema attributes, themselves.
+This specification allows general validation to handle a lot of the processing directly based
+on the HED schema contents rather than on hard-coded implementation. 
+
 ## 3.3. Allowed characters
 
 The different parts of the HED schema have different rules for the characters that are allowed.
@@ -231,84 +244,32 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
 
 * - Element
   - Allowed characters
-* - Node
+* - Node (`nameClass`)
   - Alphanumeric characters, hyphens, and underbars with no white space.
-    > The first letter of a term should be capitalized for readability. 
-    > The remaining characters should be lowercase.
-
-
+* - Description (`textClass`)
+  - Alphanumeric characters, blanks, commas, periods, semicolons,<br/> 
+  colons, hyphens, underbars, forward slashes, carets (^), and parentheses.  
+* - Placeholder (`#`)
+  - Depends on `valueClass` as well as allowed `unitClass` and unit modifiers.
+* - Library names
+  - A single word containing only alphabetic characters.
+* - Namespaces
+  - A single alphabetic word followed by a single colon. 
 `````
 
-This is the second format
-<table>
-  <tr>
-     <td><strong>Item</strong></td>
-     <td><strong>Allowed characters</strong></td>
-     <td><strong>Style suggestions and other rules</strong></td>
-  </tr>
-  <tr>
-     <td>Node elements<br>(HED tag names<br><code>valueClass=nameClass</code></td>
-     <td>Alphanumeric characters, hyphens, and underbars with no white space.</td>
-     <td>The first letter of a term should be capitalized for readability. The remaining characters should be lowercase.</td>
-  </tr>
-  <tr>
-     <td>Descriptions<br><code>valueClass=textClass</code></td>
-     <td>Alphanumeric characters, blanks, commas, periods, semicolons, colons, hyphens, underbars, forward slashes, carets (^), and parentheses are allowed.  No square brackets, curly braces, quotes, or other punctuation and symbols are allowed.</td>
-     <td>Descriptions should be concise sentences, possibly with clarifying examples.</td>
-  </tr>
-  <tr>
-     <td>Placeholder (<code>#</code>) substitutions by user-defined values.</td>
-     <td>The characters allowed depend on the <code>valueClass</code> for the value plus the actual characters in the units and in the unit modifiers if applicable.</td>
-   <td><p>If the <code>#</code> has <code>valueClass</code> attributes, the value may have special characters as specified by in the class definition. For example, the colon (:) is specifically allowed for the <code>dateTime</code> unit class.</p><p>Units are separated from the value by at least one blank whether prefix or suffix.</p> </td>
-  </tr>
-  <tr>
-     <td>Library names and nicknames</td>
-     <td>A single word containing only alphabetic characters.</td>
-     <td>Library nicknames are followed by a single colon when used in a tag string.</td>
-  </tr>
-</table>
-
-Here is another table:
-
-| abc | defghi | jklm |
-| :-: | ---------------------------------: | :-------------- |
-bar | baz | baz 
-
-Here is an alternative layout using boxes
-
-````{admonition} Rules for allowed characters
-
-**Schema node names**  
-> **Value class:** `valueClass=nameClass``
-> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
-> **Usage:** The first letter of a term should be capitalized for readability.
-  The remaining characters should be lowercase.
-  
-**Schema node names**  
-> **Value class:** `valueClass=nameClass``
-> **Allowed characters:** Alphanumeric characters, hyphens, and underbars with no white space.
-> **Usage:** The first letter of a term should be capitalized for readability.
-  The remaining characters should be lowercase.
-````    
-
-Still another:
-
-````{eval-rst}
-.. list-table:: Title
-   :widths: 25 40 20
-   :header-rows: 1
-
-   * - Heading row 1, column 1
-     - Heading row 1, column 2
-     - Heading row 1, column 3
-   * - Row 1, column 1
-     -
-     - Row 1, column 3
-   * - Row 2, column 1
-     - Row 2, column 2
-     - Row 2, column 3
-
+````{admonition} Other terms 
+:class: tip
+1. The first letter of a term should be capitalized with the remainder lower case. 
+2. Terms containing multiple words cannot contain blanks and should be hyphenated.
+3. Descriptions should be concise sentences, possibly with clarifying examples.
+3. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
+not specifically allowed by `textClass`.
+4. Values substituted for `#` may have special characters determined by the value class.
+For example, the colon (:) is specifically allowed for the `dateTimeClass` value class.
+5. Units are separated from their value by at least one blank whether prefix or suffix.
+6. Library namespace names are local and consist of a short word followed by a single colon.
 ````
+
 
 ## 3.4. Vocabulary organization
 
@@ -370,7 +331,7 @@ For values that are substituted for a placeholder (`#`) child, the tag must incl
 as illustrated in this example for the  *Label* tag. The values that replace these `#`
 placeholders cannot be node names.
 
-````{admonition} Example: Equivalent forms for HED tag the label Image1.
+````{admonition} Example: Equivalent forms for HED tag representing the label Image1.
 
 1. *Property/Informational-property/Label/Image1*  
 2. *Informational-property/Label/Image1*  

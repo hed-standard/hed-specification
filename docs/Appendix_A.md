@@ -53,13 +53,19 @@ keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1)
      - Description
    * - library
      - optional
-     - Name of library to be used in `xml` file names. 
-       The value should consist of alphabetic characters only.
+     - Name of library used in `xml` file names.<br/>
+       The value should only have alphabetic characters.
    * - version
      - required
-     - A valid semantic version number of the schema.       
+     - A valid semantic version number of the schema.  
+   * - `xmlns`
+     - optional
+     - xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance".
+   * - `xsi`
+     - optional
+     - `xsi:noNamespaceSchemaLocation` points to XSD file.     
 ````
-
+If 
 Here is a straight HTML version of the schema
 <table>
   <tr>
@@ -90,6 +96,7 @@ Here is a straight HTML version of the schema
   </tr>
 </table>
 
+The `xsi` attribute is required if `xmlns:xsi` is given.
 The `library` and `version` values are used to form the official xml file name and appear as attributes
 in the `<HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to 
 verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
@@ -114,16 +121,16 @@ found in
 
 The file name in `hedxml` in `hed-specification` is `HED8.0.0.xml`.
 
-**Example:** Specify version 1.0.2 of the HED library schema `test`.
-
-The `.mediawiki`  has a header line:
+````{admonition} **Example:** Version 1.0.2 of HED library schema <code>test</code> (<code>.media</code>).
 
 ```moin
 HED library="test" version="1.0.2"
 ```
+````
 
 The resulting XML root is:
 
+````{admonition} **Example:** Version 1.0.2 of HED library schema <code>test</code> (<code>.xml</code>).
 ```xml
 <HED library="test" version="1.0.2">
 ```
@@ -131,7 +138,7 @@ The resulting XML root is:
 
 The file name in `hedxml` in the HED schema library `test` is `HED_test_1.0.2.xml`.
 
-Unknown _header-line_ attributes are translated as attributes of the `HED` root node of the 
+Unknown header-line attributes are translated as attributes of the `HED` root node of the 
 `.xml` version, but a warning is used when the `.mediawiki` file is validated.
 
 ### A.1.3. Schema section
@@ -142,8 +149,8 @@ The beginning of the HED specification is marked by the *start-line*:
 !# start schema
 ```
 
-An arbitrary number of lines of informational text can be placed between the *header-line* 
-and the *start-line*. Older versions of HED have a CHANGE_LOG as well as information about 
+An arbitrary number of lines of informational text can be placed between the header-line 
+and the start-line. Older versions of HED have a CHANGE_LOG as well as information about 
 the syntax and rules. New versions of HED generate a separate change log file for released 
 versions. 
 
@@ -169,7 +176,7 @@ node-name  <nowiki>{attributes}[description]</nowiki>
 Top-level node names are enclosed in triple single quotes (e.g., `'''Event'''`), while other
 node names have at least one preceding asterisk (*) followed by a blank and then the name. 
 The number of asterisks indicates the level of the node in the subtree. HED-3G node names 
-can only contain alphanumeric characters, hyphens, and underbars. They cannot contain blanks 
+can only contain alphanumeric characters, hyphens, and under-bars. They cannot contain blanks 
 and must be unique. HED (2G) and earlier versions allow blanks.   Everything after the node
 name must be contained within `<nowiki></nowiki>` tags. Placeholder nodes have an empty node 
 name, but are followed by a # enclosed in  `<nowiki></nowiki>` tags.
@@ -207,7 +214,9 @@ the unit class specifications, unit modifier specifications, value class specifi
 the schema attribute specifications, and property specifications. All of these sections are
 required starting with HED version 8.0.0-beta.3 and must be given in this order.
 
-The unit class specification section starts with `'''Unit classes'''`
+Unit classes specify the kind of units are allowed to be used with a value that is provided
+for a `#` value. The unit class specification section starts with `'''Unit classes'''` and 
+lists the type of unit at the first level and the specific units at the second level.
 
 ````{admonition} **Example:** Part of the HED unit class specification for time.
 
@@ -219,6 +228,11 @@ The unit class specification section starts with `'''Unit classes'''`
 ```
 ````
 
+The unit classes can be modified by SI (International System Units) sub-multiples 
+and super-multiples. All unit modifiers are at level 1 of the `.mediawiki`
+file. Unit modifiers have either the `SIUnitModifer` or the `SIUnitSymbolModifer`
+to indicate whether they are regular modifiers or symbol modifiers.
+
 ````{admonition} **Example:** Part of the HED unit modifier specification.
 
 ```moin
@@ -228,6 +242,15 @@ The unit class specification section starts with `'''Unit classes'''`
 ```
 ````
 
+Units that have the `SIUnit` attribute can be modified by any unit modifier 
+that has the `SIUnitModifier`. So for example, `second` and `decasecond` are
+valid time units as are `seconds` and `decaseconds`. Similarly, units that
+have the `SIUnit` and `unitSymbol` modifiers can be modified with unit modifiers
+that have the `SIUnitSymbolModifier` attribute.
+
+Value attributes give rules about what kind of value is allowed to be substituted
+for `#` placeholder tags.
+
 ````{admonition} **Example:** Part of the HED value class specification.
 
 ```moin
@@ -236,20 +259,27 @@ The unit class specification section starts with `'''Unit classes'''`
 ```
 ````
 
+The schema attributes specify other characteristics about how particular tags may be used in 
+annotation. These attributes allow validators and other tools to process tag strings based
+on the HED schema specification, thus avoiding hard-coding particular behavior.
+
 ````{admonition} **Example:** Part of the HED schema attribute specification.
 
 ```moin
 '''Schema attributes'''
-* allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
-* defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units for a tag.]</nowiki> 
+* allowedCharacter <nowiki>{valueClassProperty}[Attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder.]</nowiki>
+* defaultUnits <nowiki>{unitClassProperty}[Attribute of unit classes specifying the default units for a tag.]</nowiki> 
 ```
 ````
+Notice that in the above example, the schema attributes, themselves have attributes referred to as
+*HED schema properties*. These schema properties are listed in the `Properties` section of the
+schema.
 
 ````{admonition} **Example:** Part of the HED schema property specification.
 
 ```moin
 '''Properties''' 
-* valueClassProperty <nowiki>[Indicates that the schema attribute is meant to be applied to value classes.]</nowiki> 
+* valueClassProperty <nowiki>[Attribute is meant to be applied to value classes.]</nowiki> 
 ```
 ````
 

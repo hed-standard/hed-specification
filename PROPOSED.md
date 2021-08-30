@@ -13,11 +13,17 @@ This is a record of proposed changes/corrections to the HED schema for future re
 ### Placeholders clearly missing value class or other specification.
 
 ##### Add numericClass attribute (* indicates should consider unit class too)
-- Property/Agent-property/Agent-trait/Age/#
-- *Property/Data-property/Data-resolution/Printer-resolution/#
-- *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Sampling-rate/#
-- *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Refresh-rate/#
-- *Property/Data-property/Data-value/Spatiotemporal-value/Spatial-value/Angle/#
+- *Property/Agent-property/Agent-trait/Age/#*
+- *Property/Data-property/Data-resolution/Printer-resolution/#*
+- *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Sampling-rate/#*
+- *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Refresh-rate/#*
+- *Property/Data-property/Data-value/Spatiotemporal-value/Spatial-value/Angle/#*
+
+### Agreed upon changes/corrections
+- *Action/Perceive* should be *Action/Sensory-attend*.
+- *Action/Perceive/See* should be *Action/Sensory-attend/Look*.
+- *Action/Perceive/Hear* should be *Action/Sensory-attend/Listen*.
+
 
 ### Typos/corrections
 This section lists typos or other errors that should be fixed.
