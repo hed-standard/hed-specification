@@ -22,9 +22,4 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    :maxdepth: 1
    :caption: Links:
 
-   [Online tools](https://hedtools.ucsd.edu/hed)
-
-   `Online tools <https://hedtools.ucsd.edu/hed>`_
-
-   <a href="https://www.hedtags.org/display_hed.html">Schema viewer</a><br>
-   <a href="https://hedtools.ucsd.edu/hed">Online tools</a>
+   `Online <https://hedtools.ucsd.edu/hed>`_

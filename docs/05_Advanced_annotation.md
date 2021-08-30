@@ -32,7 +32,7 @@ the actual definition information. Table 5.1 summarizes the syntax rules for def
   </tr>
 </table>
 
-``````{admonition} 
+``````{admonition} Syntax summary for *Definition*
 **Short forms:**
  ~ `(Definition/XXX, (tag-group))`
  ~ `(Definition/XXX/#, (tag-group))`
@@ -42,9 +42,12 @@ the actual definition information. Table 5.1 summarizes the syntax rules for def
  ~ `(Property/Organizational-property/Definition/XXX/#, (tag-group))`
  
 ````{admonition} Notes:
-<p><em>XXX</em> is the name of the definition and <em>(tag-group)</em> is the definition’s value.</p>
-<p>If the XXX/# form is used, then the definition’s <em>(tag-group) </em>must contain a single # representing a value to be substituted for when the definition is used.</p>
-<p>The <em>tag-group</em> may be omitted if the only purpose of the definition is to define a label to anchor temporal scope. (See Section 3.3.) However, the <em>tag-group</em> is required if the <em>#</em> placeholder is used.</p>
+1. *XXX* is the name of the definition and *(tag-group)* is the definition’s value.
+2. If the *XXX/#* form is used, then the definition’s *(tag-group)* MUST contain a single `#` 
+representing a value to be substituted for when the definition is used.
+3. The *tag-group* may be omitted if the only purpose of the definition is to define 
+a label to anchor temporal scope. ([Chapter 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope)). 
+4. The *tag-group* is required if the `#` placeholder is used.
 ````
 
 ``````
@@ -53,13 +56,13 @@ The following example defines the *PlayMovie* term.
 ````{admonition} **Example:** *PlayMovie* represents playing a movie on the screen.
 
 **Short form:** <br/> 
-*(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))* 
+> *(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))* 
 
 **Long form:** <br/>
-*(Property/Organization-property/Definition/PlayMovie,*
-*(Property/Sensory-property/Sensory-presentation/Visual-presentation,* 
-*tem/Object/Man-made-object/Media/Visualization/Movie,*
-*Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/Computer-screen))*
+> *(Property/Organization-property/<strong>Definition/PlayMovie</strong>,*
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,* 
+> *Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen<strong/>))*
 
 ````
 
@@ -70,18 +73,15 @@ single definition name and just substitute the value for each occurrence.
 ````{admonition} **Example:** Value definition to annotate the rate of visual presentation.
 
 **Short form:**
-```
-(Definition/PresentationRate/#,
-(Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))
-```
+> *(Definition/PresentationRate/#,*
+> *(Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))*
 
 **Long form:**
-```
-(Property/Organizational-property/Definition/PresentationRate/#,
-(Property/Sensory-property/Sensory-presentation/Visual-presentation, 
-Property/Task-property/Task-event-role/Experimental-stimulus,
-Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
-```
+> *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,* 
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
+
 ````
 
 ## 5.2. Using definitions
@@ -89,48 +89,33 @@ Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Temporal-rate/#))
 When a definition name such as *PlayMovie* or *PresentationRate* is used in an annotation, 
 the name is prefixed by *Def/* to indicate that the name represents a defined name. 
 In other words, *Def/PlayMovie* is shorthand for *(Visual, Movie, Screen)*. 
-Table 5.2 summarizes *Def/* syntax rules.
+The following summarizes *Def/* syntax rules.
 
+``````{admonition} Syntax summary for *Def*
+**Short forms:**
+ ~ *Def/XXX*
+ ~ *Def/XXX/#*
+ 
+**Long forms:**
+ ~ *Property/Organizational-property/<strong>Def/XXX</strong>*
+ ~ *Property/Organizational-property/<strong>Def/XXX/#</strong>*
 
-### **Table 5.2.** Syntax for *Def/*.
-
-<table>
-  <tr>
-     <td><strong>Syntax</strong></td>
-     <td><strong>Explanation</strong></td>
-  </tr>
-  <tr>
-     <td>
-       <p><strong>Short forms:</strong></p>
-       <p><em>Def/XXX</em></p>
-       <p><em>Def/XXX/#</em></p>
-       <p><hr/>
-       <p><strong>Long forms:</strong></p>
-       <p><em>Property/Organizational-property/Def/XXX</em></p>
-       <p><em>Property/Organizational-property/Def/XXX/#</em></p>
-     </td>
-     <td>
-       <p><em>XXX</em> is the name of the definition.</p>
-       <p>If the XXX/# form is used, the definition <em>(tag-group) 
-          </em> for <em>XXX </em>must contain a single # that 
-          represents the value to be substituted for the # 
-          placeholder in the <em>Def/XXX/#</em>. In other words, a 
-          <em>Def</em> tag cannot include #.</p>
-     </td>
-  </tr>
-</table>
+````{admonition} Notes:
+1. *XXX* is the name of the definition.
+2. If the *XXX/#* form is used, then the corresponding definition’s *(tag-group)* MUST contain a single `#` 
+representing a value to be substituted for when the definition is used.
+````
+``````
+The following example shows how a defined name is used in annotation.
 
 ````{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
 **Short form:**
-```
-Def/PresentationRate/1.5 Hz
-```
+> *Def/PresentationRate/1.5 Hz*
 
 **Long form:**
-```
-Property/Organizational-property/Def/PresentationRate/1.5 Hz
-```
+> *Property/Organizational-property/<strong>Def/PresentationRate/1.5 Hz</strong>*
+
 ````
 
 During analysis, tools usually replace *Def/PlayMovie* with a fully expanded tag string. 
@@ -171,35 +156,27 @@ Events are often modeled as instantaneous occurrences that occur at single point
 
 HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses *Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
 
+``````{admonition} Syntax summary for *Onset* and *Offset*.
+**Short forms:**
+ ~ *(Def/XXX, Onset, (tag-group))*
+ ~ *(Def/XXX/#, Onset, (tag-group))*
+ ~ *(Def/XXX, Offset)*
+ 
+**Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
+ ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
+ ~ *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>*
 
-#### **Table 5.3.** *Onset* and *Offset*  syntax.
-
-<table>
-  <tr>
-     <td><strong>Syntax</strong></td>
-     <td><strong>Explanation</strong></td>
-  </tr>
-  <tr>
-     <td>
-        <p><strong>Short forms:</strong> 
-        <p><em>(Def/XXX, Onset, (tag-group))</em></p>
-        <p><em>(Def/XXX/#, Onset, (tag-group))</em></p>
-        <p><em>(Def/XXX, Offset)</em></p>
-        <hr/><br/>
-        <p><strong>Long forms:</strong> 
-<p>
-        <p><em>(Property/Organizational-property/Def/XXX,Property/Data-property/Data-marker/Temporal-marker/Onset, (tag-group)</em>)</p>
-        <p><em>(Attribute/Informational/Def/XXX/#, Property/Data-property/Data-marker/Temporal-marker/Onset,(tag-group))</em></p>
-        <p><em>(Attribute/Informational/Def/XXX/#, Data-property/Data-marker/Temporal/Offset</em></p>
-     </td>
-   <td>
-       <p><em>XXX</em> is the name of the definition and <em>tag-group</em> is an optional group of tags <strong>in addition</strong> to the tags in the definition.</p>
-       <p>The additional <em>tag-group</em> is only in effect for that particular scoped event and <strong>not</strong> for all uses of <em>XXX</em>.</p>
-       <p>If the <em>Def/XXX/#</em> form is used, the <em>#</em> must be replaced by an actual value.</p>
-       <p>The definition for <em>XXX</em> must have a single # placeholder in its tag-group representing a value.</p>
-   </td>
-  </tr>
-</table>
+````{admonition} Notes:
+:class: tip
+1. *XXX* is the name of the definition.
+2. The *(tag-group)* is optional.
+3. The additional <em>tag-group</em> is only in effect for that particular scoped event and not for all *XXX*.
+2. If the *Def/XXX/#* form is used, the *#* must be replaced by an actual value.
+````
+``````
 
 For example, the *PlayMovie* definition of the previous section just defines the playing of a
 movie clip on the screen. The *(tag-group)* might include tags identifying which clip is 
@@ -209,32 +186,30 @@ playing of many different clips.
 ````{admonition} **Example:** The playing of a Star Wars clip using *PlayMovie*.
 
 **Short form:** 
-```
-[event 1] 
-Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))
+> [event 1] 
+> *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*
  
-         .... [The Star Wars movie clip is playing] ....
+>         .... [The Star Wars movie clip is playing] ....
     
-[event n] 
-Sensory-event, (Def/PlayMovie, Offset)
-```
+> [event n] 
+> *Sensory-event, (Def/PlayMovie, Offset)*
+
 
 **Long form:**
-```
-[event 1] 
-Event/Sensory-event,
-(Attribute/Informational/Def/PlayMovie, 
-Data-property/Data-marker/Temporal-marker/Onset,
-(Attribute/Informational/Label/StarWars,
-(Item/Object/Man-made-object/Media/Media-clip, Attribute/Informational/ID/3284)))                                           
+> [event 1] 
+> *Event/<strong>Sensory-event</strong>,*
+> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,* 
+> *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*
+> *(Attribute/Informational/<strong>Label/StarWars</strong>,*
+> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*
+> *Properity/Informational-property/<strong>ID/3284</strong>)))*
+            
+>         .... [The Star Wars movie clip is playing] ....
 
-        .... [The Star Wars movie clip is playing] ....
-
-[event n]  
-Event/Sensory-event,
-(Attribute/Informational/Def/PlayMovie,
-Data-property/Data-marker/Temporal-marker/Offset)
-```
+> [event n]  
+> *Event/<strong>Sensory-event</strong>,*
+> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*
+> *Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 ````
 
 The *PlayMovie* scoped event type can be reused to annotate the playing of other movie clips.
@@ -262,7 +237,6 @@ This grouping usually does not include tags from the *Event* rooted tree.
 ````{admonition} **Example:** Use *Duration* for the playing of a 2-s movie clip of Star Wars.
 
 **Short form:**
-```
 Sensory-event,
 (Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)
 ```
