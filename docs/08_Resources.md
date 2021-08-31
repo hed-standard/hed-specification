@@ -157,24 +157,19 @@ web-based tools and services.
 
 ### **Table 8.3.** URLs for services online.
 
-<table>
-  <tr>
-     <td><strong>URL</strong></td>
-     <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-     <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a></td>
-     <td>Main access point for online HED tools.</td>
-  </tr>
-  <tr>
-     <td><a href="https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services</a></td>
-     <td>Get the initial access CSRF token.</td>
-  </tr>
-  <tr>
-     <td><a href="https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit</a></td>
-     <td>Send the request for the service.</td>
-  </tr>
-</table>
+`````{list-table}
+:header-rows: 1
+:widths: 20 50
+
+* - Service
+  - URL
+* - Online HED tools
+  - [https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed)
+* - CSRF token access
+  - [https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services](https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services)  
+* - Service request
+  - [https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit](https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit)
+`````
 
 
 ### 8.4.1. Web-based tools
@@ -186,22 +181,22 @@ the local machine.
 
 ### **Table A.4.** Web-based HED tools.
 
+``````{admonition} Summary of HED web-based tools.
+**Validate events:** Validate a BIDS-style events file with optional JSON sidecar.
+ ~ The user uploads the two files to validate. 
+ ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
+ ~ The tool first validates the sidecar if present and if the sidecar contains no errors validates the events file in conjunction with the sidecar.
+ ~ If there are errors, the tool returns a downloadable file of error messages.
+
+**Validate sidecar:** Validate a single BIDS-style events JSON sidecar.
+ ~ The user uploads the JSON sidecar file.  
+ ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
+ ~ The tool first validates the sidecar if present and if the sidecar contains no errors validates the events file in conjunction with the sidecar.
+ ~ If there are errors, the tool returns a downloadable file of error messages.
+
+``````
+Here is the left overs for testing.
 <table>
-  <tr>
-     <td><strong>Tool</strong></td>
-     <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-     <td>Validate events</td>
-     <td><p>Validate a BIDS-style events file with optional JSON sidecar.</p>
-<p>The user uploads the two files to validate. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p> <p>The tool first validates the sidecar if present and if the sidecar contains no errors validates the events file in conjunction with the sidecar. If there are errors, the tool returns a downloadable file of error messages.</p></td>
-  </tr>
-  <tr>
-     <td>Validate dictionary</td>
-     <td><p>Validate a single BIDS-style events JSON sidecar.</p>
-   <p>The user uploads the file. The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.</p> 
-  <p>If there are errors, the tool returns a downloadable file of error messages.</p></td>
-  </tr>
   <tr>
      <td>Validate spreadsheet</td>
      <td><p>Validate an Excel or tsv file containing HED tags.</p> 

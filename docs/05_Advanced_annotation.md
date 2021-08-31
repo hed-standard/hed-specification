@@ -2,22 +2,25 @@
 
 ## 5.1. HED definitions
 
-HED-3G introduces the *Definition* tag to facilitate tag reuse and to allow implementation of concepts such as **temporal scope**. The *Definition* tag allows researchers to create a name to represent a group of tags and then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce the chance of errors. Often laboratories have a standard setup and event codes with particular meanings. Researchers can define names and reuse them  for multiple experiments. Another important role of definitions is to provide the structure for implementing temporal scope as introduced in **Section 3.3**.
+HED-3G introduces the *Definition* tag to facilitate tag reuse and to allow implementation of concepts such as
+**temporal scope**. The *Definition* tag allows researchers to create a name to represent a group of tags and 
+then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce
+the chance of errors. Often laboratories have a standard setup and event codes with particular meanings.
+Researchers can define names and reuse them  for multiple experiments. Another important role of definitions
+is to provide the structure for implementing temporal scope as introduced in 
+[Section 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
 
 A **HED definition** is a tag group that includes one *Definition* tag whose required 
 child value names. The definition usually includes an optional tag-group specifying 
-the actual definition information. The following summarizes the
-
-### **Table 5.1.** Syntax for *Definition*. Optional items are underlined.
-
+the actual definition information. The following summarizes the syntax of definition.
 
 ``````{admonition} Syntax summary for *Definition*
 
-**Short forms:**
- ~ *(Definition/XXX, (tag-group))*  
- ~ *(Definition/XXX/#, (tag-group))*  
+**Short forms:** 
+ ~ *(Definition/XXX, (tag-group))*
+ ~ *(Definition/XXX/#, (tag-group))*
  
-**Long forms:**
+**Long forms:**  
  ~ *(Property/Organizational-property/Definition/XXX, (tag-group))*
  ~ *(Property/Organizational-property/Definition/XXX/#, (tag-group))*
  
@@ -73,12 +76,12 @@ In other words, *Def/PlayMovie* is shorthand for *(Visual, Movie, Screen)*.
 The following summarizes *Def/* syntax rules.
 
 ``````{admonition} Syntax summary for *Def*
-**Short forms:**
+**Short forms:** 
  ~ *Def/XXX*
  ~ *Def/XXX/#*
  
 **Long forms:**
- ~ *Property/Organizational-property/<strong>Def/XXX</strong>*
+ ~ *Property/Organizational-property/<strong>Def/XXX</strong>* 
  ~ *Property/Organizational-property/<strong>Def/XXX/#</strong>*
 
 ````{admonition} Notes:
@@ -95,19 +98,20 @@ The following example shows how a defined name is used in annotation.
 **Short form:**  
 > *Def/PresentationRate/1.5 Hz*
 
-**Long form:**
+**Long form:**  
 > *Property/Organizational-property/<strong>Def/PresentationRate/1.5 Hz</strong>*
 
 ````
 
 During analysis, tools usually replace *Def/PlayMovie* with a fully expanded tag string. 
 Tools must retain the association of the expanded tag string with the definition name for
-identification during searching and substitution. When a definition is expanded, 
-the resulting tag string should include the definition name using the *Def-expand* tag. 
-In other words, the tools should expand the definition as 
-*(Def-expand/PlayMovie, Visual, Movie, Screen)*. 
-The *Def-expand/PlayMovie* is inserted in the definition tag group as part of the 
-expansion to keep the association with the original definition.
+identification during searching and substitution. 
+
+When a definition is expanded, the resulting tag string should include the definition
+name using the *Def-expand* tag. In other words, the tools should expand the definition as 
+*(Def-expand/PlayMovie, Visual, Movie, Screen)*. The *Def-expand/PlayMovie* is inserted 
+in the definition tag group as part of the expansion to keep the association with 
+the original definition.
 
 **Usually definitions do not contain tags from the *Event* subtree.** 
 The standard practice is to use the elements of the *Event* subtree as top-level tags to
@@ -144,10 +148,10 @@ HED events are assumed to be point events unless they are given an explicit temp
  ~ *(Def/XXX/#, Onset, (tag-group))*
  ~ *(Def/XXX, Offset)*
  
-**Long forms:**
- ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,*
+**Long forms:**  
+ ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
- ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,*
+ ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
  ~ *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>*
 
@@ -167,31 +171,30 @@ playing of many different clips.
 
 ````{admonition} **Example:** The playing of a Star Wars clip using *PlayMovie*.
 
-**Short form:** 
-> [event 1] 
-> *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*
- 
+**Short form:**  
+> [event 1]  
+> *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*  
+>   
 >         .... [The Star Wars movie clip is playing] ....
-    
+>      
 > [event n] 
 > *Sensory-event, (Def/PlayMovie, Offset)*
 
-
-**Long form:**
+**Long form:**  
 > [event 1] 
-> *Event/<strong>Sensory-event</strong>,*
-> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,* 
-> *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*
-> *(Attribute/Informational/<strong>Label/StarWars</strong>,*
-> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*
-> *Properity/Informational-property/<strong>ID/3284</strong>)))*
+> *Event/<strong>Sensory-event</strong>,*  
+> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*  
+> *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*  
+> *(Attribute/Informational/<strong>Label/StarWars</strong>,*  
+> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*  
+> *Properity/Informational-property/<strong>ID/3284</strong>)))*  
             
 >         .... [The Star Wars movie clip is playing] ....
 
 > [event n]  
-> *Event/<strong>Sensory-event</strong>,*
-> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*
-> *Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+> *Event/<strong>Sensory-event</strong>,*  
+> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*  
+> *Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*  
 ````
 
 The *PlayMovie* scoped event type can be reused to annotate the playing of other movie clips.
@@ -218,12 +221,12 @@ This grouping usually does not include tags from the *Event* rooted tree.
 
 ````{admonition} **Example:** Use *Duration* for the playing of a 2-s movie clip of Star Wars.
 
-**Short form:**  
+**Short form:**    
 > *Sensory-event,*  
 > *(Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)*  
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>, 
+**Long form:**   
+> *Event/<strong>Sensory-event</strong>,*   
 > *(Property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*  
 > *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
 > *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*  
@@ -258,24 +261,24 @@ as part of the stimulus event.
 ````{admonition} **Example:** Use *Delay* for offset events.
 
 **Short form:**  
-> *Sensory-event, Experimental-stimulus, Visual-presentation,
-> *(Cross, (Center-of, Computer-screen)),
-> *(Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))
+> *Sensory-event, Experimental-stimulus, Visual-presentation,*  
+> *(Cross, (Center-of, Computer-screen)),*  
+> *(Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))*  
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>,* 
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *(Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>,*
-> *(Relation/Spatial-relation/<strong>Center-of</strong>,*
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>)),*
-> *(Event/<strong>Agent-action</strong>,* 
-> *Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*
-> *(Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*
-> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press<strong>/,*
-> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))),*
-> *Property/Informational-property/Description/A cross is displayed* 
-> *in the center of the screen and the participant responds by pushing a button.*
+**Long form:**    
+> *Event/<strong>Sensory-event</strong>,*  
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
+> *(Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>,*  
+> *(Relation/Spatial-relation/<strong>Center-of</strong>,*  
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>)),*  
+> *(Event/<strong>Agent-action</strong>,*  
+> *Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*  
+> *(Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*  
+> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>/,*  
+> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))),*  
+> *Property/Informational-property/Description/A cross is displayed*  
+> *in the center of the screen and the participant responds by pushing a button.*  
 
 ````
 
