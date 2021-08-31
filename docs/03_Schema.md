@@ -49,7 +49,7 @@ HED schema developers usually specify schema in `.mediawiki` format for more con
 display, and reference on GitHub. However, tools assume that the schema is in .mediawiki format. 
 Conversion tools allow The following brief example illustrates the format. A full description of the format is given in [Appendix A](Appendix_A.md#a-schema-format).
 
-````{admonition} Example: Layout of a HED schema (.mediawiki).
+````{admonition} **Example:** Layout of a HED schema (.mediawiki).
 
 ```moin
 HED version="8.0.0" 
@@ -133,7 +133,7 @@ The following is a translation of the `.mediawiki` example from the previous sec
 the new XML format. A complete specification of the format is given in 
 [Appendix A: Schema format](Appendix_A.md#a-schema-format).
 
-````{admonition} Example: XML version of previous example.
+````{admonition} **Example:** XML version of previous example.
 
 ```xml
 <?xml version="1.0" ?>
@@ -232,13 +232,14 @@ on the HED schema contents rather than on hard-coded implementation.
 
 ## 3.3. Allowed characters
 
-The different parts of the HED schema have different rules for the characters that are allowed.
-Table 3.1 summarizes the rules. UTF-8 characters are not supported. Values that don’t have 
-an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
+The different parts of the HED schema and associated HED tags have different rules 
+for the characters that are allowed. UTF-8 characters are not supported. Schema designers
+and users that extend HED schema must use node or term names that conform to the rules 
+for `valueClass=nameClass`. Placeholder values that don’t have 
+an associated `valueClass` attribute are also assumed to have `valueClass=nameClass`.
 
-### Table 3.1. Rules for valid schema characters.
 
-`````{list-table}
+`````{list-table}  Rules for valid HED characters.
 :header-rows: 1
 :widths: 20 50
 
@@ -250,6 +251,8 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
   - Alphanumeric characters, blanks, commas, periods, semicolons,<br/> 
   colons, hyphens, underbars, forward slashes, carets (^), and parentheses.  
 * - Placeholder (`#`)
+  - A special node value which indicates a later substitution.
+* - Placeholder children
   - Depends on `valueClass` as well as allowed `unitClass` and unit modifiers.
 * - Library names
   - A single word containing only alphabetic characters.
@@ -261,15 +264,24 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
 :class: tip
 1. The first letter of a term should be capitalized with the remainder lower case. 
 2. Terms containing multiple words cannot contain blanks and should be hyphenated.
-3. Descriptions should be concise sentences, possibly with clarifying examples.
-3. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
+3. Blanks around comma and parentheses delimiters are not part of a tag.
+4. Descriptions should be concise sentences, possibly with clarifying examples.
+5. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
 not specifically allowed by `textClass`.
-4. Values substituted for `#` may have special characters determined by the value class.
+6. Values substituted for `#` may have special characters determined by the value class.
 For example, the colon (:) is specifically allowed for the `dateTimeClass` value class.
-5. Units are separated from their value by at least one blank whether prefix or suffix.
-6. Library namespace names are local and consist of a short word followed by a single colon.
+7. Units are separated from their value by at least one blank whether prefix or suffix.
+8. Library namespace names are local and consist of a short alphabetic word followed by a single colon.
 ````
 
+### 3.3.2 Placeholder values
+
+Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), 
+and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification.
+
+Certain unit classes allow other special characters in their value specification. 
+These special characters are specified in the schema with the `allowedCharacter` attribute. 
+An example of this is the colon in the `dateTimeClass` unit class.
 
 ## 3.4. Vocabulary organization
 
@@ -318,7 +330,7 @@ root as desired. The full path version is referred to as **long form** and trunc
 **short form**. HED tools are available to map between shortened tags and long form as needed. 
 Any intermediate form of the tag path is also allowed as illustrated by this example:
 
-````{admonition} Example: Equivalent forms for HED tag representing a triangle.
+````{admonition} **Example:** Equivalent forms for HED tag representing a triangle.
 
 1. *Item/Object/Geometric-object/2D-shape/Triangle*  
 2. *Object/Geometric-object/2D-shape/Triangle*  
@@ -331,7 +343,7 @@ For values that are substituted for a placeholder (`#`) child, the tag must incl
 as illustrated in this example for the  *Label* tag. The values that replace these `#`
 placeholders cannot be node names.
 
-````{admonition} Example: Equivalent forms for HED tag representing the label Image1.
+````{admonition} **Example:** Equivalent forms for HED tag representing the label Image1.
 
 1. *Property/Informational-property/Label/Image1*  
 2. *Informational-property/Label/Image1*  

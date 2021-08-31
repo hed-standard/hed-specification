@@ -20,9 +20,7 @@ and task inter-relationships.
 This specification is meant to provide guidelines for 
 tool-builders. Additional tutorials and user guides available at [hedtags.org](https://www.hedtags.org)
 provide more specific guidance for annotators.Discussions of how tags for local event codes are
-associated with event instances, as well as supporting tools, are deferred to 
-[Chapter 7: HED with BIDS](07_HED_in_BIDS.md#7-hed-in-bids) and
-[Chapter 8: Resources](08_Resources.md#8-resources).
+associated with event instances are deferred to [Chapter 7: HED with BIDS](07_HED_in_BIDS.md#7-hed-in-bids).
 
 
 ## 4.1. Instantaneous events

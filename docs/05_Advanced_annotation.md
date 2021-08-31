@@ -142,7 +142,7 @@ Events are often modeled as instantaneous occurrences that occur at single point
 
 HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses *Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
 
-``````{admonition} Syntax summary for *Onset* and *Offset*.
+``````{admonition} **Syntax summary for *Onset* and *Offset*.**
 **Short forms:**
  ~ *(Def/XXX, Onset, (tag-group))*
  ~ *(Def/XXX/#, Onset, (tag-group))*
@@ -160,28 +160,28 @@ HED events are assumed to be point events unless they are given an explicit temp
 1. *XXX* is the name of the definition.
 2. The *(tag-group)* is optional.
 3. The additional <em>tag-group</em> is only in effect for that particular scoped event and not for all *XXX*.
-2. If the *Def/XXX/#* form is used, the *#* must be replaced by an actual value.
+2. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
 ````
 ``````
 
 For example, the *PlayMovie* definition of the previous section just defines the playing of a
 movie clip on the screen. The *(tag-group)* might include tags identifying which clip is 
 playing in this instance. This syntax allows one definition name to be used to represent the
-playing of many different clips. 
+playing of different clips. 
 
 ````{admonition} **Example:** The playing of a Star Wars clip using *PlayMovie*.
 
 **Short form:**  
 > [event 1]  
 > *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*  
->   
+ 
 >         .... [The Star Wars movie clip is playing] ....
->      
-> [event n] 
+  
+> [event n]  
 > *Sensory-event, (Def/PlayMovie, Offset)*
 
 **Long form:**  
-> [event 1] 
+> [event 1]  
 > *Event/<strong>Sensory-event</strong>,*  
 > *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*  
 > *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*  
@@ -205,8 +205,7 @@ onset of another *PlayMovie* event.
 Because tools need to have the definitions in hand when fully expanding during validation 
 and analysis, tools must gather applicable definitions before final processing. 
 Library functions in Python, Matlab, and JavaScript are being developed to support 
-gathering of definitions and the expansion as described in 
-[Section 8:Resources](08_Resources.md#84-web-based-services). 
+gathering of definitions and the expansion. 
 
 
 ### 5.3.2. *Duration* 
@@ -214,7 +213,8 @@ gathering of definitions and the expansion as described in
 The *Duration* tag is an alternative method for specifying an event with temporal scope. 
 The start of the temporal scope is the event in which the *Duration* tag appears. 
 The end of the temporal scope is implicit and may not coincide with an actual event 
-appearing in the recording. Instead, tools calculate when the scope ends in the data recording.
+appearing in the recording. Instead, tools calculate when the scope ends in the data recording.  
+
 *Duration* tags do not need a defined label. *Duration* may be grouped with tags representing
 the additional information associated with the temporal scope of that event. 
 This grouping usually does not include tags from the *Event* rooted tree.
@@ -237,9 +237,9 @@ This grouping usually does not include tags from the *Event* rooted tree.
 ````
 
 The *Duration* tag is convenient because its use does not require a *Definition*. The *Duration*
-tag has the same effect on event context as the onset/offset mechanism (as explained in 
-[Section 5.1: *Onset* and *Offset*](#531-onset-and-offset) However the ending of the temporal
-scope for events defined with *Duration* is not marked by an explicit event in the data
+tag has the same effect on event context as the onset/offset mechanism explained in 
+[Section 5.1: *Onset* and *Offset*](#531-onset-and-offset). However, the ending time point of
+events whose temporal scope is defined with *Duration* is not marked by an explicit event in the data
 recording. This has distinct disadvantages for analysis if the offset is expected to elicit a
 neural response, which is the case for most events involving visual or auditory presentations.
 
@@ -253,6 +253,7 @@ delay time relative to the onset of the corresponding stimulus event. This strat
 convenient for some time-locked analyses. HED tools could be developed to support the 
 expansion of delayed events into actual events in the event stream, provided delays were
 consistently provided as signed numerical values relative to the anchor onset. 
+
 In the following example, a trial consists of the presentation of a cross in the 
 center of the screen. The participant responds with a button press upon seeing the cross. 
 The response time of the button push is recorded relative to the stimulus presentation 
@@ -286,7 +287,7 @@ Notice that the *Agent-action* tag from the *Event* subtree is included in the *
 This allows tools to identify this tag-group as representing a distinct event. 
 For BIDS datasets, such response delays would be in value columns of the `_events.tsv` 
 event files. The HED annotation for the JSON sidecar corresponding to these files would 
-contain a *#*. At HED expansion time, tools replace the *#* with the column value (2.83)
+contain a `#`. At HED expansion time, tools replace the `#` with the column value (2.83)
 corresponding to each event. 
 
 
@@ -304,8 +305,7 @@ sequences. An event having the tag *Event-stream/XXX* is part of event stream XX
 ````{admonition} **Example:** Tag a face event as part of the *Face-stream* event stream.
 
 **Short form:**  
-> *Sensory-event,* 
-> *Event-stream/Face-stream, Visual-presentation, (Image, Face)
+> *Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)*
 
 **Long form:**   
 > *Event/<strong>Sensory-event</strong>,*  
@@ -326,17 +326,19 @@ initiated. However, the details of the setting in which the event occurs also in
 responses. For the *PlayMovie* example of the previous section, events that occur between the
 *Onset* and *Offset* pairs for *PlayMovie* should inherit the information that a particular movie
 is playing without requiring the user to explicitly enter those tags for every intervening event.
-This process should be deferred until analysis time because other events might be added to the
-event file after the initial annotation of the recording. For example, a user might run a tool
-to mark blink or other features as events prior to doing other analyses. HED uses the
-*Event-context* tag to accomplish the required context mapping.
 
-Table 5.4 summarizes the syntax of the *Event-context* tag. In normal usage, **this tag is not
-used directly by annotators**.  Rather, tools insert the *Event-context* tag at analysis time to
-handle the implicit context created by enduring or scoped events. However, annotators may use the
-tag when an event has explicit context information that must be accounted for.
+The process of event context mapping should be deferred until analysis time because other 
+events might be added to the event file after the initial annotation of the recording. 
+For example, a user might run a tool to mark blink or other features as events prior 
+to doing other analyses. HED uses the *Event-context* tag to accomplish the required context mapping.
 
-``````{admonition} Syntax summary for *Event-context*.
+In normal usage, **the *Event-context* tag is not used directly by annotators**.  
+Rather, tools insert the *Event-context* tag at analysis time to
+handle the implicit context created by enduring or scoped events. 
+However, annotators may use the tag when an event has explicit context information 
+that must be accounted for.
+
+``````{admonition} **Syntax summary for *Event-context*.**
 
 **Short form:**
  ~ *(Event-context, other-tags)*  
@@ -394,7 +396,7 @@ In analysis, the researcher would typically combine all of the “slow presentat
 one group and all “fast presentation” trials into another group even though the exact task
 condition varies within the group varies according This type of grouping structure is very 
 common in experiment design and can be captured by HED tags in a straightforward manner by
-defining condition variables for each group and using the *#* to capture variability within 
+defining condition variables for each group and using the `#` to capture variability within 
 the group.
 
 ````{admonition} **Example:** Condition variables for slow and fast visual presentation rates.
