@@ -19,6 +19,7 @@ The rows of each spreadsheet correspond to events, while the columns contain ide
 information pertaining to the events.  The first row of each spreadsheet usually contains 
 column names that document what each column represents. Usually one column contains the 
 time of the event. Other columns may contain categorical values, other values, or HED strings.
+
 Categorical column values are chosen from a small, explicitly defined subset. 
 Value columns may contain numeric values or other types of values such as file names. 
 HED tools assume that event files are spreadsheets, either in BIDS (`.tsv`) format or 
@@ -33,7 +34,7 @@ BIDS uses tab-separated-value (`.tsv`) format for event files, with a required `
 containing the time of the event in seconds. BIDS also requires a `duration` column for event
 files. 
 
-````{admonition} **Example:** Excerpt from a BIDS event file:
+````{admonition} **Example:** Excerpt from a BIDS event file.
 
 ```
 onset  duration  trial_type  response_time stim_file
@@ -57,7 +58,7 @@ structure array. The time of the event is given in frames in the `EEG.event.late
 field for data that has not been epoched. 
 
 
-## 7.3. Sidecar format (BIDS)
+## 7.3. BIDS sidecar format
 
 Systems that handle HED annotation should be capable of defining and using metadata dictionaries
 in JSON format to specify HED tags applicable to the values in different columns of an event
@@ -69,14 +70,14 @@ as explained in the [HED appendix](https://github.com/bids-standard/bids-specifi
 specification. Internally, EEGLAB and CTAGGER use mapping objects that are stored in the EEG
 structure. However, these mapping options can be written to or read from BIDS JSON sidecars. 
 
-Each events file spreadsheet column containing categorical values may also have a categorical
+Each event file spreadsheet column containing categorical values may also have a categorical
 dictionary that documents the meaning of the data in that column. HED also provides for the HED
 tagging of non-categorical columns as explained below. The following example shows the JSON
 sidecar format for annotating the same event file of the previous section. The `"HED"` key 
 for the `"trial_type"` column indexes the categorical dictionary associated with the 
 `trial_type` column in the event file. 
 
-````{admonition} **Example:** JSON sidecar for annotating the columns of an events file.
+````{admonition} **Example:** JSON sidecar for annotating the columns of an event file.
 
 ```json
 {
@@ -137,7 +138,7 @@ into HED tags.
 ### 7.4.1. HED tag level validation
 
 HED tag level validation checks each individual HED tag against its associated schema. 
-The long-form tag must be in the schema. HED tags that take a value (have a # child in the 
+The long-form tag must be in the schema. HED tags that take a value (have a `#` child in the 
 schema) must have values that only contain appropriate characters. If the HED tag `#` has a
 *unitClass* attribute, the units must comply with those of the specified *unitClass*. 
 If the HED tag has additional nodes beyond the leaf node in the schema, the *extensionAllowed* 
@@ -161,7 +162,7 @@ dictionary location rather than to line numbers in the event file or spreadsheet
 The validator checks that there is exactly one `#` in the HED string annotation associated 
 with each non-categorical column. The `#` placeholder should correspond 
 to a `#` in the HED schema, indicating that the parent tag expects a value. 
-If the placeholder is followed by a units designator, the validator checks that 
+If the placeholder is followed by a unit designator, the validator checks that 
 these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
 
@@ -202,7 +203,8 @@ sure that *Onset* and *Offset* tags are properly matched within the data recordi
 Third-generation HED analysis tools also require some additional infrastructure. These tools
 should call the HED libraries to fully expand the tags for a data recording before doing
 analysis. In addition to converting all HED tags to their long form, the library tools can 
-remove the definitions and replace *def/* with the full tag expansion with any defined labels.
+remove the definitions and replace *def/* with the full tag expansion with any defined labels.  
+
 Each event that is within the temporal scope of a scoped event, should have the scoped event
 information added to the *Event-context* tag group of the intermediate event upon request.
 *Delay* tag expansions as insertions of actual events should also be supported. 

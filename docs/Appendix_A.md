@@ -13,10 +13,12 @@ and `.xml` formats.
 ## A.1. Mediawiki file format
 
 The rules for creating a valid `.mediawiki` specification of a HED schema are given below. 
+The format is line-oriented, meaning that all information about an individual entity should be on a 
+single line. Empty lines and lines containing only blanks are ignored.
 
 ### A.1.1. Overall file layout
 
-The overall layout of is `.mediawiki` schema file is:
+````{admonition} Overall layout of a HED MEDIAWIKI schema file.
 
 ```moin
 header-line
@@ -33,10 +35,11 @@ property-specification
 !# end hed
 epilogue
 ```
+````
 
-Empty lines and lines containing only blanks are ignored.
 
-### A.1.2. The *header-line*
+
+### A.1.1. The *header-line*
 
 The first line of the `.mediawiki` file should be a _header-line_ that starts with the 
 keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1). 
@@ -53,7 +56,8 @@ keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1)
      - Description
    * - library
      - optional
-     - Name of library used in `xml` file names.<br/>
+     - Name of library used in `xml` file names.  
+     
        The value should only have alphabetic characters.
    * - version
      - required
@@ -65,43 +69,13 @@ keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1)
      - optional
      - `xsi:noNamespaceSchemaLocation` points to XSD file.     
 ````
-If 
-Here is a straight HTML version of the schema
-<table>
-  <tr>
-     <td><strong>Name</strong></td>
-     <td><strong>Level</strong></td>
-     <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-     <td><code>library</code></td>
-     <td>Optional</td>
-     <td>Name of library to be used in <em>.xml</em> file names. The value should consist of alphabetic characters only.</td>
-  </tr>
-  <tr>
-     <td><code>version</code></td>
-     <td>Required</td>
-     <td>A valid semantic version number of the schema</td>
-  </tr>
-  <tr>
-     <td><code>xmlns:xsi</code></td>
-     <td>Optional</td>
-     <td><code>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</code></td>
-  </tr>
-  <tr>
-      <td><code>xsi:noNamespaceSchemaLocation</code></td>
-      <td>Required/Optional</td>
-      <td><p>Location of the XSD in effect, for example: <code>"https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd"</code></p>
-<p>The <code>xsi</code> attribute is required if <code>xmlns:xsi</code> is given.</p></td>
-  </tr>
-</table>
 
 The `xsi` attribute is required if `xmlns:xsi` is given.
 The `library` and `version` values are used to form the official xml file name and appear as attributes
 in the `<HED>` root of the `.xml` file`.` The versions of the schema that use XSD validation to 
 verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
 
-````{admonition} **Example:** Version 8.0.0 of the HED base schema (<code>.mediawiki</code>).
+````{admonition} **Example:** Version 8.0.0 of the HED MEDIAWIKI schema.
 
 ```moin
 HED version="8.0.0"
@@ -109,10 +83,11 @@ HED version="8.0.0"
 
 ````
 
-The version line must be the first line of the `.mediawiki` file. The base `.mediawiki` file is
-found in 
+The version line must be the first line of the `.mediawiki` file. The schema `.mediawiki` file is
+`HED-schema-8.0.0.mediawiki` found in 
+[https://github.com/hed-standard/hed-specification/tree/master/hedwiki](https://github.com/hed-standard/hed-specification/tree/master/hedwiki).
 
-````{admonition} **Example:** Version 8.0.0 of the HED base schema (<code>.xml</code>).
+````{admonition} **Example:** Version 8.0.0 of the HED XML base schema.
 
 ```xml
 <HED version="8.0.0">
@@ -179,7 +154,7 @@ The number of asterisks indicates the level of the node in the subtree. HED-3G n
 can only contain alphanumeric characters, hyphens, and under-bars. They cannot contain blanks 
 and must be unique. HED (2G) and earlier versions allow blanks.   Everything after the node
 name must be contained within `<nowiki></nowiki>` tags. Placeholder nodes have an empty node 
-name, but are followed by a # enclosed in  `<nowiki></nowiki>` tags.
+name, but are followed by a `#` enclosed in  `<nowiki></nowiki>` tags.
 
 ````{admonition} **Example:** Different types of HED node specifications.
 
@@ -648,7 +623,7 @@ different parts of the schema as indicated by their properties.
   </tr>
   <tr>
      <td><code>extensionAllowed</code></td>
-     <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of # placeholders</td>
+     <td>A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of `#` placeholders</td>
   </tr>
   <tr>
      <td><code>recommended</code></td>
@@ -920,100 +895,4 @@ Table A.7 lists the current unit modifiers for HED-3G.
 
  _*_ indicates an SI unit symbol modifier.
 
-
-## A.3. HED schema errors
-
-This section is organized by the type of schema format that results in the error. 
-Errors that might be detected regardless of the schema format start with HED_SCHEMA. 
-Errors that are specific to the `.mediawiki` format start with HED_WIKI.  Errors that 
-occur in the construction of the XML version or that are detected by XML validators 
-when the planned XSD validation is implemented start with HED_XML. All schema 
-errors are summarized in **Table A.8**.
-
-
-### A.3.1. General schema errors
-
-**HED_SCHEMA_ATTRIBUTE_INVALID**: An attribute that appears in a schema node has not
-been defined in the  schema attributes section of the schema file.
-
-**HED_SCHEMA_CHARACTER_INVALID**: The specification contains an invalid character.
-
-**HED_SCHEMA_DUPLICATE_NODE**: Node name appears in the schema more than once.
-
-**HED_SCHEMA_HEADER_INVALID**: The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.
-
-**HED_SCHEMA_NODE_NAME_INVALID**: A schema node element name is empty or contains invalid characters.
-
-**HED_SCHEMA_REQUIRED_SECTION_MISSING**: One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.
-
-**HED_SCHEMA_VERSION_INVALID**: The schema version specification in the HED line or element is invalid because the version specification does not have the correct syntax for the schema file format or the schema version does not comply with semantic versioning.
-
-
-### A.3.2. HED format-specific schema errors.
-
-**HED_WIKI_DELIMITERS_INVALID**: Line content after node name is not enclosed with `<nowiki></nowiki> `delimiters; or the line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or` { }` delimiters.
-
-**HED_WIKI_LINE_START_INVALID**: Start of body line not `'''` or `*`.
-
-**HED_WIKI_SEPARATOR_INVALID**: One of the required wiki section separators is missing or in the wrong place. The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.
-
-**HED_XML_SYNTAX_INVALID**: XML syntax or does not comply with specified XSD.
-
-
-### A.3.3. Summary of validation errors for HED schema.
-
-Table A.8 summarizes the errors relevant for HED schema.
-
-#### **Table A.8.** Schema validation errors.
-
-<table>
-  <tr>
-     <td><strong>Error or warning</strong></td>
-     <td><strong>Explanation</strong></td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_ATTRIBUTE_INVALID</code></td>
-     <td>Attribute not defined in one of the definition sections: <code>unitClassDefinitions</code>, <code>valueClassDefinitions</code>, <code>schemaAttributeDefinitions</code></td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_CHARACTER_INVALID</code></td>
-     <td>The specification contains an invalid character.</td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_DUPLICATE_NODE</code></td>
-     <td>Node name appears in the schema more than once.</td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_HEADER_INVALID</code></td>
-     <td>The schema header has an invalid format, contains invalid characters, or has unrecognized attributes.</td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_NODE_NAME_INVALID</code></td>
-     <td>Node element name is empty or contains invalid characters</td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_REQUIRED_SECTION_MISSING</code></td>
-     <td>One of the required schema sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes or properties) is missing or in the wrong place.</td>
-  </tr>
-  <tr>
-     <td><code>HED_SCHEMA_VERSION_INVALID</code></td>
-     <td>The version is invalid or does not use  semantic versioning</td>
-  </tr>
-  <tr>
-     <td><code>HED_WIKI_DELIMITERS_INVALID</code></td>
-     <td>Line content after node name is not enclosed with <code>&lt;nowiki>&lt;/nowiki> </code>delimiters; or the line has unmatched or multiple <code>&lt;nowiki>&lt;/nowiki></code>, <code>[ ]</code>, or<code> { }</code> delimiters.</td>
-  </tr>
-  <tr>
-     <td><code>HED_WIKI_LINE_START_INVALID</code></td>
-     <td>Start of body line not <code>''' or *.</code></td>
-  </tr>
-  <tr>
-     <td><code>HED_WIKI_SEPARATOR_INVALID</code></td>
-     <td>One of the required wiki section separators is missing or in the wrong place. The required separators are: <code>!# start schema</code>, <code>!# end schema</code>, and  <code>!# end hed</code>.</td>
-  </tr>
-  <tr>
-     <td><code>HED_XML_SYNTAX_INVALID</code></td>
-     <td>XML syntax or or does not comply with specified XSD.</td>
-  </tr>
-</table>
 

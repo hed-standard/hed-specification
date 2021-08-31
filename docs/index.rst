@@ -14,12 +14,11 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    05_Advanced_annotation.md
    06_Library_schema.md
    07_HED_in_BIDS.md
-   08_Resources.md
    Appendix_A.md
    Appendix_B.md
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Resources:
 
    08_Resources.md

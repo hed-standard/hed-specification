@@ -24,7 +24,7 @@ part of a library used in conjunction with core modules of the programming langu
 Similar to the design principles imposed on function names and subclass organization in 
 software development, HED library schemas must conform to some basic rules:
 
-````{annotation} Rules for HED library schema design.
+````{annotation} **Rules for HED library schema design.**
 :class: tip
 1. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
@@ -190,11 +190,12 @@ HED schemas available on GitHub in the `hedxml` directory of the `hed-specificat
 repository ([https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)). 
 The HED version is included as the value of the `"HEDVersion"` key in the 
 `dataset_description.json` metadata file located at the top level in a BIDS dataset. 
-HEDTools retrieve the appropriate HED schema directly from GitHub when needed.
+HEDTools retrieve the appropriate HED schema directly from GitHub when needed. 
+The following examples shows how a BIDS user specifies that HED version 8.0.0 is
+used for a dataset called "A wonderful experiment". BIDS locates the appropriate 
+version of the schema on GitHub and downloads it during the validation process. 
 
-````{admonition} **Example:** Driving library schema example tags.
-
-**Example:** A portion of the `dataset_description.json` of a dataset using `HED8.0.0.xml` stored on GitHub.
+````{admonition} **Example:** BIDS <code>dataset_description.json</code> using HED version 8.0.0.
 
 ```json
 {
@@ -225,10 +226,11 @@ the base HED schema, and if both are specified, `"version"` always takes precede
 The `"libraries"` key points to a library dictionary. The keys of the library dictionary are 
 the nicknames used in the dataset to reference the schema. The values  The `"version"`
 key specifies the HED version number of a schema in the standard library and has the 
-same effect as directly specifying.  `
+same effect as directly specifying. The following example specifies a base HED schema 
+located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas 
+with nicknames `"la"` and `"lb"`. `
 
-````{admonition} **Example:** Driving library schema example tags.
-**Example:** The following example specifies a base HED schema located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas with nicknames `"la"` and `"lb"`.
+````{admonition} **Example:** Proposed specification of library schema in BIDS.
 
 ```json
 {
