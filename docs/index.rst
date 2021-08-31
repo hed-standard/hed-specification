@@ -18,8 +18,4 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    Appendix_A.md
    Appendix_B.md
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Links:
 
-   `Online <https://hedtools.ucsd.edu/hed>`_
