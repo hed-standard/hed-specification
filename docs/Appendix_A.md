@@ -42,9 +42,7 @@ epilogue
 ### A.1.1. The *header-line*
 
 The first line of the `.mediawiki` file should be a _header-line_ that starts with the 
-keyword `HED` followed by a blank-separated list of name-value pairs (Table A.1). 
-
-#### **Table A.1.** Allowed header parameters.
+keyword `HED` followed by a blank-separated list of name-value pairs.
 
 ````{eval-rst}
 .. list-table:: Allowed HED schema header parameters
@@ -96,7 +94,7 @@ The version line must be the first line of the `.mediawiki` file. The schema `.m
 
 The file name in `hedxml` in `hed-specification` is `HED8.0.0.xml`.
 
-````{admonition} **Example:** Version 1.0.2 of HED library schema <code>test</code> (<code>.media</code>).
+````{admonition} **Example:** Version 1.0.2 of HED test library in MEDIAWIKI format.
 
 ```moin
 HED library="test" version="1.0.2"
@@ -105,7 +103,7 @@ HED library="test" version="1.0.2"
 
 The resulting XML root is:
 
-````{admonition} **Example:** Version 1.0.2 of HED library schema <code>test</code> (<code>.xml</code>).
+````{admonition} **Example:** Version 1.0.2 of HED test library schema in XML format.
 ```xml
 <HED library="test" version="1.0.2">
 ```
@@ -382,7 +380,7 @@ The `suggestedTag` attribute has a valid HED tag value. In the mediawiki represe
 ````{admonition} The suggestedTag attribute has a valid HED tag value.
 
 ```moin
-{suggestedTag=Sweet,suggestedTag=Gustatory-attribute/Salty, suggestedTag=Property/Sensory-property/Gustatory-attribute/Gustatory-attribute/Sour}
+{suggestedTag=Sweet,suggestedTag=Gustatory-attribute/Salty}
 ```
 ````
 
@@ -395,7 +393,7 @@ in any form (short, long, or intermediate).
 **Old xml if present:**
 
 ```xml
-<node suggestedTag="Sweet,Gustatory-attribute/Salty Property/Sensory-property/Sensory-attribute/Gustatory-attribute/Sour">
+<node suggestedTag="Sweet,Gustatory-attribute/Salty">
     <name>xxx</name>
 </node>
 ```
@@ -409,7 +407,6 @@ in any form (short, long, or intermediate).
       <name>suggestedTag</name>
     	 <value>Sweet</value>
     	 <value>Gustatory-attribute/Salty</value>
-    	 <value>Property/Sensory-property/Sensory-attribute/Gustatory-attribute/Sour</value>
    </attribute>
 </node>
 ```
@@ -467,6 +464,127 @@ describe properties of the unit class rather than of individual unit types. In a
 ```
 ````
 
+The
+The unit classes
+`````{list-table} Summary of unit classes and units in HED8.0.0.
+:header-rows: 1
+:widths: 20 10, 40
+
+* - Unit class
+  - Default units
+  - Units (* indicates unit symbol).
+* - accelerationUnits
+  - m-per-s^2 
+  - m-per-s^2*
+* - angleUnits
+  - rad 
+  - radian, rad*, degree
+* - areaUnits
+  - m^2 
+  - metre^2, m^2*
+* - currencyUnits
+  - $ 
+  - dollar, $, point
+* - frequencyUnits
+  - Hz 
+  - >hertz, Hz*
+* - areaUnits
+  - >m^2 
+  - metre^2, m^2*
+* - `unitClassProperty`
+  - Indicates the schema attribute only applies to unit classes.
+* - `unitModifierProperty`
+  -  Indicates the schema attribute only applies to unit modifiers.
+* - `valueClassProperty`
+  -  Indicates the schema attribute only applies to value classes.
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
+Presence indicates true.
+2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
+````
+`````
+Table A.6 lists the current unit classes for HED.
+
+#### **Table A.6.** Unit classes.
+
+<table>
+  <tr>
+   <td><strong>Unit class</strong></td>
+   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong></td>
+   <td><strong>defaultUnits</strong></td>
+  </tr>
+  <tr>
+     <td><code>accelerationUnits</code></td>
+     <td><strong>m-per-s^2*</strong></td>
+     <td>m-per-s^2*</td>
+  </tr>
+  <tr>
+     <td><code>angleUnits</code></td>
+     <td><strong>radian</strong>, <strong>rad*</strong>, degree</td>
+     <td>rad</td>
+  </tr>
+  <tr>
+     <td><code>areaUnits</code></td>
+     <td><strong>metre^2</strong>, <strong>m^2*</strong></td>
+     <td>m^2*</td>
+  </tr>
+  <tr>
+     <td><code>currencyUnits</code></td>
+     <td>dollar, $, point</td>
+     <td>$</td>
+  </tr>
+  <tr>
+     <td><code>frequencyUnits</code></td>
+     <td><strong>hertz</strong>, <strong>Hz*</strong></td>
+     <td>Hz</td>
+  </tr>
+  <tr>
+     <td><code>intensityUnits</code></td>
+     <td>dB, candela, cd</td>
+     <td>dB</td>
+  </tr>
+  <tr>
+     <td><code>jerkUnits</code></td>
+     <td><strong>m-per-s^3*</strong></td>
+     <td>m-per-s^3*</td>
+  </tr>
+  <tr>
+     <td><code>memorySizeUnits</code></td>
+     <td>byte, B</td>
+     <td>B</td>
+  </tr>
+  <tr>
+     <td><code>physicalLength</code></td>
+     <td><strong>metre</strong>, <strong>m*</strong>, inch, foot, mile</td>
+     <td>m*</td>
+  </tr>
+  <tr>
+     <td><code>speedUnits</code></td>
+     <td><strong>m-per-s</strong>*, mph, kph</td>
+     <td>m-per-s*</td>
+  </tr>
+  <tr>
+     <td><code>timeUnits</code></td>
+     <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour</td>
+     <td>s*</td>
+  </tr>
+  <tr>
+     <td><code>volumeUnits</code></td>
+     <td><strong>metre^3</strong>, <strong>m^3*</strong></td>
+     <td>m^3*</td>
+  </tr>
+  <tr>
+     <td><code>weightUnits</code></td>
+     <td><strong>gram</strong>, <strong>g*</strong>, pound, lb</td>
+     <td>m^3*</td>
+  </tr>
+
+</table>
+
 ### A.2.2. Value classes
 
 HED has very strict rules about what characters are allowed in various elements of the HED
@@ -478,46 +596,38 @@ of the value class. The HED validator and other HED tools may hardcode informati
 behavior of certain value classes (for example the `numericClass` value class). 
 **HED does not allow commas or quotes in any of its values.**
 
+`````{list-table}  Rules for valid HED characters.
+:header-rows: 1
+:widths: 20 50
 
-#### **Table A.2.** Value classes.
+* - Value class
+  - Allowed characters
+* - `dateTimeClass`
+  - digits, T, :, - 
+* - `nameClass`
+  - alphabetic characters, -
+* - `numericClass`
+  -  digits, ., -, +, E, e 
+* - `posixPath`
+  -  As yet unspecified
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
 
-<table>
-  <tr>
-     <td><strong>Class name </strong></td>
-     <td><strong>Allowed characters</strong></td>
-     <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-     <td><code>dateTimeClass</code>*</td>
-     <td><code>digits</code>, <code>T</code>, <code>:</code>, <code>-</code></td>
-   <td>Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss. Any variation on the full form is allowed.</td>
-  </tr>
-  <tr>
-     <td><code>nameClass</code></td>
-     <td><code>letters</code>, <code>digits</code>, <code>_</code>, <code>-</code></td>
-     <td>Value class of node names and labels.</td>
-  </tr>
-  <tr>
-     <td><code>numericClass</code>*</td>
-     <td><code>digits</code>, <code>.</code>, <code>-</code>, <code>+</code>, <code>E</code>, <code>e</code></td>
-     <td>Value must be a valid numerical value.</td>
-  </tr>
-  <tr>
-     <td><code>posixPath</code>*</td>
-     <td></td>
-     <td>Specifies strings conforming to Posix path specification. This is not implemented and currently allows everything except commas.</td>
-  </tr>
-  <tr>
-   <td><code>textClass</code>
-   </td>
-   <td><code>letters</code>, <code>digits</code>, <code>blank</code>, <code>+</code>, <code>-</code>, <code>:</code>, <code>;</code>, <code>.</code>, <code>/</code>, <code>(</code>, <code>)</code>, <code>?</code>, <code>*</code>, <code>%</code>, <code>$</code>, <code>@</code>
-   </td>
-   <td>Value class for text descriptions.
-   </td>
-  </tr>
-</table>
+`````
 
-* indicates additional syntax checks
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Commas are not allowed in any values.
+2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
+3. Any variation on the full form of ISO8601 date-time is allowed.
+4. The name class is for schema nodes and labels.
+5. Values that have a value class of `numericClass` must be valid fixed point of floating point values.
+6. Scientific notation is supported with the `numericClass`.
+7. The text class is for descriptions, mainly for use with the *Description/* tag.
+8. The posix path class is yet unspecified and currently allows any characters besides commas.
+
+````
+
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. 
 These sections follow a format similar to the `<node>` element in the `<schema>`:
@@ -564,39 +674,33 @@ The individual `<schemaAttributeDefinition>` elements have the following format:
 ````
 
 The `<property>` elements indicate where various schema attributes apply. 
-Their meanings are hard-coded into the schema processors. Table A.3 lists the names of these
-properties.
+Their meanings are hard-coded into the schema processors. The following is a list of schema
+attribute properties.
 
+`````{list-table} Schema attribute properties
+:header-rows: 1
+:widths: 20 50
 
-#### **Table A.3.** Schema properties.
+* - Property
+  - Description
+* - `boolProperty`
+  - A schema attribute has this property has values that are either true or false. 
+* - `unitClassProperty`
+  - Indicates the schema attribute only applies to unit classes.
+* - `unitModifierProperty`
+  -  Indicates the schema attribute only applies to unit modifiers.
+* - `valueClassProperty`
+  -  Indicates the schema attribute only applies to value classes.
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
 
-<table>
-  <tr>
-     <td><strong>Schema attribute property</strong></td>
-     <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-     <td><code>boolProperty</code></td>
-     <td><p>If a schema attribute has this property, then its values are either true or false.</p> <p>The schema processing translates the attribute into an <code>attribute</code> element with a <code>&lt;name></code> child but no <code>value</code> child.</p></td>
-  </tr>
-  <tr>
-     <td><code>unitClassProperty</code>
-     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitClassDefinition</code> elements.</td>
-  </tr>
-  <tr>
-     <td><code>unitModifierProperty</code></td>
-     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unitModifierDefinition</code> elements.</td>
-  </tr>
-  <tr>
-     <td><code>unitProperty</code></td>
-     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>unit</code> elements.</td>
-  </tr>
-  <tr>
-     <td><code>valueClassProperty</code></td>
-     <td>A schema attribute having this property can only apply to an <code>attribute</code> of <code>valueClassDefinition</code> elements.</td>
-  </tr>
-</table>
-
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
+Presence indicates true.
+2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
+````
+`````
 
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
 `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
@@ -605,7 +709,30 @@ A given schema attribute can only apply to one type of element (`node`, `unitCla
 Table A.4 gives a list of the supported HED schema attributes. These attributes apply to
 different parts of the schema as indicated by their properties. 
 
+`````{list-table} Schema attribute properties
+:header-rows: 1
+:widths: 20 50
 
+* - Property
+  - Description
+* - `boolProperty`
+  - A schema attribute has this property has values that are either true or false. 
+* - `unitClassProperty`
+  - Indicates the schema attribute only applies to unit classes.
+* - `unitModifierProperty`
+  -  Indicates the schema attribute only applies to unit modifiers.
+* - `valueClassProperty`
+  -  Indicates the schema attribute only applies to value classes.
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
+Presence indicates true.
+2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
+````
+`````
 #### **Table A.4.** Schema attributes.
 
 <table>
@@ -723,83 +850,7 @@ the schema. Table A.5 lists these attributes.
 
 ### A.2.5. HED unit classes and unit modifiers
 
-Table A.6 lists the current unit classes for HED.
 
-#### **Table A.6.** Unit classes.
-
-<table>
-  <tr>
-   <td><strong>Unit class</strong></td>
-   <td><strong>Unit (Bold = SIUnit, * = unitSymbol)</strong></td>
-   <td><strong>defaultUnits</strong></td>
-  </tr>
-  <tr>
-     <td><code>accelerationUnits</code></td>
-     <td><strong>m-per-s^2*</strong></td>
-     <td>m-per-s^2*</td>
-  </tr>
-  <tr>
-     <td><code>angleUnits</code></td>
-     <td><strong>radian</strong>, <strong>rad*</strong>, degree</td>
-     <td>rad</td>
-  </tr>
-  <tr>
-     <td><code>areaUnits</code></td>
-     <td><strong>metre^2</strong>, <strong>m^2*</strong></td>
-     <td>m^2*</td>
-  </tr>
-  <tr>
-     <td><code>currencyUnits</code></td>
-     <td>dollar, $, point</td>
-     <td>$</td>
-  </tr>
-  <tr>
-     <td><code>frequencyUnits</code></td>
-     <td><strong>hertz</strong>, <strong>Hz*</strong></td>
-     <td>Hz</td>
-  </tr>
-  <tr>
-     <td><code>intensityUnits</code></td>
-     <td>dB, candela, cd</td>
-     <td>dB</td>
-  </tr>
-  <tr>
-     <td><code>jerkUnits</code></td>
-     <td><strong>m-per-s^3*</strong></td>
-     <td>m-per-s^3*</td>
-  </tr>
-  <tr>
-     <td><code>memorySizeUnits</code></td>
-     <td>byte, B</td>
-     <td>B</td>
-  </tr>
-  <tr>
-     <td><code>physicalLength</code></td>
-     <td><strong>metre</strong>, <strong>m*</strong>, inch, foot, mile</td>
-     <td>m*</td>
-  </tr>
-  <tr>
-     <td><code>speedUnits</code></td>
-     <td><strong>m-per-s</strong>*, mph, kph</td>
-     <td>m-per-s*</td>
-  </tr>
-  <tr>
-     <td><code>timeUnits</code></td>
-     <td><strong>second</strong>, <strong>s*,</strong> day, minute, hour</td>
-     <td>s*</td>
-  </tr>
-  <tr>
-     <td><code>volumeUnits</code></td>
-     <td><strong>metre^3</strong>, <strong>m^3*</strong></td>
-     <td>m^3*</td>
-  </tr>
-  <tr>
-     <td><code>weightUnits</code></td>
-     <td><strong>gram</strong>, <strong>g*</strong>, pound, lb</td>
-     <td>m^3*</td>
-  </tr>
-
-</table>
 
 
 Table A.7 lists the current unit modifiers for HED-3G.

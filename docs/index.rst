@@ -21,4 +21,4 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    :maxdepth: 1
    :caption: Resources:
 
-   08_Resources.md
+   Resources.md

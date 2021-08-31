@@ -2,7 +2,7 @@
 
 This appendix summarizes the error codes used by the HED validators and other tools
 
-## B.2. HED validation errors 
+## B.1. HED validation errors 
 
 **HED_CHARACTER_INVALID**: HED string contains an invalid character.
  ~ HED uses ANSI encoding and does not support UTF-8. 
