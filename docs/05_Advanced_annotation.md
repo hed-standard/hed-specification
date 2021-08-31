@@ -21,8 +21,8 @@ the actual definition information. The following summarizes the syntax of defini
  ~ *(Definition/XXX/#, (tag-group))*
  
 **Long forms:**  
- ~ *(Property/Organizational-property/Definition/XXX, (tag-group))*
- ~ *(Property/Organizational-property/Definition/XXX/#, (tag-group))*
+ ~ *(Property/Organizational-property/<strong>Definition/XXX</strong>, (tag-group))*
+ ~ *(Property/Organizational-property/<strong>Definition/XXX/#</strong>, (tag-group))*
  
 ````{admonition} Notes:
 :class: tip
@@ -128,19 +128,33 @@ used in the same HED string annotation, but definitions cannot be nested.
 Further, definitions must appear as top-level tag groups. Tools generally make a pass 
 through the event information to extract the definitions prior to other processing. 
 The validation checks made by the HED validator when assembling and processing definitions 
-are summarized in [Appendix B:](Appendix_B.md#b-hed-validation-errors).
+are summarized in [Appendix B:](Appendix_B.md#b1-hed-validation-errors).
 
-In addition to syntax checks, which occur in early processing passes, HED validators check that names are defined before they are used as definitions. Additional checks for temporal scope are discussed in [Section 5.3: Temporal scope](Appendix_B.md#53-temporal-scope).
+In addition to syntax checks, which occur in early processing passes, HED validators check 
+that names are defined before they are used as definitions. Additional checks for temporal 
+scope are discussed in [Section 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
 
 
 ## 5.3. Temporal scope
 
-Events are often modeled as instantaneous occurrences that occur at single points in time (i.e., time-marked or point events). In reality, many events unfold over extended time periods. The interval between the initiation of an event and its completion is called the **temporal scope** of the event. Some events, such as the setup and initiation of the environmental controls for an experiment, may have a temporal scope that spans the entire data recording. Other events, such as the playing of a movie clip or a participant performing an action in response to a sensory presentation, may last for seconds or minutes. Temporal scope captures the effects of these extended events in a machine-actionable manner.
+Events are often modeled as instantaneous occurrences that occur at single points in time 
+(i.e., time-marked or point events). In reality, many events unfold over extended time periods. 
+The interval between the initiation of an event and its completion is called the **temporal scope** 
+of the event. Some events, such as the setup and initiation of the environmental controls 
+for an experiment, may have a temporal scope that spans the entire data recording. 
+Other events, such as the playing of a movie clip or a participant performing an action in 
+response to a sensory presentation, may last for seconds or minutes. Temporal scope captures 
+the effects of these extended events in a machine-actionable manner.
 
 
 ### 5.3.1. *Onset* and *Offset*
 
-HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses *Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
+HED events are assumed to be point events unless they are given an explicit temporal scope 
+(i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses 
+*Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope 
+actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. 
+The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by 
+another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
 
 ``````{admonition} **Syntax summary for *Onset* and *Offset*.**
 **Short forms:**
@@ -291,7 +305,7 @@ contain a `#`. At HED expansion time, tools replace the `#` with the column valu
 corresponding to each event. 
 
 
-## 5.4. The *Event-stream* tag
+## 5.4. Event streams
 
 An event stream is a sequence of events in a data recording. The most obvious event stream 
 is the sequence consisting of all the events in the recording, but there are many other
@@ -332,7 +346,7 @@ events might be added to the event file after the initial annotation of the reco
 For example, a user might run a tool to mark blink or other features as events prior 
 to doing other analyses. HED uses the *Event-context* tag to accomplish the required context mapping.
 
-In normal usage, **the *Event-context* tag is not used directly by annotators**.  
+In normal usage, **the *Event-context* tag is not used directly by annotators**.
 Rather, tools insert the *Event-context* tag at analysis time to
 handle the implicit context created by enduring or scoped events. 
 However, annotators may use the tag when an event has explicit context information 
@@ -344,7 +358,7 @@ that must be accounted for.
  ~ *(Event-context, other-tags)*  
  
 **Long form:**
- ~ *(Property/Organizational-property/Event-context, other-tags)*
+ ~ *(Property/Organizational-property/<strong>Event-context</strong>, other-tags)*
  
 ````{admonition} Notes:
 :class: tip
@@ -494,8 +508,8 @@ with *Parameter* is a good compromise between clarity and machine-actionability.
 ````{admonition} **Example:** Annotate face repetition and interval using *Parameter-value*.
 
 **Short form:**  
-> *(Parameter-label/Count-of-this-face, Parameter-value/2)
-> *(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)
+> *(Parameter-label/Count-of-this-face, Parameter-value/2)*  
+> *(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)*  
 ````
 
 Annotate the number of times a face image has appeared and the interval since last time this 
@@ -504,14 +518,14 @@ face was shown using more specific tags for the value *Parameter-value*:
 ````{admonition} **Example:** Annotate the number of times a face image has appeared.
 
 **Short form:**  
-> *(Parameter-label/Count-of-this-face, Item-count/2), *
-> *(Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15), *
+> *(Parameter-label/Count-of-this-face, Item-count/2),*  
+> *(Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15),*  
 
 **Long form:**  
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/<strong>Count-of-this-face</strong>, *
-> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>*
-> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count-interval/15</strong>)*
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/<strong>Count-of-this-face</strong>,*  
+> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*  
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>*  
+> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count-interval/15</strong>)*  
 
 ````
 

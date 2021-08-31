@@ -175,13 +175,16 @@ their own behavior.
 
 ### 6.3.7 Syntax checking
 
-Regardless of whether a specification is in the base-schema or not, HED tools can perform
-basic syntax checking:
+Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking.
 
-1. All attributes used in the schema proper must be defined in the schema attribute section of the schema. Undefined attributes cause an error in schema validation.
-2. Similar rules apply to unit classes, unit modifiers, value classes, and properties.
-3. Actual handling of the semantics of any of these by HED tools only occurs for entities appearing in the base schema.
+````{admonition} **Basic syntax checking for library schema.**
+:class: tip
 
+1. All attributes used in the schema proper must be defined in the schema attribute section of the schema.
+2. Undefined attributes cause an error in schema validation.
+3. Similar rules apply to unit classes, unit modifiers, value classes, and properties.
+4. Actual handling of the semantics by HED tools only occurs for entities appearing in the base schema.
+````
 
 ## 6.4. library schemas (BIDS)
 
@@ -194,8 +197,9 @@ HEDTools retrieve the appropriate HED schema directly from GitHub when needed.
 The following examples shows how a BIDS user specifies that HED version 8.0.0 is
 used for a dataset called "A wonderful experiment". BIDS locates the appropriate 
 version of the schema on GitHub and downloads it during the validation process. 
+The following examples shows a simple `dataset_description.json`.
 
-````{admonition} **Example:** BIDS <code>dataset_description.json</code> using HED version 8.0.0.
+````{admonition} **Example:** BIDS dataset description using HED version 8.0.0.
 
 ```json
 {
@@ -209,11 +213,9 @@ version of the schema on GitHub and downloads it during the validation process.
 ## 6.5 Proposed changes
 
 This section explains the changes that are being proposed in BIDS to accommodate access to 
-HED library schemas. **Appendix A.5.2.3** explains the proposed programmatic interface to 
-support library schemas within the BIDS validator and the accompanying JavaScript HED validator.
-This section will be updated as the proposals progress though the BIDS review process. 
-All `"fileName"` keys in the following discussion point to the names of files located 
-in the `./code` directory of the dataset tree.
+HED library schemas. This section will be updated as the proposals progress though the 
+BIDS review process. All `"fileName"` keys in the following discussion point to the 
+names of files located in the `./code` directory of the dataset tree.
 
 The major change to the BIDS specification is to allow the value associated with the
 `"HEDVersion"` key in the `dataset_description.json` file to be a dictionary rather 
