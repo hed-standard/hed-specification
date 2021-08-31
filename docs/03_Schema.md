@@ -257,7 +257,7 @@ an associated `valueClass` attribute are assumed to have `valueClass=nameClass`.
   - A single alphabetic word followed by a single colon. 
 `````
 
-````{admonition} Other terms 
+````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
 1. The first letter of a term should be capitalized with the remainder lower case. 
 2. Terms containing multiple words cannot contain blanks and should be hyphenated.

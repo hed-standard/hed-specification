@@ -77,10 +77,10 @@ that this event falls into.
 
 ````{admonition} **Example:** Version 1 of a visual stimulus annotation.
 
-**Short form:** 
+**Short form:**  
 > *Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)*
 
-**Long form:**
+**Long form:**  
 > *Event/<strong>Sensory-event</strong>,*   
 > *Property/task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
 > *Property/Sensory-property/<strong>Visual-presentation</strong>,*  
@@ -143,11 +143,11 @@ presentation includes information about the role this stimulus appears in the ta
 
 ````{admonition} **Example:** Version 2 of a visual stimulus annotation.
 
-**Short form:**
+**Short form:**  
 > *Sensory-event, Experimental-stimulus, Visual-presentation,*  
-> *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
+> *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*  
 
-**Long form:**
+**Long form:**  
 > *Event/<strong>Sensory-event</strong>,*   
 > *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
 > *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
@@ -193,7 +193,7 @@ the next two examples.
 ````{admonition} **Example:** Version 1 of button press annotation.
 
 **Short form:**  
-> *Agent-action, (Participant-response, (Press, Mouse-button))*
+ > *Agent-action, (Participant-response, (Press, Mouse-button))*
 
 ````
 
@@ -213,7 +213,7 @@ elements are the adjectives, adverbs, and prepositions that modify and connect t
 > *((Human-agent, Experiment-participant), (Press, Mouse-button)),*  
 > *(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
 
-**Long form:**
+**Long form:**  
 > *Event/<strong>Agent-action</strong>,*  
 > *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*    
 > *((Agent/<strong>Human-agent</strong>,*    
@@ -248,13 +248,13 @@ often automatically by the presentation or control software. In the illustration
 provided above, a buzzer sounded by the control software indicates 
 that the subject should rest.
 
-````{seealso} **Example:** Version 1 of a simple feedback event.
+````{admonition} **Example:** Version 1 of a simple feedback event.
 
-**Short form:**
+**Short form:**  
 > *Sensory-event, Instructional, Auditory-presentation,*  
-> *(Buzz, (Intended-effect, Rest))*
+> *(Buzz, (Intended-effect, Rest))*  
 
-**Long form:** 
+**Long form:**  
 > *Event/<strong>Sensory-event</strong>,*   
 > *Property/Task-property/Task-event-role/<strong>Instructional</strong>,*  
 > *Property/Sensory-property/Sensory-presentation/<strong>Auditory-presentation</strong>,*  
@@ -278,7 +278,7 @@ a HED annotation from
 **Short form:**  
 > *Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*  
 
-**Long form:**
+**Long form:**  
 > *Event/<strong>Data-feature</strong>,*   
 > *(Property/Data-property/Data-source-type/<strong>Computed-feature</strong>,*     
 > *Property/Informational-property/<strong>Label/Blinker_BlinkMax</strong>),*   
@@ -301,14 +301,14 @@ a human expert can be annotated in HED.
 
 ````{admonition} **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
-**Short form:**  
+**Short form:**   
 > *Data-feature, (Observation, Label/AnnotatorAJM_K-complex)*
 
 **Long form:**  
 > *Event/<strong>Data-feature</strong>,*  
-> *(Property/Data-property/Data-source-type/<strong>Observation</strong>,*
-> *Property/Informational-property/<strong>Label/AnnotatorAJM_K-complex</strong>),*
-> *Property/Informational-property/Description/K-complex defined by AASM guide.*
+> *(Property/Data-property/Data-source-type/<strong>Observation</strong>,*  
+> *Property/Informational-property/<strong>Label/AnnotatorAJM_K-complex</strong>),*  
+> *Property/Informational-property/Description/K-complex defined by AASM guide.*  
 
 ````
 
