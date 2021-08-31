@@ -182,7 +182,7 @@ of each tag with the *unique* attribute.
 
 ### 7.4.5. HED recording-level validation
 
-The introduction of definitions and temporal scope has added an additional level of complexity 
+The introduction of definitions and temporal scope has added additional complexity 
 to validation. Instead of being able to validate the HED string for each event individually,
 third generation HED validators must also check consistency across all events in the 
 data-recording. This validation requires multiple passes through of the assembled HED tags
