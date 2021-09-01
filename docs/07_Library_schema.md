@@ -120,7 +120,7 @@ sections that specify unit classes, unit modifiers, value classes, schema attrib
 and properties. The rules for the handling of these sections for a library schema are 
 as follows:
 
-### 7.3.1 Required sections
+### 7.3.1. Required sections
 
 The required sections of a library schema are: the *schema-specification*, 
 the *unit-class-specification*, the *unit-modifier-specification*, 
@@ -128,7 +128,7 @@ the *value-class-specification* section, the *schema-attribute-specification* se
 and the *property-specification*. The library schema must include all required 
 schema sections even if the content of these sections is empty.
 
-### 7.3.2 Relation to base schema
+### 7.3.2. Relation to base schema
 
 Any schema attribute, unit class, unit modifier, value class, or property used in the
 library schema must be specified in the appropriate section of the library schema
@@ -136,14 +136,14 @@ regardless of whether these appear in base schema. Validators check the library
 schema strictly on the basis of its own specification without reference to another 
 schema.
 
-### 7.3.3 Schema properties
+### 7.3.3. Schema properties
 
 HED only supports the schema properties listed in Table B.2: *boolProperty*, 
 *unitClassProperty*, *unitModifierProperty*, *unitProperty*, and *valueClassProperty*.  
 If the library schema uses one of these in the library schema specification, 
 then its specification must appear in the *property-specification* section of the library schema.
 
-### 7.3.4 Unit classes
+### 7.3.4. Unit classes
 
 The library schema may define unit classes and units as desired or include unit classes or 
 units from the base schema. Similarly, library schema may define unit modifiers or 
@@ -151,7 +151,7 @@ reuse unit modifiers from the base schema. HED validation and basic analysis too
 validate these based strictly on the schema specification and do not use any outside 
 information for these.
 
-### 7.3.5 Value classes
+### 7.3.5. Value classes
 
 The standard value classes (*dateTimeClass[*]*, *nameClass*, *numericClass[*]*, 
 *posixPath[*]*, *textClass[*]*) if used, should have the same meaning as in the 
@@ -161,7 +161,7 @@ specify their allowed characters, but no additional hard-coded behavior will be
 available in the standard toolset. This does not preclude special-purpose tools 
 from incorporating their own behavior.
 
-### 7.3.6 Schema attributes
+### 7.3.6. Schema attributes
 
 The standard schema attributes (*allowedCharacter*, *defaultUnits*, *extensionAllowed*,
 *recommended*, *relatedTag*, *requireChild*, *required*, *SIUnit*, *SIUnitModifier*,
@@ -173,7 +173,7 @@ They will be checked for syntax, but no additional hard-coded behavior will be a
 in the standard toolset. This does not preclude special-purpose tools from incorporating
 their own behavior.
 
-### 7.3.7 Syntax checking
+### 7.3.7. Syntax checking
 
 Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking.
 
