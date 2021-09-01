@@ -49,20 +49,22 @@ and tagging hints.
 * - Expandable HTML	
   - [https://www.hedtags.org/display_hed.html?version=8.0.0](https://www.hedtags.org/display_hed.html?version=8.0.0)
 * - Mediawiki	
-  - [https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-8.0.0.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-8.0.0.mediawiki)
+  - [https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki)
 * - XML	
   - [https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml)
 `````  
 
 ## 4. HED Websites
 
-`````{list-table} HED web-based schema vocabulary viewers.
+The following is a summary of the HED-related websites
+
+`````{list-table} HED websites.
 :header-rows: 1
 :widths: 20 50
 
 * - Description
   - Site
-* - Information and documentation
+* - *Information and documentation*
   - 
 * - HED organization website	
   - [https://www.hedtags.org](https://www.hedtags.org)
@@ -70,25 +72,27 @@ and tagging hints.
   - [https://github.com/hed-standard](https://github.com/hed-standard)
 * - HED specification repository	
   - [https://github.com/hed-standard/hed-specification](https://github.com/hed-standard/hed-specification)
-* - HED Python resources
+* - Examples of HED annotation
+  - [https://github.com/hed-standard/hed-examples](https://github.com/hed-standard/hed-examples)
+* - HED documentation website
+  - [https://github.com/hed-standard/hed-standard.github.io](https://github.com/hed-standard/hed-standard.github.io)  
+* - *HED Python resources*
   - 
 * - Python code repository	
   - [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python)
 * - Python validator and tools	
-  - [https://github.com/hed-standard/hed-python/tree/master/hedtools]https://github.com/hed-standard/hed-python/tree/master/hedtools)
-* - Online tools/Docker deployment	
-  - [https://github.com/hed-standard/hed-python/tree/master/hedweb](https://github.com/hed-standard/hed-python/tree/master/hedweb)
-* - HED JavaScript resources
+  - [https://github.com/hed-standard/hed-python/tree/master/hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools)
+* - *HED JavaScript resources*
   - 
 * - HED JavaScript code	
   - [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript)
 * - BIDS validator	
   - [https://github.com/bids-standard/bids-validator](https://github.com/bids-standard/bids-validator)
-* - HED Matlab resources
+* - *HED Matlab resources*
   - 
 * - Matlab source code	
   - [https://github.com/hed-standard/hed-matlab](https://github.com/hed-standard/hed-matlab)
-* - CTAGGER resources
+* - *Annotator resources*
   - 
 * - CTAGGER executable jar	
   - [https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)
@@ -96,7 +100,7 @@ and tagging hints.
   - [https://github.com/hed-standard/CTagger](https://github.com/hed-standard/CTagger)
 * - Java repository	
   - [https://github.com/hed-standard/hed-java](https://github.com/hed-standard/hed-java)
-* - Online HED tools
+* - *Online HED tools*
   - 
 * - Online website	
   - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
