@@ -19,6 +19,10 @@ This is a record of proposed changes/corrections to the HED schema for future re
 - *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Refresh-rate/#*
 - *Property/Data-property/Data-value/Spatiotemporal-value/Spatial-value/Angle/#*
 
+### Review of attributes
+- *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.
+- Do we need a *topLevel* attribute?
+
 ### Agreed upon changes/corrections
 - *Action/Perceive* should be *Action/Sensory-attend*.
 - *Action/Perceive/See* should be *Action/Sensory-attend/Look*.
