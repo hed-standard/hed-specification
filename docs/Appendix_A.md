@@ -511,18 +511,18 @@ The individual `<schemaAttributeDefinition>` elements have the following format:
 ```
 ````
 
-## A.3. Schema attributes and properties
+## A.3. Schema sections
 
 This section gives information about how the various auxilliary sections of the the HED 
 schema are used to specify the behavior of the schema elements.
 
-### A.3.1 Schema properties
+### A.3.1. Schema properties
 
 The `property` elements indicate where various schema attributes apply. 
 Their meanings are hard-coded into the schema processors. The following is a list of schema
 attribute properties. 
 
-`````{list-table} Schema attribute properties
+`````{list-table} Schema properties
 :header-rows: 1
 :widths: 20 50
 
@@ -541,10 +541,15 @@ attribute properties.
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
-1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
+
+1. Schema attributes with the `boolProperty`  have a `<name>` node but no 
+`<value>` node in the XML.
 Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
+2. Schema attributes with the `boolProperty`  have both `<name>` and 
+`<value>` nodes in the XML.
+
 ````
+
 `````
 
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
@@ -698,10 +703,9 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - `textClass`
   - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
 
-`````
-
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
+
 1. Commas are not allowed in any values.
 2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
 3. Any variation on the full form of ISO8601 date-time is allowed.
@@ -712,13 +716,13 @@ behavior of certain value classes (for example the `numericClass` value class).
 8. The posix path class is yet unspecified and currently allows any characters besides commas.
 
 ````
-
+`````
 
 ### A.3.4. HED unit classes
 
 `````{list-table} Summary of unit classes and units in HED8.0.0.
 :header-rows: 1
-:widths: 20 10, 40
+:widths: 20 10 40
 
 * - Unit class
   - Default units
