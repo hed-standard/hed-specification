@@ -1,4 +1,4 @@
-# 6. HED library schema
+# 7. Library schema
 
 The variety and complexity of events in electrophysiological experiments makes full 
 documentation challenging. As more experiments move out of controlled laboratory environments
@@ -44,7 +44,7 @@ tags qualified with namespace designators. All HED schemas, including library sc
 adhere to [semantic versioning](https://semver.org/). 
 
 
-## 6.1. Defining a schema
+## 7.1. Defining a schema
 
 A HED library schema is defined in the same way as the base HED schema except that it has an
 additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an
@@ -81,7 +81,7 @@ and *property-specification*.
 The schema XML file should be saved as `HED_driving_1.0.0.xml` to facilitate 
 specification in tools.
 
-## 6.2. Schema namespaces
+## 7.2. Schema namespaces
 
 As part of the HED annotation process, users must associate a standard HED schema with their
 datasets. Users may also include tags from an arbitrary number of additional library schemas.
@@ -113,14 +113,14 @@ purpose. Library schema developers should try not to reuse terms in the standard
 unless the intention is to convey a close or identical relationship.
 
 
-## 6.3. Attributes and classes
+## 7.3. Attributes and classes
 
 In addition to the specification of tags in the main part of a schema, a HED schema has 
 sections that specify unit classes, unit modifiers, value classes, schema attributes, 
 and properties. The rules for the handling of these sections for a library schema are 
 as follows:
 
-### 6.3.1 Required sections
+### 7.3.1 Required sections
 
 The required sections of a library schema are: the *schema-specification*, 
 the *unit-class-specification*, the *unit-modifier-specification*, 
@@ -128,7 +128,7 @@ the *value-class-specification* section, the *schema-attribute-specification* se
 and the *property-specification*. The library schema must include all required 
 schema sections even if the content of these sections is empty.
 
-### 6.3.2 Relation to base schema
+### 7.3.2 Relation to base schema
 
 Any schema attribute, unit class, unit modifier, value class, or property used in the
 library schema must be specified in the appropriate section of the library schema
@@ -136,14 +136,14 @@ regardless of whether these appear in base schema. Validators check the library
 schema strictly on the basis of its own specification without reference to another 
 schema.
 
-### 6.3.3 Schema properties
+### 7.3.3 Schema properties
 
 HED only supports the schema properties listed in Table B.2: *boolProperty*, 
 *unitClassProperty*, *unitModifierProperty*, *unitProperty*, and *valueClassProperty*.  
 If the library schema uses one of these in the library schema specification, 
 then its specification must appear in the *property-specification* section of the library schema.
 
-### 6.3.4 Unit classes
+### 7.3.4 Unit classes
 
 The library schema may define unit classes and units as desired or include unit classes or 
 units from the base schema. Similarly, library schema may define unit modifiers or 
@@ -151,7 +151,7 @@ reuse unit modifiers from the base schema. HED validation and basic analysis too
 validate these based strictly on the schema specification and do not use any outside 
 information for these.
 
-### 6.3.5 Value classes
+### 7.3.5 Value classes
 
 The standard value classes (*dateTimeClass[*]*, *nameClass*, *numericClass[*]*, 
 *posixPath[*]*, *textClass[*]*) if used, should have the same meaning as in the 
@@ -161,7 +161,7 @@ specify their allowed characters, but no additional hard-coded behavior will be
 available in the standard toolset. This does not preclude special-purpose tools 
 from incorporating their own behavior.
 
-### 6.3.6 Schema attributes
+### 7.3.6 Schema attributes
 
 The standard schema attributes (*allowedCharacter*, *defaultUnits*, *extensionAllowed*,
 *recommended*, *relatedTag*, *requireChild*, *required*, *SIUnit*, *SIUnitModifier*,
@@ -173,7 +173,7 @@ They will be checked for syntax, but no additional hard-coded behavior will be a
 in the standard toolset. This does not preclude special-purpose tools from incorporating
 their own behavior.
 
-### 6.3.7 Syntax checking
+### 7.3.7 Syntax checking
 
 Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking.
 
@@ -186,31 +186,11 @@ Regardless of whether a specification is in the base-schema or not, HED tools ca
 4. Actual handling of the semantics by HED tools only occurs for entities appearing in the base schema.
 ````
 
-## 6.4. library schemas (BIDS)
+## 7.4. library schemas in BIDS
 
 The most common use case (for 99.9% of the HED users) is to use one of the standard 
 HED schemas available on GitHub in the `hedxml` directory of the `hed-specification` 
-repository ([https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)). 
-The HED version is included as the value of the `"HEDVersion"` key in the 
-`dataset_description.json` metadata file located at the top level in a BIDS dataset. 
-HEDTools retrieve the appropriate HED schema directly from GitHub when needed. 
-The following examples shows how a BIDS user specifies that HED version 8.0.0 is
-used for a dataset called "A wonderful experiment". BIDS locates the appropriate 
-version of the schema on GitHub and downloads it during the validation process. 
-The following examples shows a simple `dataset_description.json`.
-
-````{admonition} **Example:** BIDS dataset description using HED version 8.0.0.
-
-```json
-{
-   "Name": "A wonderful experiment",
-   "BIDSVersion": "1.4.0", 
-   "HEDVersion": "8.0.0"
-}
-```
-````
-
-## 6.5 Proposed changes
+repository ([https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)).
 
 This section explains the changes that are being proposed in BIDS to accommodate access to 
 HED library schemas. This section will be updated as the proposals progress though the 

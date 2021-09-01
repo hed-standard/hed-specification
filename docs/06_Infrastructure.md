@@ -1,10 +1,10 @@
-# 7. HED in BIDS
+# 6. Infrastructure
 
-This section gives an overview of the HED tools. Additional details and links to specific 
-tools are available in **Section 8**.
+This section gives an overview of the HED infrastructure. Additional details and links to specific 
+tools are available in (Tools.md)[Tools.md].
 
 
-## 7.1. Short and long forms
+## 6.1. Short and long forms
 
 Tools that are third-generation HED-compliant must be able to handle both short-form and 
 long-form versions of HED strings. Analysis tools often need to transform all HED tags to long
@@ -12,7 +12,7 @@ form before processing. To this end, mapping functions are being developed in Py
 and JavaScript. These libraries also provide mapping from long form to short form. 
 As illustrated in the previous sections, the short form is much more readable and compact. 
 
-## 7.2. Event file format (BIDS)
+## 6.2. File formats
 
 Dataset events are often represented using spreadsheets either in `.tsv` or Excel format. 
 The rows of each spreadsheet correspond to events, while the columns contain identifying
@@ -28,11 +28,16 @@ Excel format.
 The HED tools require that each column of an event file contains items of the same class 
 (categorical or value) and that value columns contain items of the same basic type. Files not
 satisfying these requirements may need additional processing before being handled by HED tools.
-BIDS (Brain Imaging Data Structure) datasets do have event files that satisfy these criteria.
 
-BIDS uses tab-separated-value (`.tsv`) format for event files, with a required `onset` column
-containing the time of the event in seconds. BIDS also requires a `duration` column for event
-files. 
+### 6.2.1. BIDS event files
+[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification 
+along with supporting tools for organizing and describing brain imaging and behavioral data.
+BIDS event files  satisfy the criteria of the previous section. 
+
+BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`)
+files in various places in the dataset hierarchy. BIDS event files must have an `onset` column
+and a `duration` column. The following shows an excerpt from a BIDS event file:
+
 
 ````{admonition} **Example:** Excerpt from a BIDS event file.
 
@@ -58,11 +63,10 @@ structure array. The time of the event is given in frames in the `EEG.event.late
 field for data that has not been epoched. 
 
 
-## 7.3. BIDS sidecar format
+## 6.2.2 BIDS sidecars
 
-Systems that handle HED annotation should be capable of defining and using metadata dictionaries
-in JSON format to specify HED tags applicable to the values in different columns of an event
-file.  BIDS uses JSON dictionaries called sidecars in a particular format. HEDTools assume 
+BIDS also recommends data dictionaries in the form of JSON sidecars to document
+the meaning of the data in the event files.HEDTools assume 
 that dictionaries for event metadata are contained in BIDS-compatible sidecars.
 
 BIDS allows the tagging of both categorical and non-categorical columns in these sidecars 
@@ -113,8 +117,30 @@ consisting of a HED string rather than another dictionary. This HED string must 
 placeholder. The corresponding value in the spreadsheet column replaces the `#` when the event
 annotation is assembled.
 
+### 6.2.3 HED version in BIDS
 
-## 7.4. Levels of validation
+The HED version is included as the value of the `"HEDVersion"` key in the 
+`dataset_description.json` metadata file located at the top level in a BIDS dataset. 
+HEDTools retrieve the appropriate HED schema directly from GitHub when needed. 
+The following examples shows how a BIDS user specifies that HED version 8.0.0 is
+used for a dataset called "A wonderful experiment". BIDS locates the appropriate 
+version of the schema on GitHub and downloads it during the validation process. 
+The following examples shows a simple `dataset_description.json`.
+
+````{admonition} **Example:** BIDS dataset description using HED version 8.0.0.
+
+```json
+{
+   "Name": "A wonderful experiment",
+   "BIDSVersion": "1.4.0", 
+   "HEDVersion": "8.0.0"
+}
+```
+````
+
+
+
+## 6.3. Levels of validation
 
 Validation of HED annotations is an essential step in using HED for large-scale, reproducible
 analysis. Third-generation HED encourages a more detailed and useful documentation of events 
@@ -135,7 +161,7 @@ Syntactic validation is usually done initially during the parsing of the HED str
 into HED tags.
 
 
-### 7.4.1. HED tag level validation
+### 6.3.1. Tag validation
 
 HED tag level validation checks each individual HED tag against its associated schema. 
 The long-form tag must be in the schema. HED tags that take a value (have a `#` child in the 
@@ -145,7 +171,7 @@ If the HED tag has additional nodes beyond the leaf node in the schema, the *ext
 attribute must be in effect for the leaf node. 
 
 
-### 7.4.2. HED string level validation
+### 6.3.2. String validation
 
 HED string level validation focuses on the proper formation of HED strings and tag-groups 
 within the HED strings. Syntactic HED string validation includes matching of parentheses and
@@ -153,10 +179,10 @@ proper delimiting of HED tags by commas. Semantic HED string validation includes
 that HED definitions have the proper form.
 
 
-### 7.4.3. HED dictionary level validation
+### 6.3.3. Sidecar validation
 
 HED dictionary validation assumes that the dictionaries have been written in the JSON format 
-of [Section 7.3: Sidecar format (BIDS)](07_HED_in_BIDS.md#73-sidecar-format-bids). 
+of [Chapter 6: BIDS sidecars](06_Infrastructure.md#622-bids-sidecars). 
 The validation is similar to HED string evaluation, but the error messages are keyed to
 dictionary location rather than to line numbers in the event file or spreadsheet. 
 The validator checks that there is exactly one `#` in the HED string annotation associated 
@@ -167,7 +193,7 @@ these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
 
 
-### 7.4.4. HED event-level validation
+### 6.3.4. Event validation
 
 Dataset formats such as BIDS (Brain Imaging Data Structure) allow users to provide HED tags 
 in multiple places. For example, if a study uses local codes to represent different types of
@@ -181,7 +207,7 @@ annotating an event must include all tags with the *required* attribute and only
 of each tag with the *unique* attribute.
 
 
-### 7.4.5. HED recording-level validation
+### 6.3.5. Recording validation
 
 The introduction of definitions and temporal scope has added additional complexity 
 to validation. Instead of being able to validate the HED string for each event individually,
@@ -198,7 +224,7 @@ is associated with an appropriately defined label. The validator must also check
 sure that *Onset* and *Offset* tags are properly matched within the data recording.
 
 
-## 7.5. Analysis tools
+## 6.4. Analysis tools
 
 Third-generation HED analysis tools also require some additional infrastructure. These tools
 should call the HED libraries to fully expand the tags for a data recording before doing
@@ -213,16 +239,7 @@ The HED tools should provide this expansion capability as well as a standardized
 of events in a data recording to enable tools to use a standard API for accessing tag information.
 
 
-## 7.6. HED-annotated data in BIDS
-
-[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification 
-along with supporting tools for organizing and describing brain imaging and behavioral data. 
-BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`)
-files in various places in the dataset hierarchy. BIDS event files must have an `onset` column
-and a `duration` column. The example in {ref}`**Section 7.2**<bids_file_format>` shows such a
-BIDS event file. BIDS also recommends data dictionaries in the form of JSON sidecars to document
-the meaning of the data in the event files. The example in Section 7.2 also includes a JSON data 
-dictionary.  
+## 6.5. BIDS support in HED
 
 HED provides a JavaScript validator in the [hed-javascript](https://github.
 com/hed-standard/hed-javascript) repository, which is available as an installable package via 

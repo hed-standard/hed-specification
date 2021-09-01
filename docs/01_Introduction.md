@@ -56,7 +56,7 @@ of data across studies.
 
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
 datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
-[Chapter 7: HED in BIDS](07_HED_in_BIDS.md#7-hed-in-bids).
+[Chapter 7: HED in BIDS](06_Infrastructure.md#7-hed-in-bids).
 
 
 ## 1.2. Brief history of HED

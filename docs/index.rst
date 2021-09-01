@@ -12,8 +12,8 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    03_Schema.md
    04_Basic_annotation.md
    05_Advanced_annotation.md
-   06_Library_schema.md
-   07_HED_in_BIDS.md
+   06_Infrastructure.md
+   07_Library_schema.md
    Appendix_A.md
    Appendix_B.md
 
