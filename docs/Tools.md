@@ -136,7 +136,7 @@ Online validation of HED strings.
 **Validate:** Validate a HED string.
  ~ The user pastes a string into the input text box.  
  ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
-  ~ The user selects the `Validate` option and presses the `Process` button.
+ ~ The user selects the `Validate` option and presses the `Process` button.
  ~ The tool validates the string and returns any error messages in the lower text box.
 ``````
 
@@ -181,65 +181,66 @@ one of `a` or `b` should be provided.
   - Parameters	
   - Descriptions
 * - `get_services`
-  - `none`
+  - none
   - Returns a list of available services.
-* - `events_assemble`	
-  - `events_string`,
-  `json_string`,
-  [`schema_version`, 
-  `hed_schema_string`],
-  `check_for_warnings`,
-  `defs_expand`
+* - `events_assemble`  
+  - `events_string`,  
+    `json_string`,  
+    [`schema_version`,  
+    `hed_schema_string`],  
+    `check_for_warnings`,  
+    `defs_expand`  
   - Returns an error file if the JSON file or events file has 
-  validation errors otherwise returns a file of assembled events.
-* - `events_validate`
-  - `events_string`,
-  `json_string`,
-  [`schema_version`, 
-  `hed_schema_string`],
-  `check_for_warnings`
-  - Returns an error file if the JSON file or events file has validation errors.
+    validation errors otherwise returns a file of assembled events.
+* - `events_validate`  
+  - `events_string`,  
+    `json_string`,  
+    [`schema_version`,   
+    `hed_schema_string`],  
+    `check_for_warnings`  
+  - Returns an error file if the JSON file or events file 
+    has validation errors.
 * - `sidecar_to_long`
   - `json_string`,
-  [`schema_version`,
-   `hed_schema_string`]
-  - Returns either an error file or a JSON file converted to long form depending
-  on whether conversion was successful or not.
+    [`schema_version`,
+    `hed_schema_string`]
+  - Returns either an error file or a JSON file converted
+    to long form depending on whether conversion was successful or not.
 * - `sidecar_to_short`
   - `json_string`,
-  [`schema_version`, 
-  `hed_schema_string`]
+    [`schema_version`, 
+    `hed_schema_string`]
   - Returns either an error file or a JSON file converted to long form 
-  depending on whether conversion was successful or not.
+    depending on whether conversion was successful or not.
 * - `sidecar_validate`
   - `json_string`,
-  [`schema_version`, 
-  `hed_schema_string`],
-  `check_for_warnings`
+    [`schema_version`, 
+    `hed_schema_string`],
+    `check_for_warnings`
   - Returns an error file if the JSON file has validation errors.
 * - `spreadsheet_validate`
   - `spreadsheet_string`,
-  [`schema_version`, 
-  `hed_schema_string`],
-  `check_for_warnings`
+    [`schema_version`, 
+    `hed_schema_string`],
+    `check_for_warnings`
   - A tsv spreadsheet of event codes and their tags is sent to be validated. 
-  Returns an error file if the spreadsheet has validation errors.
+    Returns an error file if the spreadsheet has validation errors.
 * - `strings_to_long`
   - `string_list`,
-  [`schema_version`, 
-  `hed_schema_string`]
+    [`schema_version`, 
+    `hed_schema_string`]
   - Convert a list of strings to long form if valid, otherwise return errors.
 * - `strings_to_short`
   - `string_list`,
-  [`schema_version`, 
-  `hed_schema_string`]
+    [`schema_version`, 
+    `hed_schema_string`]
   - Convert a list of strings to short form if valid, otherwise return errors.
 * - `strings_validate`
   - `hed_strings`,
-  [`schema_version`, 
-  `hed_schema_string`]	
+    [`schema_version`, 
+    `hed_schema_string`]	
   - Validates a list of hed strings using the specified HED schema 
-  and returns a list of the same length as hed strings.
+    and returns a list of the same length as hed strings.
 `````
 
 The following table gives an explanation of the parameters used for various services.
@@ -256,13 +257,15 @@ The following table gives an explanation of the parameters used for various serv
   - If true, check for warnings when validating.
 * - `defs_expand`
   - boolean
-  - If true assembly expands definitions, replacing def/XXX with def-expand/XXX.
+  - If true assembly expands definitions, replacing 
+    *def/XXX* with *def-expand/XXX*.
 * - `events_string`
   - string
   - Events tsv file with header passed as a string.
 * - `hed_columns`
   - list of numbers
-  - A list of column numbers (starting with 1) of columns containing HED strings. If empty, all columns are used.
+  - A list of column numbers (starting with 1) of columns 
+    containing HED strings. If empty, all columns are used.
 * - `hed_schema_string`
   - string
   - HED schema in XML format as a string.
@@ -308,14 +311,15 @@ Keys in the `results` dictionary return as part of a HED web service response.
   - The command that was executed in response to the service request.
 * - `data`
   - string
-  - The data returned by the service. This could be a list of errors or the processed 
-  result depending on what happened.
+  - The data returned by the service. This could be a list of errors 
+    or the processed result depending on what happened.
 * - `schema_version`
   - string
   - The version of the HED schema used in the processing.
 * - `msg_category`
   - string
-  - One of success, warning, or failure depending on the result of processing the service.
+  - One of success, warning, or failure depending on the result
+    of processing the service.
 * - `msg`
   - string
   - Explanation of the result of service processing.
