@@ -38,7 +38,7 @@ Releases are stored in [`hedxml`](https://github.com/hed-standard/hed-specificat
 All data recordings in a dataset should be annotated using a single version of the standard 
 HED schema. Validation and analysis tools are not expected to handle multiple versions of 
 the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, 
-as described in [Section 6](06_Library_schema.md#6-hed-library-schema) of this document. 
+as described in [Section 6](07_Library_schema.md#6-hed-library-schema) of this document. 
 A more detailed discussion of the HED schema format appears in 
 [Appendix A](Appendix_A.md#a-schema-format).
 
