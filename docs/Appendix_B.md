@@ -164,12 +164,12 @@ when the planned XSD validation is implemented start with HED_XML.
 ### B.2.2. HED format-specific schema errors.
 
 **HED_WIKI_DELIMITERS_INVALID**: Delimiters used in the wiki are invalid.
- ~ Line content after node name is not enclosed with `<nowiki></nowiki> `delimiters.
- ~ A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or` { }` delimiters.
+ ~ Line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.
+ ~ A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.
 
 **HED_WIKI_LINE_START_INVALID**: Start of body line not `'''` or `*`.
 
-**HED_WIKI_SEPARATOR_INVALID**: A required wiki section separators is missing or in the wrong place. 
+**HED_WIKI_SEPARATOR_INVALID**: A required wiki section separator is missing or in the wrong place. 
  ~ The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.
 
 **HED_XML_SYNTAX_INVALID**: XML syntax or does not comply with specified XSD.
