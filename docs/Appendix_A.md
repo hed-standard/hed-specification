@@ -464,101 +464,8 @@ describe properties of the unit class rather than of individual unit types. In a
 ```
 ````
 
-The
-The unit classes
-
-`````{list-table} Summary of unit classes and units in HED8.0.0.
-:header-rows: 1
-:widths: 20 10, 40
-
-* - Unit class
-  - Default units
-  - Units
-* - accelerationUnits
-  - m-per-s^2 
-  - m-per-s^2*
-* - angleUnits
-  - rad 
-  - radian, rad*, degree
-* - areaUnits
-  - m^2 
-  - metre^2, m^2*
-* - currencyUnits
-  - $ 
-  - dollar, $, point
-* - frequencyUnits
-  - Hz 
-  - hertz, Hz*
-* - intensityUnits
-  - dB 
-  - dB, candela, cd*
-* - jerkUnits
-  - m-per-s^3 
-  - m-per-s^3*  
-* - memorySizeUnits
-  - B 
-  - byte, B 
-* - physicalLength
-  - m 
-  - metre, m*, inch, foot, mile   
-* - speedUnits
-  - m-per-s 
-  - m-per-s*, mph, kph     
-* - timeUnits
-  - s 
-  - second, s*, day, minute, hour
-* - volumeUnits
-  - m^3 
-  - metre^3, m^3*  
-* - weightUnits
-  - g 
-  - gram, g*, pound, lb   
-`````
 
 Table A.6 lists the current unit classes for HED.
-
-### A.2.2. Value classes
-
-HED has very strict rules about what characters are allowed in various elements of the HED
-schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in 
-the schema using value classes. When a node name or placeholder substitution is given a
-particular value class, that name or substituted value can only contain the characters allowed
-for that value class. The allowed characters for a value class are specified in the definition
-of the value class. The HED validator and other HED tools may hardcode information about 
-behavior of certain value classes (for example the `numericClass` value class). 
-**HED does not allow commas or quotes in any of its values.**
-
-`````{list-table}  Rules for valid HED characters.
-:header-rows: 1
-:widths: 20 50
-
-* - Value class
-  - Allowed characters
-* - `dateTimeClass`
-  - digits, T, :, - 
-* - `nameClass`
-  - alphabetic characters, -
-* - `numericClass`
-  -  digits, ., -, +, E, e 
-* - `posixPath`
-  -  As yet unspecified
-* - `textClass`
-  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
-
-`````
-
-````{admonition} Notes on rules for allowed characters in the HED schema. 
-:class: tip
-1. Commas are not allowed in any values.
-2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
-3. Any variation on the full form of ISO8601 date-time is allowed.
-4. The name class is for schema nodes and labels.
-5. Values that have a value class of `numericClass` must be valid fixed point of floating point values.
-6. Scientific notation is supported with the `numericClass`.
-7. The text class is for descriptions, mainly for use with the *Description/* tag.
-8. The posix path class is yet unspecified and currently allows any characters besides commas.
-
-````
 
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. 
@@ -605,9 +512,11 @@ The individual `<schemaAttributeDefinition>` elements have the following format:
 ```
 ````
 
-The `<property>` elements indicate where various schema attributes apply. 
-Their meanings are hard-coded into the schema processors. The following is a list of schema
-attribute properties.
+## A.3. Schema attributes and properties
+
+This section gives information about how the various auxilliary sections of the the HED 
+schema are used to specify the behavior of the schema elements. 
+
 
 `````{list-table} Schema attribute properties
 :header-rows: 1
@@ -634,39 +543,48 @@ Presence indicates true.
 ````
 `````
 
+
+
+
+### A.3.1 Schema properties
+
+The `property` elements indicate where various schema attributes apply. 
+Their meanings are hard-coded into the schema processors. The following is a list of schema
+attribute properties. 
+
+`````{list-table} Schema attribute properties
+:header-rows: 1
+:widths: 20 50
+
+* - Property
+  - Description
+* - `boolProperty`
+  - A schema attribute has this property has values that are either true or false. 
+* - `unitClassProperty`
+  - Indicates the schema attribute only applies to unit classes.
+* - `unitModifierProperty`
+  -  Indicates the schema attribute only applies to unit modifiers.
+* - `valueClassProperty`
+  -  Indicates the schema attribute only applies to value classes.
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
+Presence indicates true.
+2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
+````
+`````
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
 `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
 `unitClassProperty` or `unitProperty` are assumed to apply to `node` elements.
 
-Table A.4 gives a list of the supported HED schema attributes. These attributes apply to
-different parts of the schema as indicated by their properties. 
+###A.3.1. Schema attributes
 
-`````{list-table} Schema attribute properties
-:header-rows: 1
-:widths: 20 50
-
-* - Property
-  - Description
-* - `boolProperty`
-  - A schema attribute has this property has values that are either true or false. 
-* - `unitClassProperty`
-  - Indicates the schema attribute only applies to unit classes.
-* - `unitModifierProperty`
-  -  Indicates the schema attribute only applies to unit modifiers.
-* - `valueClassProperty`
-  -  Indicates the schema attribute only applies to value classes.
-* - `textClass`
-  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
-
-````{admonition} Notes on rules for allowed characters in the HED schema. 
-:class: tip
-1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
-Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
-````
-`````
-
-The following table gives schema attributes. 
+As mentioned in the previous section schema attributes can only apply to one
+type of element in the schema as indicated by their property values. Tools hardcode processing based
+on the schema attribute name. Only these schema attributes can be handled by The following table gives schema attributes. 
 
 `````{list-table} Schema attribute.
 :header-rows: 1
@@ -748,11 +666,9 @@ Presence indicates true.
 ````
 `````
 
-  _*_ indicates an attribute that is new to HED-3G.
-
-In addition to the attributes listed in Table B.4, some schema attributes have been deprecated
-and are no longer supported in HED-3G, although they are still present in earlier versions of 
-the schema. Table A.5 lists these attributes.
+In addition to the attributes listed above, some schema attributes have been deprecated
+and are no longer supported in HED, although they are still present in earlier versions of 
+the schema. The following table lists these.
 
 `````{list-table} Deprecated schema attributes.
 :header-rows: 1
@@ -786,12 +702,104 @@ the schema. Table A.5 lists these attributes.
 
 
 
-### A.2.5. HED unit classes and unit modifiers
+### A.3.2. Value classes
+
+HED has very strict rules about what characters are allowed in various elements of the HED
+schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in 
+the schema using value classes. When a node name or placeholder substitution is given a
+particular value class, that name or substituted value can only contain the characters allowed
+for that value class. The allowed characters for a value class are specified in the definition
+of the value class. The HED validator and other HED tools may hardcode information about 
+behavior of certain value classes (for example the `numericClass` value class). 
+**HED does not allow commas or quotes in any of its values.**
+
+`````{list-table}  Rules for value classes.
+:header-rows: 1
+:widths: 20 50
+
+* - Value class
+  - Allowed characters
+* - `dateTimeClass`
+  - digits, T, :, - 
+* - `nameClass`
+  - alphabetic characters, -
+* - `numericClass`
+  -  digits, ., -, +, E, e 
+* - `posixPath`
+  -  As yet unspecified
+* - `textClass`
+  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+
+`````
+
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. Commas are not allowed in any values.
+2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
+3. Any variation on the full form of ISO8601 date-time is allowed.
+4. The name class is for schema nodes and labels.
+5. Values that have a value class of `numericClass` must be valid fixed point of floating point values.
+6. Scientific notation is supported with the `numericClass`.
+7. The text class is for descriptions, mainly for use with the *Description/* tag.
+8. The posix path class is yet unspecified and currently allows any characters besides commas.
+
+````
+
+
+### A.3.4. HED unit classes
+
+`````{list-table} Summary of unit classes and units in HED8.0.0.
+:header-rows: 1
+:widths: 20 10, 40
+
+* - Unit class
+  - Default units
+  - Units
+* - accelerationUnits
+  - m-per-s^2 
+  - m-per-s^2*
+* - angleUnits
+  - rad 
+  - radian, rad*, degree
+* - areaUnits
+  - m^2 
+  - metre^2, m^2*
+* - currencyUnits
+  - $ 
+  - dollar, $, point
+* - frequencyUnits
+  - Hz 
+  - hertz, Hz*
+* - intensityUnits
+  - dB 
+  - dB, candela, cd*
+* - jerkUnits
+  - m-per-s^3 
+  - m-per-s^3*  
+* - memorySizeUnits
+  - B 
+  - byte, B 
+* - physicalLength
+  - m 
+  - metre, m*, inch, foot, mile   
+* - speedUnits
+  - m-per-s 
+  - m-per-s*, mph, kph     
+* - timeUnits
+  - s 
+  - second, s*, day, minute, hour
+* - volumeUnits
+  - m^3 
+  - metre^3, m^3*  
+* - weightUnits
+  - g 
+  - gram, g*, pound, lb   
+`````
 
 
 
+### A.3.5. HED unit modifiers
 
-Table A.7 lists the current unit modifiers for HED-3G.
 
 `````{list-table} Unit modifiers (* indicates an SI unit symbol modifier).
 :header-rows: 1

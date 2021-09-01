@@ -48,7 +48,6 @@ onset  duration  trial_type  response_time stim_file
 ```
 ````
 
-
 The `trial_type` column contains categorical values, while the `response_time` and `stim_file`
 columns contain non-categorical values. In theory `stim_file` could be considered a categorical 
 column if there were just a few possible images, but this would not be common usage. 
@@ -63,7 +62,7 @@ structure array. The time of the event is given in frames in the `EEG.event.late
 field for data that has not been epoched. 
 
 
-## 6.2.2 BIDS sidecars
+### 6.2.2. BIDS sidecars
 
 BIDS also recommends data dictionaries in the form of JSON sidecars to document
 the meaning of the data in the event files.HEDTools assume 
@@ -117,7 +116,7 @@ consisting of a HED string rather than another dictionary. This HED string must 
 placeholder. The corresponding value in the spreadsheet column replaces the `#` when the event
 annotation is assembled.
 
-### 6.2.3 HED version in BIDS
+### 6.2.3. HED version in BIDS
 
 The HED version is included as the value of the `"HEDVersion"` key in the 
 `dataset_description.json` metadata file located at the top level in a BIDS dataset. 
