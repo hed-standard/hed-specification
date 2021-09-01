@@ -39,7 +39,7 @@ epilogue
 
 
 
-### A.1.1. The *header-line*
+### A.1.2. The *header-line*
 
 The first line of the `.mediawiki` file should be a _header-line_ that starts with the 
 keyword `HED` followed by a blank-separated list of name-value pairs.
@@ -375,7 +375,8 @@ giving the value(s) of the attribute. **Example:** The `requireChild` attribute 
 ```
 ````
 
-The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation this attribute is omitted if absent and appears when present as shown in this example.
+The `suggestedTag` attribute has a valid HED tag value. In the mediawiki representation 
+this attribute is omitted if absent and appears when present as shown in this example.
 
 ````{admonition} The suggestedTag attribute has a valid HED tag value.
 
@@ -464,9 +465,7 @@ describe properties of the unit class rather than of individual unit types. In a
 ```
 ````
 
-
-Table A.6 lists the current unit classes for HED.
-
+### A.2.3. Value classes
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. 
 These sections follow a format similar to the `<node>` element in the `<schema>`:
@@ -481,7 +480,7 @@ These sections follow a format similar to the `<node>` element in the `<schema>`
 ```
 ````
 
-### A.2.3. Schema attributes
+### A.2.4. Schema attributes
 
 The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements
 including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and
@@ -515,36 +514,7 @@ The individual `<schemaAttributeDefinition>` elements have the following format:
 ## A.3. Schema attributes and properties
 
 This section gives information about how the various auxilliary sections of the the HED 
-schema are used to specify the behavior of the schema elements. 
-
-
-`````{list-table} Schema attribute properties
-:header-rows: 1
-:widths: 20 50
-
-* - Property
-  - Description
-* - `boolProperty`
-  - A schema attribute has this property has values that are either true or false. 
-* - `unitClassProperty`
-  - Indicates the schema attribute only applies to unit classes.
-* - `unitModifierProperty`
-  -  Indicates the schema attribute only applies to unit modifiers.
-* - `valueClassProperty`
-  -  Indicates the schema attribute only applies to value classes.
-* - `textClass`
-  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
-
-````{admonition} Notes on rules for allowed characters in the HED schema. 
-:class: tip
-1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
-Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
-````
-`````
-
-
-
+schema are used to specify the behavior of the schema elements.
 
 ### A.3.1 Schema properties
 
@@ -576,11 +546,12 @@ Presence indicates true.
 2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
 ````
 `````
+
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
 `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
 `unitClassProperty` or `unitProperty` are assumed to apply to `node` elements.
 
-###A.3.1. Schema attributes
+### A.3.2. Schema attributes
 
 As mentioned in the previous section schema attributes can only apply to one
 type of element in the schema as indicated by their property values. Tools hardcode processing based
@@ -699,10 +670,7 @@ the schema. The following table lists these.
    
 `````
 
-
-
-
-### A.3.2. Value classes
+### A.3.3. Value classes
 
 HED has very strict rules about what characters are allowed in various elements of the HED
 schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in 
@@ -796,10 +764,7 @@ behavior of certain value classes (for example the `numericClass` value class).
   - gram, g*, pound, lb   
 `````
 
-
-
 ### A.3.5. HED unit modifiers
-
 
 `````{list-table} Unit modifiers (* indicates an SI unit symbol modifier).
 :header-rows: 1
@@ -848,6 +813,3 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - yocto, y*
   - SI unit submultiple representing 10^−24
 `````
-
-
-
