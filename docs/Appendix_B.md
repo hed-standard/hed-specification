@@ -110,7 +110,7 @@ Annotators should replace the syntax *(A ~ B ~ C)* with *(A, (B, C))*.
 **HED_UNITS_DEFAULT_USED**: (WARNING) A HED tag value is missing units.
  ~ If the corresponding unit class has default units, those are assumed. 
 
-**HED_UNITS_INVALID**: ~ HED tag value has incorrect or invalid units.
+**HED_UNITS_INVALID**: HED tag value has incorrect or invalid units.
  ~ The HED tag has a value with units that are invalid or not of the 
 correct unit class for the tag. 
  ~ A typical mistake is to use unit modifiers with units that are not SI units.
@@ -139,38 +139,38 @@ when the planned XSD validation is implemented start with HED_XML.
 
 ### B.2.1. General schema errors
 
-**HED_SCHEMA_ATTRIBUTE_INVALID**: An attribute is used, but not defined in the appropriate schema section.
+**HED_SCHEMA_ATTRIBUTE_INVALID:** An attribute is used, but not defined in the appropriate schema section.
  ~ The `unitClass` attribute must be defined in the `unitClassDefinitions` section of the schema.
  ~ A `unitClass` attribute has an invalid suffix because it is not a plural or unit modifier.
  ~ A `valueClass` attribute must be defined in the `valueClassDefinitions` section of the schema.
  ~ Other attributes should be defined in the `schemaAttributeDefinitions` section.
 
-**HED_SCHEMA_CHARACTER_INVALID**: The specification contains an invalid character.
+**HED_SCHEMA_CHARACTER_INVALID:** The specification contains an invalid character.
 
-**HED_SCHEMA_DUPLICATE_NODE**: A schema node name appears in the schema more than once.
+**HED_SCHEMA_DUPLICATE_NODE:** A schema node name appears in the schema more than once.
 
-**HED_SCHEMA_HEADER_INVALID**: The schema header is invalid.
+**HED_SCHEMA_HEADER_INVALID:** The schema header is invalid.
  ~ Invalid characters or format in the header can trigger this.
  ~ Unrecognized header attributes can also cause this errlr.
 
-**HED_SCHEMA_NODE_NAME_INVALID**: A schema node element name is empty or contains invalid characters.
+**HED_SCHEMA_NODE_NAME_INVALID:** A schema node element name is empty or contains invalid characters.
 
-**HED_SCHEMA_REQUIRED_SECTION_MISSING**: A required schema section is missing.
+**HED_SCHEMA_REQUIRED_SECTION_MISSING:** A required schema section is missing.
  ~ The required sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes, and properties) must be included in this order even if their content is empty.
 
-**HED_SCHEMA_VERSION_INVALID**: The schema version specification in the HED line or element is invalid because the version specification does not have the correct syntax for the schema file format or the schema version does not comply with semantic versioning.
+**HED_SCHEMA_VERSION_INVALID:** The schema version specification in the HED line or element is invalid because the version specification does not have the correct syntax for the schema file format or the schema version does not comply with semantic versioning.
 
 
 ### B.2.2. HED format-specific schema errors.
 
-**HED_WIKI_DELIMITERS_INVALID**: Delimiters used in the wiki are invalid.
+**HED_WIKI_DELIMITERS_INVALID:** Delimiters used in the wiki are invalid.
  ~ Line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.
  ~ A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.
 
-**HED_WIKI_LINE_START_INVALID**: Start of body line not `'''` or `*`.
+**HED_WIKI_LINE_START_INVALID:** Start of body line not `'''` or `*`.
 
-**HED_WIKI_SEPARATOR_INVALID**: A required wiki section separator is missing or in the wrong place. 
+**HED_WIKI_SEPARATOR_INVALID:** A required wiki section separator is missing or in the wrong place. 
  ~ The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.
 
-**HED_XML_SYNTAX_INVALID**: XML syntax or does not comply with specified XSD.
+**HED_XML_SYNTAX_INVALID:** XML syntax or does not comply with specified XSD.
 

@@ -1,183 +1,198 @@
-# 8. Resources
+# Tools and services
+
+## 1. CTagger for annotating data
+
+The CTagger tool for annotating data provides a graphical user interface (GUI) to assist HED users 
+in the annotation process. CTagger can be run as a standalone application 
+([https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)) or using the HEDTools plug-in in EEGLAB. 
+
+The tool is designed to ease the process of constructing HED strings, with features including tag search, 
+an expandable schema-browser view, and free-form formatting. The interchangeability between long-short 
+forms introduced in HED-3G is fully supported. CTagger is also compatible with BIDS, allowing users to 
+import BIDS `events.tsv` and `events.json` files to extract the event structure. Once finished tagging, 
+users can export their HED annotation into a json file compatible with BIDS events.json. 
+See [CTagger GitHub repository](https://github.com/hed-standard/CTagger) for more details, 
+guides, and tutorials.
 
 
-## 8.1. HED publications
-
-The following white paper explains the history, development, and motivation for third generation HED: 
-
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).
-> Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).
-> [https://doi.org/10.31219/osf.io/5fg73](https://doi.org/10.31219/osf.io/5fg73)
-
-The following white paper gives a detailed case study in using HED-3G for tagging:
-
-> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
-> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-> BioRxiv, 2021.05.06.442841. 
-> [https://doi.org/10.1101/2021.05.06.442841](https://doi.org/10.1101/2021.05.06.442841)
-
-A working document with the mapping of HED terms and their descriptions to known ontologies is:
-
-> [https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing](https://drive.google.com/file/d/13y17OwwNBlHdhB7hguSmOBdxn0Uk4hsI/view?usp=sharing)
-
-Two other working documents hold portions of the HED-3G specification that are under development and will not be finalized for Release 1:
-
-> HED-3G Working Document on Spatial Annotation
-> [https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing](https://docs.google.com/document/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/view?usp=sharing)
-
-> HED-3G Working Document on Task Annotation
-> [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
-
-## 8.2. HED Websites
-### **Table 8.1**. List of websites containing code and documentation.
-
-<table>
-  <tr>
-   <td><strong>Description</strong></td>
-   <td><strong>Site</strong></td>
-  </tr>
-  <tr><td colspan="2"><strong>Information and documentation</strong></td></tr>
-  <tr>
-   <td>HED organization website</td>
-   <td><a href="https://www.hedtags.org">www.hedtags.org</a></td>
-  </tr>
-  <tr>
-   <td>HED organization github</td>
-   <td><a href="https://github.com/hed-standard">https://github.com/hed-standard</a></td>
-  </tr>
-  <tr>
-   <td>HED specification repository</td>
-   <td><a href="https://github.com/hed-standard/hed-specification">https://github.com/hed-standard/hed-specification</a>
-   </td>
-  </tr>
-  <tr><td colspan="2"><strong>HED Python resources</strong></td></tr>
-  <tr>
-    <td>Python code repository</td>
-    <td><a href="https://github.com/hed-standard/hed-python">https://github.com/hed-standard/hed-python</a></td>
-   </tr>
-   <tr>
-      <td>Python validator and tools</td>
-      <td><a href="https://github.com/hed-standard/hed-python/tree/master/hedtools">https://github.com/hed-standard/hed-python/tree/master/hedtools</a></td>
-</tr>
- <tr>
-    <td>Online tools/Docker deployment</td>
-<td><a href="https://github.com/hed-standard/hed-python/tree/master/hedweb">https://github.com/hed-standard/hed-python/tree/master/hedweb</a></td>
-</tr>
-  <tr>
-   <td colspan="2"><strong>HED JavaScript resources</strong></td>
-  </tr>
-  <tr>
-   <td>HED JavaScript code</td>
-   <td><a href="https://github.com/hed-standard/hed-javascript">https://github.com/hed-standard/hed-javascript</a></td>
-   </tr>
-   <tr>
-   <td>BIDS validator</td>
-   <td><a href="https://github.com/bids-standard/bids-validator"></a>href="https://github.com/bids-standard/bids-validator</td>
-  </tr>
-  <tr>
-   <td colspan="2"><strong>HED Matlab resources</strong></td>
-  </tr>
-  <tr>
-     <td>Matlab source code</td>
-     <td><a href="https://github.com/hed-standard/hed-matlab">https://github.com/hed-standard/hed-matlab</a></td>
-  </tr>
-  <tr>
-     <td colspan="2"><strong>CTAGGER resources</strong></td>
-  </tr>
-   <tr>
-     <td>CTAGGER executable jar</td>
-     <td><a href="https://github.com/hed-standard/hed-java/raw/master/ctagger.jar">https://github.com/hed-standard/hed-java/raw/master/ctagger.jar</a></td>
-    </tr>
-   <tr>
-     <td>CTAGGER repository</td>
-     <td><a href="https://github.com/hed-standard/CTagger">https://github.com/hed-standard/CTagger</a></td>
-    </tr>
-   <tr>
-     <td>Java repository</td>
-     <td><a href="https://github.com/hed-standard/hed-java">https://github.com/hed-standard/hed-java</a> </td>
-    </tr>
-  <tr>
-   <td colspan="2"><strong>Online HED tools</strong></td>
-  </tr>
-  <tr>
-     <td>Online website</td>
-     <td><a href="https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed</a></td>
-  </tr>
-   <tr>
-     <td>Docker deployment</td>
-     <td><a href="https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed">https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed</a></td>
-  </tr>
-</table>
-
-
-## 8.3. Schema viewers
-
-The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools.
-However, researchers wishing to tag datasets will find both of these views hard to read. 
-For this reason, we provide links to three versions of the schema in Table 8.2. The expandable
-HTML viewer is easier to navigate. Annotators can also use CTAGGER which includes a schema viewer
-and tagging hints.
-
-### **Table A.2.** HED web-based schema vocabulary viewers.
-
-<table>
-  <tr>
-   <td><strong>Viewer</strong></td>
-   <td><strong>Link</strong></td>
-  </tr>
-  <tr>
-   <td>Expandable HTML</td>
-   <td><a href="https://www.hedtags.org/display_hed.html?version=8.0.0">https://www.hedtags.org/display_hed.html?version=8.0.0</a></td>
-   </tr>
-  <tr>
-   <td>Mediawiki</td>
-   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0.mediawiki">https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED-generation3-schema-8.0.0.mediawiki</a></td>
-  </tr>
-  <tr>
-   <td>XML</td>
-   <td><a href="https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml">https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml</a></td>
-  </tr>
-</table>
-
-
-## 8.3. CTagger for annotating data
-
-The CTagger tool for annotating data provides a graphical user interface (GUI) to assist HED users in the annotation process. CTagger can be run as a standalone application ([https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)) or using the HEDTools plug-in in EEGLAB. The tool is designed to ease the process of constructing HED strings, with features including tag search, an expandable schema-browser view, and free-form formatting. The interchangeability between long-short forms introduced in HED-3G is fully supported. CTagger is also compatible with BIDS, allowing users to import BIDS `events.tsv` and `events.json` files to extract the event structure. Once finished tagging, users can export their HED annotation into a json file compatible with BIDS events.json. See [CTagger Github repository](https://github.com/hed-standard/CTagger) for more details, guides, and tutorials.
-
-
-## 8.4. Web-based services
+## 2. Web-based services
 
 HED supports a number of web-based tools for HED validation, schema conversion and validation, 
 JSON dictionary validation (as for a BIDS JSON sidecar for events), and validation of a single
-BIDS event file with supporting JSON sidecar. Additional web-based tools are planned for various
-analysis and conversion tasks. In addition, a HED web service interface is available for
-accessing many of the tools programmatically, including from MATLAB and Python programs. 
-Table 8.3. summarizes the location of the relevant URLs for online deployments of HED 
+BIDS event file with supporting JSON sidecar. 
+
+Additional web-based tools are planned for various analysis and conversion tasks. 
+In addition, a HED web service interface is available for accessing many of the 
+tools programmatically, including from MATLAB and Python programs. 
+The following table summarizes the location of the relevant URLs for online deployments of HED 
 web-based tools and services.
 
-### **Table 8.3.** URLs for services online.
-
-`````{list-table}
+`````{list-table} URLs for HED online services.
 :header-rows: 1
 :widths: 20 50
 
 * - Service
   - URL
 * - Online HED tools
-  - [https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed">https://hedtools.ucsd.edu/hed)
+  - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
 * - CSRF token access
-  - [https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services](https://hedtools.ucsd.edu/hed/services">https://hedtools.ucsd.edu/hed/services)  
+  - [https://hedtools.ucsd.edu/hed/services](https://hedtools.ucsd.edu/hed/services)  
 * - Service request
-  - [https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit](https://hedtools.ucsd.edu/hed/services_submit">https://hedtools.ucsd.edu/hed/services_submit)
+  - [https://hedtools.ucsd.edu/hed/services_submit](https://hedtools.ucsd.edu/hed/services_submit)
 `````
 
 
-### 8.4.1. Web-based tools
+### 2.1. Web-based tools
 
-The web-based tools are summarized in Table A.3. All of the tools are available from the main
+The web-based tools are summarized in Table A.3. All tools are available from the main
 access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are
 implemented in a Docker module and can be deployed locally provided that Docker is installed on
-the local machine. 
+the local machine.
+
+HED services are accessed by passing a JSON dictionary of parameters in a request to the online server. All requests include a service name and additional parameters. Table 8.5. summarizes the available web-services and their parameters. The meaning of the different parameters is given in Table 8.6.
+
+`````{list-table} Top-level JSON parameter dictionary for HED services.
+:header-rows: 1
+:widths: 20 20 40
+
+* - Service	Parameters	Descriptions
+* - get_services
+  - none
+  - Returns a list of available services.
+* - dictionary_to_long
+  - json_string,
+  [schema_version, hed_schema_string]
+  - Returns either an error file or a JSON file converted to long form depending
+  on whether conversion was successful or not.
+* - dictionary_to_short
+  - json_string,
+  [schema_version, hed_schema_string]
+  - Returns either an error file or a JSON file converted to long form 
+  depending on whether conversion was successful or not.
+* - dictionary_validate
+  - json_string,
+  [schema_version, hed_schema_string],
+  check_for_warnings
+  - Returns an error file if the JSON file has validation errors.
+* - events_assemble	events_string,
+  - json_string,
+  [schema_version, hed_schema_string],
+  check_for_warnings,
+  defs_expand
+  - Returns an error file if the JSON file or events file has 
+  validation errors otherwise returns a file of assembled events.
+* - events_validate
+  - events_string,
+  json_string,
+  [schema_version, hed_schema_string],
+  check_for_warnings
+  - Returns an error file if the JSON file or events file has validation errors.
+* - spreadsheet_validate
+  - spreadsheet_string,
+  [schema_version, hed_schema_string],
+  check_for_warnings
+  - A tsv spreadsheet of event codes and their tags is sent to be validated. 
+  Returns an error file if the spreadsheet has validation errors.
+* - strings_to_long
+  - string_list,
+  [schema_version, hed_schema_string]
+  - Convert a list of strings to long form if valid, otherwise return errors.
+* - strings_to_short
+  - string_list,
+  [schema_version, hed_schema_string]
+  - Convert a list of strings to short form if valid, otherwise return errors.
+* - strings_validate
+  - hed_strings,
+  [schema_version, hed_schema_string]	
+  - Validates a list of hed strings using the specified HED schema 
+  and returns a list of the same length as hed strings.
+`````
+
+Each entry in the return list is either empty if the corresponding string has no errors or contains a string with the errors in readable form.
+
+`````{list-table} Top-level JSON parameter dictionary for HED services.
+:header-rows: 1
+:widths: 20 10 50
+
+* - Key	value
+  - Type
+  - Description
+* - check_for_warnings
+  - boolean
+  - If true, check for warnings when validating.
+* - defs_expand
+  - boolean
+  - If true assembly expands definitions, replacing def/XXX with def-expand/XXX.
+* - events_string
+  - string
+  - Events tsv file with header passed as a string.
+* - hed_columns
+  - list of numbers
+  - A list of column numbers (starting with 1) of columns containing HED strings. If empty, all columns are used.
+* - hed_schema_string
+  - string
+  - HED schema in XML format as a string.
+* - hed_strings
+  - list of strings
+  - A list containing HED strings.
+* - json_string
+  - string
+  - BIDS-style JSON events sidecar as a string.
+* - json_strings
+  - string
+  - A list of BIDS-style JSON sidecars as strings.
+* - schema_string
+  - string
+  - A HED schema file as a string.
+* - schema_version
+  - string
+  - Version of HED to be accessed if relevant.
+* - service
+  - string
+  - The name of the requested service.
+* - spreadsheet_string
+  - string
+  - A spreadsheet tsv as a string.
+`````
+
+The web-services always return a JSON dictionary with four keys: `service`, `results`, 
+`error_type`, and `error_msg`. If `error_type` and `error_msg` are not empty, the operation failed,
+while if these fields are empty, the operation completed. Completed operations always 
+return their results in the `results` dictionary. The field of the `results` dictionary are shown in Table 8.7
+
+Keys in the `results` dictionary return as part of a HED web service response.
+
+`````{list-table} The results dictionary.
+:header-rows: 1
+:widths: 20 10 50
+
+* - Key
+  - Type
+  - Description
+* - `command`
+  - string
+  - The command that was executed in response to the service request.
+* - `data`
+  - string
+  - The data returned by the service. This could be a list of errors or the processed 
+  result depending on what happened.
+* - `schema_version`
+  - string
+  - The version of the HED schema used in the processing.
+* - `msg_category`
+  - string
+  - One of success, warning, or failure depending on the result of processing the service.
+* - `msg`
+  - string
+  - Explanation of the result of service processing.
+
+`````
+
+The [`hedweb/examples/matlab`](https://github.com/hed-standard/hed-python/tree/master/webtools/examples/matlab)
+directory of the hed-python repository gives running MATLAB examples of how to call these services in MATLAB.
+
+
+
 
 ### **Table A.4.** Web-based HED tools.
 
@@ -195,7 +210,8 @@ the local machine.
  ~ If there are errors, the tool returns a downloadable file of error messages.
 
 ``````
-Here is the left overs for testing.
+
+Here is the leftovers for testing.
 <table>
   <tr>
      <td>Validate spreadsheet</td>
@@ -416,9 +432,7 @@ shown in Table 8.7
 The `hedweb/examples/matlab` directory of the `hed-python` repository gives running MATLAB 
 examples of how to call these services in MATLAB.
 
-## 8.5. HED validation source code
-
-### 8.5.1. HED validation in python
+## 4. Python tools
 
 The python code for validation is in the  `hedtools` project located in the `hed-python` 
 repository [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). You can install the tools using `pip` if you have downloaded 
@@ -428,24 +442,22 @@ the `hed-python` repository:
 
 The validation functions are in the `hed.validator` module. The data representations for 
 various items such as dictionaries or event files can be found in the `hed.models` module. 
-The hed_input.py module reads in a spreadsheet and possibly a dictionary and creates a 
+The `hed_input.py` module reads in a spreadsheet and possibly a dictionary and creates a 
 `HedInput` object representing the spreadsheet. The `hed-validator.py` module creates a
 `HedValidator` object that takes a `HedSchema` object to use in subsequent validation. 
 The `validate_input` method of `HedValidator` validates HED input in various formats and
 returns a list of issues.
 
-### 8.5.2. JavaScript validation 
+## 5. JavaScript tools 
 
 The JavaScript code for HED validation is in the validation directory of the 
-`hed-javascript` repository located at [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript).  
+`hed-javascript` repository located at [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript).
 
-#### 8.5.2.1. Installation
+### 5.1 Installation
 
 You can install the validator using `npm`:
 
     npm install hed-validator
-
-#### 8.5.2.2. Usage
 
 This package contains two sub-packages. `hedValidator.validator` validates HED strings and
 contains the functions: `buildSchema`, which imports a HED schema and returns a JavaScript
@@ -456,14 +468,13 @@ and contains the following functions: `buildSchema`, which behaves similarly to 
 `convertHedStringToShort`, which converts HED strings from long form to short form, 
 and `convertHedStringToLong`, which converts HED strings from short form to long form.
 
-#### 8.5.2.3. Programmatic interface
+### 5.3 Programmatic interface
 
 The programmatic interface to the HED JavaScript `buildSchema` must be modified to accommodate
-a base HED schema and arbitrary library schemas. Section 4.3.1 outlined the proposed changes in
-the BIDS specification from the viewpoint of the user.  The BIDS validator will require
+a base HED schema and arbitrary library schemas.  The BIDS validator will require
 additional changes to locate the relevant HED schemas from the specification given by
 `"HEDVersion"` in `dataset_description.json`. The programmatic interface is similar to the JSON 
-specification of section 4.3.1, except that the `"fileName"` key has been replaced by a `"path"`
+specification of the proposed BIDS implementation except that the `"fileName"` key has been replaced by a `"path"`
 key to emphasize that callers must replace filenames with full paths before calling 
 `buildSchema`. 
 
@@ -488,7 +499,7 @@ key to emphasize that callers must replace filenames with full paths before call
 
 **NOTE:** This interface is proposed and is awaiting resolution of BIDS PR #820 on file passing to BIDS.
 
-### 8.5.3. HED validation in MATLAB
+## 6. MATLAB tools
 
 HED validation can be done using the online web-services from MATLAB as shown in the
 `./examples/matlab` directory of the

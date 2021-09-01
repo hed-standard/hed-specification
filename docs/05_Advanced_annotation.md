@@ -522,7 +522,7 @@ face was shown using more specific tags for the value *Parameter-value*:
 > *(Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15),*  
 
 **Long form:**  
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/<strong>Count-of-this-face</strong>,*  
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Count-of-this-face</strong>,*  
 > *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*  
 > *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>*  
 > *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count-interval/15</strong>)*  
