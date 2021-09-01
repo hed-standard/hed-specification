@@ -22,6 +22,8 @@ implemented in a Docker module and can be deployed locally provided that Docker 
 
 ``````{admonition} Web tools for BIDS style event.tsv files
 **Assemble events:** Assemble HED annotation of a BIDS-style events file with optional JSON sidecar.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the event file and an optional JSON sidecar file. 
  ~ The user also specifies which version of HED to use either by selecting a standard version from GitHub or by uploading a local HED schema.
  ~ The user selects the `Assemble` processing option and chooses whether or not to expand definitions.
@@ -29,35 +31,47 @@ implemented in a Docker module and can be deployed locally provided that Docker 
  the full event-level HED annotation.
  ~ If there are errors, the tool returns a downloadable file of error messages. If no errors, the tool
  returns the new event file.
+````
 
 **Validate events:** Validate a BIDS-style events file with optional JSON sidecar.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the event file and an optional JSON sidecar file. 
  ~ The user also specifies which version of HED to use either by selecting a standard version from GitHub or by uploading a local HED schema.
  ~ The user selects the `Validate` processing option and clicks the `Process` button.
  ~ The tool first validates the sidecar if present. If the sidecar contains no errors, 
  the tool validates the events file in conjunction with the sidecar.
  ~ If there are errors, the tool returns a downloadable file of error messages.
+````
 ``````
 
 ``````{admonition} Web tools for BIDS style HED schema files
 **Convert schema:** Convert a HED schema between XML and MEDIAWIKI format.
+````{admonition} Steps:
+:class: tip
+
  ~ The user uploads a HED schema file or gives a URL pointing to a schema file.
  ~ The user selects the `Convert` option and presses the `Process` button.
  ~ The tool returns a downloadable converted file (XML input is converted to MEDIAWIKI and vice versa).
  ~ Errors are reported as message at the bottom of the screen.
+````
 
 **Validate schema:** Validate a HED schema between XML and MEDIAWIKI format.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads a HED schema file or gives a URL pointing to a schema file.
  ~ The user selects the `Validate` option and presses the `Process` button.
  ~ The tool returns a downloadable file of error messages if the schema is invalid.
-
+````
 ``````
 
 BIDS JSON sidecars have file names ending in `_events.json`. These JSON files contain metadata
 and HED tags applicable to associated events files.
 
 ``````{admonition} Web tools for BIDS style JSON sidecar.
-**Convert to long:** Convert the HED tags in a BIDS-style events JSON sidecar to long form
+**Convert to long:** Convert the HED tags in a BIDS-style events JSON sidecar to long form.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the JSON sidecar file.  
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects the `Convert to long` option and presses the `Process` button.
@@ -65,8 +79,11 @@ and HED tags applicable to associated events files.
  ~ If the sidecar successfully validates, the tool converts the tags to their full path strings
  and returns a JSON sidecar with the HED tags converted.
  ~ If there are errors, the tool returns a downloadable file of error messages.
+````
 
-**Convert to short:** Convert the HED tags in a BIDS-style events JSON sidecar to short form
+**Convert to short:** Convert the HED tags in a BIDS-style events JSON sidecar to short form.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the JSON sidecar file.  
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects the `Convert to short` option and presses the `Process` button.
@@ -74,17 +91,23 @@ and HED tags applicable to associated events files.
  ~ If the sidecar successfully validates, the tool converts the tags to their short form
  and returns a JSON sidecar with the HED tags converted.
  ~ If there are errors, the tool returns a downloadable file of error messages.
+````
  
 **Validate sidecar:** Validate a single BIDS-style events JSON sidecar.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the JSON sidecar file.  
  ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
   ~ The user selects the `Validate` option and presses the `Process` button.
  ~ The tool validates the sidecar and returns a downloadable file of error messages if there are errors.
+````
 ``````
 Spreadsheets (either in Excel or tab-separated-value format) are convenient for organizing tags.
 
 ``````{admonition} Web tools for spreadsheets of HED tags.
-**Convert to long:** Convert the HED tags in tag spreadsheet to long form
+**Convert to long:** Convert the HED tags in tag spreadsheet to long form.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
  ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
@@ -94,8 +117,11 @@ Spreadsheets (either in Excel or tab-separated-value format) are convenient for 
  ~ If the spreadsheet successfully validates, the tool converts the tags to their full path strings
  and returns a spreadsheet with the HED tags converted.
  ~ If there are errors, the tool returns a downloadable file of error messages.
+````
 
-**Convert to short:** Convert the HED tags in a spreadsheet to short form
+**Convert to short:** Convert the HED tags in a spreadsheet to short form.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
  ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
@@ -105,39 +131,52 @@ Spreadsheets (either in Excel or tab-separated-value format) are convenient for 
  ~ If the spreadsheet successfully validates, the tool converts the tags to their short forms
  and returns a spreadsheet with the HED tags converted.
  ~ If there are errors, the tool returns a downloadable file of error messages.
+````
  
 **Validate:** Validate  the HED tags in a spreadsheet.
+````{admonition} Steps:
+:class: tip
  ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
  ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects which columns contain HED tags or are prefix columns.
  ~ The user selects the `Validate` option and presses the `Process` button.
  ~ The tool validates the spreadsheet and returns an error file if the spreadsheet is invalid.
+````
 ``````
 Online validation of HED strings.
 
 ``````{admonition} Web tools for processing strings
-**Convert to long:** Convert a HED string to long form
+**Convert to long:** Convert a HED string to long form.
+````{admonition} Steps:
+:class: tip
  ~ The user pastes a string into the input text box.  
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects the `Convert to long` option and presses the `Process` button.
  ~ The tool first validates the string and returns errors in the lower text box if any.
  ~ If the string successfully validates, the tool converts the tag string to full path strings
  and returns the converted string in the lower text box. 
+````
 
-**Convert to short:** Convert a HED tag string to long form
+**Convert to short:** Convert a HED tag string to long form.
+````{admonition} Steps:
+:class: tip
  ~ The user pastes a string into the input text box.  
  ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects the `Convert to short` option and presses the `Process` button.
  ~ The tool first validates the string and returns errors in the lower text box if any.
  ~ If the string successfully validates, the tool converts the tag string to short form
  and returns the converted string in the lower text box. 
+````
  
 **Validate:** Validate a HED string.
+````{admonition} Steps:
+:class: tip
  ~ The user pastes a string into the input text box.  
  ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
  ~ The user selects the `Validate` option and presses the `Process` button.
  ~ The tool validates the string and returns any error messages in the lower text box.
+````
 ``````
 
 
@@ -226,13 +265,15 @@ one of `a` or `b` should be provided.
   - A tsv spreadsheet of event codes and their tags is sent to be validated. 
     Returns an error file if the spreadsheet has validation errors.
 * - `strings_to_long`
-  - `string_list`,
-    [`schema_version`, 
-    `hed_schema_string`]
+  - `string_list`,  
+  [`schema_version`,   
+  `hed_schema_string`]
   - Convert a list of strings to long form if valid, otherwise return errors.
 * - `strings_to_short`
-  - `string_list`,
+  - `string_list`,  
+  
     [`schema_version`, 
+    
     `hed_schema_string`]
   - Convert a list of strings to short form if valid, otherwise return errors.
 * - `strings_validate`
@@ -257,15 +298,16 @@ The following table gives an explanation of the parameters used for various serv
   - If true, check for warnings when validating.
 * - `defs_expand`
   - boolean
-  - If true assembly expands definitions, replacing 
-    *def/XXX* with *def-expand/XXX*.
+  - If true assembly expands definitions,  
+  replacing *def/XXX* with *def-expand/XXX*.
 * - `events_string`
   - string
   - Events tsv file with header passed as a string.
 * - `hed_columns`
   - list of numbers
-  - A list of column numbers (starting with 1) of columns 
-    containing HED strings. If empty, all columns are used.
+  - A list of column numbers (starting with 1) of columns  
+   
+  containing HED strings. If empty, all columns are used.
 * - `hed_schema_string`
   - string
   - HED schema in XML format as a string.
@@ -356,15 +398,22 @@ You can install the validator using `npm`:
 
     npm install hed-validator
 
-### 5.2 Installation
-This package contains two sub-packages. `hedValidator.validator` validates HED strings and
-contains the functions: `buildSchema`, which imports a HED schema and returns a JavaScript
-Promise object, and `validateHedString`, which validates a single HED string using the returned
-schema object. `hedValidator.converter` converts HED 3 strings between short and long forms 
-and contains the following functions: `buildSchema`, which behaves similarly to the 
-`buildSchema` function in `hedValidator.validator` except that it does not work with attributes,
-`convertHedStringToShort`, which converts HED strings from long form to short form, 
-and `convertHedStringToLong`, which converts HED strings from short form to long form.
+### 5.2 Package organization
+
+This package contains two sub-packages.  
+
+`hedValidator.validator` validates HED strings and contains the functions:  
+ ~ `buildSchema` imports a HED schema and returns a JavaScript Promise object. 
+ ~ `validateHedString` validates a single HED string using the returned schema object. 
+
+`hedValidator.converter` converts HED 3 strings between short and long forms 
+and contains the following functions:
+ ~ `buildSchema` behaves similarly to the `buildSchema` function in `hedValidator.validator` 
+except that it does not work with attributes.  
+
+ ~ `convertHedStringToShort` converts HED strings from long form to short form.
+
+~ `convertHedStringToLong` converts HED strings from short form to long form.
 
 ### 5.3 Programmatic interface
 
