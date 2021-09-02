@@ -651,7 +651,76 @@ attributes listed in the following table can be handled by current HED tools.
       - node #        
       - Indicates which value class replacement values belongs to.        
 ``````
-  
+
+This is version 2:
+
+`````{list-table} Schema attributes (* indicates attribute has a value).
+:widths: 20 15 45
+:header-rows: 1
+
+* - Attribute
+  - Target
+  - Description
+* - allowedCharacter*
+  - valueClass
+  - Specifies a character used in values of this class.
+* - defaultUnits*
+  - unitClass
+  - Specifies units to use if placeholder value has no units.   
+* - extensionAllowed
+  - node
+  - A tag can have unlimited levels of child nodes added.
+* - recommended
+  - node
+  - Event-level HED strings should include this tag.
+* - relatedTag*
+  - node
+  - A HED tag closely related to this HED tag.
+* - requireChild
+  - node    
+  - A child of this node must be included in the HED tag.
+* - required
+  - node      
+  - Event-level HED string must include this tag.
+* - SIUnit
+  - unit   
+  - This unit represents an SI unit and can be modified.
+* - SIUnitModifier
+  - unitModifier   
+  - Modifier applies to base units.
+* - SIUnitSymbolModifier
+  - unitModifier    
+  - Modifier applies to unit symbols.
+* - suggestedTag*
+  - node   
+  - Tag could be included with this HED tag.
+* - tagGroup
+  - node   
+  - Tag can only appear inside a tag group.
+* - takesValue
+  - node #   
+  - Placeholder (#)should be replaced by a value.
+* - topLevelTagGroup
+  - node        
+  - Tag (or its descendants) can be in a top-level tag group.
+* - unique
+  - node        
+  - Tag or its descendants can only occur once in <br/>
+    an event-level HED string.
+* - unitClass*
+  - node #        
+  - Unit class this replacement value belongs to.
+* - unitPrefix
+  - unit        
+  - Unit is a prefix (e.g., $ in the currency units).
+* - unitSymbol
+  - unit        
+  - Tag is an abbreviation representing a unit.
+* - valueClass*
+  - node #        
+  - Type of value this is.        
+``````
+
 Normally the allowed characters are listed individually as values of the `allowedCharacter`
 attribute. However, the word `letters` designates upper and lower case alphabetic characters
 are allowed. Further, the word `blank` indicates a space is an allowed character, and the 
@@ -690,6 +759,26 @@ the schema. The following table lists these.
     * - predicateType
       - node   
       - Indicates the relationship of the node to its parent. 
+``````
+
+Version 2:
+
+`````{list-table} Schema attributes (* indicates attribute has a value).
+:widths: 20 15 45
+:header-rows: 1
+
+* - Schema attribute
+  - Target
+  - Description
+* - default
+  - node #
+  - Indicates a default value used if no value is provided.
+* - position
+  - node    
+  - Indicates where this tag should appear during display.
+* - predicateType
+  - node   
+  - Indicates the relationship of the node to its parent. 
 ``````
 
 The `default` attribute was not implemented in existing tools. 
@@ -757,6 +846,27 @@ behavior of certain value classes (for example the `numericClass` value class).
 8. The posix path class is yet unspecified and currently allows any characters besides commas.
 
 ````
+
+Version 2:
+`````{list-table} Rules for value classes.
+:widths: 20 50
+:header-rows: 1
+
+* - Value class
+  - Allowed characters
+* - dateTimeClass
+  - digits, T, :, - 
+* - nameClass
+  - alphabetic characters, -
+* - numericClass
+  -  digits, ., -, +, E, e 
+* - posixPath
+  -  As yet unspecified
+* - textClass
+  - Alphanumeric characters, blank, <br/>
+    +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+``````
+
 
 ### A.3.4. HED unit classes
 
@@ -873,7 +983,55 @@ The second format:
       - gram, g*, pound, lb   
 ``````
 
+Version 3:
 
+`````{list-table} Unit classes and units in HED 8.0.0 (* indicates unit symbol).
+:widths: 20 10 40
+:header-rows: 1
+
+* - Unit class
+  - Default units
+  - Units
+* - accelerationUnits
+  - m-per-s^2 
+  - m-per-s^2*
+* - angleUnits
+  - rad 
+  - radian, rad*, degree
+* - areaUnits
+  - m^2 
+  - metre^2, m^2*
+* - currencyUnits
+  - $ 
+  - dollar, $, point
+* - frequencyUnits
+  - Hz 
+  - hertz, Hz*
+* - intensityUnits
+  - dB 
+  - dB, candela, cd*
+* - jerkUnits
+  - m-per-s^3 
+  - m-per-s^3*  
+* - memorySizeUnits
+  - B 
+  - byte, B 
+* - physicalLength
+  - m 
+  - metre, m*, inch, foot, mile   
+* - speedUnits
+  - m-per-s 
+  - m-per-s*, mph, kph     
+* - timeUnits
+  - s 
+  - second, s*, day, minute, hour
+* - volumeUnits
+  - m^3 
+  - metre^3, m^3*  
+* - weightUnits
+  - g 
+  - gram, g*, pound, lb   
+``````
 
 ### A.3.5. HED unit modifiers
 
@@ -973,4 +1131,53 @@ This is test:
       - SI unit submultiple representing 10^−21
     * - yocto, y*
       - SI unit submultiple representing 10^−24
+``````
+
+Version 3:
+`````{list-table} Unit classes and units in HED 8.0.0 (* indicates unit symbol).
+:widths: 20 50
+:header-rows: 1
+
+* - Schema attribute
+  - Description
+* - deca, da*
+  - SI unit multiple representing 10^1
+* - hecto, h*
+  - SI unit multiple representing 10^2
+* - kilo, k*
+  - SI unit multiple representing 10^3
+* - mega, M*
+  - SI unit multiple representing 10^6
+* - giga, G*
+  - SI unit multiple representing 10^9
+* - tera, T*
+  - SI unit multiple representing 10^12
+* - peta, P*
+  - SI unit multiple representing 10^15
+* - exa, E*	
+  - SI unit multiple representing 10^18
+* - zetta, Z*
+  - SI unit multiple representing 10^21
+* - yotta, Y*
+  - SI unit multiple representing 10^24
+* - deci, d*
+  - SI unit submultiple representing 10^−1
+* - centi, c*
+  - SI unit submultiple representing 10^−2
+* - milli, m*
+  - SI unit submultiple representing 10^−3
+* - micro, u*
+  - SI unit submultiple representing 10^−6
+* - nano, n*
+  - SI unit submultiple representing 10^−9
+* - pico, p*
+  - SI unit submultiple representing 10^−12
+* - femto, f*
+  - SI unit submultiple representing 10^−15
+* - atto, a*
+  - SI unit submultiple representing 10^−18
+* - zepto, z*
+  - SI unit submultiple representing 10^−21
+* - yocto, y*
+  - SI unit submultiple representing 10^−24
 ``````
