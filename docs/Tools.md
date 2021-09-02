@@ -23,23 +23,22 @@ implemented in a Docker module and can be deployed locally provided that Docker 
 ``````{admonition} Web tools for BIDS style event.tsv files
 
 **Assemble events:** Assemble HED annotation of a BIDS-style events file.
-> Upload the event file and an optional JSON sidecar file. 
-> Specify the HED version. 
-> Select the `Assemble` processing option and whether to expand definitions.
-> Click the `Process` button.
-> The tool assembles a new two-column event file. 
-> If there are errors, a downloadable file of error messages is returned. 
-> If no errors, the new event file is returned.
-
+ - Upload the event file and an optional JSON sidecar file. 
+ - Specify the HED version. 
+ - Select the `Assemble` processing option and whether to expand definitions.
+ - Click the `Process` button.
+ - The tool assembles a new two-column event file. 
+ - If there are errors, a downloadable file of error messages is returned. 
+ - If no errors, the new event file is returned.
 
 **Validate events:** Validate a BIDS-style events file with optional JSON sidecar.
-> Upload the event file and an optional JSON sidecar file. 
-> Specify the HED version. 
-> Select the `Validate` processing option.
-> Click the `Process` button.
-> The tool first validates the sidecar if present. 
-> If the sidecar contains no errors, the tool validates the events file with the sidecar.
-> If there are any errors, the tool returns a downloadable file of error messages.
+ - Upload the event file and an optional JSON sidecar file. 
+ - Specify the HED version. 
+ - Select the `Validate` processing option.
+ - Click the `Process` button.
+ - The tool first validates the sidecar if present. 
+ - If the sidecar contains no errors, the tool validates the events file with the sidecar.
+ - If there are any errors, the tool returns a downloadable file of error messages.
 
 `````{admonition} Notes:
 :class: tip
@@ -52,23 +51,17 @@ time and the second column is the full event-level HED annotation.
 
 ``````{admonition} Web tools for BIDS style HED schema files
 **Convert schema:** Convert a HED schema between XML and MEDIAWIKI format.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads a HED schema file or gives a URL pointing to a schema file.
- ~ The user selects the `Convert` option and presses the `Process` button.
- ~ The tool returns a downloadable converted file (XML input is converted to MEDIAWIKI and vice versa).
- ~ Errors are reported as message at the bottom of the screen.
-````
+ - Upload a HED schema file or gives a URL pointing to a schema file.
+ - Select the `Convert` option. 
+ - Press the `Process` button.
+ - The tool returns a downloadable converted file (XML input is converted to MEDIAWIKI and vice versa).
+ - Errors are reported as message at the bottom of the screen.
 
 **Validate schema:** Validate a HED schema between XML and MEDIAWIKI format.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads a HED schema file or gives a URL pointing to a schema file.
- ~ The user selects the `Validate` option and presses the `Process` button.
- ~ The tool returns a downloadable file of error messages if the schema is invalid.
-````
+ - Upload a HED schema file or gives a URL pointing to a schema file.
+ - Selects the `Validate` option. 
+ - Press the `Process` button.
+ - The tool returns a downloadable file of error messages if the schema is invalid.
 ``````
 
 BIDS JSON sidecars have file names ending in `_events.json`. These JSON files contain metadata
@@ -76,122 +69,113 @@ and HED tags applicable to associated events files.
 
 ``````{admonition} Web tools for BIDS style JSON sidecar.
 **Convert to long:** Convert the HED tags in a BIDS-style events JSON sidecar to long form.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads the JSON sidecar file.  
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects the `Convert to long` option and presses the `Process` button.
- ~ The tool first validates the sidecar and returns an error file if the sidecar is invalid.
- ~ If the sidecar successfully validates, the tool converts the tags to their full path strings
+ - Upload the JSON sidecar file.  
+ - Specify the HED version of HED.
+ - Select the `Convert to long` option.
+ - Press the `Process` button.
+ - The tool first validates the sidecar and returns an error file if the sidecar is invalid.
+ - If the sidecar successfully validates, the tool converts the tags to their full path strings
  and returns a JSON sidecar with the HED tags converted.
- ~ If there are errors, the tool returns a downloadable file of error messages.
-````
+ - If there are errors, the tool returns a downloadable file of error messages.
 
 **Convert to short:** Convert the HED tags in a BIDS-style events JSON sidecar to short form.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads the JSON sidecar file.  
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects the `Convert to short` option and presses the `Process` button.
- ~ The tool first validates the sidecar and returns an error file if the sidecar is invalid.
- ~ If the sidecar successfully validates, the tool converts the tags to their short form
+ - Upload the JSON sidecar file.  
+ - Specify the HED version. 
+ - Select the `Convert to short` option. 
+ - Press the `Process` button.
+ - The tool first validates the sidecar and returns an error file if the sidecar is invalid.
+ - If the sidecar successfully validates, the tool converts the tags to their short form
  and returns a JSON sidecar with the HED tags converted.
- ~ If there are errors, the tool returns a downloadable file of error messages.
-````
- 
+ - If there are errors, the tool returns a downloadable file of error messages.
+
 **Validate sidecar:** Validate a single BIDS-style events JSON sidecar.
-````{admonition} Steps:
+ - Upload the JSON sidecar file.  
+ - Specify the HED version. 
+ - Select the `Validate` option. 
+ - Press the `Process` button.
+ - The tool validates the sidecar and returns a downloadable file of error messages if there are errors.
+ 
+`````{admonition} Notes:
 :class: tip
- ~
- ~ The user uploads the JSON sidecar file.  
- ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
-  ~ The user selects the `Validate` option and presses the `Process` button.
- ~ The tool validates the sidecar and returns a downloadable file of error messages if there are errors.
-````
+1. If the HED version number is given, the tool downloads a standard version from GitHub.
+Otherwise, the user must upload a local HED schema. 
+`````
 ``````
+
 Spreadsheets (either in Excel or tab-separated-value format) are convenient for organizing tags.
 
 ``````{admonition} Web tools for spreadsheets of HED tags.
 **Convert to long:** Convert the HED tags in tag spreadsheet to long form.
-````{admonition} Steps:
-:class: tip
- ~ 
- ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
- ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects which columns contain HED tags or are prefix columns.
- ~ The user selects the `Convert to long` option and presses the `Process` button.
- ~ The tool first validates the spreadsheet and returns an error file if the spreadsheet is invalid.
- ~ If the spreadsheet successfully validates, the tool converts the tags to their full path strings
+ - Upload the spreadsheet file, indicating whether the first row is a header.
+ - Select a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
+ - Specify the HED version.
+ - Select the columns containing HED tags or are prefix columns.
+ - Select the `Convert to long` option.
+ - Press the `Process` button.
+ - The tool first validates the spreadsheet and returns an error file if the spreadsheet is invalid.
+ - If the spreadsheet successfully validates, the tool converts the tags to their full path strings
  and returns a spreadsheet with the HED tags converted.
- ~ If there are errors, the tool returns a downloadable file of error messages.
-````
+ - If there are errors, the tool returns a downloadable file of error messages.
 
 **Convert to short:** Convert the HED tags in a spreadsheet to short form.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
- ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects which columns contain HED tags or are prefix columns.
- ~ The user selects the `Convert to short` option and presses the `Process` button.
- ~ The tool first validates the spreadsheet and returns an error file if the spreadsheet is invalid.
- ~ If the spreadsheet successfully validates, the tool converts the tags to their short forms
+ - Upload the spreadsheet file, indicating whether the first row is a header.
+ - Select a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
+ - Specify the HED version.
+ - Select the columns containing HED tags or are prefix columns.
+ - Select the `Convert to short` option. 
+ _ Press the `Process` button.
+ - The tool first validates the spreadsheet and returns an error file if the spreadsheet is invalid.
+ - If the spreadsheet successfully validates, the tool converts the tags to their short forms
  and returns a spreadsheet with the HED tags converted.
- ~ If there are errors, the tool returns a downloadable file of error messages.
-````
+ - If there are errors, the tool returns a downloadable file of error messages.
  
 **Validate:** Validate  the HED tags in a spreadsheet.
-````{admonition} Steps:
+ - Upload the spreadsheet file, indicating whether the first row is a header.
+ - Selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
+ - Specify the HED version. 
+ - Select the columns containing HED tags or are prefix columns.
+ - Select the `Validate` option.
+ - Press the `Process` button.
+ - The tool validates the spreadsheet and returns an error file if the spreadsheet is invalid.
+ 
+`````{admonition} Notes:
 :class: tip
- ~
- ~ The user uploads the spreadsheet file, indicating whether the first row is a header.
- ~ The user selects a worksheet if the spreadsheet is an Excel file with multiple worksheets. 
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects which columns contain HED tags or are prefix columns.
- ~ The user selects the `Validate` option and presses the `Process` button.
- ~ The tool validates the spreadsheet and returns an error file if the spreadsheet is invalid.
-````
+1. If the HED version number is given, the tool downloads a standard version from GitHub.
+Otherwise, the user must upload a local HED schema. 
+`````
 ``````
+
 Online validation of HED strings.
 
 ``````{admonition} Web tools for processing strings
 **Convert to long:** Convert a HED string to long form.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user pastes a string into the input text box.  
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects the `Convert to long` option and presses the `Process` button.
- ~ The tool first validates the string and returns errors in the lower text box if any.
- ~ If the string successfully validates, the tool converts the tag string to full path strings
+ - Paste a string into the input text box.  
+ - Specify the HED version.
+ - Select the `Convert to long` option.
+ - Press the `Process` button.
+ - The tool first validates the string and returns errors in the lower text box if any.
+ - If the string successfully validates, the tool converts the tag string to full path strings
  and returns the converted string in the lower text box. 
-````
 
 **Convert to short:** Convert a HED tag string to long form.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user pastes a string into the input text box.  
- ~ The user also specifies which version of HED to use by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects the `Convert to short` option and presses the `Process` button.
- ~ The tool first validates the string and returns errors in the lower text box if any.
- ~ If the string successfully validates, the tool converts the tag string to short form
+ - Paste a string into the input text box.  
+ - Specify the HED version. 
+ - Selects the `Convert to short` option.
+ - Press the `Process` button.
+ - The tool first validates the string and returns errors in the lower text box if any.
+ - If the string successfully validates, the tool converts the tag string to short form
  and returns the converted string in the lower text box. 
-````
  
 **Validate:** Validate a HED string.
-````{admonition} Steps:
+ - Paste a string into the input text box.  
+ - Specify the HED version.
+ - Select the `Validate` option and presses the `Process` button.
+ - The tool validates the string and returns any error messages in the lower text box.
+`````{admonition} Notes:
 :class: tip
- ~
- ~ The user pastes a string into the input text box.  
- ~ The user also specifies which version of HED to validate against either by selecting a standard version from Github or uploading a local HED schema.
- ~ The user selects the `Validate` option and presses the `Process` button.
- ~ The tool validates the string and returns any error messages in the lower text box.
-````
+1. If the HED version number is given, the tool downloads a standard version from GitHub.
+Otherwise, the user must upload a local HED schema. 
+`````
 ``````
 
 
@@ -230,7 +214,6 @@ one of `a` or `b` should be provided.
 `````{list-table} Available HED services.
 :header-rows: 1
 :widths: 20 20 40
-
 * - Service
   - Parameters	
   - Descriptions
