@@ -101,3 +101,48 @@ The following is a summary of the HED-related websites
 * - Docker deployment	
   - [https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed](https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed)
 `````
+
+Version 2
+`````{list-table} HED websites.
+:header-rows: 1
+:widths: 20 50
+
+* - Description
+  - Site
+* - **Information and documentation**
+* - HED organization website	
+  - [https://www.hedtags.org](https://www.hedtags.org)
+* - HED organization github	
+  - [https://github.com/hed-standard](https://github.com/hed-standard)
+* - HED specification repository	
+  - [https://github.com/hed-standard/hed-specification](https://github.com/hed-standard/hed-specification)
+* - Examples of HED annotation
+  - [https://github.com/hed-standard/hed-examples](https://github.com/hed-standard/hed-examples)
+* - HED documentation website
+  - [https://github.com/hed-standard/hed-standard.github.io](https://github.com/hed-standard/hed-standard.github.io)  
+* - **HED Python resources**
+* - Python code repository	
+  - [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python)
+* - Python validator and tools	
+  - [https://github.com/hed-standard/hed-python/tree/master/hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools)
+* - **HED JavaScript resources**
+* - HED JavaScript code	
+  - [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript)
+* - BIDS validator	
+  - [https://github.com/bids-standard/bids-validator](https://github.com/bids-standard/bids-validator)
+* - **HED Matlab resources**
+* - Matlab source code	
+  - [https://github.com/hed-standard/hed-matlab](https://github.com/hed-standard/hed-matlab)
+* - **Annotator resources**
+* - CTAGGER executable jar	
+  - [https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)
+* - CTAGGER repository	
+  - [https://github.com/hed-standard/CTagger](https://github.com/hed-standard/CTagger)
+* - Java repository	
+  - [https://github.com/hed-standard/hed-java](https://github.com/hed-standard/hed-java)
+* - **Online HED tools**
+* - Online website	
+  - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
+* - Docker deployment	
+  - [https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed](https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed)
+`````
