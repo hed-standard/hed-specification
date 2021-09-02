@@ -212,8 +212,8 @@ one of `a` or `b` should be provided.
 
 ``````{eval-rst}
 .. list-table:: Available HED services.
-   :widths: 20 50
    :header-rows: 1
+   :widths: 20 50
 
    * - Service
      - Parameters	
@@ -279,9 +279,9 @@ The following table gives an explanation of the parameters used for various serv
 
 ``````{eval-rst}
 .. list-table:: Parameter meanings for HED service requests.
-   :widths: 20 10 50
    :header-rows: 1
-   
+   :widths: 20 10 50
+
    * - Key value
      - Type
      - Description
@@ -331,9 +331,9 @@ in the `results` dictionary. Keys in the `results` dictionary return as part of 
 
 ``````{eval-rst}
 .. list-table:: The keys of the results dictionary.
-   :widths: 20 10 50
    :header-rows: 1
-   
+   :widths: 20 10 50
+
    * - Key
      - Type
      - Description
