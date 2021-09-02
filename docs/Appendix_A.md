@@ -554,6 +554,25 @@ Presence indicates true.
 
 ````
 
+This is another version
+`````{list-table} Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
+:widths: 20 50
+:header-rows: 1
+
+* - Property
+  - Description
+* - boolProperty
+  - Indicates schema attribute values are either true or false. 
+* - unitClassProperty
+  - Indicates schema attribute only applies to unit classes.
+* - unitModifierProperty
+  - Indicates schema attribute only applies to unit modifiers.
+* - valueClassProperty
+  - Indicates the schema attribute only applies to value classes.
+* - textClass
+  - Alphanumeric characters, blank, <br/>
+    +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+``````
 
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
 `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
@@ -807,51 +826,51 @@ although they are not part of the standard.
 The second format:
 
 `````{list-table} Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
-:header-rows: 1
-:widths: 20 10 40
+    :header-rows: 1
+    :widths: 20 10 40
 
-* - Unit class
-  - Default units
-  - Units
-* - accelerationUnits
-  - m-per-s^2 
-  - m-per-s^2*
-* - angleUnits
-  - rad 
-  - radian, rad*, degree
-* - areaUnits
-  - m^2 
-  - metre^2, m^2*
-* - currencyUnits
-  - $ 
-  - dollar, $, point
-* - frequencyUnits
-  - Hz 
-  - hertz, Hz*
-* - intensityUnits
-  - dB 
-  - dB, candela, cd*
-* - jerkUnits
-  - m-per-s^3 
-  - m-per-s^3*  
-* - memorySizeUnits
-  - B 
-  - byte, B 
-* - physicalLength
-  - m 
-  - metre, m*, inch, foot, mile   
-* - speedUnits
-  - m-per-s 
-  - m-per-s*, mph, kph     
-* - timeUnits
-  - s 
-  - second, s*, day, minute, hour
-* - volumeUnits
-  - m^3 
-  - metre^3, m^3*  
-* - weightUnits
-  - g 
-  - gram, g*, pound, lb   
+    * - Unit class
+      - Default units
+      - Units
+    * - accelerationUnits
+      - m-per-s^2 
+      - m-per-s^2*
+    * - angleUnits
+      - rad 
+      - radian, rad*, degree
+    * - areaUnits
+      - m^2 
+      - metre^2, m^2*
+    * - currencyUnits
+      - $ 
+      - dollar, $, point
+    * - frequencyUnits
+      - Hz 
+      - hertz, Hz*
+    * - intensityUnits
+      - dB 
+      - dB, candela, cd*
+    * - jerkUnits
+      - m-per-s^3 
+      - m-per-s^3*  
+    * - memorySizeUnits
+      - B 
+      - byte, B 
+    * - physicalLength
+      - m 
+      - metre, m*, inch, foot, mile   
+    * - speedUnits
+      - m-per-s 
+      - m-per-s*, mph, kph     
+    * - timeUnits
+      - s 
+      - second, s*, day, minute, hour
+    * - volumeUnits
+      - m^3 
+      - metre^3, m^3*  
+    * - weightUnits
+      - g 
+      - gram, g*, pound, lb   
 ``````
 
 
@@ -860,6 +879,55 @@ The second format:
 
 ``````{eval-rst}
 .. list-table:: Unit modifiers (* indicates an SI unit symbol modifier).
+   :header-rows: 1
+   :widths: 20 50
+
+    * - Schema attribute
+      - Description
+    * - deca, da*
+      - SI unit multiple representing 10^1
+    * - hecto, h*
+      - SI unit multiple representing 10^2
+    * - kilo, k*
+      - SI unit multiple representing 10^3
+    * - mega, M*
+      - SI unit multiple representing 10^6
+    * - giga, G*
+      - SI unit multiple representing 10^9
+    * - tera, T*
+      - SI unit multiple representing 10^12
+    * - peta, P*
+      - SI unit multiple representing 10^15
+    * - exa, E*	
+      - SI unit multiple representing 10^18
+    * - zetta, Z*
+      - SI unit multiple representing 10^21
+    * - yotta, Y*
+      - SI unit multiple representing 10^24
+    * - deci, d*
+      - SI unit submultiple representing 10^−1
+    * - centi, c*
+      - SI unit submultiple representing 10^−2
+    * - milli, m*
+      - SI unit submultiple representing 10^−3
+    * - micro, u*
+      - SI unit submultiple representing 10^−6
+    * - nano, n*
+      - SI unit submultiple representing 10^−9
+    * - pico, p*
+      - SI unit submultiple representing 10^−12
+    * - femto, f*
+      - SI unit submultiple representing 10^−15
+    * - atto, a*
+      - SI unit submultiple representing 10^−18
+    * - zepto, z*
+      - SI unit submultiple representing 10^−21
+    * - yocto, y*
+      - SI unit submultiple representing 10^−24
+``````
+
+This is test:
+`````{list-table} Unit modifiers (* indicates an SI unit symbol modifier).
    :header-rows: 1
    :widths: 20 50
 
