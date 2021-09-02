@@ -29,16 +29,22 @@ make it easier for tools to locate the appropriate HED schema version in the HED
 [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml) directory of the
 [HED specification repository](https://github.com/hed-standard/hed-specification). 
 
-Third generation HED begins with schema version 8.0.0. Thus, the file containing the first official release of the third generation HED schema is `HED8.0.0.xml`. Note: HED versions
+Third generation HED begins with schema version 8.0.0. Thus, the file containing the first 
+official release of the third generation HED schema is `HED8.0.0.xml`. Note: HED versions
 *8.0.0-alpha.1* through *8.0.0-beta.5* are prerelease versions of HED-3G and should not be 
 used as they will eventually be deprecated.
 
-Releases are stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository. Deprecated versions of the HED schema are stored in the [`hedxml/deprecated`](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated) directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository.
+Releases are stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml) 
+directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository. 
+Deprecated versions of the HED schema are stored in the 
+[`hedxml/deprecated`](https://github.com/hed-standard/hed-specification/tree/master/hedxml/deprecated) 
+directory of the [`hed-specification`](https://github.com/hed-standard/hed-specification) repository.
 
 All data recordings in a dataset should be annotated using a single version of the standard 
 HED schema. Validation and analysis tools are not expected to handle multiple versions of 
-the standard HED schema when processing a dataset. Datasets may also include annotations from multiple HED library schema extensions in addition to those from the standard schema, 
-as described in [Section 6](07_Library_schema.md#6-hed-library-schema) of this document. 
+the standard HED schema when processing a dataset. Datasets may also include annotations 
+from multiple HED library schema extensions in addition to those from the standard schema, 
+as described in [Chapter 7: Library schema](07_Library_schema.md#7-library-schema) of this document. 
 A more detailed discussion of the HED schema format appears in 
 [Appendix A](Appendix_A.md#a-schema-format).
 
@@ -47,7 +53,8 @@ A more detailed discussion of the HED schema format appears in
 
 HED schema developers usually specify schema in `.mediawiki` format for more convenient editing,
 display, and reference on GitHub. However, tools assume that the schema is in .mediawiki format. 
-Conversion tools allow The following brief example illustrates the format. A full description of the format is given in [Appendix A](Appendix_A.md#a-schema-format).
+Conversion tools allow The following brief example illustrates the format. A full description 
+of the format is given in [Appendix A](Appendix_A.md#a-schema-format).
 
 ````{admonition} **Example:** Layout of a HED schema (.mediawiki).
 
@@ -103,7 +110,11 @@ Allowed HED term attributes include unit class and value class values as well as
 HED schema attributes that do not have the `unitClassProperty`, `unitModifierProperty`,
 `unitProperty`, or `valueClassProperty`. 
 
-HED term attributes appear in the schema specification either as `name` attributes or as `name=value` pairs. The presence of a `name` attribute for a schema node element indicates that the attribute is true for that term, while the presence of a `name=value` attribute indicates that the attribute has the specified value for that term. If multiple values of a particular attribute are applicable, they should be specified as separate name-value pairs.
+HED term attributes appear in the schema specification either as `name` attributes or as 
+`name=value` pairs. The presence of a `name` attribute for a schema node element indicates 
+that the attribute is true for that term, while the presence of a `name=value` attribute 
+indicates that the attribute has the specified value for that term. If multiple values 
+of a particular attribute are applicable, they should be specified as separate name-value pairs.
 
 The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a
 `#` node indicates that the user must supply a value consistent with the unit classes and value
@@ -120,7 +131,7 @@ The HED XML version of the schema is used during validation and analysis.
 The `.xml` format has changed with the release of HED-3G. This modification of the 
 XML format was done for the following reasons.
 
-````{admonition} **Reasons for XML file format change for HED-3G.**
+````{admonition} **Reasons for XML file format change for HED.**
 :class: tip
 
 1. To correctly handle multiple values of schema attributes.
@@ -276,8 +287,9 @@ For example, the colon (:) is specifically allowed for the `dateTimeClass` value
 
 ### 3.3.2 Placeholder values
 
-Blanks are allowed as are periods, dollar($), percent(%), caret(^), plus(+), minus(-), underbar(_), 
-and semicolon(;). Values must conform to the underlying unit classes of the placeholder specification.
+Blanks are allowed as are periods, dollar (`$`), percent (`%`), caret (`^`), plus (`+`), 
+minus(`-`), under bar(`_`), and semicolon (`;`). Values must conform to the underlying 
+unit classes of the placeholder specification.
 
 Certain unit classes allow other special characters in their value specification. 
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
@@ -370,7 +382,7 @@ thus, a HED string forms a set.
 ````
 
 The validation errors for HED tags and HED strings are summarized in
-[Appendix B: HED validation errors](Appendix_B.md#b-hed-validation-errors).
+[Appendix B: HED errors](Appendix_B.md#b-hed-errors).
 
 **HED `#` placeholders** cannot have siblings. Thus, tags that have placeholder 
 children cannot be extended even if they inherit an `extensionAllowed` attribute 

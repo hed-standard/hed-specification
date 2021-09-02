@@ -56,7 +56,7 @@ of data across studies.
 
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
 datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
-[Chapter 7: HED in BIDS](06_Infrastructure.md#7-hed-in-bids).
+[Chapter 7: HED in BIDS](06_Infrastructure.md#6-infrastructure).
 
 
 ## 1.2. Brief history of HED
@@ -93,7 +93,7 @@ release of the third generation of HED (HED-3G) in August 2021. HED-3G represent
 dramatic increase in annotation capacity, but also a significant simplification of the
 user experience.
 
-````{admonition} **New in HED-3G (versions 8.0.0+).**
+````{admonition} **New in HED (versions 8.0.0+).**
 :class: tip
 
 1. Improved vocabulary structure
@@ -138,7 +138,7 @@ control** parameters as well as **data feature events** and control **mishap eve
 cause operation to fall outside of normal experiment parameters. The goals of HED are to 
 provide a standardized annotation and supporting infrastructure.
 
-````{admonition} **Goals of HED-3G.**
+````{admonition} **Goals of HED.**
 :class: tip
 
 1. **Document the exact nature of events** (sensory, behavioral, environmental, and other) that occur during recorded time series data in order to inform data analysis and interpretation.

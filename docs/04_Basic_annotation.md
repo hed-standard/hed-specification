@@ -10,17 +10,19 @@ as time-marked events or point events: **stimulus events**, **response events**,
 **experiment control events**, and **data features**. 
 
 HED-3G now also allows more sophisticated models of events that have extended duration.
-Downstream analyses often look for neurological effects directly following (or preceding) event markers. 
-The addition of HED context, allows information about events that occur over extended periods of time 
-to propagate to intermediate time points. 
+Downstream analyses often look for neurological effects directly following (or preceding) 
+event markers. The addition of HED context, allows information about events that occur 
+over extended periods of time to propagate to intermediate time points. 
 [Chapter 5: Advanced annotation](05_Advanced_annotation.md#5-advanced-annotation) 
 develops the HED concepts needed to capture these advanced models of events as well as event
 and task inter-relationships. 
 
 This specification is meant to provide guidelines for 
-tool-builders. Additional tutorials and user guides available at [hedtags.org](https://www.hedtags.org)
-provide more specific guidance for annotators.Discussions of how tags for local event codes are
-associated with event instances are deferred to [Chapter 7: HED with BIDS](06_Infrastructure.md#7-hed-in-bids).
+tool-builders. Additional tutorials and user guides available at 
+[hedtags.org](https://www.hedtags.org) provide more specific guidance for 
+annotators. Discussions of how tags for local event codes are
+associated with event instances are deferred to 
+[Chapter 6: Infrastructue](06_Infrastructure.md#65-bids-support-in-hed).
 
 
 ## 4.1. Instantaneous events
@@ -293,7 +295,7 @@ would be included.
 Clinical evaluations are observational features and many fields have standardized names 
 for these features. Although the HED standard itself does not specify these names, 
 library schema representing terminology in clinical or application subfields may provide 
-the vocabulary. (See [Chapter 6: HED library schema](07_Library_schema.md#6-hed-library-schema)
+the vocabulary. (See [Chapter 7: Library schema](07_Library_schema.md#7-library-schema)
 for a discussion of library schema.) The following example illustrates how annotation from 
 a human expert can be annotated in HED.
 

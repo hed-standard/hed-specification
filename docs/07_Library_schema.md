@@ -24,15 +24,16 @@ part of a library used in conjunction with core modules of the programming langu
 Similar to the design principles imposed on function names and subclass organization in 
 software development, HED library schemas must conform to some basic rules:
 
-````{annotation} **Rules for HED library schema design.**
+``````{annotation} Rules for HED library schema design.
 :class: tip
+
 1. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
 2. Schema terms should be readily understood by most users. The terms should not be ambiguous and should be meaningful in themselves without reference to their position in the schema hierarchy.
 3. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
 4. Terms that are used independently of one another should be in different sub-trees (orthogonality).
 
-````
+``````
 
 As in Python programming, we anticipate that many HED schema libraries may be defined 
 and used, in addition to the base HED schema. Libraries allow individual research 
@@ -177,7 +178,7 @@ their own behavior.
 
 Regardless of whether a specification is in the base-schema or not, HED tools can perform basic syntax checking.
 
-````{admonition} **Basic syntax checking for library schema.**
+````{admonition} Basic syntax checking for library schema.
 :class: tip
 
 1. All attributes used in the schema proper must be defined in the schema attribute section of the schema.
