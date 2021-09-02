@@ -406,8 +406,8 @@ conditions. To avoid unfortunate resonances due to a poor choice of rates, the �
 rate conditions each consist of three possible rates. Selection among the three eligible rates
 for the given condition is done randomly. 
 
-In analysis, the researcher would typically combine all of the “slow presentation” trials into
-one group and all “fast presentation” trials into another group even though the exact task
+In analysis, the researcher would typically combine the “slow presentation” trials into
+one group and the “fast presentation” trials into another group even though the exact task
 condition varies within the group varies according This type of grouping structure is very 
 common in experiment design and can be captured by HED tags in a straightforward manner by
 defining condition variables for each group and using the `#` to capture variability within 

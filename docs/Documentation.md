@@ -64,8 +64,7 @@ The following is a summary of the HED-related websites
 
 * - Description
   - Site
-* - *Information and documentation*
-  - 
+* - **Information and documentation**
 * - HED organization website	
   - [https://www.hedtags.org](https://www.hedtags.org)
 * - HED organization github	
@@ -76,32 +75,27 @@ The following is a summary of the HED-related websites
   - [https://github.com/hed-standard/hed-examples](https://github.com/hed-standard/hed-examples)
 * - HED documentation website
   - [https://github.com/hed-standard/hed-standard.github.io](https://github.com/hed-standard/hed-standard.github.io)  
-* - *HED Python resources*
-  - 
+* - **HED Python resources**
 * - Python code repository	
   - [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python)
 * - Python validator and tools	
   - [https://github.com/hed-standard/hed-python/tree/master/hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools)
-* - *HED JavaScript resources*
-  - 
+* - **HED JavaScript resources**
 * - HED JavaScript code	
   - [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript)
 * - BIDS validator	
   - [https://github.com/bids-standard/bids-validator](https://github.com/bids-standard/bids-validator)
-* - *HED Matlab resources*
-  - 
+* - **HED Matlab resources**
 * - Matlab source code	
   - [https://github.com/hed-standard/hed-matlab](https://github.com/hed-standard/hed-matlab)
-* - *Annotator resources*
-  - 
+* - **Annotator resources**
 * - CTAGGER executable jar	
   - [https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)
 * - CTAGGER repository	
   - [https://github.com/hed-standard/CTagger](https://github.com/hed-standard/CTagger)
 * - Java repository	
   - [https://github.com/hed-standard/hed-java](https://github.com/hed-standard/hed-java)
-* - *Online HED tools*
-  - 
+* - **Online HED tools**
 * - Online website	
   - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
 * - Docker deployment	

@@ -4,7 +4,8 @@ HED schema developers generally do initial development of the schema using `.med
 The tools to convert schema between `.mediawiki` and `.xml` format are located in the 
 `hed.schema` module of the 
 [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) 
-project of the hed-python repository located at  [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). 
+project of the hed-python repository located at  
+[https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
 conversions. This appendix presents the rules for HED base and library schema in `.mediawiki` 
@@ -46,7 +47,7 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
 
 ````{eval-rst}
 .. list-table:: Allowed HED schema header parameters
-   :widths: 20 20 40
+   :widths: 15 15 50
    :header-rows: 1
 
    * - Name
@@ -54,18 +55,18 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
      - Description
    * - library
      - optional
-     - Name of library used in `xml` file names.  
+     - Name of library used in XML file names.  
      
        The value should only have alphabetic characters.
    * - version
      - required
      - A valid semantic version number of the schema.  
-   * - `xmlns`
+   * - xmlns
      - optional
      - xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance".
-   * - `xsi`
+   * - xsi
      - optional
-     - `xsi:noNamespaceSchemaLocation` points to XSD file.     
+     - xsi:noNamespaceSchemaLocation points to XSD file.     
 ````
 
 The `xsi` attribute is required if `xmlns:xsi` is given.
@@ -81,8 +82,8 @@ HED version="8.0.0"
 
 ````
 
-The version line must be the first line of the `.mediawiki` file. The schema `.mediawiki` file is
-`HED-schema-8.0.0.mediawiki` found in 
+The version line must be the first line of the `.mediawiki` file. The schema 
+`.mediawiki` file is `HED-schema-8.0.0.mediawiki` found in 
 [https://github.com/hed-standard/hed-specification/tree/master/hedwiki](https://github.com/hed-standard/hed-specification/tree/master/hedwiki).
 
 ````{admonition} **Example:** Version 8.0.0 of the HED XML base schema.
@@ -185,7 +186,7 @@ in the hierarchy.
 After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains 
 the unit class specifications, unit modifier specifications, value class specification, 
 the schema attribute specifications, and property specifications. All of these sections are
-required starting with HED version 8.0.0-beta.3 and must be given in this order.
+required starting with HED version 8.0.0 and must be given in this order.
 
 Unit classes specify the kind of units are allowed to be used with a value that is provided
 for a `#` value. The unit class specification section starts with `'''Unit classes'''` and 
@@ -513,7 +514,7 @@ The individual `<schemaAttributeDefinition>` elements have the following format:
 
 ## A.3. Schema sections
 
-This section gives information about how the various auxilliary sections of the the HED 
+This section gives information about how the various auxiliary sections of the HED 
 schema are used to specify the behavior of the schema elements.
 
 ### A.3.1. Schema properties
@@ -522,22 +523,25 @@ The `property` elements indicate where various schema attributes apply.
 Their meanings are hard-coded into the schema processors. The following is a list of schema
 attribute properties. 
 
-`````{list-table} Schema properties
-:header-rows: 1
-:widths: 20 50
+``````{eval-rst}
+.. list-table:: Schema properties
+   :widths: 20 50
+   :header-rows: 1
 
-* - Property
-  - Description
-* - `boolProperty`
-  - A schema attribute has this property has values that are either true or false. 
-* - `unitClassProperty`
-  - Indicates the schema attribute only applies to unit classes.
-* - `unitModifierProperty`
-  -  Indicates the schema attribute only applies to unit modifiers.
-* - `valueClassProperty`
-  -  Indicates the schema attribute only applies to value classes.
-* - `textClass`
-  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+    * - Property
+      - Description
+    * - boolProperty
+      - Indicates schema attribute values are either true or false. 
+    * - unitClassProperty
+      - Indicates schema attribute only applies to unit classes.
+    * - unitModifierProperty
+      - Indicates schema attribute only applies to unit modifiers.
+    * - valueClassProperty
+      - Indicates the schema attribute only applies to value classes.
+    * - textClass
+      - Alphanumeric characters, blank, <br/>
+        +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+``````
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
@@ -550,7 +554,6 @@ Presence indicates true.
 
 ````
 
-`````
 
 A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
 `unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
@@ -559,122 +562,134 @@ A given schema attribute can only apply to one type of element (`node`, `unitCla
 ### A.3.2. Schema attributes
 
 As mentioned in the previous section schema attributes can only apply to one
-type of element in the schema as indicated by their property values. Tools hardcode processing based
-on the schema attribute name. Only these schema attributes can be handled by The following table gives schema attributes. 
+type of element in the schema as indicated by their property values. 
+Tools hardcode processing based on the schema attribute name. Only the schema 
+attributes listed in the following table can be handled by current HED tools.
 
-`````{list-table} Schema attribute.
-:header-rows: 1
-:widths: 20 50
+``````{eval-rst}
+.. list-table:: Schema attributes (* indicates attribute has a value).
+   :widths: 20 15 50
+   :header-rows: 1
 
-* - Schema attribute
-  - Description
-* - `allowedCharacter`
-  - An attribute of value classes that takes a value specifying a special character that can be
-    included in node names or values of placeholders that have this value class.  
-    
-    Normally the allowed characters are listed individually as values of the `allowedCharacter`
-    attribute. However, the word `letters` designates upper and lower case alphabetic characters. 
-    
-    The word `digits` indicates the digits 0-9.
-* - `defaultUnits`
-  - An attribute of unit classes specifying the default units to use if the 
-  placeholder has a unit class but the substituted value has no units.  
+    * - Attribute
+      - Target
+      - Description
+    * - allowedCharacter*
+      - valueClass
+      - Specifies a character that can be used in values of this class.
+    * - defaultUnits*
+      - unitClass
+      - Specifies the default units to use if placeholder replacement value has no units.   
+    * - extensionAllowed
+      - node
+      - Indicates that tag can have unlimited levels of child nodes added.
+    * - recommended
+      - node
+      -  Indicates event-level HED strings should include this tag.
+    * - relatedTag*
+      - node
+      - Specifies a HED tag closely related to this HED tag.
+    * - requireChild
+      - node    
+      - Indicates that a child of this node must also be included in the HED tag.
+    * - required
+      - node      
+      - Indicates that the event-level HED string must include this tag.
+    * - SIUnit
+      - unit   
+      - Indicates that this unit represents an SI unit and can be modified.
+    * - SIUnitModifier
+      - unitModifier   
+      - Indicates the modifier applies to base units rather than unit symbols.
+    * - SIUnitSymbolModifier
+      - unitModifier    
+      - Indicates the modifier applies to unit symbols rather than base units.
+    * - suggestedTag*
+      - node   
+      - Specifies a HED tag that should probably be included with this HED tag.
+    * - tagGroup
+      - node   
+      - Indicates that the HED tag can only appear inside a tag group.
+    * - takesValue
+      - node #   
+      - Indicates the tag is a placeholder (#) and should be replaced by a value.
+    * - topLevelTagGroup
+      - node        
+      - Indicates that this tag (or its descendants) can be in a top-level tag group.
+    * - unique
+      - node        
+      - Indicates this tag or its descendants can only occur once in an event-level HED string.
+    * - unitClass*
+      - node #        
+      - Indicates which unit class this replacement value belongs to.
+    * - unitPrefix
+      - unit        
+      - Indicates the unit indicator is a prefix (e.g., $ in the currency units).
+    * - unitSymbol
+      - unit        
+      - Indicates the tag is an abbreviation or symbol representing a type of unit.
+    * - valueClass*
+      - node #        
+      - Indicates which value class replacement values belongs to.        
+``````
   
-  For example, when a placeholder (`#`) of the time unit class is 
-  replaced with an actual value and the units are not explicitly listed, 
-  they are assumed to be seconds (s) because the time unit class has `defaultUnits=s`.
-* - `extensionAllowed`
-  -  An attribute of schema nodes indicating that users can add unlimited levels 
-  of child nodes under this tag. 
-  
-  This tag is propagated to child nodes with the exception of nodes with a placeholder (`#`) child.
-* - `recommended`
-  -  An attribute of schema nodes indicating that the event-level HED string should include this tag.
-* - `relatedTag`
-  - An attribute of schema nodes that takes a HED tag value closely related to this HED tag.
-* - `requireChild`
-  -  An attribute of schema nodes indicating that a child of this node must also be included in the HED tag.
-* - `required`
-  -  An attribute of schema nodes indicating that the event-level HED string must include this tag.
-* - `SIUnit`
-  -  An attribute of units indicating that this unit represents an SI unit and can be modified by 
-  multiple and submultiple names.
-  
-  If an SI unit does not also have the `unitSymbol` attribute. Multiples and submultiples with the
-  `SIUnitModifier` are used. Otherwise, Multiples and submultiples with the `SIUnitSymbolModifier` are used.
-  
-  Note that some units such as byte are designated as SI units although they are not part of the standard.
-* - `SIUnitModifier`
-  - An attribute of unit modifiers that indicates the modifier applies to base units rather than unit symbols.
-* - `SIUnitSymbolModifier`
-  -  An attribute of unit modifiers that indicates the modifier applies to unit symbols rather than base units.
-* - `suggestedTag`
-  - An attribute of schema nodes that takes a HED tag value that should probably be included with this HED tag.
-* - `tagGroup`
-  -  An attribute of schema nodes indicating that the tag can only appear inside a tag group.
-* - `takesValue`
-  -  An attribute of schema nodes indicating the tag is a placeholder (`#`) that is expected to be replaced
-  by a value. This tag will be deprecated.
-* - `takesValue`
-  -  An attribute of schema nodes indicating the tag is a placeholder (`#`) that is expected to be replaced
-  by a value. This tag will be deprecated.      
-* - `topLevelTagGroup`
-  -  An attribute of schema nodes indicating that this tag (or its descendants) can only appear in
-   a top-level tag group.
-* - `unique`
-  -  An attribute of schema nodes indicating that only one of this tag or its descendants can be used
-    in the event-level HED string.
-* - `unitClass`
-  -  An attribute of schema placeholder (`#`) nodes indicating which unit class this value tag belongs to.
-* - `unitPrefix`
-  -  An attribute of units indicating that the unit indicator is a prefix (e.g., `$` in the `currency` units).
-* - `unitSymbol`
-  -  An attribute of units indicating this tag is an abbreviation or symbol representing a type of unit.
-  
-  Unit symbols represent both the singular and the plural and thus cannot be pluralized.
-* - `valueClass`
-  -  An attribute of schema placeholder (`#`) nodes indicating which value class this value tag belongs to.        
-````{admonition} Notes on rules for allowed characters in the HED schema. 
-:class: tip
+Normally the allowed characters are listed individually as values of the `allowedCharacter`
+attribute. However, the word `letters` designates upper and lower case alphabetic characters
+are allowed. Further, the word `blank` indicates a space is an allowed character, and the 
+word `digits` indicates the digits 0-9 may be used in the value.
 
-1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
-Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
-````
-`````
+If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
+does not have units, tools use the value of `defaultUnits` if the unit class has them.
+For example, the `timeUnits` has the attribute `defaultUnits=s` in HED 8.0.0. The tag
+`Duration/3` is assumed to be equivalent to `Duration/3 s` because `Duration` has
+`defaultUnits` of `s`.
+
+The `extensionAllowed` tag indicates that descendents of this node may be extended by
+annotators. However, any tag that has a placeholder (`#`) child cannot be extended,
+regardless of `extensionAllowed` since it single child is always interpreted as a
+user-supplied value. 
 
 In addition to the attributes listed above, some schema attributes have been deprecated
 and are no longer supported in HED, although they are still present in earlier versions of 
 the schema. The following table lists these.
 
-`````{list-table} Deprecated schema attributes.
-:header-rows: 1
-:widths: 20 50
 
-* - Schema attribute
-  - Description
-* - `default`
-  - An attribute of schema placeholder (`#`) nodes indicating a default value used if no value is provided.
-   
-   This tag was not implemented in existing tools. Only the `defaultUnits` for the unit class 
-   will be implemented going forward.  
-* - `position`
-  - An attribute of schema nodes indicating the order within the overall tag string that this tag 
-  should appear during display. This tag is not used in HED-3G.
-  
-  This attribute was used to assist annotation tools, which sought to display required and 
-  recommend tags before others. The position attribute value should be an integer and the order 
-  can start at 0 or 1. Required or recommended tags without this attribute or with negative 
-  position will be shown after the others in canonical ordering.
-* - `predicateType`
-  - An attribute of schema nodes indicating the relationship of the node to its parent. 
-  The attribute has a value which is one of `propertyOf`, `subclassOf`, or `passThrough`.
-  This tag was added to facilitate mapping to OWL or RDF in earlier versions of the 
-  schema where property and subclass types appeared in the same hierarchy. 
-  
-  The schema vocabulary redesign of HED-3G eliminated this issue. The attribute is ignored by tools.
-   
-`````
+``````{eval-rst}
+.. list-table:: Deprecated schema attributes.
+   :widths: 20 15 50
+   :header-rows: 1
+
+    * - Schema attribute
+      - Target
+      - Description
+    * - default
+      - node #
+      - Indicates a default value used if no value is provided.
+    * - position
+      - node    
+      - Indicates where this tag should appear during display.
+    * - predicateType
+      - node   
+      - Indicates the relationship of the node to its parent. 
+``````
+
+The `default` attribute was not implemented in existing tools. 
+The attribute is not used in HED-3G. Only the `defaultUnits` for the unit class 
+will be implemented going forward. 
+
+The `position` attribute was used to assist annotation tools, which sought to 
+display required and recommend tags before others. The position attribute value
+is an integer and the order can start at 0 or 1. Required or recommended 
+tags without this attribute or with negative position will be shown after the 
+others in canonical ordering. The tagging strategy of HED-3G using decomposition
+and definitions. The `position` attribute is not used for HED-3G.
+
+The `predicateType` attribute was introduced in HED-2G to facilitate mapping 
+to OWL or RDF. It was needed because the HED-2G schema had a mixture of children
+that were properties and subclasses. The possible values of `predicateType`
+were `propertyOf`, `subclassOf`, or `passThrough` to indicate which role each
+child node had with respect to its parent. The schema vocabulary redesign of 
+HED-3G eliminated this issue. The attribute is ignored by tools.
 
 ### A.3.3. Value classes
 
@@ -682,27 +697,32 @@ HED has very strict rules about what characters are allowed in various elements 
 schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in 
 the schema using value classes. When a node name or placeholder substitution is given a
 particular value class, that name or substituted value can only contain the characters allowed
-for that value class. The allowed characters for a value class are specified in the definition
-of the value class. The HED validator and other HED tools may hardcode information about 
+for that value class. 
+
+The allowed characters for a value class are specified in the definition
+of each value class. The HED validator and other HED tools may hardcode information about 
 behavior of certain value classes (for example the `numericClass` value class). 
-**HED does not allow commas or quotes in any of its values.**
+**HED does not allow commas or single quotes in any of its values.**
 
-`````{list-table} Rules for value classes.
-:header-rows: 1
-:widths: 20 50
+``````{eval-rst}
+.. list-table:: Rules for value classes.
+   :widths: 20 50
+   :header-rows: 1
 
-* - Value class
-  - Allowed characters
-* - `dateTimeClass`
-  - digits, T, :, - 
-* - `nameClass`
-  - alphabetic characters, -
-* - `numericClass`
-  -  digits, ., -, +, E, e 
-* - `posixPath`
-  -  As yet unspecified
-* - `textClass`
-  - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+    * - Value class
+      - Allowed characters
+    * - dateTimeClass
+      - digits, T, :, - 
+    * - nameClass
+      - alphabetic characters, -
+    * - numericClass
+      -  digits, ., -, +, E, e 
+    * - posixPath
+      -  As yet unspecified
+    * - textClass
+      - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+
+``````
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
@@ -717,104 +737,119 @@ behavior of certain value classes (for example the `numericClass` value class).
 8. The posix path class is yet unspecified and currently allows any characters besides commas.
 
 ````
-`````
 
 ### A.3.4. HED unit classes
 
-`````{list-table} Summary of unit classes and units in HED 8.0.0.
-:header-rows: 1
-:widths: 20 10 40
+Unit classes allow annotators to express the units of values in a consistent way. 
+The plurals of the various units are not explicitly listed, but are allowed as HED
+tools uses standard pluralize functions to expand the list of allowed units. However,
+Unit symbols represent abbreviated versions of units and cannot be pluralized. 
 
-* - Unit class
-  - Default units
-  - Units
-* - accelerationUnits
-  - m-per-s^2 
-  - m-per-s^2*
-* - angleUnits
-  - rad 
-  - radian, rad*, degree
-* - areaUnits
-  - m^2 
-  - metre^2, m^2*
-* - currencyUnits
-  - $ 
-  - dollar, $, point
-* - frequencyUnits
-  - Hz 
-  - hertz, Hz*
-* - intensityUnits
-  - dB 
-  - dB, candela, cd*
-* - jerkUnits
-  - m-per-s^3 
-  - m-per-s^3*  
-* - memorySizeUnits
-  - B 
-  - byte, B 
-* - physicalLength
-  - m 
-  - metre, m*, inch, foot, mile   
-* - speedUnits
-  - m-per-s 
-  - m-per-s*, mph, kph     
-* - timeUnits
-  - s 
-  - second, s*, day, minute, hour
-* - volumeUnits
-  - m^3 
-  - metre^3, m^3*  
-* - weightUnits
-  - g 
-  - gram, g*, pound, lb   
-`````
+Nodes with the `SIUnit` modifier may be prefixed with multiple or sub-multiple modifiers.
+If the SI unit does not also have the `unitSymbol` attribute, then multiples and sub-multiples
+with the `SIUnitModifier` attribute are used for the expansion. On the other hand,
+units with both `SIUnit` and `SIUnitModifier` attributes are expanded using
+multiples and sub-multiples having the `SIUnitSymbolModifier` attribute.
+  
+Note that some units such as byte are designated as SI units,
+although they are not part of the standard.
+
+``````{eval-rst}
+.. list-table:: Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
+   :widths: 20 10 40
+   :header-rows: 1
+
+    * - Unit class
+      - Default units
+      - Units
+    * - accelerationUnits
+      - m-per-s^2 
+      - m-per-s^2*
+    * - angleUnits
+      - rad 
+      - radian, rad*, degree
+    * - areaUnits
+      - m^2 
+      - metre^2, m^2*
+    * - currencyUnits
+      - $ 
+      - dollar, $, point
+    * - frequencyUnits
+      - Hz 
+      - hertz, Hz*
+    * - intensityUnits
+      - dB 
+      - dB, candela, cd*
+    * - jerkUnits
+      - m-per-s^3 
+      - m-per-s^3*  
+    * - memorySizeUnits
+      - B 
+      - byte, B 
+    * - physicalLength
+      - m 
+      - metre, m*, inch, foot, mile   
+    * - speedUnits
+      - m-per-s 
+      - m-per-s*, mph, kph     
+    * - timeUnits
+      - s 
+      - second, s*, day, minute, hour
+    * - volumeUnits
+      - m^3 
+      - metre^3, m^3*  
+    * - weightUnits
+      - g 
+      - gram, g*, pound, lb   
+``````
 
 ### A.3.5. HED unit modifiers
 
-`````{list-table} Unit modifiers (* indicates an SI unit symbol modifier).
-:header-rows: 1
-:widths: 20 50
-
-* - Schema attribute
-  - Description
-* - deca, da*
-  - SI unit multiple representing 10^1
-* - hecto, h*
-  - SI unit multiple representing 10^2
-* - kilo, k*
-  - SI unit multiple representing 10^3
-* - mega, M*
-  - SI unit multiple representing 10^6
-* - giga, G*
-  - SI unit multiple representing 10^9
-* - tera, T*
-  - SI unit multiple representing 10^12
-* - peta, P*
-  - SI unit multiple representing 10^15
-* - exa, E*	
-  - SI unit multiple representing 10^18
-* - zetta, Z*
-  - SI unit multiple representing 10^21
-* - yotta, Y*
-  - SI unit multiple representing 10^24
-* - deci, d*
-  - SI unit submultiple representing 10^−1
-* - centi, c*
-  - SI unit submultiple representing 10^−2
-* - milli, m*
-  - SI unit submultiple representing 10^−3
-* - micro, u*
-  - SI unit submultiple representing 10^−6
-* - nano, n*
-  - SI unit submultiple representing 10^−9
-* - pico, p*
-  - SI unit submultiple representing 10^−12
-* - femto, f*
-  - SI unit submultiple representing 10^−15
-* - atto, a*
-  - SI unit submultiple representing 10^−18
-* - zepto, z*
-  - SI unit submultiple representing 10^−21
-* - yocto, y*
-  - SI unit submultiple representing 10^−24
-`````
+``````{eval-rst}
+.. list-table:: Unit modifiers (* indicates an SI unit symbol modifier).
+   :widths: 20 50
+   :header-rows: 1
+   
+    * - Schema attribute
+      - Description
+    * - deca, da*
+      - SI unit multiple representing 10^1
+    * - hecto, h*
+      - SI unit multiple representing 10^2
+    * - kilo, k*
+      - SI unit multiple representing 10^3
+    * - mega, M*
+      - SI unit multiple representing 10^6
+    * - giga, G*
+      - SI unit multiple representing 10^9
+    * - tera, T*
+      - SI unit multiple representing 10^12
+    * - peta, P*
+      - SI unit multiple representing 10^15
+    * - exa, E*	
+      - SI unit multiple representing 10^18
+    * - zetta, Z*
+      - SI unit multiple representing 10^21
+    * - yotta, Y*
+      - SI unit multiple representing 10^24
+    * - deci, d*
+      - SI unit submultiple representing 10^−1
+    * - centi, c*
+      - SI unit submultiple representing 10^−2
+    * - milli, m*
+      - SI unit submultiple representing 10^−3
+    * - micro, u*
+      - SI unit submultiple representing 10^−6
+    * - nano, n*
+      - SI unit submultiple representing 10^−9
+    * - pico, p*
+      - SI unit submultiple representing 10^−12
+    * - femto, f*
+      - SI unit submultiple representing 10^−15
+    * - atto, a*
+      - SI unit submultiple representing 10^−18
+    * - zepto, z*
+      - SI unit submultiple representing 10^−21
+    * - yocto, y*
+      - SI unit submultiple representing 10^−24
+``````
