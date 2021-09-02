@@ -210,76 +210,9 @@ server. All requests include a `service` name and additional parameters. The par
 in a subsequent table.  Parameter values listed in square brackets (e,g, [`a`, `b`]) indicate that only
 one of `a` or `b` should be provided.
 
-``````{eval-rst}
-.. list-table:: Available HED services.
-   :header-rows: 1
-   :widths: 20 20 40
-
-   * - Service
-     - Parameters	
-     - Descriptions
-   * - `get_services`
-     - none
-     - Returns a list of available services.
-   * - `events_assemble`  
-     - `events_string`,   
-       `json_string`,   
-       [`schema_version`,    
-       `hed_schema_string`],   
-       `check_for_warnings`,     
-        `defs_expand`  
-     - Returns an error file or a file of assembled events.
-   * - `events_validate`  
-     - `events_string`,   
-       `json_string`,  
-       [`schema_version`,   
-       `hed_schema_string`],  
-       `check_for_warnings`   
-     - Returns an error file if errors.  
-   * - `sidecar_to_long`  
-     - `json_string`,   
-       [`schema_version`,   
-       `hed_schema_string`]   
-     - Returns either an error file or converted file.  
-   * - `sidecar_to_short`  
-     - `json_string`,   
-       [`schema_version`,     
-       `hed_schema_string`]  
-     - Returns either an error file or a long form JSON file.   
-   * - `sidecar_validate`  
-     - `json_string`,   
-       [`schema_version`,   
-       `hed_schema_string`],  
-       `check_for_warnings`  
-     - Returns an error file if validation errors.  
-   * - `spreadsheet_validate`  
-     - `spreadsheet_string`,   
-       [`schema_version`,   
-       `hed_schema_string`],   
-       `check_for_warnings`  
-     - Returns an error file if validation errors.
-   * - `strings_to_long`  
-     - `string_list`,    
-       [`schema_version`,   
-       `hed_schema_string`]  
-     - Returns errors or a list of strings to long form.
-   * - `strings_to_short`  
-     - `string_list`,   
-       [`schema_version`,   
-       `hed_schema_string`]  
-     - Convert errors or a list of short-form strings.
-   * - `strings_validate`  
-     - `hed_strings`,   
-       [`schema_version`,   
-       `hed_schema_string`]	  
-     - Validates a list of hed strings and returns a list of errors.
-``````
-
-Version 2:
-
-`````{list-table} URLs for HED online services.
+`````{list-table} Summary of HED ReST services
 :header-rows: 1
-:widths: 20 20 40
+:widths: 15 20 45
 
 * - Service
   - Parameters	
@@ -291,7 +224,7 @@ Version 2:
   - events_string,   
     json_string,   
     [schema_version,    
-    hed_schema_string],   
+    schema_string],   
     check_for_warnings,     
     defs_expand  
   - Returns an error file or a file of assembled events.
@@ -299,13 +232,13 @@ Version 2:
   - events_string,   
     json_string,  
     [schema_version,   
-    hed_schema_string],  
+    schema_string],  
     check_for_warnings   
   - Returns an error file if errors.  
 * - sidecar_to_long  
   - json_string,   
     [schema_version,   
-    hed_schema_string]   
+    schema_string]   
   - Returns either an error file or converted file.  
 * - sidecar_to_short 
   - json_string,   
@@ -315,85 +248,36 @@ Version 2:
 * - sidecar_validate  
   - json_string,   
     [schema_version,   
-    hed_schema_string],  
+    schema_string],  
     check_for_warnings 
   - Returns an error file if errors.  
 * - spreadsheet_validate 
   - spreadsheet_string,   
     [schema_version,   
-    hed_schema_string],   
+    schema_string],   
     check_for_warnings  
   - Returns an error file if errors.
 * - strings_to_long  
   - string_list,    
     [schema_version,   
-    hed_schema_string]  
+    schema_string]  
   - Returns errors or a list of strings to long form.
 * - strings_to_short 
   - string_list,   
     [schema_version,   
-    hed_schema_string]  
+    schema_string]  
   - Convert errors or a list of short-form strings.
 * - strings_validate  
   - hed_strings,   
     [schema_version,   
-     hed_schema_string]	  
+    schema_string]	  
   - Validates a list of hed strings and returns a list of errors.
 ``````
 
 The following table gives an explanation of the parameters used for various services.
 
-``````{eval-rst}
-.. list-table:: Parameter meanings for HED service requests.
-   :header-rows: 1
-   :widths: 20 10 50
 
-   * - Key value
-     - Type
-     - Description
-   * - `check_for_warnings`
-     - boolean
-     - If true, check for warnings when validating.
-   * - `defs_expand`
-     - boolean
-      - If true assembly replaces *def/XXX* with *def-expand/XXX*.
-   * - `events_string`
-     - string
-     - Events tsv file with header passed as a string.
-   * - `hed_columns`
-     - list of numbers
-     - A list of HED string column numbers (starting with 1).
-   * - `hed_schema_string`
-     - string
-     - HED schema in XML format as a string.
-   * - `hed_strings`
-     - list of strings
-     - A list containing HED strings.
-   * - `json_string`
-     - string
-     - BIDS-style JSON events sidecar as a string.
-   * - `json_strings`
-     - string
-     - A list of BIDS-style JSON sidecars as strings.
-   * - `schema_string`
-     - string
-     - A HED schema file as a string.
-   * - `schema_version`
-     - string
-     - Version of HED to be accessed if relevant.
-   * - `service`
-     - string
-     - The name of the requested service.
-   * - `spreadsheet_string`
-     - string
-     - A spreadsheet tsv as a string.
-``````
-
-Version:
-
-Version 2:
-
-`````{list-table} URLs for HED online services.
+`````{list-table} Parameters for web services.
 :header-rows: 1
 :widths: 20 20 40
 
@@ -442,38 +326,10 @@ The web-services always return a JSON dictionary with four keys: `service`,
 `results`, `error_type`, and `error_msg`. If `error_type` and `error_msg` 
 are not empty, the operation failed, while if these fields are empty, 
 the operation completed. Completed operations always return their results 
-in the `results` dictionary. Keys in the `results` dictionary return as part of a HED web service response.
+in the `results` dictionary. Keys in the `results` dictionary return 
+as part of a HED web service response.
 
-``````{eval-rst}
-.. list-table:: The keys of the results dictionary.
-   :header-rows: 1
-   :widths: 20 10 50
-
-   * - Key
-     - Type
-     - Description
-   * - `command`
-     - string
-     - The command that was executed in response to the service request.
-   * - `data`
-     - string
-     - A list of errors or the processed result depending on what happened.
-   * - `schema_version`
-     - string
-     - The version of the HED schema used in the processing.
-   * - `msg_category`
-     - string
-     - One of success, warning, or failure depending on the result
-    of processing the service.
-   * - `msg`
-     - string
-     - Explanation of the result of service processing.
-
-``````
-
-Version 2:
-
-`````{list-table} URLs for HED online services.
+`````{list-table} The results dictionary.
 :header-rows: 1
 :widths: 20 10 50
 
