@@ -21,30 +21,33 @@ access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The
 implemented in a Docker module and can be deployed locally provided that Docker is installed on
 
 ``````{admonition} Web tools for BIDS style event.tsv files
+
 **Assemble events:** Assemble HED annotation of a BIDS-style events file.
-````{admonition} Steps:
-:class: tip
- ~
- ~ The user uploads the event file and an optional JSON sidecar file. 
- ~ The user also specifies which version of HED to use either by selecting a standard version from GitHub or by uploading a local HED schema.
- ~ The user selects the `Assemble` processing option and chooses whether or not to expand definitions.
- ~ The tool assembles an new two-column event file. The first file is the event onset and the second column is
- the full event-level HED annotation.
- ~ If there are errors, the tool returns a downloadable file of error messages. If no errors, the tool
- returns the new event file.
-````
+> Upload the event file and an optional JSON sidecar file. 
+> Specify the HED version. 
+> Select the `Assemble` processing option and whether to expand definitions.
+> Click the `Process` button.
+> The tool assembles a new two-column event file. 
+> If there are errors, a downloadable file of error messages is returned. 
+> If no errors, the new event file is returned.
+
 
 **Validate events:** Validate a BIDS-style events file with optional JSON sidecar.
-````{admonition} Steps:
+> Upload the event file and an optional JSON sidecar file. 
+> Specify the HED version. 
+> Select the `Validate` processing option.
+> Click the `Process` button.
+> The tool first validates the sidecar if present. 
+> If the sidecar contains no errors, the tool validates the events file with the sidecar.
+> If there are any errors, the tool returns a downloadable file of error messages.
+
+`````{admonition} Notes:
 :class: tip
- ~
- ~ The user uploads the event file and an optional JSON sidecar file. 
- ~ The user also specifies which version of HED to use either by selecting a standard version from GitHub or by uploading a local HED schema.
- ~ The user selects the `Validate` processing option and clicks the `Process` button.
- ~ The tool first validates the sidecar if present. If the sidecar contains no errors, 
- the tool validates the events file in conjunction with the sidecar.
- ~ If there are errors, the tool returns a downloadable file of error messages.
-````
+1. If the HED version number is given, the tool downloads a standard version from GitHub.
+Otherwise, the user must upload a local HED schema. 
+1. The `Assemble` creates a two-column event file. The first column is the event onset
+time and the second column is the full event-level HED annotation.
+`````
 ``````
 
 ``````{admonition} Web tools for BIDS style HED schema files

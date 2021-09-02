@@ -16,6 +16,7 @@ A PDF version of this document can be found `here <https://hed-specification.rea
    07_Library_schema.md
    Appendix_A.md
    Appendix_B.md
+   scratch.md
 
 .. toctree::
    :maxdepth: 1
