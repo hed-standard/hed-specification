@@ -213,7 +213,7 @@ one of `a` or `b` should be provided.
 ``````{eval-rst}
 .. list-table:: Available HED services.
    :header-rows: 1
-   :widths: 20 50
+   :widths: 20 20 40
 
    * - Service
      - Parameters	
@@ -245,19 +245,19 @@ one of `a` or `b` should be provided.
      - `json_string`,   
        [`schema_version`,     
        `hed_schema_string`]  
-     - Returns either an error file or a JSON file converted to long form.   
+     - Returns either an error file or a long form JSON file.   
    * - `sidecar_validate`  
      - `json_string`,   
        [`schema_version`,   
        `hed_schema_string`],  
        `check_for_warnings`  
-     - Returns an error file if the JSON file has validation errors.  
+     - Returns an error file if validation errors.  
    * - `spreadsheet_validate`  
      - `spreadsheet_string`,   
        [`schema_version`,   
        `hed_schema_string`],   
        `check_for_warnings`  
-     - Returns an error file if the spreadsheet has validation errors.
+     - Returns an error file if validation errors.
    * - `strings_to_long`  
      - `string_list`,    
        [`schema_version`,   
@@ -273,6 +273,72 @@ one of `a` or `b` should be provided.
        [`schema_version`,   
        `hed_schema_string`]	  
      - Validates a list of hed strings and returns a list of errors.
+``````
+
+Version 2:
+
+`````{list-table} URLs for HED online services.
+:header-rows: 1
+:widths: 20 20 40
+
+* - Service
+  - Parameters	
+  - Descriptions
+* - get_services
+  - none
+  - Returns a list of available services.
+* - events_assemble  
+  - events_string,   
+    json_string,   
+    [schema_version,    
+    hed_schema_string],   
+    check_for_warnings,     
+    defs_expand  
+  - Returns an error file or a file of assembled events.
+* - events_validate  
+  - events_string,   
+    json_string,  
+    [schema_version,   
+    hed_schema_string],  
+    check_for_warnings   
+  - Returns an error file if errors.  
+* - sidecar_to_long  
+  - json_string,   
+    [schema_version,   
+    hed_schema_string]   
+  - Returns either an error file or converted file.  
+* - sidecar_to_short 
+  - json_string,   
+    [schema_version,     
+    hed_schema_string]  
+  - Returns either an error file or a long form JSON file.   
+* - sidecar_validate  
+  - json_string,   
+    [schema_version,   
+    hed_schema_string],  
+    check_for_warnings 
+  - Returns an error file if errors.  
+* - spreadsheet_validate 
+  - spreadsheet_string,   
+    [schema_version,   
+    hed_schema_string],   
+    check_for_warnings  
+  - Returns an error file if errors.
+* - strings_to_long  
+  - string_list,    
+    [schema_version,   
+    hed_schema_string]  
+  - Returns errors or a list of strings to long form.
+* - strings_to_short 
+  - string_list,   
+    [schema_version,   
+    hed_schema_string]  
+  - Convert errors or a list of short-form strings.
+* - strings_validate  
+  - hed_strings,   
+    [schema_version,   
+     hed_schema_string]	  
+  - Validates a list of hed strings and returns a list of errors.
 ``````
 
 The following table gives an explanation of the parameters used for various services.
@@ -323,6 +389,55 @@ The following table gives an explanation of the parameters used for various serv
      - A spreadsheet tsv as a string.
 ``````
 
+Version:
+
+Version 2:
+
+`````{list-table} URLs for HED online services.
+:header-rows: 1
+:widths: 20 20 40
+
+* - Key value
+  - Type
+  - Description
+* - check_for_warnings
+  - boolean
+  - If true, check for warnings when validating.
+* - defs_expand
+  - boolean
+  - If true assembly replaces *def/XXX* with *def-expand/XXX*.
+* - events_string
+  - string
+  - Events tsv file with header passed as a string.
+* - hed_columns
+  - list of numbers
+  - A list of HED string column numbers (starting with 1).
+* - hed_schema_string
+  - string
+  - HED schema in XML format as a string.
+* - hed_strings
+  - list of strings
+  - A list containing HED strings.
+* - json_string
+  - string
+  - BIDS-style JSON events sidecar as a string.
+* - json_strings
+  - string
+  - A list of BIDS-style JSON sidecars as strings.
+* - schema_string
+  - string
+  - A HED schema file as a string.
+* - schema_version
+  - string
+  - Version of HED to be accessed if relevant.
+* - service
+  - string
+  - The name of the requested service.
+* - spreadsheet_string
+  - string
+  - A spreadsheet tsv as a string.
+``````
+
 The web-services always return a JSON dictionary with four keys: `service`, 
 `results`, `error_type`, and `error_msg`. If `error_type` and `error_msg` 
 are not empty, the operation failed, while if these fields are empty, 
@@ -353,6 +468,33 @@ in the `results` dictionary. Keys in the `results` dictionary return as part of 
    * - `msg`
      - string
      - Explanation of the result of service processing.
+
+``````
+
+Version 2:
+
+`````{list-table} URLs for HED online services.
+:header-rows: 1
+:widths: 20 10 50
+
+* - Key
+  - Type
+  - Description
+* - command
+  - string
+  - Command executed in response to the service request.
+* - data
+  - string
+  - A list of errors or the processed result.
+* - schema_version
+  - string
+  - The version of the HED schema used in the processing.
+* - msg_category
+  - string
+  - One of success, warning, or failure depending on the result.
+* - msg
+  - string
+  - Explanation of the result of service processing.
 
 ``````
   
@@ -391,18 +533,19 @@ You can install the validator using `npm`:
 This package contains two sub-packages.  
 
 `hedValidator.validator` validates HED strings and contains the functions:  
- ~ `buildSchema` imports a HED schema and returns a JavaScript Promise object. 
- ~ `validateHedString` validates a single HED string using the returned schema object. 
+
+> `buildSchema` imports a HED schema and returns a JavaScript Promise object.  
+> `validateHedString` validates a single HED string using the returned schema object.  
 
 `hedValidator.converter` converts HED strings between short and long forms 
 and contains the following functions:  
 
- ~ `buildSchema` behaves similarly to the `buildSchema` function in `hedValidator.validator` 
+>`buildSchema` behaves similarly to the `buildSchema` function in `hedValidator.validator` 
 except that it does not work with attributes.  
 
- ~ `convertHedStringToShort` converts HED strings from long form to short form.  
+> `convertHedStringToShort` converts HED strings from long form to short form.  
 
- ~ `convertHedStringToLong` converts HED strings from short form to long form.  
+> `convertHedStringToLong` converts HED strings from short form to long form.  
 
 ### 5.3 Programmatic interface
 
