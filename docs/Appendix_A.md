@@ -636,6 +636,7 @@ on the schema attribute name. Only these schema attributes can be handled by The
   -  An attribute of schema placeholder (`#`) nodes indicating which value class this value tag belongs to.        
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
+
 1. Schema attributes with the `boolProperty`  have a `<name>` node but no `<value>` node in the XML.
 Presence indicates true.
 2. Schema attributes with the `boolProperty`  have both `<name>` and `<value>` nodes in the XML.
@@ -686,7 +687,7 @@ of the value class. The HED validator and other HED tools may hardcode informati
 behavior of certain value classes (for example the `numericClass` value class). 
 **HED does not allow commas or quotes in any of its values.**
 
-`````{list-table}  Rules for value classes.
+`````{list-table} Rules for value classes.
 :header-rows: 1
 :widths: 20 50
 
@@ -720,7 +721,7 @@ behavior of certain value classes (for example the `numericClass` value class).
 
 ### A.3.4. HED unit classes
 
-`````{list-table} Summary of unit classes and units in HED8.0.0.
+`````{list-table} Summary of unit classes and units in HED 8.0.0.
 :header-rows: 1
 :widths: 20 10 40
 
