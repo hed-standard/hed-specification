@@ -47,8 +47,8 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
 
 ````{eval-rst}
 .. list-table:: Allowed HED schema header parameters
-   :widths: 15 15 50
    :header-rows: 1
+   :widths: 15 15 50
 
    * - Name
      - Level
@@ -525,8 +525,8 @@ attribute properties.
 
 ``````{eval-rst}
 .. list-table:: Schema properties
-   :widths: 20 50
    :header-rows: 1
+   :widths: 20 50
 
     * - Property
       - Description
@@ -568,10 +568,10 @@ attributes listed in the following table can be handled by current HED tools.
 
 ``````{eval-rst}
 .. list-table:: Schema attributes (* indicates attribute has a value).
-   :widths: 20 15 50
    :header-rows: 1
+   :widths: 20 15 50
 
-    * - Attribute
+   * - Attribute
       - Target
       - Description
     * - allowedCharacter*
@@ -656,8 +656,8 @@ the schema. The following table lists these.
 
 ``````{eval-rst}
 .. list-table:: Deprecated schema attributes.
-   :widths: 20 15 50
    :header-rows: 1
+   :widths: 20 15 50
 
     * - Schema attribute
       - Target
@@ -706,8 +706,8 @@ behavior of certain value classes (for example the `numericClass` value class).
 
 ``````{eval-rst}
 .. list-table:: Rules for value classes.
-   :widths: 20 50
    :header-rows: 1
+   :widths: 20 50
 
     * - Value class
       - Allowed characters
@@ -720,7 +720,8 @@ behavior of certain value classes (for example the `numericClass` value class).
     * - posixPath
       -  As yet unspecified
     * - textClass
-      - Alphanumeric characters, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+      - Alphanumeric characters, blank, <br/>
+        +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
 
 ``````
 
@@ -756,8 +757,8 @@ although they are not part of the standard.
 
 ``````{eval-rst}
 .. list-table:: Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
-   :widths: 20 10 40
    :header-rows: 1
+   :widths: 20 10 40
 
     * - Unit class
       - Default units
@@ -803,13 +804,65 @@ although they are not part of the standard.
       - gram, g*, pound, lb   
 ``````
 
+The second format:
+
+`````{list-table} Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
+:header-rows: 1
+:widths: 20 10 40
+
+* - Unit class
+  - Default units
+  - Units
+* - accelerationUnits
+  - m-per-s^2 
+  - m-per-s^2*
+* - angleUnits
+  - rad 
+  - radian, rad*, degree
+* - areaUnits
+  - m^2 
+  - metre^2, m^2*
+* - currencyUnits
+  - $ 
+  - dollar, $, point
+* - frequencyUnits
+  - Hz 
+  - hertz, Hz*
+* - intensityUnits
+  - dB 
+  - dB, candela, cd*
+* - jerkUnits
+  - m-per-s^3 
+  - m-per-s^3*  
+* - memorySizeUnits
+  - B 
+  - byte, B 
+* - physicalLength
+  - m 
+  - metre, m*, inch, foot, mile   
+* - speedUnits
+  - m-per-s 
+  - m-per-s*, mph, kph     
+* - timeUnits
+  - s 
+  - second, s*, day, minute, hour
+* - volumeUnits
+  - m^3 
+  - metre^3, m^3*  
+* - weightUnits
+  - g 
+  - gram, g*, pound, lb   
+``````
+
+
+
 ### A.3.5. HED unit modifiers
 
 ``````{eval-rst}
 .. list-table:: Unit modifiers (* indicates an SI unit symbol modifier).
-   :widths: 20 50
    :header-rows: 1
-   
+   :widths: 20 50
+
     * - Schema attribute
       - Description
     * - deca, da*
