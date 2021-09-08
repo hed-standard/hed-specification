@@ -650,6 +650,8 @@ annotators. However, any tag that has a placeholder (`#`) child cannot be extend
 regardless of `extensionAllowed` since it single child is always interpreted as a
 user-supplied value. 
 
+Tags with the 'required' or 'unique' attributes cannot appear in definitions.
+
 In addition to the attributes listed above, some schema attributes have been deprecated
 and are no longer supported in HED, although they are still present in earlier versions of 
 the schema. The following table lists these.
