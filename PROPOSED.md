@@ -4,7 +4,14 @@ This is a record of proposed changes/corrections to the HED schema for future re
 
 ### Proposed changes/corrections (requiring more development/discussion)
 
-##### Add value class --- not sure what class this should be needs discussion (See issue #324)
+#### Add Body between Anatomical-item and Body-part
+Then we can annotate right hand as (Hand, (Right-side-of, Body)).
+Should the recommended way to annotate right hand be:
+(Hand, (Right-side-of, Body))
+(Hand, (Right-side-of, Human-agent))
+(Hand, (Right-side-of, (Human-agent, Torso)))
+
+#### Add value class --- not sure what class this should be needs discussion (See issue #324)
 - Item/Object/Man-made-object/Device/IO-device/Input-device/Keyboard/Keyboard-key/#
 - Item/Object/Man-made-object/Device/IO-device/Input-device/Keypad/Keypad-key/#
 - Property/Informational-property/Metadata/Pathname/#
