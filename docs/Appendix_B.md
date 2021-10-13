@@ -17,11 +17,12 @@ rather than as missing commas.
  ~ A *Def* tag label cannot be correctly matched to a definition name because the 
 definition is missing or defined multiple times.
 
-**HED_DEF_VALUE_INVALID**: A *Def/* label value is missing or has incorrect format.  
-~ A *Def/* tag value is incorrectly used, usually because of a mismatch between 
-its *Definition* placeholder and *Def* tag value.  This error is detected if the *Definition* 
-has a placeholder, but the *Def* is used without a value, or the *Definition* does not have a
-placeholder, but the *Def* is used with a value.
+**HED_DEF_VALUE_INVALID**: A *Def/* label value is missing or has incorrect format or value.  
+~ A *Def/* tag value is a schema node name.
+~ A *Def/* tag value does not meet the requirements associated with the placeholder in
+its definition tag group.
+~ A *Def/* tag has a value, but its corresponding *Definition* does not have a placeholder.
+~ A *Def/* tag does not have a value, but its corresponding *Definition* has a value.
 
 **HED_DEFINITION_INVALID**: The *Definition* syntax is incorrect or nested.  
  ~ A definition name is invalid or already appears as a schema node triggers this error.
@@ -91,7 +92,6 @@ value does not have a key in the sidecar dictionary.
  ~ The tag has incorrect format for compliance with this schema. 
  ~ The tag is used as a tag extension or placeholder value while appearing elsewhere in the schema.
 
-
 **HED_TAG_NOT_UNIQUE:** A HED tag with *unique* attribute appears more than once in an event-level HED string.  
 
 **HED_TAG_REPEATED:** HED tags cannot be repeated in the same tag group or level.  
@@ -118,6 +118,7 @@ correct unit class for the tag.
 **HED_VALUE_INVALID:** The value substituted for a placeholder (`#`) is not valid.  
  ~ The value may be incompatible with the specified value class.
  ~ Values with no value class may contain invalid characters.
+ ~ The value is a schema node name.
 
 **HED_VERSION_DEPRECATED:** (WARNING) The HED version is deprecated.  
  ~ It is strongly recommended that a current version be used as these deprecated 
