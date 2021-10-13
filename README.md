@@ -2,7 +2,10 @@
 ### HED-3G (HED schema version 8.0.0) has been officially released
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
-want to annotate your data, please visit the [**HED organization website**](https://www.hedtags.org).
+want to annotate your data, please visit the [**HED organization**](https://www.hedtags.org) website. The full HED specification is available at the
+[**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html) website. 
+A [**HED Documentation**](https://hed-docs.readthedocs.io/en/latest/) website 
+is being developed to gather HED tools, case studies, and usage. 
 
 ## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
@@ -13,30 +16,13 @@ the current HED community focuses on annotation of events in human
 electrophysiological and behavioral data such as EEG, MEG, iEEG, eye-tracking, 
 motion-capture, EKG, and audiovisual recording.
  
-## HED schema
-_HED schema_ is the structured vocabulary from which HED annotations base on. HED annotations consist of comma-separated path strings,
-selected from the schema. In the newest versions of HED,
-all individual nodes in the vocabulary are unique, so users can annotate
-by simply giving the last node in the path string rather than the entire path
-string: *Red* instead of *Attribute/Sensory/Sensory-property/Visual/Color/CSS-color/Red-color/Red*.
 
-This repository contains the HED schema specification, where discussions on schema terms and syntax are held via Github issue mechanism and where HED-supporting tools can find machine-readable format of the schema. The HED schema is available in MediaWiki and XML. The MediaWiki markdown format, stored in [`hedwiki`](https://github.com/hed-standard/hed-specification/tree/master/hedwiki),
-allows vocabulary developers to view and edit the vocabulary tree using a human-readable markdown 
-language available in Wikis and on GitHub repositories. In addition, an expandable non-editable [HTML viewer](http://www.hedtags.org/display_hed.html)  is available
-to help users explore the vocabulary.
+## Viewing the HED schema
+The HED schema vocabulary can be viewed at:
 
-All analysis and validation tools operate on an XML translation of the vocabulary 
-markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml). 
+> [**Expandable html view of the HED schema**](http://www.hedtags.org/display_hed.html) 
 
-## Viewing and using HED schema
-The current generation of HED infrastructure is referred to as HED-3G 
-(HED third generation), starting with HED schema version 8.0.0. Users are strongly recommended to use the latest version of the HED schema in doing their annotations, which can be viewed at:
-
-> [**Expandable html view of the latest version of the HED schema**](http://www.hedtags.org/display_hed.html) 
-
-A HED specification document, which describes the format and behavior of HED tools is available at : 
- 
-> [HED-3G Hierarchical Event Descriptors specification](https://github.com/hed-standard/hed-specification/blob/master/hedspec/HEDspecification.md). 
+## HED white papers
 
 The following white papers give an overview of HED and how it is used.
 
@@ -75,6 +61,26 @@ introduction of annotations of condition variables and experimental
 design within the data as well as the ability to handle event context 
 and events with temporal extent.
  
+## HED schema details
+_HED schema_ is the structured vocabulary from which HED annotations base on. HED annotations consist of comma-separated path strings,
+selected from the schema. In the newest versions of HED,
+all individual nodes in the vocabulary are unique, so users can annotate
+by simply giving the last node in the path string rather than the entire path
+string: *Red* instead of *Attribute/Sensory/Sensory-property/Visual/Color/CSS-color/Red-color/Red*.
+
+This repository contains the HED schema specification, where discussions on schema terms and syntax are held via Github issue mechanism and where HED-supporting tools can find machine-readable format of the schema. The HED schema is available in MediaWiki and XML. 
+
+The MediaWiki markdown format, stored in 
+[`hedwiki`](https://github.com/hed-standard/hed-specification/tree/master/hedwiki),
+allows vocabulary developers to view and edit the vocabulary tree using a 
+human-readable markdown language available in Wikis and on GitHub repositories. 
+In addition, an expandable non-editable 
+[HTML viewer](http://www.hedtags.org/display_hed.html)  is available
+to help users explore the vocabulary.
+
+All analysis and validation tools operate on an XML translation of the vocabulary 
+markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-specification/tree/master/hedxml). 
+
 
 ## Further documentation
 
@@ -94,7 +100,8 @@ The GUI tool [_CTagger_](https://github.com/hed-standard/CTagger) is available t
 
 The current web-based HED tools include an online validator of spreadsheets (Excel or tsv)
 containing HED tags. Schema tools are available for converting HED schema specifications between `.mediawiki` and
-`.xml` formats. Also available is a tool for checking for duplicate nodes in schema and for converting
+`.xml` formats. 
+Also available is a tool for checking for duplicate nodes in schema and for converting
 HED annotations between short and long forms.  
 
 The current web-based HED tools are located at [https://hedtags.ucsd.edu/hed](https://hedtags.ucsd.edu/hed).  

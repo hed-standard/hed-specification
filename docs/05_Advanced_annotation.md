@@ -4,15 +4,17 @@
 
 HED-3G introduces the *Definition* tag to facilitate tag reuse and to allow implementation of concepts such as
 **temporal scope**. The *Definition* tag allows researchers to create a name to represent a group of tags and 
-then use the name in place of these tags when annotating data. These short-cuts make tagging easier and reduce
-the chance of errors. Often laboratories have a standard setup and event codes with particular meanings.
-Researchers can define names and reuse them  for multiple experiments. Another important role of definitions
-is to provide the structure for implementing temporal scope as introduced in 
-[Section 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
+then use the name in place of these tags when annotating data. 
+These short-cuts make tagging easier and reduce the chance of errors. 
+Often laboratories have a standard setup and event codes with particular meanings.
+Researchers can define names and reuse them  for multiple experiments. 
+Another important role of definitions is to provide the structure for implementing temporal scope 
+as introduced in [Section 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
 
 A **HED definition** is a tag group that includes one *Definition* tag whose required 
-child value names. The definition usually includes an optional tag-group specifying 
-the actual definition information. The following summarizes the syntax of definition.
+child value names.
+The definition usually includes an optional tag-group specifying the actual definition information. 
+The following summarizes the syntax of definition.
 
 ``````{admonition} Syntax summary for *Definition*
 
@@ -32,9 +34,12 @@ representing a value to be substituted for when the definition is used.
 3. The *tag-group* may be omitted if the only purpose of the definition is to define 
 a label to anchor temporal scope. ([Chapter 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope)). 
 4. The *tag-group* is required if the `#` placeholder is used.
+5. Neither the definition name *XXX* nor the value substituted for
+the `#` placeholder can be node names.
 ````
 
 ``````
+
 The following example defines the *PlayMovie* term. 
 
 ````{admonition} **Example:** *PlayMovie* represents playing a movie on the screen.
@@ -50,9 +55,11 @@ The following example defines the *PlayMovie* term.
 
 ````
 
-The placeholder form of the definition is used, for example, to annotate an experimental
-parameter whose value is selected at random for each occurrence. The annotator can use a 
-single definition name and just substitute the value for each occurrence. 
+The placeholder form of the definition is used, for example, 
+to annotate an experimental parameter whose value is selected 
+at random for each occurrence. 
+The annotator can use a single definition name and just substitute the value
+for each occurrence. 
 
 ````{admonition} **Example:** Value definition to annotate the rate of visual presentation.
 
@@ -96,10 +103,10 @@ The following example shows how a defined name is used in annotation.
 ````{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
 **Short form:**  
-> *Def/PresentationRate/1.5 Hz*
+ ~ *Def/PresentationRate/1.5 Hz*
 
 **Long form:**  
-> *Property/Organizational-property/<strong>Def/PresentationRate/1.5 Hz</strong>*
+ ~ *Property/Organizational-property/<strong>Def/PresentationRate/1.5 Hz</strong>*
 
 ````
 
@@ -138,23 +145,38 @@ scope are discussed in [Section 5.3: Temporal scope](05_Advanced_annotation.md#5
 ## 5.3. Temporal scope
 
 Events are often modeled as instantaneous occurrences that occur at single points in time 
-(i.e., time-marked or point events). In reality, many events unfold over extended time periods. 
-The interval between the initiation of an event and its completion is called the **temporal scope** 
-of the event. Some events, such as the setup and initiation of the environmental controls 
+(i.e., time-marked or point events). 
+In reality, many events unfold over extended time periods. 
+The interval between the initiation of an event and its completion is called
+the **temporal scope** of the event. 
+HED events are assumed to be point events unless they are given an explicit temporal scope 
+(i.e., they are “scoped” events). 
+
+Some events, such as the setup and initiation of the environmental controls 
 for an experiment, may have a temporal scope that spans the entire data recording. 
 Other events, such as the playing of a movie clip or a participant performing an action in 
 response to a sensory presentation, may last for seconds or minutes. Temporal scope captures 
 the effects of these extended events in a machine-actionable manner.
+HED has two different mechanisms for expressing temporal scope: *Onset*/*Offset* and *Duration*.
 
 
 ### 5.3.1. *Onset* and *Offset*
 
-HED events are assumed to be point events unless they are given an explicit temporal scope 
-(i.e., they are “scoped” events). The most direct HED method of specifying scoped events uses 
-*Onset* and *Offset* tags with definitions. Using this method, an event with temporal scope 
-actually corresponds to two point events. The event is initiated by a *(Def/XXX, Onset)*. 
+The most direct HED method of specifies scoped events by combining *Onset* and *Offset* tags with defined names. 
+Using this method, an event with temporal scope actually corresponds to two point events. 
+
+The initiation event is tagged by a *(Def/XXX, Onset)* where *XXX* is a defined name.
 The end of the event’s temporal scope is marked either by a *(Def/XXX, Offset)* or by 
-another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
+another *(Def/XXX, Onset)*.
+
+Event initiations identified by definitions with placeholders are handled similarly.
+Suppose the initiation event is tagged by a *(Def/XXX/YYY, Onset)* where *XXX* 
+is a defined name and *YYY* is the value substituted for the '#' placeholder. 
+The end of this event's temporal scope is marked either by *(Def/XXX/YYY, Offset)* or by 
+another *(Def/XXX/YYY, Onset)*. A subsequent *(Def/XXX/ZZZ, Onset)* where *YYY* and *ZZZ*
+are different is treated as a completely distinct temporal event.
+
+Table 5.3 summarizes *Onset* and *Offset* usage.
 
 ``````{admonition} **Syntax summary for *Onset* and *Offset*.**
 **Short forms:**
@@ -173,8 +195,11 @@ another *(Def/XXX, Onset)*. Table 5.3 summarizes *Onset* and *Offset* usage.
 :class: tip
 1. *XXX* is the name of the definition.
 2. The *(tag-group)* is optional.
-3. The additional <em>tag-group</em> is only in effect for that particular scoped event and not for all *XXX*.
-2. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
+3. The additional <em>tag-group</em> is only in effect for that particular scoped event
+ and not for all *XXX*.
+4. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
+5. The entire identifier *Def/XXX/#*, including the value substituted for the `#` is
+ used as the anchor for temporal scope.
 ````
 ``````
 
@@ -215,6 +240,34 @@ The *PlayMovie* scoped event type can be reused to annotate the playing of other
 However, scoped events with the same defined name (e.g., *PlayMovie*) cannot be nested. 
 The temporal scope of a *PlayMovie* event ends with a *PlayMovie* offset or with the 
 onset of another *PlayMovie* event. 
+
+In the previous example, the *PlayMovie* defined name "anchors" the temporal scope,
+and the appearance of another *Def/PlayMovie* indicates the previous movie has ceased.
+The *Label* tag identifies the particular movie but does not affect the *Onset*/*Offset*
+determination. If you want to have interleaved movies playing, use definitions with 
+placeholder values as shown in the next example.
+
+````{admonition} **Example:** The interleaved playing of Star Wars and Forrest Gump.
+
+**Short form:**  
+> [event 1]  
+> *Sensory-event, (Def/MyPlayMovie/StarWars, Onset, (Media-clip, ID/3284))*  
+ 
+>         .... [The Star Wars movie clip is playing] ....
+  
+> [event n1]
+> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Onset, (Media-clip, ID/5291))*  
+ 
+>         .... [Both Star Wars and Forrest Gump are playing] ....
+
+> [event n2]    
+> *Sensory-event, (Def/PlayMovie, Offset)*
+
+>         .... [Just Forrest Gump is playing] ....
+
+> [event n3]    
+> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Offset)*   
+````
 
 Because tools need to have the definitions in hand when fully expanding during validation 
 and analysis, tools must gather applicable definitions before final processing. 
