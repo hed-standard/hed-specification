@@ -198,8 +198,8 @@ Table 5.3 summarizes *Onset* and *Offset* usage.
 3. The additional <em>tag-group</em> is only in effect for that particular scoped event
  and not for all *XXX*.
 4. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
-5. The entire identifier *Def/XXX/#*, including the value substituted for the `#` is
- used as the anchor for temporal scope.
+5. The entire definition identifier *Def/XXX/#*, including the value substituted for the `#`,
+is used as the anchor for temporal scope.
 ````
 ``````
 
@@ -244,8 +244,11 @@ onset of another *PlayMovie* event.
 In the previous example, the *PlayMovie* defined name "anchors" the temporal scope,
 and the appearance of another *Def/PlayMovie* indicates the previous movie has ceased.
 The *Label* tag identifies the particular movie but does not affect the *Onset*/*Offset*
-determination. If you want to have interleaved movies playing, use definitions with 
-placeholder values as shown in the next example.
+determination. 
+
+If you want to have interleaved movies playing, use definitions with 
+placeholder values as shown in the next example. The example assumes a definition 
+*Definition/MyPlayMovie/#* exists.
 
 ````{admonition} **Example:** The interleaved playing of Star Wars and Forrest Gump.
 
