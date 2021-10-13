@@ -25,64 +25,67 @@ its definition tag group.
 ~ A *Def/* tag does not have a value, but its corresponding *Definition* has a value.
 
 **HED_DEFINITION_INVALID**: The *Definition* syntax is incorrect or nested.  
- ~ A definition name is invalid or already appears as a schema node triggers this error.
- ~ A definition is that not in a top-level tag group is invalid.
- ~ A definition's enclosing tag group cannot contain another *Definition/* tag.
- ~ A definition cannot another *Definition/* or any *Def/* or *Def-expand/* tags.
- ~ Definitions that include a  placeholder (`#`) must have exactly two `#` characters:
-one after the definition name and one in the definition body. 
- ~ Definitions with  placeholders (`#`) in incorrect positions are invalid.
+ ~ A definition name is invalid or already appears as a schema node.
+ ~ A definition is not in a top-level tag group.
+ ~ A definition's enclosing tag group contains another *Definition/* tag.
+ ~ A definition contains *Def/* or *Def-expand/* tags.
+ ~ A definition that includes a placeholder (`#`) does not have exactly two `#` characters:
+one after the definition name and one in the definition tag-group body. 
+ ~ A definition has placeholders (`#`) in incorrect positions.
 
 **HED_GENERIC_ERROR:** A HED expression raised an uncategorized error.  
 
 **HED_GENERIC_WARNING:** A HED expression raised an uncategorized warning.  
 
 **HED_LIBRARY_UNMATCHED:** A tag starting with *name:* does not have an associated library.  
- ~ A tag that starts with *name:* is interpreted as a library schema nickname name.
+ ~ A tag that starts with *name:* is interpreted as a library schema nickname name, but no
+library schema is defined.
  ~ The association of *name* with an actual HED library schema must be passed 
 to the validator when the string containing the tag is validated.
 
 **HED_NODE_NAME_EMPTY:** An empty tag was detected in a HED string.  
- ~ Extra slashes at beginning, end, or within a tag imply empty node names. 
- ~ A HED string cannot start or end with a slash.
- ~ A HED tag cannot contain consecutive slashes as all of these imply a term name within a HED tag.
+ ~ A tag has extra slashes at beginning, end, or within a tag (implying empty node names). 
+ ~ A HED string starts or ends with a slash.
+ ~ A HED tag contains consecutive slashes (as this implies a missing term name within a HED tag).
 
 **HED_ONSET_OFFSET_ERROR:** An *Onset* or *Offset* tag is used incorrectly.  
- ~ An *Onset* or *Offset* tag that appears without being grouped with a defined name
-(using *Def/* or *Def-expand/*) triggers this error. 
- ~ *Onset* or *Offset* must be in top-level tag groups.
- ~ Only one *Onset* or *Offset* can appear in the same tag group.
- ~ An *Offset* tag cannot appear before an *Onset* tag of the same name. 
- ~ An *Offset* tag of a given name cannot appear after a previous *Offset* tag until
-an intervening *Onset* of the same name has appeared. 
+ ~ An *Onset* or *Offset* tag appears without being grouped with a defined name
+(using *Def/* or *Def-expand/*). 
+ ~ An *Onset* or *Offset* is not in a top-level tag group.
+ ~ More than one *Onset* or *Offset* appears in the same tag group.
+ ~ An *Offset* tag appears before an *Onset* tag with the same name (or name/value). 
+ ~ An *Offset* tag of a given name appears after a previous *Offset* tag without the
+appearance of an intervening *Onset* of the same name. 
 
 **HED_PARENTHESES_MISMATCH:** A HED string has unmatched open and closed parentheses.  
- ~ A HED string must have the same number of open and closed parentheses.
- ~ Open and closed parentheses must be correctly nested.  
+ ~ A HED string does not have the same number of open and closed parentheses.
+ ~ Open and closed parentheses are not correctly nested.  
 
 **HED_PLACEHOLDER_INVALID:** A `#` is missing or appears in a place that it should not.  
- ~ A JSON sidecar cannot have a placeholder (`#`) the HED dictionary for a categorical column.
- ~ A JSON sidecar must have exactly one placeholder (`#`) in each HED string representing a value column.
- ~ A placeholder (`#`) cannot be used unless its parent in the schema has placeholder child.
+ ~ A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.
+ ~ A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.
+ ~ A placeholder (`#`) is used but its parent in the schema does not have a placeholder child.
 
 **HED_REQUIRED_TAG_MISSING:** An event-level annotation missing a required tag.  
- ~ An assembled event string must contain all tags that have the *required* schema attribute.
+ ~ An assembled event string does not contain all tags that have the *required* schema attribute.
 
 **HED_SIDECAR_KEY_MISSING:** (WARNING) A categorical value is missing HED tags in sidecar.  
- ~ The events file column has a HED dictionary in the JSON sidecar, but this categorical
+ ~ The events file column has a HED dictionary in the JSON sidecar but the categorical
 value does not have a key in the sidecar dictionary.
 
-**HED_STYLE_WARNING:** (WARNING) An extension or label does not follow HED naming conventions.   
-~ Tag names should start with a capital letter with the remainder lower case. 
-~ Blanks are not allowed for HED-3G labels or tag extensions. Use hyphens (not under bars) instead.
+**HED_STYLE_WARNING:** (WARNING) An extension or label does not follow HED naming conventions.
+~ A tag name does not start with a capital letter with the remainder lower case. 
+~ A tag name contains blanks in HED-3G labels or tag extensions. 
+Use hyphens (not under bars) instead.
 
 **HED_TAG_EMPTY:** Extra commas or empty parentheses indicate empty tags.  
- ~ A HED string cannot have multiple consecutive commas (ignoring white space).
- ~ A HED string cannot begin or end with a comma, which also implies an empty HED tag. 
- ~ A tag group cannot be empty, so empty parentheses are not allowed.
+ ~ A HED string has multiple consecutive commas (ignoring white space).
+ ~ A HED string begins or ends with a comma (which implies an empty HED tag). 
+ ~ A tag group is empty (i.e., empty parentheses are not allowed).
 
 **HED_TAG_EXTENDED:** (WARNING) HED tag represents an extension from the schema.  
- ~ Issued to warn annotators that this tag represents an extension of the HED schema. Often such tags were really spelling errors and not meant to extend the schema.
+ ~ This tag represents an extension of the HED schema. (Often such tags are really
+spelling errors and not meant to extend the schema.)
 
 **HED_TAG_GROUP_ERROR:** A tag does not have its required tag group behavior.  
  ~ A tag has `tagGroup` or `topLevelTagGroup` attribute but is not in an appropriate tag group.
@@ -95,12 +98,12 @@ value does not have a key in the sidecar dictionary.
 **HED_TAG_NOT_UNIQUE:** A HED tag with *unique* attribute appears more than once in an event-level HED string.  
 
 **HED_TAG_REPEATED:** HED tags cannot be repeated in the same tag group or level.  
- ~ HED strings are not ordered, so *(B, C)* is considered to be equivalent to *(B, C)*.
- ~  *(A, (A, B))* is not considered to be a duplicate.
- ~  *(A, (B, C), A)* and *(A, (B, C), (C, B))* are repeated. 
+ ~ HED strings are not ordered, so *(B, C)* is equivalent to *(B, C)*.
+ ~ *(A, (A, B))* is not a duplicate.
+ ~ *(A, (B, C), A)* and *(A, (B, C), (C, B))* are duplicates. 
 
 **HED_TAG_REQUIRES_CHILD:** A HED tag requires an additional ending node.   
- ~ The tag has the *requireChild* schema attribute.
+ ~ The tag has the *requireChild* schema attribute but does not have a child.
 
 **HED_TILDES_UNSUPPORTED:** The tilde notation is no longer supported.   
  ~ The **tilde syntax is no longer supported** for any version of HED.
@@ -111,14 +114,14 @@ value does not have a key in the sidecar dictionary.
  ~ If the corresponding unit class has default units, those are assumed. 
 
 **HED_UNITS_INVALID:** HED tag value has incorrect or invalid units.  
- ~ The HED tag has a value with units that are invalid or not of the 
+ ~ A HED tag has a value with units that are invalid or not of the 
 correct unit class for the tag. 
  ~ A typical mistake is to use unit modifiers with units that are not SI units.  
 
 **HED_VALUE_INVALID:** The value substituted for a placeholder (`#`) is not valid.  
- ~ The value may be incompatible with the specified value class.
- ~ Values with no value class may contain invalid characters.
- ~ The value is a schema node name.
+ ~ A tag value is incompatible with the specified value class.
+ ~ A tag value with no value class is assumed to be a label and may contain invalid characters.
+ ~ A tag value is a schema node name.
 
 **HED_VERSION_DEPRECATED:** (WARNING) The HED version is deprecated.  
  ~ It is strongly recommended that a current version be used as these deprecated 
@@ -144,34 +147,36 @@ when the planned XSD validation is implemented start with HED_XML.
  ~ The `unitClass` attribute must be defined in the `unitClassDefinitions` section of the schema.
  ~ A `unitClass` attribute has an invalid suffix because it is not a plural or unit modifier.
  ~ A `valueClass` attribute must be defined in the `valueClassDefinitions` section of the schema.
- ~ Other attributes should be defined in the `schemaAttributeDefinitions` section.
+ ~ An schema attribute is not defined in the `schemaAttributeDefinitions` section.
 
 **HED_SCHEMA_CHARACTER_INVALID:** The specification contains an invalid character.  
 
 **HED_SCHEMA_DUPLICATE_NODE:** A schema node name appears in the schema more than once.  
 
 **HED_SCHEMA_HEADER_INVALID:** The schema header is invalid.  
- ~ Invalid characters or format in the header can trigger this.
- ~ Unrecognized header attributes can also cause this error.
+ ~ The head has invalid characters or format.
+ ~ The header has unrecognized attributes.
 
 **HED_SCHEMA_NODE_NAME_INVALID:** Schema node name is empty or contains invalid characters.  
 
 **HED_SCHEMA_REQUIRED_SECTION_MISSING:** A required schema section is missing.   
- ~ The required sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes, and properties) must be included in this order even if their content is empty.
+ ~ The required sections (corresponding to the schema, unit classes, unit modifiers, value classes, schema attributes, and properties) are not in the correct order.
+ ~ Required schema sections may be empty, but still be given.
 
 **HED_SCHEMA_VERSION_INVALID:** The schema version in the HED line or element is invalid.  
- ~ Version specification does not have the correct syntax for the schema file format or the schema version does not comply with semantic versioning.
+ ~ A HED version specification does not have the correct syntax for the schema file format.
+ ~ A HED schema version does not comply with semantic versioning.
 
 
 ### B.2.2. HED format-specific schema errors.
 
 **HED_WIKI_DELIMITERS_INVALID:** Delimiters used in the wiki are invalid.    
- ~ Line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.
+ ~ Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.
  ~ A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.
 
 **HED_WIKI_LINE_START_INVALID:** Start of body line not `'''` or `*`.  
 
 **HED_WIKI_SEPARATOR_INVALID:** Required wiki section separator is missing or misplaced.  
- ~ The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.
+ ~ A required schema separator is missing. (The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.)
 
 **HED_XML_SYNTAX_INVALID:** XML syntax or does not comply with specified XSD.  
