@@ -42,3 +42,11 @@ This section lists typos or other errors that should be fixed.
 - Correct the word between in `**** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>`
 - Rename `labelClass` to `nameClass` in `Property/Informational-property/Parameter/Parameter-label/#'
 - Rename `labelClass` to `nameClass` in `Property/Sensory-property/Sensory-attribute/auditory-attribute/Timbre/#'
+
+### Suggested additions
+This section suggests listed additions to the HED tags
+
+- Add `Distracted` to `Agent-emotional-state`.  (Source Monique Denissen.  Re: Often experiments are designed with
+  distractions and surveys may assess the participant's degree of distration.)
+- Add Arrow to 2D-shape. (Source Monique Denissen.  Re:  Arrow is a common 2D-shape used in experiments.
+- Needed some way of tagging that the participant is finished --- like an OK or Done.  (Source Monique Denissen)
