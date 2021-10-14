@@ -264,7 +264,7 @@ placeholder values as shown in the next example. The example assumes a definitio
 >         .... [Both Star Wars and Forrest Gump are playing] ....
 
 > [event n2]    
-> *Sensory-event, (Def/PlayMovie, Offset)*
+> *Sensory-event, (Def/MyPlayMovie/StarWars, Offset)*
 
 >         .... [Just Forrest Gump is playing] ....
 
