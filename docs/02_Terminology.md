@@ -48,6 +48,11 @@ may be known only to the experimenter or to the experiment control application
 Circumstances forming or contributing to the setting in which an event occurs that 
 are relevant to its interpretation, assessment, and consequences.
 
+## Event marker 
+
+A time point relative to the experimental timeline that can be associated with an 
+annotation. Often such a marker indicates a transition point for some underlying event.
+
 ## Event-stream [*]
 
 A named sequence of events such as all the events that are face stimuli or all of 
