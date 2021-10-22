@@ -50,12 +50,13 @@ to the validator when the string containing the tag is validated.
 
 **HED_ONSET_OFFSET_ERROR:** An *Onset* or *Offset* tag is used incorrectly.  
  ~ An *Onset* or *Offset* tag appears without being grouped with a defined name
-(using *Def/* or *Def-expand/*). 
- ~ An *Onset* or *Offset* is not in a top-level tag group.
- ~ More than one *Onset* or *Offset* appears in the same tag group.
+(using a *Def-expand/* tag group or a *Def/* ). 
  ~ An *Offset* tag appears before an *Onset* tag with the same name (or name/value). 
  ~ An *Offset* tag of a given name appears after a previous *Offset* tag without the
 appearance of an intervening *Onset* of the same name. 
+ ~ An *Onset* tag group either lacks an internal tag group or has more than one internal
+tag group. **Note:** if the *Onset* tag group's definition is in expanded form, 
+the *Def-expand* will be an additional internal tag group.
 
 **HED_PARENTHESES_MISMATCH:** A HED string has unmatched open and closed parentheses.  
  ~ A HED string does not have the same number of open and closed parentheses.

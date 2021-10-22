@@ -42,6 +42,7 @@ This section lists typos or other errors that should be fixed.
 - Correct the word between in `**** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>`
 - Rename `labelClass` to `nameClass` in `Property/Informational-property/Parameter/Parameter-label/#'
 - Rename `labelClass` to `nameClass` in `Property/Sensory-property/Sensory-attribute/auditory-attribute/Timbre/#'
+- The description of `topLevelTagGroup` schema attribute to mention that only one tag with the `topLevelTagGroup` attribute can appear in the same tag group.
 
 ### Suggested additions
 This section suggests listed additions to the HED tags

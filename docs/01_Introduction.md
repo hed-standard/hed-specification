@@ -38,30 +38,35 @@ and the HED working document on
 HED (an acronym for Hierarchical Event Descriptors) is an evolving framework that facilitates 
 the description and formal annotation of events identified in time series data, 
 together with tools for validation and for using HED annotations in data search, 
-extraction, and analysis. This specification describes the official release of third 
-generation of HED or HED-3G, which is HED version 8.0.0.
-
-Third generation HED represents a significant advance in documenting the content and intent of
-experiments in a format that enables large-scale cross-study analysis of time-series behavioral
-and neuroimaging data, including but not limited to EEG, MEG, iEEG, eye-tracking, motion-capture,
-EKG, and audiovisual recording. In principle, third generation HED might be extended or adapted
-to annotate events in any other type of ordered or time series data. 
-
-Specifically, the goal of HED is to allow researchers to annotate what happened during an 
+extraction, and analysis. HED allows researchers to annotate what happened during an 
 experiment, including experimental stimuli and other sensory events, participant responses 
 and actions, experimental design, the role of events in the task, and the temporal structure 
 of the experiment. The resulting annotation is machine-actionable, meaning that it can be 
 used as input to algorithms without manual intervention. HED facilitates detailed comparisons
 of data across studies.
 
+As the name HED implies, much of the HED framework focuses on
+associating metadata with the experimental timeline to make datasets analysis-ready and
+machine-actionable. However, HED annotations and framework can be used to incorporate 
+other types of metadata into analysis by providing a common API (Application Programming 
+Interface) for building inter-operable tools. 
+
+This specification describes the official release of third 
+generation of HED or HED-3G, which is HED version 8.0.0. 
+Third generation HED represents a significant advance in documenting the 
+content and intent of experiments in a format that enables large-scale 
+cross-study analysis of time-series behavioral and neuroimaging data, 
+including but not limited to EEG, MEG, iEEG, fMRI, eye-tracking, motion-capture, 
+EKG, and audiovisual recording.
+
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
 datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
-[Chapter 7: HED in BIDS](06_Infrastructure.md#6-infrastructure).
+[Chapter 6: Infrastructure](06_Infrastructure.md#6-infrastructure).
 
 
 ## 1.2. Brief history of HED
 HED was originally proposed by Nima Bigdely-Shamlo in 2010 to support annotation in
-[HeadIT](https://headit.ucsd.edu) and early public repository for EEG data hosted by the 
+[HeadIT](https://headit.ucsd.edu) an early public repository for EEG data hosted by the 
 Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al. 2013). 
 HED-1G was partially based on CogPO (Turner and Laird 2012). 
 
@@ -128,15 +133,18 @@ events with temporal duration, as well as annotations that represent experimenta
 
 ## 1.2. Goals of HED
 
-Event annotation documents the things happening during data recording regardless of relevance
-to data analysis and interpretation. Commonly recorded events in electrophysiological data
-collection include the initiation, termination, or other features of **sensory presentations** 
-and **participant actions**. Other events may be **unplanned environmental events** 
-(for example, sudden onset of noise and vibration from construction work unrelated to the 
-experiment, or a laboratory device malfunction), events recording **changes in experiment
-control** parameters as well as **data feature events** and control **mishap events** that
-cause operation to fall outside of normal experiment parameters. The goals of HED are to 
-provide a standardized annotation and supporting infrastructure.
+An event is a process that unfolds over time representing something that happens. Events
+are typically measured by noting sequences of time points (event markers) usually marking
+specific transition points which could be thought of as moments of phase transition 
+in a dynamic process. HED annotation documents what happens at these event markers in order
+to facilitate data analysis and interpretation. Commonly recorded event markers in 
+electrophysiological data collection include the initiation, termination, or other 
+features of **sensory presentations** and **participant actions**. Other events may 
+be **unplanned environmental events** (for example,  noise and vibration 
+from construction work unrelated to the  experiment, or a laboratory device malfunction), 
+**changes in experiment control** parameters as well as **data features** and 
+control **mishaps** that cause operation to fall outside of normal experiment parameters. 
+The goals of HED are to provide a standardized annotation and supporting infrastructure.
 
 ````{admonition} **Goals of HED.**
 :class: tip
@@ -147,8 +155,6 @@ provide a standardized annotation and supporting infrastructure.
 4. **Provide basic infrastructure** for building and using machine-actionable tools to systematically analyze data associated with recorded events in and across data sets, studies, paradigms, and modalities.
 ````
 
-Current systems in neuroimaging experiments do not record events beyond simple numerical (3) or text 
-(Event type Target) labels whose more complete and precise meanings are known only to the experimenter(s). 
 
 A central goal of HED is to enable building of archives of brain imaging data in a form amenable to new 
 forms of larger scale analysis, both within and across studies. Such event-related analysis requires that 
@@ -156,6 +162,11 @@ the nature(s) of the recorded events be specified in a common language. The HED 
 the development of this language, to develop and distribute tools that maximize its ease of use, and to 
 inform new and existing researchers of its purpose and value.
 
+Most experiments have a limited number of distinct event types, which are often identified in the
+original experiment by local event codes. The strategy for assigning local codes to individual
+events depends on the format of the data set. However, in practice, HED tagging usually involves
+annotating a few event types or codes for an entire study, not tagging individual instances of
+events in individual data recordings.
 
 ## 1.3. HED design principles
 
@@ -181,6 +192,28 @@ principles in user-interface and graphics design that allow tools to maintain a 
 representation of needed information while emphasizing different aspects of the information when presenting 
 it to users. 
 
-Similarly, making validation and analysis code independent of the HEDschema (4) allows redesign of the 
+Similarly, making validation and analysis code independent of the HED schema (4) allows redesign of the 
 schema without having to re-implement the annotation tools. A well-specified and stable API 
 (application program interface) empowers tool developers.
+
+## 1.4. Specification organization
+
+This specification is meant to provide guidelines for tool-builders as well as HED annotators.
+[Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and
+[Chapter 3: Schema](03_Schema.md) outlines the rules for HED vocabularies. Basic and advanced
+event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md)
+and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). 
+Discussions of how tags for local event codes are associated with event instances are deferred to 
+[Chapter 6: Infrastructue](06_Infrastructure.md#65-bids-support-in-hed).
+
+HED provides a mechanism for user communities to develop discipline-specific library vocabularies.
+(See [Chapter 7: Library schema](05_Advanced_annotation.md) for details.) 
+
+[Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED vocabulary format rules.
+[Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
+
+Other resources include a comprehensive list of HED [Documentation](Documentation.md) resources, and a
+list of [HED tools and services](Tools.md). 
+
+All HED source code and resources are open-source and stages in the HED Standards Organization Repository
+[https://github.com/hed-standard](https://github.com/hed-standard). 

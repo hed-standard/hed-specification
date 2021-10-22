@@ -3,42 +3,32 @@
 This section illustrates the use of HED tags and discusses various tags that are used to document
 the structure and organization of electrophysiological experiments. The simplest annotations
 treat each event as happening at a single point in time. The annotation process for such
-time-marked or point events involves describing what happened during that event.
+events involves describing what happened during that event.
 
 This chapter illustrates basic HED descriptions of four types of events that are often annotated
-as time-marked events or point events: **stimulus events**, **response events**, 
+using single event markers: **stimulus events**, **response events**, 
 **experiment control events**, and **data features**. 
 
-HED-3G now also allows more sophisticated models of events that have extended duration.
-Downstream analyses often look for neurological effects directly following (or preceding) 
-event markers. The addition of HED context, allows information about events that occur 
-over extended periods of time to propagate to intermediate time points. 
+HED-3G now also allows more sophisticated models of events that unfold over time using
+multiple event markers. Downstream analyses often look for neurological effects directly 
+following (or preceding) event markers. The addition of HED context, allows information 
+about events that occur over extended periods of time to propagate to intermediate time points. 
 [Chapter 5: Advanced annotation](05_Advanced_annotation.md#5-advanced-annotation) 
 develops the HED concepts needed to capture these advanced models of events as well as event
 and task inter-relationships. 
 
-This specification is meant to provide guidelines for 
-tool-builders. Additional tutorials and user guides available at 
-[hedtags.org](https://www.hedtags.org) provide more specific guidance for 
-annotators. Discussions of how tags for local event codes are
-associated with event instances are deferred to 
-[Chapter 6: Infrastructue](06_Infrastructure.md#65-bids-support-in-hed).
+
 
 
 ## 4.1. Instantaneous events
 
-This section describes HED annotation of time-marked events. A time-marked event is modeled as
-happening at an instant in time. Generally, a marker is inserted in the data or held in an
-external event file containing the onset time of some action, relative to the beginning of the
-data recording. A time-marked event may also point to the end/offset of some happening or to time
+This section describes HED annotation of events that are modeled as happening at an instant in time. 
+Sometimes the event marker corresponding to such an event is inserted in the data or held in an 
+external event file containing the onset time of some action, relative to the beginning of the 
+data recording. We refer to these events as **time-marked events**.
+The event marker may also point to the end/offset of some happening or to time
 between the onset and offset (for example, the maximum velocity point in a participant arm
-movement or the maximum potential peak of an eye-blink artifact). 
-
-Most experiments have a limited number of distinct event types, which are often identified in the
-original experiment by local event codes. The strategy for assigning local codes to individual
-events depends on the format of the data set. However, in practice, HED tagging usually involves
-annotating a few event types or codes for an entire study, not tagging individual instances of
-events in individual data recordings.
+movement or the maximum potential peak of an eye-blink artifact).
 
 A typical example of an experiment using time-marked event annotation is simple target
 detection. In this experiment geometric shapes of different colors are presented on a computer
