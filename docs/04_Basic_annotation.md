@@ -18,8 +18,6 @@ develops the HED concepts needed to capture these advanced models of events as w
 and task inter-relationships. 
 
 
-
-
 ## 4.1. Instantaneous events
 
 This section describes HED annotation of events that are modeled as happening at an instant in time. 

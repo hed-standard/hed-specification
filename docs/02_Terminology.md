@@ -51,7 +51,7 @@ are relevant to its interpretation, assessment, and consequences.
 ## Event marker 
 
 A time point relative to the experimental timeline that can be associated with an 
-annotation. Often such a marker indicates a transition point for some underlying event.
+annotation. Often such a marker indicates a transition point for some underlying event process.
 
 ## Event-stream [*]
 
