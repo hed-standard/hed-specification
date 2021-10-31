@@ -51,3 +51,11 @@ This section suggests listed additions to the HED tags
   distractions and surveys may assess the participant's degree of distration.)
 - Add Arrow to 2D-shape. (Source Monique Denissen.  Re:  Arrow is a common 2D-shape used in experiments.
 - Needed some way of tagging that the participant is finished --- like an OK or Done.  (Source Monique Denissen)
+
+### Topics for future discussion
+
+This section describes topics for future discussion:
+
+- Alternative syntax for library tags.
+- Spatial specification tags.  Should these be in a spatial library?
+- Formulation of task and event linkage.

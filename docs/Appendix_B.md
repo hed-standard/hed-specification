@@ -158,6 +158,10 @@ when the planned XSD validation is implemented start with HED_XML.
  ~ The head has invalid characters or format.
  ~ The header has unrecognized attributes.
 
+**HED_SCHEMA_LOAD_FAILED:** Unable to load a schema.
+ ~ The schema file is inaccessible.
+ ~ The schema file does not contain valid XML.
+
 **HED_SCHEMA_NODE_NAME_INVALID:** Schema node name is empty or contains invalid characters.  
 
 **HED_SCHEMA_REQUIRED_SECTION_MISSING:** A required schema section is missing.   
