@@ -190,7 +190,7 @@ event file with a JSON sidecar.  There is also support for extracting a template
 sidecar from a BIDS events file.
 
 The [`hedexamples/matlab`](https://github.com/hed-standard/hed-python/tree/master/hedexamples/matlab)
-directory of the hed-python repository gives running MATLAB examples of how to call these 
+directory of the `hed-python` repository gives running MATLAB examples of how to call these 
 services in MATLAB.
 
 ### 3.1 Service setup
@@ -199,7 +199,7 @@ The HED web services are accessed by making a request to the HED web server to o
 CSRF access token for the session and then making subsequent requests as designed. The steps are:
 
 1. Send an HTTP `get` request to the HED CSRF token access URL. 
-2. Extract the CSRF token access and the returned cookie.
+2. Extract the CSRF token and returned cookie from the response to use in the headers of future `post` requests.
 3. Send an HTTP `post` request in the format as described below and read the response.
 
 The following table summarizes the location of the relevant URLs for online deployments of HED 
@@ -235,19 +235,19 @@ validated are abbreviated as `"json file text"`.
 
 ``````{admonition} **Example:** Request parameters for validating a JSON sidecar.
 
-````json
+```json
 {
     "service": "sidecar_validate",
     "schema_version": "8.0.0", 
     "json_string": "json file text",
     "check_warnings_validate": on"
 }
-````
+```
+
 ``````
 
-The parameters are explained in the following table.  
-Parameter values listed in square brackets (e,g, [`a`, `b`]) indicate that only one of `a` or `b` 
-should be provided.
+The parameters are explained in the following table. Parameter values listed in square brackets
+(e,g, [`a`, `b`]) indicate that only one of `a` or `b`should be provided.
 
 `````{list-table} Summary of HED ReST services
 :header-rows: 1
@@ -260,12 +260,12 @@ should be provided.
   - none
   - Returns a list of available services.
 * - events_assemble  
-  - events_string,   
+  - events_string,  
     json_string,   
-    [schema_version,    
+    [schema_version,      
     schema_string],   
     check_warnings_assemble,     
-    defs_expand  
+    defs_expand   
   - Assemble all annotations for each event in a BIDS-style event file into a single HED string.  
     Returned data: a file of assembled events as text or an error file as text if errors.
 * - events_extract  
@@ -275,90 +275,90 @@ should be provided.
 * - events_validate  
   - events_string,   
     json_string,  
-    [schema_string,
-     schema_url,
+    [schema_string,  
+     schema_url,  
      schema_version],  
     check_warnings_validate   
   - Validate a BIDS-style event file and its JSON sidecar if provided.  
     Returned data: an error file as text if errors.  
 * - sidecar_to_long  
   - json_string,   
-    [schema_string,
-     schema_url,
+    [schema_string,  
+     schema_url,  
      schema_version],   
   - Convert a JSON sidecar with all of its HED tags expressed in long form.  
     Returned data: a converted JSON sidecar as text or an error file as text if errors.  
-* - sidecar_to_short 
+* - sidecar_to_short  
   - json_string,   
-    [schema_string,
-     schema_url,
-     schema_version],   
+    [schema_string,  
+     schema_url,  
+     schema_version]    
   - Convert a JSON sidecar with all of its HED tags expressed in short form.  
     Returned data: a converted JSON sidecar as text or an error file as text if errors.  
 * - sidecar_validate  
   - json_string,   
-    [schema_string,
-     schema_url,
+    [schema_string,  
+     schema_url,  
      schema_version],  
-    check_warnings_validate 
+    check_warnings_validate  
   - Validate a BIDS-style JSON sidecar.  
     Returned data: an error file as text if errors.
 * - spreadsheet_to_long  
   - spreadsheet_string,   
-    [schema_string,
-     schema_url,
-     schema_version],
-    check_warnings_validate,
-    column_x_check,
-    column_x_input,
-    has_column_names,      
+    [schema_string,  
+     schema_url,  
+     schema_version],  
+    check_warnings_validate,  
+    column_x_check,  
+    column_x_input,  
+    has_column_names        
   - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in long form.  
     Returned data: a converted tag spreadsheet as text or an error file as text if errors.    
 * - spreadsheet_to_short 
-  - spreadsheet_string,   
-    [schema_string,
-     schema_url,
-     schema_version],
-    check_warnings_validate,
-    column_x_check,
-    column_x_input,
-    has_column_names,    
+  - spreadsheet_string,    
+    [schema_string,  
+     schema_url,  
+     schema_version],  
+    check_warnings_validate,  
+    column_x_check,  
+    column_x_input,  
+    has_column_names     
   - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in short form.  
     Returned data: a converted tag spreadsheet as text or an error file as text if errors.  
 * - spreadsheet_validate  
   - spreadsheet_string,   
-    [schema_string,
-     schema_url,
+    [schema_string,  
+     schema_url,  
      schema_version],  
-    check_warnings_validate,
-    column_x_check,
-    column_x_input,
-    has_column_names, 
+    check_warnings_validate,  
+    column_x_check,  
+    column_x_input,  
+    has_column_names,  
   - Validate a tag spreadsheet (tab-separated format only).  
     Returned data: an error file as text if errors.        
 * - spreadsheet_validate 
-  - spreadsheet_string,   
-    [schema_version,   
+  - spreadsheet_string,    
+    [schema_version,    
     schema_string],   
-    check_for_warnings  
+    check_for_warnings    
   - Returns an error file if errors.
 * - strings_to_long  
   - string_list,    
-    [schema_string,
-     schema_url,
-     schema_version],  
+    [schema_string,  
+     schema_url,  
+     schema_version]  
   - Returns errors or a list of strings to long form.
 * - strings_to_short 
   - string_list,   
-    [schema_string,
-     schema_url,
-     schema_version],  
+    [schema_string,  
+     schema_url,  
+     schema_version]  
   - Convert errors or a list of short-form strings.
 * - strings_validate  
   - hed_strings,   
-    [schema_string,
-     schema_url,
-     schema_version],  
+    [schema_string,  
+     schema_url,  
+     schema_version]  
   - Validates a list of hed strings and returns a list of errors.
 ``````
 
