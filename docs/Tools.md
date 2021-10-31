@@ -18,9 +18,9 @@ guides, and tutorials.
 
 The web-based tools are summarized in this section. All tools are available from the main
 access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are
-implemented in a Docker module and can be deployed locally provided that Docker is installed on.
+implemented in a Docker module and can be deployed locally provided that Docker is installed.
 
-Event files are BIDS style tab-separated value files. The first line is always a header line
+**Event files** are BIDS style tab-separated value files. The first line is always a header line
 giving the names of the columns, which are used as keys to metadata in accompanying JSON
 sidecars. The online tools for BIDS events file are designed to help users debug their
 HED annotations for BIDS datasets before using the BIDS validator.
@@ -181,13 +181,27 @@ Otherwise, the user must upload a local HED schema.
 
 ## 3. Web-based services
 
-HED supports a number of web-based tools for HED validation, schema conversion and validation, 
-JSON dictionary validation (as for a BIDS JSON sidecar for events), and validation of a single
-BIDS event file with supporting JSON sidecar. 
+HED supports a number of RESTful web services in support of HED including schema conversion
+and validation, JSON sidecar validation, spreadsheet validation, and validation of a single
+BIDS event file with supporting JSON sidecar. Short-to-long and long-to-short conversion of HED
+tags are supported for HED strings, JSON sidecars, BIDS-style events files and spreadsheets in
+`.tsv` format. Support is also included for assembling the annotations for a BIDS-style 
+event file with a JSON sidecar.  There is also support for extracting a template of a JSON 
+sidecar from a BIDS events file.
 
-Additional web-based tools are planned for various analysis and conversion tasks. 
-In addition, a HED web service interface is available for accessing many of the 
-tools programmatically, including from MATLAB and Python programs. 
+The [`hedexamples/matlab`](https://github.com/hed-standard/hed-python/tree/master/hedexamples/matlab)
+directory of the hed-python repository gives running MATLAB examples of how to call these 
+services in MATLAB.
+
+### 3.1 Service setup
+
+The HED web services are accessed by making a request to the HED web server to obtain a
+CSRF access token for the session and then making subsequent requests as designed. The steps are:
+
+1. Send an HTTP `get` request to the HED CSRF token access URL. 
+2. Extract the CSRF token access and the returned cookie.
+3. Send an HTTP `post` request in the format as described below and read the response.
+
 The following table summarizes the location of the relevant URLs for online deployments of HED 
 web-based tools and services.
 
@@ -205,10 +219,35 @@ web-based tools and services.
   - [https://hedtools.ucsd.edu/hed/services_submit](https://hedtools.ucsd.edu/hed/services_submit)
 `````
 
+### 3.2 Request format
+
 HED services are accessed by passing a JSON dictionary of parameters in a request to the online
-server. All requests include a `service` name and additional parameters. The parameters are explained
-in a subsequent table.  Parameter values listed in square brackets (e,g, [`a`, `b`]) indicate that only
-one of `a` or `b` should be provided.
+server. All requests are in JSON format and include a `service` name and additional parameters. 
+
+The service names are of the form `target_command` where `target` specifies the input data type
+and `command`specifies the service to be performed. For example, `events_validate` indicates that
+a BIDS-style event file is to be validated. The exception to this naming rule is`get_services`.
+
+All parameter values are passed as strings. The contents of file parameters are read into 
+strings to be passed as part of the request. The following example shows the JSON for
+a HED service request to validate a JSON sidecar. The contents of the JSON file to be
+validated are abbreviated as `"json file text"`.
+
+``````{admonition} **Example:** Request parameters for validating a JSON sidecar.
+
+````json
+{
+    "service": "sidecar_validate",
+    "schema_version": "8.0.0", 
+    "json_string": "json file text",
+    "check_warnings_validate": on"
+}
+````
+``````
+
+The parameters are explained in the following table.  
+Parameter values listed in square brackets (e,g, [`a`, `b`]) indicate that only one of `a` or `b` 
+should be provided.
 
 `````{list-table} Summary of HED ReST services
 :header-rows: 1
@@ -225,32 +264,78 @@ one of `a` or `b` should be provided.
     json_string,   
     [schema_version,    
     schema_string],   
-    check_for_warnings,     
+    check_warnings_assemble,     
     defs_expand  
-  - Returns an error file or a file of assembled events.
+  - Assemble all annotations for each event in a BIDS-style event file into a single HED string.  
+    Returned data: a file of assembled events as text or an error file as text if errors.
+* - events_extract  
+  - events_string   
+  - Extract a template JSON sidecar based on the contents of the event file.  
+    Returned data: A JSON sidecar (template) if no errors..
 * - events_validate  
   - events_string,   
     json_string,  
-    [schema_version,   
-    schema_string],  
-    check_for_warnings   
-  - Returns an error file if errors.  
+    [schema_string,
+     schema_url,
+     schema_version],  
+    check_warnings_validate   
+  - Validate a BIDS-style event file and its JSON sidecar if provided.  
+    Returned data: an error file as text if errors.  
 * - sidecar_to_long  
   - json_string,   
-    [schema_version,   
-    schema_string]   
-  - Returns either an error file or converted file.  
+    [schema_string,
+     schema_url,
+     schema_version],   
+  - Convert a JSON sidecar with all of its HED tags expressed in long form.  
+    Returned data: a converted JSON sidecar as text or an error file as text if errors.  
 * - sidecar_to_short 
   - json_string,   
-    [schema_version,     
-    hed_schema_string]  
-  - Returns either an error file or a long form JSON file.   
+    [schema_string,
+     schema_url,
+     schema_version],   
+  - Convert a JSON sidecar with all of its HED tags expressed in short form.  
+    Returned data: a converted JSON sidecar as text or an error file as text if errors.  
 * - sidecar_validate  
   - json_string,   
-    [schema_version,   
-    schema_string],  
-    check_for_warnings 
-  - Returns an error file if errors.  
+    [schema_string,
+     schema_url,
+     schema_version],  
+    check_warnings_validate 
+  - Validate a BIDS-style JSON sidecar.  
+    Returned data: an error file as text if errors.
+* - spreadsheet_to_long  
+  - spreadsheet_string,   
+    [schema_string,
+     schema_url,
+     schema_version],
+    check_warnings_validate,
+    column_x_check,
+    column_x_input,
+    has_column_names,      
+  - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in long form.  
+    Returned data: a converted tag spreadsheet as text or an error file as text if errors.    
+* - spreadsheet_to_short 
+  - spreadsheet_string,   
+    [schema_string,
+     schema_url,
+     schema_version],
+    check_warnings_validate,
+    column_x_check,
+    column_x_input,
+    has_column_names,    
+  - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in short form.  
+    Returned data: a converted tag spreadsheet as text or an error file as text if errors.  
+* - spreadsheet_validate  
+  - spreadsheet_string,   
+    [schema_string,
+     schema_url,
+     schema_version],  
+    check_warnings_validate,
+    column_x_check,
+    column_x_input,
+    has_column_names, 
+  - Validate a tag spreadsheet (tab-separated format only).  
+    Returned data: an error file as text if errors.        
 * - spreadsheet_validate 
   - spreadsheet_string,   
     [schema_version,   
@@ -259,18 +344,21 @@ one of `a` or `b` should be provided.
   - Returns an error file if errors.
 * - strings_to_long  
   - string_list,    
-    [schema_version,   
-    schema_string]  
+    [schema_string,
+     schema_url,
+     schema_version],  
   - Returns errors or a list of strings to long form.
 * - strings_to_short 
   - string_list,   
-    [schema_version,   
-    schema_string]  
+    [schema_string,
+     schema_url,
+     schema_version],  
   - Convert errors or a list of short-form strings.
 * - strings_validate  
   - hed_strings,   
-    [schema_version,   
-    schema_string]	  
+    [schema_string,
+     schema_url,
+     schema_version],  
   - Validates a list of hed strings and returns a list of errors.
 ``````
 
@@ -284,15 +372,24 @@ The following table gives an explanation of the parameters used for various serv
 * - Key value
   - Type
   - Description
-* - check_for_warnings
+* - check_warnings_assemble
+  - boolean
+  - If true, check for warnings when assembling HED strings.
+* - check_warnings_validation
   - boolean
   - If true, check for warnings when validating.
+* - column_x_check:
+  - boolean
+  - If present with value 'on', column x has HED tags.".
+* - column_x_input:
+  - string
+  - Contains the prefix prepended to column x if column x has HED tags.
 * - defs_expand
   - boolean
-  - If true assembly replaces *def/XXX* with *def-expand/XXX*.
+  - If true replaces *def/XXX* with *def-expand/XXX* grouped with the definition content.
 * - events_string
   - string
-  - Events tsv file with header passed as a string.
+  - A BIDS events file as a string..
 * - hed_columns
   - list of numbers
   - A list of HED string column numbers (starting with 1).
@@ -321,6 +418,7 @@ The following table gives an explanation of the parameters used for various serv
   - string
   - A spreadsheet tsv as a string.
 ``````
+### 3.3 Service responses
 
 The web-services always return a JSON dictionary with four keys: `service`, 
 `results`, `error_type`, and `error_msg`. If `error_type` and `error_msg` 
@@ -339,6 +437,9 @@ as part of a HED web service response.
 * - command
   - string
   - Command executed in response to the service request.
+* - command_target
+  - string
+  - The type of data on which the command was executed..
 * - data
   - string
   - A list of errors or the processed result.
@@ -353,9 +454,13 @@ as part of a HED web service response.
   - Explanation of the result of service processing.
 
 ``````
-  
-The [`hedweb/examples/matlab`](https://github.com/hed-standard/hed-python/tree/master/webtools/examples/matlab)
-directory of the hed-python repository gives running MATLAB examples of how to call these services in MATLAB.
+
+The `msg` and `msg_category` pertain to contents of the response information. For example a `msg_category` of 
+`warning` in response to a validation request indicates that the validation completed and that the object that
+was validated had validation errors.  In contrast, the `error_type`, and `error_msg` values are only for
+web service requests and indicate whether or not validation was able to take place. Examples of failures that
+would cause errors include the service timing out or the service request parameters were incorrect. 
+
 
 ## 4. Python tools
 
