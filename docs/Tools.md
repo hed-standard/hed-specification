@@ -266,7 +266,7 @@ The parameters are explained in the following table. Parameter values listed in 
     schema_string],   
     check_warnings_assemble,     
     defs_expand   
-  - Assemble all annotations for each event in a BIDS-style event file into a single HED string.  
+  - Assemble tags for each event in a BIDS-style event file into a single HED string.  
     Returned data: a file of assembled events as text or an error file as text if errors.
 * - events_extract  
   - events_string   
@@ -312,7 +312,7 @@ The parameters are explained in the following table. Parameter values listed in 
     column_x_check,  
     column_x_input,  
     has_column_names        
-  - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in long form.  
+  - Convert a tag spreadsheet (tsv only) to long form.  
     Returned data: a converted tag spreadsheet as text or an error file as text if errors.    
 * - spreadsheet_to_short 
   - spreadsheet_string,    
@@ -323,7 +323,7 @@ The parameters are explained in the following table. Parameter values listed in 
     column_x_check,  
     column_x_input,  
     has_column_names     
-  - Convert a tag spreadsheet (tab-separated format only) to one with all of its HED tags expressed in short form.  
+  - Convert a tag spreadsheet (tsv only) to short form.  
     Returned data: a converted tag spreadsheet as text or an error file as text if errors.  
 * - spreadsheet_validate  
   - spreadsheet_string,   
@@ -336,12 +336,6 @@ The parameters are explained in the following table. Parameter values listed in 
     has_column_names,  
   - Validate a tag spreadsheet (tab-separated format only).  
     Returned data: an error file as text if errors.        
-* - spreadsheet_validate 
-  - spreadsheet_string,    
-    [schema_version,    
-    schema_string],   
-    check_for_warnings    
-  - Returns an error file if errors.
 * - strings_to_long  
   - string_list,    
     [schema_string,  

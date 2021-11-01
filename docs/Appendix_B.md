@@ -1,6 +1,17 @@
 # B. HED errors
 
-This appendix summarizes the error codes used by the HED validators and other tools
+This appendix summarizes the error codes used by HED validators and other tools.
+
+HED tools for users (i.e., annotators and analysts) are mainly concerned with 
+HED validation errors relating to incorrectly annotated events.(See 
+[Chapter B.3: HED valiation errors](Appendix_B.md#b1-hed-validation-errors) 
+for a listing.) These tools assume that the HED schema are error-free and that schema errors 
+can only occur due to failure to locate or read a HED schema. (See 
+[Chapter B.3: Schema loading errors](Appendix_B.md#b3-schema-loading-errors) for a listing.)
+
+HED schema developers are mainly concerned with errors and inconsistencies in the
+schema itself. (See
+[Chapter B.2: Schema validation errors](Appendix_B.md#b2-schema-validation-errors) for a listing.))
 
 ## B.1. HED validation errors 
 
@@ -33,9 +44,11 @@ its definition tag group.
 one after the definition name and one in the definition tag-group body. 
  ~ A definition has placeholders (`#`) in incorrect positions.
 
-**HED_GENERIC_ERROR:** A HED expression raised an uncategorized error.  
+**HED_GENERIC_ERROR:** A HED expression raised an uncategorized error. 
+ ~ An error that does not fall into other categories.
 
 **HED_GENERIC_WARNING:** A HED expression raised an uncategorized warning.  
+ ~ An warning that does not fall into other categories.
 
 **HED_LIBRARY_UNMATCHED:** A tag starting with *name:* does not have an associated library.  
  ~ A tag that starts with *name:* is interpreted as a library schema nickname name, but no
@@ -96,7 +109,8 @@ spelling errors and not meant to extend the schema.)
  ~ The tag has incorrect format for compliance with this schema. 
  ~ The tag is used as a tag extension or placeholder value while appearing elsewhere in the schema.
 
-**HED_TAG_NOT_UNIQUE:** A HED tag with *unique* attribute appears more than once in an event-level HED string.  
+**HED_TAG_NOT_UNIQUE:** A HED tag appears multiple times. 
+ ~ A HED tag with *unique* attribute appears more than once in an event-level HED string.
 
 **HED_TAG_REPEATED:** HED tags cannot be repeated in the same tag group or level.  
  ~ HED strings are not ordered, so *(B, C)* is equivalent to *(B, C)*.
@@ -133,7 +147,7 @@ versions may not be supported in the future.
 **HED_VERSION_WARNING:** (WARNING) The HED version number or HED schema was not provided or was invalid, so the latest version is used.
 
 
-## B.2. HED schema errors
+## B.2. Schema validation errors
 
 This section is organized by the type of schema format that results in the error. 
 Errors that might be detected regardless of the schema format start with HED_SCHEMA. 
@@ -142,7 +156,7 @@ occur in the construction of the XML version or that are detected by XML validat
 when the planned XSD validation is implemented start with HED_XML.
 
 
-### B.2.1. General schema errors
+### B.2.2. General validation schema errors
 
 **HED_SCHEMA_ATTRIBUTE_INVALID:** An attribute not defined in the appropriate schema section.    
  ~ The `unitClass` attribute must be defined in the `unitClassDefinitions` section of the schema.
@@ -158,10 +172,6 @@ when the planned XSD validation is implemented start with HED_XML.
  ~ The head has invalid characters or format.
  ~ The header has unrecognized attributes.
 
-**HED_SCHEMA_LOAD_FAILED:** Unable to load a schema.
- ~ The schema file is inaccessible.
- ~ The schema file does not contain valid XML.
-
 **HED_SCHEMA_NODE_NAME_INVALID:** Schema node name is empty or contains invalid characters.  
 
 **HED_SCHEMA_REQUIRED_SECTION_MISSING:** A required schema section is missing.   
@@ -173,7 +183,7 @@ when the planned XSD validation is implemented start with HED_XML.
  ~ A HED schema version does not comply with semantic versioning.
 
 
-### B.2.2. HED format-specific schema errors.
+### B.2.3. Format-specific schema errors.
 
 **HED_WIKI_DELIMITERS_INVALID:** Delimiters used in the wiki are invalid.    
  ~ Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.
@@ -185,3 +195,24 @@ when the planned XSD validation is implemented start with HED_XML.
  ~ A required schema separator is missing. (The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.)
 
 **HED_XML_SYNTAX_INVALID:** XML syntax or does not comply with specified XSD.  
+
+### B.3. Schema loading errors
+
+Schema loading errors can occur because the file is inaccessible or is not proper XML.
+Schema loading errors are handled in different ways by the Python and JavaScript tools.
+
+Python tools generally raise a `HedFileError` exception when a failure to load the 
+schema occurs. The calling programs are responsible for deciding how to handle such a
+failure.
+
+JavaScript tools in contrast are mainly used for validation in BIDS and are called by the
+[BIDS](https://bids.neuroimaging.io/) validator. Usually BIDS datasets provide a HED version 
+number to designate the version of HED to be used and the HED JavaScript validator is 
+responsible for locating and loading schema. BIDS validator users do not always have
+unrestricted access to the Internet during the validation process. The HED JavaScript
+tools have a fallback of the loading of the specified schema fails. The validator loads
+an internal copy of the most recent version of the HED schema and loads it. However, it
+also reports a **HED_SCHEMA_LOAD_FAILED** error to alert the user that the schema used
+for validation may not be the one designated in the dataset. 
+
+The schema file does not contain valid XML.
