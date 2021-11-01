@@ -1,0 +1,6 @@
+{
+    "service": "sidecar_validate",
+    "schema_version": "8.0.0",
+    "json_string": "json file text",
+    "check_warnings_validate": "on"
+}

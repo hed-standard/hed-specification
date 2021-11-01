@@ -233,18 +233,18 @@ strings to be passed as part of the request. The following example shows the JSO
 a HED service request to validate a JSON sidecar. The contents of the JSON file to be
 validated are abbreviated as `"json file text"`.
 
-``````{admonition} **Example:** Request parameters for validating a JSON sidecar.
+````{admonition} **Example:** Request parameters for validating a JSON sidecar.
 
 ```json
 {
     "service": "sidecar_validate",
     "schema_version": "8.0.0", 
     "json_string": "json file text",
-    "check_warnings_validate": on"
+    "check_warnings_validate": "on"
 }
 ```
 
-``````
+````
 
 The parameters are explained in the following table. Parameter values listed in square brackets
 (e,g, [`a`, `b`]) indicate that only one of `a` or `b`should be provided.
