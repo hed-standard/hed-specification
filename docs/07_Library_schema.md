@@ -107,7 +107,7 @@ dp:Change-lanes
 ```
 ````
 
-A colon (:) is used to separate the qualifying local name from the remainder of the tag. 
+A colon (`:`) is used to separate the qualifying local name from the remainder of the tag. 
 Notice that *Action* also appears in the standard HED schema. Identical terms may be used 
 in a library schema and the standard HED schema. Use of the same term implies a similar 
 purpose. Library schema developers should try not to reuse terms in the standard schema 

@@ -451,9 +451,10 @@ as part of a HED web service response.
 
 The `msg` and `msg_category` pertain to contents of the response information. For example a `msg_category` of 
 `warning` in response to a validation request indicates that the validation completed and that the object that
-was validated had validation errors.  In contrast, the `error_type`, and `error_msg` values are only for
-web service requests and indicate whether or not validation was able to take place. Examples of failures that
-would cause errors include the service timing out or the service request parameters were incorrect. 
+was validated had validation errors.  In contrast, the `error_type`, and `error_msg` values are 
+only for web service requests. These keys indicate whether validation was able to take place. 
+Examples of failures that would cause errors include the service timing out or the 
+service request parameters were incorrect. 
 
 
 ## 4. Python tools
