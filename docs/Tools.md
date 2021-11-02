@@ -14,8 +14,8 @@ users can export their HED annotation into a json file compatible with BIDS even
 See [CTagger GitHub repository](https://github.com/hed-standard/CTagger) for more details, 
 guides, and tutorials.
 
-<a name="hed-online-tools"></a>
-## 2. Web-based tools
+
+## 2. HED online tools
 
 The web-based tools are summarized in this section. All tools are available from the main
 access point [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed). The services are
@@ -179,8 +179,8 @@ Otherwise, the user must upload a local HED schema.
 `````
 ``````
 
-<a name="hed-rest-services"></a>
-## 3. Web-based services
+
+## 3. HED REST services
 
 HED supports a number of RESTful web services in support of HED including schema conversion
 and validation, JSON sidecar validation, spreadsheet validation, and validation of a single
