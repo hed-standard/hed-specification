@@ -14,6 +14,7 @@ users can export their HED annotation into a json file compatible with BIDS even
 See [CTagger GitHub repository](https://github.com/hed-standard/CTagger) for more details, 
 guides, and tutorials.
 
+<a name="hed-online-tools"></a>
 ## 2. Web-based tools
 
 The web-based tools are summarized in this section. All tools are available from the main
@@ -178,7 +179,7 @@ Otherwise, the user must upload a local HED schema.
 `````
 ``````
 
-
+<a name="hed-rest-services"></a>
 ## 3. Web-based services
 
 HED supports a number of RESTful web services in support of HED including schema conversion
