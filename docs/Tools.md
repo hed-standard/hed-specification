@@ -240,7 +240,7 @@ validated are abbreviated as `"json file text"`.
     "service": "sidecar_validate",
     "schema_version": "8.0.0", 
     "json_string": "json file text",
-    "check_warnings_validate": "on"
+    "check_for_warnings": "on"
 }
 ```
 
@@ -264,7 +264,7 @@ The parameters are explained in the following table. Parameter values listed in 
     json_string,   
     [schema_version,      
     schema_string],   
-    check_warnings_assemble,     
+    check_for_warnings,     
     defs_expand   
   - Assemble tags for each event in a BIDS-style event file into a single HED string.  
     Returned data: a file of assembled events as text or an error file as text if errors.
@@ -278,7 +278,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_string,  
      schema_url,  
      schema_version],  
-    check_warnings_validate   
+    check_for_warnings   
   - Validate a BIDS-style event file and its JSON sidecar if provided.  
     Returned data: an error file as text if errors.  
 * - sidecar_to_long  
@@ -300,7 +300,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_string,  
      schema_url,  
      schema_version],  
-    check_warnings_validate  
+    check_for_warnings  
   - Validate a BIDS-style JSON sidecar.  
     Returned data: an error file as text if errors.
 * - spreadsheet_to_long  
@@ -308,7 +308,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_string,  
      schema_url,  
      schema_version],  
-    check_warnings_validate,  
+    check_for_warnings,  
     column_x_check,  
     column_x_input,  
     has_column_names        
@@ -319,7 +319,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_string,  
      schema_url,  
      schema_version],  
-    check_warnings_validate,  
+    check_for_warnings,  
     column_x_check,  
     column_x_input,  
     has_column_names     
@@ -330,7 +330,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_string,  
      schema_url,  
      schema_version],  
-    check_warnings_validate,  
+    check_for_warnings,  
     column_x_check,  
     column_x_input,  
     has_column_names,  
@@ -366,12 +366,9 @@ The following table gives an explanation of the parameters used for various serv
 * - Key value
   - Type
   - Description
-* - check_warnings_assemble
+* - check_for_warnings
   - boolean
-  - If true, check for warnings when assembling HED strings.
-* - check_warnings_validation
-  - boolean
-  - If true, check for warnings when validating.
+  - If true, check for warnings when processing.
 * - column_x_check:
   - boolean
   - If present with value 'on', column x has HED tags.".
