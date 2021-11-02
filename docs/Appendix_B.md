@@ -4,14 +4,15 @@ This appendix summarizes the error codes used by HED validators and other tools.
 
 HED tools for users (i.e., annotators and analysts) are mainly concerned with 
 HED validation errors relating to incorrectly annotated events.(See 
-[Chapter B.3: HED valiation errors](Appendix_B.md#b1-hed-validation-errors) 
+[Chapter B.3: HED validation errors](Appendix_B.md#b1-hed-validation-errors) 
 for a listing.) These tools assume that the HED schema are error-free and that schema errors 
 can only occur due to failure to locate or read a HED schema. (See 
 [Chapter B.3: Schema loading errors](Appendix_B.md#b3-schema-loading-errors) for a listing.)
 
 HED schema developers are mainly concerned with errors and inconsistencies in the
-schema itself. (See
-[Chapter B.2: Schema validation errors](Appendix_B.md#b2-schema-validation-errors) for a listing.))
+schema itself. 
+(See [Chapter B.2: Schema validation errors](Appendix_B.md#b2-schema-validation-errors) 
+for a listing.)
 
 ## B.1. HED validation errors 
 
@@ -216,7 +217,7 @@ unrestricted access to the Internet during the validation process. The HED JavaS
 tools have a fallback of the loading of the specified schema fails. The validator loads
 an internal copy of the most recent version of the HED schema and loads it. However, it
 also reports a **HED_SCHEMA_LOAD_FAILED** issue to alert the user that the schema used
-for validation may not be the one designated in the dataset. However validation will 
+for validation may not be the one designated in the dataset. However, validation will 
 continue with the fallback schema.
 
 If the fallback schema stored with the HED validator fails to load, 

@@ -204,7 +204,7 @@ This specification is meant to provide guidelines for tool-builders as well as H
 event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md)
 and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). 
 Discussions of how tags for local event codes are associated with event instances are deferred to 
-[Chapter 6: Infrastructue](06_Infrastructure.md#65-bids-support-in-hed).
+[Chapter 6: Infrastructure](06_Infrastructure.md#65-bids-support-in-hed).
 
 HED provides a mechanism for user communities to develop discipline-specific library vocabularies.
 (See [Chapter 7: Library schema](05_Advanced_annotation.md) for details.) 
