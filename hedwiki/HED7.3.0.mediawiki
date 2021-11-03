@@ -1,6 +1,9 @@
-HED version: 7.2.0
+HED version="7.3.0"
 
+'''Prologue'''
 Changelog
+* 5/08/2021: v7.3.0 Added unitClass as an attribute
+* 4/20/2021: v.7.3.0 Removed default as a valid attribute. Added schema attribute properties.
 * 3/16/2021: v.7.2.0 Adopted the new format for mediawiki files.
 * 11/22/2020: v. 7.1.2 Add extensionAllowed to top-level Item subtree.
 * 7/27/2020: v. 7.1.1 Corrected extensionAllowed on several top-level and second-level items. Removed extra h:m from clockTime. Removed unitSymbol from clockTime. Added dateTime unit class.  
@@ -47,9 +50,7 @@ Changelog
 ** Removed /Participant/Effect/Cognitive/Oddball/Three stimuli/Target 
 ** Moved Non-target from under Expected to the same level as Target, this is because in Three stimuli oddball paradigm the Non-targets are oddballs and hence not expected. 
 ** Note: user are encouraged to add Expected and Oddball tags when tagging targets and non-targets 
-** Added Presentation fraction 
-
-'''Syntax'''  
+** Added Presentation fraction  
 
 HED tags can only be separated by commas. Use semicolons (;) instead of commas in event descriptions since otherwise extra commas could confuse HED parsers.  
 From version 2.2, HED adheres to http://semver.org/ versioning. 
@@ -199,7 +200,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Pseudo-character <nowiki> [Alphabet-like but not really]</nowiki> 
 *** Letter <nowiki> [Authograph or valid letters and numbers such as A or 5]</nowiki> 
 **** <nowiki># {takesValue}</nowiki> 
-** Composite <nowiki>[Has multiple of the above on it</nowiki> 
+** Composite <nowiki>[Has multiple of the above on it]</nowiki>
 * Natural scene 
 ** Aerial 
 *** Satellite 
@@ -293,7 +294,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki> 
 
 '''Attribute''' {requireChild, extensionAllowed} 
-* Onset <nowiki>[Default]</nowiki> 
+* Onset <nowiki>[Event is assumed to be an onset event if this attribute not present.]</nowiki> 
 * Offset
 * Imagined <nowiki>[This is used to identity that the (sub)event only happened in the imagination of the participant, e.g.  imagined movements in motor imagery paradigms.]</nowiki>
 * State ID <nowiki>{requireChild} [This is used to identify a group of events that are changing the state of a variable where the onset means the offset of any other and a change in the state]</nowiki>
@@ -384,7 +385,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** Oncoming 
 ** Real-world coordinates <nowiki>{requireChild}</nowiki> 
 *** Room 
-**** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/[10 50 30]]</nowiki> 
+**** xyz <nowiki> {requireChild} [have a subnode, e.g. Attribute/Location/Real-world coordinates/Room/xyz/10-50-30]</nowiki>
 ***** <nowiki># {takesValue}</nowiki> 
 ** Reference frame <nowiki>{requireChild}</nowiki> 
 *** Specified absolute reference 
@@ -434,21 +435,21 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Ramp down <nowiki>[Decreasing in amplitude]</nowiki> 
 * Blink
 ** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
-** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>
-***<nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki> 
-** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki> 
-** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio, in centiseconds]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+** Duration <nowiki>{requireChild} [Duration of blink usually the half-height blink duration in seconds taken either from base or zero of EEG signal. Eye-trackers usually use duration to mean the interval during which the pupil covered by eyelid.]</nowiki>
+***<nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio in centiseconds]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
+** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio in centiseconds]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki> 
 * Visual <nowiki></nowiki>
 ** Bistable 
 ** Background 
 ** Foreground 
 ** Up-down separated <nowiki>[Stimuli presented both at the top and the bottom of fovea]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle} [Angle of separation in degrees by default]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=angle} [Angle of separation in degrees by default.]</nowiki> 
 ** Bilateral <nowiki>[For bilateral visual field stimulus presentations]</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=angle} [Angle of separation in degrees by default] </nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=angle} [Angle of separation in degrees by default.] </nowiki> 
 ** Motion 
 *** Down    
 **** <nowiki># {takesValue, isNumeric, unitClass=speed} [e.g. 3 degrees-per-second]</nowiki> 
@@ -461,10 +462,10 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ***** <nowiki># {takesValue, isNumeric, unitClass=speed} [e.g. 3 degrees-per-second]</nowiki> 
 *** Oblique 
 **** Clock face 
-***** <nowiki>#  {takesValue, unitClass=time} [For example  4:30]</nowiki> 
+***** <nowiki>#  {takesValue, unitClass=time} [For example 4:30]</nowiki> 
 ** Fixation point 
 ** Luminance <nowiki>{requireChild}</nowiki> 
-*** <nowiki># {takesValue, isNumeric, unitClass=luminousIntensity}[In candelas by default]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=luminousIntensity}[In candelas by default.]</nowiki> 
 ** Color <nowiki>{requireChild}</nowiki> 
 *** Dark 
 *** Light 
@@ -544,8 +545,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Supraliminal <nowiki>[By default this is assumed about each stimulus]</nowiki> 
 * Liminal <nowiki>[At the 75%-25% perception threshold]</nowiki> 
 * Probability <nowiki> [Use to specify the level of certainty about the occurrence of the event. Use either numerical values as the child node or low, high, etc.]</nowiki> 
-* Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty]. </nowiki> 
-** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.</nowiki> 
+* Temporal uncertainty <nowiki> {requireChild} [Use to specify the amount of uncertainty in the timing of the event. Please notice that this is different from Attribute/Probability tag which relates to the occurrence of event and
+can be interpretative as the integral of probability density across a distribution whose shape (temporal extent) is specified by Attribute/Temporal uncertainty.]</nowiki>
+** <nowiki># {takesValue, isNumeric, unitClass=time} [implies that the temporal uncertainty is a uniform distribution with the amount of time provided, extending on both side. E.g. "0.5 s" specifies a 1-second range centered at event latency.]</nowiki>
 ** Standard deviation <nowiki>{requireChild} [implies that the distribution of temporal uncertainty is Gaussian with the provided standard deviation (in seconds).]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=time}</nowiki>
 * Presentation <nowiki>{requireChild}[Attributes associated with visual, auditory, tactile, etc. presentation of an stimulus]</nowiki>
@@ -631,7 +633,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Right base <nowiki>[The time of the last detectable eyelid movement on opening.]</nowiki>
 * Eye close <nowiki>[Close eyes and keep closed for more than approximately 0.1 s]</nowiki> 
 ** Keep <nowiki>[Keep the eye closed. If a value is provided it indicates the duration for this.]</nowiki> 
-*** # <nowiki>[the duration (by default in seconds) that they keep their eye closed.]{takesValue, isNumeric, unitClass=time}</nowiki>
+*** # <nowiki>[The time that eyes are kept closed.]{takesValue, isNumeric, unitClass=time}</nowiki>
 * Eye open <nowiki>[Open eyes and keep open for more than approximately 0.1 s]</nowiki>
 ** Keep <nowiki>[Keep the eye open. If a value is provided it indicates the duration for this.]</nowiki> 
 *** # <nowiki>[the duration (by default in seconds) that they keep their eye open.]{takesValue, isNumeric, unitClass=time}</nowiki>
@@ -784,18 +786,18 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 **** Unexpected <nowiki>[Feedback was unexpected as when positive feedback was received when response was expected to be incorrect.]</nowiki> 
 **** On accuracy <nowiki>[Feedback was provided by evaluating response accuracy]</nowiki> 
 **** On reaction time <nowiki>[Feedback was provided by evaluating subject reaction time]</nowiki> 
-**** To self <nowiki>[Default]</nowiki> 
-**** To other <nowiki>[Observed feedback to another person such as in a social paradigm]</nowiki> 
-**** Deterministic <nowiki>[Feedback has a fixed relationship to what happened before]</nowiki> 
-**** Stochastic <nowiki>[Feedback is non-deterministic and does not have fixed relationship with what has happened before in the experiment]</nowiki> 
-**** False feedback <nowiki>[Feedback that was not honest for example as in feedback of correct on an incorrect response or vice versa]</nowiki> 
-***** Negative <nowiki> [Negative feedback was provided when it was not deserved]</nowiki> 
-***** Positive <nowiki>[Positive feedback was provided when it was not deserved]</nowiki> 
-*** Cue <nowiki>[An indicator of a future event, e.g. a sound cue that in 2-5 seconds a perturbation in driving will occur. Use (... Participant/Effect/Cognitive/Cue ~ [hed tags for the event to follow, or main aspect of the event to follow]) syntax.]</nowiki> 
+**** To self <nowiki>[Observed feedback to self such as in a social paradigm.]</nowiki> 
+**** To other <nowiki>[Observed feedback to another person such as in a social paradigm.]</nowiki> 
+**** Deterministic <nowiki>[Feedback has a fixed relationship to what happened before.]</nowiki> 
+**** Stochastic <nowiki>[Feedback is non-deterministic and does not have fixed relationship with what has happened before in the experiment.]</nowiki> 
+**** False feedback <nowiki>[Feedback that was not honest for example as in feedback of correct on an incorrect response or vice versa.]</nowiki> 
+***** Negative <nowiki> [Negative feedback was provided when it was not deserved.]</nowiki> 
+***** Positive <nowiki>[Positive feedback was provided when it was not deserved.]</nowiki> 
+*** Cue <nowiki>[An indicator of a future event such as a sound cue that in 2-5 seconds a perturbation in driving will occur.]</nowiki> 
 **** Constant delay <nowiki>[The cue is for an event that will happen after a constant delay.]</nowiki>
-***** # {takesValue, isNumeric, unitClass=time} <nowiki>[The delay, e.g. in seconds.]</nowiki>
+***** # {takesValue, isNumeric, unitClass=time} <nowiki>[The delay value.]</nowiki>
 **** Variable delay <nowiki>[The cue is for an event that will happen after a variable delay.]</nowiki>
-***** # {takesValue} <nowiki>[The interval, e.g. between 2-5 seconds, of the variable delay.]</nowiki>
+***** # {takesValue} <nowiki>[The interval of the variable delay.]</nowiki>
 ** Visual 
 *** Foveal 
 *** Peripheral     
@@ -892,7 +894,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue, isNumeric} [A number between 0 and 1]</nowiki> 
 ** Under time pressure 
 *** Response window 
-**** <nowiki># {takesValue, isNumeric, unitClass=time} [Default time is seconds]</nowiki> 
+**** <nowiki># {takesValue, isNumeric, unitClass=time} [Default time is seconds.]</nowiki> 
 *** Competitive <nowiki> [Subject is competing against an opponent as for example when the faster respondent wins]</nowiki> 
 ** Social interaction <nowiki>[Social]</nowiki> 
 *** Pseudo <nowiki>[Instructed so but actually not as when the other person may not exist in real world such as the case of a computer program agent]</nowiki> 
@@ -931,7 +933,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Treadmill 
 * Walking 
 ** Treadmill 
-* Indoors <nowiki> [Default]</nowiki> 
+* Indoors 
 ** Clinic <nowiki> [Recording in a clinical setting such as in a hospital or medical office]</nowiki> 
 ** Dim Room 
 * Outdoors 
@@ -952,9 +954,9 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 ** Distance <nowiki>[Assuming static subject]</nowiki> 
 *** <nowiki># {takesValue, isNumeric, unitClass=physicalLength} [Distance from subject eyes to the presentation screen for 30 cm from subject eyes to the monitor]</nowiki> 
 ** Width resolution  
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels] </nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=pixels}</nowiki> 
 ** Height resolution 
-*** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels ]</nowiki> 
+*** <nowiki># {takesValue, isNumeric, unitClass=pixels}</nowiki> 
 * Real world 
 * Virtual world 
 
@@ -1190,24 +1192,36 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 
 
 '''Unit classes''' 
-* time <nowiki>{defaultUnits=s}</nowiki> 
-** second <nowiki>{SIUnit}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** day 
-** minute 
-** hour <nowiki>[Should be in 24-hour format.]</nowiki>
-* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss}</nowiki> 
-** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format.]</nowiki> 
-* clockTime <nowiki>{defaultUnits=hour:min}</nowiki> 
-** hour:min <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
-** hour:min:sec <nowiki>[Hours should be in 24 hour format. Two-digit values should be used for each item.]</nowiki> 
-* frequency <nowiki>{defaultUnits=Hz}</nowiki>
-** hertz  <nowiki>{SIUnit}</nowiki>
-** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * angle <nowiki>{defaultUnits=radian}</nowiki> 
 ** radian <nowiki>{SIUnit}</nowiki> 
 ** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** degree 
+* area <nowiki>{defaultUnits=m^2}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** px^2 <nowiki>{unitSymbol}</nowiki> 
+** pixel^2
+* currency <nowiki>{defaultUnits=$, allowedCharacter=$}</nowiki> 
+** dollar 
+** $ <nowiki>{unitSymbol}</nowiki> 
+** point 
+* dateTime <nowiki>{defaultUnits=YYYY-MM-DDThh:mm:ss, allowedCharacter=:,allowedCharacter=-}</nowiki> 
+** YYYY-MM-DDThh:mm:ss <nowiki>[Date-times should conform to ISO8601 date-time format. Any variation on the full form is allowed.]</nowiki> 
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
+** hertz  <nowiki>{SIUnit}</nowiki>
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* intensity <nowiki>{defaultUnits=dB}</nowiki> 
+** dB <nowiki>{unitSymbol}</nowiki> 
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
+** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
+* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
+** candela <nowiki>{SIUnit}</nowiki> 
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* memorySize <nowiki>{defaultUnits=B}</nowiki> 
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
+* posixPath <nowiki>{allowedCharacter=/,allowedCharacter=:}[Posix path specification.]</nowiki> 
 * physicalLength <nowiki>{defaultUnits=m}</nowiki> 
 ** metre <nowiki>{SIUnit}</nowiki> 
 ** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
@@ -1216,33 +1230,18 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * pixels <nowiki>{defaultUnits=px}</nowiki>  
 ** pixel 
 ** px <nowiki>{unitSymbol}</nowiki> 
-* area <nowiki>{defaultUnits=m^2}</nowiki> 
-** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** px^2 <nowiki>{unitSymbol}</nowiki> 
-** pixel^2
-* volume <nowiki>{defaultUnits=m^3}</nowiki> 
-** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 * speed <nowiki>{defaultUnits=m-per-s}</nowiki> 
 ** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
 ** mph <nowiki>{unitSymbol}</nowiki> 
 ** kph <nowiki>{unitSymbol}</nowiki> 
-* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
-** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
-** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
-* intensity <nowiki>{defaultUnits=dB}</nowiki> 
-** dB <nowiki>{unitSymbol}</nowiki> 
-* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki> 
-** candela <nowiki>{SIUnit}</nowiki> 
-** cd <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* memorySize <nowiki>{defaultUnits=B}</nowiki> 
-** byte <nowiki>{SIUnit}</nowiki>
-** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
-* currency <nowiki>{defaultUnits=$}</nowiki> 
-** dollar 
-** $ <nowiki>{unitSymbol}</nowiki> 
-** point 
-** fraction 
+* time <nowiki>{defaultUnits=s}</nowiki> 
+** second <nowiki>{SIUnit}</nowiki> 
+** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** day 
+** minute 
+** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+* volume <nowiki>{defaultUnits=m^3}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
 
 
 '''Unit modifiers''' 
@@ -1287,24 +1286,29 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
 * y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
 
+'''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
 
 '''Schema attributes'''
-* default <nowiki>[Tag assumed to be present if not explicitly given.]</nowiki> 
-* defaultUnits <nowiki>[Default units for a tag.]</nowiki> 
-* extensionAllowed <nowiki>[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
-* isNumeric <nowiki>[The tag "#" must be replaced by a numerical value.]</nowiki> 
+* allowedCharacter <nowiki>{unitClassProperty}[An attribute of unit classes schema value placeholders indicating a special character that is allowed in expressing the value of that placeholder.]</nowiki>
+* defaultUnits <nowiki>{unitClassProperty}[An attribute of unit classes specifying the default units for a tag.]</nowiki> 
+* extensionAllowed <nowiki>{boolProperty}[Users can add unlimited levels of child nodes under this tag.]</nowiki> 
+* isNumeric <nowiki>{boolProperty}[The tag hashtag placeholder must be replaced by a numerical value.]</nowiki> 
 * position <nowiki>[Used to specify the order of the required and recommended tags in canonical order for display. The position attribute value should be an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position will be shown after the others in canonical ordering.]</nowiki> 
 * predicateType <nowiki> [One of propertyOf, subclassOf, passThrough -- used to facilitate mapping to OWL or RDF.]</nowiki>  
-* recommended  <nowiki>[A HED string tagging an event is recommended to include this tag.]</nowiki> 
-* requireChild  <nowiki>[One of its descendants must be chosen to tag an event.]</nowiki> 
-* required <nowiki>[Every HED string tagging an event should include this tag.]</nowiki>
-* SIUnit  <nowiki>[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
-* SIUnitModifier <nowiki>[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
-* SIUnitSymbolModifier <nowiki>[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki> 
-* takesValue <nowiki>[This tag will have a "#" placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
-* unique <nowiki>[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki> 
-* unitSymbol <nowiki>[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
+* recommended  <nowiki>{boolProperty}[A HED string tagging an event is recommended to include this tag.]</nowiki> 
+* requireChild  <nowiki>{boolProperty}[One of its descendants must be chosen to tag an event.]</nowiki> 
+* required <nowiki>{boolProperty}[Every HED string tagging an event should include this tag.]</nowiki>
+* SIUnit  <nowiki>{boolProperty, unitClassProperty}[Designates the name of an SI unit so it can be modified by multiple and submultiple names. Note that some units such as byte are designated as SI units although they are not part of the standard.]</nowiki>
+* SIUnitModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit modifier indicating a multiple or submultiple of a base unit.]</nowiki> 
+* SIUnitSymbolModifier <nowiki>{boolProperty, unitModifierProperty}[SI unit symbol modifier indicating a multiple or submultiple of a base unit symbol.]</nowiki>
+* takesValue <nowiki>{boolProperty}[This tag will have a hashtag placeholder child in the schema which is expected to be replaced with a user-defined value.] </nowiki> 
+* unique <nowiki>{boolProperty}[Only one of this tag or its descendants can be used within a single tag group or event.]</nowiki>
+* unitClass <nowiki>[Schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
+* unitSymbol <nowiki>{boolProperty, unitClassProperty}[Abbreviation or symbol representing a type of unit. Unit symbols  represent both the singular and the plural and thus cannot be pluralized.]</nowiki> 
 
-!# end hed
+'''Properties''' <nowiki>[Properties of the schema attributes themselves. These are used for schema handling and verification.]</nowiki>
 
+'''Epilogue'''
 Note: This is the new version of the .mediawiki designed to support prologues and epilogues.
+
+!# end hed 
