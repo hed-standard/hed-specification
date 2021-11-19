@@ -220,14 +220,14 @@ with nicknames `"la"` and `"lb"`. `
     "Name": "A wonderful experiment",
     "BIDSVersion": "1.4.0",
     "HEDVersion": {
-        "fileName": "mylocalSchema.xml",
+        "path": "mylocalSchema.xml",
         "libraries": {
             "la": {
                 "libraryName": "libraryA",
                 "version": "1.0.2"
             },
             "lb": {
-                "fileName": "HED_libraryB_0.5.3.xml"
+                "path": "HED_libraryB_0.5.3.xml"
             }
         }
     }
@@ -242,5 +242,5 @@ HED tags from this library have the `la:` prefix (e.g., `la:XXX`).  The `"lb"` l
 schema can be found in the `./code/HED_libraryB_0.5.3.xml` file in the BIDS dataset. 
 Tags from this library are prefixed with `lb:`. NOTE: This specification is preliminary 
 and is waiting the resolution of BIDS formats for specifying external files as outline in
-[BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/820).
+[BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/918).
 

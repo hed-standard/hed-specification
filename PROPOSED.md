@@ -30,6 +30,11 @@ Should the recommended way to annotate right hand be:
 - *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.
 - Do we need a *topLevel* attribute?
 
+### Review of unitClasses and Units
+- Add *euro* as a currency unit
+- Add *WeightUnits* and reorganize *VolumeUnits*
+- Deal with grams
+
 ### Agreed upon changes/corrections
 - *Action/Perceive* should be *Action/Sensory-attend*.
 - *Action/Perceive/See* should be *Action/Sensory-attend/Look*.
