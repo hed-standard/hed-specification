@@ -30,6 +30,11 @@ Should the recommended way to annotate right hand be:
 - *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.
 - Do we need a *topLevel* attribute?
 
+### Review of unitClasses and Units
+- Add *euro* as a currency unit
+- Add *WeightUnits* and reorganize *VolumeUnits*
+- Deal with grams
+
 ### Agreed upon changes/corrections
 - *Action/Perceive* should be *Action/Sensory-attend*.
 - *Action/Perceive/See* should be *Action/Sensory-attend/Look*.
@@ -51,6 +56,9 @@ This section suggests listed additions to the HED tags
   distractions and surveys may assess the participant's degree of distration.)
 - Add Arrow to 2D-shape. (Source Monique Denissen.  Re:  Arrow is a common 2D-shape used in experiments.
 - Needed some way of tagging that the participant is finished --- like an OK or Done.  (Source Monique Denissen)
+- Add `Sound-volume/#` to allow specification of a numerical value. Loudness can be
+grouped with qualitative attributes such as `High` (Source Scott Makeig).
+- Consider adding other times of numerical features such as `Absmax`, `First-derivative-max`  (Source Scott Makeig).
 
 ### Topics for future discussion
 
