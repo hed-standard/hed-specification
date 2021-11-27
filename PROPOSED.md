@@ -29,6 +29,10 @@ Should the recommended way to annotate right hand be:
 ### Review of attributes
 - *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.
 - Do we need a *topLevel* attribute?
+- Proposed (@MichaelJachan) add schema attribute `conversionFactor` which takes a value
+  (i.e. does not have `boolProperty`). This attribute is associated with unit classes 
+  that are not SIUnits and gives the multiplicative conversion factor between the
+  specified units and the default units.  (Suggest adding to version 8.1. @VisLab).
 
 ### Review of unitClasses and Units
 - Add *euro* as a currency unit
