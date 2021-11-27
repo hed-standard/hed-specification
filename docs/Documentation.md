@@ -5,16 +5,17 @@
 
 Explanation of the history, development, and motivation for third generation HED: 
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).
 > Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).
+> In press for Neuroinformatics Special Issue Building the NeuroCommons.
 > [https://doi.org/10.31219/osf.io/5fg73](https://doi.org/10.31219/osf.io/5fg73)
 
 Detailed case study in using HED-3G for tagging:
 
 > Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
 > Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-> BioRxiv, 2021.05.06.442841. 
-> [https://doi.org/10.1101/2021.05.06.442841](https://doi.org/10.1101/2021.05.06.442841)
+> In press for NeuroImage Special Issue Practice in MEEG.
+> (https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7)[https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7].
 
 ## 2. Working documents
 

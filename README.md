@@ -26,15 +26,15 @@ The HED schema vocabulary can be viewed at:
 
 The following white papers give an overview of HED and how it is used.
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2020, August 1).  
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).  
 > Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).  
+> In press for Neuroinformatics Special Issue Building the NeuroCommons.
 > https://doi.org/10.31219/osf.io/5fg73
 
-> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
+> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021). 
 > Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-> BioRxiv, 2021.05.06.442841. 
-> https://doi.org/10.1101/2021.05.06.442841
-
+> In press for NeuroImage Special Issue Practice in MEEG.
+> (https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7)[https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7].
 
 ## HED generations and schema versions 
 The HED system has gone through two major restructurings since the original system
