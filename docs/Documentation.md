@@ -15,7 +15,7 @@ Detailed case study in using HED-3G for tagging:
 > Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
 > Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
 > In press for NeuroImage Special Issue Practice in MEEG.
-> (https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7)[https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7].
+> [https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7](https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7).
 
 ## 2. Working documents
 
