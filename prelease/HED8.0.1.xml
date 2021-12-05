@@ -2237,7 +2237,7 @@
                         <description>Free from error. Especially conforming to fact or truth.</description>
                         <attribute>
                            <name>relatedTag</name>
-                           <value>Incorrect</value>
+                           <value>Wrong</value>
                         </attribute>
                      </node>
                      <node>
@@ -2266,7 +2266,7 @@
                      </node>
                      <node>
                         <name>Invalid</name>
-                        <description>Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.</description>
+                        <description>Not allowed or not conforming to the correct format or specifications.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Valid</value>
@@ -2308,7 +2308,7 @@
                      </node>
                      <node>
                         <name>Wrong</name>
-                        <description>Not accurate, correct, or appropriate.</description>
+                        <description>Inaccurate or not correct.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Correct</value>
