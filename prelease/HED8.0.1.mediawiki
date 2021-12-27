@@ -1010,7 +1010,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Behavioral-evidence <nowiki>[An indication or conclusion based on the behavior of an agent.]</nowiki>
 ** Task-event-role <nowiki>[The purpose of an event with respect to the task.]</nowiki>
 *** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-*** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
+*** Incidental <nowiki> [A sensory or other type of event that is unrelated to the task or experiment.]</nowiki>
 *** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 *** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 *** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>

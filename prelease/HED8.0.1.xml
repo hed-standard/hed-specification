@@ -5150,7 +5150,7 @@
                </node>
                <node>
                   <name>Incidental</name>
-                  <description>Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.</description>
+                  <description>A sensory or other type of event that is unrelated to the task or experiment.</description>
                </node>
                <node>
                   <name>Instructional</name>
