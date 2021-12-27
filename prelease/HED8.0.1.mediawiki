@@ -515,16 +515,16 @@ This schema is the first official release that includes an xsd and requires unit
 *** Categorical-value <nowiki>[Indicates that something can take on a limited and usually fixed number of possible values.]</nowiki>
 **** Categorical-class-value <nowiki>[Categorical values that fall into discrete classes such as true or false. The grouping is absolute in the sense that it is the same for all participants.]</nowiki>
 ***** All <nowiki>{relatedTag=Some, relatedTag=None}[To a complete degree or to the full or entire extent.]</nowiki>
-***** Correct <nowiki>{relatedTag=Incorrect}[Free from error. Especially conforming to fact or truth.]</nowiki>
+***** Correct <nowiki>{relatedTag=Wrong}[Free from error. Especially conforming to fact or truth.]</nowiki>
 ***** Explicit <nowiki>{relatedTag=Implicit}[Stated clearly and in detail, leaving no room for confusion or doubt.]</nowiki>
 ***** False <nowiki>{relatedTag=True}[Not in accordance with facts, reality or definitive criteria.]</nowiki>
 ***** Implicit <nowiki>{relatedTag=Explicit}[Implied though not plainly expressed.]</nowiki>
-***** Invalid <nowiki>{relatedTag=Valid}[Not true because based on erroneous information or unsound reasoning or not conforming to the correct format or specifications.]</nowiki>
+***** Invalid <nowiki>{relatedTag=Valid}[Not allowed or not conforming to the correct format or specifications.]</nowiki>
 ***** None <nowiki>{relatedTag=All, relatedTag=Some}[No person or thing, nobody, not any.]</nowiki>
 ***** Some <nowiki>{relatedTag=All, relatedTag=None}[At least a small amount or number of, but not a large amount of, or often.]</nowiki>
 ***** True <nowiki>{relatedTag=False}[Conforming to facts, reality or definitive criteria.]</nowiki>
 ***** Valid <nowiki>{relatedTag=Invalid}[Allowable, usable, or acceptable.]</nowiki>
-***** Wrong <nowiki>{relatedTag=Correct}[Not accurate, correct, or appropriate.]</nowiki>
+***** Wrong <nowiki>{relatedTag=Correct}[Inaccurate or not correct.]</nowiki>
 **** Categorical-judgment-value <nowiki>[Categorical values that are based on the judgment or perception of the participant such familiar and famous.]</nowiki>
 ***** Abnormal <nowiki>{relatedTag=Normal}[Deviating in any way from the state, position, structure, condition, behavior, or rule which is considered a norm.]</nowiki>
 ***** Asymmetrical <nowiki>{relatedTag=Symmetrical}[Lacking symmetry or having parts that fail to correspond to one another in shape, size, or arrangement.]</nowiki>
@@ -1010,7 +1010,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Behavioral-evidence <nowiki>[An indication or conclusion based on the behavior of an agent.]</nowiki>
 ** Task-event-role <nowiki>[The purpose of an event with respect to the task.]</nowiki>
 *** Experimental-stimulus <nowiki>[Part of something designed to elicit a response in the experiment.]</nowiki>
-*** Incidental <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
+*** Incidental <nowiki> [A sensory or other type of event that is unrelated to the task or experiment.]</nowiki>
 *** Instructional <nowiki> [Usually associated with a sensory event intended to give instructions to the participant about the task or behavior.]</nowiki>
 *** Mishap <nowiki> [Unplanned disruption such as an equipment or experiment control abnormality or experimenter error.]</nowiki>
 *** Participant-response <nowiki> [Something related to a participant actions in performing the task.]</nowiki>
