@@ -13,4 +13,5 @@
 * Index-up:   Corrected </nowiki> closing tag.
 * Read:  Cprrected </nowki> closing tag to be </nowiki>.
 * Plant:   Corrected </nowiki> closing tag.
+* Correct: {relatedTag=Incorrect} changed to {relatedTag=Wrong}
 * Incidental: Corrected the description.
