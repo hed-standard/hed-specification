@@ -60,7 +60,30 @@ has resulted in a dramatic improvement in capabilities, including the
 introduction of annotations of condition variables and experimental 
 design within the data as well as the ability to handle event context 
 and events with temporal extent.
- 
+
+## HED semantic versioning
+
+Starting with version 8.0.0, HED has adopted the following rules for
+changing the semantic version *major.minor.patch*. These rules are
+based on the assumption that the short form will not require retagging
+for patch-level or minor-version changes. A validation error might occur
+during for patch-level or minor-version changes for changes or
+corrections in tag values or units.
+
+| Change                          | Semantic-level | 
+| ---------------------------------- | -------------- |
+| Major addition to HED functionality     | Major  |
+| Tag deleted from schema.                | Major  |
+| Unit or unit class removed from node.   | Major  |
+| New attribute added to schema.          | Minor  |
+| New unit class or unit added to schema. | Minor  |
+| New unit class added to node.           | Minor  |
+| Node moved in schema without change in meaning. | Minor |
+| Revision of description field in schema.        | Patch   |
+| Correction of suggestedTag or relatedTag.       | Patch  |
+| Correction of wiki syntax such as closing tags. | Patch |
+
+
 ## HED schema details
 _HED schema_ is the structured vocabulary from which HED annotations base on. HED annotations consist of comma-separated path strings,
 selected from the schema. In the newest versions of HED,

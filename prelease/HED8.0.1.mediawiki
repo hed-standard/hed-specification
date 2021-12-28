@@ -629,8 +629,8 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Temporal-rate <nowiki>[The number of items per unit of time.]</nowiki> 
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>  
 **** Spatial-value <nowiki>[Value of an item involving space.]</nowiki>
-***** Angle<nowiki>{unitClass=angleUnits}[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
-****** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** Angle<nowiki>[The amount of inclination of one line to another or the plane of one object to another.]</nowiki>
+****** <nowiki># {takesValue, unitClass=angleUnits, valueClass=numericClass}</nowiki>
 ***** Distance <nowiki>[A measure of the space separating two objects or points.]</nowiki> 
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=physicalLengthUnits}</nowiki> 
 ***** Position <nowiki>[A reference to the alignment of an object, a particular situation or view of a situation, or the location of an object. Coordinates with respect a specified frame of reference or the default Screen-frame if no frame is given.] </nowiki>
