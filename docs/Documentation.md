@@ -5,17 +5,17 @@
 
 Explanation of the history, development, and motivation for third generation HED: 
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).
-> Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).
-> In press for Neuroinformatics Special Issue Building the NeuroCommons.
-> [https://doi.org/10.31219/osf.io/5fg73](https://doi.org/10.31219/osf.io/5fg73)
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).  
+> Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).  
+> Neuroinformatics Special Issue Building the NeuroCommons. Neuroinformatics https://doi.org/10.1007/s12021-021-09537-4.  
+> [https://link.springer.com/article/10.1007/s12021-021-09537-4](https://link.springer.com/article/10.1007/s12021-021-09537-4).
 
 Detailed case study in using HED-3G for tagging:
 
-> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7). 
-> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED). 
-> In press for NeuroImage Special Issue Practice in MEEG.
-> [https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7](https://authors.elsevier.com/sd/article/S1053-8119(21)01038-7).
+> Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021, May 7).   
+> Capturing the nature of events and event context using Hierarchical Event Descriptors (HED).  
+> NeuroImage Special Issue Practice in MEEG. NeuroImage  245  (2021)  118766.  
+> [https://www.sciencedirect.com/science/article/pii/S1053811921010387](https://www.sciencedirect.com/science/article/pii/S1053811921010387).
 
 ## 2. Working documents
 
