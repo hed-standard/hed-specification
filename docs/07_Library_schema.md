@@ -29,7 +29,8 @@ software development, HED library schemas must conform to some basic rules:
 
 1. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
-2. Schema terms should be readily understood by most users. The terms should not be ambiguous and should be meaningful in themselves without reference to their position in the schema hierarchy.
+2. Schema terms should be readily understood by most users. The terms should not be ambiguous and
+should be meaningful in themselves without reference to their position in the schema hierarchy.
 3. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
 4. Terms that are used independently of one another should be in different sub-trees (orthogonality).
 
@@ -189,58 +190,66 @@ Regardless of whether a specification is in the base-schema or not, HED tools ca
 
 ## 7.4. library schemas in BIDS
 
-The most common use case (for 99.9% of the HED users) is to use one of the standard 
-HED schemas available on GitHub in the `hedxml` directory of the `hed-specification` 
-repository ([https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml)).
+The most common use case (for 99.9% of the HED users) is to tag events using
+one of the standard HED schemas (preferably the latest one) available in the
+`hedxml` directory of the `hed-specification` repository of the
+`hed_standard` organization on GitHub.
+The standard schemas or **base schemas** are available at:
+[https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml).
 
-This section explains the changes that are being proposed in BIDS to accommodate access to 
-HED library schemas. This section will be updated as the proposals progress though the 
-BIDS review process. All `"fileName"` keys in the following discussion point to the 
-names of files located in the `./code` directory of the dataset tree.
+This section explains the changes that are being proposed in BIDS to accommodate
+access to HED library schemas in addition to base HED schemas.
+This section will be updated as the proposals progress though the 
+BIDS review process.
+The initial proposal only supports **official base schemas** available at 
+[https://github.com/hed-standard/hed-specification/hedxml](https://github.com/hed-standard/hed-specification/hedxml) 
+and **official library schemas** available at
+[https://github.com/hed-standard/hed-schema-library/hedxml](https://github.com/hed-standard/hed-schema-library/hedxml).
 
-The major change to the BIDS specification is to allow the value associated with the
-`"HEDVersion"` key in the `dataset_description.json` file to be a dictionary rather 
-than a string expressing the HED version. This proposed change will allow users more 
-flexibility in specifying the base HED schema and will accommodate an arbitrary number 
-of library schemas. The allowed top-level keys in this dictionary are: `"version"`, `
-"fileName"`, and `"libraries"`. The `"version"` and `"fileName"` keys pertain to 
-the base HED schema, and if both are specified, `"version"` always takes precedence. 
+The major change proposed to the BIDS specification is to allow the value
+associated with the `"HEDVersion"` key in the `dataset_description.json` 
+file to be a dictionary rather than a string expressing the HED version. 
+This proposed change will allow users more flexibility in specifying the 
+base HED schema and will accommodate an arbitrary number of library schemas. 
 
-The `"libraries"` key points to a library dictionary. The keys of the library dictionary are 
-the nicknames used in the dataset to reference the schema. The values  The `"version"`
-key specifies the HED version number of a schema in the standard library and has the 
-same effect as directly specifying. The following example specifies a base HED schema 
-located in the `./code/myLocalSchema.xml` file of the dataset and two library schemas 
-with nicknames `"la"` and `"lb"`. `
+The following example specifies that version 8.0.0 of the HED base schema is 
+to be used in addition to two library schemas: 
+the `drive` library version `1.0.2` and the `score` library version `0.0.1`. 
+
 
 ````{admonition} **Example:** Proposed specification of library schema in BIDS.
 
 ```json
 {
     "Name": "A wonderful experiment",
-    "BIDSVersion": "1.4.0",
+    "BIDSVersion": "1.6.0",
     "HEDVersion": {
-        "path": "mylocalSchema.xml",
+        "base": "8.0.0",
         "libraries": {
-            "la": {
-                "libraryName": "libraryA",
-                "version": "1.0.2"
-            },
-            "lb": {
-                "path": "HED_libraryB_0.5.3.xml"
-            }
+            "sc": "score_0.0.1",
+            "la": "drive_1.0.2",
+
         }
     }
 }
+
 ```
 ````
 
-The `"la"` library schema is the `./hedxml/HED_libraryA_1.0.2.xml` file found in the
-[`hed-schema-library`](https://github.com/hed-standard/hed-schema-library) repository 
-on the [`hed-standard`](https://github.com/hed-standard) working group GitHub site. 
-HED tags from this library have the `la:` prefix (e.g., `la:XXX`).  The `"lb"` library
-schema can be found in the `./code/HED_libraryB_0.5.3.xml` file in the BIDS dataset. 
-Tags from this library are prefixed with `lb:`. NOTE: This specification is preliminary 
-and is waiting the resolution of BIDS formats for specifying external files as outline in
-[BIDS specification PR #820](https://github.com/bids-standard/bids-specification/pull/918).
+The `"libraries"` key, if present, has value which is a dictionary 
+listing the library schemas to used by the dataset. 
+The keys in the `"libraries"` dictionary are the nicknames used in the 
+dataset to reference tags from that library schema. Tags from the `score`
+library schema are of the form `sc:YYY` where `YYY` is a tag from
+the `score` schema. Similarly, tags from the `drive`
+library schema are of the form `la:XXX` where `XXX` is a tag from
+the `drive` schema.  The `la` and `sc` are local names used to distinguish
+tags from library schemas and those of the base schema.
 
+Based on the above description tools will download:
+1. The HED base schema:  
+[https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml).
+2. The HED `score` library schema:  
+[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml](hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml). 
+3. The HED `drive` library schema:  
+[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml](hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml).
