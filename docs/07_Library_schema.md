@@ -240,16 +240,16 @@ The `"libraries"` key, if present, has value which is a dictionary
 listing the library schemas to used by the dataset. 
 The keys in the `"libraries"` dictionary are the nicknames used in the 
 dataset to reference tags from that library schema. Tags from the `score`
-library schema are of the form `sc:YYY` where `YYY` is a tag from
+library schema are of the form `sc:XXX` where `XXX` is a tag from
 the `score` schema. Similarly, tags from the `drive`
-library schema are of the form `la:XXX` where `XXX` is a tag from
-the `drive` schema.  The `la` and `sc` are local names used to distinguish
+library schema are of the form `la:YYY` where `YYY` is a tag from
+the `drive` schema.  The `sc` and `la` are local names used to distinguish
 tags from library schemas and those of the base schema.
 
 Based on the above description tools will download:
 1. The HED base schema:  
 [https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml).
 2. The HED `score` library schema:  
-[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml](hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml). 
+[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml). 
 3. The HED `drive` library schema:  
-[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml](hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml).
+[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml).
