@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'HED specification'
-copyright = '2021, HED Working Group'
+copyright = '2022, HED Working Group'
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags

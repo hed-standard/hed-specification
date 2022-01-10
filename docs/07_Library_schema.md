@@ -210,7 +210,22 @@ The major change proposed to the BIDS specification is to allow the value
 associated with the `"HEDVersion"` key in the `dataset_description.json` 
 file to be a dictionary rather than a string expressing the HED version. 
 This proposed change will allow users more flexibility in specifying the 
-base HED schema and will accommodate an arbitrary number of library schemas. 
+base HED schema and will accommodate an arbitrary number of library schemas.
+The different cases are illustrated in the following two examples.
+
+
+````{admonition} **Example:** Using just the base HED schema in BIDS.
+
+```json
+{
+    "Name": "A wonderful experiment",
+    "BIDSVersion": "1.6.0",
+    "HEDVersion":  "8.0.0"
+}
+
+```
+````
+
 
 The following example specifies that version 8.0.0 of the HED base schema is 
 to be used in addition to two library schemas: 
@@ -251,5 +266,5 @@ Based on the above description tools will download:
 [https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml).
 2. The HED `score` library schema:  
 [https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml). 
-3. The HED `drive` library schema:  
-[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_drive_1.0.2.xml).
+3. The HED `test` library schema:  
+[https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_test_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_test_1.0.2.xml).
