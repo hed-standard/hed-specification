@@ -229,7 +229,7 @@ The different cases are illustrated in the following two examples.
 
 The following example specifies that version 8.0.0 of the HED base schema is 
 to be used in addition to two library schemas: 
-the `drive` library version `1.0.2` and the `score` library version `0.0.1`. 
+the the `score` library version `0.0.1` and the `test` library version `1.0.2`. 
 
 
 ````{admonition} **Example:** Proposed specification of library schema in BIDS.
@@ -242,7 +242,7 @@ the `drive` library version `1.0.2` and the `score` library version `0.0.1`.
         "base": "8.0.0",
         "libraries": {
             "sc": "score_0.0.1",
-            "la": "drive_1.0.2",
+            "la": "test_1.0.2",
 
         }
     }
@@ -256,9 +256,9 @@ listing the library schemas to used by the dataset.
 The keys in the `"libraries"` dictionary are the nicknames used in the 
 dataset to reference tags from that library schema. Tags from the `score`
 library schema are of the form `sc:XXX` where `XXX` is a tag from
-the `score` schema. Similarly, tags from the `drive`
+the `score` schema. Similarly, tags from the `test`
 library schema are of the form `la:YYY` where `YYY` is a tag from
-the `drive` schema.  The `sc` and `la` are local names used to distinguish
+the `test` schema.  The `sc` and `la` are local names used to distinguish
 tags from library schemas and those of the base schema.
 
 Based on the above description tools will download:
