@@ -272,9 +272,9 @@ A list of available library schemas is available through the
 Given the `HEDVersion` specification from the previous example, annotators
 can use any combination of tags from the three indicated schemas.
 Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
-is a tag from the `score` schema. 
+is a tag from the `score` schema.
 Similarly, tags from the `test` library schema are of the form `la:YYY` 
-where `YYY` is a tag from the `test` schema.  
+where `YYY` is a tag from the `test` schema.
 The `sc` and `la` are local names used to distinguish
 tags from library schemas and those of the base schema.
 The base schema tags don't have a colon prefix.
