@@ -229,7 +229,7 @@ The different cases are illustrated in the following two examples.
 
 The following example specifies that version 8.0.0 of the HED base schema is 
 to be used in addition to two library schemas: 
-the the `score` library version `0.0.1` and the `test` library version `1.0.2`. 
+the `score` library version `0.0.1` and the `test` library version `1.0.2`. 
 
 
 ````{admonition} **Example:** Proposed specification of library schema in BIDS.
@@ -242,7 +242,7 @@ the the `score` library version `0.0.1` and the `test` library version `1.0.2`.
         "base": "8.0.0",
         "libraries": {
             "sc": "score_0.0.1",
-            "la": "test_1.0.2",
+            "la": "test_1.0.2"
 
         }
     }
@@ -254,17 +254,27 @@ the the `score` library version `0.0.1` and the `test` library version `1.0.2`.
 The `"libraries"` key, if present, has value which is a dictionary 
 listing the library schemas to used by the dataset. 
 The keys in the `"libraries"` dictionary are the nicknames used in the 
-dataset to reference tags from that library schema. Tags from the `score`
-library schema are of the form `sc:XXX` where `XXX` is a tag from
-the `score` schema. Similarly, tags from the `test`
-library schema are of the form `la:YYY` where `YYY` is a tag from
-the `test` schema.  The `sc` and `la` are local names used to distinguish
-tags from library schemas and those of the base schema.
+dataset to reference tags from that library schema. The values of
+the `"libraries"` dictionary specify the respective library schema
+in the form `name_version`.  
 
 Based on the above description tools will download:
 1. The HED base schema:  
 [https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml).
-2. The HED `score` library schema:  
+2. The HED `score` library schema version 0.0.1:  
 [https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_score_0.0.1.xml). 
-3. The HED `test` library schema:  
+3. The HED `test` library schema version 1.0.2:  
 [https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_test_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/tree/main/hedxml/HED_test_1.0.2.xml).
+
+A list of available library schemas is available through the
+[library schema browser](https://www.hedtags.org/display_hed_library.html).
+
+Given the `HEDVersion` specification from the previous example, annotators
+can use any combination of tags from the three indicated schema.
+Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
+is a tag from the `score` schema. 
+Similarly, tags from the `test` library schema are of the form `la:YYY` 
+where `YYY` is a tag from the `test` schema.  
+The `sc` and `la` are local names used to distinguish
+tags from library schemas and those of the base schema.
+The base schema tags don't have a colon prefix.
