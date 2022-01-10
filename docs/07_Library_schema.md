@@ -251,7 +251,7 @@ the `score` library version `0.0.1` and the `test` library version `1.0.2`.
 ```
 ````
 
-The `"libraries"` key, if present, has value which is a dictionary 
+The `"libraries"` key, if present, has a value which is a dictionary 
 listing the library schemas to used by the dataset. 
 The keys in the `"libraries"` dictionary are the nicknames used in the 
 dataset to reference tags from that library schema. The values of
@@ -270,7 +270,7 @@ A list of available library schemas is available through the
 [library schema browser](https://www.hedtags.org/display_hed_library.html).
 
 Given the `HEDVersion` specification from the previous example, annotators
-can use any combination of tags from the three indicated schema.
+can use any combination of tags from the three indicated schemas.
 Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
 is a tag from the `score` schema. 
 Similarly, tags from the `test` library schema are of the form `la:YYY` 
