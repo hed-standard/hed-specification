@@ -33,7 +33,7 @@ The following white papers give an overview of HED and how it is used.
 
 > Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021).  
 > Capturing the nature of events and event context using Hierarchical Event Descriptors (HED).  
-> NeuroImage Special Issue Practice in MEEG. NeuroImage  245  (2021)  118766.  
+> NeuroImage Special Issue Practice in MEEG. NeuroImage 245 (2021) 118766.  
 > [https://www.sciencedirect.com/science/article/pii/S1053811921010387](https://www.sciencedirect.com/science/article/pii/S1053811921010387).
 
 ## HED generations and schema versions 

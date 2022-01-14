@@ -266,7 +266,7 @@ The parameters are explained in the following table. Parameter values listed in 
     [schema_version,      
     schema_string],   
     check_for_warnings,     
-    defs_expand   
+    expand_defs   
   - Assemble tags for each event in a BIDS-style event file into a single HED string.  
     Returned data: a file of assembled events as text or an error file as text if errors.
 * - events_extract  
@@ -376,7 +376,7 @@ The following table gives an explanation of the parameters used for various serv
 * - column_x_input:
   - string
   - Contains the prefix prepended to column x if column x has HED tags.
-* - defs_expand
+* - expand_defs
   - boolean
   - If true replaces *def/XXX* with *def-expand/XXX* grouped with the definition content.
 * - events_string
