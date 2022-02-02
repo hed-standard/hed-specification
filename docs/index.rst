@@ -1,7 +1,11 @@
 Welcome to HED specification documentation!
 =============================================
 
-A PDF version of this document can be found `here <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+.. sidebar:: **Download pdf**
+
+`HED specification
+    <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_.
+
 
 .. toctree::
    :maxdepth: 5
