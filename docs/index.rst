@@ -1,10 +1,9 @@
 Welcome to HED specification documentation!
 =============================================
 
-.. sidebar:: **Download pdf**
+.. sidebar:: **Downloads**
 
-`HED specification
-    <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_.
+   `HED Specification <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
 
 .. toctree::
