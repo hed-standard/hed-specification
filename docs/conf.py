@@ -13,12 +13,14 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import sys
+from datetime import date
 
 # -- Project information -----------------------------------------------------
 
 project = 'HED specification'
-copyright = '2022, HED Working Group'
+copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
