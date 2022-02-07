@@ -25,6 +25,7 @@ author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
 release = '8.0.0'
+version = '8.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -55,10 +56,10 @@ html_theme_options = {
     'analytics_anonymize_ip': False,
     'logo_only': False,
     'display_version': True,
-    'prev_next_buttons_location': 'bottom',
+    'prev_next_buttons_location': 'top',
     'style_external_links': False,
     'vcs_pageview_mode': '',
-    'style_nav_header_background': 'white',
+    'style_nav_header_background': 'LightSlateGray',
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
