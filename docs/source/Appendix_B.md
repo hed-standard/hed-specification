@@ -4,10 +4,10 @@ This appendix summarizes the error codes used by HED validators and other tools.
 
 HED tools for users (i.e., annotators and analysts) are mainly concerned with 
 HED validation errors relating to incorrectly annotated events.(See 
-[Chapter B.3: HED validation errors](Appendix_B.md#b1-hed-validation-errors) 
+[Chapter B.1: HED validation errors](#b1-hed-validation-errors) 
 for a listing.) These tools assume that the HED schema are error-free and that schema errors 
 can only occur due to failure to locate or read a HED schema. (See 
-[Chapter B.3: Schema loading errors](Appendix_B.md#b3-schema-loading-errors) for a listing.)
+[Chapter B.2: Schema validation errors](#b2-schema-validation-errors) for a listing.)
 
 HED schema developers are mainly concerned with errors and inconsistencies in the
 schema itself. 

@@ -24,7 +24,7 @@ part of a library used in conjunction with core modules of the programming langu
 Similar to the design principles imposed on function names and subclass organization in 
 software development, HED library schemas must conform to some basic rules:
 
-``````{annotation} Rules for HED library schema design.
+``````{admonition} Rules for HED library schema design.
 :class: tip
 
 1. Every term must be unique within the library schema and must conform to the rules for
