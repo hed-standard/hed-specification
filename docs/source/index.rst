@@ -5,7 +5,6 @@ Welcome to HED specification documentation!
 
    `HED Specification <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
-
 .. toctree::
    :maxdepth: 5
    :caption: Contents:

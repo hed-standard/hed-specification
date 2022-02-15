@@ -9,17 +9,14 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+
 import os
 import sys
 import sphinx_rtd_theme
+from datetime import date
 
 sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('.'))
-from datetime import date
 
 # -- Project information -----------------------------------------------------
 
@@ -51,18 +48,25 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.extlinks"
 ]
+
+
+autosummary_generate = True
+autodoc_default_flags = ['members', 'inherited-members']
+add_module_names = False
+
 myst_heading_anchors = 2
 myst_enable_extensions = ["deflist"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+source_suffix = ['.rst', '.md']
+master_doc = 'index'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', '_templates', 'Thumbs.db', '.DS_Store']
-source_suffix = ['.rst', '.md']
-master_doc = 'index'
+
 
 
 # -- Options for HTML output -------------------------------------------------
