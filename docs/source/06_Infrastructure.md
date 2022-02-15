@@ -181,7 +181,7 @@ that HED definitions have the proper form.
 ### 6.3.3. Sidecar validation
 
 HED dictionary validation assumes that the dictionaries have been written in the JSON format 
-of [Chapter 6: BIDS sidecars](06_Infrastructure.md#622-bids-sidecars). 
+of [BIDS sidecars](https://bids-specification.readthedocs.io/en/stable/99-appendices/03-hed.html). 
 The validation is similar to HED string evaluation, but the error messages are keyed to
 dictionary location rather than to line numbers in the event file or spreadsheet. 
 The validator checks that there is exactly one `#` in the HED string annotation associated 

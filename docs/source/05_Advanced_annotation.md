@@ -308,7 +308,7 @@ This grouping usually does not include tags from the *Event* rooted tree.
 
 The *Duration* tag is convenient because its use does not require a *Definition*. The *Duration*
 tag has the same effect on event context as the onset/offset mechanism explained in 
-[Section 5.1: *Onset* and *Offset*](#531-onset-and-offset). However, the ending time point of
+the previous sections. However, the ending time point of
 events whose temporal scope is defined with *Duration* is not marked by an explicit event in the data
 recording. This has distinct disadvantages for analysis if the offset is expected to elicit a
 neural response, which is the case for most events involving visual or auditory presentations.
