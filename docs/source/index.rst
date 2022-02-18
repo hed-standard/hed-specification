@@ -1,9 +1,10 @@
-Welcome to HED specification documentation!
-=============================================
+HED specification
+==================
 
 .. sidebar:: **Downloads**
 
    `HED Specification <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+
 
 .. toctree::
    :maxdepth: 5
@@ -18,10 +19,3 @@ Welcome to HED specification documentation!
    07_Library_schema.md
    Appendix_A.md
    Appendix_B.md
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Resources:
-
-   Documentation.md
-   Tools.md

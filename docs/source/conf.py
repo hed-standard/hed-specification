@@ -45,16 +45,14 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.extlinks"
+    "sphinx.ext.napoleon"
 ]
-
 
 autosummary_generate = True
 autodoc_default_flags = ['members', 'inherited-members']
 add_module_names = False
-
-myst_heading_anchors = 2
+myst_all_links_external = False
+myst_heading_anchors = 4
 myst_enable_extensions = ["deflist"]
 
 # Add any paths that contain templates here, relative to this directory.
