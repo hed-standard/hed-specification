@@ -1,4 +1,4 @@
-# Documentation
+# Documentation summary
 
 
 ## 1. HED publications
@@ -17,7 +17,83 @@ Detailed case study in using HED-3G for tagging:
 > NeuroImage Special Issue Practice in MEEG. NeuroImage  245  (2021)  118766.  
 > [https://www.sciencedirect.com/science/article/pii/S1053811921010387](https://www.sciencedirect.com/science/article/pii/S1053811921010387).
 
-## 2. Working documents
+## 2. HED schema viewers
+
+The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools.
+However, researchers wishing to tag datasets will find both of these views hard to read. 
+For this reason, we provide links to three versions of the schema. The expandable
+HTML viewer is easier to navigate. Annotators can also use CTAGGER, which includes a schema viewer
+and tagging hints.
+
+`````{list-table} HED web-based schema vocabulary viewers.
+:header-rows: 1
+:widths: 20 50
+
+* - **Viewer**
+  - **Link**
+* - **Base schema**
+  -
+* - Expandable HTML	
+  - [https://www.hedtags.org/display_hed.html](https://www.hedtags.org/display_hed.html)
+* - Mediawiki	
+  - [https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki)
+* - XML	
+  - [https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml)
+* - **Library schemas**
+  - 
+* - Expandable HTML
+  - [https://www.hedtags.org/display_hed_library.html](https://www.hedtags.org/display_hed_library.html)
+`````  
+
+## 3. HED Websites
+
+The following is a summary of the HED-related websites:
+
+
+`````{list-table}
+:header-rows: 1
+:widths: 20 50
+
+* - Description
+  - Site
+* - HED organization website
+  - [https://www.hedtags.org](https://www.hedtags.org)
+* - HED specification
+  - [https://hed-specification.readthedocs.io/en/latest/index.html](https://hed-specification.readthedocs.io/en/latest/index.html)
+* - HED examples and tutorials
+  - [https://hed-examples.readthedocs.io/en/latest/index.html](https://hed-examples.readthedocs.io/en/latest/index.html)
+* - CTAGGER executable jar
+  - [https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)
+* - **Repositories**
+  -
+* - HED organization
+  - [https://github.com/hed-standard](https://github.com/hed-standard)
+* - HED specification
+  - [https://github.com/hed-standard/hed-specification](https://github.com/hed-standard/hed-specification)
+* - HED examples and datasets
+  - [https://github.com/hed-standard/hed-examples](https://github.com/hed-standard/hed-examples)
+* - HED Python tools
+  - [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python)
+* - HED Javascript code
+  - [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javacript)
+* - HED Matlab code and EEGLAB support
+  - [https://github.com/hed-standard/hed-matlab](https://github.com/hed-standard/hed-matlab)
+* - HED web deployment
+  - [https://github.com/hed-standard/hed-web](https://github.com/hed-standard/hed-web)
+* - HED-2G support
+  - [https://github.com/hed-standard/hed2-python](https://github.com/hed-standard/hed2-python)
+* - CTAGGER resources
+  - [https://github.com/hed-standard/CTagger](https://github.com/hed-standard/CTagger)
+* - **Online tools**
+  -
+* - HED tools
+  - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
+* - HED-2G support
+  - [https://hedtools.ucsd.edu/hed2](https://hedtools.ucsd.edu/hed2)
+`````
+
+
+## 4. HED working documents
 
 Mapping of HED terms and their descriptions to known ontologies is:
 
@@ -32,80 +108,3 @@ and will not be finalized for Release 1:
 
 > HED-3G Working Document on Task Annotation
 > [https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing](https://docs.google.com/document/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/view?usp=sharing)
-
-## 3. Schema viewers
-
-The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools.
-However, researchers wishing to tag datasets will find both of these views hard to read. 
-For this reason, we provide links to three versions of the schema. The expandable
-HTML viewer is easier to navigate. Annotators can also use CTAGGER, which includes a schema viewer
-and tagging hints.
-
-`````{list-table} HED web-based schema vocabulary viewers.
-:header-rows: 1
-:widths: 20 50
-
-* - Viewer
-  - Link
-* - Expandable HTML	
-  - [https://www.hedtags.org/display_hed.html?version=8.0.0](https://www.hedtags.org/display_hed.html?version=8.0.0)
-* - Mediawiki	
-  - [https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki)
-* - XML	
-  - [https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/blob/master/hedxml/HED8.0.0.xml)
-`````  
-
-## 4. HED Websites
-
-The following is a summary of the HED-related websites
-
-
-`````{list-table} HED websites.
-:header-rows: 1
-:widths: 20 50
-
-* - Description
-  - Site
-* - **Information and documentation**
-  -
-* - HED organization website	
-  - [https://www.hedtags.org](https://www.hedtags.org)
-* - HED organization github	
-  - [https://github.com/hed-standard](https://github.com/hed-standard)
-* - HED specification repository	
-  - [https://github.com/hed-standard/hed-specification](https://github.com/hed-standard/hed-specification)
-* - Examples of HED annotation
-  - [https://github.com/hed-standard/hed-examples](https://github.com/hed-standard/hed-examples)
-* - HED documentation website
-  - [https://github.com/hed-standard/hed-standard.github.io](https://github.com/hed-standard/hed-standard.github.io)  
-* - **HED Python resources**
-  - 
-* - Python code repository	
-  - [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python)
-* - Python validator and tools	
-  - [https://github.com/hed-standard/hed-python/tree/master/hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools)
-* - **HED JavaScript resources**
-  -
-* - HED JavaScript code	
-  - [https://github.com/hed-standard/hed-javascript](https://github.com/hed-standard/hed-javascript)
-* - BIDS validator	
-  - [https://github.com/bids-standard/bids-validator](https://github.com/bids-standard/bids-validator)
-* - **HED Matlab resources**
-  -
-* - Matlab source code	
-  - [https://github.com/hed-standard/hed-matlab](https://github.com/hed-standard/hed-matlab)
-* - **Annotator resources**
-  -
-* - CTAGGER executable jar	
-  - [https://github.com/hed-standard/hed-java/raw/master/ctagger.jar](https://github.com/hed-standard/hed-java/raw/master/ctagger.jar)
-* - CTAGGER repository	
-  - [https://github.com/hed-standard/CTagger](https://github.com/hed-standard/CTagger)
-* - Java repository	
-  - [https://github.com/hed-standard/hed-java](https://github.com/hed-standard/hed-java)
-* - **Online HED tools**
-  -
-* - Online website	
-  - [https://hedtools.ucsd.edu/hed](https://hedtools.ucsd.edu/hed)
-* - Docker deployment	
-  - [https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed](https://github.com/hed-standard/hed-python/tree/master/webtools/deploy_hed)
-`````

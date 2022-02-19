@@ -3,7 +3,7 @@ HED specification
 
 .. sidebar:: **Downloads**
 
-   `HED Specification <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+   `PDF Version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
 
 .. toctree::
@@ -19,3 +19,10 @@ HED specification
    07_Library_schema.md
    Appendix_A.md
    Appendix_B.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Resources:
+
+   Documentation.md
+   Tools.md
