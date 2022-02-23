@@ -16,7 +16,7 @@ import sphinx_rtd_theme
 from datetime import date
 
 sys.path.insert(0, os.path.abspath('../../'))
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('./'))
 
 # -- Project information -----------------------------------------------------
 
@@ -66,8 +66,6 @@ master_doc = 'index'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', '_templates', 'Thumbs.db', '.DS_Store']
 
-
-
 # -- Options for HTML output -------------------------------------------------
 pygments_style = 'sphinx'
 html_theme = "sphinx_rtd_theme"
@@ -77,7 +75,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # a list of builtin themes.
 #
 html_theme_options = {
-    'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
+    'analytics_id': 'UA-XXXXXXX-1',  # Provided by Google in your dashboard
     'analytics_anonymize_ip': False,
     'logo_only': False,
     'display_version': True,
