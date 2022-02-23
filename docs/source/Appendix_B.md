@@ -25,6 +25,10 @@ for a listing.)
  ~ Commas missing between two HED tags are generally detected as invalid HED tags,
 rather than as missing commas.
 
+**HED_DEF_EXPAND_INVALID**: An expanded definition does not match the actual definition. 
+ ~ A *Def-expand* tag label may not correspond to a definition.
+ ~ The tags within a *Def-expand* may not match the corresponding definition.
+
 **HED_DEF_UNMATCHED**: A HED *Def/* label cannot be matched to definition name.  
  ~ A *Def* tag label cannot be correctly matched to a definition name because the 
 definition is missing or defined multiple times.
@@ -38,24 +42,15 @@ its definition tag group.
 
 **HED_DEFINITION_INVALID**: The *Definition* syntax is incorrect or nested.  
  ~ A definition name is invalid or already appears as a schema node.
- ~ A definition is not in a top-level tag group.
  ~ A definition's enclosing tag group contains another *Definition/* tag.
  ~ A definition contains *Def/* or *Def-expand/* tags.
  ~ A definition that includes a placeholder (`#`) does not have exactly two `#` characters:
 one after the definition name and one in the definition tag-group body. 
  ~ A definition has placeholders (`#`) in incorrect positions.
 
-**HED_GENERIC_ERROR:** A HED expression raised an uncategorized error. 
- ~ An error that does not fall into other categories.
-
-**HED_GENERIC_WARNING:** A HED expression raised an uncategorized warning.  
- ~ An warning that does not fall into other categories.
-
 **HED_LIBRARY_UNMATCHED:** A tag starting with *name:* does not have an associated library.  
  ~ A tag that starts with *name:* is interpreted as a library schema nickname name, but no
-library schema is defined.
- ~ The association of *name* with an actual HED library schema must be passed 
-to the validator when the string containing the tag is validated.
+corresponding library schema has been defined.
 
 **HED_NODE_NAME_EMPTY:** An empty tag was detected in a HED string.  
  ~ A tag has extra slashes at beginning, end, or within a tag (implying empty node names). 
@@ -64,7 +59,7 @@ to the validator when the string containing the tag is validated.
 
 **HED_ONSET_OFFSET_ERROR:** An *Onset* or *Offset* tag is used incorrectly.  
  ~ An *Onset* or *Offset* tag appears without being grouped with a defined name
-(using a *Def-expand/* tag group or a *Def/* ). 
+(using a *Def-expand/* tag group or a *Def/* ).
  ~ An *Offset* tag appears before an *Onset* tag with the same name (or name/value). 
  ~ An *Offset* tag of a given name appears after a previous *Offset* tag without the
 appearance of an intervening *Onset* of the same name. 
@@ -89,9 +84,7 @@ the *Def-expand* will be an additional internal tag group.
 value does not have a key in the sidecar dictionary.
 
 **HED_STYLE_WARNING:** (WARNING) An extension or label does not follow HED naming conventions.
-~ A tag name does not start with a capital letter with the remainder lower case. 
-~ A tag name contains blanks in HED-3G labels or tag extensions. 
-Use hyphens (not under bars) instead.
+~ A tag name does not start with a capital letter with the remainder lower case.
 
 **HED_TAG_EMPTY:** Extra commas or empty parentheses indicate empty tags.  
  ~ A HED string has multiple consecutive commas (ignoring white space).
@@ -109,6 +102,7 @@ spelling errors and not meant to extend the schema.)
 **HED_TAG_INVALID:** The tag is not valid in this schema.  
  ~ The tag has incorrect format for compliance with this schema. 
  ~ The tag is used as a tag extension or placeholder value while appearing elsewhere in the schema.
+ ~ The tag value is a schema node name.
 
 **HED_TAG_NOT_UNIQUE:** A HED tag appears multiple times. 
  ~ A HED tag with *unique* attribute appears more than once in an event-level HED string.
@@ -137,7 +131,6 @@ correct unit class for the tag.
 **HED_VALUE_INVALID:** The value substituted for a placeholder (`#`) is not valid.  
  ~ A tag value is incompatible with the specified value class.
  ~ A tag value with no value class is assumed to be a label and may contain invalid characters.
- ~ A tag value is a schema node name.
 
 **HED_VERSION_DEPRECATED:** (WARNING) The HED version is deprecated.  
  ~ It is strongly recommended that a current version be used as these deprecated 

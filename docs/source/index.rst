@@ -3,7 +3,9 @@ HED specification
 
 .. sidebar:: **Downloads**
 
-   `PDF Version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+   * `PDF Docs <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+
+   * `Specification source <https://github.com/hed-standard/hed-specification/>`_
 
 
 .. toctree::
@@ -20,9 +22,17 @@ HED specification
    Appendix_A.md
    Appendix_B.md
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Resources:
 
    Documentation.md
    Tools.md
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
