@@ -1,7 +1,7 @@
-# Documentation summary
+# HED resources
 
 
-## 1. HED publications
+## HED publications
 
 Explanation of the history, development, and motivation for third generation HED: 
 
@@ -17,7 +17,7 @@ Detailed case study in using HED-3G for tagging:
 > NeuroImage Special Issue Practice in MEEG. NeuroImage  245  (2021)  118766.  
 > [https://www.sciencedirect.com/science/article/pii/S1053811921010387](https://www.sciencedirect.com/science/article/pii/S1053811921010387).
 
-## 2. HED schema viewers
+## HED schema viewers
 
 The HED schema is usually developed in `.mediawiki` format and converted to XML for use by tools.
 However, researchers wishing to tag datasets will find both of these views hard to read. 
@@ -45,7 +45,7 @@ and tagging hints.
   - [https://www.hedtags.org/display_hed_library.html](https://www.hedtags.org/display_hed_library.html)
 `````  
 
-## 3. HED Websites
+## HED websites
 
 The following is a summary of the HED-related websites:
 
@@ -93,7 +93,7 @@ The following is a summary of the HED-related websites:
 `````
 
 
-## 4. HED working documents
+## HED working documents
 
 Mapping of HED terms and their descriptions to known ontologies is:
 
