@@ -1,15 +1,17 @@
 HED specification
 ==================
 
-.. sidebar:: **Downloads**
+.. sidebar:: **Links**
 
-   * `PDF Docs <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+   * `PDF version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
    * `Specification source <https://github.com/hed-standard/hed-specification/>`_
 
+   * `Examples and tutorials <https://hed-examples.readthedocs.io/en/latest/>`_
+
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 4
    :caption: Contents:
 
    01_Introduction.md
@@ -23,17 +25,9 @@ HED specification
    Appendix_B.md
 
 
+
 .. toctree::
    :maxdepth: 2
-   :caption: Resources:
+   :caption: Other links:
 
-   Documentation.md
-   Tools.md
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   HedResources.md

@@ -212,8 +212,9 @@ HED provides a mechanism for user communities to develop discipline-specific lib
 [Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED vocabulary format rules.
 [Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
 
-Other resources include a comprehensive list of HED [Documentation](Documentation.md) resources and a
-list of [HED tools and services](Tools.md). 
+Other resources include a comprehensive list of [HED resources ](HedResources.md) resources and
+a [HED-examples](https://hed-examples.readthedocs.io/en/latest/#) 
+that contains many tutorials and code examples.
 
 All HED source code and resources are open-source and staged in the HED Standards Organization Repository
 [https://github.com/hed-standard](https://github.com/hed-standard). 
