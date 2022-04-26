@@ -238,16 +238,17 @@ The `<schemaPropertyDefinitions>` section lists properties of the schema attribu
 This specification allows general validation to handle a lot of the processing directly based
 on the HED schema contents rather than on hard-coded implementation. 
 
-## 3.3. Allowed characters and node names
+## 3.3. Allowed names and values
 
 The different parts of the HED schema and associated HED tags have different rules 
-for the characters that are allowed. UTF-8 characters are not supported. Schema designers
-and users that extend HED schema must use node or term names that conform to the rules 
-for `valueClass=nameClass`. Placeholder values that don’t have 
+for the characters and names that are allowed. UTF-8 characters are not supported.
+Schema designers and users that extend HED schema must use node or term names 
+that conform to the rules for `valueClass=nameClass`. Placeholder values that don’t have 
 an associated `valueClass` attribute are also assumed to have `valueClass=nameClass`.
 
+### 3.3.1 Rules for the HED schema
 
-`````{list-table}  Rules for valid HED characters.
+`````{list-table}  Rules for valid in the HED schema.
 :header-rows: 1
 :widths: 20 50
 
@@ -260,7 +261,32 @@ an associated `valueClass` attribute are also assumed to have `valueClass=nameCl
   colons, hyphens, underbars, forward slashes, carets (^), and parentheses.  
 * - Placeholder (`#`)
   - A special node value which indicates a later substitution.
-* - Placeholder children
+`````
+
+````{admonition} Notes on rules for allowed characters in the HED schema. 
+:class: tip
+1. The first letter of a term should be capitalized with the remainder lower case. 
+2. Terms containing multiple words cannot contain blanks and should be hyphenated.
+3. Descriptions should be concise sentences, possibly with clarifying examples.
+4. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
+not specifically allowed by `textClass`.
+````
+
+### 3.3.2 Rules for HED tags
+
+The rules for HED tags are slight
+`````{list-table}  Rules for valid HED tags.
+:header-rows: 1
+:widths: 20 50
+
+* - Element
+  - Allowed characters
+* - Node extensions (`nameClass`)
+  - Alphanumeric characters, hyphens, and underbars with no white space.
+* - Description tag values (`textClass`)
+  - Alphanumeric characters, blanks, commas, periods, semicolons,<br/> 
+  colons, hyphens, underbars, forward slashes, carets (^), and parentheses.  
+* - Placeholder substitutions
   - Depends on `valueClass` as well as allowed `unitClass` and unit modifiers.
 * - Library names
   - A single word containing only alphabetic characters.
@@ -270,33 +296,26 @@ an associated `valueClass` attribute are also assumed to have `valueClass=nameCl
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
-1. The first letter of a term should be capitalized with the remainder lower case. 
+1. The first letter of a node name should be capitalized with the remainder lower case. 
 2. Terms containing multiple words cannot contain blanks and should be hyphenated.
-3. Blanks around comma and parentheses delimiters are not part of a tag.
-4. Descriptions should be concise sentences, possibly with clarifying examples.
-5. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
-not specifically allowed by `textClass`.
-6. Values substituted for `#` may have special characters determined by the value class.
+3. Blanks around comma and parentheses delimiters are not part of a HED tag.
+4. Values substituted for `#` may have special characters determined by the value class.
 For example, the colon (:) is specifically allowed for the `dateTimeClass` value class.
 7. Units are separated from their value by at least one blank whether prefix or suffix.
 8. Library namespace names are local and consist of a short alphabetic word followed by a single colon.
 ````
 
-### 3.3.2 Placeholder values
+### 3.3.3 Placeholders in HED tags
 
-The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  
+The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string. 
 For example, the *Label* node in the HED schema has the `#` child. Thus, the value *myLabel* meant to
 substitute for the `#` child of the *Label* node must include *Label* when used in a HED string
 (e.g., *Label/myLabel* not *myLabel*).
+
 The values substituted for `#` may themselves be schema node names provided they conform with any
 value class requirements associated with that `#`.
 Thus, *Label/Item* is a valid HED string.  However, *Data-maximum/Item* is not valid because
 the `#` child of *Data-maximum* has a *valueClass=numericClass* attribute.
-
-Blanks are allowed as are periods, dollar (`$`), percent (`%`), caret (`^`), plus (`+`), 
-minus(`-`), under bar(`_`), and semicolon (`;`). Values must conform to the underlying 
-unit classes of the placeholder specification.
-
 
 Certain unit classes allow other special characters in their value specification. 
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
