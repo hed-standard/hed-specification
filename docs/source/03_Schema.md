@@ -119,10 +119,7 @@ of a particular attribute are applicable, they should be specified as separate n
 The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a
 `#` node indicates that the user must supply a value consistent with the unit classes and value
 classes of the `#` node if it has any.  Lines with hashtag (`#`) placeholders should have
-everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements. The values of HED
-tag placeholders cannot stand alone, but must include the parent when used in a HED string.  
-In the above example, the `#` that is a child of the *Label* node must include *Label* when 
-used (e.g., *Label/myLabel*). 
+everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements.
 
 
 ## 3.2. XML schema format
@@ -241,7 +238,7 @@ The `<schemaPropertyDefinitions>` section lists properties of the schema attribu
 This specification allows general validation to handle a lot of the processing directly based
 on the HED schema contents rather than on hard-coded implementation. 
 
-## 3.3. Allowed characters
+## 3.3. Allowed characters and node names
 
 The different parts of the HED schema and associated HED tags have different rules 
 for the characters that are allowed. UTF-8 characters are not supported. Schema designers
@@ -287,9 +284,19 @@ For example, the colon (:) is specifically allowed for the `dateTimeClass` value
 
 ### 3.3.2 Placeholder values
 
+The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string.  
+For example, the *Label* node in the HED schema has the `#` child. Thus, the value *myLabel* meant to
+substitute for the `#` child of the *Label* node must include *Label* when used in a HED string
+(e.g., *Label/myLabel* not *myLabel*).
+The values substituted for `#` may themselves be schema node names provided they conform with any
+value class requirements associated with that `#`.
+Thus, *Label/Item* is a valid HED string.  However, *Data-maximum/Item* is not valid because
+the `#` child of *Data-maximum* has a *valueClass=numericClass* attribute.
+
 Blanks are allowed as are periods, dollar (`$`), percent (`%`), caret (`^`), plus (`+`), 
 minus(`-`), under bar(`_`), and semicolon (`;`). Values must conform to the underlying 
 unit classes of the placeholder specification.
+
 
 Certain unit classes allow other special characters in their value specification. 
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
