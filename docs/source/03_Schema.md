@@ -390,7 +390,8 @@ Any intermediate form of the tag path is also allowed as illustrated by this exa
 
 For values that are substituted for a placeholder (`#`) child, the tag must include the parent
 as illustrated in this example for the  *Label* tag. The values that replace these `#`
-placeholders cannot be node names.
+placeholders may be schema node names, if the value and unit classes associated with
+the `#` placeholder permit it.
 
 ````{admonition} **Example:** Equivalent forms for HED tag representing the label Image1.
 
