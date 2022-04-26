@@ -496,15 +496,15 @@ This schema is the first official release that includes an xsd and requires unit
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
 **** <nowiki># {takesValue} </nowiki>
 *** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
-**** <nowiki># {takesValue} </nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass} </nowiki>
 *** Sensory-resolution <nowiki>[Resolution of measurements by a sensing device.]</nowiki> 
-**** <nowiki># {takesValue} </nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass} </nowiki>
 *** Spatial-resolution <nowiki>[Linear spacing of a spatial measurement.]</nowiki> 
-**** <nowiki># {takesValue}</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Spectral-resolution <nowiki>[Measures the ability of a sensor to  resolve features in the electromagnetic spectrum.]</nowiki>
-**** <nowiki># {takesValue}</nowiki> 
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Temporal-resolution <nowiki>[Measures the ability of a sensor to  resolve features in time.]</nowiki>
-**** <nowiki># {takesValue} </nowiki>  
+**** <nowiki># {takesValue, valueClass=numericClass} </nowiki>
 ** Data-source-type <nowiki>[The type of place, person, or thing from which the data comes or can be obtained.]</nowiki>
 *** Computed-feature<nowiki>[A feature computed from the data by a tool. This tag should be grouped with a label of the form Toolname_propertyName.]</nowiki>
 *** Computed-prediction <nowiki>[A computed extrapolation of known data.]</nowiki>
@@ -534,7 +534,7 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Constrained <nowiki>{relatedTag=Unconstrained}[Keeping something within particular limits or bounds.]</nowiki>
 ***** Disordered <nowiki>{relatedTag=Ordered}[Not neatly arranged. Confused and untidy. A structural quality in which the parts of an object are non-rigid.]</nowiki>
 ***** Familiar <nowiki>{relatedTag=Unfamiliar, relatedTag=Famous}[Recognized, familiar, or within the scope of knowledge.]</nowiki>
-***** Famous <nowiki>{relatedTag=Familiar,relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments. A famous person.]</nowiki>
+***** Famous <nowiki>{relatedTag=Familiar, relatedTag=Unfamiliar}[A person who has a high degree of recognition by the general population for his or her success or accomplishments. A famous person.]</nowiki>
 ***** Inaudible <nowiki>{relatedTag=Audible}[A sound below the threshold of perception of the participant.]</nowiki>
 ***** Incongruent <nowiki>{relatedTag=Congruent}[Not in agreement or harmony.]</nowiki>
 ***** Involuntary <nowiki>{relatedTag=Voluntary}[An action that is not made by choice. In the body, involuntary actions (such as blushing) occur automatically, and cannot be controlled by choice.]</nowiki>
@@ -571,9 +571,9 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Downward <nowiki>{relatedTag=Leftward,relatedTag=Rightward,relatedTag=Upward}[Moving or leading toward a lower place or level.]</nowiki>
 ***** Forward <nowiki>{relatedTag=Backward}[At or near or directed toward the front.]</nowiki>
 ***** Horizontally-oriented <nowiki>{relatedTag=Vertically-oriented}[Oriented parallel to or in the plane of the horizon.]</nowiki>
-***** Leftward <nowiki>{relatedTag=Downward,relatedTag=Rightward,relatedTag=Upward}[Going toward or facing the left.]</nowiki>
+***** Leftward <nowiki>{relatedTag=Downward, relatedTag=Rightward,relatedTag=Upward}[Going toward or facing the left.]</nowiki>
 ***** Oblique <nowiki>{relatedTag=Rotated}[Slanting or inclined in direction, course, or position that is neither parallel nor perpendicular nor right-angular.]</nowiki>
-***** Rightward <nowiki>{relatedTag=Downward,relatedTag=Leftward,relatedTag=Upward}[Going toward or situated on the right.]</nowiki>
+***** Rightward <nowiki>{relatedTag=Downward, relatedTag=Leftward,relatedTag=Upward}[Going toward or situated on the right.]</nowiki>
 ***** Rotated <nowiki>[Positioned offset around an axis or center.]</nowiki>
 ***** Upward <nowiki>{relatedTag=Downward,relatedTag=Leftward,relatedTag=Rightward}[Moving, pointing, or leading to a higher place, point, or level.]</nowiki>
 ***** Vertically-oriented <nowiki>{relatedTag=Horizontally-oriented}[Oriented perpendicular to the plane of the horizon.]</nowiki>
@@ -1056,7 +1056,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Unexpected <nowiki>{relatedTag=Expected}[Something that is not anticipated.]</nowiki>
 *** Unplanned <nowiki>{relatedTag=Planned}[Something that has not been planned as part of the task.]</nowiki>
 
-'''Relation''' <nowiki>[Concerns the way in which two or more people or things are connected.]</nowiki>
+'''Relation''' <nowiki>{extensionAllowed}[Concerns the way in which two or more people or things are connected.]</nowiki>
 * Comparative-relation <nowiki>[Something considered in comparison to something else.]</nowiki>
 ** Approximately-equal-to <nowiki>[(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
 ** Less-than <nowiki>[(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>

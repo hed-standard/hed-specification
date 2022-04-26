@@ -15,4 +15,6 @@
 * Plant: Corrected </nowiki> closing tag.
 * Correct: {relatedTag=Incorrect} changed to {relatedTag=Wrong}
 * Incidental: Corrected the description.
-* Moved unitClass designation for Angle tag to #. 
+* Moved unitClass designation for Angle tag to #.
+* Added extensionAllowed to the Relation tag.
+* Added valueClass=numericClass to # tags of Screen-resolution, Sensory-resolution, Spatial-resolution, Spectral-resolution, Temporal-resolution. 

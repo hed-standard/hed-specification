@@ -2148,6 +2148,10 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
                   </node>
                </node>
                <node>
@@ -2157,6 +2161,10 @@
                      <name>#</name>
                      <attribute>
                         <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
                      </attribute>
                   </node>
                </node>
@@ -2168,6 +2176,10 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
                   </node>
                </node>
                <node>
@@ -2178,6 +2190,10 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
                   </node>
                </node>
                <node>
@@ -2187,6 +2203,10 @@
                      <name>#</name>
                      <attribute>
                         <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
                      </attribute>
                   </node>
                </node>
@@ -5408,6 +5428,9 @@
       <node>
          <name>Relation</name>
          <description>Concerns the way in which two or more people or things are connected.</description>
+         <attribute>
+            <name>extensionAllowed</name>
+         </attribute>
          <node>
             <name>Comparative-relation</name>
             <description>Something considered in comparison to something else.</description>
