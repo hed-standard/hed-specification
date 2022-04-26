@@ -248,7 +248,7 @@ an associated `valueClass` attribute are also assumed to have `valueClass=nameCl
 
 ### 3.3.1 Rules for the HED schema
 
-`````{list-table}  Rules for valid in the HED schema.
+`````{list-table}  Rules for valid terms in the HED schema.
 :header-rows: 1
 :widths: 20 50
 
@@ -265,24 +265,35 @@ an associated `valueClass` attribute are also assumed to have `valueClass=nameCl
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
-1. The first letter of a term should be capitalized with the remainder lower case. 
-2. Terms containing multiple words cannot contain blanks and should be hyphenated.
-3. Descriptions should be concise sentences, possibly with clarifying examples.
-4. Descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
+1. The first letter of a schema term should be capitalized with the remainder lower case. 
+2. Schema terms containing multiple words cannot contain blanks and should be hyphenated.
+3. Schema descriptions should be concise sentences, possibly with clarifying examples.
+4. Schema descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
 not specifically allowed by `textClass`.
 ````
 
 ### 3.3.2 Rules for HED tags
 
-The rules for HED tags are slight
-`````{list-table}  Rules for valid HED tags.
+HED tags are paths within the HED schema. Tags corresponding to schema nodes that have a `#`
+placeholder child can be extended by a slash followed by a value that conforms to the value and
+unit classes specified in the schema `#` placeholder node. These values can be terms
+corresponding to existing schema nodes, provided the terms satisfy value and unit class constraints.
+
+Nodes that do not have a `#` placeholder child may be extended by additional terms separated by
+slashes, provided that they have inherited the `extensionAllowed` attribute. In this case,
+the extension terms should conform to the rules for node names and may not already be a node in the
+schema. 
+
+`````{list-table}  Rules for valid HED tags and their extensions.
 :header-rows: 1
 :widths: 20 50
 
 * - Element
   - Allowed characters
 * - Node extensions (`nameClass`)
-  - Alphanumeric characters, hyphens, and underbars with no white space.
+  - Alphanumeric characters, hyphens, and underbars with <br>
+  no white space.<br>
+  The extension cannot be an existing schema node.
 * - Description tag values (`textClass`)
   - Alphanumeric characters, blanks, commas, periods, semicolons,<br/> 
   colons, hyphens, underbars, forward slashes, carets (^), and parentheses.  
@@ -294,9 +305,9 @@ The rules for HED tags are slight
   - A single alphabetic word followed by a single colon. 
 `````
 
-````{admonition} Notes on rules for allowed characters in the HED schema. 
+````{admonition} Notes on rules for allowed characters in the HED tags. 
 :class: tip
-1. The first letter of a node name should be capitalized with the remainder lower case. 
+1. The first letter of a node name extensions should be capitalized with the remainder lower case. 
 2. Terms containing multiple words cannot contain blanks and should be hyphenated.
 3. Blanks around comma and parentheses delimiters are not part of a HED tag.
 4. Values substituted for `#` may have special characters determined by the value class.
@@ -309,12 +320,12 @@ For example, the colon (:) is specifically allowed for the `dateTimeClass` value
 
 The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string. 
 For example, the *Label* node in the HED schema has the `#` child. Thus, the value *myLabel* meant to
-substitute for the `#` child of the *Label* node must include *Label* when used in a HED string
+substitute for the `#` child of the *Label* node must include *Label* when used in a HED tag
 (e.g., *Label/myLabel* not *myLabel*).
 
 The values substituted for `#` may themselves be schema node names provided they conform with any
 value class requirements associated with that `#`.
-Thus, *Label/Item* is a valid HED string.  However, *Data-maximum/Item* is not valid because
+Thus, *Label/Item* is a valid HED tag.  However, *Data-maximum/Item* is not valid because
 the `#` child of *Data-maximum* has a *valueClass=numericClass* attribute.
 
 Certain unit classes allow other special characters in their value specification. 
