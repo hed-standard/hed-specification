@@ -75,6 +75,7 @@ corrections in tag values or units.
 | Major addition to HED functionality     | Major  |
 | Tag deleted from schema.                | Major  |
 | Unit or unit class removed from node.   | Major  |
+| New tag added to the schema.            | Minor  |
 | New attribute added to schema.          | Minor  |
 | New unit class or unit added to schema. | Minor  |
 | New unit class added to node.           | Minor  |

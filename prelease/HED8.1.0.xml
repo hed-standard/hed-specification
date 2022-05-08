@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.0.1" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd">
+<HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.1.0" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd">
    <prologue>This schema is the first official release that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 
 </prologue>
@@ -1420,6 +1420,10 @@
                      <name>Notebook</name>
                      <description>A book for notes or memoranda.</description>
                   </node>
+                  <node>
+                     <name>Questionnaire</name>
+                     <description>A document consisting of questions and possibly responses, depending on whether it has been filled out.</description>
+                  </node>
                </node>
                <node>
                   <name>Furnishing</name>
@@ -2795,6 +2799,20 @@
                   <node>
                      <name>Item-count</name>
                      <description>The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Item-index</name>
+                     <description>The index of an item in a collection, sequence or other structure. (A (Item-index/3, B)) means that A is item number 3 in B.</description>
                      <node>
                         <name>#</name>
                         <attribute>
@@ -5433,34 +5451,34 @@
          </attribute>
          <node>
             <name>Comparative-relation</name>
-            <description>Something considered in comparison to something else.</description>
+            <description>Something considered in comparison to something else. The first argument is the focus.</description>
             <node>
                <name>Approximately-equal-to</name>
-               <description>(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.</description>
+               <description>(A, (Approximately-equal-to, B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.</description>
             </node>
             <node>
                <name>Less-than</name>
-               <description>(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.</description>
+               <description>(A, (Less-than, B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.</description>
             </node>
             <node>
                <name>Less-than-or-equal-to</name>
-               <description>(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.</description>
+               <description>(A, (Less-than-or-equal-to, B)) indicates that the relative size or order of A is smaller than or equal to B.</description>
             </node>
             <node>
                <name>Greater-than</name>
-               <description>(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.</description>
+               <description>(A, (Greater-than, B)) indicates that the relative size or order of A is bigger than that of B.</description>
             </node>
             <node>
                <name>Greater-than-or-equal-to</name>
-               <description>(A (Greater-than-or-equal-to B)) indicates that the relative size or order of A is bigger than or the same as that of B.</description>
+               <description>(A, (Greater-than-or-equal-to, B)) indicates that the relative size or order of A is bigger than or the same as that of B.</description>
             </node>
             <node>
                <name>Equal-to</name>
-               <description>(A (Equal-to B)) indicates that the size or order of A is the same as that of B.</description>
+               <description>(A, (Equal-to, B)) indicates that the size or order of A is the same as that of B.</description>
             </node>
             <node>
                <name>Not-equal-to</name>
-               <description>(A (Not-equal-to B)) indicates that the size or order of A is not the same as that of B.</description>
+               <description>(A, (Not-equal-to, B)) indicates that the size or order of A is not the same as that of B.</description>
             </node>
          </node>
          <node>
@@ -5468,51 +5486,63 @@
             <description>Indicates two items are related in some way.</description>
             <node>
                <name>Belongs-to</name>
-               <description>(A (Belongs-to B)) indicates that A is a member of B.</description>
+               <description>(A, (Belongs-to, B)) indicates that A is a member of B.</description>
             </node>
             <node>
                <name>Connected-to</name>
-               <description>(A (Connected-to) B) indicates that A is related to B in some respect, usually through a direct link.</description>
+               <description>(A, (Connected-to, B)) indicates that A is related to B in some respect, usually through a direct link.</description>
             </node>
             <node>
                <name>Contained-in</name>
-               <description>(A (Contained-in B)) indicates that A is completely inside of B.</description>
+               <description>(A, (Contained-in, B)) indicates that A is completely inside of B.</description>
             </node>
             <node>
                <name>Described-by</name>
-               <description>(A (Described-by B)) indicates that B provides information about A.</description>
+               <description>(A, (Described-by, B)) indicates that B provides information about A.</description>
             </node>
             <node>
                <name>From-to</name>
-               <description>(A (From-to B)) indicates a directional relation from A to B. A is considered the source.</description>
+               <description>(A, (From-to, B)) indicates a directional relation from A to B. A is considered the source.</description>
             </node>
             <node>
                <name>Group-of</name>
-               <description>(A (Group-of B)) indicates A is a group of items of type B.</description>
+               <description>(A, (Group-of, B)) indicates A is a group of items of type B.</description>
             </node>
             <node>
                <name>Implied-by</name>
-               <description>(A (Implied-by B)) indicates B is suggested by A.</description>
+               <description>(A, (Implied-by, B)) indicates B is suggested by A.</description>
+            </node>
+            <node>
+               <name>Includes</name>
+               <description>(A, (Includes, B)) indicates that A has B as a member or part.</description>
             </node>
             <node>
                <name>Interacts-with</name>
-               <description>(A (Interacts-with B)) indicates A and B interact, possibly reciprocally.</description>
+               <description>(A, (Interacts-with, B)) indicates A and B interact, possibly reciprocally.</description>
             </node>
             <node>
                <name>Member-of</name>
-               <description>(A (Member-of B)) indicates A is a member of group B.</description>
+               <description>(A, (Member-of, B)) indicates A is a member of group B.</description>
             </node>
             <node>
                <name>Part-of</name>
-               <description>(A (Part-of B)) indicates A is a part of the whole B.</description>
+               <description>(A, (Part-of, B)) indicates A is a part of the whole B.</description>
             </node>
             <node>
                <name>Performed-by</name>
-               <description>(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.</description>
+               <description>(A, (Performed-by, B)) indicates that the action or procedure A was carried out by agent B.</description>
+            </node>
+            <node>
+               <name>Performed-using</name>
+               <description>A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.</description>
             </node>
             <node>
                <name>Related-to</name>
-               <description>(A (Relative-to B)) indicates A is a part of the whole B.</description>
+               <description>(A, (Related-to, B)) indicates A has some relationship to B.</description>
+            </node>
+            <node>
+               <name>Unrelated-to</name>
+               <description>(A, (Unrelated-to, B)) indicates that A is not related to B.  For example, A is not related to Task.</description>
             </node>
          </node>
          <node>
@@ -5520,11 +5550,11 @@
             <description>A relationship indicating direction of change.</description>
             <node>
                <name>Away-from</name>
-               <description>Go away from a place or object.</description>
+               <description>(A, (Away-from, B)) indicates that A is going or has moved away from B. The meaning depends on A and B.</description>
             </node>
             <node>
                <name>Towards</name>
-               <description>Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity</description>
+               <description>(A, (Towards, B)) indicates that A is going to or has moved to B. The meaning depends on A and B.</description>
             </node>
          </node>
          <node>
@@ -5532,43 +5562,43 @@
             <description>Indicating information about position.</description>
             <node>
                <name>Above</name>
-               <description>(A (Adjacent-to B)) means A is in a place or position that is higher than B.</description>
+               <description>(A, (Above, B)) means A is in a place or position that is higher than B.</description>
             </node>
             <node>
                <name>Across-from</name>
-               <description>(A (Across-from B)) means A is on the opposite side of something from B.</description>
+               <description>(A, (Across-from, B)) means A is on the opposite side of something from B.</description>
             </node>
             <node>
                <name>Adjacent-to</name>
-               <description>(A (Adjacent-to B)) indicates that A is next to B in time or space.</description>
+               <description>(A, (Adjacent-to, B)) indicates that A is next to B in time or space.</description>
             </node>
             <node>
                <name>Ahead-of</name>
-               <description>(A (Ahead-of B)) indicates that A is further forward in time or space in B.</description>
+               <description>(A, (Ahead-of, B)) indicates that A is further forward in time or space in B.</description>
             </node>
             <node>
                <name>Around</name>
-               <description>(A (Around B)) means A is in or near the present place or situation of B.</description>
+               <description>(A, (Around, B)) means A is in or near the present place or situation of B.</description>
             </node>
             <node>
                <name>Behind</name>
-               <description>(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.</description>
+               <description>(A, (Behind, B)) means A is at or to the far side of B, typically so as to be hidden by it.</description>
             </node>
             <node>
                <name>Below</name>
-               <description>(A (Below B)) means A is in a place or position that is lower than the position of B.</description>
+               <description>(A, (Below, B)) means A is in a place or position that is lower than the position of B.</description>
             </node>
             <node>
                <name>Between</name>
-               <description>(A (Between, (B, C))) means A is in the space or interval separating B and C.</description>
+               <description>(A, (Between, (B, C))) means A is in the space or interval separating B and C.</description>
             </node>
             <node>
                <name>Bilateral-to</name>
-               <description>(A (Bilateral B)) means A is on both sides of B or affects both sides of B.</description>
+               <description>(A, (Bilateral, B)) means A is on both sides of B or affects both sides of B.</description>
             </node>
             <node>
                <name>Bottom-edge-of</name>
-               <description>(A (Bottom-edge-of B)) means A is on the bottom most part or or near the boundary of B.</description>
+               <description>(A, (Bottom-edge-of, B)) means A is on the bottom most part or or near the boundary of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Left-edge-of</value>
@@ -5578,27 +5608,27 @@
             </node>
             <node>
                <name>Boundary-of</name>
-               <description>(A (Boundary-of B)) means A is on or part of the edge or boundary of B.</description>
+               <description>(A, (Boundary-of, B)) means A is on or part of the edge or boundary of B.</description>
             </node>
             <node>
                <name>Center-of</name>
-               <description>(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.</description>
+               <description>(A, (Center-of, B)) means A is at a point or or in an area that is approximately central within B.</description>
             </node>
             <node>
                <name>Close-to</name>
-               <description>(A (Close-to B)) means A is at a small distance from or is located near in space to B.</description>
+               <description>(A, (Close-to, B)) means A is at a small distance from or is located near in space to B.</description>
             </node>
             <node>
                <name>Far-from</name>
-               <description>(A (Far-from B)) means A is at a large distance from or is not located near in space to B.</description>
+               <description>(A, (Far-from, B)) means A is at a large distance from or is not located near in space to B.</description>
             </node>
             <node>
                <name>In-front-of</name>
-               <description>(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
+               <description>(A, (In-front-of, B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.</description>
             </node>
             <node>
                <name>Left-edge-of</name>
-               <description>(A (Left-edge-of B)) means A is located on the left side of B on or near the boundary of B.</description>
+               <description>(A, (Left-edge-of, B)) means A is located on the left side of B on or near the boundary of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Bottom-edge-of</value>
@@ -5608,7 +5638,7 @@
             </node>
             <node>
                <name>Left-side-of</name>
-               <description>(A (Left-side-of B)) means A is located on the left side of B usually as part of B.</description>
+               <description>(A, (Left-side-of, B)) means A is located on the left side of B usually as part of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Right-side-of</value>
@@ -5616,7 +5646,7 @@
             </node>
             <node>
                <name>Lower-left-of</name>
-               <description>(A (Lower-left-of B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.</description>
+               <description>(A, (Lower-left-of, B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Lower-right-of</value>
@@ -5626,7 +5656,7 @@
             </node>
             <node>
                <name>Lower-right-of</name>
-               <description>(A (Lower-right-of B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.</description>
+               <description>(A, (Lower-right-of, B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Upper-left-of</value>
@@ -5636,15 +5666,15 @@
             </node>
             <node>
                <name>Outside-of</name>
-               <description>(A (Outside-of B)) means A is located in the space around but not including B.</description>
+               <description>(A, (Outside-of, B)) means A is located in the space around but not including B.</description>
             </node>
             <node>
                <name>Over</name>
-               <description>(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
+               <description>(A, (Over, B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.</description>
             </node>
             <node>
                <name>Right-edge-of</name>
-               <description>(A (Right-edge-of B)) means A is located on the right side of B on or near the boundary of B.</description>
+               <description>(A, (Right-edge-of, B)) means A is located on the right side of B on or near the boundary of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Bottom-edge-of</value>
@@ -5654,7 +5684,7 @@
             </node>
             <node>
                <name>Right-side-of</name>
-               <description>(A (Right-side-of B)) means A is located on the right side of B usually as part of B.</description>
+               <description>(A, (Right-side-of, B)) means A is located on the right side of B usually as part of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Left-side-of</value>
@@ -5662,15 +5692,15 @@
             </node>
             <node>
                <name>To-left-of</name>
-               <description>(A (To-left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
+               <description>(A, (To-left-of, B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.</description>
             </node>
             <node>
                <name>To-right-of</name>
-               <description>(A (To-right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
+               <description>(A, (To-right-of, B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.</description>
             </node>
             <node>
                <name>Top-edge-of</name>
-               <description>(A (Top-edge-of B)) means A is on the uppermost part or or near the boundary of B.</description>
+               <description>(A, (Top-edge-of, B)) means A is on the uppermost part or or near the boundary of B.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Left-edge-of</value>
@@ -5680,11 +5710,11 @@
             </node>
             <node>
                <name>Top-of</name>
-               <description>(A (Top-of B)) means A is on the uppermost part, side, or surface of B.</description>
+               <description>(A, (Top-of, B)) means A is on the uppermost part, side, or surface of B.</description>
             </node>
             <node>
                <name>Upper-left-of</name>
-               <description>(A (Upper-left-of B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.</description>
+               <description>(A, (Upper-left-of, B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Lower-left-of</value>
@@ -5694,7 +5724,7 @@
             </node>
             <node>
                <name>Upper-right-of</name>
-               <description>(A (Upper-right-of B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.</description>
+               <description>(A, (Upper-right-of, B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
                   <value>Lower-left-of</value>
@@ -5704,11 +5734,11 @@
             </node>
             <node>
                <name>Underneath</name>
-               <description>(A (Underneath B)) means A is situated directly below and may be concealed by B.</description>
+               <description>(A, (Underneath, B)) means A is situated directly below and may be concealed by B.</description>
             </node>
             <node>
                <name>Within</name>
-               <description>(A (Within B)) means A is on the inside of or contained in B.</description>
+               <description>(A, (Within, B)) means A is on the inside of or contained in B.</description>
             </node>
          </node>
          <node>
@@ -5716,27 +5746,27 @@
             <description>Any relationship which includes a temporal or time-based component.</description>
             <node>
                <name>After</name>
-               <description>(A After B) means A happens at a time subsequent to a reference time related to B.</description>
+               <description>(A, (After B)) means A happens at a time subsequent to a reference time related to B.</description>
             </node>
             <node>
                <name>Asynchronous-with</name>
-               <description>(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.</description>
+               <description>(A, (Asynchronous-with, B)) means A happens at times not occurring at the same time or having the same period or phase as B.</description>
             </node>
             <node>
                <name>Before</name>
-               <description>(A Before B) means A happens at a time earlier in time or order than B.</description>
+               <description>(A, (Before B)) means A happens at a time earlier in time or order than B.</description>
             </node>
             <node>
                <name>During</name>
-               <description>(A During B) means A happens at some point in a given period of time in which B is ongoing.</description>
+               <description>(A, (During, B)) means A happens at some point in a given period of time in which B is ongoing.</description>
             </node>
             <node>
                <name>Synchronous-with</name>
-               <description>(A Synchronous-with B) means A happens at occurs at the same time or rate as B.</description>
+               <description>(A, (Synchronous-with, B)) means A happens at occurs at the same time or rate as B.</description>
             </node>
             <node>
                <name>Waiting-for</name>
-               <description>(A Waiting-for B) means A pauses for something to happen in B.</description>
+               <description>(A, (Waiting-for, B)) means A pauses for something to happen in B.</description>
             </node>
          </node>
       </node>

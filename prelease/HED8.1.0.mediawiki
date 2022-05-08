@@ -1,4 +1,4 @@
-HED version="8.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd"
+HED version="8.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd"
 
 '''Prologue'''
 This schema is the first official release that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
@@ -180,6 +180,7 @@ This schema is the first official release that includes an xsd and requires unit
 '''Item''' <nowiki>{extensionAllowed}[An independently existing thing (living or nonliving).]</nowiki>
 * Biological-item <nowiki>[An entity that is biological, that is related to living organisms.]</nowiki>
 ** Anatomical-item <nowiki>[A biological structure, system, fluid or other substance excluding single molecular entities.]</nowiki>
+*** Body <nowiki>[The biological structure representing an organism.]</nowiki>
 *** Body-part <nowiki>[Any part of an organism.]</nowiki>
 **** Head <nowiki>[The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.]</nowiki>
 ***** Hair <nowiki>[The filamentous outgrowth of the epidermis.]</nowiki>
@@ -250,6 +251,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Dots <nowiki>[A small round mark or spot.]</nowiki>
 **** LED-pattern <nowiki>[A pattern created by lighting selected members of a fixed light emitting diode array.]</nowiki>
 *** 2D-shape <nowiki>[A planar, two-dimensional shape.]</nowiki>
+**** Arrow <nowiki>[A shape with a pointed end indicating direction.]</nowiki>.
 **** Clockface <nowiki>[The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.]</nowiki>
 **** Cross <nowiki>[A figure or mark formed by two intersecting lines crossing at their midpoints.]</nowiki>
 **** Dash <nowiki>[A horizontal stroke in writing or printing to mark a pause or break in sense or to represent omitted letters or words.]</nowiki>
@@ -330,6 +332,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Note <nowiki>[A brief written record.]</nowiki>
 **** Book <nowiki>[A volume made up of pages fastened along one edge and enclosed between protective covers.]</nowiki>
 **** Notebook <nowiki>[A book for notes or memoranda.]</nowiki>
+**** Questionnaire <nowiki>[A document consisting of questions and possibly responses, depending on whether it has been filled out.]</nowiki>
 *** Furnishing <nowiki>[Furniture, fittings, and other decorative accessories, such as curtains and carpets, for a house or room.]</nowiki>
 *** Manufactured-material <nowiki>[Substances created or extracted from raw materials.]</nowiki>
 **** Ceramic <nowiki>[A hard, brittle, heat-resistant and corrosion-resistant material made by shaping and then firing a nonmetallic mineral, such as clay, at a high temperature.]</nowiki>
@@ -416,6 +419,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Anesthetized <nowiki>[Having lost sensation to pain or having senses dulled due to the effects of an anesthetic.]</nowiki>
 **** Asleep <nowiki>[Having entered a periodic, readily reversible state of reduced awareness and metabolic activity, usually accompanied by physical relaxation and brain activity.]</nowiki>
 **** Attentive <nowiki>[Concentrating and focusing mental energy on the task or surroundings.]</nowiki>
+**** Distracted <nowiki>[Lacking in concentration because of being preoccupied.]</nowiki>
 **** Awake <nowiki>[In a non sleeping state.]</nowiki>
 **** Brain-dead <nowiki>[Characterized by the irreversible absence of cortical and brain stem functioning.]</nowiki>
 **** Comatose <nowiki>[In a state of profound unconsciousness associated with markedly depressed cerebral activity.]</nowiki>
@@ -470,7 +474,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Experimenter <nowiki>[Person who is the owner of the experiment and has its responsibility.]</nowiki>
 ** Agent-trait <nowiki>[A genetically, environmentally, or socially determined characteristic of an agent.]</nowiki> 
 *** Age <nowiki>[Length of time elapsed time since birth of the agent.]</nowiki>
-**** <nowiki># {takesValue}</nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 *** Agent-experience-level <nowiki>[Amount of skill or knowledge that the agent has as pertains to the task.]</nowiki>
 **** Expert-level {relatedTag=Intermediate-experience-level, relatedTag=Novice-level}<nowiki>[Having comprehensive and authoritative knowledge of or skill in a particular area related to the task.]</nowiki>
 **** Intermediate-experience-level <nowiki>{relatedTag=Expert-level, relatedTag=Novice-level}[Having a moderate amount of knowledge or skill related to the task.]</nowiki>
@@ -486,6 +490,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Ambidextrous <nowiki>[Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.]</nowiki>
 * Data-property <nowiki>{extensionAllowed}[Something that pertains to data or information.]</nowiki>
 ** Data-marker <nowiki>[An indicator placed to mark something.]</nowiki>
+*** Data-break-marker <nowiki>[An indicator place to indicate a gap in the data.]</nowiki>
 *** Temporal-marker<nowiki>[An indicator placed at a particular time in the data.]</nowiki>
 **** Onset <nowiki>{topLevelTagGroup}[Labels the start or beginning of something, usually an event.]</nowiki>
 **** Offset <nowiki>{topLevelTagGroup}[Labels the time at which something stops.]</nowiki>
@@ -494,7 +499,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** Time-sync <nowiki>[A synchronization signal whose purpose to help synchronize different signals or processes. Often used to indicate a marker inserted into the recorded data to allow post hoc synchronization of concurrently recorded data streams.]</nowiki>
 ** Data-resolution <nowiki>[Smallest change in a quality being measured by an sensor that causes a perceptible change.]</nowiki>
 *** Printer-resolution <nowiki>[Resolution of a printer, usually expressed as the number of dots-per-inch for a printer.]</nowiki> 
-**** <nowiki># {takesValue} </nowiki>
+**** <nowiki># {takesValue, valueClass=numericClass} </nowiki>
 *** Screen-resolution <nowiki>[Resolution of a screen, usually expressed as the of pixels in a dimension for a digital display device.]</nowiki> 
 **** <nowiki># {takesValue, valueClass=numericClass} </nowiki>
 *** Sensory-resolution <nowiki>[Resolution of measurements by a sensing device.]</nowiki> 
@@ -584,7 +589,9 @@ This schema is the first official release that includes an xsd and requires unit
 **** Fraction <nowiki>[A numerical value between 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Item-count <nowiki>[The integer count of something which is usually grouped with the entity it is counting. (Item-count/3, A) indicates that 3 of A have occurred up to this point.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+**** Item-index <nowiki>[The index of an item in a collection, sequence or other structure. (A (Item-index/3, B)) means that A is item number 3 in B.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
 **** Item-interval <nowiki>[An integer indicating how many items or entities have passed since the last one of these. An item interval of 0 indicates the current item.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>      
 **** Percentage <nowiki>[A fraction or ratio with 100 understood as the denominator.]</nowiki> 
@@ -775,7 +782,7 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Sound-envelope-sustain <nowiki>[The time taken for the main sequence of the sound duration, until the key is released.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
-***** <nowiki># {takesValue, valueClass=labelClass}</nowiki>  
+***** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
@@ -1020,6 +1027,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Appropriate-action <nowiki>{relatedTag=Inappropriate-action}[An action suitable or proper in the circumstances.]</nowiki>
 *** Correct-action <nowiki>{relatedTag=Incorrect-action, relatedTag=Indeterminate-action}[An action that was a correct response in the context of the task.]</nowiki>
 *** Correction <nowiki>[An action offering an improvement to replace a mistake or error.]</nowiki>
+*** Done-indication <nowiki>{relatedTag=Ready-indication}[An action that indicates that the participant has completed this step in the task.]</nowiki>
 *** Incorrect-action <nowiki>{relatedTag=Correct-action, relatedTag=Indeterminate-action}[An action considered wrong or incorrect in the context of the task.]</nowiki>
 *** Imagined-action <nowiki>[Form a mental image or concept of something. This is used to identity something that only happened in the imagination of the participant as in imagined movements in motor imagery paradigms.]</nowiki>
 *** Inappropriate-action <nowiki>{relatedTag=Appropriate-action}[An action not in keeping with what is correct or proper for the task.]</nowiki>
@@ -1027,6 +1035,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Omitted-action <nowiki>[An expected response was skipped.]</nowiki>
 *** Miss <nowiki><nowiki>{relatedTag=Near-miss}[An action considered to be a failure in the context of the task. For example, if the agent is supposed to try to hit a target and misses.]</nowiki>
 *** Near-miss <nowiki>{relatedTag=Miss}[An action barely satisfied the requirements of the task. In a driving experiment for example this could pertain to a narrowly avoided collision or other accident.]</nowiki>
+*** Ready-indication <nowiki>{relatedTag=Done-indication}[An action that indicates that the participant is ready to perform the next step in the task.]</nowiki>
 ** Task-relationship <nowiki>[Specifying organizational importance of sub-tasks.]</nowiki>
 *** Background-subtask <nowiki>[A part of the task which should be performed in the background as for example inhibiting blinks due to instruction while performing the primary task.]</nowiki>
 *** Primary-subtask <nowiki>[A part of the task which should be the primary focus of the participant.]</nowiki>
@@ -1057,163 +1066,167 @@ This schema is the first official release that includes an xsd and requires unit
 *** Unplanned <nowiki>{relatedTag=Planned}[Something that has not been planned as part of the task.]</nowiki>
 
 '''Relation''' <nowiki>{extensionAllowed}[Concerns the way in which two or more people or things are connected.]</nowiki>
-* Comparative-relation <nowiki>[Something considered in comparison to something else.]</nowiki>
-** Approximately-equal-to <nowiki>[(A (Approximately-equal-to B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
-** Less-than <nowiki>[(A (Less-than B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
-** Less-than-or-equal-to <nowiki>[(A (Less-than-or-equal-to B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
-** Greater-than <nowiki>[(A (Greater-than B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
-** Greater-than-or-equal-to <nowiki>[(A (Greater-than-or-equal-to B)) indicates that the relative size or order of A is bigger than or the same as that of B.]</nowiki>
-** Equal-to <nowiki>[(A (Equal-to B)) indicates that the size or order of A is the same as that of B.]</nowiki>
-** Not-equal-to <nowiki>[(A (Not-equal-to B)) indicates that the size or order of A is not the same as that of B.]</nowiki>
+* Comparative-relation <nowiki>[Something considered in comparison to something else. The first argument is the focus.]</nowiki>
+** Approximately-equal-to <nowiki>[(A, (Approximately-equal-to, B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
+** Less-than <nowiki>[(A, (Less-than, B)) indicates that A is smaller than B. Here A and B could refer to sizes, orders, positions or other quantities.]</nowiki>
+** Less-than-or-equal-to <nowiki>[(A, (Less-than-or-equal-to, B)) indicates that the relative size or order of A is smaller than or equal to B.]</nowiki>
+** Greater-than <nowiki>[(A, (Greater-than, B)) indicates that the relative size or order of A is bigger than that of B.]</nowiki>
+** Greater-than-or-equal-to <nowiki>[(A, (Greater-than-or-equal-to, B)) indicates that the relative size or order of A is bigger than or the same as that of B.]</nowiki>
+** Equal-to <nowiki>[(A, (Equal-to, B)) indicates that the size or order of A is the same as that of B.]</nowiki>
+** Not-equal-to <nowiki>[(A, (Not-equal-to, B)) indicates that the size or order of A is not the same as that of B.]</nowiki>
 * Connective-relation <nowiki>[Indicates two items are related in some way.]</nowiki>
-** Belongs-to <nowiki>[(A (Belongs-to B)) indicates that A is a member of B.]</nowiki>
-** Connected-to <nowiki>[(A (Connected-to) B) indicates that A is related to B in some respect, usually through a direct link.]</nowiki>
-** Contained-in <nowiki>[(A (Contained-in B)) indicates that A is completely inside of B.]</nowiki>
-** Described-by <nowiki>[(A (Described-by B)) indicates that B provides information about A.]</nowiki>
-** From-to <nowiki>[(A (From-to B)) indicates a directional relation from A to B. A is considered the source.]</nowiki>
-** Group-of <nowiki>[(A (Group-of B)) indicates A is a group of items of type B.]</nowiki>
-** Implied-by <nowiki>[(A (Implied-by B)) indicates B is suggested by A.]</nowiki>
-** Interacts-with <nowiki>[(A (Interacts-with B)) indicates A and B interact, possibly reciprocally.]</nowiki>
-** Member-of <nowiki>[(A (Member-of B)) indicates A is a member of group B.]</nowiki>
-** Part-of <nowiki>[(A (Part-of B)) indicates A is a part of the whole B.]</nowiki>
-** Performed-by <nowiki>[(A (Performed-by B)) Indicates that ction or procedure A was carried out by agent B.]</nowiki>
-** Related-to <nowiki>[(A (Relative-to B)) indicates A is a part of the whole B.]</nowiki>
+** Belongs-to <nowiki>[(A, (Belongs-to, B)) indicates that A is a member of B.]</nowiki>
+** Connected-to <nowiki>[(A, (Connected-to, B)) indicates that A is related to B in some respect, usually through a direct link.]</nowiki>
+** Contained-in <nowiki>[(A, (Contained-in, B)) indicates that A is completely inside of B.]</nowiki>
+** Described-by <nowiki>[(A, (Described-by, B)) indicates that B provides information about A.]</nowiki>
+** From-to <nowiki>[(A, (From-to, B)) indicates a directional relation from A to B. A is considered the source.]</nowiki>
+** Group-of <nowiki>[(A, (Group-of, B)) indicates A is a group of items of type B.]</nowiki>
+** Implied-by <nowiki>[(A, (Implied-by, B)) indicates B is suggested by A.]</nowiki>
+** Includes <nowiki> [(A, (Includes, B)) indicates that A has B as a member or part.]</nowiki>
+** Interacts-with <nowiki>[(A, (Interacts-with, B)) indicates A and B interact, possibly reciprocally.]</nowiki>
+** Member-of <nowiki>[(A, (Member-of, B)) indicates A is a member of group B.]</nowiki>
+** Part-of <nowiki>[(A, (Part-of, B)) indicates A is a part of the whole B.]</nowiki>
+** Performed-by <nowiki>[(A, (Performed-by, B)) indicates that the action or procedure A was carried out by agent B.]</nowiki>
+** Performed-using <nowiki>[A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.]</nowiki>
+** Related-to <nowiki>[(A, (Related-to, B)) indicates A has some relationship to B.]</nowiki>
+** Unrelated-to <nowiki>[(A, (Unrelated-to, B)) indicates that A is not related to B.  For example, A is not related to Task.]</nowiki>
 * Directional-relation <nowiki>[A relationship indicating direction of change.]</nowiki>
-** Away-from <nowiki>[Go away from a place or object.]</nowiki>
-** Towards <nowiki>[Moving in the direction of. A relation binding a relational quality or disposition to the relevant type of entity]</nowiki>
+** Away-from <nowiki>[(A, (Away-from, B)) indicates that A is going or has moved away from B. The meaning depends on A and B.]</nowiki>
+** Towards <nowiki>[(A, (Towards, B)) indicates that A is going to or has moved to B. The meaning depends on A and B.]</nowiki>
 * Spatial-relation <nowiki>[Indicating information about position.]</nowiki>
-** Above <nowiki>[(A (Adjacent-to B)) means A is in a place or position that is higher than B.]</nowiki>
-** Across-from <nowiki>[(A (Across-from B)) means A is on the opposite side of something from B.]</nowiki>
-** Adjacent-to <nowiki>[(A (Adjacent-to B)) indicates that A is next to B in time or space.]</nowiki>
-** Ahead-of <nowiki>[(A (Ahead-of B)) indicates that A is further forward in time or space in B.]</nowiki>
-** Around <nowiki>[(A (Around B)) means A is in or near the present place or situation of B.]</nowiki>
-** Behind <nowiki>[(A (Behind B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
-** Below <nowiki>[(A (Below B)) means A is in a place or position that is lower than the position of B.]</nowiki>
-** Between <nowiki>[(A (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
-** Bilateral-to <nowiki>[(A (Bilateral B)) means A is on both sides of B or affects both sides of B.]</nowiki>
-** Bottom-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A (Bottom-edge-of B)) means A is on the bottom most part or or near the boundary of B.]</nowiki>
-**  Boundary-of <nowiki>[(A (Boundary-of B)) means A is on or part of the edge or boundary of B.]</nowiki>
-** Center-of <nowiki>[(A (Center-of B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
-** Close-to <nowiki>[(A (Close-to B)) means A is at a small distance from or is located near in space to B.]</nowiki>
-** Far-from <nowiki>[(A (Far-from B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
-** In-front-of <nowiki>[(A (In-front-of B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
-** Left-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A (Left-edge-of B)) means A is located on the left side of B on or near the boundary of B.]</nowiki>
-** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A (Left-side-of B)) means A is located on the left side of B usually as part of B.]</nowiki>
-** Lower-left-of <nowiki>{relatedTag=Lower-right-of,relatedTag=Upper-left-of,relatedTag=Upper-right-of}[(A (Lower-left-of B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
-** Lower-right-of <nowiki>{relatedTag=Upper-left-of,relatedTag=Upper-left-of,relatedTag=Lower-right-of}[(A (Lower-right-of B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
-** Outside-of <nowiki>[(A (Outside-of B)) means A is located in the space around but not including B.]</nowiki>
-** Over <nowiki>[(A (over B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
-** Right-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Left-edge-of,relatedTag=Top-edge-of}[(A (Right-edge-of B)) means A is located on the right side of B on or near the boundary of B.]</nowiki>
-** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A (Right-side-of B)) means A is located on the right side of B usually as part of B.]</nowiki>
-** To-left-of <nowiki>[(A (To-left-of B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-** To-right-of <nowiki>[(A (To-right-of B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
-** Top-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Bottom-edge-of}[(A (Top-edge-of B)) means A is on the uppermost part or or near the boundary of B.]</nowiki>
-** Top-of <nowiki>[(A (Top-of B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
-** Upper-left-of <nowiki>{relatedTag=Lower-left-of,relatedTag=Lower-right-of,relatedTag=Upper-right-of}[(A (Upper-left-of B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
-** Upper-right-of <nowiki>{relatedTag=Lower-left-of,relatedTag=Upper-left-of,relatedTag=Lower-right-of}[(A (Upper-right-of B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
-** Underneath <nowiki>[(A (Underneath B)) means A is situated directly below and may be concealed by B.]</nowiki>
-** Within <nowiki>[(A (Within B)) means A is on the inside of or contained in B.]</nowiki>
+** Above <nowiki>[(A, (Above, B)) means A is in a place or position that is higher than B.]</nowiki>
+** Across-from <nowiki>[(A, (Across-from, B)) means A is on the opposite side of something from B.]</nowiki>
+** Adjacent-to <nowiki>[(A, (Adjacent-to, B)) indicates that A is next to B in time or space.]</nowiki>
+** Ahead-of <nowiki>[(A, (Ahead-of, B)) indicates that A is further forward in time or space in B.]</nowiki>
+** Around <nowiki>[(A, (Around, B)) means A is in or near the present place or situation of B.]</nowiki>
+** Behind <nowiki>[(A, (Behind, B)) means A is at or to the far side of B, typically so as to be hidden by it.]</nowiki>
+** Below <nowiki>[(A, (Below, B)) means A is in a place or position that is lower than the position of B.]</nowiki>
+** Between <nowiki>[(A, (Between, (B, C))) means A is in the space or interval separating B and C.]</nowiki>
+** Bilateral-to <nowiki>[(A, (Bilateral, B)) means A is on both sides of B or affects both sides of B.]</nowiki>
+** Bottom-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A, (Bottom-edge-of, B)) means A is on the bottom most part or or near the boundary of B.]</nowiki>
+**  Boundary-of <nowiki>[(A, (Boundary-of, B)) means A is on or part of the edge or boundary of B.]</nowiki>
+** Center-of <nowiki>[(A, (Center-of, B)) means A is at a point or or in an area that is approximately central within B.]</nowiki>
+** Close-to <nowiki>[(A, (Close-to, B)) means A is at a small distance from or is located near in space to B.]</nowiki>
+** Far-from <nowiki>[(A, (Far-from, B)) means A is at a large distance from or is not located near in space to B.]</nowiki>
+** In-front-of <nowiki>[(A, (In-front-of, B)) means A is in a position just ahead or at the front part of B, potentially partially blocking B from view.]</nowiki>
+** Left-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Right-edge-of,relatedTag=Top-edge-of}[(A, (Left-edge-of, B)) means A is located on the left side of B on or near the boundary of B.]</nowiki>
+** Left-side-of <nowiki>{relatedTag=Right-side-of}[(A, (Left-side-of, B)) means A is located on the left side of B usually as part of B.]</nowiki>
+** Lower-left-of <nowiki>{relatedTag=Lower-right-of,relatedTag=Upper-left-of,relatedTag=Upper-right-of}[(A, (Lower-left-of, B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Lower-right-of <nowiki>{relatedTag=Upper-left-of,relatedTag=Upper-left-of,relatedTag=Lower-right-of}[(A, (Lower-right-of, B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Outside-of <nowiki>[(A, (Outside-of, B)) means A is located in the space around but not including B.]</nowiki>
+** Over <nowiki>[(A, (Over, B)) means A above is above B so as to cover or protect or A extends over the a general area as from a from a vantage point.]</nowiki>
+** Right-edge-of <nowiki>{relatedTag=Bottom-edge-of,relatedTag=Left-edge-of,relatedTag=Top-edge-of}[(A, (Right-edge-of, B)) means A is located on the right side of B on or near the boundary of B.]</nowiki>
+** Right-side-of <nowiki>{relatedTag=Left-side-of}[(A, (Right-side-of, B)) means A is located on the right side of B usually as part of B.]</nowiki>
+** To-left-of <nowiki>[(A, (To-left-of, B)) means A is located on or directed toward the side to the west of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** To-right-of <nowiki>[(A, (To-right-of, B)) means A is located on or directed toward the side to the east of B when B is facing north. This term is used when A is not part of B.]</nowiki>
+** Top-edge-of <nowiki>{relatedTag=Left-edge-of,relatedTag=Right-edge-of,relatedTag=Bottom-edge-of}[(A, (Top-edge-of, B)) means A is on the uppermost part or or near the boundary of B.]</nowiki>
+** Top-of <nowiki>[(A, (Top-of, B)) means A is on the uppermost part, side, or surface of B.]</nowiki>
+** Upper-left-of <nowiki>{relatedTag=Lower-left-of,relatedTag=Lower-right-of,relatedTag=Upper-right-of}[(A, (Upper-left-of, B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Upper-right-of <nowiki>{relatedTag=Lower-left-of,relatedTag=Upper-left-of,relatedTag=Lower-right-of}[(A, (Upper-right-of, B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.]</nowiki>
+** Underneath <nowiki>[(A, (Underneath, B)) means A is situated directly below and may be concealed by B.]</nowiki>
+** Within <nowiki>[(A, (Within, B)) means A is on the inside of or contained in B.]</nowiki>
 * Temporal-relation <nowiki>[Any relationship which includes a temporal or time-based component.]</nowiki>
-** After <nowiki>[(A After B) means A happens at a time subsequent to a reference time related to B.]</nowiki>
-** Asynchronous-with <nowiki>[(A Asynchronous-with B) means A happens at times not occurring at the same time or having the same period or phase as B.]</nowiki>
-** Before <nowiki>[(A Before B) means A happens at a time earlier in time or order than B.]</nowiki>
-** During <nowiki>[(A During B) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
-** Synchronous-with <nowiki>[(A Synchronous-with B) means A happens at occurs at the same time or rate as B.]</nowiki>
-** Waiting-for <nowiki>[(A Waiting-for B) means A pauses for something to happen in B.]</nowiki>
+** After <nowiki>[(A, (After B)) means A happens at a time subsequent to a reference time related to B.]</nowiki>
+** Asynchronous-with <nowiki>[(A, (Asynchronous-with, B)) means A happens at times not occurring at the same time or having the same period or phase as B.]</nowiki>
+** Before <nowiki>[(A, (Before B)) means A happens at a time earlier in time or order than B.]</nowiki>
+** During <nowiki>[(A, (During, B)) means A happens at some point in a given period of time in which B is ongoing.]</nowiki>
+** Synchronous-with <nowiki>[(A, (Synchronous-with, B)) means A happens at occurs at the same time or rate as B.]</nowiki>
+** Waiting-for <nowiki>[(A, (Waiting-for, B)) means A pauses for something to happen in B.]</nowiki>
 
 !# end schema 
 
 '''Unit classes''' <nowiki>[Unit classes and the units for the nodes.]</nowiki>
 * accelerationUnits <nowiki>{defaultUnits=m-per-s^2}</nowiki> 
-** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * angleUnits <nowiki>{defaultUnits=radian}</nowiki> 
-** radian <nowiki>{SIUnit}</nowiki> 
-** rad <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** degree 
+** radian <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** rad <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+** degree <nowiki>{conversionFactor=0.0174533}</nowiki>
 * areaUnits <nowiki>{defaultUnits=m^2}</nowiki> 
-** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** m^2 <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * currencyUnits <nowiki>{defaultUnits=$}[Units indicating the worth of something.]</nowiki> 
-** dollar 
-** $ <nowiki>{unitPrefix, unitSymbol}</nowiki> 
-** point 
+** dollar <nowiki>{conversionFactor=1.0}</nowiki>
+** $ <nowiki>{unitPrefix, unitSymbol, conversionFactor=1.0}</nowiki>
+** euro
+** point
 * frequencyUnits <nowiki>{defaultUnits=Hz}</nowiki>
-** hertz  <nowiki>{SIUnit}</nowiki>
-** Hz <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** hertz  <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** Hz <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * intensityUnits <nowiki>{defaultUnits=dB}</nowiki> 
-** dB <nowiki>{unitSymbol}[Intensity expressed as ratio to a threshold. Often used for sound intensity.]</nowiki>
+** dB <nowiki>{unitSymbol, conversionFactor=1.0}[Intensity expressed as ratio to a threshold. Often used for sound intensity.]</nowiki>
 ** candela <nowiki>{SIUnit}[Units used to express light intensity.]</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}[Units used to express light intensity.]</nowiki>  
 * jerkUnits <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
-** m-per-s^3 <nowiki>{unitSymbol}</nowiki> 
+** m-per-s^3 <nowiki>{unitSymbol, conversionFactor=1.0}</nowiki>
 * memorySizeUnits <nowiki>{defaultUnits=B}</nowiki> 
-** byte <nowiki>{SIUnit}</nowiki>
-** B <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** byte <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * physicalLengthUnits <nowiki>{defaultUnits=m}</nowiki> 
-** foot 
-** inch
-** metre <nowiki>{SIUnit}</nowiki> 
-** m <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** mile  
+** foot <nowiki>{conversionFactor=0.3048}</nowiki>
+** inch <nowiki>{conversionFactor=0.0254}</nowiki>
+** metre <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** m <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+** mile <nowiki>{conversionFactor=1609.34}</nowiki>
 * speedUnits <nowiki>{defaultUnits=m-per-s}</nowiki> 
-** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** mph <nowiki>{unitSymbol}</nowiki> 
-** kph <nowiki>{unitSymbol}</nowiki> 
+** m-per-s <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+** mph <nowiki>{unitSymbol, conversionFactor=0.44704}</nowiki>
+** kph <nowiki>{unitSymbol, conversionFactor=0.277778}</nowiki>
 * timeUnits <nowiki>{defaultUnits=s}</nowiki> 
-** second <nowiki>{SIUnit}</nowiki> 
-** s <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** day 
-** minute 
-** hour <nowiki>[Should be in 24-hour format.]</nowiki>
+** second <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** s <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+** day <nowiki>{conversionFactor=86400}</nowiki>
+** minute <nowiki>{conversionFactor=60}</nowiki>
+** hour <nowiki>{conversionFactor=3600}[Should be in 24-hour format.]</nowiki>
 * volumeUnits <nowiki>{defaultUnits=m^3}</nowiki> 
-** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki> 
+** m^3 <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * weightUnits <nowiki>{defaultUnits=g}</nowiki>
-** g <nowiki>{SIUnit, unitSymbol}</nowiki> 
-** gram <nowiki>{SIUnit}</nowiki> 
-** pound
-** lb 
+** g <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
+** gram <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** pound <nowiki>{conversionFactor=453.592}</nowiki>
+** lb <nowiki>{conversionFactor=453.592}</nowiki>
 
 
 '''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
-* deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki> 
-* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
-* hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki> 
-* h <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^2]</nowiki>
-* kilo <nowiki>{SIUnitModifier} [SI unit multiple representing 10^3]</nowiki> 
-* k <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^3]</nowiki>
-* mega <nowiki>{SIUnitModifier} [SI unit multiple representing 10^6]</nowiki> 
-* M <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^6]</nowiki>
-* giga <nowiki>{SIUnitModifier} [SI unit multiple representing 10^9]</nowiki> 
-* G <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^9]</nowiki>
-* tera <nowiki>{SIUnitModifier} [SI unit multiple representing 10^12]</nowiki> 
-* T <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^12]</nowiki>
-* peta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^15]</nowiki> 
-* P <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^15]</nowiki> 
-* exa <nowiki>{SIUnitModifier} [SI unit multiple representing 10^18]</nowiki> 
-* E <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^18]</nowiki>
-* zetta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^21]</nowiki> 
-* Z <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^21]</nowiki>
-* yotta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^24]</nowiki> 
-* Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>   
-* deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki> 
-* d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki> 
-* centi <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-2]</nowiki> 
-* c <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-2]</nowiki>
-* milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki> 
-* m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
-* micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki> 
-* u <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
-* nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki> 
-* n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki> 
-* pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki> 
-* p <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-12]</nowiki>
-* femto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-15]</nowiki> 
-* f <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-15]</nowiki>
-* atto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-18]</nowiki> 
-* a <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-18]</nowiki>
-* zepto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-21]</nowiki> 
-* z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
-* yocto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-24]</nowiki> 
-* y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>  
+* deca <nowiki>{SIUnitModifier, conversionFactor=10.0} [SI unit multiple representing 10^1]</nowiki>
+* da <nowiki>{SIUnitSymbolModifier, conversionFactor=10.0} [SI unit multiple representing 10^1]</nowiki>
+* hecto <nowiki>{SIUnitModifier, conversionFactor=100.0} [SI unit multiple representing 10^2]</nowiki>
+* h <nowiki>{SIUnitSymbolModifier, conversionFactor=100.0} [SI unit multiple representing 10^2]</nowiki>
+* kilo <nowiki>{SIUnitModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3]</nowiki>
+* k <nowiki>{SIUnitSymbolModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3]</nowiki>
+* mega <nowiki>{SIUnitModifier, conversionFactor=10^6} [SI unit multiple representing 10^6]</nowiki>
+* M <nowiki>{SIUnitSymbolModifier, conversionFactor=10^6} [SI unit multiple representing 10^6]</nowiki>
+* giga <nowiki>{SIUnitModifier, conversionFactor=10^9} [SI unit multiple representing 10^9]</nowiki>
+* G <nowiki>{SIUnitSymbolModifier, conversionFactor=10^9} [SI unit multiple representing 10^9]</nowiki>
+* tera <nowiki>{SIUnitModifier, conversionFactor=10^12} [SI unit multiple representing 10^12]</nowiki>
+* T <nowiki>{SIUnitSymbolModifier, conversionFactor=10^12} [SI unit multiple representing 10^12]</nowiki>
+* peta <nowiki>{SIUnitModifier, conversionFactor=10^15} [SI unit multiple representing 10^15]</nowiki>
+* P <nowiki>{SIUnitSymbolModifier, conversionFactor=10^15} [SI unit multiple representing 10^15]</nowiki>
+* exa <nowiki>{SIUnitModifier, conversionFactor=10^18} [SI unit multiple representing 10^18]</nowiki>
+* E <nowiki>{SIUnitSymbolModifier, conversionFactor=10^18} [SI unit multiple representing 10^18]</nowiki>
+* zetta <nowiki>{SIUnitModifier, conversionFactor=10^21} [SI unit multiple representing 10^21]</nowiki>
+* Z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^21} [SI unit multiple representing 10^21]</nowiki>
+* yotta <nowiki>{SIUnitModifier, conversionFactor=10^24} [SI unit multiple representing 10^24]</nowiki>
+* Y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^24} [SI unit multiple representing 10^24]</nowiki>
+* deci <nowiki>{SIUnitModifier, conversionFactor=0.1}[SI unit submultiple representing 10^-1]</nowiki>
+* d <nowiki>{SIUnitSymbolModifier, conversionFactor=0.1} [SI unit submultiple representing 10^-1]</nowiki>
+* centi <nowiki>{SIUnitModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2]</nowiki>
+* c <nowiki>{SIUnitSymbolModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2]</nowiki>
+* milli <nowiki>{SIUnitModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3]</nowiki>
+* m <nowiki>{SIUnitSymbolModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3]</nowiki>
+* micro <nowiki>{SIUnitModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6]</nowiki>
+* u <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6]</nowiki>
+* nano <nowiki>{SIUnitModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9]</nowiki>
+* n <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9]</nowiki>
+* pico <nowiki>{SIUnitModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
+* p <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
+* femto <nowiki>{SIUnitModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15]</nowiki>
+* f <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-15}} [SI unit submultiple representing 10^-15]</nowiki>
+* atto <nowiki>{SIUnitModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
+* a <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
+* zepto <nowiki>{SIUnitModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21]</nowiki>
+* z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21]</nowiki>
+* yocto <nowiki>{SIUnitModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24]</nowiki>
+* y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24]</nowiki>
 
 
 '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
@@ -1226,7 +1239,8 @@ This schema is the first official release that includes an xsd and requires unit
 
 '''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
 * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.]</nowiki>
-* defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki> 
+* conversionFactor <nowiki>{unitProperty, unitModifierProperty}[The multiplicative factor to multiply these units to convert to default units.]</nowiki>
+* defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki>
 * extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
 * recommended  <nowiki>{boolProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 
 * relatedTag <nowiki>[A schema attribute suggesting HED tags that are closely related to this tag. This attribute is used by tagging tools.]</nowiki> 
@@ -1238,7 +1252,7 @@ This schema is the first official release that includes an xsd and requires unit
 * suggestedTag <nowiki>[A schema attribute that indicates another tag  that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.]</nowiki>
 * tagGroup <nowiki>{boolProperty}[A schema attribute indicating the tag can only appear inside a tag group.] </nowiki> 
 * takesValue <nowiki>{boolProperty}[A schema attribute indicating the tag is a hashtag placeholder that is expected to be replaced with a user-defined value.] </nowiki> 
-* topLevelTagGroup <nowiki>{boolProperty}[A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.] </nowiki> 
+* topLevelTagGroup <nowiki>{boolProperty}[A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.] </nowiki>
 * unique <nowiki>{boolProperty}[A schema attribute indicating that only one of this tag or its descendants can be used  in the event-level HED string.]</nowiki> 
 * unitClass <nowiki>[A schema attribute specifying which unit class this value tag belongs to.]</nowiki> 
 * unitPrefix <nowiki>{boolProperty, unitProperty}[A schema attribute applied specifically to unit elements to designate that the unit indicator is a prefix (e.g., dollar sign in the currency units).]</nowiki> 
