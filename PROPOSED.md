@@ -2,7 +2,7 @@
 
 This is a record of proposed changes/corrections to the HED schema for future release. As suggestions reach consensus they will be moved to this document. 
 
-### Proposed changes/corrections (requiring more development/discussion)
+<hr/>
 
 #### Add Body between Anatomical-item and Body-part
 Then we can annotate right hand as `(Hand, (Right-side-of, Body))`.  
@@ -14,6 +14,8 @@ Should the recommended way to annotate right hand be:
 
 **Response**:  Added `Item\Object\Anatomical-item\Body` at the same level as `Body-part` instead of moving `Body-part` under `Body` because `Body-part` is not a `Body` so that would violate the "is-a".
 
+<hr/>
+
 #### Add value class --- not sure what class this should be needs discussion (See issue #324)
 
 - `Item/Object/Man-made-object/Device/IO-device/Input-device/Keyboard/Keyboard-key/#`  
@@ -22,6 +24,8 @@ Should the recommended way to annotate right hand be:
 - `Property/Informational-property/Metadata/CogAtlas/#` (What are these?)  
 
 **Response**:  Defer to a later version when we fully implement value classes.
+
+<hr/>
 
 #### Placeholders clearly missing value class or other specification.
 
@@ -46,6 +50,7 @@ Should the recommended way to annotate right hand be:
   (i.e. does not have `boolProperty`). This attribute is associated with unit classes 
   that are not SIUnits and gives the multiplicative conversion factor between the
   specified units and the default units.  (Suggest adding to version 8.1. @VisLab).
+
 **Response**: Added in version 8.1.
 
 #### unitClasses and Units
@@ -64,9 +69,9 @@ This section lists typos or other errors that should be fixed.
 - Correct the word between in `**** Fraction <nowiki>[A numerical value betwee 0 and 1.]</nowiki>`  
 - Rename `labelClass` to `nameClass` in `Property/Informational-property/Parameter/Parameter-label/#`  
 - Rename `labelClass` to `nameClass` in `Property/Sensory-property/Sensory-attribute/auditory-attribute/Timbre/#`  
-- The description of `topLevelTagGroup` schema attribute to mention that only one tag with the `topLevelTagGroup` attribute can appear in the same tag group.  
-- 
-**Response**: These have been fixed in 8.1.0.
+- The description of `topLevelTagGroup` schema attribute to mention that only one tag with the `topLevelTagGroup` attribute can appear in the same tag group.
+
+###### **Response**: These have been fixed in 8.1.0.
 
 #### Suggested additions
 This section suggests listed additions to the HED tags.
@@ -80,7 +85,7 @@ This section suggests listed additions to the HED tags.
 **Response: Added  `Property/Agent-property/Agent-cognitive-state/Distracted`.
 
 - Add Arrow to 2D-shape. (Source Monique Denissen.  Re:  Arrow is a common 2D-shape used in experiments.
-- 
+ 
 **Response**: Added `Item\Object\Man-made-object\Geometric-object\2D-shape\Arrow`.
 
 - Need some way of tagging that the participant is finished --- like an OK or Done.  (Source Monique Denissen).
@@ -100,7 +105,7 @@ grouped with qualitative attributes such as `High` (Source Scott Makeig).
 - *Action/Perceive* should be *Action/Sensory-attend*.  
 - *Action/Perceive/See* should be *Action/Sensory-attend/Look*.  
 - *Action/Perceive/Hear* should be *Action/Sensory-attend/Listen*.  
-- 
+ 
 **Response**: These changes cannot be made until a major version (e.g. 9.0.0). Not clear how they should be made. This needs more discussion and is deferred for additional discussion.
 
 
