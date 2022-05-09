@@ -5,6 +5,8 @@ This is a record of proposed changes/corrections to the HED schema for future re
 
 ### Changes included in version 8.1.0
 
+<hr/>
+
 #### Add Body between Anatomical-item and Body-part
 Then we can annotate right hand as `(Hand, (Right-side-of, Body))`.  
 
@@ -13,7 +15,7 @@ Should the recommended way to annotate right hand be:
 (Hand, (Right-side-of, Human-agent))  
 (Hand, (Right-side-of, (Human-agent, Torso)))  
 
-**Response**:  Added `Item\Object\Anatomical-item\Body` at the same level as `Body-part` instead of moving `Body-part` under `Body` because `Body-part` is not a `Body` so that would violate the "is-a".
+**Response**:  Added `Item/Object/Anatomical-item/Body` at the same level as `Body-part` instead of moving `Body-part` under `Body` because `Body-part` is not a `Body` so that would violate the "is-a".
 
 <hr/>
 
@@ -31,15 +33,8 @@ Should the recommended way to annotate right hand be:
 - `Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/Refresh-rate/#`  
 - `Property/Data-property/Data-value/Spatiotemporal-value/Spatial-value/Angle/#`  
 
-**Response**: Changes included.
+**Response**: Added to version 8.1.0.
 
-<hr/>
-
-#### Schema attributes
-- *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.  
-- Do we need a *topLevel* attribute?  
-
-**Response**: Need to keep these for backward compatibility. May need in the future.
 
 <hr/>
 
@@ -100,23 +95,21 @@ distractions and surveys may assess the participant's degree of distraction.
  
 **Response**: Added `Item\Object\Man-made-object\Geometric-object\2D-shape\Arrow`.
 
-Need a way to tag that the participant is finished --- like an OK or Done
+- Need a way to tag that the participant is finished --- like an OK or Done
 (Source @monique2208).
 
 **Response**:  Added `Property/Task-property/Task-action-type/Done-indication` and `Property/Task-property/Task-action-type/Ready-indication`.
 
-<hr/>
-
--------------------------------------------------------------------------------------------
 - Add `Sound-volume/#` to allow specification of a numerical value. Loudness can be
-grouped with qualitative attributes such as `High` (Source Scott Makeig).
+grouped with qualitative attributes such as `High` (@ Scott Makeig).
+
+**Response**:  
+
 ----------------------------------------------------------------------------------------
 
-<hr/>
-
-
-
 ### Proposed changes deferred for later versions
+
+<hr/>
 
 #### Add Action-imperative
 
@@ -131,7 +124,15 @@ an annotation. We need to finish working out the rules for parentheses and how g
 be used in searching before putting this in. 
 - The issue this tag would address is part of the larger problem of how to best incorporate
 task and event relationships into HED. We need to have a clearer handle on how to best address
-this. 
+this.
+
+<hr/>
+
+#### Schema attributes
+- *takesValue* appears to now be redundant, as it is only used with #, which is assumed to take a value.  
+- Do we need a *topLevel* attribute?  
+
+**Response**: Need to keep these for backward compatibility. May need in the future.
 
 <hr/>
 
