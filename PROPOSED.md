@@ -20,12 +20,6 @@ Should the recommended way to annotate right hand be:
 <hr/>
 
 
-#### Placeholders clearly missing value class or other specification.
-
-**Response**: Detailed work on value classes will be deferred until the next version.
-
-<hr/>
-
 #### Add numericClass attribute (* indicates should consider unit class too)  
 - `Property/Agent-property/Agent-trait/Age/#`  
 - `Property/Data-property/Data-resolution/Printer-resolution/#`  
@@ -45,7 +39,7 @@ Proposed (@MichaelJachan) add schema attribute `conversionFactor` which takes a 
 that are not SIUnits and gives the multiplicative conversion factor between the
 specified units and the default units.  (Suggest adding to version 8.1. @VisLab).
 
-**Response**: Added in version 8.1.
+**Response**: Added in version 8.10.
 
 <hr/>
 
@@ -157,13 +151,20 @@ Let's defer until we have a better handle on the needs of the derivatives requir
 <hr/>
 
 #### Other proposed changes:
-- *Action/Perceive* should be *Action/Sensory-attend*.  
-- *Action/Perceive/See* should be *Action/Sensory-attend/Look*.  
-- *Action/Perceive/Hear* should be *Action/Sensory-attend/Listen*.  
+- `Action/Perceive* should be *Action/Sensory-attend`.  
+- `Action/Perceive/See* should be *Action/Sensory-attend/Look`.  
+- `Action/Perceive/Hear* should be *Action/Sensory-attend/Listen`.  
  
 **Response**: These changes cannot be made until a major version (e.g. 9.0.0). Not clear how they should be made. This needs more discussion and is deferred for additional discussion.
 
 <hr/>
+
+#### Placeholders clearly missing value class or other specification.
+
+**Response**: Detailed work on value classes will be deferred until the next version.
+
+<hr/>
+
 
 #### Topics for future discussion
 
