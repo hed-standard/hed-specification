@@ -2,7 +2,8 @@
 
 This is a record of proposed changes/corrections to the HED schema for future release. As suggestions reach consensus they will be moved to this document. 
 
-<hr/>
+
+### Changes included in version 8.1.0
 
 #### Add Body between Anatomical-item and Body-part
 Then we can annotate right hand as `(Hand, (Right-side-of, Body))`.  
@@ -16,16 +17,6 @@ Should the recommended way to annotate right hand be:
 
 <hr/>
 
-#### Add value class --- not sure what class this should be needs discussion (See issue #324)
-
-- `Item/Object/Man-made-object/Device/IO-device/Input-device/Keyboard/Keyboard-key/#`  
-- `Item/Object/Man-made-object/Device/IO-device/Input-device/Keypad/Keypad-key/#`  
-- `Property/Informational-property/Metadata/Pathname/#`  
-- `Property/Informational-property/Metadata/CogAtlas/#` (What are these?)  
-
-**Response**:  Defer to a later version when we fully implement value classes.
-
-<hr/>
 
 #### Placeholders clearly missing value class or other specification.
 
@@ -98,15 +89,19 @@ This section suggests listed additions to the HED tags.
 
 **Response**:  Added `Data-property/Data-marker/Data-break-marker`.
 
-- Add `Distracted` to `Agent-emotional-state`.  (Source Monique Denissen.  Re: Often experiments are designed with distractions and surveys may assess the participant's degree of distration.)
+- Add `Distracted` to `Agent-emotional-state` since some experiments are designed with
+distractions and surveys may assess the participant's degree of distraction.
+(source @monique2208).
  
 **Response**: Added  `Property/Agent-property/Agent-cognitive-state/Distracted`.
 
-- Add Arrow to 2D-shape. (Source Monique Denissen.  Re:  Arrow is a common 2D-shape used in experiments.
+- Add Arrow to 2D-shape since arrow is a common 2D-shape used in experiments
+(source @monique2208).
  
 **Response**: Added `Item\Object\Man-made-object\Geometric-object\2D-shape\Arrow`.
 
-- Need some way of tagging that the participant is finished --- like an OK or Done.  (Source Monique Denissen).
+Need a way to tag that the participant is finished --- like an OK or Done
+(Source @monique2208).
 
 **Response**:  Added `Property/Task-property/Task-action-type/Done-indication` and `Property/Task-property/Task-action-type/Ready-indication`.
 
@@ -117,9 +112,45 @@ This section suggests listed additions to the HED tags.
 grouped with qualitative attributes such as `High` (Source Scott Makeig).
 ----------------------------------------------------------------------------------------
 
-- Consider adding other times of numerical features such as `Absmax`, `First-derivative-max`  (Source Scott Makeig).
+<hr/>
 
-**Response**: We're going to have to add many of these. Defer until we have a better handle on the needs of the derivatives requirements.
+
+
+### Proposed changes deferred for later versions
+
+#### Add Action-imperative
+
+Need an `Action-imperative` tag to capture that a stimulus directs a specific action (source @smakeig).
+
+**Response**: This is an important update, but we need to defer putting it in until a later
+version for the following reasons.  
+
+- We must work out how this tag relates to the existing `Intended-effect`. 
+- The tag will clearly need to be part of a parenthesized group and not standing on its own in
+an annotation. We need to finish working out the rules for parentheses and how groups are to
+be used in searching before putting this in. 
+- The issue this tag would address is part of the larger problem of how to best incorporate
+task and event relationships into HED. We need to have a clearer handle on how to best address
+this. 
+
+<hr/>
+
+#### Add additional data types
+
+Consider adding other times of numerical features such as `Absmax`, `First-derivative-max`  (Source @smakeig).
+
+**Response**: We're going to have to add many of these.
+Let's defer until we have a better handle on the needs of the derivatives requirements.
+
+
+#### Add value class --- not sure what class this should be needs discussion (See issue #324)
+
+- `Item/Object/Man-made-object/Device/IO-device/Input-device/Keyboard/Keyboard-key/#`  
+- `Item/Object/Man-made-object/Device/IO-device/Input-device/Keypad/Keypad-key/#`  
+- `Property/Informational-property/Metadata/Pathname/#`  
+- `Property/Informational-property/Metadata/CogAtlas/#` (What are these?)  
+
+**Response**:  Defer to a later version when we fully implement value classes.
 
 <hr/>
 
@@ -133,8 +164,6 @@ grouped with qualitative attributes such as `High` (Source Scott Makeig).
 <hr/>
 
 #### Topics for future discussion
-
-This section describes topics for future discussion:
 
 - Alternative syntax for library tags.  
 - Spatial specification tags.  Should these be in a spatial library?  
