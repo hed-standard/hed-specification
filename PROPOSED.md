@@ -88,7 +88,8 @@ This section suggests listed additions to the HED tags.
 distractions and surveys may assess the participant's degree of distraction.
 (source @monique2208).
  
-**Response**: Added  `Property/Agent-property/Agent-cognitive-state/Distracted`.
+**Response**: Added to `Agent-cognitive-state` rather than `Agent-emotional-state` as
+`Property/Agent-property/Agent-cognitive-state/Distracted`.
 
 - Add Arrow to 2D-shape since arrow is a common 2D-shape used in experiments
 (source @monique2208).
@@ -103,7 +104,7 @@ distractions and surveys may assess the participant's degree of distraction.
 - Add `Sound-volume/#` to allow specification of a numerical value. Loudness can be
 grouped with qualitative attributes such as `High` (@ Scott Makeig).
 
-**Response**:  
+**Response**: Added `Property/Sensory-property/Sensory-attribute/Auditory-attribute/Sound-volume`. 
 
 ----------------------------------------------------------------------------------------
 

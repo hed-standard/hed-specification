@@ -808,6 +808,10 @@
                <name>Anatomical-item</name>
                <description>A biological structure, system, fluid or other substance excluding single molecular entities.</description>
                <node>
+                  <name>Body</name>
+                  <description>The biological structure representing an organism.</description>
+               </node>
+               <node>
                   <name>Body-part</name>
                   <description>Any part of an organism.</description>
                   <node>
@@ -1094,6 +1098,10 @@
                <node>
                   <name>2D-shape</name>
                   <description>A planar, two-dimensional shape.</description>
+                  <node>
+                     <name>Arrow</name>
+                     <description>A shape with a pointed end indicating direction.</description>
+                  </node>
                   <node>
                      <name>Clockface</name>
                      <description>The dial face of a clock. A location identifier based on clockface numbering or anatomic subregion.</description>
@@ -1771,6 +1779,10 @@
                      <description>Concentrating and focusing mental energy on the task or surroundings.</description>
                   </node>
                   <node>
+                     <name>Distracted</name>
+                     <description>Lacking in concentration because of being preoccupied.</description>
+                  </node>
+                  <node>
                      <name>Awake</name>
                      <description>In a non sleeping state.</description>
                   </node>
@@ -2020,6 +2032,10 @@
                      <attribute>
                         <name>takesValue</name>
                      </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
+                     </attribute>
                   </node>
                </node>
                <node>
@@ -2101,6 +2117,10 @@
                <name>Data-marker</name>
                <description>An indicator placed to mark something.</description>
                <node>
+                  <name>Data-break-marker</name>
+                  <description>An indicator place to indicate a gap in the data.</description>
+               </node>
+               <node>
                   <name>Temporal-marker</name>
                   <description>An indicator placed at a particular time in the data.</description>
                   <node>
@@ -2141,6 +2161,10 @@
                      <name>#</name>
                      <attribute>
                         <name>takesValue</name>
+                     </attribute>
+                     <attribute>
+                        <name>valueClass</name>
+                        <value>numericClass</value>
                      </attribute>
                   </node>
                </node>
@@ -2775,6 +2799,24 @@
                         <attribute>
                            <name>unitClass</name>
                            <value>weightUnits</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Temperature</name>
+                     <description>A measure of hot or cold based on the average kinetic energy of the atoms or molecules in the system.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>temperatureUnits</value>
                         </attribute>
                      </node>
                   </node>
@@ -4060,6 +4102,7 @@
                         <attribute>
                            <name>valueClass</name>
                            <value>numericClass</value>
+                           <value>nameClass</value>
                         </attribute>
                      </node>
                   </node>
@@ -4167,7 +4210,25 @@
                         </attribute>
                         <attribute>
                            <name>valueClass</name>
-                           <value>labelClass</value>
+                           <value>nameClass</value>
+                        </attribute>
+                     </node>
+                  </node>
+                  <node>
+                     <name>Sound-volume</name>
+                     <description>The sound pressure level (SPL) usually the ratio to a reference signal estimated as the lower bound of hearing.</description>
+                     <node>
+                        <name>#</name>
+                        <attribute>
+                           <name>takesValue</name>
+                        </attribute>
+                        <attribute>
+                           <name>valueClass</name>
+                           <value>numericClass</value>
+                        </attribute>
+                        <attribute>
+                           <name>unitClass</name>
+                           <value>intensityUnits</value>
                         </attribute>
                      </node>
                   </node>
@@ -5237,6 +5298,14 @@
                   <description>An action offering an improvement to replace a mistake or error.</description>
                </node>
                <node>
+                  <name>Done-indication</name>
+                  <description>An action that indicates that the participant has completed this step in the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Ready-indication</value>
+                  </attribute>
+               </node>
+               <node>
                   <name>Incorrect-action</name>
                   <description>An action considered wrong or incorrect in the context of the task.</description>
                   <attribute>
@@ -5286,6 +5355,14 @@
                   <attribute>
                      <name>relatedTag</name>
                      <value>Miss</value>
+                  </attribute>
+               </node>
+               <node>
+                  <name>Ready-indication</name>
+                  <description>An action that indicates that the participant is ready to perform the next step in the task.</description>
+                  <attribute>
+                     <name>relatedTag</name>
+                     <value>Done-indication</value>
                   </attribute>
                </node>
             </node>
@@ -5786,6 +5863,10 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -5799,6 +5880,10 @@
             <attribute>
                <name>SIUnit</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>rad</name>
@@ -5808,9 +5893,17 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>degree</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.0174533</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -5827,6 +5920,10 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -5838,6 +5935,10 @@
          </attribute>
          <unit>
             <name>dollar</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>$</name>
@@ -5847,6 +5948,13 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
+         </unit>
+         <unit>
+            <name>euro</name>
          </unit>
          <unit>
             <name>point</name>
@@ -5863,6 +5971,10 @@
             <attribute>
                <name>SIUnit</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>Hz</name>
@@ -5871,6 +5983,10 @@
             </attribute>
             <attribute>
                <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
       </unitClassDefinition>
@@ -5882,9 +5998,13 @@
          </attribute>
          <unit>
             <name>dB</name>
-            <description>Intensity expressed as ratio to a threshold. Often used for sound intensity.</description>
+            <description>Intensity expressed as ratio to a threshold. May be used for sound intensity.</description>
             <attribute>
                <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
          <unit>
@@ -5916,6 +6036,10 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -5929,6 +6053,10 @@
             <attribute>
                <name>SIUnit</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>B</name>
@@ -5937,6 +6065,10 @@
             </attribute>
             <attribute>
                <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
       </unitClassDefinition>
@@ -5948,14 +6080,26 @@
          </attribute>
          <unit>
             <name>foot</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.3048</value>
+            </attribute>
          </unit>
          <unit>
             <name>inch</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.0254</value>
+            </attribute>
          </unit>
          <unit>
             <name>metre</name>
             <attribute>
                <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
          <unit>
@@ -5966,9 +6110,17 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>mile</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1609.34</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -5985,17 +6137,55 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>mph</name>
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.44704</value>
+            </attribute>
          </unit>
          <unit>
             <name>kph</name>
             <attribute>
                <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.277778</value>
+            </attribute>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
+         <name>temperatureUnits</name>
+         <unit>
+            <name>degree Celsius</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
+         </unit>
+         <unit>
+            <name>oC</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
       </unitClassDefinition>
@@ -6010,6 +6200,10 @@
             <attribute>
                <name>SIUnit</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>s</name>
@@ -6019,16 +6213,32 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>day</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>86400</value>
+            </attribute>
          </unit>
          <unit>
             <name>minute</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>60</value>
+            </attribute>
          </unit>
          <unit>
             <name>hour</name>
             <description>Should be in 24-hour format.</description>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>3600</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
@@ -6044,6 +6254,10 @@
             </attribute>
             <attribute>
                <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
             </attribute>
          </unit>
       </unitClassDefinition>
@@ -6061,18 +6275,34 @@
             <attribute>
                <name>unitSymbol</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>gram</name>
             <attribute>
                <name>SIUnit</name>
             </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>1.0</value>
+            </attribute>
          </unit>
          <unit>
             <name>pound</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>453.592</value>
+            </attribute>
          </unit>
          <unit>
             <name>lb</name>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>453.592</value>
+            </attribute>
          </unit>
       </unitClassDefinition>
    </unitClassDefinitions>
@@ -6083,12 +6313,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10.0</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>da</name>
          <description>SI unit multiple representing 10^1</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10.0</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6097,12 +6335,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>100.0</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>h</name>
          <description>SI unit multiple representing 10^2</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>100.0</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6111,12 +6357,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>1000.0</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>k</name>
          <description>SI unit multiple representing 10^3</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>1000.0</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6125,12 +6379,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^6</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>M</name>
          <description>SI unit multiple representing 10^6</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^6</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6139,12 +6401,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^9</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>G</name>
          <description>SI unit multiple representing 10^9</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^9</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6153,12 +6423,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^12</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>T</name>
          <description>SI unit multiple representing 10^12</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^12</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6167,12 +6445,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^15</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>P</name>
          <description>SI unit multiple representing 10^15</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^15</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6181,12 +6467,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^18</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>E</name>
          <description>SI unit multiple representing 10^18</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^18</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6195,12 +6489,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^21</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>Z</name>
          <description>SI unit multiple representing 10^21</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^21</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6209,12 +6511,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^24</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>Y</name>
          <description>SI unit multiple representing 10^24</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^24</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6223,12 +6533,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.1</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>d</name>
          <description>SI unit submultiple representing 10^-1</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.1</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6237,12 +6555,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.01</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>c</name>
          <description>SI unit submultiple representing 10^-2</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.01</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6251,12 +6577,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.001</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>m</name>
          <description>SI unit submultiple representing 10^-3</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>0.001</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6265,12 +6599,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-6</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>u</name>
          <description>SI unit submultiple representing 10^-6</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-6</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6279,12 +6621,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-9</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>n</name>
          <description>SI unit submultiple representing 10^-9</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-9</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6293,12 +6643,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-12</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>p</name>
          <description>SI unit submultiple representing 10^-12</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-12</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6307,12 +6665,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-15</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>f</name>
          <description>SI unit submultiple representing 10^-15</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-15</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6321,12 +6687,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-18</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>a</name>
          <description>SI unit submultiple representing 10^-18</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-18</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6335,12 +6709,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-21</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>z</name>
          <description>SI unit submultiple representing 10^-21</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-21</value>
          </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
@@ -6349,12 +6731,20 @@
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-24</value>
+         </attribute>
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>y</name>
          <description>SI unit submultiple representing 10^-24</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
+         </attribute>
+         <attribute>
+            <name>conversionFactor</name>
+            <value>10^-24</value>
          </attribute>
       </unitModifierDefinition>
    </unitModifierDefinitions>
@@ -6435,6 +6825,16 @@
          <description>A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.</description>
          <property>
             <name>valueClassProperty</name>
+         </property>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
+         <name>conversionFactor</name>
+         <description>The multiplicative factor to multiply these units to convert to default units.</description>
+         <property>
+            <name>unitProperty</name>
+         </property>
+         <property>
+            <name>unitModifierProperty</name>
          </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
@@ -6526,7 +6926,7 @@
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
          <name>topLevelTagGroup</name>
-         <description>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group.</description>
+         <description>A schema attribute indicating that this tag (or its descendants) can only appear in a top-level tag group. A tag group can have at most one tag with this attribute.</description>
          <property>
             <name>boolProperty</name>
          </property>

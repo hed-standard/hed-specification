@@ -771,7 +771,7 @@ This schema is the first official release that includes an xsd and requires unit
 ** Sensory-attribute <nowiki>[A sensory characteristic associated with another entity.]</nowiki>
 *** Auditory-attribute <nowiki>[Pertaining to the sense of hearing.]</nowiki>
 **** Loudness <nowiki>[Perceived intensity of a sound.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, valueClass=nameClass}</nowiki>
 **** Pitch <nowiki>[A perceptual property that allows the user to order sounds on a frequency scale.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=frequencyUnits}</nowiki>
 **** Sound-envelope <nowiki>[Description of how a sound changes over time.]</nowiki>
@@ -785,6 +785,8 @@ This schema is the first official release that includes an xsd and requires unit
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 **** Timbre <nowiki>[The perceived sound quality of a singing voice or musical instrument.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=nameClass}</nowiki>
+**** Sound-volume <nowiki>[The sound pressure level (SPL) usually the ratio to a reference signal estimated as the lower bound of hearing.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=intensityUnits}</nowiki>
 *** Gustatory-attribute <nowiki>[Pertaining to the sense of taste.]</nowiki>
 **** Bitter <nowiki>[Having a sharp, pungent taste.]</nowiki>
 **** Salty <nowiki>[Tasting of or like salt.]</nowiki>
@@ -1155,7 +1157,7 @@ This schema is the first official release that includes an xsd and requires unit
 ** hertz  <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * intensityUnits <nowiki>{defaultUnits=dB}</nowiki> 
-** dB <nowiki>{unitSymbol, conversionFactor=1.0}[Intensity expressed as ratio to a threshold. Often used for sound intensity.]</nowiki>
+** dB <nowiki>{unitSymbol, conversionFactor=1.0}[Intensity expressed as ratio to a threshold. May be used for sound intensity.]</nowiki>
 ** candela <nowiki>{SIUnit}[Units used to express light intensity.]</nowiki> 
 ** cd <nowiki>{SIUnit, unitSymbol}[Units used to express light intensity.]</nowiki>  
 * jerkUnits <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
