@@ -585,6 +585,8 @@ This schema is the first official release that includes an xsd and requires unit
 *** Physical-value <nowiki>[The value of some physical property of something.] </nowiki> 
 **** Weight <nowiki>[The relative mass or the quantity of matter contained by something.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass, unitClass=weightUnits}</nowiki>
+**** Temperature <nowiki>[A measure of hot or cold based on the average kinetic energy of the atoms or molecules in the system.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass, unitClass=temperatureUnits}</nowiki>
 *** Quantitative-value <nowiki>[Something capable of being estimated or expressed with numeric values.] </nowiki> 
 **** Fraction <nowiki>[A numerical value between 0 and 1.]</nowiki>
 ***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
@@ -1171,6 +1173,9 @@ This schema is the first official release that includes an xsd and requires unit
 ** m-per-s <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 ** mph <nowiki>{unitSymbol, conversionFactor=0.44704}</nowiki>
 ** kph <nowiki>{unitSymbol, conversionFactor=0.277778}</nowiki>
+* temperatureUnits <nowiki>{defaultUnits=degree Celsius}</nowiki>
+** degree Celsius <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
+** oC <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
 * timeUnits <nowiki>{defaultUnits=s}</nowiki> 
 ** second <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** s <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
@@ -1220,7 +1225,7 @@ This schema is the first official release that includes an xsd and requires unit
 * pico <nowiki>{SIUnitModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
 * p <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
 * femto <nowiki>{SIUnitModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15]</nowiki>
-* f <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-15}} [SI unit submultiple representing 10^-15]</nowiki>
+* f <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15]</nowiki>
 * atto <nowiki>{SIUnitModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
 * a <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
 * zepto <nowiki>{SIUnitModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21]</nowiki>

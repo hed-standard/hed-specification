@@ -31,4 +31,5 @@
 * Added `Property/Agent-property/Agent-cognitive-state/Distracted` (tag addition).
 * Added `Item/Object/Man-made-object/Document/Questionnaire` to cover surveys (tag addition).
 * Added `conversionFactor` schema attribute and added the conversion factors to the units and the unit modifiers (enhancement).
-* Added `Item\Object\Man-made-object\Geometric-object\2D-shape\Arrow` (tag addition).
+* Added `Item/Object/Man-made-object/Geometric-object/2D-shape/Arrow` (tag addition).
+* Added `Property/Data-property/Data-value/Physical-value/Temperature` and added the unit class `temperatureUnits`.
