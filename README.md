@@ -52,7 +52,7 @@ HED-1G introduced the basic ideas of annotation using path strings and is
 still in use in the [HEADIT archive](https://headit.ucsd.edu). 
 
 A major redesign of HED, HED-2G released in 2016 (4.0.0 <= schema version < 8.0.0), 
-orthongonalized the vocabularly terms and introduced parentheses for grouping modifiers
+orthogonalized the vocabulary terms and introduced parentheses for grouping modifiers
 with the terms they modify, resulting in much improved annotation. 
 
 The second majoring restructuring, HED-3G (7.x.x < schema version), 
@@ -75,6 +75,7 @@ corrections in tag values or units.
 | Major addition to HED functionality     | Major  |
 | Tag deleted from schema.                | Major  |
 | Unit or unit class removed from node.   | Major  |
+| New tag added to the schema.            | Minor  |
 | New attribute added to schema.          | Minor  |
 | New unit class or unit added to schema. | Minor  |
 | New unit class added to node.           | Minor  |
@@ -83,6 +84,18 @@ corrections in tag values or units.
 | Correction of suggestedTag or relatedTag.       | Patch  |
 | Correction of wiki syntax such as closing tags. | Patch |
 
+## HED revision process
+
+As modifications to the HED schema are proposed, they are entered into the
+[PROPOSED](PROPOSED.md) document for discussion.
+Approved changes and corrections are first made in a working version of the
+schema that is located in the [prelease directory](https://github.com/hed-standard/hed-specification/tree/master/prelease) and can be viewed
+using the following viewer:
+
+> [**Expandable html view of the prerelease HED schema**](https://www.hedtags.org/display_hed_prelease.html) 
+
+Upon final review, the new HED schema is released and moved to the
+[hedxml directory](https://github.com/hed-standard/hed-specification/tree/master/hedxml).
 
 ## HED schema details
 _HED schema_ is the structured vocabulary from which HED annotations base on. HED annotations consist of comma-separated path strings,
