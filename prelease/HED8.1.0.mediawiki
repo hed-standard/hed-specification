@@ -553,12 +553,13 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Unmasked <nowiki>{relatedTag=Masked}[Information is revealed.]</nowiki>
 ***** Voluntary <nowiki>{relatedTag=Involuntary}[Using free will or design; not forced or compelled; controlled by individual volition.]</nowiki>
 **** Categorical-level-value <nowiki>[Categorical values based on dividing a continuous variable into levels such as high and low.]</nowiki>
-***** Cold <nowiki>{relatedTag=Hot}[Characterized by an absence of heat.]</nowiki>
+***** Cold <nowiki>{relatedTag=Hot}[Having an absence of heat.]</nowiki>
 ***** Deep <nowiki>{relatedTag=Shallow}[Extending relatively far inward or downward.]</nowiki>
 ***** High <nowiki>{relatedTag=Low, relatedTag=Medium}[Having a greater than normal degree, intensity, or amount.]</nowiki>
-***** Hot <nowiki>{relatedTag=Cold}[Characterized by an excess of heat.]</nowiki>
+***** Hot <nowiki>{relatedTag=Cold}[Having an excess of heat.]</nowiki>
+***** Large <nowiki>{relatedTag=Small}[Having a great extent such as in physical dimensions, period of time, amplitude or frequency.]</nowiki>
 ***** Liminal <nowiki>{relatedTag=Subliminal, relatedTag=Supraliminal}[Situated at a sensory threshold that is barely perceptible or capable of eliciting a response.]</nowiki>
-***** Loud <nowiki>{relatedTag=Quiet}[Characterizing a perceived high intensity of sound.]</nowiki>
+***** Loud <nowiki>{relatedTag=Quiet}[Having a perceived high intensity of sound.]</nowiki>
 ***** Low <nowiki>{relatedTag=High}[Less than normal in degree, intensity or amount.]</nowiki>
 ***** Medium <nowiki>{relatedTag=Low, relatedTag=High}[Mid-way between small and large in number, quantity, magnitude or extent.]</nowiki>
 ***** Negative <nowiki>{relatedTag=Positive}[Involving disadvantage or harm.]</nowiki>
@@ -566,6 +567,7 @@ This schema is the first official release that includes an xsd and requires unit
 ***** Quiet <nowiki>{relatedTag=Loud}[Characterizing a perceived low intensity of sound.]</nowiki>
 ***** Rough <nowiki>{relatedTag=Smooth}[Having a surface with perceptible bumps, ridges, or irregularities.]</nowiki>
 ***** Shallow <nowiki>{relatedTag=Deep}[Having a depth which is relatively low.]</nowiki>
+***** Small <nowiki>{relatedTag=Large}[Having a small extent such as in physical dimensions, period of time, amplitude or frequency.]</nowiki>
 ***** Smooth <nowiki>{relatedTag=Rough}[Having a surface free from bumps, ridges, or irregularities.]</nowiki>
 ***** Subliminal <nowiki>{relatedTag=Liminal, relatedTag=Supraliminal}[Situated below a sensory threshold that is imperceptible or not capable of eliciting a response.]</nowiki>
 ***** Supraliminal <nowiki>{relatedTag=Liminal, relatedTag=Subliminal}[Situated above a sensory threshold that is perceptible or capable of eliciting a response.]</nowiki>

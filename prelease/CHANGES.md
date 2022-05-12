@@ -34,3 +34,6 @@
 * Added `Item/Object/Man-made-object/Geometric-object/2D-shape/Arrow` (tag addition).
 * Added `Property/Data-property/Data-value/Physical-value/Temperature` and added the unit class `temperatureUnits` (tag addition).
 * Added `Property/Sensory-property/Sensory-attribute/Auditory-attribute/Sound-volume` (tag addition).
+* Added `Property/Data-property/Data-value/Categorical-value/Categorical-level-value/Large`
+and `Property/Data-property/Data-value/Categorical-value/Categorical-level-value/Small`.
+* Corrected some description format for items under `Categorical-level-value`.
