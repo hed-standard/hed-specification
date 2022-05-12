@@ -2544,7 +2544,7 @@
                      <description>Categorical values based on dividing a continuous variable into levels such as high and low.</description>
                      <node>
                         <name>Cold</name>
-                        <description>Characterized by an absence of heat.</description>
+                        <description>Having an absence of heat.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Hot</value>
@@ -2569,10 +2569,18 @@
                      </node>
                      <node>
                         <name>Hot</name>
-                        <description>Characterized by an excess of heat.</description>
+                        <description>Having an excess of heat.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Cold</value>
+                        </attribute>
+                     </node>
+                     <node>
+                        <name>Large</name>
+                        <description>Having a great extent such as in physical dimensions, period of time, amplitude or frequency.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Small</value>
                         </attribute>
                      </node>
                      <node>
@@ -2586,7 +2594,7 @@
                      </node>
                      <node>
                         <name>Loud</name>
-                        <description>Characterizing a perceived high intensity of sound.</description>
+                        <description>Having a perceived high intensity of sound.</description>
                         <attribute>
                            <name>relatedTag</name>
                            <value>Quiet</value>
@@ -2647,6 +2655,14 @@
                         <attribute>
                            <name>relatedTag</name>
                            <value>Deep</value>
+                        </attribute>
+                     </node>
+                     <node>
+                        <name>Small</name>
+                        <description>Having a small extent such as in physical dimensions, period of time, amplitude or frequency.</description>
+                        <attribute>
+                           <name>relatedTag</name>
+                           <value>Large</value>
                         </attribute>
                      </node>
                      <node>
