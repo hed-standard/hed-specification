@@ -1,6 +1,6 @@
 
 
-## Corrections for 8.1.0
+## Changes for 8.1.0
 
 
 * `{suggestedTag=Attribute/Sensory}` changed to `{suggestedTag=Sensory-presentation}` (correction).
@@ -36,4 +36,5 @@
 * Added `Property/Sensory-property/Sensory-attribute/Auditory-attribute/Sound-volume` (tag addition).
 * Added `Property/Data-property/Data-value/Categorical-value/Categorical-level-value/Large`
 and `Property/Data-property/Data-value/Categorical-value/Categorical-level-value/Small`.
-* Corrected some description format for items under `Categorical-level-value`.
+* Corrected some descriptions for items under `Categorical-level-value`.
+* Added electricPotentialUnits and magneticFieldUnits for EEG and MEG signals respectively.

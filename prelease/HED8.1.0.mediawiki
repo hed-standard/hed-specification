@@ -1155,6 +1155,9 @@ This schema is the first official release that includes an xsd and requires unit
 ** $ <nowiki>{unitPrefix, unitSymbol, conversionFactor=1.0}</nowiki>
 ** euro
 ** point
+* electricPotentialUnits <nowiki>{defaultUnits=uv}</nowiki>
+** v <nowiki>{SIUnit, unitSymbol, conversionFactor=0.000001}</nowiki>
+** Volt <nowiki>{SIUnit, conversionFactor=0.000001}</nowiki>
 * frequencyUnits <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
@@ -1164,6 +1167,9 @@ This schema is the first official release that includes an xsd and requires unit
 ** cd <nowiki>{SIUnit, unitSymbol}[Units used to express light intensity.]</nowiki>  
 * jerkUnits <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
 ** m-per-s^3 <nowiki>{unitSymbol, conversionFactor=1.0}</nowiki>
+* magneticFieldUnits <nowiki>{defaultUnits=fT}[Units used to magnetic field intensity.]</nowiki>
+** tesla <nowiki>{SIUnit, conversionFactor=10^-15}</nowiki>
+** T <nowiki>{SIUnit, unitSymbol, conversionFactor=10^-15}</nowiki>
 * memorySizeUnits <nowiki>{defaultUnits=B}</nowiki> 
 ** byte <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** B <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
