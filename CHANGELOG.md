@@ -1,7 +1,7 @@
 
+#CHANGELOG for HED schema
 
-## Changes for 8.1.0
-
+## Changes for HED 8.1.0 Released 5/23/2022
 
 * `{suggestedTag=Attribute/Sensory}` changed to `{suggestedTag=Sensory-presentation}` (correction).
 * `{suggestedTag=Attribute/Sensory}` changed to `{suggestedTag=Sensory-presentation}` (correction).
@@ -38,3 +38,4 @@
 and `Property/Data-property/Data-value/Categorical-value/Categorical-level-value/Small`.
 * Corrected some descriptions for items under `Categorical-level-value`.
 * Added electricPotentialUnits and magneticFieldUnits for EEG and MEG signals respectively.
+* Small punctuation corrections.

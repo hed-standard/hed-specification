@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.1.0" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd">
-   <prologue>This schema is the first official release that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
+   <prologue>This schema includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 
 </prologue>
    <schema>
@@ -4181,7 +4181,7 @@
                      </node>
                      <node>
                         <name>Sound-envelope-release</name>
-                        <description>The time taken for the level to decay from the sustain level to zero after the key is released</description>
+                        <description>The time taken for the level to decay from the sustain level to zero after the key is released.</description>
                         <node>
                            <name>#</name>
                            <attribute>
@@ -4321,613 +4321,613 @@
                      <description>The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.</description>
                      <node>
                         <name>CSS-color</name>
-                        <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp</description>
+                        <description>One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp.</description>
                         <node>
                            <name>Blue-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>CadetBlue</name>
-                              <description>CSS-color 0x5F9EA0</description>
+                              <description>CSS-color 0x5F9EA0.</description>
                            </node>
                            <node>
                               <name>SteelBlue</name>
-                              <description>CSS-color 0x4682B4</description>
+                              <description>CSS-color 0x4682B4.</description>
                            </node>
                            <node>
                               <name>LightSteelBlue</name>
-                              <description>CSS-color 0xB0C4DE</description>
+                              <description>CSS-color 0xB0C4DE.</description>
                            </node>
                            <node>
                               <name>LightBlue</name>
-                              <description>CSS-color 0xADD8E6</description>
+                              <description>CSS-color 0xADD8E6.</description>
                            </node>
                            <node>
                               <name>PowderBlue</name>
-                              <description>CSS-color 0xB0E0E6</description>
+                              <description>CSS-color 0xB0E0E6.</description>
                            </node>
                            <node>
                               <name>LightSkyBlue</name>
-                              <description>CSS-color 0x87CEFA</description>
+                              <description>CSS-color 0x87CEFA.</description>
                            </node>
                            <node>
                               <name>SkyBlue</name>
-                              <description>CSS-color 0x87CEEB</description>
+                              <description>CSS-color 0x87CEEB.</description>
                            </node>
                            <node>
                               <name>CornflowerBlue</name>
-                              <description>CSS-color 0x6495ED</description>
+                              <description>CSS-color 0x6495ED.</description>
                            </node>
                            <node>
                               <name>DeepSkyBlue</name>
-                              <description>CSS-color 0x00BFFF</description>
+                              <description>CSS-color 0x00BFFF.</description>
                            </node>
                            <node>
                               <name>DodgerBlue</name>
-                              <description>CSS-color 0x1E90FF</description>
+                              <description>CSS-color 0x1E90FF.</description>
                            </node>
                            <node>
                               <name>RoyalBlue</name>
-                              <description>CSS-color 0x4169E1</description>
+                              <description>CSS-color 0x4169E1.</description>
                            </node>
                            <node>
                               <name>Blue</name>
-                              <description>CSS-color 0x0000FF</description>
+                              <description>CSS-color 0x0000FF.</description>
                            </node>
                            <node>
                               <name>MediumBlue</name>
-                              <description>CSS-color 0x0000CD</description>
+                              <description>CSS-color 0x0000CD.</description>
                            </node>
                            <node>
                               <name>DarkBlue</name>
-                              <description>CSS-color 0x00008B</description>
+                              <description>CSS-color 0x00008B.</description>
                            </node>
                            <node>
                               <name>Navy</name>
-                              <description>CSS-color 0x000080</description>
+                              <description>CSS-color 0x000080.</description>
                            </node>
                            <node>
                               <name>MidnightBlue</name>
-                              <description>CSS-color 0x191970</description>
+                              <description>CSS-color 0x191970.</description>
                            </node>
                         </node>
                         <node>
                            <name>Brown-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Cornsilk</name>
-                              <description>CSS-color 0xFFF8DC</description>
+                              <description>CSS-color 0xFFF8DC.</description>
                            </node>
                            <node>
                               <name>BlanchedAlmond</name>
-                              <description>CSS-color 0xFFEBCD</description>
+                              <description>CSS-color 0xFFEBCD.</description>
                            </node>
                            <node>
                               <name>Bisque</name>
-                              <description>CSS-color 0xFFE4C4</description>
+                              <description>CSS-color 0xFFE4C4.</description>
                            </node>
                            <node>
                               <name>NavajoWhite</name>
-                              <description>CSS-color 0xFFDEAD</description>
+                              <description>CSS-color 0xFFDEAD.</description>
                            </node>
                            <node>
                               <name>Wheat</name>
-                              <description>CSS-color 0xF5DEB3</description>
+                              <description>CSS-color 0xF5DEB3.</description>
                            </node>
                            <node>
                               <name>BurlyWood</name>
-                              <description>CSS-color 0xDEB887</description>
+                              <description>CSS-color 0xDEB887.</description>
                            </node>
                            <node>
                               <name>Tan</name>
-                              <description>CSS-color 0xD2B48C</description>
+                              <description>CSS-color 0xD2B48C.</description>
                            </node>
                            <node>
                               <name>RosyBrown</name>
-                              <description>CSS-color 0xBC8F8F</description>
+                              <description>CSS-color 0xBC8F8F.</description>
                            </node>
                            <node>
                               <name>SandyBrown</name>
-                              <description>CSS-color 0xF4A460</description>
+                              <description>CSS-color 0xF4A460.</description>
                            </node>
                            <node>
                               <name>GoldenRod</name>
-                              <description>CSS-color 0xDAA520</description>
+                              <description>CSS-color 0xDAA520.</description>
                            </node>
                            <node>
                               <name>DarkGoldenRod</name>
-                              <description>CSS-color 0xB8860B</description>
+                              <description>CSS-color 0xB8860B.</description>
                            </node>
                            <node>
                               <name>Peru</name>
-                              <description>CSS-color 0xCD853F</description>
+                              <description>CSS-color 0xCD853F.</description>
                            </node>
                            <node>
                               <name>Chocolate</name>
-                              <description>CSS-color 0xD2691E</description>
+                              <description>CSS-color 0xD2691E.</description>
                            </node>
                            <node>
                               <name>Olive</name>
-                              <description>CSS-color 0x808000</description>
+                              <description>CSS-color 0x808000.</description>
                            </node>
                            <node>
                               <name>SaddleBrown</name>
-                              <description>CSS-color 0x8B4513</description>
+                              <description>CSS-color 0x8B4513.</description>
                            </node>
                            <node>
                               <name>Sienna</name>
-                              <description>CSS-color 0xA0522D</description>
+                              <description>CSS-color 0xA0522D.</description>
                            </node>
                            <node>
                               <name>Brown</name>
-                              <description>CSS-color 0xA52A2A</description>
+                              <description>CSS-color 0xA52A2A.</description>
                            </node>
                            <node>
                               <name>Maroon</name>
-                              <description>CSS-color 0x800000</description>
+                              <description>CSS-color 0x800000.</description>
                            </node>
                         </node>
                         <node>
                            <name>Cyan-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Aqua</name>
-                              <description>CSS-color 0x00FFFF</description>
+                              <description>CSS-color 0x00FFFF.</description>
                            </node>
                            <node>
                               <name>Cyan</name>
-                              <description>CSS-color 0x00FFFF</description>
+                              <description>CSS-color 0x00FFFF.</description>
                            </node>
                            <node>
                               <name>LightCyan</name>
-                              <description>CSS-color 0xE0FFFF</description>
+                              <description>CSS-color 0xE0FFFF.</description>
                            </node>
                            <node>
                               <name>PaleTurquoise</name>
-                              <description>CSS-color 0xAFEEEE</description>
+                              <description>CSS-color 0xAFEEEE.</description>
                            </node>
                            <node>
                               <name>Aquamarine</name>
-                              <description>CSS-color 0x7FFFD4</description>
+                              <description>CSS-color 0x7FFFD4.</description>
                            </node>
                            <node>
                               <name>Turquoise</name>
-                              <description>CSS-color 0x40E0D0</description>
+                              <description>CSS-color 0x40E0D0.</description>
                            </node>
                            <node>
                               <name>MediumTurquoise</name>
-                              <description>CSS-color 0x48D1CC</description>
+                              <description>CSS-color 0x48D1CC.</description>
                            </node>
                            <node>
                               <name>DarkTurquoise</name>
-                              <description>CSS-color 0x00CED1</description>
+                              <description>CSS-color 0x00CED1.</description>
                            </node>
                         </node>
                         <node>
                            <name>Green-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>GreenYellow</name>
-                              <description>CSS-color 0xADFF2F</description>
+                              <description>CSS-color 0xADFF2F.</description>
                            </node>
                            <node>
                               <name>Chartreuse</name>
-                              <description>CSS-color 0x7FFF00</description>
+                              <description>CSS-color 0x7FFF00.</description>
                            </node>
                            <node>
                               <name>LawnGreen</name>
-                              <description>CSS-color 0x7CFC00</description>
+                              <description>CSS-color 0x7CFC00.</description>
                            </node>
                            <node>
                               <name>Lime</name>
-                              <description>CSS-color 0x00FF00</description>
+                              <description>CSS-color 0x00FF00.</description>
                            </node>
                            <node>
                               <name>LimeGreen</name>
-                              <description>CSS-color 0x32CD32</description>
+                              <description>CSS-color 0x32CD32.</description>
                            </node>
                            <node>
                               <name>PaleGreen</name>
-                              <description>CSS-color 0x98FB98</description>
+                              <description>CSS-color 0x98FB98.</description>
                            </node>
                            <node>
                               <name>LightGreen</name>
-                              <description>CSS-color 0x90EE90</description>
+                              <description>CSS-color 0x90EE90.</description>
                            </node>
                            <node>
                               <name>MediumSpringGreen</name>
-                              <description>CSS-color 0x00FA9A</description>
+                              <description>CSS-color 0x00FA9A.</description>
                            </node>
                            <node>
                               <name>SpringGreen</name>
-                              <description>CSS-color 0x00FF7F</description>
+                              <description>CSS-color 0x00FF7F.</description>
                            </node>
                            <node>
                               <name>MediumSeaGreen</name>
-                              <description>CSS-color 0x3CB371</description>
+                              <description>CSS-color 0x3CB371.</description>
                            </node>
                            <node>
                               <name>SeaGreen</name>
-                              <description>CSS-color 0x2E8B57</description>
+                              <description>CSS-color 0x2E8B57.</description>
                            </node>
                            <node>
                               <name>ForestGreen</name>
-                              <description>CSS-color 0x228B22</description>
+                              <description>CSS-color 0x228B22.</description>
                            </node>
                            <node>
                               <name>Green</name>
-                              <description>CSS-color 0x008000</description>
+                              <description>CSS-color 0x008000.</description>
                            </node>
                            <node>
                               <name>DarkGreen</name>
-                              <description>CSS-color 0x006400</description>
+                              <description>CSS-color 0x006400.</description>
                            </node>
                            <node>
                               <name>YellowGreen</name>
-                              <description>CSS-color 0x9ACD32</description>
+                              <description>CSS-color 0x9ACD32.</description>
                            </node>
                            <node>
                               <name>OliveDrab</name>
-                              <description>CSS-color 0x6B8E23</description>
+                              <description>CSS-color 0x6B8E23.</description>
                            </node>
                            <node>
                               <name>DarkOliveGreen</name>
-                              <description>CSS-color 0x556B2F</description>
+                              <description>CSS-color 0x556B2F.</description>
                            </node>
                            <node>
                               <name>MediumAquaMarine</name>
-                              <description>CSS-color 0x66CDAA</description>
+                              <description>CSS-color 0x66CDAA.</description>
                            </node>
                            <node>
                               <name>DarkSeaGreen</name>
-                              <description>CSS-color 0x8FBC8F</description>
+                              <description>CSS-color 0x8FBC8F.</description>
                            </node>
                            <node>
                               <name>LightSeaGreen</name>
-                              <description>CSS-color 0x20B2AA</description>
+                              <description>CSS-color 0x20B2AA.</description>
                            </node>
                            <node>
                               <name>DarkCyan</name>
-                              <description>CSS-color 0x008B8B</description>
+                              <description>CSS-color 0x008B8B.</description>
                            </node>
                            <node>
                               <name>Teal</name>
-                              <description>CSS-color 0x008080</description>
+                              <description>CSS-color 0x008080.</description>
                            </node>
                         </node>
                         <node>
                            <name>Gray-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Gainsboro</name>
-                              <description>CSS-color 0xDCDCDC</description>
+                              <description>CSS-color 0xDCDCDC.</description>
                            </node>
                            <node>
                               <name>LightGray</name>
-                              <description>CSS-color 0xD3D3D3</description>
+                              <description>CSS-color 0xD3D3D3.</description>
                            </node>
                            <node>
                               <name>Silver</name>
-                              <description>CSS-color 0xC0C0C0</description>
+                              <description>CSS-color 0xC0C0C0.</description>
                            </node>
                            <node>
                               <name>DarkGray</name>
-                              <description>CSS-color 0xA9A9A9</description>
+                              <description>CSS-color 0xA9A9A9.</description>
                            </node>
                            <node>
                               <name>DimGray</name>
-                              <description>CSS-color 0x696969</description>
+                              <description>CSS-color 0x696969.</description>
                            </node>
                            <node>
                               <name>Gray</name>
-                              <description>CSS-color 0x808080</description>
+                              <description>CSS-color 0x808080.</description>
                            </node>
                            <node>
                               <name>LightSlateGray</name>
-                              <description>CSS-color 0x778899</description>
+                              <description>CSS-color 0x778899.</description>
                            </node>
                            <node>
                               <name>SlateGray</name>
-                              <description>CSS-color 0x708090</description>
+                              <description>CSS-color 0x708090.</description>
                            </node>
                            <node>
                               <name>DarkSlateGray</name>
-                              <description>CSS-color 0x2F4F4F</description>
+                              <description>CSS-color 0x2F4F4F.</description>
                            </node>
                            <node>
                               <name>Black</name>
-                              <description>CSS-color 0x000000</description>
+                              <description>CSS-color 0x000000.</description>
                            </node>
                         </node>
                         <node>
                            <name>Orange-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Orange</name>
-                              <description>CSS-color 0xFFA500</description>
+                              <description>CSS-color 0xFFA500.</description>
                            </node>
                            <node>
                               <name>DarkOrange</name>
-                              <description>CSS-color 0xFF8C00</description>
+                              <description>CSS-color 0xFF8C00.</description>
                            </node>
                            <node>
                               <name>Coral</name>
-                              <description>CSS-color 0xFF7F50</description>
+                              <description>CSS-color 0xFF7F50.</description>
                            </node>
                            <node>
                               <name>Tomato</name>
-                              <description>CSS-color 0xFF6347</description>
+                              <description>CSS-color 0xFF6347.</description>
                            </node>
                            <node>
                               <name>OrangeRed</name>
-                              <description>CSS-color 0xFF4500</description>
+                              <description>CSS-color 0xFF4500.</description>
                            </node>
                         </node>
                         <node>
                            <name>Pink-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Pink</name>
-                              <description>CSS-color 0xFFC0CB</description>
+                              <description>CSS-color 0xFFC0CB.</description>
                            </node>
                            <node>
                               <name>LightPink</name>
-                              <description>CSS-color 0xFFB6C1</description>
+                              <description>CSS-color 0xFFB6C1.</description>
                            </node>
                            <node>
                               <name>HotPink</name>
-                              <description>CSS-color 0xFF69B4</description>
+                              <description>CSS-color 0xFF69B4.</description>
                            </node>
                            <node>
                               <name>DeepPink</name>
-                              <description>CSS-color 0xFF1493</description>
+                              <description>CSS-color 0xFF1493.</description>
                            </node>
                            <node>
                               <name>PaleVioletRed</name>
-                              <description>CSS-color 0xDB7093</description>
+                              <description>CSS-color 0xDB7093.</description>
                            </node>
                            <node>
                               <name>MediumVioletRed</name>
-                              <description>CSS-color 0xC71585</description>
+                              <description>CSS-color 0xC71585.</description>
                            </node>
                         </node>
                         <node>
                            <name>Purple-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Lavender</name>
-                              <description>CSS-color 0xE6E6FA</description>
+                              <description>CSS-color 0xE6E6FA.</description>
                            </node>
                            <node>
                               <name>Thistle</name>
-                              <description>CSS-color 0xD8BFD8</description>
+                              <description>CSS-color 0xD8BFD8.</description>
                            </node>
                            <node>
                               <name>Plum</name>
-                              <description>CSS-color 0xDDA0DD</description>
+                              <description>CSS-color 0xDDA0DD.</description>
                            </node>
                            <node>
                               <name>Orchid</name>
-                              <description>CSS-color 0xDA70D6</description>
+                              <description>CSS-color 0xDA70D6.</description>
                            </node>
                            <node>
                               <name>Violet</name>
-                              <description>CSS-color 0xEE82EE</description>
+                              <description>CSS-color 0xEE82EE.</description>
                            </node>
                            <node>
                               <name>Fuchsia</name>
-                              <description>CSS-color 0xFF00FF</description>
+                              <description>CSS-color 0xFF00FF.</description>
                            </node>
                            <node>
                               <name>Magenta</name>
-                              <description>CSS-color 0xFF00FF</description>
+                              <description>CSS-color 0xFF00FF.</description>
                            </node>
                            <node>
                               <name>MediumOrchid</name>
-                              <description>CSS-color 0xBA55D3</description>
+                              <description>CSS-color 0xBA55D3.</description>
                            </node>
                            <node>
                               <name>DarkOrchid</name>
-                              <description>CSS-color 0x9932CC</description>
+                              <description>CSS-color 0x9932CC.</description>
                            </node>
                            <node>
                               <name>DarkViolet</name>
-                              <description>CSS-color 0x9400D3</description>
+                              <description>CSS-color 0x9400D3.</description>
                            </node>
                            <node>
                               <name>BlueViolet</name>
-                              <description>CSS-color 0x8A2BE2</description>
+                              <description>CSS-color 0x8A2BE2.</description>
                            </node>
                            <node>
                               <name>DarkMagenta</name>
-                              <description>CSS-color 0x8B008B</description>
+                              <description>CSS-color 0x8B008B.</description>
                            </node>
                            <node>
                               <name>Purple</name>
-                              <description>CSS-color 0x800080</description>
+                              <description>CSS-color 0x800080.</description>
                            </node>
                            <node>
                               <name>MediumPurple</name>
-                              <description>CSS-color 0x9370DB</description>
+                              <description>CSS-color 0x9370DB.</description>
                            </node>
                            <node>
                               <name>MediumSlateBlue</name>
-                              <description>CSS-color 0x7B68EE</description>
+                              <description>CSS-color 0x7B68EE.</description>
                            </node>
                            <node>
                               <name>SlateBlue</name>
-                              <description>CSS-color 0x6A5ACD</description>
+                              <description>CSS-color 0x6A5ACD.</description>
                            </node>
                            <node>
                               <name>DarkSlateBlue</name>
-                              <description>CSS-color 0x483D8B</description>
+                              <description>CSS-color 0x483D8B.</description>
                            </node>
                            <node>
                               <name>RebeccaPurple</name>
-                              <description>CSS-color 0x663399</description>
+                              <description>CSS-color 0x663399.</description>
                            </node>
                            <node>
                               <name>Indigo</name>
-                              <description>CSS-color 0x4B0082</description>
+                              <description>CSS-color 0x4B0082.</description>
                            </node>
                         </node>
                         <node>
                            <name>Red-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>LightSalmon</name>
-                              <description>CSS-color 0xFFA07A</description>
+                              <description>CSS-color 0xFFA07A.</description>
                            </node>
                            <node>
                               <name>Salmon</name>
-                              <description>CSS-color 0xFA8072</description>
+                              <description>CSS-color 0xFA8072.</description>
                            </node>
                            <node>
                               <name>DarkSalmon</name>
-                              <description>CSS-color 0xE9967A</description>
+                              <description>CSS-color 0xE9967A.</description>
                            </node>
                            <node>
                               <name>LightCoral</name>
-                              <description>CSS-color 0xF08080</description>
+                              <description>CSS-color 0xF08080.</description>
                            </node>
                            <node>
                               <name>IndianRed</name>
-                              <description>CSS-color 0xCD5C5C</description>
+                              <description>CSS-color 0xCD5C5C.</description>
                            </node>
                            <node>
                               <name>Crimson</name>
-                              <description>CSS-color 0xDC143C</description>
+                              <description>CSS-color 0xDC143C.</description>
                            </node>
                            <node>
                               <name>Red</name>
-                              <description>CSS-color 0xFF0000</description>
+                              <description>CSS-color 0xFF0000.</description>
                            </node>
                            <node>
                               <name>FireBrick</name>
-                              <description>CSS-color 0xB22222</description>
+                              <description>CSS-color 0xB22222.</description>
                            </node>
                            <node>
                               <name>DarkRed</name>
-                              <description>CSS-color 0x8B0000</description>
+                              <description>CSS-color 0x8B0000.</description>
                            </node>
                         </node>
                         <node>
                            <name>Yellow-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>Gold</name>
-                              <description>CSS-color 0xFFD700</description>
+                              <description>CSS-color 0xFFD700.</description>
                            </node>
                            <node>
                               <name>Yellow</name>
-                              <description>CSS-color 0xFFFF00</description>
+                              <description>CSS-color 0xFFFF00.</description>
                            </node>
                            <node>
                               <name>LightYellow</name>
-                              <description>CSS-color 0xFFFFE0</description>
+                              <description>CSS-color 0xFFFFE0.</description>
                            </node>
                            <node>
                               <name>LemonChiffon</name>
-                              <description>CSS-color 0xFFFACD</description>
+                              <description>CSS-color 0xFFFACD.</description>
                            </node>
                            <node>
                               <name>LightGoldenRodYellow</name>
-                              <description>CSS-color 0xFAFAD2</description>
+                              <description>CSS-color 0xFAFAD2.</description>
                            </node>
                            <node>
                               <name>PapayaWhip</name>
-                              <description>CSS-color 0xFFEFD5</description>
+                              <description>CSS-color 0xFFEFD5.</description>
                            </node>
                            <node>
                               <name>Moccasin</name>
-                              <description>CSS-color 0xFFE4B5</description>
+                              <description>CSS-color 0xFFE4B5.</description>
                            </node>
                            <node>
                               <name>PeachPuff</name>
-                              <description>CSS-color 0xFFDAB9</description>
+                              <description>CSS-color 0xFFDAB9.</description>
                            </node>
                            <node>
                               <name>PaleGoldenRod</name>
-                              <description>CSS-color 0xEEE8AA</description>
+                              <description>CSS-color 0xEEE8AA.</description>
                            </node>
                            <node>
                               <name>Khaki</name>
-                              <description>CSS-color 0xF0E68C</description>
+                              <description>CSS-color 0xF0E68C.</description>
                            </node>
                            <node>
                               <name>DarkKhaki</name>
-                              <description>CSS-color 0xBDB76B</description>
+                              <description>CSS-color 0xBDB76B.</description>
                            </node>
                         </node>
                         <node>
                            <name>White-color</name>
-                           <description>CSS color group</description>
+                           <description>CSS color group.</description>
                            <node>
                               <name>White</name>
-                              <description>CSS-color 0xFFFFFF</description>
+                              <description>CSS-color 0xFFFFFF.</description>
                            </node>
                            <node>
                               <name>Snow</name>
-                              <description>CSS-color 0xFFFAFA</description>
+                              <description>CSS-color 0xFFFAFA.</description>
                            </node>
                            <node>
                               <name>HoneyDew</name>
-                              <description>CSS-color 0xF0FFF0</description>
+                              <description>CSS-color 0xF0FFF0.</description>
                            </node>
                            <node>
                               <name>MintCream</name>
-                              <description>CSS-color 0xF5FFFA</description>
+                              <description>CSS-color 0xF5FFFA.</description>
                            </node>
                            <node>
                               <name>Azure</name>
-                              <description>CSS-color 0xF0FFFF</description>
+                              <description>CSS-color 0xF0FFFF.</description>
                            </node>
                            <node>
                               <name>AliceBlue</name>
-                              <description>CSS-color 0xF0F8FF</description>
+                              <description>CSS-color 0xF0F8FF.</description>
                            </node>
                            <node>
                               <name>GhostWhite</name>
-                              <description>CSS-color 0xF8F8FF</description>
+                              <description>CSS-color 0xF8F8FF.</description>
                            </node>
                            <node>
                               <name>WhiteSmoke</name>
-                              <description>CSS-color 0xF5F5F5</description>
+                              <description>CSS-color 0xF5F5F5.</description>
                            </node>
                            <node>
                               <name>SeaShell</name>
-                              <description>CSS-color 0xFFF5EE</description>
+                              <description>CSS-color 0xFFF5EE.</description>
                            </node>
                            <node>
                               <name>Beige</name>
-                              <description>CSS-color 0xF5F5DC</description>
+                              <description>CSS-color 0xF5F5DC.</description>
                            </node>
                            <node>
                               <name>OldLace</name>
-                              <description>CSS-color 0xFDF5E6</description>
+                              <description>CSS-color 0xFDF5E6.</description>
                            </node>
                            <node>
                               <name>FloralWhite</name>
-                              <description>CSS-color 0xFFFAF0</description>
+                              <description>CSS-color 0xFFFAF0.</description>
                            </node>
                            <node>
                               <name>Ivory</name>
-                              <description>CSS-color 0xFFFFF0</description>
+                              <description>CSS-color 0xFFFFF0.</description>
                            </node>
                            <node>
                               <name>AntiqueWhite</name>
-                              <description>CSS-color 0xFAEBD7</description>
+                              <description>CSS-color 0xFAEBD7.</description>
                            </node>
                            <node>
                               <name>Linen</name>
-                              <description>CSS-color 0xFAF0E6</description>
+                              <description>CSS-color 0xFAF0E6.</description>
                            </node>
                            <node>
                               <name>LavenderBlush</name>
-                              <description>CSS-color 0xFFF0F5</description>
+                              <description>CSS-color 0xFFF0F5.</description>
                            </node>
                            <node>
                               <name>MistyRose</name>
-                              <description>CSS-color 0xFFE4E1</description>
+                              <description>CSS-color 0xFFE4E1.</description>
                            </node>
                         </node>
                      </node>
@@ -4948,7 +4948,7 @@
                         <description>Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.</description>
                         <node>
                            <name>#</name>
-                           <description>White intensity between 0 and 1</description>
+                           <description>White intensity between 0 and 1.</description>
                            <attribute>
                               <name>takesValue</name>
                            </attribute>
@@ -4966,7 +4966,7 @@
                            <description>Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.</description>
                            <node>
                               <name>#</name>
-                              <description>Angular value between 0 and 360</description>
+                              <description>Angular value between 0 and 360.</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -4981,7 +4981,7 @@
                            <description>Colorfulness of a stimulus relative to its own brightness.</description>
                            <node>
                               <name>#</name>
-                              <description>B value of RGB between 0 and 1</description>
+                              <description>B value of RGB between 0 and 1.</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -5014,7 +5014,7 @@
                            <description>The red component.</description>
                            <node>
                               <name>#</name>
-                              <description>R value of RGB between 0 and 1</description>
+                              <description>R value of RGB between 0 and 1.</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -5029,7 +5029,7 @@
                            <description>The blue component.</description>
                            <node>
                               <name>#</name>
-                              <description>B value of RGB between 0 and 1</description>
+                              <description>B value of RGB between 0 and 1.</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -5044,7 +5044,7 @@
                            <description>The green component.</description>
                            <node>
                               <name>#</name>
-                              <description>G value of RGB between 0 and 1</description>
+                              <description>G value of RGB between 0 and 1.</description>
                               <attribute>
                                  <name>takesValue</name>
                               </attribute>
@@ -5977,6 +5977,36 @@
          </unit>
       </unitClassDefinition>
       <unitClassDefinition>
+         <name>electricPotentialUnits</name>
+         <attribute>
+            <name>defaultUnits</name>
+            <value>uv</value>
+         </attribute>
+         <unit>
+            <name>v</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.000001</value>
+            </attribute>
+         </unit>
+         <unit>
+            <name>Volt</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>0.000001</value>
+            </attribute>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
          <name>frequencyUnits</name>
          <attribute>
             <name>defaultUnits</name>
@@ -6055,6 +6085,37 @@
             <attribute>
                <name>conversionFactor</name>
                <value>1.0</value>
+            </attribute>
+         </unit>
+      </unitClassDefinition>
+      <unitClassDefinition>
+         <name>magneticFieldUnits</name>
+         <description>Units used to magnetic field intensity.</description>
+         <attribute>
+            <name>defaultUnits</name>
+            <value>fT</value>
+         </attribute>
+         <unit>
+            <name>tesla</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>10^-15</value>
+            </attribute>
+         </unit>
+         <unit>
+            <name>T</name>
+            <attribute>
+               <name>SIUnit</name>
+            </attribute>
+            <attribute>
+               <name>unitSymbol</name>
+            </attribute>
+            <attribute>
+               <name>conversionFactor</name>
+               <value>10^-15</value>
             </attribute>
          </unit>
       </unitClassDefinition>
@@ -6325,7 +6386,7 @@
    <unitModifierDefinitions>
       <unitModifierDefinition>
          <name>deca</name>
-         <description>SI unit multiple representing 10^1</description>
+         <description>SI unit multiple representing 10^1.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6336,7 +6397,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>da</name>
-         <description>SI unit multiple representing 10^1</description>
+         <description>SI unit multiple representing 10^1.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6347,7 +6408,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>hecto</name>
-         <description>SI unit multiple representing 10^2</description>
+         <description>SI unit multiple representing 10^2.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6358,7 +6419,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>h</name>
-         <description>SI unit multiple representing 10^2</description>
+         <description>SI unit multiple representing 10^2.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6369,7 +6430,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>kilo</name>
-         <description>SI unit multiple representing 10^3</description>
+         <description>SI unit multiple representing 10^3.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6380,7 +6441,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>k</name>
-         <description>SI unit multiple representing 10^3</description>
+         <description>SI unit multiple representing 10^3.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6391,7 +6452,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>mega</name>
-         <description>SI unit multiple representing 10^6</description>
+         <description>SI unit multiple representing 10^6.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6402,7 +6463,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>M</name>
-         <description>SI unit multiple representing 10^6</description>
+         <description>SI unit multiple representing 10^6.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6413,7 +6474,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>giga</name>
-         <description>SI unit multiple representing 10^9</description>
+         <description>SI unit multiple representing 10^9.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6424,7 +6485,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>G</name>
-         <description>SI unit multiple representing 10^9</description>
+         <description>SI unit multiple representing 10^9.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6435,7 +6496,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>tera</name>
-         <description>SI unit multiple representing 10^12</description>
+         <description>SI unit multiple representing 10^12.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6446,7 +6507,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>T</name>
-         <description>SI unit multiple representing 10^12</description>
+         <description>SI unit multiple representing 10^12.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6457,7 +6518,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>peta</name>
-         <description>SI unit multiple representing 10^15</description>
+         <description>SI unit multiple representing 10^15.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6468,7 +6529,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>P</name>
-         <description>SI unit multiple representing 10^15</description>
+         <description>SI unit multiple representing 10^15.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6479,7 +6540,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>exa</name>
-         <description>SI unit multiple representing 10^18</description>
+         <description>SI unit multiple representing 10^18.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6490,7 +6551,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>E</name>
-         <description>SI unit multiple representing 10^18</description>
+         <description>SI unit multiple representing 10^18.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6501,7 +6562,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>zetta</name>
-         <description>SI unit multiple representing 10^21</description>
+         <description>SI unit multiple representing 10^21.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6512,7 +6573,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>Z</name>
-         <description>SI unit multiple representing 10^21</description>
+         <description>SI unit multiple representing 10^21.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6523,7 +6584,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>yotta</name>
-         <description>SI unit multiple representing 10^24</description>
+         <description>SI unit multiple representing 10^24.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6534,7 +6595,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>Y</name>
-         <description>SI unit multiple representing 10^24</description>
+         <description>SI unit multiple representing 10^24.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6545,7 +6606,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>deci</name>
-         <description>SI unit submultiple representing 10^-1</description>
+         <description>SI unit submultiple representing 10^-1.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6556,7 +6617,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>d</name>
-         <description>SI unit submultiple representing 10^-1</description>
+         <description>SI unit submultiple representing 10^-1.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6567,7 +6628,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>centi</name>
-         <description>SI unit submultiple representing 10^-2</description>
+         <description>SI unit submultiple representing 10^-2.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6578,7 +6639,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>c</name>
-         <description>SI unit submultiple representing 10^-2</description>
+         <description>SI unit submultiple representing 10^-2.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6589,7 +6650,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>milli</name>
-         <description>SI unit submultiple representing 10^-3</description>
+         <description>SI unit submultiple representing 10^-3.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6600,7 +6661,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>m</name>
-         <description>SI unit submultiple representing 10^-3</description>
+         <description>SI unit submultiple representing 10^-3.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6611,7 +6672,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>micro</name>
-         <description>SI unit submultiple representing 10^-6</description>
+         <description>SI unit submultiple representing 10^-6.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6622,7 +6683,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>u</name>
-         <description>SI unit submultiple representing 10^-6</description>
+         <description>SI unit submultiple representing 10^-6.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6633,7 +6694,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>nano</name>
-         <description>SI unit submultiple representing 10^-9</description>
+         <description>SI unit submultiple representing 10^-9.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6644,7 +6705,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>n</name>
-         <description>SI unit submultiple representing 10^-9</description>
+         <description>SI unit submultiple representing 10^-9.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6655,7 +6716,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>pico</name>
-         <description>SI unit submultiple representing 10^-12</description>
+         <description>SI unit submultiple representing 10^-12.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6666,7 +6727,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>p</name>
-         <description>SI unit submultiple representing 10^-12</description>
+         <description>SI unit submultiple representing 10^-12.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6677,7 +6738,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>femto</name>
-         <description>SI unit submultiple representing 10^-15</description>
+         <description>SI unit submultiple representing 10^-15.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6688,7 +6749,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>f</name>
-         <description>SI unit submultiple representing 10^-15</description>
+         <description>SI unit submultiple representing 10^-15.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6699,7 +6760,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>atto</name>
-         <description>SI unit submultiple representing 10^-18</description>
+         <description>SI unit submultiple representing 10^-18.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6710,7 +6771,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>a</name>
-         <description>SI unit submultiple representing 10^-18</description>
+         <description>SI unit submultiple representing 10^-18.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6721,7 +6782,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>zepto</name>
-         <description>SI unit submultiple representing 10^-21</description>
+         <description>SI unit submultiple representing 10^-21.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6732,7 +6793,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>z</name>
-         <description>SI unit submultiple representing 10^-21</description>
+         <description>SI unit submultiple representing 10^-21.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>
@@ -6743,7 +6804,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>yocto</name>
-         <description>SI unit submultiple representing 10^-24</description>
+         <description>SI unit submultiple representing 10^-24.</description>
          <attribute>
             <name>SIUnitModifier</name>
          </attribute>
@@ -6754,7 +6815,7 @@
       </unitModifierDefinition>
       <unitModifierDefinition>
          <name>y</name>
-         <description>SI unit submultiple representing 10^-24</description>
+         <description>SI unit submultiple representing 10^-24.</description>
          <attribute>
             <name>SIUnitSymbolModifier</name>
          </attribute>

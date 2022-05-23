@@ -1,5 +1,5 @@
 # Hierarchical Event Descriptors (HED)
-### HED-3G (HED schema version 8.0.0) has been officially released
+### HED schema version 8.1.0 was released 5/23/2022.
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
 want to annotate your data, please visit the [**HED organization**](https://www.hedtags.org) website. The full HED specification is available at the
