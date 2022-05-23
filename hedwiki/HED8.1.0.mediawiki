@@ -1,7 +1,7 @@
 HED version="8.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0.xsd"
 
 '''Prologue'''
-This schema is the first official release that includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
+This schema includes an xsd and requires unit class, unit modifier, value class, schema attribute and property sections.
 
 !# start schema 
 
@@ -392,7 +392,7 @@ This schema is the first official release that includes an xsd and requires unit
 *** Vocalized-sound <nowiki>[Musical sound produced by vocal cords in a biological agent.]</nowiki>
 ** Named-animal-sound <nowiki>[A sound recognizable as being associated with particular animals.]</nowiki>
 *** Barking <nowiki>[Sharp explosive cries like sounds made by certain animals, especially a dog, fox, or seal.]</nowiki>
-*** Bleating <nowiki>[Wavering cries like sounds made by a sheep, goat, or calf. ]</nowiki>
+*** Bleating <nowiki>[Wavering cries like sounds made by a sheep, goat, or calf.]</nowiki>
 *** Crowing <nowiki>[Loud shrill sounds characteristic of roosters.]</nowiki>
 *** Chirping <nowiki>[Short, sharp, high-pitched noises like sounds made by small birds or an insects.]</nowiki>
 *** Growling <nowiki>[Low guttural sounds like those that made in the throat by a hostile dog or other animal.]</nowiki>
@@ -465,7 +465,7 @@ This schema is the first official release that includes an xsd and requires unit
 **** On-treadmill <nowiki>[Ambulation on an exercise apparatus with an endless moving belt to support moving in place.]</nowiki>
 **** Prone <nowiki>[Positioned in a recumbent body position whereby the person lies on its stomach and faces downward.]</nowiki>
 **** Sitting <nowiki>[In a seated position.]</nowiki>
-**** Standing <nowiki>[Assuming or maintaining an erect upright position. ]</nowiki>
+**** Standing <nowiki>[Assuming or maintaining an erect upright position.]</nowiki>
 **** Seated-with-chin-rest <nowiki>[Using a device that supports the chin and head.]</nowiki>
 ** Agent-task-role <nowiki>[The function or part that is ascribed to an agent in performing the task.]</nowiki>
 *** Experiment-actor <nowiki>[An agent who plays a predetermined role to create the experiment scenario.]</nowiki>
@@ -781,7 +781,7 @@ This schema is the first official release that includes an xsd and requires unit
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ***** Sound-envelope-decay <nowiki>[The time taken for the subsequent run down from the attack level to the designated sustain level.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
-***** Sound-envelope-release <nowiki>[The time taken for the level to decay from the sustain level to zero after the key is released]</nowiki>
+***** Sound-envelope-release <nowiki>[The time taken for the level to decay from the sustain level to zero after the key is released.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ***** Sound-envelope-sustain <nowiki>[The time taken for the main sequence of the sound duration, until the key is released.]</nowiki>
 ****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
@@ -807,178 +807,178 @@ This schema is the first official release that includes an xsd and requires unit
 *** Vestibular-attribute <nowiki>[Pertaining to the sense of balance or body position.]</nowiki>
 *** Visual-attribute <nowiki>[Pertaining to the sense of sight.]</nowiki>
 **** Color <nowiki>[The appearance of objects (or light sources) described in terms of perception of their hue and lightness (or brightness) and saturation.]</nowiki>
-***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp]</nowiki> 
-****** Blue-color <nowiki>[CSS color group]</nowiki>
-******* CadetBlue <nowiki>[CSS-color 0x5F9EA0]</nowiki>
-******* SteelBlue <nowiki>[CSS-color 0x4682B4]</nowiki>
-******* LightSteelBlue <nowiki>[CSS-color 0xB0C4DE]</nowiki>
-******* LightBlue <nowiki>[CSS-color 0xADD8E6]</nowiki>
-******* PowderBlue <nowiki>[CSS-color 0xB0E0E6]</nowiki>
-******* LightSkyBlue <nowiki>[CSS-color 0x87CEFA]</nowiki>
-******* SkyBlue <nowiki>[CSS-color 0x87CEEB]</nowiki>
-******* CornflowerBlue <nowiki>[CSS-color 0x6495ED]</nowiki>
-******* DeepSkyBlue <nowiki>[CSS-color 0x00BFFF]</nowiki>
-******* DodgerBlue <nowiki>[CSS-color 0x1E90FF]</nowiki>
-******* RoyalBlue <nowiki>[CSS-color 0x4169E1]</nowiki>
-******* Blue <nowiki>[CSS-color 0x0000FF]</nowiki>
-******* MediumBlue <nowiki>[CSS-color 0x0000CD]</nowiki>
-******* DarkBlue <nowiki>[CSS-color 0x00008B]</nowiki>
-******* Navy <nowiki>[CSS-color 0x000080]</nowiki>
-******* MidnightBlue <nowiki>[CSS-color 0x191970]</nowiki>
-****** Brown-color <nowiki>[CSS color group]</nowiki>
-******* Cornsilk <nowiki>[CSS-color 0xFFF8DC]</nowiki>
-******* BlanchedAlmond <nowiki>[CSS-color 0xFFEBCD]</nowiki>
-******* Bisque <nowiki>[CSS-color 0xFFE4C4]</nowiki>
-******* NavajoWhite <nowiki>[CSS-color 0xFFDEAD]</nowiki>
-******* Wheat <nowiki>[CSS-color 0xF5DEB3]</nowiki>
-******* BurlyWood <nowiki>[CSS-color 0xDEB887]</nowiki>
-******* Tan <nowiki>[CSS-color 0xD2B48C]</nowiki>
-******* RosyBrown <nowiki>[CSS-color 0xBC8F8F]</nowiki>
-******* SandyBrown <nowiki>[CSS-color 0xF4A460]</nowiki>
-******* GoldenRod <nowiki>[CSS-color 0xDAA520]</nowiki>
-******* DarkGoldenRod <nowiki>[CSS-color 0xB8860B]</nowiki>
-******* Peru <nowiki>[CSS-color 0xCD853F]</nowiki>
-******* Chocolate <nowiki>[CSS-color 0xD2691E]</nowiki>
-******* Olive <nowiki>[CSS-color 0x808000]</nowiki>
-******* SaddleBrown <nowiki>[CSS-color 0x8B4513]</nowiki>
-******* Sienna <nowiki>[CSS-color 0xA0522D]</nowiki>
-******* Brown <nowiki>[CSS-color 0xA52A2A]</nowiki>
-******* Maroon <nowiki>[CSS-color 0x800000]</nowiki>
-****** Cyan-color <nowiki>[CSS color group]</nowiki>
-******* Aqua <nowiki>[CSS-color 0x00FFFF]</nowiki>
-******* Cyan <nowiki>[CSS-color 0x00FFFF]</nowiki>
-******* LightCyan <nowiki>[CSS-color 0xE0FFFF]</nowiki>
-******* PaleTurquoise <nowiki>[CSS-color 0xAFEEEE]</nowiki>
-******* Aquamarine <nowiki>[CSS-color 0x7FFFD4]</nowiki>
-******* Turquoise <nowiki>[CSS-color 0x40E0D0]</nowiki>
-******* MediumTurquoise <nowiki>[CSS-color 0x48D1CC]</nowiki>
-******* DarkTurquoise <nowiki>[CSS-color 0x00CED1]</nowiki>
-****** Green-color <nowiki>[CSS color group]</nowiki>
-******* GreenYellow <nowiki>[CSS-color 0xADFF2F]</nowiki>
-******* Chartreuse <nowiki>[CSS-color 0x7FFF00]</nowiki>
-******* LawnGreen <nowiki>[CSS-color 0x7CFC00]</nowiki>
-******* Lime <nowiki>[CSS-color 0x00FF00]</nowiki>
-******* LimeGreen <nowiki>[CSS-color 0x32CD32]</nowiki>
-******* PaleGreen <nowiki>[CSS-color 0x98FB98]</nowiki>
-******* LightGreen <nowiki>[CSS-color 0x90EE90]</nowiki>
-******* MediumSpringGreen <nowiki>[CSS-color 0x00FA9A]</nowiki>
-******* SpringGreen <nowiki>[CSS-color 0x00FF7F]</nowiki>
-******* MediumSeaGreen <nowiki>[CSS-color 0x3CB371]</nowiki>
-******* SeaGreen <nowiki>[CSS-color 0x2E8B57]</nowiki>
-******* ForestGreen <nowiki>[CSS-color 0x228B22]</nowiki>
-******* Green <nowiki>[CSS-color 0x008000]</nowiki>
-******* DarkGreen <nowiki>[CSS-color 0x006400]</nowiki>
-******* YellowGreen <nowiki>[CSS-color 0x9ACD32]</nowiki>
-******* OliveDrab <nowiki>[CSS-color 0x6B8E23]</nowiki>
-******* DarkOliveGreen <nowiki>[CSS-color 0x556B2F]</nowiki>
-******* MediumAquaMarine <nowiki>[CSS-color 0x66CDAA]</nowiki>
-******* DarkSeaGreen <nowiki>[CSS-color 0x8FBC8F]</nowiki>
-******* LightSeaGreen <nowiki>[CSS-color 0x20B2AA]</nowiki>
-******* DarkCyan <nowiki>[CSS-color 0x008B8B]</nowiki>
-******* Teal <nowiki>[CSS-color 0x008080]</nowiki>
-****** Gray-color <nowiki>[CSS color group]</nowiki>
-******* Gainsboro <nowiki>[CSS-color 0xDCDCDC]</nowiki>
-******* LightGray <nowiki>[CSS-color 0xD3D3D3]</nowiki>
-******* Silver <nowiki>[CSS-color 0xC0C0C0]</nowiki>
-******* DarkGray <nowiki>[CSS-color 0xA9A9A9]</nowiki>
-******* DimGray <nowiki>[CSS-color 0x696969]</nowiki>
-******* Gray <nowiki>[CSS-color 0x808080]</nowiki>
-******* LightSlateGray <nowiki>[CSS-color 0x778899]</nowiki>
-******* SlateGray <nowiki>[CSS-color 0x708090]</nowiki>
-******* DarkSlateGray <nowiki>[CSS-color 0x2F4F4F]</nowiki>
-******* Black <nowiki>[CSS-color 0x000000]</nowiki>
-****** Orange-color <nowiki>[CSS color group]</nowiki>
-******* Orange <nowiki>[CSS-color 0xFFA500]</nowiki>
-******* DarkOrange <nowiki>[CSS-color 0xFF8C00]</nowiki>
-******* Coral <nowiki>[CSS-color 0xFF7F50]</nowiki>
-******* Tomato <nowiki>[CSS-color 0xFF6347]</nowiki>
-******* OrangeRed <nowiki>[CSS-color 0xFF4500]</nowiki>
-****** Pink-color <nowiki>[CSS color group]</nowiki>
-******* Pink <nowiki>[CSS-color 0xFFC0CB]</nowiki>
-******* LightPink <nowiki>[CSS-color 0xFFB6C1]</nowiki>
-******* HotPink <nowiki>[CSS-color 0xFF69B4]</nowiki>
-******* DeepPink <nowiki>[CSS-color 0xFF1493]</nowiki>
-******* PaleVioletRed <nowiki>[CSS-color 0xDB7093]</nowiki>
-******* MediumVioletRed <nowiki>[CSS-color 0xC71585]</nowiki>
-****** Purple-color <nowiki>[CSS color group]</nowiki>
-******* Lavender <nowiki>[CSS-color 0xE6E6FA]</nowiki>
-******* Thistle <nowiki>[CSS-color 0xD8BFD8]</nowiki>
-******* Plum <nowiki>[CSS-color 0xDDA0DD]</nowiki>
-******* Orchid <nowiki>[CSS-color 0xDA70D6]</nowiki>
-******* Violet <nowiki>[CSS-color 0xEE82EE]</nowiki>
-******* Fuchsia <nowiki>[CSS-color 0xFF00FF]</nowiki>
-******* Magenta <nowiki>[CSS-color 0xFF00FF]</nowiki>
-******* MediumOrchid <nowiki>[CSS-color 0xBA55D3]</nowiki>
-******* DarkOrchid <nowiki>[CSS-color 0x9932CC]</nowiki>
-******* DarkViolet <nowiki>[CSS-color 0x9400D3]</nowiki>
-******* BlueViolet <nowiki>[CSS-color 0x8A2BE2]</nowiki>
-******* DarkMagenta <nowiki>[CSS-color 0x8B008B]</nowiki>
-******* Purple <nowiki>[CSS-color 0x800080]</nowiki>
-******* MediumPurple <nowiki>[CSS-color 0x9370DB]</nowiki>
-******* MediumSlateBlue <nowiki>[CSS-color 0x7B68EE]</nowiki>
-******* SlateBlue <nowiki>[CSS-color 0x6A5ACD]</nowiki>
-******* DarkSlateBlue <nowiki>[CSS-color 0x483D8B]</nowiki>
-******* RebeccaPurple <nowiki>[CSS-color 0x663399]</nowiki>
-******* Indigo <nowiki>[CSS-color 0x4B0082]</nowiki>
-****** Red-color <nowiki>[CSS color group]</nowiki>
-******* LightSalmon <nowiki>[CSS-color 0xFFA07A]</nowiki>
-******* Salmon <nowiki>[CSS-color 0xFA8072]</nowiki>
-******* DarkSalmon <nowiki>[CSS-color 0xE9967A]</nowiki>
-******* LightCoral <nowiki>[CSS-color 0xF08080]</nowiki>
-******* IndianRed <nowiki>[CSS-color 0xCD5C5C]</nowiki>
-******* Crimson <nowiki>[CSS-color 0xDC143C]</nowiki>
-******* Red <nowiki>[CSS-color 0xFF0000]</nowiki>
-******* FireBrick <nowiki>[CSS-color 0xB22222]</nowiki>
-******* DarkRed <nowiki>[CSS-color 0x8B0000]</nowiki>
-****** Yellow-color <nowiki>[CSS color group]</nowiki>
-******* Gold <nowiki>[CSS-color 0xFFD700]</nowiki>
-******* Yellow <nowiki>[CSS-color 0xFFFF00]</nowiki>
-******* LightYellow <nowiki>[CSS-color 0xFFFFE0]</nowiki>
-******* LemonChiffon <nowiki>[CSS-color 0xFFFACD]</nowiki>
-******* LightGoldenRodYellow <nowiki>[CSS-color 0xFAFAD2]</nowiki>
-******* PapayaWhip <nowiki>[CSS-color 0xFFEFD5]</nowiki>
-******* Moccasin <nowiki>[CSS-color 0xFFE4B5]</nowiki>
-******* PeachPuff <nowiki>[CSS-color 0xFFDAB9]</nowiki>
-******* PaleGoldenRod <nowiki>[CSS-color 0xEEE8AA]</nowiki>
-******* Khaki <nowiki>[CSS-color 0xF0E68C]</nowiki>
-******* DarkKhaki <nowiki>[CSS-color 0xBDB76B]</nowiki>
-****** White-color <nowiki>[CSS color group]</nowiki>
-******* White <nowiki>[CSS-color 0xFFFFFF]</nowiki>
-******* Snow <nowiki>[CSS-color 0xFFFAFA]</nowiki>
-******* HoneyDew <nowiki>[CSS-color 0xF0FFF0]</nowiki>
-******* MintCream <nowiki>[CSS-color 0xF5FFFA]</nowiki>
-******* Azure <nowiki>[CSS-color 0xF0FFFF]</nowiki>
-******* AliceBlue <nowiki>[CSS-color 0xF0F8FF]</nowiki>
-******* GhostWhite <nowiki>[CSS-color 0xF8F8FF]</nowiki>
-******* WhiteSmoke <nowiki>[CSS-color 0xF5F5F5]</nowiki>
-******* SeaShell <nowiki>[CSS-color 0xFFF5EE]</nowiki>
-******* Beige <nowiki>[CSS-color 0xF5F5DC]</nowiki>
-******* OldLace <nowiki>[CSS-color 0xFDF5E6]</nowiki>
-******* FloralWhite <nowiki>[CSS-color 0xFFFAF0]</nowiki>
-******* Ivory <nowiki>[CSS-color 0xFFFFF0]</nowiki>
-******* AntiqueWhite <nowiki>[CSS-color 0xFAEBD7]</nowiki>
-******* Linen <nowiki>[CSS-color 0xFAF0E6]</nowiki>
-******* LavenderBlush <nowiki>[CSS-color 0xFFF0F5]</nowiki>
-******* MistyRose <nowiki>[CSS-color 0xFFE4E1]</nowiki>
+***** CSS-color <nowiki>[One of 140 colors supported by all browsers. For more details such as the color RGB or HEX values,  check:  https://www.w3schools.com/colors/colors_groups.asp.]</nowiki>
+****** Blue-color <nowiki>[CSS color group.]</nowiki>
+******* CadetBlue <nowiki>[CSS-color 0x5F9EA0.]</nowiki>
+******* SteelBlue <nowiki>[CSS-color 0x4682B4.]</nowiki>
+******* LightSteelBlue <nowiki>[CSS-color 0xB0C4DE.]</nowiki>
+******* LightBlue <nowiki>[CSS-color 0xADD8E6.]</nowiki>
+******* PowderBlue <nowiki>[CSS-color 0xB0E0E6.]</nowiki>
+******* LightSkyBlue <nowiki>[CSS-color 0x87CEFA.]</nowiki>
+******* SkyBlue <nowiki>[CSS-color 0x87CEEB.]</nowiki>
+******* CornflowerBlue <nowiki>[CSS-color 0x6495ED.]</nowiki>
+******* DeepSkyBlue <nowiki>[CSS-color 0x00BFFF.]</nowiki>
+******* DodgerBlue <nowiki>[CSS-color 0x1E90FF.]</nowiki>
+******* RoyalBlue <nowiki>[CSS-color 0x4169E1.]</nowiki>
+******* Blue <nowiki>[CSS-color 0x0000FF.]</nowiki>
+******* MediumBlue <nowiki>[CSS-color 0x0000CD.]</nowiki>
+******* DarkBlue <nowiki>[CSS-color 0x00008B.]</nowiki>
+******* Navy <nowiki>[CSS-color 0x000080.]</nowiki>
+******* MidnightBlue <nowiki>[CSS-color 0x191970.]</nowiki>
+****** Brown-color <nowiki>[CSS color group.]</nowiki>
+******* Cornsilk <nowiki>[CSS-color 0xFFF8DC.]</nowiki>
+******* BlanchedAlmond <nowiki>[CSS-color 0xFFEBCD.]</nowiki>
+******* Bisque <nowiki>[CSS-color 0xFFE4C4.]</nowiki>
+******* NavajoWhite <nowiki>[CSS-color 0xFFDEAD.]</nowiki>
+******* Wheat <nowiki>[CSS-color 0xF5DEB3.]</nowiki>
+******* BurlyWood <nowiki>[CSS-color 0xDEB887.]</nowiki>
+******* Tan <nowiki>[CSS-color 0xD2B48C.]</nowiki>
+******* RosyBrown <nowiki>[CSS-color 0xBC8F8F.]</nowiki>
+******* SandyBrown <nowiki>[CSS-color 0xF4A460.]</nowiki>
+******* GoldenRod <nowiki>[CSS-color 0xDAA520.]</nowiki>
+******* DarkGoldenRod <nowiki>[CSS-color 0xB8860B.]</nowiki>
+******* Peru <nowiki>[CSS-color 0xCD853F.]</nowiki>
+******* Chocolate <nowiki>[CSS-color 0xD2691E.]</nowiki>
+******* Olive <nowiki>[CSS-color 0x808000.]</nowiki>
+******* SaddleBrown <nowiki>[CSS-color 0x8B4513.]</nowiki>
+******* Sienna <nowiki>[CSS-color 0xA0522D.]</nowiki>
+******* Brown <nowiki>[CSS-color 0xA52A2A.]</nowiki>
+******* Maroon <nowiki>[CSS-color 0x800000.]</nowiki>
+****** Cyan-color <nowiki>[CSS color group.]</nowiki>
+******* Aqua <nowiki>[CSS-color 0x00FFFF.]</nowiki>
+******* Cyan <nowiki>[CSS-color 0x00FFFF.]</nowiki>
+******* LightCyan <nowiki>[CSS-color 0xE0FFFF.]</nowiki>
+******* PaleTurquoise <nowiki>[CSS-color 0xAFEEEE.]</nowiki>
+******* Aquamarine <nowiki>[CSS-color 0x7FFFD4.]</nowiki>
+******* Turquoise <nowiki>[CSS-color 0x40E0D0.]</nowiki>
+******* MediumTurquoise <nowiki>[CSS-color 0x48D1CC.]</nowiki>
+******* DarkTurquoise <nowiki>[CSS-color 0x00CED1.]</nowiki>
+****** Green-color <nowiki>[CSS color group.]</nowiki>
+******* GreenYellow <nowiki>[CSS-color 0xADFF2F.]</nowiki>
+******* Chartreuse <nowiki>[CSS-color 0x7FFF00.]</nowiki>
+******* LawnGreen <nowiki>[CSS-color 0x7CFC00.]</nowiki>
+******* Lime <nowiki>[CSS-color 0x00FF00.]</nowiki>
+******* LimeGreen <nowiki>[CSS-color 0x32CD32.]</nowiki>
+******* PaleGreen <nowiki>[CSS-color 0x98FB98.]</nowiki>
+******* LightGreen <nowiki>[CSS-color 0x90EE90.]</nowiki>
+******* MediumSpringGreen <nowiki>[CSS-color 0x00FA9A.]</nowiki>
+******* SpringGreen <nowiki>[CSS-color 0x00FF7F.]</nowiki>
+******* MediumSeaGreen <nowiki>[CSS-color 0x3CB371.]</nowiki>
+******* SeaGreen <nowiki>[CSS-color 0x2E8B57.]</nowiki>
+******* ForestGreen <nowiki>[CSS-color 0x228B22.]</nowiki>
+******* Green <nowiki>[CSS-color 0x008000.]</nowiki>
+******* DarkGreen <nowiki>[CSS-color 0x006400.]</nowiki>
+******* YellowGreen <nowiki>[CSS-color 0x9ACD32.]</nowiki>
+******* OliveDrab <nowiki>[CSS-color 0x6B8E23.]</nowiki>
+******* DarkOliveGreen <nowiki>[CSS-color 0x556B2F.]</nowiki>
+******* MediumAquaMarine <nowiki>[CSS-color 0x66CDAA.]</nowiki>
+******* DarkSeaGreen <nowiki>[CSS-color 0x8FBC8F.]</nowiki>
+******* LightSeaGreen <nowiki>[CSS-color 0x20B2AA.]</nowiki>
+******* DarkCyan <nowiki>[CSS-color 0x008B8B.]</nowiki>
+******* Teal <nowiki>[CSS-color 0x008080.]</nowiki>
+****** Gray-color <nowiki>[CSS color group.]</nowiki>
+******* Gainsboro <nowiki>[CSS-color 0xDCDCDC.]</nowiki>
+******* LightGray <nowiki>[CSS-color 0xD3D3D3.]</nowiki>
+******* Silver <nowiki>[CSS-color 0xC0C0C0.]</nowiki>
+******* DarkGray <nowiki>[CSS-color 0xA9A9A9.]</nowiki>
+******* DimGray <nowiki>[CSS-color 0x696969.]</nowiki>
+******* Gray <nowiki>[CSS-color 0x808080.]</nowiki>
+******* LightSlateGray <nowiki>[CSS-color 0x778899.]</nowiki>
+******* SlateGray <nowiki>[CSS-color 0x708090.]</nowiki>
+******* DarkSlateGray <nowiki>[CSS-color 0x2F4F4F.]</nowiki>
+******* Black <nowiki>[CSS-color 0x000000.]</nowiki>
+****** Orange-color <nowiki>[CSS color group.]</nowiki>
+******* Orange <nowiki>[CSS-color 0xFFA500.]</nowiki>
+******* DarkOrange <nowiki>[CSS-color 0xFF8C00.]</nowiki>
+******* Coral <nowiki>[CSS-color 0xFF7F50.]</nowiki>
+******* Tomato <nowiki>[CSS-color 0xFF6347.]</nowiki>
+******* OrangeRed <nowiki>[CSS-color 0xFF4500.]</nowiki>
+****** Pink-color <nowiki>[CSS color group.]</nowiki>
+******* Pink <nowiki>[CSS-color 0xFFC0CB.]</nowiki>
+******* LightPink <nowiki>[CSS-color 0xFFB6C1.]</nowiki>
+******* HotPink <nowiki>[CSS-color 0xFF69B4.]</nowiki>
+******* DeepPink <nowiki>[CSS-color 0xFF1493.]</nowiki>
+******* PaleVioletRed <nowiki>[CSS-color 0xDB7093.]</nowiki>
+******* MediumVioletRed <nowiki>[CSS-color 0xC71585.]</nowiki>
+****** Purple-color <nowiki>[CSS color group.]</nowiki>
+******* Lavender <nowiki>[CSS-color 0xE6E6FA.]</nowiki>
+******* Thistle <nowiki>[CSS-color 0xD8BFD8.]</nowiki>
+******* Plum <nowiki>[CSS-color 0xDDA0DD.]</nowiki>
+******* Orchid <nowiki>[CSS-color 0xDA70D6.]</nowiki>
+******* Violet <nowiki>[CSS-color 0xEE82EE.]</nowiki>
+******* Fuchsia <nowiki>[CSS-color 0xFF00FF.]</nowiki>
+******* Magenta <nowiki>[CSS-color 0xFF00FF.]</nowiki>
+******* MediumOrchid <nowiki>[CSS-color 0xBA55D3.]</nowiki>
+******* DarkOrchid <nowiki>[CSS-color 0x9932CC.]</nowiki>
+******* DarkViolet <nowiki>[CSS-color 0x9400D3.]</nowiki>
+******* BlueViolet <nowiki>[CSS-color 0x8A2BE2.]</nowiki>
+******* DarkMagenta <nowiki>[CSS-color 0x8B008B.]</nowiki>
+******* Purple <nowiki>[CSS-color 0x800080.]</nowiki>
+******* MediumPurple <nowiki>[CSS-color 0x9370DB.]</nowiki>
+******* MediumSlateBlue <nowiki>[CSS-color 0x7B68EE.]</nowiki>
+******* SlateBlue <nowiki>[CSS-color 0x6A5ACD.]</nowiki>
+******* DarkSlateBlue <nowiki>[CSS-color 0x483D8B.]</nowiki>
+******* RebeccaPurple <nowiki>[CSS-color 0x663399.]</nowiki>
+******* Indigo <nowiki>[CSS-color 0x4B0082.]</nowiki>
+****** Red-color <nowiki>[CSS color group.]</nowiki>
+******* LightSalmon <nowiki>[CSS-color 0xFFA07A.]</nowiki>
+******* Salmon <nowiki>[CSS-color 0xFA8072.]</nowiki>
+******* DarkSalmon <nowiki>[CSS-color 0xE9967A.]</nowiki>
+******* LightCoral <nowiki>[CSS-color 0xF08080.]</nowiki>
+******* IndianRed <nowiki>[CSS-color 0xCD5C5C.]</nowiki>
+******* Crimson <nowiki>[CSS-color 0xDC143C.]</nowiki>
+******* Red <nowiki>[CSS-color 0xFF0000.]</nowiki>
+******* FireBrick <nowiki>[CSS-color 0xB22222.]</nowiki>
+******* DarkRed <nowiki>[CSS-color 0x8B0000.]</nowiki>
+****** Yellow-color <nowiki>[CSS color group.]</nowiki>
+******* Gold <nowiki>[CSS-color 0xFFD700.]</nowiki>
+******* Yellow <nowiki>[CSS-color 0xFFFF00.]</nowiki>
+******* LightYellow <nowiki>[CSS-color 0xFFFFE0.]</nowiki>
+******* LemonChiffon <nowiki>[CSS-color 0xFFFACD.]</nowiki>
+******* LightGoldenRodYellow <nowiki>[CSS-color 0xFAFAD2.]</nowiki>
+******* PapayaWhip <nowiki>[CSS-color 0xFFEFD5.]</nowiki>
+******* Moccasin <nowiki>[CSS-color 0xFFE4B5.]</nowiki>
+******* PeachPuff <nowiki>[CSS-color 0xFFDAB9.]</nowiki>
+******* PaleGoldenRod <nowiki>[CSS-color 0xEEE8AA.]</nowiki>
+******* Khaki <nowiki>[CSS-color 0xF0E68C.]</nowiki>
+******* DarkKhaki <nowiki>[CSS-color 0xBDB76B.]</nowiki>
+****** White-color <nowiki>[CSS color group.]</nowiki>
+******* White <nowiki>[CSS-color 0xFFFFFF.]</nowiki>
+******* Snow <nowiki>[CSS-color 0xFFFAFA.]</nowiki>
+******* HoneyDew <nowiki>[CSS-color 0xF0FFF0.]</nowiki>
+******* MintCream <nowiki>[CSS-color 0xF5FFFA.]</nowiki>
+******* Azure <nowiki>[CSS-color 0xF0FFFF.]</nowiki>
+******* AliceBlue <nowiki>[CSS-color 0xF0F8FF.]</nowiki>
+******* GhostWhite <nowiki>[CSS-color 0xF8F8FF.]</nowiki>
+******* WhiteSmoke <nowiki>[CSS-color 0xF5F5F5.]</nowiki>
+******* SeaShell <nowiki>[CSS-color 0xFFF5EE.]</nowiki>
+******* Beige <nowiki>[CSS-color 0xF5F5DC.]</nowiki>
+******* OldLace <nowiki>[CSS-color 0xFDF5E6.]</nowiki>
+******* FloralWhite <nowiki>[CSS-color 0xFFFAF0.]</nowiki>
+******* Ivory <nowiki>[CSS-color 0xFFFFF0.]</nowiki>
+******* AntiqueWhite <nowiki>[CSS-color 0xFAEBD7.]</nowiki>
+******* Linen <nowiki>[CSS-color 0xFAF0E6.]</nowiki>
+******* LavenderBlush <nowiki>[CSS-color 0xFFF0F5.]</nowiki>
+******* MistyRose <nowiki>[CSS-color 0xFFE4E1.]</nowiki>
 ***** Color-shade <nowiki>[A slight degree of difference between colors, especially with regard to how light or dark it is or as distinguished from one nearly like it.]</nowiki>
 ****** Dark-shade <nowiki>[A color tone not reflecting much light.]</nowiki>
 ****** Light-shade <nowiki>[A color tone reflecting more light.]</nowiki>
 ***** Grayscale <nowiki>[Using a color map composed of shades of gray, varying from black at the weakest intensity to white at the strongest.]</nowiki> 
-****** <nowiki># {takesValue, valueClass=numericClass} [White intensity between 0 and 1]</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass} [White intensity between 0 and 1.]</nowiki>
 ***** HSV-color <nowiki>[A color representation that models how colors appear under light.]</nowiki>
 ****** Hue <nowiki>[Attribute of a visual sensation according to which an area appears to be similar to one of the perceived colors.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [Angular value between 0 and 360]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass} [Angular value between 0 and 360.]</nowiki>
 ****** Saturation <nowiki>[Colorfulness of a stimulus relative to its own brightness.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1.]</nowiki>
 ****** HSV-value <nowiki>[An attribute of a visual sensation according to which an area appears to emit more or less light.]</nowiki>
 ******* <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
 ***** RGB-color <nowiki>[A color from the RGB schema.]</nowiki>
 ****** RGB-red <nowiki>[The red component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [R value of RGB between 0 and 1]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass} [R value of RGB between 0 and 1.]</nowiki>
 ****** RGB-blue <nowiki>[The blue component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1]</nowiki> 
+******* <nowiki># {takesValue, valueClass=numericClass} [B value of RGB between 0 and 1.]</nowiki>
 ****** RGB-green <nowiki>[The green component.]</nowiki>
-******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1]</nowiki>
+******* <nowiki># {takesValue, valueClass=numericClass} [G value of RGB between 0 and 1.]</nowiki>
 **** Luminance <nowiki>[A quality that exists by virtue of the luminous intensity per unit area projected in a given direction.]</nowiki>
 **** Opacity <nowiki>[A measure of impenetrability to light.]</nowiki>
 ** Sensory-presentation <nowiki>[The entity has a sensory manifestation.]</nowiki>
@@ -1155,6 +1155,9 @@ This schema is the first official release that includes an xsd and requires unit
 ** $ <nowiki>{unitPrefix, unitSymbol, conversionFactor=1.0}</nowiki>
 ** euro
 ** point
+* electricPotentialUnits <nowiki>{defaultUnits=uv}</nowiki>
+** v <nowiki>{SIUnit, unitSymbol, conversionFactor=0.000001}</nowiki>
+** Volt <nowiki>{SIUnit, conversionFactor=0.000001}</nowiki>
 * frequencyUnits <nowiki>{defaultUnits=Hz}</nowiki>
 ** hertz  <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** Hz <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
@@ -1164,6 +1167,9 @@ This schema is the first official release that includes an xsd and requires unit
 ** cd <nowiki>{SIUnit, unitSymbol}[Units used to express light intensity.]</nowiki>  
 * jerkUnits <nowiki>{defaultUnits=m-per-s^3}</nowiki> 
 ** m-per-s^3 <nowiki>{unitSymbol, conversionFactor=1.0}</nowiki>
+* magneticFieldUnits <nowiki>{defaultUnits=fT}[Units used to magnetic field intensity.]</nowiki>
+** tesla <nowiki>{SIUnit, conversionFactor=10^-15}</nowiki>
+** T <nowiki>{SIUnit, unitSymbol, conversionFactor=10^-15}</nowiki>
 * memorySizeUnits <nowiki>{defaultUnits=B}</nowiki> 
 ** byte <nowiki>{SIUnit, conversionFactor=1.0}</nowiki>
 ** B <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>
@@ -1196,46 +1202,46 @@ This schema is the first official release that includes an xsd and requires unit
 
 
 '''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
-* deca <nowiki>{SIUnitModifier, conversionFactor=10.0} [SI unit multiple representing 10^1]</nowiki>
-* da <nowiki>{SIUnitSymbolModifier, conversionFactor=10.0} [SI unit multiple representing 10^1]</nowiki>
-* hecto <nowiki>{SIUnitModifier, conversionFactor=100.0} [SI unit multiple representing 10^2]</nowiki>
-* h <nowiki>{SIUnitSymbolModifier, conversionFactor=100.0} [SI unit multiple representing 10^2]</nowiki>
-* kilo <nowiki>{SIUnitModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3]</nowiki>
-* k <nowiki>{SIUnitSymbolModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3]</nowiki>
-* mega <nowiki>{SIUnitModifier, conversionFactor=10^6} [SI unit multiple representing 10^6]</nowiki>
-* M <nowiki>{SIUnitSymbolModifier, conversionFactor=10^6} [SI unit multiple representing 10^6]</nowiki>
-* giga <nowiki>{SIUnitModifier, conversionFactor=10^9} [SI unit multiple representing 10^9]</nowiki>
-* G <nowiki>{SIUnitSymbolModifier, conversionFactor=10^9} [SI unit multiple representing 10^9]</nowiki>
-* tera <nowiki>{SIUnitModifier, conversionFactor=10^12} [SI unit multiple representing 10^12]</nowiki>
-* T <nowiki>{SIUnitSymbolModifier, conversionFactor=10^12} [SI unit multiple representing 10^12]</nowiki>
-* peta <nowiki>{SIUnitModifier, conversionFactor=10^15} [SI unit multiple representing 10^15]</nowiki>
-* P <nowiki>{SIUnitSymbolModifier, conversionFactor=10^15} [SI unit multiple representing 10^15]</nowiki>
-* exa <nowiki>{SIUnitModifier, conversionFactor=10^18} [SI unit multiple representing 10^18]</nowiki>
-* E <nowiki>{SIUnitSymbolModifier, conversionFactor=10^18} [SI unit multiple representing 10^18]</nowiki>
-* zetta <nowiki>{SIUnitModifier, conversionFactor=10^21} [SI unit multiple representing 10^21]</nowiki>
-* Z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^21} [SI unit multiple representing 10^21]</nowiki>
-* yotta <nowiki>{SIUnitModifier, conversionFactor=10^24} [SI unit multiple representing 10^24]</nowiki>
-* Y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^24} [SI unit multiple representing 10^24]</nowiki>
-* deci <nowiki>{SIUnitModifier, conversionFactor=0.1}[SI unit submultiple representing 10^-1]</nowiki>
-* d <nowiki>{SIUnitSymbolModifier, conversionFactor=0.1} [SI unit submultiple representing 10^-1]</nowiki>
-* centi <nowiki>{SIUnitModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2]</nowiki>
-* c <nowiki>{SIUnitSymbolModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2]</nowiki>
-* milli <nowiki>{SIUnitModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3]</nowiki>
-* m <nowiki>{SIUnitSymbolModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3]</nowiki>
-* micro <nowiki>{SIUnitModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6]</nowiki>
-* u <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6]</nowiki>
-* nano <nowiki>{SIUnitModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9]</nowiki>
-* n <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9]</nowiki>
-* pico <nowiki>{SIUnitModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
-* p <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12]</nowiki>
-* femto <nowiki>{SIUnitModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15]</nowiki>
-* f <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15]</nowiki>
-* atto <nowiki>{SIUnitModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
-* a <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18]</nowiki>
-* zepto <nowiki>{SIUnitModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21]</nowiki>
-* z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21]</nowiki>
-* yocto <nowiki>{SIUnitModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24]</nowiki>
-* y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24]</nowiki>
+* deca <nowiki>{SIUnitModifier, conversionFactor=10.0} [SI unit multiple representing 10^1.]</nowiki>
+* da <nowiki>{SIUnitSymbolModifier, conversionFactor=10.0} [SI unit multiple representing 10^1.]</nowiki>
+* hecto <nowiki>{SIUnitModifier, conversionFactor=100.0} [SI unit multiple representing 10^2.]</nowiki>
+* h <nowiki>{SIUnitSymbolModifier, conversionFactor=100.0} [SI unit multiple representing 10^2.]</nowiki>
+* kilo <nowiki>{SIUnitModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3.]</nowiki>
+* k <nowiki>{SIUnitSymbolModifier, conversionFactor=1000.0} [SI unit multiple representing 10^3.]</nowiki>
+* mega <nowiki>{SIUnitModifier, conversionFactor=10^6} [SI unit multiple representing 10^6.]</nowiki>
+* M <nowiki>{SIUnitSymbolModifier, conversionFactor=10^6} [SI unit multiple representing 10^6.]</nowiki>
+* giga <nowiki>{SIUnitModifier, conversionFactor=10^9} [SI unit multiple representing 10^9.]</nowiki>
+* G <nowiki>{SIUnitSymbolModifier, conversionFactor=10^9} [SI unit multiple representing 10^9.]</nowiki>
+* tera <nowiki>{SIUnitModifier, conversionFactor=10^12} [SI unit multiple representing 10^12.]</nowiki>
+* T <nowiki>{SIUnitSymbolModifier, conversionFactor=10^12} [SI unit multiple representing 10^12.]</nowiki>
+* peta <nowiki>{SIUnitModifier, conversionFactor=10^15} [SI unit multiple representing 10^15.]</nowiki>
+* P <nowiki>{SIUnitSymbolModifier, conversionFactor=10^15} [SI unit multiple representing 10^15.]</nowiki>
+* exa <nowiki>{SIUnitModifier, conversionFactor=10^18} [SI unit multiple representing 10^18.]</nowiki>
+* E <nowiki>{SIUnitSymbolModifier, conversionFactor=10^18} [SI unit multiple representing 10^18.]</nowiki>
+* zetta <nowiki>{SIUnitModifier, conversionFactor=10^21} [SI unit multiple representing 10^21.]</nowiki>
+* Z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^21} [SI unit multiple representing 10^21.]</nowiki>
+* yotta <nowiki>{SIUnitModifier, conversionFactor=10^24} [SI unit multiple representing 10^24.]</nowiki>
+* Y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^24} [SI unit multiple representing 10^24.]</nowiki>
+* deci <nowiki>{SIUnitModifier, conversionFactor=0.1}[SI unit submultiple representing 10^-1.]</nowiki>
+* d <nowiki>{SIUnitSymbolModifier, conversionFactor=0.1} [SI unit submultiple representing 10^-1.]</nowiki>
+* centi <nowiki>{SIUnitModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2.]</nowiki>
+* c <nowiki>{SIUnitSymbolModifier, conversionFactor=0.01} [SI unit submultiple representing 10^-2.]</nowiki>
+* milli <nowiki>{SIUnitModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3.]</nowiki>
+* m <nowiki>{SIUnitSymbolModifier, conversionFactor=0.001} [SI unit submultiple representing 10^-3.]</nowiki>
+* micro <nowiki>{SIUnitModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6.]</nowiki>
+* u <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-6} [SI unit submultiple representing 10^-6.]</nowiki>
+* nano <nowiki>{SIUnitModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9.]</nowiki>
+* n <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-9} [SI unit submultiple representing 10^-9.]</nowiki>
+* pico <nowiki>{SIUnitModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12.]</nowiki>
+* p <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-12} [SI unit submultiple representing 10^-12.]</nowiki>
+* femto <nowiki>{SIUnitModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15.]</nowiki>
+* f <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-15} [SI unit submultiple representing 10^-15.]</nowiki>
+* atto <nowiki>{SIUnitModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18.]</nowiki>
+* a <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-18} [SI unit submultiple representing 10^-18.]</nowiki>
+* zepto <nowiki>{SIUnitModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21.]</nowiki>
+* z <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-21} [SI unit submultiple representing 10^-21.]</nowiki>
+* yocto <nowiki>{SIUnitModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24.]</nowiki>
+* y <nowiki>{SIUnitSymbolModifier, conversionFactor=10^-24} [SI unit submultiple representing 10^-24.]</nowiki>
 
 
 '''Value classes''' <nowiki>[Specification of the rules for the values provided by users.]</nowiki>
