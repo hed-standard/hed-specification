@@ -86,11 +86,13 @@ specification in tools.
 ## 7.2. Schema namespaces
 
 As part of the HED annotation process, users must associate a standard HED schema with their
-datasets. Users may also include tags from an arbitrary number of additional library schemas.
-For each library schema used to annotate a data recording, the user must associate a local 
-name with the appropriate library schema name and version. Each library must be associated 
-with a distinct local name within a recording annotations. The local names should be 
-strictly alphabetic with no blanks or punctuation. 
+datasets.
+Users may also include tags from an arbitrary number of additional library schemas.
+For each library schema used to annotate a data recording,
+the user must associate a local 
+name with the appropriate library schema name and version.
+Each library must be associated with a distinct local name within a recording annotations.
+The local names should be strictly alphanumeric with no blanks or punctuation. 
 
 The user must pass information about the library schema and their associated local names to 
 processing functions. HED uses a standard method of identifying namespace elements by prefixing
