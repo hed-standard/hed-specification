@@ -35,6 +35,8 @@ and tagging hints.
   -
 * - Expandable HTML	
   - [https://www.hedtags.org/display_hed.html](https://www.hedtags.org/display_hed.html)
+* - Expandable prerelease HTML	
+  - [https://www.hedtags.org/display_hed_prelease.html](https://www.hedtags.org/display_hed_prelease.html)
 * - Mediawiki	
   - [https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki](https://github.com/hed-standard/hed-specification/blob/master/hedwiki/HED8.0.0.mediawiki)
 * - XML	

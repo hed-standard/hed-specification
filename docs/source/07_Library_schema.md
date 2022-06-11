@@ -217,11 +217,13 @@ associated with the `"HEDVersion"` key in the `dataset_description.json`
 file to be an array rather than a string expressing the HED version. 
 This proposed change will allow users more flexibility in specifying the 
 standard HED schema and will accommodate an arbitrary number of library schemas.
-The different cases are illustrated in the following two examples.
+The different cases are illustrated in the following examples.
+
+The original BIDS specification just allows the standard HED schema,
+which is named using a version number.
 
 
 ````{admonition} **Example:** Using just the standard HED schema in BIDS.
-
 ```json
 {
     "Name": "A wonderful experiment",
@@ -259,33 +261,43 @@ Based on the above description tools will download:
 3. The HED `testlib` library schema version 1.0.2:  
 [https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/blob/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml).
 
-A list of available library schemas is available through the
-schema browser available for each library.
+A schema browser is available for each library.
 For example the schema browser for the `score` library schema is available at
 [https://www.hedtags.org/display_hed_score.html](https://www.hedtags.org/display_hed_score.html).
 
 Given the `HEDVersion` specification from the previous example, annotators
 can use any combination of tags from the three indicated schemas.
+In this example the standard HED schema version appears without a prefix in the version
+specification, so tags from this schema may appear directly in the annotation.
+
+The `sc` and `ts` are local names used to distinguish
+tags from the additional schema.
 Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
 is a tag from the `score` schema.
-Similarly, tags from the `test` library schema are of the form `la:YYY` 
-where `YYY` is a tag from the `test` schema.
-The `sc` and `la` are local names used to distinguish
-tags from library schemas and those of the standard HED schema.
-The standard HED schema tags don't have a colon prefix.
+Similarly, tags from the `testlib` library schema are of the form `ts:YYY` 
+where `YYY` is a tag from the `testlib` schema.
+In the following sample annotation `Data-feature` is from the standard HED schema,
+while `Photomyogenic-response` and `Wicket-spikes` are from the `score` library.
+
+````{admonition} **Example:** An annotation using tags from two schemas.
+```Text
+Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes
+```
+````
+
+The array specification of the schema versions can have at most one version
+appearing without a colon prefix.
 
 For some applications, the annotator will only want to use particular
 library schema. The following example specifies that only the `score`
 library will be used. No prefixes are required in this case.
 
-```{admonition} **Example:** Proposed specification of library schema in BIDS.
-
+````{admonition} **Example:** Use of only the `score` library schema for tagging.
 ```json
 {
     "Name": "A wonderful experiment",
     "BIDSVersion": "1.6.0",
     "HEDVersion": "score_0.0.1"
 }
-
 ```
 ````
