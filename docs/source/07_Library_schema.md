@@ -27,12 +27,18 @@ software development, HED library schemas must conform to some basic rules:
 ``````{admonition} Rules for HED library schema design.
 :class: tip
 
-1. Every term must be unique within the library schema and must conform to the rules for
+1. Library schema must be given a name containing only alphabetic chararacters.
+This name must appear in the schema header line in the required format.
+2. The library must use semantic versioning and follow the versioning update rules used by
+the HED standard schema.
+3. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
-2. Schema terms should be readily understood by most users. The terms should not be ambiguous and
+4. Schema terms should be readily understood by most users. The terms should not be ambiguous and
 should be meaningful in themselves without reference to their position in the schema hierarchy.
-3. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
-4. Terms that are used independently of one another should be in different sub-trees (orthogonality).
+5. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
+6. Terms that are used independently of one another should be in different sub-trees (orthogonality).
+7. The schema should include the schema attributes, unit classes, unit modifiers, value classes,
+and schema properties present in the standard HED schema.
 
 ``````
 
@@ -43,7 +49,22 @@ of interest to particular research or clinical communities. Since it would be im
 to avoid naming conflicts across schema libraries that may be built in parallel by different
 user communities, HED supports schema library namespaces. Users will be able to add library 
 tags qualified with namespace designators. All HED schemas, including library schemas, 
-adhere to [semantic versioning](https://semver.org/). 
+adhere to [semantic versioning](https://semver.org/).
+
+In general, library schema developers should include the auxiliary schema classes from
+the standard HED schema: the schema attributes, unit classes, unit modifiers,
+value classes, and schema properties. The HED tools support these auxiliary
+classes but in general would not support special handling of added classes beyond basic
+verification. 
+
+If your schema requires schema classes that are not available
+in the standard HED schema and would like these classes to be supported,
+please make a request using the [**HED specification issues**](https://github.com/hed-standard/hed-specification/issues) forum.
+
+Please do not duplicate tags in the `Property/Informational-property` and
+`Relation` subtrees, as many of these tags have specialized uses and tool support.
+In particular, `Definition`, `Def`, `Def-expand` and `Event-context` should
+NEVER be duplicated in a library schema.
 
 
 ## 7.1. Defining a schema
@@ -276,6 +297,21 @@ Tags from the `score` library schema are of the form `sc:XXX` where `XXX`
 is a tag from the `score` schema.
 Similarly, tags from the `testlib` library schema are of the form `ts:YYY` 
 where `YYY` is a tag from the `testlib` schema.
+<<<<<<< HEAD
+=======
+In the following sample annotation `Data-feature` is from the standard HED schema,
+while `Photomyogenic-response` and `Wicket-spikes` are from the `score` library.
+
+````{admonition} **Example:** An annotation using tags from two schemas.
+```Text
+Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes
+```
+````
+
+The array specification of the schema versions can have at most one version
+appearing without a colon prefix.
+>>>>>>> 07e066056cafe01c65715ed439cc369f43ac172c
+
 In the following sample annotation `Data-feature` is from the standard HED schema,
 while `Photomyogenic-response` and `Wicket-spikes` are from the `score` library.
 
@@ -288,11 +324,16 @@ Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes
 The array specification of the schema versions can have at most one version
 appearing without a colon prefix.
 
-For some applications, the annotator will only want to use particular
+For some applications, the annotator will only want to use a particular
 library schema. The following example specifies that only the `score`
 library will be used. No prefixes are required in this case.
 
+<<<<<<< HEAD
+
+````{admonition} **Example:** Use of only the score library schema for tagging.
+=======
 ````{admonition} **Example:** Use of only the `score` library schema for tagging.
+>>>>>>> 07e066056cafe01c65715ed439cc369f43ac172c
 ```json
 {
     "Name": "A wonderful experiment",
