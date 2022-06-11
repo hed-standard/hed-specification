@@ -276,6 +276,7 @@ Tags from the `score` library schema are of the form `sc:XXX` where `XXX`
 is a tag from the `score` schema.
 Similarly, tags from the `testlib` library schema are of the form `ts:YYY` 
 where `YYY` is a tag from the `testlib` schema.
+
 In the following sample annotation `Data-feature` is from the standard HED schema,
 while `Photomyogenic-response` and `Wicket-spikes` are from the `score` library.
 
@@ -288,11 +289,12 @@ Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes
 The array specification of the schema versions can have at most one version
 appearing without a colon prefix.
 
-For some applications, the annotator will only want to use particular
+For some applications, the annotator will only want to use a particular
 library schema. The following example specifies that only the `score`
 library will be used. No prefixes are required in this case.
 
-````{admonition} **Example:** Use of only the `score` library schema for tagging.
+
+````{admonition} **Example:** Use of only the score library schema for tagging.
 ```json
 {
     "Name": "A wonderful experiment",
