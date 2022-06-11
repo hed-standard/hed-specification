@@ -293,7 +293,6 @@ library schema. The following example specifies that only the `score`
 library will be used. No prefixes are required in this case.
 
 ````{admonition} **Example:** Use of only the `score` library schema for tagging.
-
 ```json
 {
     "Name": "A wonderful experiment",
