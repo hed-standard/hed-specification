@@ -8,7 +8,7 @@ project of the hed-python repository located at
 [https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
-conversions. This appendix presents the rules for HED base and library schema in `.mediawiki` 
+conversions. This appendix presents the rules for standard HED schema and library schema in `.mediawiki` 
 and `.xml` formats.
 
 ## A.1. Mediawiki file format
@@ -86,7 +86,7 @@ The version line must be the first line of the `.mediawiki` file. The schema
 `.mediawiki` file is `HED-schema-8.0.0.mediawiki` found in 
 [https://github.com/hed-standard/hed-specification/tree/master/hedwiki](https://github.com/hed-standard/hed-specification/tree/master/hedwiki).
 
-````{admonition} **Example:** Version 8.0.0 of the HED XML base schema.
+````{admonition} **Example:** Version 8.0.0 of the standard HED XML schema.
 
 ```xml
 <HED version="8.0.0">
