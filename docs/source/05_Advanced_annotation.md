@@ -183,13 +183,15 @@ Table 5.3 summarizes *Onset* and *Offset* usage.
  ~ *(Def/XXX, Onset, (tag-group))*
  ~ *(Def/XXX/#, Onset, (tag-group))*
  ~ *(Def/XXX, Offset)*
+ ~ *(Def/XXX/#, Offset)*
  
 **Long forms:**  
  ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
  ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
- ~ *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>*
+ ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 
 ````{admonition} Notes:
 :class: tip
