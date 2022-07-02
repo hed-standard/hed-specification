@@ -7,3 +7,5 @@ a BIDS or another standard specifies details.
 * Updated the descriptions of the major `Relation` subgroups to include idea of focus.
 * Added `Relation/Spatial-relation/Left-center-of` and `Relation/Spatial-relation/Right-center-of`
 and updated the `relatedTags` of other spatial relationship tags.
+* Added a `deprecated` schema attribute to indicate that this tag should no longer be used.
+  This boolean attribute was added to provide a schema evolution path without removing any tags. 
