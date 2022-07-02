@@ -1262,6 +1262,7 @@ This schema includes an xsd and requires unit class, unit modifier, value class,
 '''Schema attributes''' <nowiki>[Allowed node, unit class or unit modifier attributes.]</nowiki>
 * allowedCharacter <nowiki>{valueClassProperty}[A schema attribute of value classes specifying a special character that is allowed in expressing the value of a placeholder. Normally the allowed characters are listed individually. However, the word letters designates the upper and lower case alphabetic characters and the word digits designates the digits 0-9. The word blank designates the blank character.]</nowiki>
 * conversionFactor <nowiki>{unitProperty, unitModifierProperty}[The multiplicative factor to multiply these units to convert to default units.]</nowiki>
+* deprecated <nowiki>{boolProperty}[This tag is out of date and should no longer be used.]</nowiki>
 * defaultUnits <nowiki>{unitClassProperty}[A schema attribute of unit classes specifying the default units to use if the placeholder has a unit class but the substituted value has no units.]</nowiki>
 * extensionAllowed <nowiki>{boolProperty}[A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.]</nowiki>
 * recommended  <nowiki>{boolProperty}[A schema attribute indicating that the event-level HED string should include this tag.]</nowiki> 

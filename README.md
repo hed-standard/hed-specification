@@ -73,16 +73,22 @@ corrections in tag values or units.
 | Change                          | Semantic-level | 
 | ---------------------------------- | -------------- |
 | Major addition to HED functionality     | Major  |
-| Tag deleted from schema.                | Major  |
-| Unit or unit class removed from node.   | Major  |
+| Unit or unit class removed from node.   | Minor  |
+| Tag deprecated in the schema.           | Minor  |
 | New tag added to the schema.            | Minor  |
 | New attribute added to schema.          | Minor  |
 | New unit class or unit added to schema. | Minor  |
-| New unit class added to node.           | Minor  |
+| New value class added to schema         | Minor |
+| New unit class or value class added to node.   | Minor  |
 | Node moved in schema without change in meaning. | Minor |
 | Revision of description field in schema.        | Patch   |
 | Correction of suggestedTag or relatedTag.       | Patch  |
 | Correction of wiki syntax such as closing tags. | Patch |
+
+**Note:** It is an official policy that once in a schema, a node will not be removed.
+If a node becomes out-of-date, a `deprecated` tag will be added as an attribute.
+Suggested replacement tags should be included in the node description.
+A suggested replacement should be added to the tag_patch table.
 
 ## HED revision process
 
