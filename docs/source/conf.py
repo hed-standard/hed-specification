@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('./'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'HED specification'
+project = 'HED specification v3.0.0'
 copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 

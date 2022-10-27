@@ -2,10 +2,10 @@
 ### HED schema version 8.1.0 was released 5/23/2022.
 
 **Note** This repository is primarily for managing the HED vocabulary. If you just 
-want to annotate your data, please visit the [**HED organization**](https://www.hedtags.org) website. The full HED specification is available at the
+want to annotate your data, please visit the [**HED examples**](https://readthedocs.org/projects/hed-examples/) documentation website. 
+
+The full HED specification is available at the
 [**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html) website. 
-A [**HED Documentation**](https://hed-docs.readthedocs.io/en/latest/) website 
-is being developed to gather HED tools, case studies, and usage. 
 
 ## What is HED?
 HED is an evolving framework for the description and formal annotation of events 
@@ -90,6 +90,21 @@ If a node becomes out-of-date, a `deprecated` tag will be added as an attribute.
 Suggested replacement tags should be included in the node description.
 A suggested replacement should be added to the tag_patch table.
 
+##  HED specification versus the HED schema
+
+The HED schema represents the allowed vocabulary for use in annotation.
+The HED specification document specifies how tools should implement 
+and validate various features of HED.
+
+| HED spec version  | Specification release date | Applicable schema versions |
+| ----------------- | -------------------------- | -------------------------- |
+|   3.0.0           |     Oct 27, 2022           |  <= 8.0.0                  |
+
+The first official release of the HED specification, 3.0.0, marked the separation of
+the versioning of the specification and the schema.
+As new features are added to HED, the specification is updated,
+but the vocabulary represented by the HED schema is usually not affected.
+
 ## HED revision process
 
 As modifications to the HED schema are proposed, they are entered into the
@@ -126,7 +141,7 @@ markdown document, stored in [`hedxml`](https://github.com/hed-standard/hed-spec
 
 ## Further documentation
 
-The documentation on this page refers specifically to the HED vocabulary and supporting tools. Additional documentataion is available on:
+The documentation on this page refers specifically to the HED vocabulary and supporting tools. Additional documentation is available on:
 
 > [**HED organization website**](https://www.hedtags.org)
 
