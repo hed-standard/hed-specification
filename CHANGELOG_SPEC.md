@@ -1,5 +1,5 @@
 
-#CHANGELOG for HED specification
+# CHANGELOG for HED specification
 
 The initial version of the HED specification was created and unofficially released in conjunction
 with the first release of the HED schema vocabulary version 8.0.0 on Aug 8, 2021. 
@@ -11,7 +11,8 @@ of the HED specification document and the HED schema vocabulary.
 The HED Working Group recognized that new features would be incorporated into the
 HED infrastructure without the need to change the HED vocabulary.
 
-The first separated version of the HED specification document is HED 3.0.0
-recognizing that this corresponds to the release of the HED-3G infrastructure.
+The first separated version of the HED specification document is HEDSpec 3.0.0
+recognizing correspondence between this version of the specification and the initial
+release of the HED-3G infrastructure.
 
 ## Initial release 3.0.0 Oct. 27, 2022.

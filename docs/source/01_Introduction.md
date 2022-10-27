@@ -2,8 +2,9 @@
 This document contains the specification for third generation HED or HED-3G. 
 It is meant for the implementers and users of HED tools. Other tutorials and tagging 
 guides are available to researchers using HED to annotate their data. 
-This document contains the specification for the first official release of HED-3G 
-(HED versions 8.0.0-xxx and above.) **When the term HED is used in this document, 
+This document (HEDSPEC 3.0.0) contains the specification for the first official release of HED-3G.
+This specification applies to HED Schema versions HED 8.0.0-xxx and above.
+**When the term HED is used in this document, 
 it refers to third generation (HED-3G) unless explicitly stated otherwise.**
 
 The aspects of HED that are described in this document are supported or will soon

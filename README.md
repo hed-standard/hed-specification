@@ -98,9 +98,9 @@ and validate various features of HED.
 
 | HED spec version  | Specification release date | Applicable schema versions |
 | ----------------- | -------------------------- | -------------------------- |
-|   3.0.0           |     Oct 27, 2022           |  <= 8.0.0                  |
+|   HEDSpec 3.0.0           |     Oct 27, 2022           |  <= HED 8.0.0                  |
 
-The first official release of the HED specification, 3.0.0, marked the separation of
+The first official release of the HED specification, HEDSpec 3.0.0, marked the separation of
 the versioning of the specification and the schema.
 As new features are added to HED, the specification is updated,
 but the vocabulary represented by the HED schema is usually not affected.

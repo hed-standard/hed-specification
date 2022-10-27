@@ -1,5 +1,5 @@
 
-#CHANGELOG for HED schema
+# CHANGELOG for HED schema
 
 ## Changes for HED 8.1.0 Released 5/23/2022
 
