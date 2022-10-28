@@ -96,14 +96,18 @@ The HED schema represents the allowed vocabulary for use in annotation.
 The HED specification document specifies how tools should implement 
 and validate various features of HED.
 
-| HED spec version  | Specification release date | Applicable schema versions |
+| HED specification version  | Release date | Applicable HED schema versions |
 | ----------------- | -------------------------- | -------------------------- |
-|   HEDSpec 3.0.0           |     Oct 27, 2022           |  <= HED 8.0.0                  |
+|   HED Specification 3.0.0           |     Oct 27, 2022           |  >= HED 8.0.0                  |
 
-The first official release of the HED specification, HEDSpec 3.0.0, marked the separation of
-the versioning of the specification and the schema.
-As new features are added to HED, the specification is updated,
+The first official release of the HED specification, HED Specification 3.0.0, 
+marked the separation of the versioning of the specification and the schema.
+
+As new features are added to the HED infrastructure, the specification is updated,
 but the vocabulary represented by the HED schema is usually not affected.
+
+In a similar fashion, many modifications of the HED schema and corresponding vocabulary
+do not require an update of the HED tools or the HED specification.
 
 ## HED revision process
 
