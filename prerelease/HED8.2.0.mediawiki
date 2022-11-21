@@ -1095,7 +1095,7 @@ This schema includes an xsd and requires unit class, unit modifier, value class,
 ** Member-of <nowiki>[(A, (Member-of, B)) indicates A is a member of group B.]</nowiki>
 ** Part-of <nowiki>[(A, (Part-of, B)) indicates A is a part of the whole B.]</nowiki>
 ** Performed-by <nowiki>[(A, (Performed-by, B)) indicates that the action or procedure A was carried out by agent B.]</nowiki>
-** Performed-using <nowiki>[A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.]</nowiki>
+** Performed-using <nowiki>[(A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.]</nowiki>
 ** Related-to <nowiki>[(A, (Related-to, B)) indicates A has some relationship to B.]</nowiki>
 ** Unrelated-to <nowiki>[(A, (Unrelated-to, B)) indicates that A is not related to B.  For example, A is not related to Task.]</nowiki>
 * Directional-relation <nowiki>[A relationship indicating direction of change of one entity relative to another. The first entity is the focus.]</nowiki>

@@ -2090,6 +2090,10 @@
                   </node>
                </node>
                <node>
+                  <name>Ethnicity</name>
+                  <description>Belong to a social group that has a common national or cultural tradition. Use with Label to avoid extension.</description>
+               </node>
+               <node>
                   <name>Handedness</name>
                   <description>Individual preference for use of a hand, known as the dominant hand.</description>
                   <node>
@@ -2104,6 +2108,10 @@
                      <name>Ambidextrous</name>
                      <description>Having no overall dominance in the use of right or left hand or foot in the performance of tasks that require one hand or foot.</description>
                   </node>
+               </node>
+               <node>
+                  <name>Race</name>
+                  <description>Belonging to a group sharing physical or social qualities as defined within a specified society. Use with Label to avoid extension.</description>
                </node>
             </node>
          </node>
@@ -5544,7 +5552,7 @@
          </attribute>
          <node>
             <name>Comparative-relation</name>
-            <description>Something considered in comparison to something else. The first argument is the focus.</description>
+            <description>Something considered in comparison to something else. The first entity is the focus.</description>
             <node>
                <name>Approximately-equal-to</name>
                <description>(A, (Approximately-equal-to, B)) indicates that A and B have almost the same value. Here A and B could refer to sizes, orders, positions or other quantities.</description>
@@ -5576,7 +5584,7 @@
          </node>
          <node>
             <name>Connective-relation</name>
-            <description>Indicates two items are related in some way.</description>
+            <description>Indicates two entities are related in some way. The first entity is the focus.</description>
             <node>
                <name>Belongs-to</name>
                <description>(A, (Belongs-to, B)) indicates that A is a member of B.</description>
@@ -5627,7 +5635,7 @@
             </node>
             <node>
                <name>Performed-using</name>
-               <description>A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.</description>
+               <description>(A, (Performed-using, B)) indicates that the action or procedure A was accomplished using B.</description>
             </node>
             <node>
                <name>Related-to</name>
@@ -5640,7 +5648,7 @@
          </node>
          <node>
             <name>Directional-relation</name>
-            <description>A relationship indicating direction of change.</description>
+            <description>A relationship indicating direction of change of one entity relative to another. The first entity is the focus.</description>
             <node>
                <name>Away-from</name>
                <description>(A, (Away-from, B)) indicates that A is going or has moved away from B. The meaning depends on A and B.</description>
@@ -5651,8 +5659,20 @@
             </node>
          </node>
          <node>
+            <name>Logical-relation</name>
+            <description>Indicating a logical relationship between entities. The first entity is usually the focus.</description>
+            <node>
+               <name>And</name>
+               <description>(A, (And, B)) means A and B are both in effect.</description>
+            </node>
+            <node>
+               <name>Or</name>
+               <description>(A, (Or, B)) means at least one of A and B are in effect.</description>
+            </node>
+         </node>
+         <node>
             <name>Spatial-relation</name>
-            <description>Indicating information about position.</description>
+            <description>Indicating a relationship about position between entities.</description>
             <node>
                <name>Above</name>
                <description>(A, (Above, B)) means A is in a place or position that is higher than B.</description>
@@ -5738,11 +5758,26 @@
                </attribute>
             </node>
             <node>
+               <name>Lower-center-of</name>
+               <description>(A, (Lower-center-of, B)) means A is situated on the lower center part of B (due south). This relation is often used to specify qualitative information about screen position.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-left-of</value>
+                  <value>Lower-right-of</value>
+                  <value>Upper-center-of</value>
+                  <value>Upper-right-of</value>
+               </attribute>
+            </node>
+            <node>
                <name>Lower-left-of</name>
                <description>(A, (Lower-left-of, B)) means A is situated on the lower left part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-center-of</value>
                   <value>Lower-right-of</value>
+                  <value>Upper-center-of</value>
                   <value>Upper-left-of</value>
                   <value>Upper-right-of</value>
                </attribute>
@@ -5752,7 +5787,11 @@
                <description>(A, (Lower-right-of, B)) means A is situated on the lower right part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-center-of</value>
+                  <value>Lower-left-of</value>
                   <value>Upper-left-of</value>
+                  <value>Upper-center-of</value>
                   <value>Upper-left-of</value>
                   <value>Lower-right-of</value>
                </attribute>
@@ -5806,12 +5845,28 @@
                <description>(A, (Top-of, B)) means A is on the uppermost part, side, or surface of B.</description>
             </node>
             <node>
+               <name>Upper-center-of</name>
+               <description>(A, (Upper-center-of, B)) means A is situated on the upper center part of B (due north). This relation is often used to specify qualitative information about screen position.</description>
+               <attribute>
+                  <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-center-of</value>
+                  <value>Lower-left-of</value>
+                  <value>Lower-right-of</value>
+                  <value>Upper-center-of</value>
+                  <value>Upper-right-of</value>
+               </attribute>
+            </node>
+            <node>
                <name>Upper-left-of</name>
                <description>(A, (Upper-left-of, B)) means A is situated on the upper left part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-center-of</value>
                   <value>Lower-left-of</value>
                   <value>Lower-right-of</value>
+                  <value>Upper-center-of</value>
                   <value>Upper-right-of</value>
                </attribute>
             </node>
@@ -5820,8 +5875,11 @@
                <description>(A, (Upper-right-of, B)) means A is situated on the upper right part of B. This relation is often used to specify qualitative information about screen position.</description>
                <attribute>
                   <name>relatedTag</name>
+                  <value>Center-of</value>
+                  <value>Lower-center-of</value>
                   <value>Lower-left-of</value>
                   <value>Upper-left-of</value>
+                  <value>Upper-center-of</value>
                   <value>Lower-right-of</value>
                </attribute>
             </node>
@@ -5836,7 +5894,7 @@
          </node>
          <node>
             <name>Temporal-relation</name>
-            <description>Any relationship which includes a temporal or time-based component.</description>
+            <description>A relationship that includes a temporal or time-based component.</description>
             <node>
                <name>After</name>
                <description>(A, (After B)) means A happens at a time subsequent to a reference time related to B.</description>
@@ -6912,6 +6970,13 @@
          </property>
          <property>
             <name>unitModifierProperty</name>
+         </property>
+      </schemaAttributeDefinition>
+      <schemaAttributeDefinition>
+         <name>deprecated</name>
+         <description>This tag is out of date and should no longer be used.</description>
+         <property>
+            <name>boolProperty</name>
          </property>
       </schemaAttributeDefinition>
       <schemaAttributeDefinition>
