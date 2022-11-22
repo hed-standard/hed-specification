@@ -8,4 +8,5 @@ a BIDS or another standard specifies details.
 * Added `Relation/Spatial-relation/Left-center-of` and `Relation/Spatial-relation/Right-center-of`
 and updated the `relatedTags` of other spatial relationship tags.
 * Added a `deprecated` schema attribute to indicate that this tag should no longer be used.
-  This boolean attribute was added to provide a schema evolution path without removing any tags. 
+  This boolean attribute was added to provide a schema evolution path without removing any tags.
+* Corrected missing open parenthesis in description for `Relation/Connective-relation/Performed-using`.
