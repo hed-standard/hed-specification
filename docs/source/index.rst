@@ -3,14 +3,15 @@ HED specification
 
 .. sidebar:: **Links**
 
-   * `PDF stable version (V3.0.0) <https://raw.githubusercontent.com/VisLab/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
+   * `PDF stable version (V3.0.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
 
    * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
-   * `Specification source <https://github.com/hed-standard/hed-specification/>`_
+   * `Specification source <https://github.com/hed-standard/hed-specification/docs/source>`_
 
    * `Examples and tutorials <https://hed-examples.readthedocs.io/en/latest/>`_
 
+   * `Project homepage <https://hedtags.org/>`_
 
 .. toctree::
    :maxdepth: 4
