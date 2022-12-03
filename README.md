@@ -6,10 +6,13 @@ as well as rules for how tools should treat HED-annotated data.
 
 If you just 
 want to annotate your data, please visit the [**HED examples**](https://readthedocs.org/projects/hed-examples/) documentation website. 
-If you are a schema developer
+If you are a developer of a new HED vocabulary (schema) please see the
+[Schema development guidelines](https://hed-schemas.readthedocs.io/en/latest/schema_development_guidelines.html).
 
-The full HED specification is available at the
-[**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html) website or as a PDF document at  
+The latest version of the HED specification is available at the
+[**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html).
+
+The most current released version of the HED specification can be found at [HED specification (PDF)](<https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`)
 
 ## About HED
 HED (Hierarchical Event Descriptors) is an evolving framework for the description and 
