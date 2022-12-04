@@ -20,13 +20,13 @@ sys.path.insert(0, os.path.abspath('./'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'HED specification v3.0.0'
+project = 'HED specification'
 copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
 release = '3.0.0'
-version = '8.1.0'
+version = '3.0.0'
 
 currentdir = os.path.abspath(os.path.dirname(__file__))
 
