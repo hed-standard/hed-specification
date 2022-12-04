@@ -3,15 +3,15 @@ HED specification
 
 .. sidebar:: **Links**
 
-   * `PDF stable version (V3.0.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
+   * `PDF released version (V3.0.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
 
    * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 
-   * `Specification source <https://github.com/hed-standard/hed-specification/docs/source>`_
+   * `Specification source <https://github.com/hed-standard/hed-specification/tree/master/docs/source>`_
 
-   * `Examples and tutorials <https://hed-examples.readthedocs.io/en/latest/>`_
+   * `HED resources <https://hed-examples.readthedocs.io/en/latest/>`_
 
-   * `Project homepage <https://hedtags.org/>`_
+   * `HED project homepage <https://hedtags.org/>`_
 
 .. toctree::
    :maxdepth: 4
@@ -28,9 +28,9 @@ HED specification
    Appendix_B.md
 
 
+Indices and tables
+==================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Other links:
-
-   HedResources.md
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
