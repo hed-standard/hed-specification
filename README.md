@@ -61,6 +61,16 @@ but the vocabulary represented by the HED schema is usually not affected.
 In a similar fashion, many modifications of the HED schema and corresponding vocabulary
 do not require an update of the HED tools or the HED specification.
 
+Several other aspects of HED annotation are being planned, but their specification has 
+not been fully determined. These aspects are not contained in this specification document, 
+but rather are contained in ancillary working documents which are open for discussion. 
+These ancillary specifications include the HED working document on 
+[spatial annotation](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) 
+and the HED working document on 
+[task annotation](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
+
+
+
 ## Stable links for HED validation
 
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
