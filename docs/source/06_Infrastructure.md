@@ -12,9 +12,11 @@ form before processing. To this end, mapping functions are being developed in Py
 and JavaScript. These libraries also provide mapping from long form to short form. 
 As illustrated in the previous sections, the short form is much more readable and compact. 
 
-## 6.2. File formats
+## 6.2. HED support of BIDS
 
-Dataset events are often represented using spreadsheets either in `.tsv` or Excel format. 
+BIDS dataset events are stored in tab-separated tabular files whose names end in `events.tsv`.
+The tabular files must have the column names in the first row.
+
 The rows of each spreadsheet correspond to events, while the columns contain identifying
 information pertaining to the events.  The first row of each spreadsheet usually contains 
 column names that document what each column represents. Usually one column contains the 

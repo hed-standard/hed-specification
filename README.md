@@ -5,9 +5,9 @@ including information on the format and rules for HED vocabularies (schemas)
 as well as rules for how tools should treat HED-annotated data.
 
 If you just 
-want to annotate your data, please visit the [**HED examples**](https://readthedocs.org/projects/hed-examples/) documentation website. 
+want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
 If you are a developer of a new HED vocabulary (schema) please see the
-[Schema development guide](https://hed-schemas.readthedocs.io/en/latest/schema_development_guide.html).
+[Schema development guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
 
 The latest version of the HED specification is available at the
 [**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html).
