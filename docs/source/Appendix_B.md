@@ -87,7 +87,7 @@ value does not have a key in the sidecar dictionary.
 ~ A tag name does not start with a capital letter with the remainder lower case.
 
 **HED_TAG_EMPTY:** Extra commas or empty parentheses indicate empty tags.  
- ~ A HED string has multiple consecutive commas (ignoring white space).
+ ~ A HED string has Extra commas or empty parentheses indicate empty tags. (ignoring white space).
  ~ A HED string begins or ends with a comma (which implies an empty HED tag). 
  ~ A tag group is empty (i.e., empty parentheses are not allowed).
 

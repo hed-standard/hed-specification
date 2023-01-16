@@ -1,15 +1,9 @@
-# A. Schema format
+# A. Schema format details
 
-HED schema developers generally do initial development of the schema using `.mediawiki` format.
-The tools to convert schema between `.mediawiki` and `.xml` format are located in the 
-`hed.schema` module of the 
-[hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) 
-project of the hed-python repository located at  
-[https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). 
-All conversions are performed by converting the schema to a `HedSchema` object. 
-Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
-conversions. This appendix presents the rules for standard HED schema and library schema in `.mediawiki` 
-and `.xml` formats.
+This appendix augments the discussion of [**HED schema format**](hed-schema-format)
+in [**Chapter 3: HED formats**](./03_HED_formats.md) of the HED specification.
+The appendix presents additional details on the rules with examples
+for standard HED schema and HED library schema in `.mediawiki` and `.xml` formats.
 
 ## A.1. Mediawiki file format
 
@@ -519,44 +513,49 @@ schema are used to specify the behavior of the schema elements.
 
 ### A.3.1. Schema properties
 
-The `property` elements indicate where various schema attributes apply. 
-Their meanings are hard-coded into the schema processors. The following is a list of schema
-attribute properties. 
+The `property` elements apply to schema attribute elements to indicate how and where these attributes
+apply to other elements in the schema. 
+Their meanings are hard-coded into the schema processors.
+The following is a list of schema attribute properties. 
 
-`````{list-table} Summary of unit classes and units in HED 8.0.0 (* indicates unit symbol).
+`````{list-table} Summary of schema attribute properties for HED Version >= 8.0.0.
 :widths: 20 50
 :header-rows: 1
 
 * - Property
   - Description
 * - boolProperty
-  - Indicates schema attribute values are either true or false. 
+  - A schema attribute's value is either true or false. 
 * - unitClassProperty
-  - Indicates schema attribute only applies to unit classes.
+  - A schema attribute only applies to unit classes.
 * - unitModifierProperty
-  - Indicates schema attribute only applies to unit modifiers.
+  - A schema attribute only applies to unit modifiers.
 * - valueClassProperty
-  - Indicates the schema attribute only applies to value classes.
-* - textClass
-  - Alphanumeric characters, blank, <br/>
-    +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+  - A schema attribute only applies to value classes.
 ``````
 
 
-````{admonition} Notes on rules for allowed characters in the HED schema. 
+````{admonition} Format for schema properties in the schema. 
 :class: tip
 
-1. Schema attributes with the `boolProperty`  have a `<name>` node but no 
-`<value>` node in the XML.
-Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and 
-`<value>` nodes in the XML.
+- **Schema attributes with the `boolProperty`:**
+  - In XML, appear as a `<name>` element with the property, but no 
+`<value>` element for the schema element.
+  - In MEDIAWIKI, the attribute has the {`name`} in the element's specification line.
+  - In either case, presence of the property indicates true and absence indicates false.
+<p></p>  
+
+- **Schema attributes without the `boolProperty`:**
+  - In XML, appear with both `<name>` and `<value>` for the schema element.
+  - In MEDIAWIKI, the schema element has the {`name`=`value`} in the element's specification line.
+  - These schema attributes may appear multiple times in an element with different values if appropriate.
 
 ````
 
+A given schema attribute can only apply to one type of schema element (`node`, `unitClassDefinition`, 
+`unitModifierDefinition` or `unit`).
 
-A given schema attribute can only apply to one type of element (`node`, `unitClassDefinition`, 
-`unitModifierDefinition` or `unit`). Attributes that don’t have one of `unitClassProperty`,
+Schema attributes that don’t have one of `unitClassProperty`,
 `unitClassProperty` or `unitProperty` are assumed to apply to `node` elements.
 
 ### A.3.2. Schema attributes
@@ -634,23 +633,24 @@ attributes listed in the following table can be handled by current HED tools.
   - Type of value this is.        
 ``````
 
-Normally the allowed characters are listed individually as values of the `allowedCharacter`
-attribute. However, the word `letters` designates upper and lower case alphabetic characters
-are allowed. Further, the word `blank` indicates a space is an allowed character, and the 
-word `digits` indicates the digits 0-9 may be used in the value.
+The `allowedCharacter` attribute should appear separately for each individual character to be allowed.
+However, the following group designations are allowed as a value for this attribute:
+- `letters` designates upper and lower case alphabetic characters.
+- `blank` indicates a space is an allowed character.
+- `digits` indicates the digits 0-9 may be used in the value.
+- `alphanumeric` indicates `letter` and `digits`
 
 If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
-does not have units, tools use the value of `defaultUnits` if the unit class has them.
-For example, the `timeUnits` has the attribute `defaultUnits=s` in HED 8.0.0. The tag
-`Duration/3` is assumed to be equivalent to `Duration/3 s` because `Duration` has
+does not have units, tools may assume the value of `defaultUnits` if the unit class has them.
+For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions >=8.0.0.
+Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because `Duration` has
 `defaultUnits` of `s`.
 
-The `extensionAllowed` tag indicates that descendents of this node may be extended by
-annotators. However, any tag that has a placeholder (`#`) child cannot be extended,
-regardless of `extensionAllowed` since it single child is always interpreted as a
-user-supplied value. 
+The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators.
+However, any tag that has a placeholder (`#`) child cannot be extended,
+regardless of `extensionAllowed` since its single child is always interpreted as a user-supplied value. 
 
-Tags with the 'required' or 'unique' attributes cannot appear in definitions.
+Tags with the `required` or `unique` attributes cannot appear in definitions.
 
 In addition to the attributes listed above, some schema attributes have been deprecated
 and are no longer supported in HED, although they are still present in earlier versions of 
@@ -666,7 +666,7 @@ the schema. The following table lists these.
 * - default
   - node #
   - Indicates a default value used if no value is provided.
-* - position
+* - position*
   - node    
   - Indicates where this tag should appear during display.
 * - predicateType
@@ -681,47 +681,56 @@ will be implemented going forward.
 The `position` attribute was used to assist annotation tools, which sought to 
 display required and recommend tags before others. The position attribute value
 is an integer and the order can start at 0 or 1. Required or recommended 
-tags without this attribute or with negative position will be shown after the 
-others in canonical ordering. The tagging strategy of HED-3G using decomposition
-and definitions. The `position` attribute is not used for HED-3G.
+tags without this attribute or with negative position were to be shown after the 
+others in canonical ordering. The tagging strategy of HED versions >= 8.0.0 using decomposition
+and definitions does not permit this type of ordering.
+The `position` attribute is not used for HED >= 8.0.0.
 
-The `predicateType` attribute was introduced in HED-2G to facilitate mapping 
-to OWL or RDF. It was needed because the HED-2G schema had a mixture of children
-that were properties and subclasses. The possible values of `predicateType`
-were `propertyOf`, `subclassOf`, or `passThrough` to indicate which role each
-child node had with respect to its parent. The schema vocabulary redesign of 
-HED-3G eliminated this issue. The attribute is ignored by tools.
+The `predicateType` attribute was introduced in HED-2G to facilitate mapping to OWL or RDF. 
+It was needed because the HED-2G schema had a mixture of children
+that were properties and subclasses.
+The possible values of `predicateType` were `propertyOf`, `subclassOf`, or `passThrough` 
+to indicate which role each child node had with respect to its parent.
+In HED versions >= 8.0.0, the parent-child relationship MUST be `subclassOf` to allow search generality.
+The attribute is ignored by tools.
 
 ### A.3.3. Value classes
 
 HED has very strict rules about what characters are allowed in various elements of the HED
-schema, HED tags and the substitutions made for `#` placeholders. These rules are encoded in 
-the schema using value classes. When a node name or placeholder substitution is given a
-particular value class, that name or substituted value can only contain the characters allowed
-for that value class. 
+schema, HED tags, and the substitutions made for `#` placeholders.
+These rules are encoded in the schema using value classes.
+When a node name extension or placeholder substitution is given a particular value class,
+that name or substituted value can only contain the characters allowed for that value class.
 
-The allowed characters for a value class are specified in the definition
-of each value class. The HED validator and other HED tools may hardcode information about 
+```{Warning}
+**Note**: However, that a placeholder `#` specification may include multiple value classes
+as well as additional `allowedCharacter` attributes.
+
+Tools check the value in question against the union of an element's `valueClass` and `allowedCharacter`
+values. 
+```
+
+The allowed characters for a value class are specified in the definition of each value class.
+The HED validator and other HED tools may hardcode information about 
 behavior of certain value classes (for example the `numericClass` value class). 
-**HED does not allow commas or single quotes in any of its values.**
 
-`````{list-table} Rules for value classes.
+(value-class-character-table-anchor)=
+`````{list-table} Allowed characters for value classes.
 :widths: 20 50
 :header-rows: 1
 
 * - Value class
   - Allowed characters
 * - dateTimeClass
-  - digits, T, :, - 
+  - `digits`  `T`  `:`  `-` 
 * - nameClass
-  - alphabetic characters, -
+  - `alphanumeric`  `-`  `_`
 * - numericClass
-  -  digits, ., -, +, E, e 
+  - `digits`  `.`  `-`  `+`  `E`  `e` 
 * - posixPath
   -  As yet unspecified
 * - textClass
-  - Alphanumeric characters, blank, <br/>
-    +, -, :, ;, ., /, (, ), ?, *, %, $, @, ^, _
+  - `alphanumeric`  `blank`  `+`  `-`  `:`  `;`  `.`  `/`  `(`  `)`  `?`  ` *`  `%`  ` $`  `@`  `^`  `_`
 ``````
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
@@ -730,11 +739,12 @@ behavior of certain value classes (for example the `numericClass` value class).
 1. Commas are not allowed in any values.
 2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
 3. Any variation on the full form of ISO8601 date-time is allowed.
-4. The name class is for schema nodes and labels.
-5. Values that have a value class of `numericClass` must be valid fixed point of floating point values.
+4. The `nameClass` is for schema nodes and labels.
+5. Values of `numericClass` must be valid fixed point or floating point values.
 6. Scientific notation is supported with the `numericClass`.
-7. The text class is for descriptions, mainly for use with the *Description/* tag.
-8. The posix path class is yet unspecified and currently allows any characters besides commas.
+7. The text class is for descriptions, mainly for use with the *Description/* tag or schema element descriptions.
+8. The posix path class is yet unspecified and currently allows any characters except commas.
+9. Commas or single quotes are not allowed in any value.
 
 ````
 
@@ -745,7 +755,7 @@ The plurals of the various units are not explicitly listed, but are allowed as H
 tools uses standard pluralize functions to expand the list of allowed units. However,
 Unit symbols represent abbreviated versions of units and cannot be pluralized. 
 
-Nodes with the `SIUnit` modifier may be prefixed with multiple or sub-multiple modifiers.
+Elements with the `SIUnit` modifier may be prefixed with multiple or sub-multiple modifiers.
 If the SI unit does not also have the `unitSymbol` attribute, then multiples and sub-multiples
 with the `SIUnitModifier` attribute are used for the expansion. On the other hand,
 units with both `SIUnit` and `SIUnitModifier` attributes are expanded using

@@ -547,32 +547,10 @@ which some aspect of the experiment conditions is fixed. *Time-block* tags can b
 to represent temporal organization in a manner similar to the way *Condition-variable* 
 tags are used to represent factors in an experiment design. 
 
-## 5.7. Parentheses and nesting (proposed)
-
-HED uses parentheses to convey relationships among HED tags in an annotation.
-HED allows 
-
-### 5.7.1 Basic use of parentheses
-
-Grouping of HED tags in an annotation implies a relationship among these tags,
-often that the tags apply to the same thing.
-
-#### 5.7.1 TagSchema attributes
+## 5.7. Specialized annotation
 
 
-
-HED allows an arbitrary number of 
-
-### 5.7.2 Square brackets and sidecars
-
-### 5.7.3 Parentheses and search
-
-
-
-## 5.8. Specialized annotation
-
-
-### 5.8.1 Parameter tags
+### 5.7.1 Parameter tags
 
 The *Parameter* tag and its children *Parameter-label* and *Parameter-value* are general-purpose
 tags designed to fill the missing term gap. They can be used to tag important specific concepts
