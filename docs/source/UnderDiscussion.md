@@ -3,4 +3,4 @@
 The sections here are proposed and are not part of the HED specification. 
 
 
-### Square brackets
+## Square brackets

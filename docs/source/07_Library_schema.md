@@ -72,8 +72,8 @@ NEVER be duplicated in a library schema.
 A HED library schema is defined in the same way as the standard HED schema except that it has an
 additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an
 illustration a library schema for driving. Syntax details for a library schema are similar to
-those for the standard HED schema. (See [Appendix A: Schema format](Appendix_A.md#a-schema-format)
-for more details).
+those for the standard HED schema. (See [**HED schema format**](./03_HED_formats.md#31-hed-schema-format)
+and [**Appendix A: Schema format details**](Appendix_A.md) for additional information.
 
 ````{admonition} **Example:** Driving library schema (MEDIAWIKI template).
 

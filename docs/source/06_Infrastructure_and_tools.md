@@ -73,7 +73,7 @@ HED tag level validation checks each individual HED tag against its associated s
 The long-form of the tag must be in the schema under which the tag is being validated. 
 
 
-See [**Tags that take details**](./03_HED_formats.md#tags-that-take-values) for
+See [**Tags that take values**](./03_HED_formats.md#323-tags-that-take-values) for
 additional details about HED schema nodes with placeholders.
 
 See [**Sidecar validation**](sidecar-validation-anchor) for information about the
