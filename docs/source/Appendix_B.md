@@ -19,7 +19,7 @@ for a listing.)
 **HED_CHARACTER_INVALID**: HED string contains an invalid character.  
  ~ HED uses ANSI encoding and does not support UTF-8. 
  ~ Different parts of a HED string have different rules for acceptable characters as outlined in
-[Chapter 3.3: Allowed names and values](03_Schema.md#33-allowed-names-and-values).
+[Chapter 3.2: HED annotation format**](03_HED_formats.md#32-hed-annotation-format).
 
 **HED_COMMA_MISSING**: HED tag groups and tags must be separated with commas.  
  ~ Commas missing between two HED tags are generally detected as invalid HED tags,

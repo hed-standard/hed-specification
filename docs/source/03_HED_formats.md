@@ -1,10 +1,9 @@
 (3-hed-formats-anchor)=
 # 3. HED formats
 
-This chapter describes the requirements and formats that HED schema and HED annotations
-must adhere to.
+This chapter describes the requirements and formats for HED schema and HED annotations.
 
-## 3.1 HED schema format
+## 3.1. HED schema format
 
 A **HED schema** is a formal specification of a HED vocabulary and annotation format rules.
 A HED schema vocabulary is organized hierarchically so that similar concepts and terms appear
@@ -19,8 +18,8 @@ Searches for *A* are able to also return instances of *B*.
 A key requirement for third generation HED (versions >=8.0.0) is that all node names (tag terms) in 
 the HED schema (except for `#` placeholders) **must be unique**.
 
-Additional details about HED schema format can be found in
-[**Appendix A. Schema format details**](./Appendix_A.md)
+Additional details about HED schema format can be found in appendix
+[**A. Schema format details**](./Appendix_A.md)
 
 ### 3.1.1 Official schema releases
 
@@ -37,30 +36,11 @@ Releases of a HED library schema are stored in a subdirectory of
 [**library_schemas**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas)
 whose name is the library name.
 
-### 3.1.2. Schema naming
-
-The different parts of the HED schema have different rules 
-for the characters and names that are allowed. UTF-8 characters are not supported.
-Schema designers and users that extend HED schema must use node (tag term) names 
-that conform to the rules for 
-[**nameClass**](./Appendix_A.md#a-3-3-value-classes) as explained below.
-
-````{admonition} Rules for naming nodes (tag terms) in HED schema. 
-:class: tip
-1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case. 
-2. Schema node names consisting of multiple words cannot contain blanks and should be hyphenated.
-3. Schema descriptions should be concise sentences, possibly with clarifying examples.
-4. Schema descriptions cannot contain square brackets, curly braces, quotes, or punctuation 
-or other characters not specifically allowed by `textClass` with the addition of commas.
-````
-
-
-
-### 3.1.3 Schema layout overview
+### 3.1.2 Schema layout overview
 
 Schemas can be specified in either `.mediawiki` or `.xml` format.
-[**Online schema validation and conversion tools**](https://hedtools.ucsd.edu/hed/schema)
-provide an easy way for users to convert between formats.
+[**Online tools**](https://hedtools.ucsd.edu/hed/schema) 
+provide an easy way for users to validate schema and convert between formats.
 
 HED schema developers usually use `.mediawiki` format for more convenient editing,
 display, and reference on GitHub.
@@ -93,49 +73,132 @@ appear in the `schema` section,
 while the remaining sections specify additional information and behavior.
 These additional sections are required, but are allowed to be empty.
 
-#### 3.1.3.1 The header
+#### 3.1.2.1 The header
 
-The schema header line contains specifies the version and the library name,
-if the schema is a library schema rather than the standard schema.
+The schema header line contains specifies the version.
+If the schema is a library schema rather than the standard schema the library name must be included.
+This may optionally be followed by an XSD namespace specification.
 
-Library names must contain only alphabetic characters and are usually short and descriptive.
+Library names must contain only alphabetic characters and should be short and descriptive.
 A schema's library name or lack there of is used to locate the schema in the
-HED schema repository located in GitHub in the
+HED schema repository located on GitHub in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) repository.
 
-#### 3.1.3.2 Unit classes
+Library names should be lowercase.
 
-The unit class definition section specifies the allowed 
-unit classes and the corresponding allowed unit names.
-Only the singular version of each unit name is explicitly specified,
+#### 3.1.2.2 The prologue
+
+The prologue should contain a concise introduction to the schema and its purpose.
+Together with the epilogue section, 
+the contents are used by tools to provide information about the schema to the users.
+
+#### 3.1.2.3 The schema section
+
+The schema section contains the actual vocabulary contents of the schema.
+Each element in this section corresponds to a *node* or *tag term* element.
+
+A node element specifies the tag term name,
+its attributes, and an informative description of the tag term's meaning.
+The location of the element within the section specifies its relationship to other tag terms in the schema.
+See appendix [**A. Schema format details**](./Appendix_A.md) for additional details.
+
+#### 3.1.2.4 Unit classes and units
+
+The unit class definition section specifies the allowed unit classes and the 
+associated units that can be used with tags that take values.
+
+Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
-singular versions are also allowed (e.g., `feet` is allowed in addition to `foot`). 
-HED uses a `pluralize` function available in both Python and Javascript to check validity.  
+singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
+HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
+See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
+for additional details.
 
-#### 3.1.3.3 Unit modifiers
+#### 3.1.2.5 Unit modifiers
 
 The unit modifier definition section lists the SI unit multiples and submultiples 
-that are allowed to be prepended to units that have the `SIUnit` schema attribute. 
+that are allowed to be prepended to units that have the `SIUnit` schema attribute.
 
-#### 3.1.3.4 Value classes
+**Unit modifiers are case-sensitive.**
+
+See appendix [**A.1.2. Unit modifiers**](./Appendix_A.md#a12-unit-modifiers)
+for additional details and a listing.
+
+#### 3.1.2.6 Value classes
 
 The value class definition section specifies rules for the values that are substituted 
 for placeholders (`#`). Examples are special characters that are allowed for numeric values 
-or dates. Placeholders that have no `valueClass` attributes, are assumed to be of text class.
+or dates. Placeholders that have no `valueClass` attributes, are assumed to be of `textClass`.
 
-#### 3.1.3.5 Schema attributes
+See appendix [**A.1.3. Value classes**](./Appendix_A.md#a13-value-classes)
+for additional details and a listing.
+
+#### 3.1.2.7 Schema attributes
 
 The schema attribute definition section lists the schema attributes that may be applied to
 schema elements in other sections of the schema.
-The specification of which type of elements an attribute may apply
-to is specified by the property attributes of these schema attributes. 
 
-#### 3.1.3.6 Schema properties
+The specification of which type of elements a schema attribute may apply
+to is specified by its schema properties.
 
-The schema properties definition section lists properties of the schema attributes, themselves.
+See appendices [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes)
+and [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties)
+for additional details.
+
+#### 3.1.2.8 Schema properties
+
+The schema properties definition section lists the allowed properties of the schema attributes.
 These properties help tools validate certain requirements directly based
 on the HED schema rather than on hard-coded implementation. 
+
+See [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties) for additional details
+and a listing.
+
+#### 3.1.2.9 The epilogue
+
+The epilogue should give license information, acknowledgments, and references.
+
+
+### 3.1.3. Naming conventions
+
+The different parts of the HED schema have different rules 
+for the characters and names that are allowed. UTF-8 characters are not supported.
+
+
+#### 3.1.3.1. Node elements
+
+Schema designers and users that extend HED schema or develop library
+schema will be mainly concerned with nodes (tag terms) found in the schema section.
+The names of these elements must conform to the rules for
+[`nameClass`](./Appendix_A.md#a13-value-classes).
+
+Other conventions requirements for the contents of schema node elements
+are as follows:   
+
+
+````{admonition} Naming conventions for nodes (tag terms) in HED schema. 
+:class: tip
+1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case. 
+2. Schema node names consisting of multiple words may not contain blanks and should be hyphenated.
+3. Schema descriptions should be concise sentences, possibly with clarifying examples.
+4. Schema descriptions may include characters allowed by `textClass` as well as commas.
+They may not contain square brackets, curly braces, quotes, or other characters.
+````
+
+#### 3.1.3.2 Epilogue and prologue
+The epilogue and prologue section text must conform to the rules for
+[`textClass`](./Appendix_A.md#a13-value-classes).
+
+#### 3.1.3.3 Naming in other blocks
+
+The names of elements corresponding to schema attributes, schema properties, 
+unit classes, and value classes should start with a lower case letter,
+with the remainder in camel case.
+
+Units and unit modifiers follow the naming conventions of the units they represent.
+
+Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings.
 
 
 ### 3.1.4 Mediawiki schema format
@@ -217,7 +280,7 @@ or the schema will not validate.
 Everything after each HED node (tag term) must be enclosed by `<nowiki></nowiki>` markup elements.
 The contents within these markup elements include a description and attributes.
 
-Descriptions, which are enclosed in square brackets (`[ ]`)
+Descriptions, which are enclosed in square brackets (`[ ]`),
 indicate the meaning of the item they modify.
 The descriptions are displayed to users by schema browsers and other tools,
 so every effort should be made to make them informative and clear.
@@ -225,8 +288,8 @@ so every effort should be made to make them informative and clear.
 Attributes are enclosed with curly braces (`{ }`). These attributes provide
 additional rules about how the item and modifying values should be used and handled by tools.
 Allowed HED node attributes include unit class and value class values as well as
-HED schema attributes that do not have the `unitClassProperty`, `unitModifierProperty`,
-`unitProperty`, or `valueClassProperty`. 
+HED schema attributes that do not have one of the following modifiers:
+`unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. 
 
 HED schema attributes that have the `boolProperty` appear in the schema element they
 are modifying just with their name.
@@ -235,16 +298,16 @@ The presence of such an attribute indicates that it is true or present.
 HED schema attributes that do not have the `boolProperty` are specified in the form of a
 `name=value` pair.
 If multiple values of a particular attribute are applicable,
-they should be specified as name-value pairs separated by commas within the square brackets.
+they should be specified as name-value pairs separated by commas within the curly braces.
 
 The hashtag character (`#`) is a placeholder for a user-supplied value. Within the HED schema a
 `#` node indicates that the user must supply a value consistent with the unit classes and value
-classes of the `#` node if it has any during annotation.
+classes of the `#` node during annotation.
 Lines with hashtag (`#`) placeholders should have
-everything after the asterisks enclosed by `<nowiki></nowiki>` markup elements.
+everything after the asterisks, including the `#` placeholder, enclosed by `<nowiki></nowiki>` markup elements.
 
-Additional details and rules can be found in 
-[**Appendix A. Mediawiki file format**](./Appendix_A.md#a-1-mediawiki-file-format)
+Additional details and rules can be found in appendix
+[**A.2 Mediawiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
 
 ### 3.1.5 XML schema format
 
@@ -302,21 +365,21 @@ The following is a translation of the `.mediawiki` example from the previous sec
 ```
 ````
 
-The `<node>` elements of the schema represent the HED tags,
+The `<node>` elements of the schema represent the HED tags (tag terms),
 with remaining schema elements specifying additional information and properties.
 
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term 
 that it specifies.
 
-A `<node>` element may also have a `<description>` child element containing
+A `<node>` element should also have a `<description>` child element whose context correspond to
 the text that appears in square brackets (`[ ]`) in the `.mediawiki` version. 
 
-The schema attributes (which appear as `name` values or `name-value` pairs enclosed in 
-curly braces {} in the `.mediawiki` file) are translated into `<attribute>` child elements
+The schema attributes, which appear as `name` values or `name-value` pairs enclosed in 
+curly braces (`{ }`) in the `.mediawiki` file, are translated into `<attribute>` child elements
 of `<node>` in the `.xml`. 
 
-Additional details and rules can be found in 
-[**Appendix A. XML file format**](./Appendix_A.md#a-2-xml-file-format)
+Additional details and rules can be found in appendix
+[**A.3 XML file format**](./Appendix_A.md#a3-xml-file-format)
 
 ## 3.2 HED annotation format
 
@@ -374,8 +437,9 @@ An important requirement of third generation HED is that the node names in
 the HED schema **must be unique**. 
 As a consequence, the user can specify as much of the path to the root as desired. 
 
-The full path version is referred to as **long form** and truncated versions as 
-**short form**. HED tools are available to map between shortened tags and long form as needed. 
+The full path version is referred to as **long form** and the version with only the final tag element
+(excluding placeholder) as the **short form**.
+
 Any **intermediate form** of the tag path is also allowed as illustrated by this example:
 
 The following illustrates some variations possible for HED tags with and without values.
@@ -387,6 +451,7 @@ The following illustrates some variations possible for HED tags with and without
 | *Weight/3 lbs* | *Data-property/Data-value/Physical-value/Weight/3 lbs*<br/> *Data-value/Physical-value/Weight/3 lbs*<br/> *Physical-value/Weight/3 lbs* | *Property/Data-property/Data-value/Physical-value/Weight/3 lbs* | 
 ````
 
+HED tools are available to map between shortened tags and long form as needed. 
 
 ### 3.2.3. Tags that take values
 
@@ -404,17 +469,19 @@ placeholder rather than a tag.
 **HED values** can be strings or numeric values followed by a unit specification. 
 If a `unitClass` is specified as an attribute of the `#` node, then the units specified 
 must be valid units for that `unitClass`. 
-**HED parsers assume that units are separated from values by at least one blank.**
+
+HED parsers assume that units are separated from values by a single blank.**
 
 The characters that may be used in the value that replaces the `#` placeholder must be
 in the union of the values allowed by the `valueClass` attributes of the`#` node.
+If units are given, they may place additional restrictions on the allowed values.
 
 Additional checks may be made on the substituted values depending on the *valueClass*
 
 | valueClass  | Additional value checks |
 | ----------- | ----------------------- |
 | numericClass | Must be a valid floating point number. |
-| dateTimeClass | must be a valid ISO8601 value. |
+| dateTimeClass | Must be a valid ISO8601 value. |
 
 The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string. 
 For example, the *Label* node in the HED schema has the `#` child. Thus, the value *myLabel* meant to
@@ -426,17 +493,16 @@ value class requirements associated with that `#`.
 Thus, *Label/Item* is a valid HED tag.
 It is the *Label* tag with its value *Item* and is unrelated to the *Item* HED tag.
 However, *Data-maximum/Item* is not valid because
-the `#` child of *Data-maximum* has a *valueClass=numericClass* attribute
+the `#` child of *Data-maximum* has a `valueClass=numericClass` attribute
 and the *Item* value is not numeric.
 
 Certain unit classes allow other special characters in their value specification. 
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` unit class.
 
-#### 3.2.4. Tag extensions
+### 3.2.4. Tag extensions
 A tag extension, in contrast to a value, is a tag that users add
 after a leaf node as a more specific term for an item already in the schema.
-
 For example, a user might want to use *Helicopter* instead of the more general term *Aircraft*.
 Since *Aircraft* inherits the *extensionAllowed* attribute,
 users may use extended tags such as *Aircraft/Helicopter* in their annotation.
@@ -450,7 +516,7 @@ conforms to the rules for a *nameClass* value.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 
-Notes: The is-a relationship is not checked by validators.
+**Note:** The is-a relationship is not checked by validators.
 It is needed so that term search works correctly.
 
 ```` 
@@ -463,8 +529,12 @@ if you think the term would be useful to other users.
 
 ### 3.2.5. Tag prefixes
 
-Users may select tags from multiple schemas, but these must be specified in the
+Users may select tags from multiple schemas, but additional schema must be specified in the
 HED version specification.
+Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
+Users are free to use any alphabetic namespace prefix, provided it is associated with a specific
+schema in the HED version specification.
+See section [**7.2 Schema namespaces**](07_Library_schema.md#72-schema-namespaces).
 
 
 
@@ -495,7 +565,7 @@ The terms in a HED string must be unique, thus, a HED string forms a set.
 Any ordering of HED tags at the same level within a HED string is equivalent.
 
 The validation errors for HED tags and HED strings are summarized in
-[Appendix B: HED errors](Appendix_B.md#b-hed-errors).
+[**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
 
 
 ### 3.2.5 Parenthesized HED strings
