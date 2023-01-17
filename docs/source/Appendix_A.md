@@ -549,7 +549,7 @@ attribute properties.
 1. Schema attributes with the `boolProperty`  have a `<name>` node but no 
 `<value>` node in the XML.
 Presence indicates true.
-2. Schema attributes with the `boolProperty`  have both `<name>` and 
+2. Schema attributes without the `boolProperty`  have both `<name>` and 
 `<value>` nodes in the XML.
 
 ````
