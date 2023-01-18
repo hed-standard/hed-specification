@@ -610,3 +610,120 @@ the HED string *A, B* and the distinction should be preserved if relevant.
 whereas *A, B* means that *A* and *B* are each annotating some larger construct.
 
 Specific rules of association will be encoded in a future version of the HED specification.
+
+### 3.2.6 Sidecars
+
+A sidecar is a dictionary that can be used to associate event file columns
+and their values with HED annotations.
+This dictionary allows HED tools to assemble HED annotations for each row in an event file.
+
+HED sidecar validation assumes that the dictionary is saved in JSON format and comply with the
+[**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
+
+Sidecar validation is similar to HED string validation, but the error messages are keyed to
+dictionary locations rather than to line numbers in the event file or spreadsheet.
+
+#### 3.2.6.1 Types of sidecar HED entries
+
+A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
+
+````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
+- **Categorical entries**: are associated with a particular event file column and provide
+individual annotations for each column value. 
+The dictionary is not required to provide annotations for every possible
+value in the column, although tools may choose to issue a warning if appropriate.
+The dictionary may also include annotations for values that do not appear in the associated event file column.  
+<p></p>
+
+- **Value entries**: are associated with a particular event file column and provide
+an annotation that applies to any entry in the column.
+The HED annotation must contain a single `#` placeholder,
+and each individual column value is substituted for the `#` in the annotation
+when the annotation for the entire row is assembled.
+
+<p></p>
+ 
+- **Dummy entries**: are similar in format to categorical entries,
+but are not associated with any event file columns,
+rather these annotations are mainly used for HED definitions.
+
+````
+
+While HED definitions are allowed anywhere,
+the recommended style is to separate them into dummy categorical sidecar entries for readability.
+The sidecar does not have to provide an HED-relevant entry for every event file column.
+Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation
+for an event file row.
+
+The following example illustrates the three types of JSON entries that HED tools process.
+
+````{Admonition} Example of three types of sidecar annotation entries.
+:class: tip
+```json
+{
+   "trial_type": {
+      "LongName": "Event category",
+      "Description": "Indicator of type of action that is expected",
+      "HED": {
+          "go": "Sensory-event, Visual-presentation, (Square, Blue)",
+          "stop": "Sensory-event, Visual-presentation, (Square, Red)"
+       }
+   },
+   "response_time": {
+       "LongName": "Response time after stimulus",
+       "Description": "Time from stimulus presentation until subject presses button",
+       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button))),"
+   },
+   "dummy_defs": {
+        "HED": {
+            "MyDef1": "(Definition/Image1, (Image, Face))",
+            "MyDef2": "(Definition/Cue1, (Buzz))"
+        }
+   }
+}
+```
+````
+
+In the example, the `trial_type` key references a **categorical** entry.
+Categorical entries have keys corresponding to the event file column names.
+The value of a categorical entry is a dictionary which has a `HED` key.
+In the above example, the keys of this second dictionary are the values (`go` and `stop`) that
+appear in the `trial_type` column of the event file.
+The values are the HED annotations associated with those values.
+Thus, the "Sensory-event, Visual-presentation, (Square, Blue)"
+
+The `response_time` key references a **value annotation**.
+Value entries have keys, one of which is `HED`.
+Associated with the `HED` key is a HED annotation value.
+There must be exactly one `#` placeholder in the annotation.
+The actual value in the col
+
+The `dummy_defs` is an example of a **dummy annotation**.
+The value of this entry is a dictionary with a `HED` key
+pointing to a dictionary.
+A **dummy annotation** is similar in form to a **categorical annotation**,
+but its keys do not correspond to any event file column names.
+Rather it is used as a container to organize HED definitions.
+
+
+#### 6.2.3.1 Placeholders in sidecars
+
+Sidecars may have at most 
+Sidecars also allow
+The validator checks that there is exactly one `#` in the HED string annotation associated 
+with each non-categorical column. The `#` placeholder should correspond 
+to a `#` in the HED schema, indicating that the parent tag expects a value. 
+If the placeholder is followed by a unit designator, the validator checks that 
+these units are consistent with the unit class of the
+corresponding `#` in the schema.  The units are not mandatory.
+If an annotation is not provided for a particular column value,
+that entry is skipped when the annotation for a row is assembled.
+
+Placeholders in sidecars appear in two different places:
+The `#` placeholders in sidecars are not replaced with values.
+Rather, the HED annotation
+Rather, 
+### 6/2
+See [**Sidecar validation**](sidecar-validation-anchor) for information about the
+special role of `#` placeholders in sidecars.
+

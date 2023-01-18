@@ -6,7 +6,7 @@ This section describes the expected behavior of the HED infrastructure and
 its integration into other systems such as [**BIDS**](https://bids.neuroimaging.io/).
 
 This section also specifies how HED-compliant tools should handle various aspects of HED.
-In general tools should either explicitly call HED validation to assure that the input
+In general, tools should either explicitly call HED validation to assure that the input
 tag strings are valid or should make explicit that they assume the HED has already been validated.
 Most tools will use the later approach. 
 
@@ -15,6 +15,8 @@ Most tools will use the later approach.
 HED-compliant tools should be able to a handle HED string in its equivalent forms
 and using various valid syntax as described in this section.
 
+### 6.1.1 Tag forms
+
 ````{warning} 
 HED-compliant tools should be able to handle tags in **long-form**,
 **short-form** or any valid **intermediate-form**.
@@ -22,9 +24,12 @@ HED-compliant tools should be able to handle tags in **long-form**,
 ````
 (parenthesized-hed-strings-anchor)=
 
+### 6.1.2 Parentheses
+
+Grouping with parentheses in HED means that the tags are associated.
 
 ````{warning} 
-HED-compliant tools should be able to handle arbitrary correctly nested parentheses
+HED-compliant tools should be able to handle arbitrary correctly **nested parentheses**
 and correctly distinguish differences in grouping.
 
 ````
@@ -37,6 +42,15 @@ Any ordering of HED tags at the same level within a HED string is equivalent.
 ````{warning} 
 HED-compliant tools should not rely on the order that HED tags appear within a string during processing.
 ````
+
+### 6.1.4 Definitions
+
+
+
+````{warning} 
+HED-compliant tools should be able to expand, shrink, or remove definitions.
+````
+
 
 ## 6.2. Validation of HED annotations
 
@@ -52,9 +66,9 @@ HED distinguishes five levels of validation: [**tag**](tag-validation-anchor),
 [**sidecar**](sidecar-validation-anchor), [**event**](event-validation-anchor), 
 and [**recording**](recording-validation-anchor).
 
-Previous generations of HED (< 8.0.0) only required validation at the first 
-four levels. Since third-generation HED can document relationships across events, 
-it also requires an additional dataset level validation to check cross-event relationships. 
+Previous generations of HED (< 8.0.0) only required validation at the first four levels. 
+Third-generation HED can document relationships across events and thus
+also requires an additional dataset level validation to check cross-event relationships. 
 
 Validation can also be categorized as syntactic or semantic. Syntactic validation, 
 which occurs mainly at the HED tag and HED string levels, tests that the tags are 
@@ -69,39 +83,40 @@ Tools are expected to require a valid HED schema for validation or other tag-spe
 (tag-validation-anchor)=
 ### 6.2.1. Tag validation
 
-HED tag level validation checks each individual HED tag against its associated schema. 
-The long-form of the tag must be in the schema under which the tag is being validated. 
+Tag validation assures that the tag (in whatever form) is in the schema
+and that its associated attributes are valid.
 
+Tags that have a `#` placeholder child can be used with or without the extending value.
+If the tag is given with a value, tag validation assures that the value and units meet the
+requirements of the specified units and value classes.
+Tools may use this information in downstream processing.
+
+Tags that do not have a `#` placeholder child, but have the `extensionAllowed` attribute,
+either directly or through inheritance, may be extended.
+The extension is treated as a node in the schema,
+however, the extension cannot already be a node in the schema,
+and the extension must always be used with its parent tag.
+
+Tools may use these properties in downstream processing.
 
 See [**Tags that take values**](./03_HED_formats.md#323-tags-that-take-values) for
 additional details about HED schema nodes with placeholders.
-
-See [**Sidecar validation**](sidecar-validation-anchor) for information about the
-special role of `#` placeholders in sidecars.
-
-#### 6.2.1.2. Tag values and units
-
-As discussed in the previous section, schema `#` nodes must be leaf nodes
-that represent a value to be associated with the node's parent.
-
-If the `#` node has a *unitClass* attribute,
-the units must comply with those of the specified *unitClass*.
-The value and the units should always be separated by a blank.
-
-
 
 (string-validation-anchor)=
 ### 6.2.2. String validation
 
 HED string level validation focuses on the proper formation of HED strings and tag-groups 
-within the HED strings including matching of parentheses and
-proper delimiting of HED tags by commas. 
+within the HED strings including matching of parentheses and proper delimiting of HED tags by commas. 
 
 Empty parentheses and multiple commas with no intervening
-tags represent empty tags and are invalid, as are HED strings with leading or trailing commas.
+tags represent empty tags and are invalid,
+as are HED strings with leading or trailing commas.
 
 Duplicated tags at the same level in a tag-group or at the top level are not allowed.
 For example, *(Red, Red, Blue)* is an invalid HED string.
+
+Tools may assume that validated HED strings have no duplicates, empty tags, empty groups, or
+mismatched parentheses.
 
 (sidecar-validation-anchor)=
 ### 6.2.3. Sidecar validation
@@ -114,11 +129,11 @@ HED sidecar validation assumes that the dictionaries are saved in JSON format an
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
 Sidecar validation is similar to HED string validation, but the error messages are keyed to
-dictionary location rather than to line numbers in the event file or spreadsheet.
+dictionary locations rather than to line numbers in the event file or spreadsheet.
 
 #### 6.2.3.1 Types of sidecar HED entries
 
-A BIDS sidecar is dictionary may have many entries, some of which are ignored by HED tools.
+A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
 
 ````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
 - **Categorical annotations**: are associated with a particular column and provide
@@ -142,7 +157,7 @@ rather these annotations are mainly used for HED definitions.
 ````
 
 While HED definitions are allowed anywhere,
-the recommended style is to separate them into dummy sidecar entries for readability.
+the recommended style is to separate them into dummy categorical sidecar entries for readability.
 The sidecar does not have to provide an HED-relevant entry for every event file column.
 Columns with no corresponding entry are skipped during assembly of the HED annotation
 for the row.
@@ -209,6 +224,16 @@ these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
 If an annotation is not provided for a particular column value,
 that entry is skipped when the annotation for a row is assembled.
+
+Placeholders in sidecars appear in two different places:
+The `#` placeholders in sidecars are not replaced with values.
+Rather, the HED annotation
+Rather, 
+### 6/2
+See [**Sidecar validation**](sidecar-validation-anchor) for information about the
+special role of `#` placeholders in sidecars.
+
+
 
 (event-validation-anchor)=
 ### 6.2.4. Event validation
@@ -384,8 +409,7 @@ The following examples shows a simple `dataset_description.json`.
 ```
 ````
 
-
-## 6.4.4 BIDS support in HED
+### 6.4.4. HED in the BIDS validator
 
 HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). 
 The [BIDS validator](https://github.com/bids-standard/bids-validator) 
