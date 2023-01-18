@@ -15,7 +15,7 @@ Most tools will use the later approach.
 HED-compliant tools should be able to a handle HED string in its equivalent forms
 and using various valid syntax as described in this section.
 
-### 6.1.1 Tag forms
+### 6.1.1. Tag forms
 
 ````{warning} 
 HED-compliant tools should be able to handle tags in **long-form**,
@@ -24,7 +24,7 @@ HED-compliant tools should be able to handle tags in **long-form**,
 ````
 (parenthesized-hed-strings-anchor)=
 
-### 6.1.2 Parentheses
+### 6.1.2. Parentheses
 
 Grouping with parentheses in HED means that the tags are associated.
 
@@ -35,7 +35,7 @@ and correctly distinguish differences in grouping.
 ````
 
 (tag-ordering-anchor)=
-### 6.1.3 Tag ordering
+### 6.1.3. Tag ordering
 
 Any ordering of HED tags at the same level within a HED string is equivalent.
 
@@ -43,7 +43,7 @@ Any ordering of HED tags at the same level within a HED string is equivalent.
 HED-compliant tools should not rely on the order that HED tags appear within a string during processing.
 ````
 
-### 6.1.4 Definitions
+### 6.1.4. Definitions
 
 
 
@@ -51,209 +51,26 @@ HED-compliant tools should not rely on the order that HED tags appear within a s
 HED-compliant tools should be able to expand, shrink, or remove definitions.
 ````
 
-
-## 6.2. Validation of HED annotations
-
-Validation of HED annotations is an essential step in using HED for large-scale, reproducible
-analysis. Third-generation HED (versions >= 8.0.0) encourages detailed documentation of events 
-and provides mechanisms for mapping the interrelationships of events and task intent. 
-The additional annotation power also requires more extensive validation to assure consistency
-across annotations. HED-validators are provided in both Python and JavaScript. 
-There is also a MATLAB wrapper for the Python validator functions.
-
-HED distinguishes five levels of validation: [**tag**](tag-validation-anchor),
-[**string**](string-validation-anchor),
-[**sidecar**](sidecar-validation-anchor), [**event**](event-validation-anchor), 
-and [**recording**](recording-validation-anchor).
-
-Previous generations of HED (< 8.0.0) only required validation at the first four levels. 
-Third-generation HED can document relationships across events and thus
-also requires an additional dataset level validation to check cross-event relationships. 
-
-Validation can also be categorized as syntactic or semantic. Syntactic validation, 
-which occurs mainly at the HED tag and HED string levels, tests that the tags are 
-properly formed, independently of the HED schema or purpose of the tags. Semantic 
-validation tests that the tags are used correctly and that they comply with the 
-requirements of the relevant HED schema.
-
-Syntactic validation is usually done during the initial parsing of the HED strings into HED tags.
-Validators are not required to separate syntactic and semantic validation.
-Tools are expected to require a valid HED schema for validation or other tag-specific behavior.
-
-(tag-validation-anchor)=
-### 6.2.1. Tag validation
-
-Tag validation assures that the tag (in whatever form) is in the schema
-and that its associated attributes are valid.
-
-Tags that have a `#` placeholder child can be used with or without the extending value.
-If the tag is given with a value, tag validation assures that the value and units meet the
-requirements of the specified units and value classes.
-Tools may use this information in downstream processing.
-
-Tags that do not have a `#` placeholder child, but have the `extensionAllowed` attribute,
-either directly or through inheritance, may be extended.
-The extension is treated as a node in the schema,
-however, the extension cannot already be a node in the schema,
-and the extension must always be used with its parent tag.
-
-Tools may use these properties in downstream processing.
-
-See [**Tags that take values**](./03_HED_formats.md#323-tags-that-take-values) for
-additional details about HED schema nodes with placeholders.
-
-(string-validation-anchor)=
-### 6.2.2. String validation
-
-HED string level validation focuses on the proper formation of HED strings and tag-groups 
-within the HED strings including matching of parentheses and proper delimiting of HED tags by commas. 
-
-Empty parentheses and multiple commas with no intervening
-tags represent empty tags and are invalid,
-as are HED strings with leading or trailing commas.
-
-Duplicated tags at the same level in a tag-group or at the top level are not allowed.
-For example, *(Red, Red, Blue)* is an invalid HED string.
-
 Tools may assume that validated HED strings have no duplicates, empty tags, empty groups, or
 mismatched parentheses.
 
-(sidecar-validation-anchor)=
-### 6.2.3. Sidecar validation
+In addition to being property formed, validated HED strings will correspond to
+terms in the schemas under which they were validated.
 
-A sidecar is a dictionary that can be used to associate event file columns
-and their values with HED annotations.
-This dictionary allows HED tools to assemble HED annotations for each row in an event file.
-
-HED sidecar validation assumes that the dictionaries are saved in JSON format and comply with the
-[**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
-
-Sidecar validation is similar to HED string validation, but the error messages are keyed to
-dictionary locations rather than to line numbers in the event file or spreadsheet.
-
-#### 6.2.3.1 Types of sidecar HED entries
-
-A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
-
-````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
-- **Categorical annotations**: are associated with a particular column and provide
-individual annotations for each column value. 
-The dictionary is not required to provide annotations for every possible
-value in the column, although tools may choose to issue a warning if appropriate.  
-<p></p>
-
-- **Value annotations**: are associated with a particular column and provide
-an annotation that applies to any entry in the column.
-The HED annotation must contain a single `#` placeholder,
-and each individual column value is substituted for the `#` in the annotation
-when the annotation for the entire row is assembled.
-
-<p></p>
- 
-- **Dummy annotations**: are similar in format to categorical annotations,
-but are not associated with any event file columns,
-rather these annotations are mainly used for HED definitions.
-
-````
-
-While HED definitions are allowed anywhere,
-the recommended style is to separate them into dummy categorical sidecar entries for readability.
-The sidecar does not have to provide an HED-relevant entry for every event file column.
-Columns with no corresponding entry are skipped during assembly of the HED annotation
-for the row.
-
-The following example illustrates the three types of JSON entries that HED tools process.
-
-````{Admonition} Example of three types of sidecar annotation entries.
-:class: tip
-```json
-{
-   "trial_type": {
-      "LongName": "Event category",
-      "Description": "Indicator of type of action that is expected",
-      "HED": {
-          "go": "Sensory-event, Visual-presentation, (Square, Blue)",
-          "stop": "Sensory-event, Visual-presentation, (Square, Red)"
-       }
-   },
-   "response_time": {
-       "LongName": "Response time after stimulus",
-       "Description": "Time from stimulus presentation until subject presses button",
-       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button))),"
-   },
-   "dummy_defs": {
-        "HED": {
-            "MyDef1": "(Definition/Image1, (Image, Face))",
-            "MyDef2": "(Definition/Cue1, (Buzz))"
-        }
-   }
-}
-```
-````
-
-In the example the `trial_type` key references a **categorical annotation**.
-Categorical entries have keys corresponding to the event file column names.
-The value of a categorical entry is a dictionary which has a `HED` key.
-The keys of this second dictionary are the values (`go` and `stop`) that
-appear in the `trial_type` column of the event file.
-and the values are the HED tags associated with those values.
-
-The `response_time` key references a **value annotation**.
-Value entries have keys, one of which is `HED`.
-Associated with the `HED` key is a HED annotation value.
-There must be exactly one `#` placeholder in the annotation.
-The actual value in the col
-
-The `dummy_defs` is an example of a **dummy annotation**.
-The value of this entry is a dictionary with a `HED` key
-pointing to a dictionary.
-A **dummy annotation** is similar in form to a **categorical annotation**,
-but its keys do not correspond to any event file column names.
-Rather it is used as a container to organize HED definitions.
+Tools may assume that the individual tags within the string have the property units
+and are in the property format.
 
 
-#### 6.2.3.1 Placeholders in sidecars
+## 6.2 File-level handling
 
-Sidecars may have at most 
-Sidecars also allow
-The validator checks that there is exactly one `#` in the HED string annotation associated 
-with each non-categorical column. The `#` placeholder should correspond 
-to a `#` in the HED schema, indicating that the parent tag expects a value. 
-If the placeholder is followed by a unit designator, the validator checks that 
-these units are consistent with the unit class of the
-corresponding `#` in the schema.  The units are not mandatory.
-If an annotation is not provided for a particular column value,
-that entry is skipped when the annotation for a row is assembled.
-
-Placeholders in sidecars appear in two different places:
-The `#` placeholders in sidecars are not replaced with values.
-Rather, the HED annotation
-Rather, 
-### 6/2
-See [**Sidecar validation**](sidecar-validation-anchor) for information about the
-special role of `#` placeholders in sidecars.
-
-
-
-(event-validation-anchor)=
-### 6.2.4. Event validation
-
-Dataset formats such as BIDS (Brain Imaging Data Structure) allow users to provide HED tags 
-in multiple places. For example, if a study uses local codes to represent different types of
-events, the dataset specification often allows users to use the local codes when listing the
-events and then provide some format of dictionary mapping local codes to tags. 
-During event level validation, all of these tags must be assembled into a HED string 
-representing the full HED annotation for that event. 
-
-Several tag attributes are validated at this stage. The expanded event-level HED string
-annotating an event must include all tags with the *required* attribute and only one copy
-of each tag with the *unique* attribute.
-
-(recording-validation-anchor)=
-### 6.2.5. Recording validation
+Dataset formats such as [**BIDS**](https://bids.neuroimaging.io/) (Brain Imaging Data Structure)
+allow users to provide HED tags in multiple places.
+For example, if a study uses local codes to represent different types of events,
+The dataset event files often use local codes to identify event markers
+and then provide some format of dictionary mapping local codes to annotations. 
 
 The introduction of definitions and temporal scope has added additional complexity 
-to validation. Instead of being able to validate the HED string for each event individually,
+to validation and processing. Instead of being able to validate the HED string for each event individually,
 third generation HED validators must also check consistency across all events in the 
 data-recording. This validation requires multiple passes through of the assembled HED tags
 associated with the data-recording.
@@ -267,13 +84,6 @@ is associated with an appropriately defined label. The validator must also check
 sure that *Onset* and *Offset* tags are properly matched within the data recording.
 
 
-## 6.3. Analysis tools
-
-Third-generation HED analysis tools also require some additional infrastructure. These tools
-should call the HED libraries to fully expand the tags for a data recording before doing
-analysis. In addition to converting all HED tags to their long form, the library tools can 
-remove the definitions and replace *def/* with the full tag expansion with any defined labels.  
-
 Each event that is within the temporal scope of a scoped event, should have the scoped event
 information added to the *Event-context* tag group of the intermediate event upon request.
 *Delay* tag expansions as insertions of actual events should also be supported. 
@@ -282,29 +92,17 @@ The HED tools should provide this expansion capability as well as a standardized
 of events in a data recording to enable tools to use a standard API for accessing tag information.
 
 
-## 6.4. HED support of BIDS
+## 6.3. HED support of BIDS
 
+[**BIDS**](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) is a 
+widely-adopted specification along with supporting tools for organizing and 
+describing brain imaging and behavioral data.
 BIDS dataset events are stored in tab-separated tabular files whose names end in `events.tsv`.
-The tabular files must have the column names in the first row.
-The remaining rows represent event markers in the timeline of a similarly named data file.
-The columns contain categorical values, other types of values, or HED strings.
-The first two columns in a BIDS events file are the `onset` and `duration`, respectively.
-The `onset` is the time of the event marker,
-while the `duration` represents the duration of some aspect of the event.
+HED's use of tabular files and sidecars closely aligns with BIDS and its requirements.
+HED has been incorporated into the BIDS standard as the mechanism for annotating
+tabular files. 
 
-Categorical column values are chosen from a small, explicitly defined subset. 
-Value columns may contain numeric values or other types of values such as file names. 
-HED tools assume that event files are spreadsheets, either in BIDS (`.tsv`) format or 
-Excel format.
-
-The HED tools require that each column of an event file contains items of the same class 
-(categorical or value) and that value columns contain items of the same basic type. Files not
-satisfying these requirements may need additional processing before being handled by HED tools.
-
-### 6.4.1. BIDS event files
-[BIDS (Brain Imaging Data Structure)](https://bids.neuroimaging.io/is ) is a specification 
-along with supporting tools for organizing and describing brain imaging and behavioral data.
-BIDS event files  satisfy the criteria of the previous section. 
+### 6.3.1. BIDS tabular files
 
 BIDS supports HED annotation of events. BIDS events appear in tab-separated value (`_events.tsv`)
 files in various places in the dataset hierarchy. BIDS event files must have an `onset` column
@@ -334,7 +132,12 @@ structure array. The time of the event is given in frames in the `EEG.event.late
 field for data that has not been epoched. 
 
 
-### 6.4.2. BIDS sidecars
+The first two columns in a BIDS events file are the `onset` and `duration`, respectively.
+The `onset` is the time of the event marker,
+while the `duration` represents the duration of some aspect of the event.
+
+
+### 6.3.2. BIDS sidecars
 
 BIDS also recommends data dictionaries in the form of JSON sidecars to document
 the meaning of the data in the event files.HEDTools assume 
@@ -388,7 +191,7 @@ consisting of a HED string rather than another dictionary. This HED string must 
 placeholder. The corresponding value in the spreadsheet column replaces the `#` when the event
 annotation is assembled.
 
-### 6.4.3. HED version in BIDS
+### 6.3.3. HED version in BIDS
 
 The HED version is included as the value of the `"HEDVersion"` key in the 
 `dataset_description.json` metadata file located at the top level in a BIDS dataset. 
@@ -409,22 +212,23 @@ The following examples shows a simple `dataset_description.json`.
 ```
 ````
 
-### 6.4.4. HED in the BIDS validator
+### 6.3.4. HED in the BIDS validator
 
-HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). 
-The [BIDS validator](https://github.com/bids-standard/bids-validator) 
+HED provides a JavaScript validator in the [**hed-javascript**](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [**npm**](https://www.npmjs.com/). 
+The [**BIDS validator**](https://github.com/bids-standard/bids-validator) 
 incorporates calls to this package to validate HED tags in BIDS datasets.
 
-The [hedtools](https://pypi.org/project/hedtools/) package includes
-input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal
+### 6.3.5. HED python tools
+
+The [**hedtools**](https://pypi.org/project/hedtools/) package includes
+input functions that use [**Pandas**](https://pandas.pydata.org/) data frames to construct internal
 representations of HED-annotated event files. 
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format.
 The tools to convert schema between `.mediawiki` and `.xml` format are located in the 
 `hed.schema` module of the 
 [**hedtools**](https://github.com/hed-standard/hed-python/tree/master/hedtools) 
-project of the hed-python repository located at  
-[https://github.com/hed-standard/hed-python](https://github.com/hed-standard/hed-python). 
+project of the [**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
 conversions. 

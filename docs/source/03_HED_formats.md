@@ -568,42 +568,32 @@ schema in the HED version specification.
 See section [**7.2 Schema namespaces**](07_Library_schema.md#72-schema-namespaces).
 
 
+### 3.2.6. Strings and groups
 
-### 3.2.6. HED strings and groups
-
-A **HED string** is a comma-separated list of HED tags and/or HED tag groups.
+A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
+The terms in a HED string must be unique, thus, a HED string forms a set.
 
 A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in
 parentheses. Tag groups may include other tag groups. 
 
-Parentheses convey association, since HED strings are unordered lists. 
+Any ordering of HED tags and HED tag groups at the same level within a HED string is equivalent.
+Valid HED strings may have parentheses nested to arbitrary levels (nested groups).
 
-The terms in a HED string must be unique, thus, a HED string forms a set.
+A HED tag corresponding to a schema node with the `tagGroup` attribute,
+must appear inside parentheses (e.g., must be in HED tag group).
 
-````{admonition} **Example:** Nested HED tag group indicated press.
+Duplicated tags at the same level in a tag-group or at the top level are not allowed.
+For example, (`Red`, `Red`, `Blue`) is an invalid HED string.
 
-**Short form:**  
-> *((Human-agent, Experiment-participant), (Press, Mouse-button))*
+Empty parentheses and multiple commas with no intervening tags represent empty tags and are invalid,
+as are HED strings with leading or trailing commas.
 
-**Long form:**
-> *((Agent/<strong>Human-agent</strong>,*  
->    *Property/Agent-property/Agent-task-role/<strong>Experiment-participant</strong>),*  
-> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*  
-> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))*  
+A HED tag corresponding to a schema node with the `topLevelTagGroup` attribute 
+must appear within a single level of parentheses.
+This attribute is usually associated with tags that have special meanings in HED such
+as `Definition` and `Onset`.
 
-````
-
-Any ordering of HED tags at the same level within a HED string is equivalent.
-
-The validation errors for HED tags and HED strings are summarized in
-[**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
-
-
-### 3.2.5 Parenthesized HED strings
-
-Valid HED tags may have parentheses nested to arbitrary levels.
-Parentheses are meaningful.
-
+Parentheses are meaningful and convey association.
 If *A* and *B* represent HED tags, the HED string *(A, B)* is not equivalent to
 the HED string *A, B* and the distinction should be preserved if relevant.
 *(A, B)* means that HED tag *A* and HED tag *B* are associated with each other,
@@ -611,20 +601,110 @@ whereas *A, B* means that *A* and *B* are each annotating some larger construct.
 
 Specific rules of association will be encoded in a future version of the HED specification.
 
-### 3.2.6 Sidecars
+The validation errors for HED tags and HED strings are summarized in
+[**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
 
-A sidecar is a dictionary that can be used to associate event file columns
-and their values with HED annotations.
-This dictionary allows HED tools to assemble HED annotations for each row in an event file.
 
-HED sidecar validation assumes that the dictionary is saved in JSON format and comply with the
+### 3.2.6. Special tags
+
+#### 3.2.6.1. The `Definition` tag
+
+HED definitions are special HED tag groups that consist of a `Definition` tag and a tag group
+defining the concept.
+
+The `Definition` tag must be extended with a value representing the definition name and may
+be additionally extended by a `#` placeholder.
+
+Multiple definitions with the same definition name are not allowed.
+This issue may not be detected until all available locations for definitions are scanned.
+Thus, definitions are usually detected and removed during early stages of processing.
+
+If the definition name includes the `#` placeholder extension, then the defining tags must
+include exactly one tag that takes a value along with its `#` placeholder.
+A value must be substituted for the `#` placeholder when final event annotation assembly
+occurs, and each distinct substituted value represents a distinct definition.
+
+A definition is incorporated into annotations using the tag `Def/xxx` where `xxx` is the definition's name.
+Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` where `xxx` is the
+definition's name and `yyy` represents the definition's tags, not including the inner groups enclosing
+parentheses.
+The two usages are equivalent, and tools should be able to transform between the two representations.
+Note, however, that transforming from the `Def` to the `Def-expand` form requires the definition,
+while transforming from the `Def-expand` to `Def` form does not.
+
+The `Definition` tag groups may appear anywhere that HED annotations can be used,
+including in sidecars, in the HED column of tabular files, or in HED-specified columns of tag spreadsheets.
+
+`Definition` tag groups are not part of any annotation and should be removed and processed
+separately before other annotations are processed.
+
+Each definition is independent and stands alone.
+It can be validated independently of any other definitions or HED annotations.
+
+The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute,
+assuring that definitions cannot be nested.
+
+See [**Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) and
+[**Using definitions**](./05_Advanced_annotation.md#52-using-definitions) for more details
+and examples.
+
+#### 3.2.6.2. `Onset` and `Offset` tags
+
+The `Onset` and `Offset` tags represent events of temporal duration.
+These tags correspond to schema nodes with the `topLevelTagGroup` attribute.
+
+In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or `Def-expand` group, and
+optionally an additional tag group. No other items are allowed.
+
+A tag group with an `Onset` represents the start of an event that extends over time.
+Only one `Def` or `Def-expand` group may be included in the `Onset` group at the top level.
+The name of the corresponding definition identifies the event that was initiated.
+
+In annotations, the `Offset` tag group includes the `Offset` tag and a `Def` or `Def-expand` group.
+No other items are allowed.
+A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group.
+The definition name associated with the top-level `Def` or `Def-expand` group identifies the
+event that ended.
+
+As a consequence of the `topLevelTagGroup` and format requirements,
+`Onset` and `Offset` may not appear in the same tag group.
+Further, a HED definition cannot include `Onset` or `Offset` tags.
+
+In addition to the top-level `Def` or `Def-expand` group that identifies the event,
+`Def` or `Def-expand` groups may appear in the optional tag group within an `Onset` group.
+The definition names corresponding to these should not be used elsewhere to identify events.
+
+See [**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
+for examples of usage and additional details.
+
+#### 3.2.6.3. The `Event-context` tag
+
+The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes.
+This implies that there can be only one `Event-context` group in each assembled event-level string.
+The `Event-context` group contains information about what other events are ongoing at the time point
+associated with the event marker for which the annotation is included.
+
+In general, the `Event-context` group is not included in annotations, but is generated by tools during
+downstream event processing. 
+
+### 3.2.7. Sidecars
+
+A sidecar is a dictionary that can be used to associate tabular file columns
+and their values with HED annotations. 
+
+This type of dictionary allows HED tools to assemble HED annotations for each row in a tabular file.
+For tabular files representing experimental events,
+these rows represent time markers on the experimental timeline,
+and the assembled events for the row represent the annotations of what happened at that time marker.
+The rows of tabular files representing other types of information can also be annotated in the same way.
+
+HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
-Sidecar validation is similar to HED string validation, but the error messages are keyed to
-dictionary locations rather than to line numbers in the event file or spreadsheet.
 
-#### 3.2.6.1 Types of sidecar HED entries
+#### 3.2.7.1. HED sidecar entries
 
+In order to support HED, a sidecar must have "HED" as a key in one or more second-level dictionaries.
 A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
 
 ````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
@@ -644,20 +724,26 @@ when the annotation for the entire row is assembled.
 <p></p>
  
 - **Dummy entries**: are similar in format to categorical entries,
-but are not associated with any event file columns,
-rather these annotations are mainly used for HED definitions.
+but are not associated with any event file columns.
+Rather these annotations are mainly used to gather HED definitions.
 
 ````
 
 While HED definitions are allowed anywhere,
 the recommended style is to separate them into dummy categorical sidecar entries for readability.
+
 The sidecar does not have to provide an HED-relevant entry for every event file column.
 Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation
 for an event file row.
 
-The following example illustrates the three types of JSON entries that HED tools process.
+For compatibility with [**BIDS**](https://bids.neuroimaging.io/),
+tabular file column entries containing `n/a` are ignored.
+The sidecar is not permitted to provide an annotation for `n/a`.
 
-````{Admonition} Example of three types of sidecar annotation entries.
+The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
+Entries without a "HED" key in the second level entry dictionaries are ignored.
+
+````{Admonition} Examples of the three types of sidecar annotation entries relevant to HED
 :class: tip
 ```json
 {
@@ -672,12 +758,12 @@ The following example illustrates the three types of JSON entries that HED tools
    "response_time": {
        "LongName": "Response time after stimulus",
        "Description": "Time from stimulus presentation until subject presses button",
-       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button))),"
+       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button)))"
    },
    "dummy_defs": {
         "HED": {
-            "MyDef1": "(Definition/Image1, (Image, Face))",
-            "MyDef2": "(Definition/Cue1, (Buzz))"
+            "MyDef1": "(Definition/Cue1, (Buzz))",
+            "MyDef2": "(Definition/Image/#, (Image, Face, Label/#))"
         }
    }
 }
@@ -701,29 +787,100 @@ The actual value in the col
 The `dummy_defs` is an example of a **dummy annotation**.
 The value of this entry is a dictionary with a `HED` key
 pointing to a dictionary.
-A **dummy annotation** is similar in form to a **categorical annotation**,
+A dummy annotation is similar in form to a **categorical annotation**,
 but its keys do not correspond to any event file column names.
 Rather it is used as a container to organize HED definitions.
 
+In the example,
+`Definition/Cue1` is a definition that does not use a placeholder (`#`) modifier in its name,
+while `Definition/Image/#` is a definition whose name `Image` is modified by a placeholder value.
+Notice that `Image` is both a definition name and an actual tag in the schema in this example.
+This is permitted.
 
-#### 6.2.3.1 Placeholders in sidecars
+#### 3.2.7.2. Sidecar validation
 
-Sidecars may have at most 
-Sidecars also allow
-The validator checks that there is exactly one `#` in the HED string annotation associated 
-with each non-categorical column. The `#` placeholder should correspond 
-to a `#` in the HED schema, indicating that the parent tag expects a value. 
+As with other entities definitions should be removed from sidecars and validated separately,
+although validation error messages for such definitions should be associated with
+the locations of the definitions in the sidecars.
+
+HED categorical sidecar entries contain HED strings and should be validated in the same way.
+
+HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated 
+with the entry. The `#` placeholder should correspond to a `#` in the HED schema,
+indicating that the parent tag (also included in the annotation) expects a value. 
+
 If the placeholder is followed by a unit designator, the validator checks that 
 these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
-If an annotation is not provided for a particular column value,
-that entry is skipped when the annotation for a row is assembled.
 
-Placeholders in sidecars appear in two different places:
-The `#` placeholders in sidecars are not replaced with values.
-Rather, the HED annotation
-Rather, 
-### 6/2
-See [**Sidecar validation**](sidecar-validation-anchor) for information about the
-special role of `#` placeholders in sidecars.
+### 3.2.8. Tabular files
 
+A tabular file is a text file in which each line represents a row in a table.
+The column entries in a given row are separated by tabs.
+Further, the first line of the file must contain a tab-separated list of
+column names, which should be unique.
+This definition of tabular file conforms to that used by [**BIDS**](https://bids.neuroimaging.io/).
+
+Generally each row in a tabular file represents an item and the columns values provide properties of that item.
+The most common HED-annotated tabular file represents event markers in an experiment.
+In this case each row in the file represents a time at which something happened.
+
+Another common HED-annotated tabular file represents experiment participants.
+In this case each row in the file represents a participant and the columns provide
+characteristics or other information about the participant identified in that row.
+
+In any case, the general strategy for validation or other processing is:
+1. Process the individual components of the HED annotation (tag and string level processing).
+2. Assemble the component annotations for a row (event or row level processing).
+3. Check consistency and relationships among the row annotations (file-level processing).
+
+#### 3.2.8.1. Annotation components
+
+HED annotations in tabular files can occur both in a `HED` column within the file and
+in an associated JSON sidecar.
+
+The HED strings that appear in a `HED` column must be valid HED strings.
+
+Definitions applicable to a tabular file may appear anywhere in the `HED` column
+or an associated sidecar, not necessarily before it is used in a particular entry.
+Thus, validation and other processing must gather definitions from the `HED` column
+and associated sidecars before any other processing can occur.
+
+#### 3.2.8.2 Event-level processing
+
+After individual HED tags and HED strings in the `HED` column and sidecars are validated or otherwise processed,
+the HED strings associated with each row of the tabular file must be assembled to provide an overall
+annotation for the row.
+We refer to this as *event-level* or *row* processing.
+
+````{Admonition} General procedure for event-level (row) processing. 
+
+1. Start with an empty list.
+2. For each categorical column, the column value for the row is looked up in the sidecar.
+If an annotation for that column value is available it is concatenated to the list. 
+3. For each value column, if a column an associated value entry in the sidecar,
+the row value is substituted for `#` placeholder in the annotation and the result concatenated to the list.
+4. If a `HED` column exists the annotation for that row, it is concatenated to the list.
+5. Finally, all the entries of the list are joined using a comma (`,`) separator.
+
+In all cases `n/a` row values are skipped.
+````
+
+For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids).
+
+If the HED schema used for processing contains a schema node that has the `required` attribute, then
+the assembled HED annotations for each row must include that tag.
+Currently, HED schema versions >= 8.0.0 do not contain any nodes with the `required`
+attribute, and this attribute may be deprecated in future versions of the schema.
+
+If the HED schema used for processing contains a schema node that has the `unique` attribute,
+then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
+Currently, HED schema versions >= 8.0.0 only has one node with the `unique` attribute:
+`Event-context`.
+
+#### 3.2.8.3 File-level processing
+
+HED versions >= 8.0.0 allow annotation of relationships among rows in a tabular file.
+Hence, processing generally requires that annotations for all the rows be assembled
+so that consistency can be checked.
+In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.

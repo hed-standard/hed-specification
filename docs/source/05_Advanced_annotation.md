@@ -1,6 +1,6 @@
 # 5. Advanced annotation
 
-## 5.1. HED definitions
+## 5.1. Definition syntax
 
 HED-3G introduces the *Definition* tag to facilitate tag reuse and to allow implementation of concepts such as
 **temporal scope**. The *Definition* tag allows researchers to create a name to represent a group of tags and 
@@ -9,7 +9,7 @@ These short-cuts make tagging easier and reduce the chance of errors.
 Often laboratories have a standard setup and event codes with particular meanings.
 Researchers can define names and reuse them  for multiple experiments. 
 Another important role of definitions is to provide the structure for implementing temporal scope 
-as introduced in [Section 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
+as introduced in [**Section 5.3: Temporal Scope**](05_Advanced_annotation.md#53-temporal-scope).
 
 A **HED definition** is a tag group that includes one *Definition* tag whose required 
 child value names.
@@ -160,7 +160,7 @@ the effects of these extended events in a machine-actionable manner.
 HED has two different mechanisms for expressing temporal scope: *Onset*/*Offset* and *Duration*.
 
 
-### 5.3.1. *Onset* and *Offset*
+### 5.3.1. Onsets and offsets
 
 The most direct HED method of specifies scoped events by combining *Onset* and *Offset* tags with defined names. 
 Using this method, an event with temporal scope actually corresponds to two point events. 
