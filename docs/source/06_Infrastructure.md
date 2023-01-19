@@ -181,7 +181,7 @@ that HED definitions have the proper form.
 ### 6.3.3. Sidecar validation
 
 HED dictionary validation assumes that the dictionaries have been written in the JSON format 
-of [BIDS sidecars](https://bids-specification.readthedocs.io/en/stable/99-appendices/03-hed.html). 
+of [BIDS sidecars](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html). 
 The validation is similar to HED string evaluation, but the error messages are keyed to
 dictionary location rather than to line numbers in the event file or spreadsheet. 
 The validator checks that there is exactly one `#` in the HED string annotation associated 
@@ -240,14 +240,11 @@ of events in a data recording to enable tools to use a standard API for accessin
 
 ## 6.5. BIDS support in HED
 
-HED provides a JavaScript validator in the [hed-javascript](https://github.
-com/hed-standard/hed-javascript) repository, which is available as an installable package via 
-[npm](https://www.npmjs.com/). The [BIDS validator](https://github.
-com/bids-standard/bids-validator) incorporates calls to this package to validate HED tags in BIDS
-datasets.
+HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). 
+The [BIDS validator](https://github.com/bids-standard/bids-validator) 
+incorporates calls to this package to validate HED tags in BIDS datasets.
 
-The [hedtools](https://github.com/hed-standard/hed-python/tree/master/hedtools) package includes
+The [hedtools](https://pypi.org/project/hedtools/) package includes
 input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal
-representations of HED-annotated event files. Plans are underway to make this package available
-on the [PyPI](https://pypi.org/) package index for easy installation.
+representations of HED-annotated event files. 
 

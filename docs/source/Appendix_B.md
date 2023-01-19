@@ -29,7 +29,7 @@ rather than as missing commas.
  ~ A *Def-expand* tag label may not correspond to a definition.
  ~ The tags within a *Def-expand* may not match the corresponding definition.
 
-**HED_DEF_UNMATCHED**: A HED *Def/* label cannot be matched to definition name.  
+**HED_DEF_UNMATCHED**: A HED *Def/* label cannot be matched to a definition name.  
  ~ A *Def* tag label cannot be correctly matched to a definition name because the 
 definition is missing or defined multiple times.
 
