@@ -19,7 +19,7 @@ for a listing.)
 **HED_CHARACTER_INVALID**: HED string contains an invalid character.  
  ~ HED uses ANSI encoding and does not support UTF-8. 
  ~ Different parts of a HED string have different rules for acceptable characters as outlined in
-[Chapter 3.3: Allowed names and values](03_Schema.md#33-allowed-names-and-values).
+[Chapter 3.2: HED annotation format**](03_HED_formats.md#32-hed-annotation-format).
 
 **HED_COMMA_MISSING**: HED tag groups and tags must be separated with commas.  
  ~ Commas missing between two HED tags are generally detected as invalid HED tags,
@@ -29,7 +29,7 @@ rather than as missing commas.
  ~ A *Def-expand* tag label may not correspond to a definition.
  ~ The tags within a *Def-expand* may not match the corresponding definition.
 
-**HED_DEF_UNMATCHED**: A HED *Def/* label cannot be matched to definition name.  
+**HED_DEF_UNMATCHED**: A HED *Def/* label cannot be matched to a definition name.  
  ~ A *Def* tag label cannot be correctly matched to a definition name because the 
 definition is missing or defined multiple times.
 
@@ -87,7 +87,7 @@ value does not have a key in the sidecar dictionary.
 ~ A tag name does not start with a capital letter with the remainder lower case.
 
 **HED_TAG_EMPTY:** Extra commas or empty parentheses indicate empty tags.  
- ~ A HED string has multiple consecutive commas (ignoring white space).
+ ~ A HED string has Extra commas or empty parentheses indicate empty tags. (ignoring white space).
  ~ A HED string begins or ends with a comma (which implies an empty HED tag). 
  ~ A tag group is empty (i.e., empty parentheses are not allowed).
 

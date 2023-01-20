@@ -62,7 +62,7 @@ EKG, and audiovisual recording.
 
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
 datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
-[Chapter 6: Infrastructure](06_Infrastructure.md#6-infrastructure).
+[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md).
 
 
 ## 1.2. Brief history of HED
@@ -200,12 +200,13 @@ schema without having to re-implement the annotation tools. A well-specified and
 ## 1.4. Specification organization
 
 This specification is meant to provide guidelines for tool-builders as well as HED annotators.
-[Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and
-[Chapter 3: Schema](03_Schema.md) outlines the rules for HED vocabularies. Basic and advanced
-event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md)
-and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). 
-Discussions of how tags for local event codes are associated with event instances are deferred to 
-[Chapter 6: Infrastructure](06_Infrastructure.md#65-bids-support-in-hed).
+[**Chapter 2: Terminology**](02_Terminology.md) reviews the basic terminology used in HED, and
+[**Chapter 3: HED formats**](03_HED_formats.md) specifies the formats for HED vocabularies and annotations.
+Basic and advanced event models and their annotations are explained in
+[**Chapter 4: Basic annotation**](04_Basic_annotation.md)
+and [**Chapter 5: Advanced annotation**](05_Advanced_annotation.md).
+[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md) discussions how
+tags should be handled by HED-compliant tools.
 
 HED provides a mechanism for user communities to develop discipline-specific library vocabularies.
 (See [Chapter 7: Library schema](05_Advanced_annotation.md) for details.) 
