@@ -83,8 +83,8 @@ This may optionally be followed by an XSD namespace specification.
 
 Library names must contain only alphabetic characters and should be short and descriptive.
 A schema's library name or lack there of is used to locate the schema in the
-HED schema repository located on GitHub in the
-[**hed-schemas**](https://github.com/hed-standard/hed-schemas) repository.
+HED schema repository located in the
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Library names should be lowercase.
 
@@ -301,8 +301,8 @@ or the schema will not validate.
 Everything after each HED node (tag term) must be enclosed by `<nowiki></nowiki>` markup elements.
 The contents within these markup elements include the description and attributes.
 
-Within the HED schema a `#` node indicates that the user must supply a value consistent with 
-the unit classes and value classes of the `#` node during annotation.
+Within the HED schema a `#` node indicates that the user must supply a value
+consistent with the unit and value class attributes of the `#` node during annotation.
 Lines with hashtag (`#`) placeholders should have
 everything after the asterisks, including the `#` placeholder, enclosed by `<nowiki></nowiki>` markup elements.
 
@@ -320,8 +320,8 @@ with remaining schema elements specifying additional information and properties.
 Each `<node>` element must have a `<name>` child element corresponding to the HED tag term 
 that it specifies.
 
-A `<node>` element should also have a `<description>` child element whose context correspond to
-the text that appears in square brackets (`[ ]`) in the `.mediawiki` version. 
+A `<node>` element should also have a `<description>` child element whose content 
+corresponds to the text that appears in square brackets (`[ ]`) in the `.mediawiki` version. 
 
 The schema attributes, which appear as `name` values or `name-value` pairs enclosed in 
 curly braces (`{ }`) in the `.mediawiki` file, are translated into `<attribute>` child elements
@@ -461,15 +461,20 @@ these should be annotated using *(A, (Relation, B))*.
 ### 3.2.2 Tag syntax
 
 A **HED tag** is a term in the HED vocabulary identified by a path consisting of the 
-individual node names from some branch of the HED schema hierarchy separated by forward 
-slashes (/). 
+individual node names from some branch of the HED schema hierarchy
+separated by forward slashes (/). 
 
-An important requirement of third generation HED (versions >= 8.0.0) is that the node names in 
-the HED schema **must be unique**. 
-As a consequence, the user can specify as much of the path to the root as desired. 
+Valid HED tags do not have leading or trailing forward slashes ('/').
+A HED tag path many also not have consecutive forward slashes.
 
-The full path version is referred to as **long form** and the version with only the final tag element
-(excluding placeholder) as the **short form**.
+An important requirement of third generation HED (versions >= 8.0.0)
+is that the node names in the HED schema **must be unique**. 
+As a consequence, the user may specify as much of the path to the root as desired
+when using the tag in annotation.
+
+The full path version is referred to as **long form**,
+and the version with only the final tag element
+(excluding placeholder) is called **short form**.
 
 Any **intermediate form** of the tag path is also allowed as illustrated by this example:
 
@@ -481,12 +486,25 @@ Any **intermediate form** of the tag path is also allowed as illustrated by this
 | *Weight/3 lbs* | *Data-property/Data-value/Physical-value/Weight/3 lbs*<br/> *Data-value/Physical-value/Weight/3 lbs*<br/> *Physical-value/Weight/3 lbs* | *Property/Data-property/Data-value/Physical-value/Weight/3 lbs* | 
 ````
 
-HED tools are available to map between shortened tags and long form as needed. 
+HED tools are available to map between shortened and long forms as needed. 
 
-### 3.2.3. Tags that take values
+### 3.2.3. Tag case-sensitivity
+
+Although by convention tag terms start with a capital letter with the remainder being lower case,
+tag processing is case-insensitive.
+Validators and other tools must treat tags containing the same characters,
+but different variations in capitalization as equivalent.
+
+The only exception to the case-insensitive processing rule is that the correct case of units
+should be preserved, both during schema processing and during annotation processing.
+This rule is required because SI distinguishes units that have different case.
+
+### 3.2.4. Tags that take values
 
 A HED tag that takes a value corresponds to a schema node whose unique child is a `#` leaf node.
-The actual schema `takesValue` attribute appears on the `#` placeholder rather than the tag itself.
+The actual schema `takesValue` attribute appears on the `#` placeholder 
+rather than on the tag itself.
+
 These tags may appear with or without a value. 
 When used with a value, the tag term is followed by a slash,
 followed by a value and possibly a blank, followed by units.
@@ -497,32 +515,34 @@ if they inherit an `extensionAllowed` attribute from an ancestor.
 The parsers treat any child of these tags as a value substituted for the
 placeholder rather than as a tag extension.
 
-**HED values** may be strings or numeric values followed by a unit specification. 
+**HED values** may be strings or numeric values followed by an optional unit specification. 
 If a `unitClass` is specified as an attribute of the `#` node, then the units specified 
 must be valid units for that `unitClass`.
 
-HED parsers assume that units are separated from values by a single blank.**
+**HED parsers assume that units are separated from values by a single blank.**
 
 The characters that may be used in the value that replaces the `#` placeholder must be
 in the union of the values allowed by the `valueClass` attributes of the`#` node.
 If units are given, they may place additional restrictions on the allowed values.
 
-Additional checks may be made on the substituted values depending on the *valueClass*
+Additional checks may be made on the substituted values depending on the `valueClass`
 
 | valueClass  | Additional value checks |
 | ----------- | ----------------------- |
 | numericClass | Must be a valid floating point number. |
 | dateTimeClass | Must be a valid ISO8601 value. |
 
-The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string. 
-For example, the `Label` node in the HED schema has the `#` child. Thus, the value `myLabel` meant to
-substitute for the `#` child of the `Label` node must include `Label` when used in a HED tag
+The values of HED tag placeholders cannot stand alone,
+but must include the parent when used in a HED string. 
+For example, the `Label` node in the HED schema has the `#` child.
+Thus, the value `myLabel` meant to
+substitute for the `#` child of the `Label` node must include `Label` term when used in a HED tag
 (e.g., `Label/myLabel` not `myLabel`).
 
 The values substituted for `#` may themselves be schema node names provided they conform with any
 value class requirements associated with that `#`.
 Thus, `Label/Item` is a valid HED tag event though `Item`, itself, is a valid top tag.
-It is the `Label` tag with its value `*Item` and is unrelated to the `Item` HED tag.
+It is the `Label` tag with its value `Item` and is unrelated to the `Item` HED tag.
 However, `Data-maximum/Item` is not valid because
 the `#` child of `Data-maximum` has a `valueClass=numericClass` attribute
 and the `Item` value is not numeric.
@@ -531,13 +551,13 @@ Certain unit classes allow other special characters in their value specification
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` value class.
 
-### 3.2.4. Tag extensions
+### 3.2.5. Tag extensions
 A tag extension, in contrast to a value, is a tag that users add
-a child of an existing schema node as a more specific term for an item already in the schema.
+as a child of an existing schema node as a more specific term for an item already in the schema.
 For example, a user might want to use `Helicopter` instead of the more general term `Aircraft`.
 Since `Aircraft` inherits the `extensionAllowed` attribute,
 users may use extended tags such as `Aircraft/Helicopter` in their annotation.
-The requirements such an extension are:
+The requirements for such an extension are:
 
 ````{warning} **Requirements for tag extensions by users:**
 
@@ -558,17 +578,17 @@ Please open an [**issue**](https://github.com/hed-standard/hed-examples/issues)
 proposing that the new term be added to the schema in question,
 if you think the term would be useful to other users.
 
-### 3.2.5. Tag prefixes
+### 3.2.6. Tag prefixes
 
 Users may select tags from multiple schemas, but additional schema must be included in the
 HED version specification.
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
-Users are free to use any alphabetic namespace prefix, provided it is associated with a specific
+Users are free to use any alphabetic prefix and associate it with a specific
 schema in the HED version specification.
-See section [**7.2 Schema namespaces**](07_Library_schema.md#72-schema-namespaces).
+Tags from the associated schema must be prefixed with this name (followed by a colon)
+when used in annotation.
 
-
-### 3.2.6. Strings and groups
+### 3.2.7. Strings and groups
 
 A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
 The terms in a HED string must be unique, thus, a HED string forms a set.
@@ -605,9 +625,9 @@ The validation errors for HED tags and HED strings are summarized in
 [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
 
 
-### 3.2.6. Special tags
+### 3.2.8. Special tags
 
-#### 3.2.6.1. The `Definition` tag
+#### 3.2.8.1. The `Definition` tag
 
 HED definitions are special HED tag groups that consist of a `Definition` tag and a tag group
 defining the concept.
@@ -622,7 +642,7 @@ Thus, definitions are usually detected and removed during early stages of proces
 If the definition name includes the `#` placeholder extension, then the defining tags must
 include exactly one tag that takes a value along with its `#` placeholder.
 A value must be substituted for the `#` placeholder when final event annotation assembly
-occurs, and each distinct substituted value represents a distinct definition.
+occurs. **Each distinct substituted value represents a distinct definition.**
 
 A definition is incorporated into annotations using the tag `Def/xxx` where `xxx` is the definition's name.
 Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` where `xxx` is the
@@ -648,13 +668,17 @@ See [**Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) an
 [**Using definitions**](./05_Advanced_annotation.md#52-using-definitions) for more details
 and examples.
 
-#### 3.2.6.2. `Onset` and `Offset` tags
+#### 3.2.8.2. `Onset` and `Offset` tags
 
-The `Onset` and `Offset` tags represent events of temporal duration.
+The `Onset` and `Offset` tags are used to represent the temporal extent
+of events that have non-zero duration.
 These tags correspond to schema nodes with the `topLevelTagGroup` attribute.
+An `Onset` tag group and a `Offset` tag group associated with the same definition name
+cannot appear in the assembled annotation for a single time-point.
 
-In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or `Def-expand` group, and
-optionally an additional tag group. No other items are allowed.
+
+In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or `Def-expand` group,
+and optionally an additional tag group. No other items are allowed.
 
 A tag group with an `Onset` represents the start of an event that extends over time.
 Only one `Def` or `Def-expand` group may be included in the `Onset` group at the top level.
@@ -675,9 +699,9 @@ In addition to the top-level `Def` or `Def-expand` group that identifies the eve
 The definition names corresponding to these should not be used elsewhere to identify events.
 
 See [**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
-for examples of usage and additional details.
+in Chapter 5 for examples of usage and additional details.
 
-#### 3.2.6.3. The `Event-context` tag
+#### 3.2.8.3. The `Event-context` tag
 
 The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes.
 This implies that there can be only one `Event-context` group in each assembled event-level string.
@@ -687,25 +711,29 @@ associated with the event marker for which the annotation is included.
 In general, the `Event-context` group is not included in annotations, but is generated by tools during
 downstream event processing. 
 
-### 3.2.7. Sidecars
+### 3.2.9. Sidecars
 
 A sidecar is a dictionary that can be used to associate tabular file columns
 and their values with HED annotations. 
 
-This type of dictionary allows HED tools to assemble HED annotations for each row in a tabular file.
-For tabular files representing experimental events,
-these rows represent time markers on the experimental timeline,
+
+The rows of tabular event files represent time markers on the experimental timeline,
 and the assembled events for the row represent the annotations of what happened at that time marker.
-The rows of tabular files representing other types of information can also be annotated in the same way.
+A sidecar containing annotations associated with the columns of such an event file
+allows HED tools to assemble HED annotations for each row in a tabular file.
+
+The rows of tabular files representing other types of information
+can also be annotated in the same way.
 
 HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
 
-#### 3.2.7.1. HED sidecar entries
+#### 3.2.9.1. HED sidecar entries
 
-In order to support HED, a sidecar must have "HED" as a key in one or more second-level dictionaries.
+In order to support HED, a sidecar must have `"HED"` as a key in one or more second-level dictionaries.
 A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
+These entries all have `"HED"` as a key in one or more second-level dictionaries.
 
 ````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
 - **Categorical entries**: are associated with a particular event file column and provide
@@ -732,7 +760,7 @@ Rather these annotations are mainly used to gather HED definitions.
 While HED definitions are allowed anywhere,
 the recommended style is to separate them into dummy categorical sidecar entries for readability.
 
-The sidecar does not have to provide an HED-relevant entry for every event file column.
+The sidecar does not have to provide a HED-relevant entry for every event file column.
 Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation
 for an event file row.
 
@@ -741,8 +769,9 @@ tabular file column entries containing `n/a` are ignored.
 The sidecar is not permitted to provide an annotation for `n/a`.
 
 The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
-Entries without a "HED" key in the second level entry dictionaries are ignored.
+Entries without a `"HED"` key in the second level entry dictionaries are ignored.
 
+(example-sidecar-anchor)=
 ````{Admonition} Examples of the three types of sidecar annotation entries relevant to HED
 :class: tip
 ```json
@@ -776,13 +805,15 @@ The value of a categorical entry is a dictionary which has a `HED` key.
 In the above example, the keys of this second dictionary are the values (`go` and `stop`) that
 appear in the `trial_type` column of the event file.
 The values are the HED annotations associated with those values.
-Thus, the "Sensory-event, Visual-presentation, (Square, Blue)"
+Thus, the `"Sensory-event, Visual-presentation, (Square, Blue)"` is the HED annotation
+associated with a `go` value in the `trial_type` column of the associated event file.
 
 The `response_time` key references a **value annotation**.
 Value entries have keys, one of which is `HED`.
 Associated with the `HED` key is a HED annotation value.
 There must be exactly one `#` placeholder in the annotation.
-The actual value in the col
+The actual value in the `response_time` column is substituted for the
+`#` when the annotation is needed.
 
 The `dummy_defs` is an example of a **dummy annotation**.
 The value of this entry is a dictionary with a `HED` key
@@ -797,7 +828,7 @@ while `Definition/Image/#` is a definition whose name `Image` is modified by a p
 Notice that `Image` is both a definition name and an actual tag in the schema in this example.
 This is permitted.
 
-#### 3.2.7.2. Sidecar validation
+#### 3.2.9.2. Sidecar validation
 
 As with other entities definitions should be removed from sidecars and validated separately,
 although validation error messages for such definitions should be associated with
@@ -813,7 +844,7 @@ If the placeholder is followed by a unit designator, the validator checks that
 these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
 
-### 3.2.8. Tabular files
+### 3.2.10. Tabular files
 
 A tabular file is a text file in which each line represents a row in a table.
 The column entries in a given row are separated by tabs.
@@ -826,7 +857,7 @@ The most common HED-annotated tabular file represents event markers in an experi
 In this case each row in the file represents a time at which something happened.
 
 Another common HED-annotated tabular file represents experiment participants.
-In this case each row in the file represents a participant and the columns provide
+In this case each row in the file represents a participant, and the columns provide
 characteristics or other information about the participant identified in that row.
 
 In any case, the general strategy for validation or other processing is:
@@ -834,7 +865,7 @@ In any case, the general strategy for validation or other processing is:
 2. Assemble the component annotations for a row (event or row level processing).
 3. Check consistency and relationships among the row annotations (file-level processing).
 
-#### 3.2.8.1. Annotation components
+#### 3.2.10.1. Tabular annotations
 
 HED annotations in tabular files can occur both in a `HED` column within the file and
 in an associated JSON sidecar.
@@ -846,7 +877,7 @@ or an associated sidecar, not necessarily before it is used in a particular entr
 Thus, validation and other processing must gather definitions from the `HED` column
 and associated sidecars before any other processing can occur.
 
-#### 3.2.8.2 Event-level processing
+#### 3.2.10.2. Event-level processing
 
 After individual HED tags and HED strings in the `HED` column and sidecars are validated or otherwise processed,
 the HED strings associated with each row of the tabular file must be assembled to provide an overall
@@ -866,7 +897,7 @@ the row value is substituted for `#` placeholder in the annotation and the resul
 In all cases `n/a` row values are skipped.
 ````
 
-For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids).
+For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
 
 If the HED schema used for processing contains a schema node that has the `required` attribute, then
 the assembled HED annotations for each row must include that tag.
@@ -875,12 +906,16 @@ attribute, and this attribute may be deprecated in future versions of the schema
 
 If the HED schema used for processing contains a schema node that has the `unique` attribute,
 then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
-Currently, HED schema versions >= 8.0.0 only has one node with the `unique` attribute:
-`Event-context`.
+Currently, only `Event-context` has the `unique` attribute for HED schema versions >= 8.0.0.
 
-#### 3.2.8.3 File-level processing
+#### 3.2.10.3 File-level processing
 
 HED versions >= 8.0.0 allow annotation of relationships among rows in a tabular file.
 Hence, processing generally requires that annotations for all the rows be assembled
 so that consistency can be checked.
+
+To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag 
+is associated with an appropriately defined identifier corresponding to a definition name.
+The validator must also check to make sure that `Onset` and `Offset` tags are
+properly matched within the data recording.
 In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.

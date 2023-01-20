@@ -1,6 +1,10 @@
 HED specification
 ==================
 
+.. image:: _static/images/croppedWideLogo.png
+  :width: 220
+  :alt: HedLogo
+
 .. sidebar:: **Links**
 
    * `PDF released version (V3.0.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
@@ -9,9 +13,23 @@ HED specification
 
    * `Specification source <https://github.com/hed-standard/hed-specification/tree/master/docs/source>`_
 
-   * `HED resources <https://hed-examples.readthedocs.io/en/latest/>`_
+   * `Stable specification source <https://github.com/hed-standard/hed-specification/tree/stable/docs/source>`_
+
+   * `HED resources <https://www.hed-resources.org/>`_
 
    * `HED project homepage <https://hedtags.org/>`_
+
+|
+|
+|
+
+The HED specification document formalizes the syntax and behavior of
+HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting tools. The specification supports three versions of the specification:
+
+- **latest** - development branch which is under discussion.
+- **master** - includes revisions approved by the HED Working Group but not released.
+- **stable** - the latest released form.
+
 
 .. toctree::
    :maxdepth: 4
@@ -23,7 +41,7 @@ HED specification
    04_Basic_annotation.md
    05_Advanced_annotation.md
    06_Infrastructure_and_tools.md
-   07_Library_schema.md
+   07_Library_schemas.md
    Appendix_A.md
    Appendix_B.md
 
