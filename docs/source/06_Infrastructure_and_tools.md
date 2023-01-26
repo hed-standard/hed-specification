@@ -170,7 +170,7 @@ HED tools are available to assemble the annotations associated with each row in
 a tabular file using its `HED` column and associated sidecar information.
 
 For example, the annotations for the first row of the 
-[**example event file**](./06_Infrastructure_and_tools#631-bids-tabular-files)
+[**example event file**](./06_Infrastructure_and_tools.md#631-bids-tabular-files)
 above can be assembled using the
 [**example sidecar**](./03_HED_formats.md#3291-hed-sidecar-entries) in Chapter 3
 to give the following annotation:

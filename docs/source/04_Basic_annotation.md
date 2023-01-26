@@ -283,7 +283,7 @@ would be included.
 Clinical evaluations are observational features and many fields have standardized names 
 for these features. Although the HED standard itself does not specify these names, 
 library schema representing terminology in clinical or application subfields may provide 
-the vocabulary. (See [Chapter 7: Library schema](07_Library_schema.md#7-library-schema)
+the vocabulary. (See [Chapter 7: Library schema](./7_Library_schema.md)
 for a discussion of library schema.) The following example illustrates how annotation from 
 a human expert can be annotated in HED.
 
