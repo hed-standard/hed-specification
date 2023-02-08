@@ -436,7 +436,9 @@ Users must provide the version of the HED schema they are using when creating an
 HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their
 respective root or **top nodes**.
 In HED versions >= 8.0.0 these top nodes are:
-`Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. 
+`Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`.
+Each top node and its subtree represent a distinct **is-a** relationships
+for the vocabulary schema.
 
 The `Event` subtree tags indicate the general event category, such as whether it 
 is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure.
@@ -456,9 +458,9 @@ grouped with property tags that provide information about the agent, such as
 whether the agent is an experiment participant.
 
 The `Action` subtree tags indicate actions performed by agents. Generally these are
-grouped in a triple *(A, (Action, B))* which is interpreted as *A* does *Action* on *B*. 
-If the action does not have a target, it should be annotated *(A, (Action))*, meaning
-*A* does *Action*.
+grouped in a triple (`A`, (`Action`, `B`)) which is interpreted as `A` does `Action` on `B`. 
+If the action does not have a target, it should be annotated (`A`, (`Action`)), meaning
+`A` does `Action`.
 
 The `Item` subtree tags represent things with (actual or virtual) physical existence
 such as objects, sounds, or language. 
@@ -467,14 +469,14 @@ Descriptive tags are organized in the `Property` subtree. These descriptive
 tags should always be grouped with the tags they describe using parentheses. 
 
 Binary relations are in the `Relation` subtree. Like items from the `Action` subtree,
-these should be annotated using *(A, (Relation, B))*.
+these should be annotated using (`A`, (`Relation`, `B`)).
 
 
-### 3.2.2. Tag syntax
+### 3.2.2. Tag forms
 
 A **HED tag** is a term in the HED vocabulary identified by a path consisting of the 
 individual node names from some branch of the HED schema hierarchy
-separated by forward slashes (`/`). 
+separated by forward slashes (`/`).
 
 Valid HED tags do not have leading or trailing forward slashes (`/`).
 A HED tag path many also not have consecutive forward slashes.
@@ -491,7 +493,7 @@ and the version with only the final tag element
 Any **intermediate form** of the tag path is also allowed as illustrated by this example:
 
 
-````{Admonition} Different allowed forms of HED tags with and without values. 
+````{Admonition} Examples of allowed forms of HED tags with and without values. 
 | Short-form |  Intermediate form(s) | Long-form |
 | -----------|  ------------------ |--------- |
 | *Cough*  |  *Move/Breathe/Cough*<br/> *Breathe/Cough* | *Action/Move/Breathe/Cough* |
@@ -499,6 +501,12 @@ Any **intermediate form** of the tag path is also allowed as illustrated by this
 ````
 
 HED tools are available to map between shortened and long forms as needed. 
+The tag must be associated with a schema and must correspond to a path in the schema
+(excluding any extension or value).
+
+See [**NODE_NAME_EMPTY**](./Appendix_B.md#node_name_empty) for errors involving
+forward slashes (`/`) and [**TAG_INVALID**](./Appendix_B.md#tag_invalid) for
+other types of tag syntax errors.
 
 ### 3.2.3. Tag case-sensitivity
 
@@ -519,7 +527,11 @@ rather than on the tag itself.
 
 These tags may appear with or without a value. 
 When used with a value, the tag term is followed by a slash,
-followed by a value and possibly a blank, followed by units.
+followed by a value.
+
+**HED parsers assume that units are separated from values by a single blank
+unless the unit has the `unitPrefix` attribute.**
+Units with the `unitPrefix` attribute, such as `$`, appear before the value.
 
 Neither a placeholder nor its direct parent tag  may not be extended in any other way.
 Thus, tags that have placeholder children cannot be extended even
@@ -527,13 +539,8 @@ if they inherit an `extensionAllowed` attribute from an ancestor.
 The parsers treat any child of these tags as a value substituted for the
 placeholder rather than as a tag extension.
 
-**HED values** may be strings or numeric values followed by an optional unit specification. 
 If a `unitClass` is specified as an attribute of the `#` node, then the units specified 
 must be valid units for that `unitClass`.
-
-**HED parsers assume that units are separated from values by a single blank
-unless the unit has the `unitPrefix` attribute.**
-Units with the `unitPrefix` attribute, such as `$`, appear before the value.
 
 The characters that may be used in the value that replaces the `#` placeholder must be
 in the union of the values allowed by the `valueClass` attributes of the`#` node.
@@ -565,6 +572,10 @@ Certain unit classes allow other special characters in their value specification
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` value class.
 
+See [**VALUE_INVALID**](./Appendix_B.md#value_invalid) and
+[**UNITS_INVALID**](./Appendix_B.md#units_invalid) for information
+on the specific validation errors associated with tags that take values.
+
 ### 3.2.5. Tag extensions
 A tag extension, in contrast to a value, is a tag that users add
 as a child of an existing schema node as a more specific term for an item already in the schema.
@@ -592,118 +603,148 @@ Please open an [**issue**](https://github.com/hed-standard/hed-examples/issues)
 proposing that the new term be added to the schema in question,
 if you think the term would be useful to other users.
 
+See [**TAG_EXTENSION_INVALID**](./Appendix_B.md#tag_extension_invalid) 
+for information on the specific validation errors associated invalid tag extensions.
+
+**Note:** User tag extensions are sometimes accidental and due to misspelling,
+particularly when a long or intermediate form of the tag is used.
+For this reason the [**TAG_EXTENDED**](./Appendix_B.md#tag_extended)
+warning is issued for extended tags during validation.
+
 ### 3.2.6. Tag prefixes
 
-Users may select tags from multiple schemas, but additional schema must be included in the
-HED version specification.
-Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
+Users may select tags from multiple schemas, 
+but additional schema must be included in the HED version specification.
+
 Users are free to use any alphabetic prefix and associate it with a specific
 schema in the HED version specification.
 Tags from the associated schema must be prefixed with this name (followed by a colon)
 when used in annotation.
+
+Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
+
+See [**TAG_PREFIX_UNMATCHED**](./Appendix_B.md#tag_prefix_unmatched) 
+for information on the specific validation errors associated with missing schemas.
+
 
 ### 3.2.7. Strings and groups
 
 A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
 
 A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in
-parentheses. Tag groups may include other tag groups. 
-
-Any ordering of HED tags and HED tag groups at the same level within a HED string is equivalent.
-Valid HED strings may have parentheses nested to arbitrary levels (nested groups).
-
-Duplicated tags at the same level in a  HED tag group or HED string are not allowed.
-For example, (`Red`, `Red`, `Blue`) is an invalid HED string.
-[**TAG_NOT_UNIQUE (a)**](./Appendix_B.md#tag_not_unique).
-
-
-The terms in a HED string must be unique, thus, a HED string forms a set.
-See [**TAG_NOT_UNIQUE (a)**](./Appendix_B.md#tag_not_unique).
-
-
-A HED tag corresponding to a schema node with the `tagGroup` attribute,
-must appear inside parentheses (e.g., must be in HED tag group).
-See [**TAG_GROUP_ERROR (a)**](./Appendix_B.md#tag_group_error).
-
-A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear
-in an unnested HED group in an assembled HED annotation.
-See [**TAG_GROUP_ERROR (b)**](./Appendix_B.md#tag_group_error).
-
-
-
-Empty parentheses and multiple commas with no intervening tags represent empty tags and are invalid,
-as are HED strings with leading or trailing commas.
-Hence, if *A* and *B* are any HED strings,  *(A, ((B)))* is valid, but *(A, ())* is not.
-
-A HED tag corresponding to a schema node with the `topLevelTagGroup` attribute 
-must appear within a single level of parentheses.
-This attribute is usually associated with tags that have special meanings in HED such
-as `Definition` and `Onset`.
-
-Parentheses are meaningful and convey association.
-If *A* and *B* represent HED tags, the HED string *(A, B)* is not equivalent to
-the HED string *A, B* and the distinction should be preserved if relevant.
-*(A, B)* means that HED tag *A* and HED tag *B* are associated with each other,
-whereas *A, B* means that *A* and *B* are each annotating some larger construct.
-
-Specific rules of association will be encoded in a future version of the HED specification.
+parentheses. Tag groups may include other tag groups.
 
 The validation errors for HED tags and HED strings are summarized in
 [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
+
+#### 3.2.7.1. Parenthesis and order
+
+Any ordering of HED tags and HED tag groups at the same level within a HED string is equivalent.
+Valid HED strings may have parentheses nested to arbitrary levels (nested groups).
+The parentheses must be properly nested and matched.
+
+Parentheses are meaningful and convey association.
+If `A` and `B` represent HED expressions, (`A`, `B`) is not equivalent to
+the HED string `A`, `B`. 
+The distinction should be preserved if possible.
+(`A`, `B`) means that HED tag `A` and HED tag `B` are associated with each other,
+whereas `A`, `B` means that `A` and `B` are each annotating some larger construct.
+
+Specific rules of association will be encoded in a future version of the HED specification.
+
+See [**PARENTHESES_MISMATCH**](./Appendix_B.md#parentheses_mismatch)
+for validation errors result from improper use of parentheses.
+
+
+#### 3.2.7.2. Tag group attributes
+
+A HED tag corresponding to a schema node with the `tagGroup` attribute,
+must appear inside parentheses (e.g., must be in HED tag group).
+
+A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear
+in an unnested HED group in an assembled HED annotation.
+This `topLevelTagGroup` attribute is usually associated with tags
+that have special meanings in HED such as `Definition` and `Onset`.
+
+See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) for
+information on the group errors detected based on schema attributes.
+
+#### 3.2.7.3. Empty tags and groups
+
+Empty parentheses and multiple commas with no intervening tags represent empty tags and are invalid,
+as are HED strings with leading or trailing commas.
+Hence, if `A` and `B` are any HED expressions,  
+(`A`, ((`B`))) is valid but (`A`, ()) is not.
+
+See [**TAG_EMPTY**](./Appendix_B.md#tag_empty) for
+information on the validation errors due to empty tags or groups.
+Some of these errors may be reported as 
+[**COMMA_MISSING*](./Appendix_B.md#comma_missing)
+
+
+#### 3.2.7.4. Repeated tag expressions
+
+Duplicated tag expressions at the same level in a 
+HED tag group or HED string are not allowed.
+For example, the expressions (`Red`, `Blue`, `Red`) and
+(`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same
+level and are hence invalid.
+
+See [**TAG_EXPRESSION_REPEATED**](./Appendix_B.md#tag_expression_repeated) for
+more details on validation errors due to repeated tag expressions.
 
 
 ### 3.2.8. Special tags
 
 #### 3.2.8.1. The `Definition` tag
 
-HED definitions are special HED tag groups that consist of a `Definition` tag that takes
-a value representing its name and a tag group defining the concept.
-
-The `Definition` tag groups may appear anywhere that HED annotations can be used,
-including in sidecars, in the HED column of tabular files,
-or in HED-specified columns of tag spreadsheets.
-
+A HED definition is a tag group consist of a `Definition` tag that takes
+a value representing the definition's name and a tag group defining the concept.
 Each definition is independent and stands alone.
-`Definition` tag groups are not part of any annotation and should be removed and processed
-separately before other annotations are processed.
-Definitions can be validated independently of any other definitions or HED annotations.
 
 The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute,
-assuring that definitions cannot be nested. See [**DEFINITION_INVALID (a)**](./Appendix_B.md#definition_invalid).
+assuring that definitions cannot be nested. 
 
 HED definitions may not contain any `Def` or `Def-expand` tags and must contain
-exactly one `Definition` tags.
-See [**DEFINITION_INVALID (a-d)**](./Appendix_B.md#definition_invalid).
+exactly one `Definition` tag.
 
 Multiple definitions with the same definition name are not allowed.
 This issue may not be detected until all available locations for definitions are scanned.
 Thus, definitions are usually detected and removed during early stages of processing.
-See [**DEFINITION_INVALID (h)**](./Appendix_B.md#definition_invalid).
 
-The `Definition` tag must be extended with a value representing the definition name and may
+The `Definition` tag must be extended with a 
+value representing the definition name and may
 be additionally extended by a `#` placeholder.
-If the definition name includes the `#` placeholder extension, then the defining tags must
+If the definition name includes the `#` placeholder extension, 
+then the defining tags must
 include exactly one tag that takes a value along with its `#` placeholder.
-See [**DEFINITION_INVALID (e-g)**](./Appendix_B.md#definition_invalid).
 
 Definitions with the same name are considered duplicate definitions regardless of whether one has a placeholder
 and another does not.
 **However, each distinct substituted value represents a distinct definition name for
 purposes of `Onset`/`Offset` processing.**
-See [**DEFINITION_INVALID (e-g)**](./Appendix_B.md#definition_invalid).
+
+>**Under review:**   
+> The `Definition` tag groups may appear anywhere that HED annotations can be used,
+including in sidecars, in the HED column of tabular files,
+or in HED-specified columns of tag spreadsheets.
+HED definitions are usually separated from
+the annotations and gathered prior to other processing.
+
+See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) for
+a listing of situations in which a definition may be invalid.
 
 See also [**Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) 
 for more details and examples.
 
 #### 3.2.8.2. `Def` and `Def-expand` tags
 
-A definition is incorporated into annotations using the tag `Def/xxx` where `xxx` is the definition's name.
-See [**DEF_INVALID (a-c)]./Appendix_B.md#def_invalid).
+A definition is incorporated into annotations using the tag 
+`Def/xxx` where `xxx` is the definition's name.
 
 Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` 
 where `xxx` is the definition's name and `yyy` represents the definition's tags,
 not including the inner groups enclosing parentheses. 
-See [**DEF_EXPAND_INVALID (a-d)]./Appendix_B.md#def_expand_invalid).
 
 The two usages are equivalent, and tools should be able to transform between the two representations.
 Note, however, that transforming from the `Def` to the `Def-expand` form requires the definition,
@@ -711,8 +752,10 @@ while transforming from the `Def-expand` to `Def` form does not.
 
 A value must be substituted for the `#` placeholder in `Def` and `Def-expand` when final
 annotation assembly occurs. 
-See [**DEF_INVALID (b-c)]./Appendix_B.md#def_invalid) and
-See [**DEF_EXPAND_INVALID (b-c)]./Appendix_B.md#def_expand_invalid)..
+
+See [**DEF_INVALID**](./Appendix_B.md#def_invalid) and
+[**DEF_EXPAND_INVALID**](./Appendix_B.md#def_expand_invalid)
+for details on the types of errors that occur with `Def` and `Def-expand`.
 
 See also [**Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples.
@@ -725,7 +768,6 @@ of events that have non-zero duration.
 `Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute.
 Hence, these tags must appear in within a single set of parentheses referred to as the
 tags enclosing tag group.
-See [**ONSET_OFFSET_ERROR** (a-b)](./Appendix_B.md#onset_offset_error).
 
 As a consequence of the `topLevelTagGroup` and format requirements,
 `Onset` and `Offset` may not appear in the same tag group.
@@ -740,16 +782,15 @@ cannot appear in the assembled annotation for a single time-point.
 
 No `Definition` tags are allowed in an `Onset` or `Offset` tag's enclosing tag group.
 
-In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or `Def-expand` group,
-and optionally an additional tag group. No other items are allowed.
-The additional tag group may contain `Def` or `Def-expand` tags not associated with
-the `Onset` tag's anchor definition.
-
-
-
 A tag group with an `Onset` represents the start of an event that extends over time.
 Only one `Def` or `Def-expand` group may be included in the `Onset` group at the top level.
-The name of the corresponding definition identifies the event that was initiated.
+The name of the corresponding definition identifies the event that was initiated and
+is referred to as the anchor definition.
+
+In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or a `Def-expand` group,
+and optionally an additional tag group. No other items are allowed.
+The additional tag group may contain `Def` or `Def-expand` tags not having
+the `Onset` tag's anchor definition name. 
 
 In annotations, the `Offset` tag group includes the `Offset` tag and a `Def` or `Def-expand` group.
 No other items are allowed.
@@ -763,29 +804,40 @@ In addition to the top-level `Def` or `Def-expand` group that identifies the eve
 `Def` or `Def-expand` groups may appear in the optional tag group within an `Onset` group.
 The definition names corresponding to these should not be used elsewhere to identify events.
 
-See [**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
-in Chapter 5 for examples of usage and additional details.
+
+See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) and 
+ [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
+for a listing of specific errors associated with onsets and offsets.
+
+[**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
+in Chapter 5 gives examples of usage and additional details.
+
 
 #### 3.2.8.4. The `Event-context` tag
 
 The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes.
-This implies that there can be only one `Event-context` group in each assembled event-level string.
+This implies that there can be only one `Event-context` group in each assembled event-level HED string.
 The `Event-context` group contains information about what other events are ongoing at the time point
 associated with the event marker for which the annotation is included.
 
 In general, the `Event-context` group is not included in annotations, but is generated by tools during
 downstream event processing. 
 
+See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
+[**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for additional information
+on validation errors related to `Event-context`.
+
+Additional details and examples for `Event-context` can be found in
+[**5.5. Event context**](./05_Advanced_annotation.md#55-event-context).
+
 ### 3.2.9. Sidecars
 
 A sidecar is a dictionary that can be used to associate tabular file columns
-and their values with HED annotations. 
-
-
+and their values with HED annotations.
 The rows of tabular event files represent time markers on the experimental timeline,
-and the assembled events for the row represent the annotations of what happened at that time marker.
+and the assembled annotations for each row describe what happened at that time marker.
 A sidecar containing annotations associated with the columns of such an event file
-allows HED tools to assemble HED annotations for each row in a tabular file.
+allows HED tools to assemble HED annotations for each row in the file.
 
 The rows of tabular files representing other types of information
 can also be annotated in the same way.
@@ -793,10 +845,8 @@ can also be annotated in the same way.
 HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
+#### 3.2.9.1. Sidecar entries
 
-#### 3.2.9.1. HED sidecar entries
-
-In order to support HED, a sidecar must have `"HED"` as a key in one or more second-level dictionaries.
 A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
 These entries all have `"HED"` as a key in one or more second-level dictionaries.
 
@@ -832,6 +882,7 @@ for an event file row.
 For compatibility with [**BIDS**](https://bids.neuroimaging.io/),
 tabular file column entries containing `n/a` are ignored.
 The sidecar is not permitted to provide an annotation for `n/a`.
+Further, `"HED"` can only appear as a second-level dictionary key.
 
 The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
 Entries without a `"HED"` key in the second level entry dictionaries are ignored.
@@ -866,7 +917,7 @@ Entries without a `"HED"` key in the second level entry dictionaries are ignored
 
 In the example, the `trial_type` key references a **categorical** entry.
 Categorical entries have keys corresponding to the event file column names.
-The value of a categorical entry is a dictionary which has a `HED` key.
+The value of a categorical entry is a dictionary which has a `"HED"` key.
 In the above example, the keys of this second dictionary are the values (`go` and `stop`) that
 appear in the `trial_type` column of the event file.
 The values are the HED annotations associated with those values.
@@ -874,14 +925,14 @@ Thus, the `"Sensory-event, Visual-presentation, (Square, Blue)"` is the HED anno
 associated with a `go` value in the `trial_type` column of the associated event file.
 
 The `response_time` key references a **value annotation**.
-Value entries have keys, one of which is `HED`.
-Associated with the `HED` key is a HED annotation value.
+Value entries have keys, one of which is `"HED"`.
+Associated with the `"HED"` key is a HED annotation value.
 There must be exactly one `#` placeholder in the annotation.
 The actual value in the `response_time` column is substituted for the
 `#` when the annotation is needed.
 
 The `dummy_defs` is an example of a **dummy annotation**.
-The value of this entry is a dictionary with a `HED` key
+The value of this entry is a dictionary with a `"HED"` key
 pointing to a dictionary.
 A dummy annotation is similar in form to a **categorical annotation**,
 but its keys do not correspond to any event file column names.
@@ -908,6 +959,12 @@ indicating that the parent tag (also included in the annotation) expects a value
 If the placeholder is followed by a unit designator, the validator checks that 
 these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
+
+Errors that are particularly relevant to sidecars include [**PLACEHOLDER_INVALID**](./Appendix_B.md#placeholder_invalid) and [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid).
+
+If the sidecar is missing an annotation for a categorical column value,
+the [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar_key_missing) warning is generated.
+
 
 ### 3.2.10. Tabular files
 
@@ -938,13 +995,14 @@ in an associated JSON sidecar.
 The HED strings that appear in a `HED` column must be valid HED strings.
 
 Definitions applicable to a tabular file may appear anywhere in the `HED` column
-or an associated sidecar, not necessarily before it is used in a particular entry.
+or an associated sidecar, not necessarily before they are used in a particular entry.
 Thus, validation and other processing must gather definitions from the `HED` column
 and associated sidecars before any other processing can occur.
 
 #### 3.2.10.2. Event-level processing
 
-After individual HED tags and HED strings in the `HED` column and sidecars are validated or otherwise processed,
+After individual HED tags and HED strings in the `HED` column of tabular files and 
+in the associated sidecars are validated or otherwise processed,
 the HED strings associated with each row of the tabular file must be assembled to provide an overall
 annotation for the row.
 We refer to this as *event-level* or *row* processing.
@@ -956,7 +1014,7 @@ We refer to this as *event-level* or *row* processing.
 If an annotation for that column value is available it is concatenated to the list. 
 3. For each value column, if a column an associated value entry in the sidecar,
 the row value is substituted for `#` placeholder in the annotation and the result concatenated to the list.
-4. If a `HED` column exists the annotation for that row, it is concatenated to the list.
+4. If a `HED` column annotation exists for that row, it is concatenated to the list.
 5. Finally, all the entries of the list are joined using a comma (`,`) separator.
 
 In all cases `n/a` row values are skipped.
@@ -973,6 +1031,11 @@ If the HED schema used for processing contains a schema node that has the `uniqu
 then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
 Currently, only `Event-context` has the `unique` attribute for HED schema versions >= 8.0.0.
 
+See [**REQUIRED_TAG_MISSING**](./Appendix_B.md#required_tag_missing)
+and [**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for information
+on the validation errors that may occur with tags that have the `required` or `unique`
+schema attributes, respectively.
+
 #### 3.2.10.3 File-level processing
 
 HED versions >= 8.0.0 allow annotation of relationships among rows in a tabular file.
@@ -984,3 +1047,6 @@ is associated with an appropriately defined identifier corresponding to a defini
 The validator must also check to make sure that `Onset` and `Offset` tags are
 properly matched within the data recording.
 In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
+
+See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) for details on the
+type of errors that are generated due to `Onset` and `Offset` errors.
