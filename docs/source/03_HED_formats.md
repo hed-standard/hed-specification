@@ -437,7 +437,7 @@ HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchica
 respective root or **top nodes**.
 In HED versions >= 8.0.0 these top nodes are:
 `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`.
-Each top node and its subtree represent a distinct **is-a** relationships
+Each top node and its subtree represent distinct **is-a** relationships
 for the vocabulary schema.
 
 The `Event` subtree tags indicate the general event category, such as whether it 
@@ -479,7 +479,7 @@ individual node names from some branch of the HED schema hierarchy
 separated by forward slashes (`/`).
 
 Valid HED tags do not have leading or trailing forward slashes (`/`).
-A HED tag path many also not have consecutive forward slashes.
+A HED tag path may also not have consecutive forward slashes.
 
 An important requirement of third generation HED (versions >= 8.0.0)
 is that the node names in the HED schema **must be unique**. 
@@ -529,11 +529,7 @@ These tags may appear with or without a value.
 When used with a value, the tag term is followed by a slash,
 followed by a value.
 
-**HED parsers assume that units are separated from values by a single blank
-unless the unit has the `unitPrefix` attribute.**
-Units with the `unitPrefix` attribute, such as `$`, appear before the value.
-
-Neither a placeholder nor its direct parent tag  may not be extended in any other way.
+A placeholder or its direct parent tag  may not be extended in any other way.
 Thus, tags that have placeholder children cannot be extended even
 if they inherit an `extensionAllowed` attribute from an ancestor.
 The parsers treat any child of these tags as a value substituted for the
@@ -545,6 +541,12 @@ must be valid units for that `unitClass`.
 The characters that may be used in the value that replaces the `#` placeholder must be
 in the union of the values allowed by the `valueClass` attributes of the`#` node.
 If units are given, they may place additional restrictions on the allowed values.
+
+Units with the `unitPrefix` attribute, such as `$`, appear before the value. Units without the `unitPrefix` attribute appear after the value.
+**HED parsers assume that units are separated from values by a single blank regardless of the position of the units.**
+
+Some unit classes have the `defaultUnits` attribute specifying the units
+that downstream analysis tools should assume if units are omitted.
 
 Additional checks may be made on the substituted values depending on the `valueClass`
 
@@ -572,6 +574,8 @@ Certain unit classes allow other special characters in their value specification
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` value class.
 
+
+
 See [**VALUE_INVALID**](./Appendix_B.md#value_invalid) and
 [**UNITS_INVALID**](./Appendix_B.md#units_invalid) for information
 on the specific validation errors associated with tags that take values.
@@ -597,6 +601,12 @@ It is needed so that term search works correctly.
 
 ```` 
 
+Tag extensions should follow the same naming conventions as
+those for schema nodes. 
+See [**3.1.3. Naming conventions**](#313-naming-conventions) for more information about HED naming conventions.
+A [**STYLE_WARNING**](Appendix_B.md#style_warning) warning is
+issued for extension tags that do not follow the HED naming convention.
+
 Users should not use tag extension unless necessary for their application,
 as this breaks the commonality among annotations across datasets.
 Please open an [**issue**](https://github.com/hed-standard/hed-examples/issues)
@@ -614,7 +624,7 @@ warning is issued for extended tags during validation.
 ### 3.2.6. Tag prefixes
 
 Users may select tags from multiple schemas, 
-but additional schema must be included in the HED version specification.
+but additional schemas must be included in the HED version specification.
 
 Users are free to use any alphabetic prefix and associate it with a specific
 schema in the HED version specification.
@@ -623,8 +633,13 @@ when used in annotation.
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
+
+
 See [**TAG_PREFIX_UNMATCHED**](./Appendix_B.md#tag_prefix_unmatched) 
 for information on the specific validation errors associated with missing schemas.
+
+See [**7.1.2 Using library schema in BIDS**](./07_Library_schemas.md#712-using-library-schema-in-bids) for an example of how the
+prefix notation is used in BIDS.
 
 
 ### 3.2.7. Strings and groups
@@ -658,7 +673,7 @@ for validation errors result from improper use of parentheses.
 
 #### 3.2.7.2. Tag group attributes
 
-A HED tag corresponding to a schema node with the `tagGroup` attribute,
+A HED tag corresponding to a schema node with the `tagGroup` attribute
 must appear inside parentheses (e.g., must be in HED tag group).
 
 A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear
@@ -854,7 +869,7 @@ These entries all have `"HED"` as a key in one or more second-level dictionaries
 - **Categorical entries**: are associated with a particular event file column and provide
 individual annotations for each column value. 
 The dictionary is not required to provide annotations for every possible
-value in the column, although tools may choose to issue a warning if appropriate.
+value a categorical column, although tools may choose to issue a warning if appropriate.
 The dictionary may also include annotations for values that do not appear in the associated event file column.  
 <p></p>
 
@@ -872,8 +887,9 @@ Rather these annotations are mainly used to gather HED definitions.
 
 ````
 
-While HED definitions are allowed anywhere,
-the recommended style is to separate them into dummy categorical sidecar entries for readability.
+HED definitions are required to be separated into 
+dummy sidecar column entries.
+They may not appear in sidecar entries containing tags other than definitions.
 
 The sidecar does not have to provide a HED-relevant entry for every event file column.
 Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation
@@ -972,7 +988,7 @@ A tabular file is a text file in which each line represents a row in a table.
 The column entries in a given row are separated by tabs.
 Further, the first line of the file must contain a tab-separated list of
 column names, which should be unique.
-This definition of tabular file conforms to that used by [**BIDS**](https://bids.neuroimaging.io/).
+This description of tabular file conforms to that used by [**BIDS**](https://bids.neuroimaging.io/).
 
 Generally each row in a tabular file represents an item and the columns values provide properties of that item.
 The most common HED-annotated tabular file represents event markers in an experiment.
@@ -994,10 +1010,9 @@ in an associated JSON sidecar.
 
 The HED strings that appear in a `HED` column must be valid HED strings.
 
-Definitions applicable to a tabular file may appear anywhere in the `HED` column
-or an associated sidecar, not necessarily before they are used in a particular entry.
-Thus, validation and other processing must gather definitions from the `HED` column
-and associated sidecars before any other processing can occur.
+Definitions many not appear in the `HED` column of a tabular file.
+Definitions may not appear in any entry of a JSON sidecar corresponding
+to a column of the tabular file.
 
 #### 3.2.10.2. Event-level processing
 

@@ -27,7 +27,7 @@ A HED string contains an invalid character.
 
 **a.**  The string contains a UTF-8 character.  
 
-**b.**  An extension or a value substituted for a `#` is not allowed by its value or unit class.  
+**b.**  An extension or a value substituted for a `#` is not allowed by its value class.  
 
 **Notes:**  
 - HED uses ANSI encoding and does not support UTF-8.  
@@ -44,7 +44,7 @@ HED tag groups and tags must be separated with commas.
 In the following `A`, `B`, `C`, and `D` represent HED expressions.
 
 **a.**  Two tag groups are not separated by commas: (`A`, `B`)(`C`, `D`).  
-**b.**  A tag and a tag group are not separated by commas: `A`,(`B`,`D`).  
+**b.**  A tag and a tag group are not separated by commas: `A`(`B`,`D`).  
 
 **Note:** Commas missing between two HED tags are generally detected as invalid HED tags,
 rather than as missing commas.
@@ -121,7 +121,7 @@ at most one additional tag group.
 **e.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.  
 **f.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag
 without the appearance of an intervening `Onset` of the same name.   
-**g.**  An `Onset` tag group either lacks an internal tag group or has more than one internal
+**g.**  An `Onset` tag group with more than one internal
 tag group.  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
