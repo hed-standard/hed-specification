@@ -67,6 +67,32 @@ In particular, `Definition`, `Def`, `Def-expand`, and `Event-context` should
 NEVER be duplicated in a library schema.
 The `Onset` and `Offset` tags also have special meanings.
 
+
+### 7.1.2 Using library schema in BIDS
+
+The following `datset_description.json` of a BIDS dataset
+indicates that HED standard schema version 8.1.0 should be used
+alone with SCORE library schema 1.0.0.
+The tags are....
+````{admonition} Illustration of using the namespace prefix for tagging.
+:class: tip
+
+
+
+```json
+{
+  "Name": "A great experiment",
+  "BIDSVersion": "1.8.0",
+  "HEDVersion": ["8.1.0", "sc:score_1.0.0"]
+}
+```
+
+```text
+"Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes"
+```
+````
+
+
 Additional information can be found in [**HED schema format**](./03_HED_formats.md#31-hed-schema-format) of Chapter 3 
 and [**Appendix A: Schema format details**](Appendix_A.md) for additional information.
 
