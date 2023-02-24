@@ -85,12 +85,12 @@ for more details and examples.
 A **definition** is a tag group containing a `Definition` tag and a single tag group with
 the definition's contents.  
 
-**a.**  A definition does not appear in a tag group at the top level in an annotation.   
+**a.**  A `Definition` tag does not appear in a tag group at the top level in an annotation.   
 **b.**  A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).    
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
 **d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.    
 **e.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.    
-**f.**  A definition's two placeholders (`#`) but one or more of them are in incorrect positions.  
+**f.**  A definition has two placeholders (`#`) but one or more of them are in incorrect positions.  
 **g.**  Definitions of the same name appear with and without a `#`.  
 **h.**  Multiple `Definition` tags with same name are encountered.  
 
