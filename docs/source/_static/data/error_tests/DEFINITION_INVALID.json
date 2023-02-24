@@ -1,24 +1,164 @@
 [
     {
-        "Error_code": "DEFINITION_INVALID",
-        "Type": "string_level",
-        "Description": "A definition does not appear in a tag group at the top level in an annotation.",
-        "Fails": [
-            "((Definition/Blech, (Red)))",
-            "Definition/Blech, (Red)"
-        ],
-        "Passes": "(Definition/Blech, (Red))"
+        "error_code": "DEFINITION_INVALID",
+        "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                    "Definition/Blech, (Red)"
+                ],
+                "passes": [
+                    "(Definition/Blech, (Red))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                                "def2": "Definition/Blech, (Red)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Blech, (Red))"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
     },
     {
-        "Error_code": "DEFINITION_INVALID",
-        "Type": "string_level",
-        "Description": "A definition’s enclosing tag group is missing the inner tag group (.i.e., the definition’s contents).",
-        "Fails": [
-            "(Definition/Blech)",
-            "(Definition/Blech, Red)"
-        ],
-        "Passes": "(Definition/Blech, (Red))"
+        "error_code": "DEFINITION_INVALID",
+        "description": "A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents). ",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "A definition has two placeholders (`#`) but one or more of them are in incorrect positions.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "Definitions of the same name appear with and without a `#`.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "description": "Multiple `Definition` tags with same name are encountered.",
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
     }
-
-]
- 
+]    

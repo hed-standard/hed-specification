@@ -716,6 +716,7 @@ more details on validation errors due to repeated tag expressions.
 A HED definition is a tag group consist of a `Definition` tag that takes
 a value representing the definition's name and a tag group defining the concept.
 Each definition is independent and stands alone.
+The definition must contain a non-empty tag group.
 
 The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute,
 assuring that definitions cannot be nested. 
