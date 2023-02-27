@@ -18,7 +18,7 @@ class MyTestCase(unittest.TestCase):
             test_info = json.load(fp)
         out_list = [f"{test_info[0]['error_code']}"]
         for info in test_info:
-            out_list.append(f"{indent}{info['description']}")
+            out_list.append(f"\n{indent}{info['description']}")
             out_list.append(f"{indent}HED {info['schema']}")
             out_list.append(f"{indent}Definitions:")
             for defs in info["definitions"]:

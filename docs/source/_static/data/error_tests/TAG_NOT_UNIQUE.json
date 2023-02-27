@@ -41,7 +41,7 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"],
+                        [ 4.5, 0, "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"]
                     ]
                 ],
                 "passes": [
