@@ -50,7 +50,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
+                        [ 4.5, 0, "(Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
                     ]
                 ]
             } 
@@ -108,7 +108,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0,  "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
+                        [ 4.5, 0,  "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
                     ]
                 ]
             }    
@@ -173,7 +173,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
+                        [ 4.5, 0, "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
                     ]
                 ]
             }             

@@ -101,9 +101,8 @@ for more details and examples of definition syntax.
 
 ### NODE_NAME_EMPTY
 
-**a.**  An empty tag was detected in a HED string.  
-**b.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
-**c.**  A tag contains consecutive forward slashes (ignoring whitespace).  
+**a.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
+**b.**  A tag contains consecutive forward slashes (ignoring whitespace).  
 
 See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
 

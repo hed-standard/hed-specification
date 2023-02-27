@@ -1,35 +1,39 @@
 [
     {
         "error_code": "TAG_PREFIX_INVALID",
-        "description": "A tag starting with *name:* does not have an associated schema.",
-        "schema": "8.1.0",
+        "description": "A tag starting with name: does not have an associated schema.",
+        "schema": ["8.1.0", "sc:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                    "Definition/Blech, (Red)"
+                    "ts:Red, Blue",
+                    "(ts:Red, (sc:Sleep-modulator))"
                 ],
                 "passes": [
-                    "(Definition/Blech, (Red))"
+                    "sc:Sleep-modulator"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
                     {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                                "def2": "Definition/Blech, (Red)"
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "ts:Red, Blue",
+                                    "ball": "(ts:Red, (sc:Sleep-modulator))"
+                                }
                             }
                         }
                     }
                 ],
                 "passes": [
-                    {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Blech, (Red))"
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "sc:Sleep-modulator"
+                                }
                             }
                         }
                     }
@@ -39,13 +43,14 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "ts:Red, Blue"],
+                        [ 5.5, 0, "(ts:Red, (sc:Sleep-modulator))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "sc:Sleep-modulator"]
                     ]
                 ]
             }
@@ -54,32 +59,54 @@
     {
         "error_code": "TAG_PREFIX_INVALID",
         "description": "A tag prefix has invalid characters.",
-        "schema": "8.1.0",
+        "schema": ["8.1.0", "sc1:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
+                    "sc1:Sleep-modulator, Red"
                 ],
                 "passes": [
+                    "Blue"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "sc1:Sleep-modulator, Red",
+                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Red, Blue),   (Green, (Yellow))",
+                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "sc1:Sleep-modulator, Red"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "(Red, Blue),   (Green, (Yellow))"]
                     ]
                 ]
             }

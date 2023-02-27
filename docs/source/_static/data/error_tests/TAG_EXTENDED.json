@@ -7,29 +7,33 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                    "Definition/Blech, (Red)"
+                    "(Red-color/Red/Big-red, Blue/Nice-blue),(Green, (Yellow))",
+                    "Sensory-presentation/Visual-presentation/Nice-yellow"
                 ],
                 "passes": [
-                    "(Definition/Blech, (Red))"
+                    "Red-color/Red"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
                     {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                                "def2": "Definition/Blech, (Red)"
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Red-color/Red/Big-red, Blue/Nice-blue),(Green, (Yellow))",
+                                    "ball": "Sensory-presentation/Visual-presentation/Nice-yellow"
+                                }
                             }
                         }
                     }
                 ],
                 "passes": [
                     {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Blech, (Red))"
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Red-color/Red"
+                                }
                             }
                         }
                     }
@@ -39,13 +43,14 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Red-color/Red/Big-red, Blue/Nice-blue),(Green, (Yellow))"],
+                        [ 5.5, 0, "Sensory-presentation/Visual-presentation/Nice-yellow"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "Red-color/Red"]
                     ]
                 ]
             }

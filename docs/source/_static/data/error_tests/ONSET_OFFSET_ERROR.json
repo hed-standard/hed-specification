@@ -7,29 +7,33 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                    "Definition/Blech, (Red)"
+                    "Onset, Red",
+                    "Offset, Def/Acc/5.4"
                 ],
                 "passes": [
-                    "(Definition/Blech, (Red))"
+                    "(Onset, Def/Acc/5.4)"
                 ]
             },
-            "sidecar_tests": {
+           "sidecar_tests": {
                 "fails": [
                     {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
-                                "def2": "Definition/Blech, (Red)"
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Onset, Red",
+                                    "ball": "Offset, Def/Acc/5.4"
+                                }
                             }
                         }
                     }
                 ],
                 "passes": [
-                    {
-                        "defs": {
-                            "HED": {
-                                "def1": "(Definition/Blech, (Red))"
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Def/Acc/5.4)"
+                                }
                             }
                         }
                     }
@@ -39,13 +43,17 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Onset, Red"],
+                        [ 5.0, 0, "Offset, Def/Acc/5.4"]
+                        
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Onset, Red)"],
+                        [ 5.5, 0, "(Onset, Def/Acc/5.4)"],
+                        [ 6.3, 0, "(Offset, Def/Acc/5.4)"]
                     ]
                 ]
             }
@@ -59,27 +67,47 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "((Onset, Def/MyColor), Red)"
                 ],
                 "passes": [
+                    "(Onset, Def/MyColor), Red"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "((Onset, Def/MyColor), Red)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Def/MyColor), Red"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "((Onset, Def/MyColor), Red)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "(Onset, Def/MyColor), Red"]
                     ]
                 ]
             }
@@ -93,27 +121,50 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "(Onset, Red)"
                 ],
                 "passes": [
+                    "(Onset, Def/MyColor, Red)"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Red)",
+                                    "ball": "(Onset, Def/MyColor), (Offset, Blue)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Def/MyColor, Red)"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
+
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Onset, Red)"],
+                        [ 5.5, 0, "(Onset, Def/MyColor), (Offset, Blue)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "(Onset, Def/MyColor, Red)"]
                     ]
                 ]
             }
@@ -127,27 +178,50 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "(Onset, Def/MyColor, Def/Acc/5.4)",
+                    "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4, Onset)"
                 ],
                 "passes": [
+                    "(Onset, Def/MyColor)"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face":  "(Onset, Def/MyColor, Def/Acc/5.4)",
+                                    "ball": "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4, Onset)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Def/MyColor)"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0,  "(Onset, Def/MyColor, Def/Acc/5.4)"],
+                        [ 5.5, 0, "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4, Onset)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "(Onset, Def/MyColor)"]
                     ]
                 ]
             }
@@ -155,33 +229,59 @@
     },
     {
         "error_code": "ONSET_OFFSET_ERROR",
-        "description": "An `Offset` tag appears before an `Onset` tag associated with the same definition.",
+        "description": "An `Offset` tag appears in the same string as an `Onset` tag associated with the same definition.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
+                    "(Def/MyColor, Offset), (Def/MyColor, Onset)",
+                    "(Def/MyColor, Onset), (Def/MyColor, Offset)",
+                    "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"
                 ],
                 "passes": [
+                    "(Def/Acc/5.4, Offset), (Def/Acc/4.3, Onset)"
                 ]
             },
-            "sidecar_tests": {
+           "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Def/MyColor, Offset), (Def/MyColor, Onset)",
+                                    "ball": "(Def/MyColor, Onset), (Def/MyColor, Offset)",
+                                    "square": "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Def/Acc/5.4, Offset), (Def/Acc/4.3, Onset)"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Def/MyColor, Offset), (Def/MyColor, Onset)"],
+                        [ 5.0, 0, "(Def/MyColor, Onset), (Def/MyColor, Offset)"],
+                        [ 6.0, 0, "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [4.5, 0, "(Def/Acc/5.4, Offset), (Def/Acc/4.3, Onset)"]
                     ]
                 ]
             }
@@ -209,13 +309,18 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Def/MyColor, Onset)"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"],
+                        [ 6.5, 0, "Red"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Def/MyColor, Onset)"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"],
+                        [ 6.5, 0, "Red"]
                     ]
                 ]
             }
@@ -229,27 +334,47 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "(Def/MyColor, (Blue), (Green), Onset)"
                 ],
                 "passes": [
+                    "(Def/MyColor, (Blue), Onset)"
                 ]
             },
-            "sidecar_tests": {
+           "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Def/MyColor, (Blue), (Green), Onset)"
+                                }
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Def/MyColor, (Blue), Onset)"
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Def/MyColor, (Blue), (Green), Onset)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "(Def/MyColor, (Blue), Onset)"]
                     ]
                 ]
             }

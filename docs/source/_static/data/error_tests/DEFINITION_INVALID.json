@@ -45,7 +45,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             }  
@@ -79,7 +79,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             }   
@@ -113,7 +113,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             } 
@@ -147,7 +147,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             }             
@@ -181,7 +181,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             }  
@@ -215,7 +215,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             } 
@@ -249,7 +249,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             } 
@@ -283,7 +283,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
             }             

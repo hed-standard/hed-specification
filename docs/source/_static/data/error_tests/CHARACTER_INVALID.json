@@ -3,7 +3,7 @@
         "error_code": "CHARACTER_INVALID",
         "description": "The HED string contains a UTF-8 character.",
         "schema": "8.1.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],,
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -43,7 +43,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/Temp"]
+                        [ 4.5, 0, "Label/Temp"]
                     ]
                 ]
             }
@@ -96,7 +96,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Acceleration/6.8 m-per-s^2"],
+                        [ 4.5, 0, "Acceleration/6.8 m-per-s^2"],
                         [ 5.5, 0, "Def/Acc/5.433, Blue"]
                     ]
                 ]

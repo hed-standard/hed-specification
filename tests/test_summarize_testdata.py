@@ -19,11 +19,18 @@ class MyTestCase(unittest.TestCase):
         out_list = [f"{test_info[0]['error_code']}"]
         for info in test_info:
             out_list.append(f"{indent}{info['description']}")
+            out_list.append(f"{indent}HED {info['schema']}")
+            out_list.append(f"{indent}Definitions:")
+            for defs in info["definitions"]:
+                out_list.append(f"{indent*2}{defs}")
             if "string_tests" in info["tests"]:
                 out_list = out_list + MyTestCase.get_test_details(info["tests"]["string_tests"], "string_tests", indent)
             if "sidecar_tests" in info["tests"]:
                 out_list = out_list + \
                            MyTestCase.get_test_details(info["tests"]["sidecar_tests"], "sidecar_tests", indent)
+            if "event_tests" in info["tests"]:
+                out_list = out_list + \
+                           MyTestCase.get_test_details(info["tests"]["event_tests"], "event_tests", indent)
         return "\n".join(out_list)
 
     @staticmethod
@@ -51,8 +58,8 @@ class MyTestCase(unittest.TestCase):
         for test_file in self.test_files:
             print(test_file)
             out_str = self.get_test_info(test_file, details=True)
-            print(out_str)
-            break
+            print(out_str + '\n')
+
         self.assertEqual(True, True)  # add assertion here
 
 
