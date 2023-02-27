@@ -1,0 +1,28 @@
+[
+    {
+        "error_code": "STYLE_WARNING",
+        "description": "An extension or label does not follow HED naming conventions.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    }
+]    

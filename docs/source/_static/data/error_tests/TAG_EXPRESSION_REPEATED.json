@@ -1,0 +1,65 @@
+[
+    {
+        "error_code": "TAG_EXPRESSION_REPEATED",
+        "description": "A tag is repeated in the same tag group or level.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red, (Blue), Red, Green",
+                    "(Red, Blue, (Green)), (Red, Blue, (Green))",
+                    "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                ],
+                "passes": [
+                    "Red, (Blue, Red)",
+                    "(Red, Blue, (Green)), (Red, Blue, ((Green)))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Red, (Blue), Red, Green",
+                                    "ball": "(Red, Blue, (Green)), (Red, Blue, (Green))",
+                                    "square": "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Red, (Blue, Red)",
+                                    "ball": "(Red, Blue, (Green)), (Red, Blue, ((Green)))"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red, (Blue), Red, Green"],
+                        [ 5.5, 0, "(Red, Blue, (Green)), (Red, Blue, (Green))"],
+                        [ 6.5, 0, "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red, (Blue, Red)"],
+                        [ 5.5, 0, "(Red, Blue, (Green)), (Red, Blue, ((Green)))"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

@@ -1,0 +1,62 @@
+[
+    {
+        "error_code": "TAG_INVALID",
+        "description": "The tag is not valid in the schema it associated with.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Brown-color/Red",
+                    "Property/Sensory-event",
+                    "Sensory-event/Baloney"
+                ],
+                "passes": [
+                    "Brown-color/Brown"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                   {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Brown-color/Red",
+                                    "ball": "Property/Sensory-event",
+                                    "square": "Sensory-event/Baloney"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Brown-color/Brown"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Brown-color/Red"],
+                        [ 5.5, 0, "Property/Sensory-event"],
+                        [ 5.5, 0, "Sensory-event/Baloney"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Brown-color/Brown"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

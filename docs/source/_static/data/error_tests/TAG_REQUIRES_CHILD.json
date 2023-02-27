@@ -1,0 +1,62 @@
+[
+    {
+        "error_code": "TAG_REQUIRES_CHILD",
+        "description": "A tag has the `requireChild` schema attribute but does not have a child.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Blue, Description)",
+                    "Label, Red"
+                ],
+                "passes": [
+                    "(Blue, Description/Yes this is a description., (Red))",
+                    "Label/Redish, red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Blue, Description)",
+                                    "ball": "Label, Red"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Blue, Description/Yes this is a description., (Red))",
+                                    "ball": "Label/Redish, red"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Blue, Description)"],
+                        [ 5.0, 0, "Label, Red"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Blue, Description/Yes this is a description., (Red))"],
+                        [ 5.0, 0, "Label/Redish, red"]
+                    ]
+                ]
+            }
+        }
+    }
+]    
