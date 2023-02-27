@@ -1,7 +1,7 @@
 [
     {
         "error_code": "COMMA_MISSING",
-        "description": "Two tag groups are not separated by commas: (`A`, `B`)(`C`, `D`).",
+        "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -61,7 +61,7 @@
     },
     {
         "error_code": "COMMA_MISSING",
-        "description": "A tag and a tag group are not separated by commas: `A`(`B`,`D`).",
+        "description": "A tag and a tag group are not separated by commas: A(B,D).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

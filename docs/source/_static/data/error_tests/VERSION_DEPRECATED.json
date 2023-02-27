@@ -3,7 +3,7 @@
         "error_code": "VERSION_DEPRECATED",
         "description": "The HED schema version being used as been deprecated.",
         "schema": "8.0.0-beta.1",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

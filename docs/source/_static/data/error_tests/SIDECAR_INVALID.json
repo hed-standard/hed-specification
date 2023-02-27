@@ -3,7 +3,7 @@
         "error_code": "SIDECAR_INVALID",
         "description": "The `\"HED\"` key is not a second-level dictionary key.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "SIDECAR_INVALID",
         "description": "An annotation entry is provided for `n/a`.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

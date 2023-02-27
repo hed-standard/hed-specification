@@ -3,7 +3,7 @@
         "error_code": "TAG_EXTENDED",
         "description": "A tag represents an extension from the schema.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

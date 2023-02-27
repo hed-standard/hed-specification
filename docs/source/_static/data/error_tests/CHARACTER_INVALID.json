@@ -1,9 +1,9 @@
-[
+ [
     {
         "error_code": "CHARACTER_INVALID",
         "description": "The HED string contains a UTF-8 character.",
         "schema": "8.1.0",
-        "definitions": [],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],,
         "tests": {
             "string_tests": {
                 "fails": [
@@ -53,7 +53,7 @@
         "error_code": "CHARACTER_INVALID",
         "description": "An extension or a value substituted for a `#` is not allowed by its value class.",
         "schema": "8.1.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": ["Acceleration/banana", "Def/Acc/apple3, Blue"],

@@ -3,7 +3,7 @@
         "error_code": "UNITS_INVALID",
         "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "UNITS_INVALID",
         "description": "A unit modifier is applied to units that are not SI units.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

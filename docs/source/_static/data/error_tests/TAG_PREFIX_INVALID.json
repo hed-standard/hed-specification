@@ -3,7 +3,7 @@
         "error_code": "TAG_PREFIX_INVALID",
         "description": "A tag starting with *name:* does not have an associated schema.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "TAG_PREFIX_INVALID",
         "description": "A tag prefix has invalid characters.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

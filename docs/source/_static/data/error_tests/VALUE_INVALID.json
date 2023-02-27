@@ -2,6 +2,8 @@
     {
         "error_code": "VALUE_INVALID",
         "description": "The value substituted for a placeholder (`#`) is not valid.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -52,6 +54,8 @@
     {
         "error_code": "VALUE_INVALID",
         "description": "A tag value is incompatible with the specified value class.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -84,6 +88,8 @@
     {
         "error_code": "VALUE_INVALID",
         "description": "A tag value with no value class is assumed to be a text and contains invalid characters.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -117,7 +123,7 @@
         "error_code": "VALUE_INVALID",
         "description": "The units are not separated from the value by a single blank.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

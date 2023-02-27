@@ -3,7 +3,7 @@
         "error_code": "TAG_EXPRESSION_REPEATED",
         "description": "A tag is repeated in the same tag group or level.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

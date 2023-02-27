@@ -3,7 +3,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Onset` or `Offset` tag does not appear in a tag group.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -89,7 +89,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Onset` or `Offset` tag appears without being grouped with a definition name and a `Def-expand` tag group or a `Def`.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -123,7 +123,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Onset` appears in a tag group with more than a single `Def` or `Def-expand` and at most one additional tag group.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -157,7 +157,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Offset` tag appears before an `Onset` tag associated with the same definition.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -191,7 +191,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -225,7 +225,7 @@
         "error_code": "ONSET_OFFSET_ERROR",
         "description": "An `Onset` tag group with more than one internal tag group.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

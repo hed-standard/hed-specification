@@ -3,7 +3,7 @@
         "error_code": "TAG_GROUP_ERROR",
         "description": "A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "TAG_GROUP_ERROR",
         "description": "A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

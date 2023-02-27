@@ -2,6 +2,8 @@
     {
         "error_code": "SIDECAR_KEY_MISSING",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

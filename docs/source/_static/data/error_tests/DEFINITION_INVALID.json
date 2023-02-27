@@ -3,7 +3,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
         "schema": "8.1.0",
-        "definitions": [],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -55,7 +55,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -89,7 +89,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -123,7 +123,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -157,7 +157,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -191,7 +191,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "A definition has two placeholders (`#`) but one or more of them are in incorrect positions.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -225,7 +225,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "Definitions of the same name appear with and without a `#`.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -259,7 +259,7 @@
         "error_code": "DEFINITION_INVALID",
         "description": "Multiple `Definition` tags with same name are encountered.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

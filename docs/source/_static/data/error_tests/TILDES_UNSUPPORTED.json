@@ -1,9 +1,9 @@
 [
     {
         "error_code": "TILDES_UNSUPPORTED",
-        "description": "The **tilde syntax is no longer supported** for any version of HED.",
+        "description": "The tilde syntax is no longer supported for any version of HED.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

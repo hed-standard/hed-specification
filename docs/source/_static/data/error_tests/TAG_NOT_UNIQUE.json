@@ -3,7 +3,7 @@
         "error_code": "TAG_NOT_UNIQUE",
         "description": "A tag with `unique` attribute appears more than once in an event-level HED string.",
         "schema": "8.1.0",
-        "definitions": {},
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
