@@ -1,0 +1,196 @@
+[
+    {
+        "error_code": "NODE_NAME_EMPTY",
+        "description": "An empty tag was detected in a HED string.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    ",  Blue,Def/Acc/3.2",
+                    "(Blue, Green),Yellow,",
+                    "Red, , , Green",
+                    "(, Red, Green), Blue",
+                    "(Red, , Green), Blue",
+                    "(Red, Green,), Blue"
+                ],
+                "passes": [
+                    "(Red, Blue), Green"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face":  ",  Blue,Def/Acc/3.2",
+                                    "ball": "(Blue, Green),Yellow,",
+                                    "square": "Red, , , Green",
+                                    "test": "(, Red, Green), Blue",
+                                    "pine": "(Red, , Green), Blue",
+                                    "apple": "(Red, Green,), Blue"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Red, Blue",
+                                    "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, ",  (Blue, Green),Yellow,"],
+                        [ 5.5, 0, "Red, , , Green"],
+                        [ 6.5, 0, ",  Blue,Def/Acc/3.2"],     
+                        [ 7.5, 0, "(, Red, Green), Blue"],
+                        [ 8.2, 0, "(Red, , Green), Blue"],
+                        [ 9.1, 0,  "(Red, Green,), Blue"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Red, (Blue, Green)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "NODE_NAME_EMPTY",
+        "description": "A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "//Blue, Green",
+                    "Def/Acc/4.5//",
+                    "Def/Acc/4.5/",
+                    "/ /Def/Acc/4.5 ms/"
+                ],
+                "passes": [
+                    "Label/Red, Informational-property/Label/Blue"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "//Blue, Green",
+                                    "ball": "Def/Acc/4.5//",
+                                    "square": "Def/Acc/4.5/",
+                                    "test":  "/ /Def/Acc/4.5 ms/"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Informational-property/Label/Num1",
+                                    "ball": "Informational-property/Label"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "//Blue, Green"],
+                        [ 4.5, 0, "Def/Acc/4.5//"],
+                        [ 4.5, 0, "Def/ /Acc/4.5 ms/"],
+                        [ 7.2, 0, "/ /Def/Acc/4.5 ms/"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Informational-property/Label/Num1"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "NODE_NAME_EMPTY",
+        "description": "A tag contains consecutive forward slashes (ignoring whitespace).",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Informational-property/ /Label/Num1",
+                    "Def/Acc//4.5"
+                ],
+                "passes": [
+                    "Informational-property/Label/Num1"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Informational-property/ /Label/Num1",
+                                    "ball": "Def/Acc//4.5"
+                                }
+                            }
+                        }
+                    }
+
+      
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "Informational-property/Label/Num1",
+                                    "ball":  "Def/Acc/4.5"
+                                }
+                            }
+                        }
+                    }                    
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Informational-property/ /Label/Num1"],
+                        [ 5.7, 0,  "Def/Acc//4.5"]
+                    ]               
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Informational-property/Label/Num1"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

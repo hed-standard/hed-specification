@@ -1,9 +1,9 @@
 [
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Onset` or `Offset` tag does not appear in a tag group.",
         "schema": "8.1.0",
-        "definitions": [],
+        "definitions": {},
         "tests": {
             "string_tests": {
                 "fails": [
@@ -48,12 +48,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            }  
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -82,12 +82,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            }   
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Onset` or `Offset` tag appears without being grouped with a definition name and a `Def-expand` tag group or a `Def`.",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -116,12 +116,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            } 
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Onset` appears in a tag group with more than a single `Def` or `Def-expand` and at most one additional tag group.",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -150,12 +150,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            }             
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Offset` tag appears before an `Onset` tag associated with the same definition.",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -184,12 +184,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            }  
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "A definition has two placeholders (`#`) but one or more of them are in incorrect positions.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -218,12 +218,12 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            } 
+            }
         }
     },
     {
-        "error_code": "DEFINITION_INVALID",
-        "description": "Definitions of the same name appear with and without a `#`.",
+        "error_code": "ONSET_OFFSET_ERROR",
+        "description": "An `Onset` tag group with more than one internal tag group.",
         "schema": "8.1.0",
         "definitions": {},
         "tests": {
@@ -252,41 +252,7 @@
                         [4.5, 0, "Label/a ʰ bad"]
                     ]
                 ]
-            } 
-        }
-    },
-    {
-        "error_code": "DEFINITION_INVALID",
-        "description": "Multiple `Definition` tags with same name are encountered.",
-        "schema": "8.1.0",
-        "definitions": {},
-        "tests": {
-            "string_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
-                    ]
-                ],
-                "passes": [
-                    [
-                        ["onset", "duration", "HED"],
-                        [4.5, 0, "Label/a ʰ bad"]
-                    ]
-                ]
-            }             
+            }
         }
     }
 ]    

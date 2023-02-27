@@ -1,0 +1,88 @@
+[
+    {
+        "error_code": "TAG_GROUP_ERROR",
+        "description": "A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.",
+        "schema": "8.1.0",
+        "definitions": {},
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                    "Definition/Blech, (Red)"
+                ],
+                "passes": [
+                    "(Definition/Blech, (Red))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                                "def2": "Definition/Blech, (Red)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Blech, (Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_GROUP_ERROR",
+        "description": "A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.",
+        "schema": "8.1.0",
+        "definitions": {},
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

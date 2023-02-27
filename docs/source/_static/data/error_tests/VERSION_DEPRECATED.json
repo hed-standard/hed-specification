@@ -1,0 +1,54 @@
+[
+    {
+        "error_code": "VERSION_DEPRECATED",
+        "description": "The HED schema version being used as been deprecated.",
+        "schema": "8.0.0-beta.1",
+        "definitions": {},
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                    "Definition/Blech, (Red)"
+                ],
+                "passes": [
+                    "(Definition/Blech, (Red))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                                "def2": "Definition/Blech, (Red)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Blech, (Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

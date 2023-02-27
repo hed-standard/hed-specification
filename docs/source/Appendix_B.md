@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The string contains a UTF-8 character.  
+**a.**  The HED string contains a UTF-8 character.  
 
 **b.**  An extension or a value substituted for a `#` is not allowed by its value class.  
 
@@ -121,8 +121,7 @@ at most one additional tag group.
 **e.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.  
 **f.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag
 without the appearance of an intervening `Onset` of the same name.   
-**g.**  An `Onset` tag group with more than one internal
-tag group.  
+**g.**  An `Onset` tag group with more than one internal tag group.  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
@@ -163,6 +162,14 @@ An assembled event string must include all tags having the *required* schema att
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `required` tag.
 
+### SIDECAR_INVALID
+
+**a.**  The `"HED"` key is not a second-level dictionary key.
+**b.**  An annotation entry is provided for `n/a`.
+
+See [**3.2.9.2. Sidecar validation**](./03_HED_formats.md#3292-sidecar-validation) for a
+general explanation of sidecar requirements.
+
 ### SIDECAR_KEY_MISSING*
 (WARNING) 
 
@@ -172,14 +179,6 @@ additional information on the `required` tag.
 appears does have HED annotations.
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
-general explanation of sidecar requirements.
-
-### SIDECAR_INVALID*
-
-**a.**  The `"HED"` key is not a second-level dictionary key.
-**b.**  An annotation entry is provided for `n/a`.
-
-See [**3.2.9.2. Sidecar validation**](./03_HED_formats.md#3292-sidecar-validation) for a
 general explanation of sidecar requirements.
 
 ### STYLE_WARNING*
@@ -257,9 +256,10 @@ of tag forms and their relationship to the HED schema.
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `unique` tag.
 
-### TAG_PREFIX_UNMATCHED
+### TAG_PREFIX_INVALID
 
 **a.**  A tag starting with *name:* does not have an associated schema.
+**b.**  A tag prefix has invalid characters.
 
 See [**3.2.6. Tag prefixes**](./03_HED_formats.md#326-tag-prefixes) and
 [**7. Library schema**](./07_Library_schemas.md) for additional information
