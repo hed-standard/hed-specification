@@ -8,11 +8,11 @@
             "string_tests": {
                 "fails": [
                     "(Red, Blue)(Green, (Yellow))",
-                    "(Def/MyColor, Onset)(Def/Acc/3.5)"
+                    "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
                 ],
                 "passes": [
                     "(Red, Blue),   (Green, (Yellow))",
-                    "(Def/MyColor, Onset),(Def/Acc/3.5)"
+                    "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
                 ]
             },
             "sidecar_tests": {
@@ -22,7 +22,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Red, Blue)(Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
+                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }
@@ -34,7 +34,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Red, Blue),   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
+                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }
@@ -46,14 +46,14 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Red, Blue)(Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset)(Def/Acc/3.5)"]
+                        [ 5.5, 0, "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Red, Blue),   (Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset),(Def/Acc/3.5)"]
+                        [ 5.5, 0, "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"]
                     ]
                 ]
             }
@@ -68,11 +68,11 @@
             "string_tests": {
                 "fails": [
                     "Red, Blue(Green, (Yellow))",
-                    "(Def/MyColor, Onset)Def/Acc/3.5"
+                    "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
                 ],
                 "passes": [
                     "Red,   (Green, (Yellow))",
-                    "(Def/MyColor, Onset),Def/Acc/3.5"                    
+                    "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
                 ]
             },
             "sidecar_tests": {
@@ -82,7 +82,7 @@
                             "show": {
                                 "HED": {
                                     "face": "Red(Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset)Def/Acc/3.5"
+                                    "ball": "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
                                 }
                             }
                         }
@@ -94,7 +94,7 @@
                             "show": {
                                 "HED": {
                                     "face": "Red,   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),Def/Acc/3.5"
+                                    "ball": "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
                                 }
                             }
                         }
@@ -106,7 +106,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Red(Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset)Def/Acc/3.5"]
+                        [ 5.5, 0, "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"]
                     ]
                 ],
                 "passes": [

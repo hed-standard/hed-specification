@@ -137,7 +137,7 @@
                 ],
                 "passes": [
                     "(Red, (  Blue    ), ((Green)))",
-                    "(((Def/Acc/3.5)))"
+                    "(((Def/Acc/3.5 m-per-s^2)))"
                 ]
             },
             "sidecar_tests": {
@@ -159,7 +159,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Red, (  Blue    ), ((Green)))",
-                                    "ball": "(((Def/Acc/3.5)))"
+                                    "ball": "(((Def/Acc/3.5 m-per-s^2)))"
                                 }
                             }
                         }
@@ -178,7 +178,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Red, (  Blue    ), ((Green)))"],
-                        [ 5.5, 0, "(((Def/Acc/3.5)))"]
+                        [ 5.5, 0, "(((Def/Acc/3.5 m-per-s^2)))"]
                     ]
                 ]
             }

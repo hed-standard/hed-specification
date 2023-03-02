@@ -57,7 +57,7 @@
         "tests": {
             "string_tests": {
                 "fails": ["Acceleration/banana", "Def/Acc/apple3, Blue"],
-                "passes": ["Acceleration/3.4", "Def/Acc/10.1 m-per-s^2"]
+                "passes": ["Acceleration/3.4 m-per-s^2", "Def/Acc/10.1 m-per-s^2"]
             },
             "sidecar_tests": {
                 "fails": [

@@ -70,7 +70,7 @@
                     "Distance/3 kmeters"
                 ],
                 "passes": [
-                    "Distance/3 kilometers"
+                    "Distance/3 kilometres"
                 ]
             },
             "sidecar_tests": {
@@ -91,7 +91,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "Distance/3 kilometers"
+                                    "face": "Distance/3 kilometres"
                                 }
                             }
                         }
@@ -109,7 +109,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Distance/3 kilometers"]
+                        [ 4.5, 0, "Distance/3 kilometres"]
                     ]
                 ]
             }

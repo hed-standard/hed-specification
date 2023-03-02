@@ -7,7 +7,7 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Def-expand/Acc2/4.5, (Acceleration/4.5, Red)))",
+                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                     "(Def-expand/MyColor2, (Label/Pie)))"
                 ],
                 "passes": [
@@ -20,7 +20,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc2/4.5, (Acceleration/4.5, Red)))",
+                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                                     "ball": "(Def-expand/MyColor2, (Label/Pie)))"
                                 }
                             }
@@ -32,7 +32,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))",
+                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                                     "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                                 }
                             }
@@ -44,14 +44,14 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc2/4.5, (Acceleration/4.5, Red)))"],
+                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
                         [ 5.5, 0, "(Def-expand/MyColors, (Label/Pie)))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))"],
+                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
                         [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
                     ]
                 ]
@@ -66,13 +66,13 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                     "(Def-expand/Acc2, (Acceleration, Red)))",
-                     "(Def-expand/Acc2/4.5/3, (Acceleration, Red)))",
+                     "(Def-expand/Acc, (Acceleration, Red)))",
+                     "(Def-expand/Acc/4.5/3, (Acceleration, Red)))",
                      "(Def-expand/MyColor2/4, (Label/Pie)))"
                 ],
                 "passes": [
                     "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                    "(Def-expand/Acc/4.5, (Acceleration/4.5, Red))"
+                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                 ]
             },
             "sidecar_tests": {
@@ -81,8 +81,8 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc2, (Acceleration, Red)))",
-                                    "ball": "(Def-expand/Acc2/4.5/3, (Acceleration, Red)))",
+                                    "face": "(Def-expand/Acc, (Acceleration, Red)))",
+                                    "ball": "(Def-expand/Acc/4.5/3, (Acceleration, Red)))",
                                     "circle": "(Def-expand/MyColor2/4, (Label/Pie)))"
                                 }
                             }
@@ -95,7 +95,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                                    "ball": "(Def-expand/Acc/4.5, (Acceleration/4.5, Red))"
+                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                                 }
                             }
                         }
@@ -106,8 +106,8 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc2, (Acceleration, Red)))"],
-                        [ 5.5, 0, "(Def-expand/Acc2/4.5/3, (Acceleration, Red)))"],
+                        [ 4.5, 0, "(Def-expand/Acc, (Acceleration, Red)))"],
+                        [ 5.5, 0, "(Def-expand/Acc/4.5/3, (Acceleration, Red)))"],
                         [ 6.5, 0, "(Def-expand/MyColor2/4, (Label/Pie)))"]
                     ]
                 ],
@@ -115,7 +115,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"],
-                        [ 5.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5, Red))"]
+                        [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
                     ]
                 ]
             }             
@@ -129,9 +129,9 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Def-expand/Acc2/Make-me, (Acceleration/Make-me, Red)))",
-                    "(Def-expand/Acc2/4.5 m, (Acceleration/4.5 m, Red)))",
-                    "(Def-expand/Acc2/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
+                    "(Def-expand/Acc/Make-me, (Acceleration/Make-me, Red)))",
+                    "(Def-expand/Acc/4.5 m, (Acceleration/4.5 m, Red)))",
+                    "(Def-expand/Acc/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
                 ],
                 "passes": [
                     "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
@@ -143,9 +143,9 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc2/Make-me, (Acceleration/Make-me, Red)))",
-                                    "ball": "(Def-expand/Acc2/4.5 m, (Acceleration/4.5 m, Red)))",
-                                    "square": "(Def-expand/Acc2/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
+                                    "face": "(Def-expand/Acc/Make-me, (Acceleration/Make-me, Red)))",
+                                    "ball": "(Def-expand/Acc/4.5 m, (Acceleration/4.5 m, Red)))",
+                                    "square": "(Def-expand/Acc/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
                                 }
                             }
                         }
@@ -156,7 +156,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))",
+                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                                     "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                                 }
                             }
@@ -168,15 +168,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc2/Make-me, (Acceleration/Make-me, Red)))"],
-                        [ 5.5, 0, "(Def-expand/Acc2/4.5 m, (Acceleration/4.5 m, Red)))"],
-                        [ 6.3, 0, "(Def-expand/Acc2/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"]
+                        [ 4.5, 0, "(Def-expand/Acc/Make-me, (Acceleration/Make-me, Red)))"],
+                        [ 5.5, 0, "(Def-expand/Acc/4.5 m, (Acceleration/4.5 m, Red)))"],
+                        [ 6.3, 0, "(Def-expand/Acc/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))"],
+                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
                         [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
                     ]
                 ]
@@ -191,8 +191,8 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Def-expand/Acc2/4.5, (Acceleration/6, Red)))",
-                    "(Def-expand/Acc2/4.5, (Acceleration/4.5, Blue)))",
+                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/6, Red)))",
+                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Blue)))",
                     "(Def-expand/MyColor, (Label/Cake)))"
                 ],
                 "passes": [
@@ -205,8 +205,8 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc2/4.5, (Acceleration/6, Red)))",
-                                    "ball": "(Def-expand/Acc2/4.5, (Acceleration/4.5, Blue)))",
+                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/6, Red)))",
+                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Blue)))",
                                     "square": "(Def-expand/MyColor, (Label/Cake)))"
                                 }
                             }
@@ -218,7 +218,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))",
+                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                                     "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                                 }
                             }
@@ -230,15 +230,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc2/4.5, (Acceleration/6, Red)))"],
-                        [ 5.5, 0, "(Def-expand/Acc2/4.5, (Acceleration/4.5, Blue)))"],
+                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/6, Red)))"],
+                        [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Blue)))"],
                         [ 6.3, 0, "(Def-expand/MyColor, (Label/Cake)))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5, Red)))"],
+                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
                         [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
                     ]
                 ]
