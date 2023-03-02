@@ -64,10 +64,11 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "sc1:Sleep-modulator, Red"
+                    "sc2:Sleep-modulator, Red"
                 ],
                 "passes": [
-                    "Blue"
+                    "Blue",
+                    "sc1:Sleep-modulator, Red"
                 ]
             },
             "sidecar_tests": {
@@ -77,7 +78,7 @@
                             "show": {
                                 "HED": {
                                     "face": "sc1:Sleep-modulator, Red",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
+                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }
@@ -89,7 +90,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Red, Blue),   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
+                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }

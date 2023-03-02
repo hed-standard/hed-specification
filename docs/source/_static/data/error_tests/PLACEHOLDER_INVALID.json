@@ -33,7 +33,7 @@
                             "show": {
                                 "HED": {
                                     "face":  "Label/This-label",
-                                    "ball": "(Def/Acc/3.5)"
+                                    "ball": "(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }
@@ -52,7 +52,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Label/This-label"],
-                        [ 6.0, 0, "(Def/Acc/3.5)"]
+                        [ 6.0, 0, "(Def/Acc/3.5 m-per-s^2)"]
                     ]
                 ]
             }
@@ -89,7 +89,7 @@
                             "show": {
                                 "HED": {
                                     "face":  "Label/This-label",
-                                    "ball": "(Def/Acc/3.5)"
+                                    "ball": "(Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
                         }
