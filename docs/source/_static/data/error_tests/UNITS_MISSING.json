@@ -1,29 +1,28 @@
 [
     {
-        "error_code": "TAG_INVALID",
-        "name": "tag-invalid-in-schema",
-        "description": "The tag is not valid in the schema it associated with.",
+        "error_code": "UNITS_MISSING",
+        "name": "units-missing-on-node-with-unit-class",
+        "description": "A tag that takes value and has a unit class does not have units.",
+        "warning": true,
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Brown-color/Red",
-                    "Property/Sensory-event",
-                    "Sensory-event/Baloney"
+                    "Def/Acc/3",
+                    "Acceleration/4.5"
                 ],
                 "passes": [
-                    "Brown-color/Brown"
+                    "Distance/4 km"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
-                   {
+                    {
                         "event_code": {
                             "HED": {
-                                "face": "Brown-color/Red",
-                                "ball": "Property/Sensory-event",
-                                "square": "Sensory-event/Baloney"
+                                "face": "Def/Acc/3",
+                                "ball": "Acceleration/4.5"
                             }
                         }
                     }
@@ -32,7 +31,8 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "Brown-color/Brown"
+                                "face": "Distance/4 km",
+                                "ball": "Angle/4 degrees"
                             }
                         }
                     }
@@ -42,15 +42,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Brown-color/Red"],
-                        [ 5.5, 0, "Property/Sensory-event"],
-                        [ 5.5, 0, "Sensory-event/Baloney"]
+                        [ 4.5, 0, "Def/Acc/3"],
+                        [ 5.5, 0, "Acceleration/4.5"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Brown-color/Brown"]
+                        [ 4.5, 0, "Distance/4 km"],
+                        [ 5.0, 0, "Angle/4 degrees"]
                     ]
                 ]
             }

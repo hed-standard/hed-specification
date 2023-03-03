@@ -1,7 +1,9 @@
 [
     {
         "error_code": "TAG_EXTENDED",
+        "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
+        "warning": true,
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -18,11 +20,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red-color/Red/Big-red, Blue/Nice-blue),(Green, (Yellow))",
-                                    "ball": "Sensory-presentation/Visual-presentation/Nice-yellow"
-                                }
+                            "HED": {
+                                "face": "(Red-color/Red/Big-red, Blue/Nice-blue),(Green, (Yellow))",
+                                "ball": "Sensory-presentation/Visual-presentation/Nice-yellow"
                             }
                         }
                     }
@@ -30,10 +30,8 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red-color/Red"
-                                }
+                            "HED": {
+                                "face": "Red-color/Red"
                             }
                         }
                     }

@@ -1,6 +1,7 @@
 [
     {
         "error_code": "NODE_NAME_EMPTY",
+        "name": "node-name-empty-forward-slashes",
         "description": "A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -20,13 +21,11 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "//Blue, Green",
-                                    "ball": "Def/Acc/4.5//",
-                                    "square": "Def/Acc/4.5/",
-                                    "test":  "/ /Def/Acc/4.5 ms/"
-                                }
+                            "HED": {
+                                "face": "//Blue, Green",
+                                "ball": "Def/Acc/4.5//",
+                                "square": "Def/Acc/4.5/",
+                                "test":  "/ /Def/Acc/4.5 ms/"
                             }
                         }
                     }
@@ -34,11 +33,9 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Informational-property/Label/Num1",
-                                    "ball": "Informational-property/Label"
-                                }
+                            "HED": {
+                                "face": "Informational-property/Label/Num1",
+                                "ball": "Informational-property/Label"
                             }
                         }
                     }
@@ -65,6 +62,7 @@
     },
     {
         "error_code": "NODE_NAME_EMPTY",
+        "name": "node-name-empty-forward-consecutive",
         "description": "A tag contains consecutive forward slashes (ignoring whitespace).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -82,11 +80,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Informational-property/ /Label/Num1",
-                                    "ball": "Def/Acc//4.5"
-                                }
+                            "HED": {
+                                "face": "Informational-property/ /Label/Num1",
+                                "ball": "Def/Acc//4.5"
                             }
                         }
                     }

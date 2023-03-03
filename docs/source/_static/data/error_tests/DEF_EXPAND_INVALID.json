@@ -1,6 +1,7 @@
 [
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "name": "def-expand-invalid-name-not-definition",
         "description": "A `Def-expand` tag's name does not correspond to a definition.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -18,11 +19,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc2/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
-                                    "ball": "(Def-expand/MyColor2, (Label/Pie)))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc2/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                                "ball": "(Def-expand/MyColor2, (Label/Pie)))"
                             }
                         }
                     }
@@ -30,11 +29,9 @@
                 "passes": [
                       {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
-                                    "ball": "(Def-expand/MyColor, (Label/Pie)))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                                "ball": "(Def-expand/MyColor, (Label/Pie)))"
                             }
                         }
                     }
@@ -60,6 +57,7 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "name": "def-expand-invalid-missing-placeholder",
         "description": "A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -79,12 +77,10 @@
                 "fails": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc, (Acceleration, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5/3, (Acceleration, Red)))",
-                                    "circle": "(Def-expand/MyColor2/4, (Label/Pie)))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc, (Acceleration, Red)))",
+                                "ball": "(Def-expand/Acc/4.5/3, (Acceleration, Red)))",
+                                "circle": "(Def-expand/MyColor2/4, (Label/Pie)))"
                             }
                         }
                     }                   
@@ -92,11 +88,9 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
+                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                             }
                         }
                     }
@@ -123,6 +117,7 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "name": "def-expand-invalid-bad-placeholder-units",
         "description": "A `Def-expand` has a placeholder value of incorrect format or units for definition.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -141,12 +136,10 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/Make-me, (Acceleration/Make-me, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5 m, (Acceleration/4.5 m, Red)))",
-                                    "square": "(Def-expand/Acc/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/Make-me, (Acceleration/Make-me, Red)))",
+                                "ball": "(Def-expand/Acc/4.5 m, (Acceleration/4.5 m, Red)))",
+                                "square": "(Def-expand/Acc/4.5m-per-s^2 (Acceleration/4.5m-per-s^2, Red)))"
                             }
                         }
                     }
@@ -154,11 +147,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                             }
                         }
                     }
@@ -185,6 +176,7 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "name": "def-expand-invalid-tags-not-in-definition",
         "description": "The tags within a `Def-expand` do not match the corresponding definition.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -203,12 +195,10 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/6, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Blue)))",
-                                    "square": "(Def-expand/MyColor, (Label/Cake)))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/6, Red)))",
+                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Blue)))",
+                                "square": "(Def-expand/MyColor, (Label/Cake)))"
                             }
                         }
                     }
@@ -216,11 +206,9 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
-                                }
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
                             }
                         }
                     }                   

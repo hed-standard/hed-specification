@@ -1,6 +1,7 @@
 [
     {
         "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-duplicate",
         "description": "A tag extension term is already in the schema.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -19,11 +20,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
-                                    "ball": "Sensory-presentation/Red/Redish"
-                                }
+                            "HED": {
+                                "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                                "ball": "Sensory-presentation/Red/Redish"
                             }
                         }
                     }
@@ -31,11 +30,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red-color/Red/Redish",
-                                    "ball": "((Green/Greenish))"
-                                }
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "((Green/Greenish))"
                             }
                         }
                     }
@@ -61,6 +58,7 @@
     },
     {
         "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -82,11 +80,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red/Red$2",
-                                    "ball": "Red/R#d"
-                                }
+                            "HED": {
+                                "face": "Red/Red$2",
+                                "ball": "Red/R#d"
                             }
                         }
                     }
@@ -94,14 +90,12 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red-color/Red/Redish",
-                                    "ball": "Red-color/Red/Redish/More-redish",
-                                    "square": "((Green/Greenish))",
-                                    "triangle": "Red/1red",
-                                    "catwalk": "Red/Red--2red"
-                                }
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "Red-color/Red/Redish/More-redish",
+                                "square": "((Green/Greenish))",
+                                "triangle": "Red/1red",
+                                "catwalk": "Red/Red--2red"
                             }
                         }
                     }                    

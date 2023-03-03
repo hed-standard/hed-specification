@@ -1,6 +1,7 @@
 [
     {
         "error_code": "REQUIRED_TAG_MISSING",
+        "name": "required-tag-missing-",
         "description": "An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],

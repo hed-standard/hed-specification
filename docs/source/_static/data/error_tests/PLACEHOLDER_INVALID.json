@@ -1,6 +1,7 @@
 [
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "name": "placeholder-invalid-misplaced",
         "description": "A `#` appears in a place that it should not (such as in the `HED` column of an event file outside a definition).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -18,11 +19,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Label/#",
-                                    "ball": "Def/Acc/#"
-                                }
+                            "HED": {
+                                "face": "Label/#",
+                                "ball": "Def/Acc/#"
                             }
                         }
                     }
@@ -30,11 +29,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face":  "Label/This-label",
-                                    "ball": "(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face":  "Label/This-label",
+                                "ball": "(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }
@@ -60,6 +57,7 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "name": "placeholder-invalid-#-in-categorical-column",
         "description": "A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -74,11 +72,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Label/#",
-                                    "ball": "Def/Acc/#"
-                                }
+                            "HED": {
+                                "face": "Label/#",
+                                "ball": "Def/Acc/#"
                             }
                         }
                     }
@@ -86,11 +82,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face":  "Label/This-label",
-                                    "ball": "(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face":  "Label/This-label",
+                                "ball": "(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }
@@ -110,6 +104,7 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "name": "placeholder-invalid-json-value-column",
         "description": "A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -149,6 +144,7 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "name": "placeholder-invalid-json-#-misplaced",
         "description": "A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],

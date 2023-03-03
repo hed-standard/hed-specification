@@ -1,6 +1,7 @@
 [
     {
         "error_code": "TAG_EMPTY",
+        "name": "tag-empty-extra-commas-or-parentheses",
         "description": "A HED string has extra commas or parentheses separated by only white space.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -20,13 +21,11 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "square": "Red, , , Green",
-                                    "test": "(, Red, Green), Blue",
-                                    "pine": "(Red, , Green), Blue",
-                                    "apple": "(Red, Green,), Blue"
-                                }
+                            "HED": {
+                                "square": "Red, , , Green",
+                                "test": "(, Red, Green), Blue",
+                                "pine": "(Red, , Green), Blue",
+                                "apple": "(Red, Green,), Blue"
                             }
                         }
                     }
@@ -34,11 +33,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red, Blue",
-                                    "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
-                                }
+                            "HED": {
+                                "face": "Red, Blue",
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
                             }
                         }
                     }
@@ -65,6 +62,7 @@
     },  
     {
         "error_code": "TAG_EMPTY",
+        "name": "tag-empty-begin-end-comma",
         "description": "A HED string begins or ends with a comma (ignoring white space).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -83,12 +81,10 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face":  ",  Blue,Def/Acc/3.2",
-                                    "ball": "(Blue, Green),Yellow,",
-                                    "square": ",,(Blue, Green),Yellow,"
-                                }
+                            "HED": {
+                                "face":  ",  Blue,Def/Acc/3.2",
+                                "ball": "(Blue, Green),Yellow,",
+                                "square": ",,(Blue, Green),Yellow,"
                             }
                         }
                     }
@@ -96,11 +92,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red, Blue",
-                                    "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
-                                }
+                            "HED": {
+                                "face": "Red, Blue",
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
                             }
                         }
                     }
@@ -126,6 +120,7 @@
     },
     {
         "error_code": "TAG_EMPTY",
+        "name": "tag-empty-empty-parentheses",
         "description": "A tag group is empty (i.e., empty parentheses are not allowed).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -144,11 +139,9 @@
                 "fails": [
                    {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red, (), (Blue), ((Green)))",
-                                    "ball": "(((   ))), Red"
-                                }
+                            "HED": {
+                                "face": "(Red, (), (Blue), ((Green)))",
+                                "ball": "(((   ))), Red"
                             }
                         }
                     }
@@ -156,11 +149,9 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red, (  Blue    ), ((Green)))",
-                                    "ball": "(((Def/Acc/3.5 m-per-s^2)))"
-                                }
+                            "HED": {
+                                "face": "(Red, (  Blue    ), ((Green)))",
+                                "ball": "(((Def/Acc/3.5 m-per-s^2)))"
                             }
                         }
                     }                   

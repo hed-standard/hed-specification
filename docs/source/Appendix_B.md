@@ -279,12 +279,16 @@ The tilde notation is not supported.
    Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
 **b.**  The tilde (`~`) is considered an invalid character in all versions of the schema.  
 
-
 ### UNITS_INVALID
  
 **a.**  A tag has a value with units that are invalid or not of the 
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
+
+
+### UNITS_MISSING*
+ 
+**a.**  A tag that takes value and has a unit class does not have units.
 
 See [**3.2.4 Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 for more information.

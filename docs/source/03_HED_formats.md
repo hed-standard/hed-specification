@@ -77,12 +77,12 @@ while the remaining sections specify additional information and behavior.
 These additional sections are required, but are allowed to be empty.
 
 If any of the required sections of the schema are missing or out of order,
-a [**SCHEMA_SECTION_MISSING**](./Appendix_A.md#SCHEMA_SECTION_MISSING) error occurs.
+a [**SCHEMA_SECTION_MISSING**](./Appendix_B.md#schema_section_missing) error occurs.
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned
 to elements in a given section.
 If a schema attribute is applied improperly to an element in a given section,
-the [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_A.md#SCHEMA_ATTRIBUTE_INVALID) error occurs.
+the [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 See [**Appendix A. Schema format details**](./Appendix_A.md) for additional details.
 

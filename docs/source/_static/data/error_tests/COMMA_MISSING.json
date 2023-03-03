@@ -1,6 +1,7 @@
 [
     {
         "error_code": "COMMA_MISSING",
+        "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -19,11 +20,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red, Blue)(Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face": "(Red, Blue)(Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }
@@ -31,11 +30,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red, Blue),   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face": "(Red, Blue),   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }
@@ -61,6 +58,7 @@
     },
     {
         "error_code": "COMMA_MISSING",
+        "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -79,11 +77,9 @@
                 "fails": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red(Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
-                                }
+                            "HED": {
+                                "face": "Red(Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
                             }
                         }
                     }                   
@@ -91,11 +87,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Red,   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
-                                }
+                            "HED": {
+                                "face": "Red,   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
                             }
                         }
                     }                    
