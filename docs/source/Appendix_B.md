@@ -279,12 +279,16 @@ The tilde notation is not supported.
    Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
 **b.**  The tilde (`~`) is considered an invalid character in all versions of the schema.  
 
-
 ### UNITS_INVALID
  
 **a.**  A tag has a value with units that are invalid or not of the 
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
+
+
+### UNITS_MISSING*
+ 
+**a.**  A tag that takes value and has a unit class does not have units.
 
 See [**3.2.4 Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 for more information.
@@ -342,7 +346,7 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.**  The specification contains an invalid character.  
+**a.**  The specification contains an invalid character for the section in which it appears. 
 
 #### SCHEMA_DUPLICATE_NODE
 
@@ -351,11 +355,7 @@ under an appropriate unit class).
 #### SCHEMA_HEADER_INVALID
 
 **a.**  The schema header has invalid characters or format.  
-**b.**  The schema header has unrecognized attributes.  
-
-#### SCHEMA_NODE_NAME_INVALID
-
-**a.**  Schema node name is empty or contains invalid characters.  
+**b.**  The schema header has unrecognized attributes.
 
 #### SCHEMA_SECTION_MISSING
 

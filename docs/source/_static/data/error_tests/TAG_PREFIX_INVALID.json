@@ -1,6 +1,7 @@
 [
     {
         "error_code": "TAG_PREFIX_INVALID",
+        "name": "tag-prefix-invalid-no-schema",
         "description": "A tag starting with name: does not have an associated schema.",
         "schema": ["8.1.0", "sc:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -18,11 +19,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "ts:Red, Blue",
-                                    "ball": "(ts:Red, (sc:Sleep-modulator))"
-                                }
+                            "HED": {
+                                "face": "ts:Red, Blue",
+                                "ball": "(ts:Red, (sc:Sleep-modulator))"
                             }
                         }
                     }
@@ -30,10 +29,8 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "sc:Sleep-modulator"
-                                }
+                            "HED": {
+                                "face": "sc:Sleep-modulator"
                             }
                         }
                     }
@@ -58,6 +55,7 @@
     },
     {
         "error_code": "TAG_PREFIX_INVALID",
+        "name": "tag-prefix-invalid-characters",
         "description": "A tag prefix has invalid characters.",
         "schema": ["8.1.0", "sc1:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -75,11 +73,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "sc1:Sleep-modulator, Red",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face": "sc1:Sleep-modulator, Red",
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }
@@ -87,11 +83,9 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Red, Blue),   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
-                                }
+                            "HED": {
+                                "face": "(Red, Blue),   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
                             }
                         }
                     }

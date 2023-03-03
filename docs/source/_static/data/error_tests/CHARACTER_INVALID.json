@@ -1,6 +1,7 @@
  [
     {
         "error_code": "CHARACTER_INVALID",
+        "name": "character-invalid-utf-8",
         "description": "The HED string contains a UTF-8 character.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -51,6 +52,7 @@
     },
     {
         "error_code": "CHARACTER_INVALID",
+        "name": "character-invalid-#-value-class",
         "description": "An extension or a value substituted for a `#` is not allowed by its value class.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -63,11 +65,9 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
+                            "HED": {
+                                "face": "Acceleration/banana",
+                                "ball": "Def/Acc/apple3, Blue"
                             }
                         }
                     }
@@ -75,11 +75,9 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "Acceleration/6.8 m-per-s^2",
-                                    "ball": "Def/Acc/5.433, Blue"
-                                }
+                            "HED": {
+                                "face": "Acceleration/6.8 m-per-s^2",
+                                "ball": "Def/Acc/5.433, Blue"
                             }
                         }
                     }

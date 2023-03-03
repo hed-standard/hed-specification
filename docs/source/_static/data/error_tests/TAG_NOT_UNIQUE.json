@@ -1,6 +1,7 @@
 [
     {
         "error_code": "TAG_NOT_UNIQUE",
+        "name": "tag-not-unique",
         "description": "A tag with `unique` attribute appears more than once in an event-level HED string.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -17,10 +18,8 @@
                 "fails": [
                     {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
-                                }
+                            "HED": {
+                                "face": "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
                             }
                         }
                     }
@@ -28,10 +27,8 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
-                                "HED": {
-                                    "face": "(Event-context, (Red, Blue))"
-                                }
+                            "HED": {
+                                "face": "(Event-context, (Red, Blue))"
                             }
                         }
                     }
