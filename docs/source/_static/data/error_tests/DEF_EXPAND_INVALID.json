@@ -7,7 +7,7 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                    "(Def-expand/Acc2/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                     "(Def-expand/MyColor2, (Label/Pie)))"
                 ],
                 "passes": [
@@ -20,7 +20,7 @@
                         "event_code": {
                             "show": {
                                 "HED": {
-                                    "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
+                                    "face": "(Def-expand/Acc2/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
                                     "ball": "(Def-expand/MyColor2, (Label/Pie)))"
                                 }
                             }
@@ -33,7 +33,7 @@
                             "show": {
                                 "HED": {
                                     "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"
+                                    "ball": "(Def-expand/MyColor, (Label/Pie)))"
                                 }
                             }
                         }
@@ -44,15 +44,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
-                        [ 5.5, 0, "(Def-expand/MyColors, (Label/Pie)))"]
+                        [ 4.5, 0, "(Def-expand/Acc2/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
+                        [ 5.5, 0, "(Def-expand/MyColor2, (Label/Pie)))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)))"],
-                        [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"]
+                        [ 5.5, 0, "(Def-expand/MyColor, (Label/Pie)))"]
                     ]
                 ]
             }            

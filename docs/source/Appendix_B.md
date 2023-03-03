@@ -342,7 +342,7 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.**  The specification contains an invalid character.  
+**a.**  The specification contains an invalid character for the section in which it appears. 
 
 #### SCHEMA_DUPLICATE_NODE
 
@@ -351,11 +351,7 @@ under an appropriate unit class).
 #### SCHEMA_HEADER_INVALID
 
 **a.**  The schema header has invalid characters or format.  
-**b.**  The schema header has unrecognized attributes.  
-
-#### SCHEMA_NODE_NAME_INVALID
-
-**a.**  Schema node name is empty or contains invalid characters.  
+**b.**  The schema header has unrecognized attributes.
 
 #### SCHEMA_SECTION_MISSING
 

@@ -21,22 +21,22 @@ the HED schema (except for `#` placeholders) **must be unique**.
 Additional details about HED schema format can be found in appendix
 [**A. Schema format details**](./Appendix_A.md)
 
-### 3.1.1 Official schema releases
+### 3.1.1. Official schema releases
 
 The HED ecosystem supports a standard base schema and additional discipline-specific
 library schemas.
 (See the [**expandable schema viewer**](https://www.hedtags.org/display_hed.html)
 to explore existing schemas.)
 
-Releases of the HED standard schema are stored in
+Releases of the HED standard base schema are stored in
 [**standard_schema/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) 
 directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) repository.
 
-Releases of a HED library schema are stored in a subdirectory of
+Releases of a HED library schemas are stored in a subdirectory of
 [**library_schemas**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas)
 whose name is the library name.
 
-### 3.1.2 Schema layout overview
+### 3.1.2. Schema layout overview
 
 Schemas can be specified in either `.mediawiki` or `.xml` format.
 [**Online tools**](https://hedtools.ucsd.edu/hed/schema) 
@@ -49,9 +49,9 @@ are to the XML versions.
 Both formats must be available and synchronized in the 
 [**hed/standard/hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Regardless of the format, a valid HED schema has the following sections in this order:
+Regardless of the format, a valid HED schema must have the following sections in this order:
 
-````{Admonition} Sections of a HED schema (in the required order):
+````{Admonition} Required sections of a HED schema (in the required order):
 | Section   | Mediawiki format | XML format  |
 |------- | --------- | ---------- |
 | Header line  | `HED version="8.0.0"` | `<HED version="8.0.0">` |
@@ -76,55 +76,78 @@ appear in the `schema` section,
 while the remaining sections specify additional information and behavior.
 These additional sections are required, but are allowed to be empty.
 
-See appendix [**A. Schema format details**](./Appendix_A.md) for additional details.
+If any of the required sections of the schema are missing or out of order,
+a [**SCHEMA_SECTION_MISSING**](./Appendix_A.md#SCHEMA_SECTION_MISSING) error occurs.
 
-#### 3.1.2.1 The header
+Each of the schema sections has "schema attributes", which are the attributes that may be assigned
+to elements in a given section.
+If a schema attribute is applied improperly to an element in a given section,
+the [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_A.md#SCHEMA_ATTRIBUTE_INVALID) error occurs.
+
+See [**Appendix A. Schema format details**](./Appendix_A.md) for additional details.
+
+#### 3.1.2.1. The header
 
 The schema header line specifies the version, which must satisfy semantic versioning.
-See [**EC: SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
+See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
 
 If the schema is a library schema rather than the standard schema, the library name must be included.
-
-The header line may optionally include an XSD namespace specification.
+Library names should be lowercase and may only contain alphabetic characters.
 
 Library names must contain only alphabetic lowercase characters and should be short and descriptive.
-See [**EC: LIBRARY_NAME_INVALID**](./Appendix_B.md#library_name_invalid).
+See [**LIBRARY_NAME_INVALID**](./Appendix_B.md#library_name_invalid).
 
 A schema's library name or lack there of is used to locate the schema in the
 HED schema repository located in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Library names should be lowercase.
+The header line may optionally include an XSD namespace specification.
+If the schema contains any additional unrecognized attributes, 
+[**SCHEMA_HEADER_INVALID**](./Appendix_B.md#schema_header_invalid) error occurs.
 
-#### 3.1.2.2 The prologue
+#### 3.1.2.2. The prologue
 
 The prologue should contain a concise introduction to the schema and its purpose.
-Together with the epilogue section, 
+Together with [**The epilogue**](./03_HED_formats.md#3129-the-epilogue) section, 
 the contents are used by tools to provide information about the schema to the users.
 
-#### 3.1.2.3 The schema section
+If the prologue may only contain the following: letters, digits, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @.
+a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+
+
+#### 3.1.2.3. The schema section
 
 The schema section contains the actual vocabulary contents of the schema.
 Each element in this section corresponds to a *node* element, which we will also call a *tag term*.
+The location of the node element within the section specifies its relationship to other tag terms in the schema.
 
 A node element specifies the tag term name,
 its attributes, and an informative description of the tag term's meaning.
-See [**EC:SCHEMA_NODE_NAME_INVALID]**(./Appendix_B.md#schema-node-name-invalid).
+A node name may only contain alphanumeric characters, hyphen, and underscore.
+An exception to this is the `#` character which is used to represent a placeholder for a value
+to be provided during annotation.
+See [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) and
 
-Each schema node element must be unique. See [**EC:]
-The location of the node element within the section specifies its relationship to other tag terms in the schema.
+Each schema node element must be unique.
+Otherwise, a [**SCHEMA_DUPLICATE_NODE**](./Appendix_B.md#schema_duplicate_node) error is generated.
 
 
 #### 3.1.2.4 Unit classes and units
 
-The unit class definition section specifies the allowed unit classes and the 
-associated units that can be used with tags that take values and have the unit class as an attribute value.
+The unit classes are attributes that modify the `#` schema placeholder nodes.
+The unit class definition section specifies the allowed unit classes for the schema as well as the 
+associated units that can be used with tags that take values.
 
 Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
 singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
 HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
+Units may be in one of three forms: non-SI unit, an SI unit that is not a unit symbol,
+and an SI unit that is a unit symbol.
+Units that are SI units representing unit symbols have both the `SIUnit` and the `
+If a unit class is specified in a section other than the `unitClassDefinitions` section,
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
 
@@ -132,6 +155,9 @@ for additional details and a listing.
 
 The unit modifier definition section lists the SI unit multiples and submultiples 
 that are allowed to be prepended to units that have the `SIUnit` schema attribute.
+
+There are two types of unit modifiers --- ones that are used with ordinary SI units and
+those that are used with unit symbols
 
 **Unit modifiers are case-sensitive.**
 
@@ -635,7 +661,7 @@ Terms from only one schema can appear in the annotation without a namespace pref
 
 
 
-See [**TAG_PREFIX_UNMATCHED**](./Appendix_B.md#tag_prefix_unmatched) 
+See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
 See [**7.1.2 Using library schema in BIDS**](./07_Library_schemas.md#712-using-library-schema-in-bids) for an example of how the
