@@ -287,6 +287,7 @@ correct unit class for the tag.
 
 
 ### UNITS_MISSING*
+(WARNING)
  
 **a.**  A tag that takes value and has a unit class does not have units.
 
