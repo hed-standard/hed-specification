@@ -104,8 +104,10 @@
                     ]
                 ],
                 "passes": [
+                    [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Red,  (Green, (Yellow))"]
+                    ]
                 ]
             }
         }

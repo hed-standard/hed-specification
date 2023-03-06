@@ -1,7 +1,7 @@
 # 2. HED terminology
 
 The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
-"RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in
+"RECOMMENDED", "MAY", and "OPTIONAL" in this specification are to be interpreted as described in
 [[RFC2119](https://www.ietf.org/rfc/rfc2119.txt)].
 
 This specification uses a list of terms and abbreviations whose meaning is clarified here. 
@@ -89,9 +89,9 @@ A valid path along one branch of a HED vocabulary hierarchy. A valid long-form H
 is a slash-separated path following the schema tree hierarchy from its root to a term 
 along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. 
 No white space is allowed within terms themselves. For example, the long form of the 
-HED tag specifying an experiment participant is: *Property/Agent-property/Agent-task-role/Experiment-participant*.
-Valid short-form tags are *Experiment-participant*, *Agent-task-role/Experiment-participant*, 
-and *Agent-property/Agent-task-role/Experiment-participant*. HED tools should treat 
+HED tag specifying an experiment participant is: `Property/Agent-property/Agent-task-role/Experiment-participant`.
+Valid short-form tags are `Experiment-participant`, `Agent-task-role/Experiment-participant`, 
+and `Agent-property/Agent-task-role/Experiment-participant`. HED tools should treat 
 long-form and short-form tags interchangeably.
 
 ## Indicator-variable [*]
@@ -112,7 +112,7 @@ repositioning the recording sensors.
 
 ## Tag-group
 
-One or more valid, comma-separated HED tags or enclosed in parentheses to indicate 
+One or more valid, comma-separated HED tags enclosed in parentheses to indicate 
 that these tags belong together. Tag-groups may contain arbitrary nestings of other 
 tags and tag-groups.
 
@@ -124,8 +124,12 @@ sensory presentations as well as specified actions in response to presented situ
 
 ## Temporal scope
 
-The time interval between events marking the beginning and end of something in the 
-experiment. The time between and including the onset and offset of an event.
+The time interval between the start and end of an event process.
+Often the start time is annotated with the `Onset` tag,
+and the end time is annotated with the `Offset` tag.
+Since in practical terms the time is measured in discrete samples,
+the temporal scope includes the start time sample 
+but does not include the end time sample.
 
 ## Time-block [*]
 
