@@ -92,7 +92,8 @@ the definition's contents.
 **e.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.    
 **f.**  A definition has two placeholders (`#`) but one or more of them are in incorrect positions.  
 **g.**  Definitions of the same name appear with and without a `#`.  
-**h.**  Multiple `Definition` tags with same name are encountered.  
+**h.**  Multiple `Definition` tags with same name are encountered.
+**i.**  A tag with a `required` or `unique` attribute appears in a definition.
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions
@@ -155,6 +156,7 @@ information on the use of placeholders in HED.
 **a.**  An event-level annotation does not have a tag corresponding to a node with the `required`
 schema attribute.  
 
+
 **Note:**
 An assembled event string must include all tags having the *required* schema attribute.
 
@@ -206,7 +208,7 @@ HED strings are not ordered, so (`B`, `C`) is equivalent to (`B`, `C`).
 Thus, (`A`, (`A`, `B`)) is not a duplicate, but 
 (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.  
 
-See [**3.2.7.4. Repeated tag expressions**](./03_HED_formats.md#3274-repeated-tag-expressions)
+See [**3.2.7.4. Repeated expressions**](./03_HED_formats.md#3274-repeated-expressions)
 for additional information on the rules for duplication.
 
 ### TAG_EXTENDED*
@@ -336,8 +338,8 @@ when the planned XSD validation is implemented start with HED_XML.
 
 #### SCHEMA_ATTRIBUTE_INVALID
 
-**a.**  An attribute is used in the schema, but is not defined in the appropriate schema section.  
-**b.**  A schema attribute is defined in the wrong section (e.g., a unit definition does appear
+**a.**  An attribute is used in the schema, but is not defined in the schema attribute section.  
+**b.**  A schema attribute is applied to the incorrect type (e.g., an element with the unit definition does appear
 under an appropriate unit class).  
 
 **Note:** 

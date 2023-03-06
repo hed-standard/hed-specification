@@ -92,12 +92,8 @@
             },
             "event_tests": {
                 "fails": [
-                    [
-                    ]
                 ],
                 "passes": [
-                    [
-                    ]
                 ]
             }
         }

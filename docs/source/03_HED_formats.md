@@ -93,7 +93,6 @@ See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
 
 If the schema is a library schema rather than the standard schema, the library name must be included.
 Library names should be lowercase and may only contain alphabetic characters.
-
 Library names must contain only alphabetic lowercase characters and should be short and descriptive.
 See [**LIBRARY_NAME_INVALID**](./Appendix_B.md#library_name_invalid).
 
@@ -108,101 +107,141 @@ If the schema contains any additional unrecognized attributes,
 #### 3.1.2.2. The prologue
 
 The prologue should contain a concise introduction to the schema and its purpose.
-Together with [**The epilogue**](./03_HED_formats.md#3129-the-epilogue) section, 
+Together with [**the epilogue**](./03_HED_formats.md#3129-the-epilogue) section, 
 the contents are used by tools to provide information about the schema to the users.
 
-If the prologue may only contain the following: letters, digits, blank, +, -, :, ;, ., /, (, ), ?, *, %, $, @.
+The prologue may only contain the following: letters, digits, blank, comma, newline,
++, -, :, ;, ., /, (, ), ?, *, %, $, @ or
 a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
 #### 3.1.2.3. The schema section
 
 The schema section contains the actual vocabulary contents of the schema.
-Each element in this section corresponds to a *node* element, which we will also call a *tag term*.
+Each element in this section is a *node* element, which we will also call a *tag term*.
 The location of the node element within the section specifies its relationship to other tag terms in the schema.
 
-A node element specifies the tag term name,
-its attributes, and an informative description of the tag term's meaning.
+A node element specifies a name,
+node attributes, and an informative description of the tag term's meaning.
 A node name may only contain alphanumeric characters, hyphen, and underscore.
-An exception to this is the `#` character which is used to represent a placeholder for a value
-to be provided during annotation.
+An exception to this is the `#` character which is used to represent a placeholder
+for a value to be provided during annotation.
 See [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) and
 
-Each schema node element must be unique.
-Otherwise, a [**SCHEMA_DUPLICATE_NODE**](./Appendix_B.md#schema_duplicate_node) error is generated.
+Each schema node element must be unique or a
+[**SCHEMA_DUPLICATE_NODE**](./Appendix_B.md#schema_duplicate_node) error is generated.
 
 
-#### 3.1.2.4 Unit classes and units
+#### 3.1.2.4. Unit classes and units
 
 The unit classes are attributes that modify the `#` schema placeholder nodes.
-The unit class definition section specifies the allowed unit classes for the schema as well as the 
-associated units that can be used with tags that take values.
+The unit class definition section specifies the allowed unit classes for the schema
+as well as the associated units that can be used with tags that take values.
 
 Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
 singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
 HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
-Units may be in one of three forms: non-SI unit, an SI unit that is not a unit symbol,
-and an SI unit that is a unit symbol.
-Units that are SI units representing unit symbols have both the `SIUnit` and the `
-If a unit class is specified in a section other than the `unitClassDefinitions` section,
+Units may be in one of four forms as designated by their unit type attributes: 
+
+| Unit type | Unit type attributes |
+| --------- | ---------- |
+| SI unit   | only `SIUnit`     |
+| SI unit symbol | both `SIUnit` and  `unitSymbol` |
+| unit that is not an SI unit | no unit type attribute   |
+| unit symbol is not an SI unit | only `unitSymbol` |
+
+Most units appear after the value in annotations. However, certain units such as `$`
+appear before their corresponding values.
+These units have the `unitPrefix` attribute.
+
+If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a 
+section other than the unit class definition section of the schema,
 a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
 
-#### 3.1.2.5 Unit modifiers
+#### 3.1.2.5. Unit modifiers
 
 The unit modifier definition section lists the SI unit multiples and submultiples 
 that are allowed to be prepended to units that have the `SIUnit` schema attribute.
 
-There are two types of unit modifiers --- ones that are used with ordinary SI units and
-those that are used with unit symbols
+Unit modifiers can only be used with SI units and SI unit symbols.
+SI unit modifiers used with ordinary SI units have the `SIUnitModifier` attribute,
+while unit modifiers used with SI unit symbols have the `SIUnitSymbolModifier` attribute.
+
+If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a 
+section other than `unit modifier section of the schema,
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 **Unit modifiers are case-sensitive.**
 
 See appendix [**A.1.2. Unit modifiers**](./Appendix_A.md#a12-unit-modifiers)
 for additional details and a listing of values for the standard schema.
 
-#### 3.1.2.6 Value classes
+#### 3.1.2.6. Value classes
 
-The value class definition section specifies rules for the values that are substituted 
-for placeholders (`#`). Examples are special characters that are allowed for numeric values 
+The value class definition section specifies rules for
+the values that are substituted for placeholders (`#`). 
+Examples are special characters that are allowed for numeric values 
 or dates. Placeholders that have no `valueClass` attributes, are assumed to take `textClass` values.
 
 See appendix [**A.1.3. Value classes**](./Appendix_A.md#a13-value-classes)
 for additional details and a listing of values for the standard schema.
 
-#### 3.1.2.7 Schema attributes
+#### 3.1.2.7. Schema attributes
 
 The schema attribute definition section lists the schema attributes that may be applied to
-schema elements in other sections of the schema.
+schema elements in other sections of the schema (except for the properties section).
 
-The specification of which type of elements a schema attribute may apply
-to is specified by its schema properties.
+The specification of which type of schema elements a particular schema attribute may apply
+to is specified by its schema properties. 
+If a schema attribute appears in a section contradicted by its properties,
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 See appendices [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes)
 and [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties)
 for additional details and a listing for the standard schema.
 
-#### 3.1.2.8 Schema properties
+#### 3.1.2.8. Schema properties
 
-The schema properties definition section lists the allowed properties of the schema attributes.
+The schema properties section lists the allowed properties of the schema attributes.
 These properties help tools validate certain requirements directly based
-on the HED schema rather than on hard-coded implementation. 
+on the HED schema rather than on a hard-coded implementation. 
 
-See [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties) for additional details
-and a listing for the standard schema.
+There are two types of properties: **form type** and **section type** properties.
+The `boolProperty` is a form type property indicating that a schema attribute
+does not take a value.
+Rather, its presence indicates true and absence indicate false.
 
-#### 3.1.2.9 The epilogue
+The *section* type properties indicate the sections in which a schema attribute may appear.
+The section properties include `unitClassProperty`, `unitModifierProperty`, 
+`unitProperty`, and `valueClassProperty`.
+Schema attributes without any section properties are assumed to apply to node elements.
+
+If a schema attribute may have multiple section properties, 
+indicating that the attribute may appear as a attribute in multiple sections of the schema.
+ 
+See [**A.1.4 Schema attributes**](./Appendix_A.md#a14-schema-attributes) and 
+[**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties) 
+for information and a listing of schema attributes and their respective properties. 
+
+#### 3.1.2.9. The epilogue
 
 The epilogue should give license information, acknowledgments, and references.
+
+The epilogue may only contain the following: letters, digits, blank, comma, newline,
++, -, :, ;, ., /, (, ), ?, *, %, $, @ or
+a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
 ### 3.1.3. Naming conventions
 
 The different parts of the HED schema have different rules 
-for the characters and the names that are allowed. UTF-8 characters are not supported.
+for the characters and the names that are allowed. 
+
+UTF-8 characters are not supported.
 
 
 #### 3.1.3.1. Node elements
@@ -225,12 +264,12 @@ are as follows:
 They may not contain square brackets, curly braces, quotes, or other characters.
 ````
 
-#### 3.1.3.2 Epilogue and prologue
+#### 3.1.3.2. Epilogue and prologue
 The epilogue and prologue section text must conform to the rules for
 [`textClass`](./Appendix_A.md#a13-value-classes) and may not contain commas.
 The section text may have new lines, which are preserved.
 
-#### 3.1.3.3 Naming in other blocks
+#### 3.1.3.3. Naming in other blocks
 
 The names of elements corresponding to schema attributes, schema properties, 
 unit classes, and value classes should start with a lower case letter,
@@ -241,7 +280,7 @@ Units and unit modifiers follow the naming conventions of the units they represe
 Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings.
 
 
-### 3.1.4 Mediawiki schema format
+### 3.1.4. Mediawiki schema format
 
 [**Mediawiki**](https://www.mediawiki.org/wiki/Cheatsheet) is a markdown-like format that was
 selected as the HED schema editing format because of its flexibility
@@ -253,7 +292,7 @@ The schema must follow the layout described in the previous section.
 All sections are required, although they may be empty.
 
 Top nodes in the schema are enclosed by pairs of three single quotes (`'''`).
-The levels of other nodes is designated by the number of asterisks (`*`) at the beginning of the defining line.
+The levels of other nodes are designated by the number of asterisks (`*`) at the beginning of the respective defining lines.
 Each term is separated from its level-indicating asterisks by a single space.
 
 Descriptions, which are enclosed in square brackets (`[ ]`),
@@ -261,11 +300,13 @@ indicate the meaning of the item they modify.
 The descriptions are displayed to users by schema browsers and other tools,
 so every effort should be made to make them informative and clear.
 
-Attributes are enclosed with curly braces (`{ }`). These attributes provide
-additional rules about how the item and modifying values should be used and handled by tools.
+Attributes are enclosed with curly braces (`{ }`).
+These attributes provide additional rules about how the item and 
+modifying values should be used and handled by tools.
+
 If an attribute or property is referenced in the schema,
 it must be defined in the appropriate definition section of the schema,
-or schema processing tools will generate an error.
+or schema processing tools will generate a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error.
 
 Allowed HED node attributes include unit class and value class values as well as
 HED schema attributes that do not have one of the following modifiers:
@@ -348,7 +389,7 @@ everything after the asterisks, including the `#` placeholder, enclosed by `<now
 Additional details and rules can be found in appendix
 [**A.2 Mediawiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
 
-### 3.1.5 XML schema format
+### 3.1.5. XML schema format
 
 The `.xml` format directly mirrors the order and information in the `.mediawiki` version of the schema.
 
@@ -664,7 +705,7 @@ Terms from only one schema can appear in the annotation without a namespace pref
 See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
-See [**7.1.2 Using library schema in BIDS**](./07_Library_schemas.md#712-using-library-schema-in-bids) for an example of how the
+See [**7.4. Library schema in BIDS**](./07_Library_schemas.md#74-library-schemas-in-bids) for an example of how the
 prefix notation is used in BIDS.
 
 
@@ -723,7 +764,7 @@ Some of these errors may be reported as
 [**COMMA_MISSING*](./Appendix_B.md#comma_missing)
 
 
-#### 3.2.7.4. Repeated tag expressions
+#### 3.2.7.4. Repeated expressions
 
 Duplicated tag expressions at the same level in a 
 HED tag group or HED string are not allowed.

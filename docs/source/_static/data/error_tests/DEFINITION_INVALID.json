@@ -296,5 +296,40 @@
                 ]
             }             
         }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-has-unique-or-required-tag",
+        "description": "A tag with a required or unique attribute appears in a definition.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ]
+            } 
+        }
     }
 ]    
