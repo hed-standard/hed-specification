@@ -43,14 +43,14 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Blue, Description)"],
-                        [ 5.0, 0, "Label, red"]
+                        [ 5.0, 0, "Label, Red"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Blue, Description/Yes this is a description., (Red))"],
-                        [ 5.0, 0, "Label/Redish, red"]
+                        [ 5.0, 0, "Label/Redish, Red"]
                     ]
                 ]
             }
