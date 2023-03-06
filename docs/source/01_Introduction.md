@@ -1,38 +1,38 @@
 # 1. Introduction to HED
 This document contains the specification for third generation HED or HED-3G. 
 It is meant for the implementers and users of HED tools. Other tutorials and tagging 
-guides are available to researchers using HED to annotate their data. 
-This document (HEDSPEC 3.0.0) contains the specification for the first official release of HED-3G.
-This specification applies to HED Schema versions HED 8.0.0-xxx and above.
-**When the term HED is used in this document, 
-it refers to third generation (HED-3G) unless explicitly stated otherwise.**
+guides are available to researchers using HED to annotate their data.
+This specification applies to HED Schema versions > 8.0.0 and above.
 
 The aspects of HED that are described in this document are supported or will soon
 be supported by validators and other tools and are available for immediate use by annotators. 
 The schema vocabulary can be viewed using an expandable
-[schema viewer](https://www.hedtags.org/display_hed.html).
+[**schema viewer**](https://www.hedtags.org/display_hed.html).
 
 All HED-related source and documentation repositories are housed on the HED-standard 
-organization GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard),
-which is maintained by the HED Working Group. HED development is open-source and
-community-based. Also see the official HED website [https://www.hedtags.org](https://www.hedtags.org)
+organization GitHub site, [**https://github.com/hed-standard**](https://github.com/hed-standard),
+which is maintained by the HED Working Group. 
+HED development is open-source and community-based. 
+Also see the official HED website [**https://www.hedtags.org**](https://www.hedtags.org)
 for a list of additional resources.
 
 The HED Working Group invites those interested in HED to contribute to the development process. 
-Users are encouraged to use the *Issues* mechanism of the `hed-specification`
-repository on the GitHub `hed-standard` working group website: 
-[https://github.com/hed-standard/hed-specification/issues](https://github.com/hed-standard/hed-specification/issues)
-to ask for help or make suggestions. The HED discussion forum 
-[https://github.com/hed-standard/hed-specification/discussions](https://github.com/hed-standard/hed-specification/discussions) is maintained for in depth 
-discussions of HED issues and evolution.
+Users are encouraged to use the 
+[**issues**](https://github.com/hed-standard/hed-specification/issues) forum
+on the [**hed-specification**](https://github.com/hed-standard/hed-specification)
+GitHub repository to report issues with this specification document.
+
+For requests for additional features and vocabulary enhancements of the HED schema use the
+[**issues**](https://github.com/hed-standard/hed-schemas/issues) forum on the
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Several other aspects of HED annotation are being planned, but their specification has 
 not been fully determined. These aspects are not contained in this specification document, 
 but rather are contained in ancillary working documents which are open for discussion. 
 These ancillary specifications include the HED working document on 
-[spatial annotation](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) 
+[**spatial annotation**](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) 
 and the HED working document on 
-[task annotation](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
+[**task annotation**](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
 
 ## 1.1. Scope of HED 
 
@@ -61,32 +61,32 @@ including but not limited to EEG, MEG, iEEG, fMRI, eye-tracking, motion-capture,
 EKG, and audiovisual recording.
 
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
-datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
-[Chapter 6: Infrastructure](06_Infrastructure.md#6-infrastructure).
+datasets [**https://bids.neuroimaging.io**](https://bids.neuroimaging.io) as described in 
+[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md).
 
 
 ## 1.2. Brief history of HED
 HED was originally proposed by Nima Bigdely-Shamlo in 2010 to support annotation in
-[HeadIT](https://headit.ucsd.edu) an early public repository for EEG data hosted by the 
-Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al. 2013). 
-HED-1G was partially based on CogPO (Turner and Laird 2012). 
+[**HeadIT**](https://headit.ucsd.edu) an early public repository for EEG data hosted by the 
+Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al., 2013). 
+HED-1G was partially based on CogPO (Turner and Laird, 2012). 
 
 Event annotation in HED-1G was organized around a single hierarchy whose root was the
-*Time-Locked Event*. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes.
-First generation HED (HED-1G, versions < 5.0.0) attempted to describe events using a strictly
+`Time-Locked Event`. Users could extend the HED-1G hierarchy at its deepest (leaf) nodes.
+First generation HED (HED-1G, versions < 4.0.0) attempted to describe events using a strictly
 hierarchical vocabulary. 
 
 HED-1G was oriented toward annotating stimuli and responses, 
 but its lack of orthogonality in vocabulary design presented major difficulties.
-If *Red/Triangle* and *Green/Triangle* are terms in a hierarchy, 
-one is also likely to need *Red/Square* and Green/Square* as well as other color and shape 
+If `Red/Triangle` and `Green/Triangle` are terms in a hierarchy, 
+one is also likely to need `Red/Square` and `Green/Square` as well as other color and shape 
 combinations.  
 
-HED-2G (versions 5.0.0 - 7.x.x) introduced a more orthogonal vocabulary, 
+HED-2G (versions 4.0.0 - 7.x.x) introduced a more orthogonal vocabulary, 
 meaning that independent terms were in different subtrees of the vocabulary tree. 
-Separating independent concepts such as shapes and colors into separate hierarchies, 
+Separating independent concepts, such as shapes and colors into separate hierarchies, 
 eliminates an exponential vocabulary growth due to term duplication in different 
-branches of the hierarchy.  
+branches of the hierarchy. The HED-2G represents a **sub-tag** system.
 
 Parentheses were introduced so that terms could be grouped. 
 Tools for validation and epoching based on HED tags were built, and large-scale 
@@ -112,21 +112,24 @@ user experience.
 ````
 
 Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to
-be organized in a balanced hierarchy with a limited number of subcategories at each node. (See the
-[expandable schema browser](https://www.hedtags.org/display_hed.html) to browser the vocabulary
-and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology)
-defines some important HED tags and terminology used in HED.)
+be organized in a balanced hierarchy with a limited number of subcategories at each node. 
+Use the expandable [**schema browser**](https://www.hedtags.org/display_hed.html) 
+to browser the vocabulary and explore the overall organization. 
+[**Chapter2:Terminology**](02_Terminology.md#2-hed-terminology)
+defines some important HED tags and terminology used in HED.
 
 A major improvement in vocabulary design was the adoption of the requirement that individual
 nodes or terms in the HED vocabulary must be unique. This allows users to use individual
 node names (short form) rather than the full paths to the schema root during annotation, 
 resulting in substantially simpler, more readable annotations.
 
-To enable and regulate the extension process, the root HED-3G head schema specified here includes, 
-for the first time, *HED library schema* to extend the HED vocabulary to include terms and concepts 
-of importance to individual user communities -- for example researchers who design and perform 
+To enable and regulate the extension process, 
+*HED library schemas* were introduced to allow detailed annotation of terms
+importance to individual user communities without complicating the standard schema.
+For example, researchers who design and perform 
 experiments to study brain and language, brain and music, or brain dynamics in natural or virtual 
-reality environments. The HED library schema concept may also be used to extend HED annotation 
+reality environments have specialized vocabulary requirements.
+The HED library schema concept may also be used to extend HED annotation 
 to encompass specialized vocabularies used in clinical research and practice. 
 
 HED-3G also introduced a number of advanced tagging concepts that allow users to represent
@@ -134,15 +137,17 @@ events with temporal duration, as well as annotations that represent experimenta
 
 ## 1.2. Goals of HED
 
-An event is a process that unfolds over time representing something that happens. Events
-are typically measured by noting sequences of time points (event markers) usually marking
-specific transition points which could be thought of as moments of phase transition 
-in a dynamic process. HED annotation documents what happens at these event markers in order
+An event is a process that unfolds over time and represents something that happens. 
+Events are typically measured by noting sequences of time points (event markers) marking
+specific transition points. 
+
+HED annotation documents what happens at these event markers in order
 to facilitate data analysis and interpretation. Commonly recorded event markers in 
 electrophysiological data collection include the initiation, termination, or other 
-features of **sensory presentations** and **participant actions**. Other events may 
-be **unplanned environmental events** (for example,  noise and vibration 
-from construction work unrelated to the  experiment, or a laboratory device malfunction), 
+features of **sensory presentations** and **participant actions**. 
+
+Other events may be **unplanned environmental events** such as noise and vibration 
+from construction work unrelated to the experiment, laboratory device malfunction, 
 **changes in experiment control** parameters as well as **data features** and 
 control **mishaps** that cause operation to fall outside of normal experiment parameters. 
 The goals of HED are to provide a standardized annotation and supporting infrastructure.
@@ -200,22 +205,26 @@ schema without having to re-implement the annotation tools. A well-specified and
 ## 1.4. Specification organization
 
 This specification is meant to provide guidelines for tool-builders as well as HED annotators.
-[Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and
-[Chapter 3: Schema](03_Schema.md) outlines the rules for HED vocabularies. Basic and advanced
-event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md)
-and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). 
-Discussions of how tags for local event codes are associated with event instances are deferred to 
-[Chapter 6: Infrastructure](06_Infrastructure.md#65-bids-support-in-hed).
+[**Chapter 2: Terminology**](02_Terminology.md) reviews the basic terminology used in HED, and
+[**Chapter 3: HED formats**](03_HED_formats.md) specifies the formats for HED vocabularies and annotations.
+Basic and advanced event models and their annotations are explained in
+[**Chapter 4: Basic annotation**](04_Basic_annotation.md)
+and [**Chapter 5: Advanced annotation**](05_Advanced_annotation.md).
+[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md) discussions how
+tags should be handled by HED-compliant tools.
+[**Chapter 7: Library schemas**](07_Library_schemas.md) discusses the basic
+rules for library schema creation.
 
-HED provides a mechanism for user communities to develop discipline-specific library vocabularies.
-(See [Chapter 7: Library schema](05_Advanced_annotation.md) for details.) 
+[**Appendix A: Schema format**](Appendix_A.md) provides a reference manual for the HED schema format rules, and
+[**Appendix B: HED errors**](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
+A common set of test cases for these errors is available 
+in [**error_tests**](https://github.com/hed-standard/hed-specification/tree/master/docs/source/_static/data/error_tests) directory of the 
+[**hed-specification**](https://github.com/hed-standard/hed-specification) GitHub repository.
 
-[Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED vocabulary format rules.
-[Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
+Other resources include a comprehensive list of 
+[**HED resources**](https://www.hed-resources.org) including additional documentation,
+tutorials and code examples.
 
-Other resources include a comprehensive list of [HED resources ](HedResources.md) resources and
-a [HED-examples](https://hed-examples.readthedocs.io/en/latest/#) 
-that contains many tutorials and code examples.
-
-All HED source code and resources are open-source and staged in the HED Standards Organization Repository
-[https://github.com/hed-standard](https://github.com/hed-standard). 
+All HED source code and resources are open-source and staged in 
+the HED Standards Organization GitHub repository
+[**https://github.com/hed-standard**](https://github.com/hed-standard). 

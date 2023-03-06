@@ -1,0 +1,94 @@
+[
+    {
+        "error_code": "SIDECAR_INVALID",
+        "name": "sidecar-invalid-key-at-wrong-level",
+        "description": "The HED key is not a second-level dictionary key.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+           "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    },
+                    {
+                        "HED": {
+                            "face": "(Red, Blue), (Green, (Yellow))",
+                            "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue),   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "SIDECAR_INVALID",
+        "name": "sidecar-invalid-na-annotated",
+        "description": "An annotation entry is provided for `n/a`.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue),(Green, (Yellow))",
+                                "n/a": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue),   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    }
+]    

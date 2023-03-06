@@ -1,0 +1,368 @@
+[
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-not-tag-group",
+        "description": "An `Onset` or `Offset` tag does not appear in a tag group.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Onset, Red",
+                    "Offset, Def/Acc/5.4 m-per-s^2"
+                ],
+                "passes": [
+                    "(Onset, Def/Acc/5.4 m-per-s^2)"
+                ]
+            },
+           "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Onset, Red",
+                                "ball": "Offset, Def/Acc/5.4 m-per-s^2"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Onset, Def/Acc/5.4 m-per-s^2)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Onset, Red"],
+                        [ 5.0, 0, "Offset, Def/Acc/5.4 m-per-s^2"]
+                        
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Onset, Red)"],
+                        [ 5.5, 0, "(Onset, Def/Acc/5.4 m-per-s^2)"],
+                        [ 6.3, 0, "(Offset, Def/Acc/5.4 m-per-s^2)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-nested-group",
+        "description": "An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "((Onset, Def/MyColor), Red)"
+                ],
+                "passes": [
+                    "(Onset, Def/MyColor), Red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "((Onset, Def/MyColor), Red)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Onset, Def/MyColor), Red"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "((Onset, Def/MyColor), Red)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Onset, Def/MyColor), Red"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-no-def",
+        "description": "An `Onset` or `Offset` tag appears without being grouped with a definition name and a `Def-expand` tag group or a `Def`.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Onset, Red)"
+                ],
+                "passes": [
+                    "(Onset, Def/MyColor, Red)"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Onset, Red)",
+                                "ball": "(Onset, Def/MyColor), (Offset, Blue)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Onset, Def/MyColor, Red)"
+                            }
+                        }
+                    }
+                ]
+            },
+
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Onset, Red)"],
+                        [ 5.5, 0, "(Onset, Def/MyColor), (Offset, Blue)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Onset, Def/MyColor, Red)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-more-defs",
+        "description": "An `Onset` appears in a tag group with more than a single `Def` or `Def-expand` and at most one additional tag group.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Onset, Def/MyColor, Def/Acc/5.4 m-per-s^2)",
+                    "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4 m-per-s^2, Onset)"
+                ],
+                "passes": [
+                    "(Onset, Def/MyColor)"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face":  "(Onset, Def/MyColor, Def/Acc/5.4 m-per-s^2)",
+                                "ball": "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4 m-per-s^2, Onset)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "show": {
+                                "HED": {
+                                    "face": "(Onset, Def/MyColor)"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0,  "(Onset, Def/MyColor, Def/Acc/5.4 m-per-s^2)"],
+                        [ 5.5, 0, "((Def-expand/MyColor, (Label/Pie)), Def/Acc/5.4 m-per-s^2, Onset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Onset, Def/MyColor)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-same-group",
+        "description": "An `Offset` tag appears in the same string as an `Onset` tag associated with the same definition.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Def/MyColor, Offset), (Def/MyColor, Onset)",
+                    "(Def/MyColor, Onset), (Def/MyColor, Offset)",
+                    "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"
+                ],
+                "passes": [
+                    "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"
+                ]
+            },
+           "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/MyColor, Offset), (Def/MyColor, Onset)",
+                                "ball": "(Def/MyColor, Onset), (Def/MyColor, Offset)",
+                                "square": "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor, Offset), (Def/MyColor, Onset)"],
+                        [ 5.0, 0, "(Def/MyColor, Onset), (Def/MyColor, Offset)"],
+                        [ 6.0, 0, "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-mismatch",
+        "description": "An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor, Onset)"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"],
+                        [ 6.5, 0, "Red"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor, Onset)"],
+                        [ 5.5, 0, "(Def/MyColor, Offset)"],
+                        [ 6.5, 0, "Red"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-multiple-groups",
+        "description": "An `Onset` tag group with more than one internal tag group.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Def/MyColor, (Blue), (Green), Onset)"
+                ],
+                "passes": [
+                    "(Def/MyColor, (Blue), Onset)"
+                ]
+            },
+           "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/MyColor, (Blue), (Green), Onset)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/MyColor, (Blue), Onset)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor, (Blue), (Green), Onset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor, (Blue), Onset)"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

@@ -1,0 +1,110 @@
+[
+    {
+        "error_code": "TAG_PREFIX_INVALID",
+        "name": "tag-prefix-invalid-no-schema",
+        "description": "A tag starting with name: does not have an associated schema.",
+        "schema": ["8.1.0", "sc:score_1.0.0"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "ts:Red, Blue",
+                    "(ts:Red, (sc:Sleep-modulator))"
+                ],
+                "passes": [
+                    "sc:Sleep-modulator"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "ts:Red, Blue",
+                                "ball": "(ts:Red, (sc:Sleep-modulator))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "sc:Sleep-modulator"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "ts:Red, Blue"],
+                        [ 5.5, 0, "(ts:Red, (sc:Sleep-modulator))"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "sc:Sleep-modulator"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_PREFIX_INVALID",
+        "name": "tag-prefix-invalid-characters",
+        "description": "A tag prefix has invalid characters.",
+        "schema": ["8.1.0", "sc1:score_1.0.0"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "sc2:Sleep-modulator, Red"
+                ],
+                "passes": [
+                    "Blue",
+                    "sc1:Sleep-modulator, Red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "sc1:Sleep-modulator, Red",
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue),   (Green, (Yellow))",
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "sc1:Sleep-modulator, Red"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Red, Blue),   (Green, (Yellow))"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

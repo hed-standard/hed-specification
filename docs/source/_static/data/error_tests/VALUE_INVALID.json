@@ -1,0 +1,212 @@
+[
+    {
+        "error_code": "VALUE_INVALID",
+        "name": "value-invalid-#-substitution",
+        "description": "The value substituted for a placeholder (`#`) is not valid.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Def/Acc/MyMy",
+                    "Distance/4mxxx"
+                ],
+                "passes": [
+                    "Def/Acc/3.4 m-per-s^2",
+                    "Distance/4 m"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def/Acc/MyMy",
+                                "ball": "Distance/4mxxx"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def/Acc/3.4 m-per-s^2",
+                                "ball": "Distance/4 m"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Def/Acc/MyMy"],
+                        [ 5.0, 0, "Distance/4mxxx"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Def/Acc/3.4 m-per-s^2"],
+                        [ 5.0, 0, "Distance/4 m"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "VALUE_INVALID",
+        "name": "value-invalid-incompatible-value-class",
+        "description": "A tag value is incompatible with the specified value class.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [ 
+                    "Statistical-accuracy/1max1"
+                ],
+                "passes": [
+                    "Statistical-accuracy/0.677"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/1max1"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Statistical-accuracy/1max1"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Statistical-accuracy/0.677"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "VALUE_INVALID",
+        "name": "value-invalid-value-class-missing",
+        "description": "A tag value with no value class is assumed to be a text and contains invalid characters.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [ 
+                    "Collection/[x]"
+                ],
+                "passes": [
+                    "Collection/This-collection"
+                ]
+            },
+           "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Collection/[x]"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Collection/This-collection"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Collection/[x]"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Collection/This-collection"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "VALUE_INVALID",
+        "name": "value-invalid-blank-missing",
+        "description": "The units are not separated from the value by a single blank.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Def/Acc/5m-per-s^2"
+                ],
+                "passes": [
+                    "Def/Acc/5 m-per-s^2"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def/Acc/5m-per-s^2"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def/Acc/5 m-per-s^2"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Def/Acc/5m-per-s^2"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Def/Acc/5 m-per-s^2"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

@@ -1,0 +1,125 @@
+[
+    {
+        "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-duplicate",
+        "description": "A tag extension term is already in the schema.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                    "Sensory-presentation/Red/Redish"
+                ],
+                "passes": [
+                    "Red-color/Red/Redish",
+                    "((Green/Greenish))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                                "ball": "Sensory-presentation/Red/Redish"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "((Green/Greenish))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red-color/Red/DarkRed, Sensory-presentation/Red"],
+                        [ 5.5, 0, "Sensory-presentation/Red/Redish"]                       
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Red-color/Red/Redish"],
+                        [ 5.5, 0, "((Green/Greenish))"]                        
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-bad-node-name",
+        "description": "A tag extension term does not comply with rules for schema nodes.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red/Red$2",
+                    "Red/R#d"
+                ],
+                "passes": [
+                    "Red-color/Red/Redish",
+                    "Red-color/Red/Redish/More-redish",
+                    "((Green/Greenish))",
+                    "Red/1red",
+                    "Red/Red--2red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red/Red$2",
+                                "ball": "Red/R#d"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "Red-color/Red/Redish/More-redish",
+                                "square": "((Green/Greenish))",
+                                "triangle": "Red/1red",
+                                "catwalk": "Red/Red--2red"
+                            }
+                        }
+                    }                    
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red/Red$2"],
+                        [ 5.5, 0,  "Red/R#d"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Red-color/Red/Redish"],
+                        [ 5.5, 0, "Red-color/Red/Redish/More-redish"],
+                        [ 6.5, 0, "((Green/Greenish))"],
+                        [ 7.5, 0, "Red/1red"],
+                        [ 8.2, 0, "Red/Red--2red"]
+                    ]
+                ]
+            }
+        }
+    }
+]    

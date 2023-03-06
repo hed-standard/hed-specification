@@ -1,0 +1,88 @@
+[
+    {
+        "error_code": "TAG_GROUP_ERROR",
+        "name": "tag-group-error-missing",
+        "description": "A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Definition, (Red)",
+                    "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
+                    "Onset"
+                ],
+                "passes": [
+                    "(Definition/Blech, (Red))",
+                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
+                    "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"
+                ]
+            },
+            "sidecar_tests":{
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
+                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
+                                "ball": "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"],
+                        [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"],
+                        [ 5.5, 0, "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"]
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_GROUP_ERROR",
+        "name": "tag-group-error-not-top-level",
+        "description": "A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            }
+        }
+    }
+]    
