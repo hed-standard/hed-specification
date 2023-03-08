@@ -119,7 +119,7 @@
                     "(Onset, Red)"
                 ],
                 "passes": [
-                    "(Onset, Def/MyColor, Red)"
+                    "(Onset, Def/MyColor, (Red))"
                 ]
             },
             "sidecar_tests": {
@@ -137,7 +137,7 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "(Onset, Def/MyColor, Red)"
+                                "face": "(Onset, Def/MyColor, (Red))"
                             }
                         }
                     }
@@ -155,7 +155,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Onset, Def/MyColor, Red)"]
+                        [4.5, 0, "(Onset, Def/MyColor, (Red))"]
                     ]
                 ]
             }
@@ -231,7 +231,7 @@
                     "(Def/MyColor, Red, Onset), (Def/MyColor, Onset)"
                 ],
                 "passes": [
-                    "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"
+                    "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3 m-per-s^2, Onset)"
                 ]
             },
            "sidecar_tests": {
@@ -250,7 +250,7 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"
+                                "face": "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3 m-per-s^2, Onset)"
                             }
                         }
                     }
@@ -268,7 +268,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3, Onset)"]
+                        [4.5, 0, "(Def/Acc/5.4 m-per-s^2, Offset), (Def/Acc/4.3 m-per-s^2, Onset)"]
                     ]
                 ]
             }
