@@ -35,7 +35,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Red, Blue",
-                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
                             }
                         }
                     }
@@ -69,7 +69,7 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    ",  Blue,Def/Acc/3.2",
+                    ",  Blue,Def/Acc/3.2 m-per-s^2",
                     "(Blue, Green),Yellow,",
                     ",,(Blue, Green),Yellow,"
                 ],
@@ -82,7 +82,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face":  ",  Blue,Def/Acc/3.2",
+                                "face":  ",  Blue,Def/Acc/3.2 m-per-s^2",
                                 "ball": "(Blue, Green),Yellow,",
                                 "square": ",,(Blue, Green),Yellow,"
                             }
@@ -94,7 +94,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Red, Blue",
-                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
                             }
                         }
                     }
@@ -106,7 +106,7 @@
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, ",  (Blue, Green),Yellow,"],
                         [ 5.5, 0, ",,(Blue, Green),Yellow,"],
-                        [ 6.5, 0, ",  Blue,Def/Acc/3.2"]
+                        [ 6.5, 0, ",  Blue,Def/Acc/3.2 m-per-s^2"]
                     ]
                 ],
                 "passes": [

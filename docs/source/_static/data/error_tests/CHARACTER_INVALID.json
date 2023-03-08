@@ -77,7 +77,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Acceleration/6.8 m-per-s^2",
-                                "ball": "Def/Acc/5.433, Blue"
+                                "ball": "Def/Acc/5.433 m-per-s^2, Blue"
                             }
                         }
                     }
@@ -95,7 +95,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Acceleration/6.8 m-per-s^2"],
-                        [ 5.5, 0, "Def/Acc/5.433, Blue"]
+                        [ 5.5, 0, "Def/Acc/5.433 m-per-s^2, Blue"]
                     ]
                 ]
             }

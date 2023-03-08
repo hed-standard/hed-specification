@@ -9,7 +9,7 @@
             "string_tests": {
                 "fails": [
                     "Label/#",
-                    "Def/Acc/#"
+                    "Def/Acc/# m-per-s^2"
                 ],
                 "passes": [
                     "Label/This-label"
@@ -21,7 +21,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Label/#",
-                                "ball": "Def/Acc/#"
+                                "ball": "Def/Acc/# m-per-s^2"
                             }
                         }
                     }
@@ -42,7 +42,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Label/#"],
-                        [ 5.0, 0, "Def/Acc/#"]
+                        [ 5.0, 0, "Def/Acc/# m-per-s^2"]
                     ]
                 ],
                 "passes": [
@@ -74,7 +74,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Label/#",
-                                "ball": "Def/Acc/#"
+                                "ball": "Def/Acc/# m-per-s^2"
                             }
                         }
                     }
@@ -115,7 +115,7 @@
                 "fails": [
                     {
                         "trial": {
-                            "HED": "Def/Acc/#, Label #"
+                            "HED": "Def/Acc/# m-per-s^2, Label #"
                         },
                         "memory": {
                             "HED": "Blue, Red"
@@ -125,7 +125,7 @@
                 "passes": [
                     {
                         "trial": {
-                            "HED": "Def/Acc/#"
+                            "HED": "Def/Acc/# m-per-s^2"
                         }
                     }
                 ]
