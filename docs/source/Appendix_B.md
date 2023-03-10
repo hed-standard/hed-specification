@@ -90,10 +90,11 @@ the definition's contents.
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
 **d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.    
 **e.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.    
-**f.**  A definition has two placeholders (`#`) but one or more of them are in incorrect positions.  
+**f.**  A definition has placeholders (`#`) in incorrect positions.  
 **g.**  Definitions of the same name appear with and without a `#`.  
 **h.**  Multiple `Definition` tags with same name are encountered.
 **i.**  A tag with a `required` or `unique` attribute appears in a definition.
+**j.**  A definition appears in an unexpected place such as an events file.
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions
