@@ -51,7 +51,44 @@
                         [ 4.5, 0, "Def/Acc/4.5 m-per-s^2"]
                     ]
                 ]
-            } 
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Def/Apple2, Green",
+                                    "ball": "Def/Acc2/4.5, Def/Acc/3.2"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "ball", "Def/Apple2, Green"],
+                                [ 5.5, 0, "face", "Def/Acc2/4.5 m-per-s^2"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Def/Acc/4.5 m-per-s^2"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
         }
     },
     {
@@ -106,7 +143,48 @@
                         [ 4.5, 0,  "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
                     ]
                 ]
-            }    
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Def/Acc, (Def/Acc/4.5 m-per-s^2, Red)",
+                                    "ball": "(Def/MyColor/Blue, Green)"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "ball", "Def/Acc, (Def/Acc/4.5 m-per-s^2, Red)"],
+                                [ 5.4, 0, "n/a", "Def/MyColor/Blue, Green"],
+                                [ 6.4, 0, "face", "n/a"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Def/Acc/4.5 m-per-s^2, Red",
+                                    "ball": "(Acceleration/4.5 m-per-s^2, Red), Def/MyColor"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                [
+                                    ["onset", "duration", "event_code", "HED"],
+                                    [ 4.5, 0,  "face", "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"],
+                                    [ 6.5, 0,  "ball", "n/a"]
+                                ]
+                            ]
+                    }
+                ]
+            }
         }
     },
     {
@@ -159,7 +237,6 @@
                         [ 5.0, 0, "Def/Acc/3 m"],
                         [ 6.3, 0, "Def/Acc/4m-per-s^2"],
                         [ 7.2, 0, "Def/MyColor/Redish"]
-                        
                     ]
                 ],
                 "passes": [
@@ -168,7 +245,50 @@
                         [ 4.5, 0, "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"]
                     ]
                 ]
-            }             
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Def/Acc/baloney, (Def/Acc/4.5 m-per-s^2, Red)",
+                                    "ball": "Def/Acc/3 m",
+                                    "square": "Def/Acc/4m-per-s^2",
+                                    "triangle": "Def/MyColor/Redish"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "ball", "Def/Acc/baloney, (Def/Acc/4.5 m-per-s^2, Red)"],
+                                [ 5.0, 0, "face", "Def/Acc/3 m"],
+                                [ 6.3, 0, "n/a", "Def/Acc/4m-per-s^2"],
+                                [ 7.2, 0, "square", "Def/MyColor/Redish"]
+                                
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/Acc/4.5 m-per-s^2, Red)",
+                                    "ball": "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
         }
     }
 ]    
