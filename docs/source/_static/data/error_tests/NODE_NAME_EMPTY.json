@@ -57,6 +57,48 @@
                         [4.5, 0, "Informational-property/Label/Num1"]
                     ]
                 ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "//Blue, Green",
+                                    "ball": "Def/Acc/4.5//",
+                                    "square": "Def/Acc/4.5/",
+                                    "test":  "/ /Def/Acc/4.5 ms/"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "ball", "//Blue, Green"],
+                                [ 4.5, 0, "face", "Def/Acc/4.5//"],
+                                [ 4.5, 0, "n/a", "Def/ /Acc/4.5 ms/"],
+                                [ 7.2, 0, "n/a", "/ /Def/Acc/4.5 ms/"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Informational-property/Label/Num1",
+                                    "ball": "Informational-property/Label"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
             }
         }
     },
@@ -86,8 +128,6 @@
                             }
                         }
                     }
-
-      
                 ],
                 "passes": [
                     {
@@ -115,6 +155,44 @@
                         ["onset", "duration", "HED"],
                         [4.5, 0, "Informational-property/Label/Num1"]
                     ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Informational-property/ /Label/Num1",
+                                    "ball": "Def/Acc//4.5"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
                 ]
             }
         }

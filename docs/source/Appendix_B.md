@@ -115,14 +115,15 @@ different placeholder substitutions are considered to be different.
 
 **a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
 **b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag appears without being grouped with a definition name
-and a `Def-expand` tag group or a `Def`.  
-**d.**  An `Onset` appears in a tag group with more than a single `Def` or `Def-expand` and
-at most one additional tag group.  
-**e.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.  
-**f.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag
+**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def-expand` tag group or `Def` tag.
+**d.** An `Onset` group has more than one additional tag group.
+**e.** An `Offset` appears with one or more tags or additional tag groups.
+**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.  
+**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag
 without the appearance of an intervening `Onset` of the same name.   
-**g.**  An `Onset` tag group with more than one internal tag group.  
+**h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand`
+that are not in a tag group.
+
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
@@ -143,7 +144,7 @@ for the rules for parentheses in HED.
 
 ### PLACEHOLDER_INVALID
 
-**a.**  A `#` appears in a place that it should not (such as in the `HED` column of an event file outside a definition).  
+**a.**  A `#` appears in a place that it should not (such as in the `HED` column of an events file).  
 **b.**  A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.  
 **c.**  A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.  
 **d.**  A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.  

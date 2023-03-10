@@ -54,14 +54,16 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "show": "Red, Label/a ʰ bad"
+                                    "show": "Red, Label/a ʰ bad",
+                                    "ball": "Def/Acc/4.5 m-per-s^2"
                                 }
                             }
                         },
                         "events": 
                             [
                                 ["onset", "duration", "event_code", "HED"],
-                                [ 4.5, 0, "show", "Description/a ʰ good"]
+                                [ 4.5, 0, "show", "Description/a ʰ good"],
+                                [ 5.0, 0, "ball", "Blue"]
                             ]
                     }
                 ],
@@ -147,7 +149,7 @@
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
                                 [ 5.0, 0, "ball", "Green"]
                             ]
                     }
@@ -158,7 +160,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
                                 }
                             }
                         },
@@ -166,7 +168,7 @@
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "ball", "Green"]
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
                     }
                 ]
