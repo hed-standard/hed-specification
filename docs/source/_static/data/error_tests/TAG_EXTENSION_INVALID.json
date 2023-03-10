@@ -54,14 +54,14 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                                    "ball": "Sensory-presentation/Red/Redish"
                                 }
                             }
                         },
@@ -78,8 +78,8 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "face": "Red-color/Red",
+                                    "ball": "Blue/Blueish"
                                 }
                             }
                         },
@@ -158,14 +158,14 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Red/Red$2",
+                                    "ball": "Red/R#d"
                                 }
                             }
                         },
@@ -182,8 +182,8 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "face": "Red/Redish-like",
+                                    "ball": "Blue"
                                 }
                             }
                         },

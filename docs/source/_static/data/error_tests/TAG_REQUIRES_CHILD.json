@@ -2,7 +2,7 @@
     {
         "error_code": "TAG_REQUIRES_CHILD",
         "name": "tag-requires-child-no-child",
-        "description": "A tag has the `requireChild` schema attribute but does not have a child.",
+        "description": "A tag has the requireChild schema attribute but does not have a child.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -54,14 +54,14 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "(Blue, Description)",
+                                    "ball": "Label, Red"
                                 }
                             }
                         },
@@ -86,7 +86,7 @@
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue"],
+                                [ 4.5, 0, "face", "Label/Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
                     }

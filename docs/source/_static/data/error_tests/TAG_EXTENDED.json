@@ -52,17 +52,17 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red-color/Red/Big-red/Bigger-red, Blue/Nice-blue),(Green, (Yellow))",
+                                "ball": "Sensory-presentation/Visual-presentation/Nice-yellow"
                             }
-                        },
+                        }
+                    },
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],

@@ -255,12 +255,9 @@
                         "trial": {
                             "HED": "Sensory-event/#"
                         },
-                        "defs": "(Definition/Blech/#, (Red, Blue/#))",
-                        
-                        
-                        
-                            
-                        
+                        "defs": {
+                            "def1": "(Definition/Blech/#, (Red, Blue/#))"
+                        }
                     }
                 ],
                 "passes": [
@@ -277,40 +274,40 @@
                 "passes": [
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
-                        "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
+                        "sidecar": {
+                            "trial": {
+                                "HED": "Sensory-event/#"
+                            },
+                            "defs": {
+                                "def1": "(Definition/Blech/#, (Red, Blue/#))"
                             }
                         },
                         "events": 
                             [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
-                                [ 5.0, 0, "ball", "Green"]
+                                ["onset", "duration", "trial","HED"],
+                                [ 4.5, 0, "3", "Red, Def/MyColor"],
+                                [ 5.0, 0, "2", "Green"]
                             ]
                     }
                 ],
                 "passes": [
                     {
                         "sidecar": {
-                             "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
+                            "trial": {
+                                "HED": "Sensory-event, Label/#"
+                            },
+                            "defs": {
+                                "def1": "(Definition/Blech/#, (Red, Label/#))"
                             }
                         },
                         "events": 
                             [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                                ["onset", "duration", "trial","HED"],
+                                [ 4.5, 0, "3", "Blue"],
+                                [ 5.0, 0, "2", "Green, Def/MyColor"]
                             ]
                     }
                 ]

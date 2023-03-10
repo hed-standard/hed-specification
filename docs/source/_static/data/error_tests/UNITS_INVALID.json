@@ -53,14 +53,14 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Def/Acc/3 s",
+                                    "ball": "Data-maximum/3 ms"
                                 }
                             }
                         },
@@ -145,14 +145,14 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Distance/3 kfeet",
+                                    "ball": "Distance/3 kmeters"
                                 }
                             }
                         },

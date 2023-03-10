@@ -25,7 +25,7 @@
                 "passes": [
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {

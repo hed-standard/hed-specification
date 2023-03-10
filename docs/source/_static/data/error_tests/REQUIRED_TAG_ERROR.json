@@ -2,7 +2,7 @@
     {
         "error_code": "REQUIRED_TAG_ERROR",
         "name": "required-tag-missing",
-        "description": "An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute.",
+        "description": "An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. (Note this is deprecated so no tests.)",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -52,42 +52,10 @@
                 ]
             }
         },
-                    "combo_tests": {
+        "combo_tests": {
                 "fails": [
-                    {
-                        "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
-                            }
-                        },
-                        "events": 
-                            [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
-                                [ 5.0, 0, "ball", "Green"]
-                            ]
-                    }
                 ],
                 "passes": [
-                    {
-                        "sidecar": {
-                             "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
-                            }
-                        },
-                        "events": 
-                            [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
-                            ]
-                    }
                 ]
             }
     }

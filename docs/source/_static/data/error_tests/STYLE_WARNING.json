@@ -9,30 +9,58 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "Red/red_blech"
                 ],
                 "passes": [
+                    "Blue/Blueish"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red/red_blech",
+                                "ball": "Blue/blueish"
+                            }
+                        }
+                    }
                 ],
                 "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red/Red-blech",
+                                "ball": "Blue/Blueish"
+                            }
+                        }
+                    }
                 ]
             },
             "event_tests": {
                 "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red/red_blech"],
+                        [ 5.0, 0, "Blue/blueish"]
+                    ]
                 ],
                 "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red/Red-blech"],
+                        [ 5.0, 0, "Blue/Blueish"]
+                    ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Red/red_blech",
+                                    "ball": "Blue/blueish"
                                 }
                             }
                         },
@@ -47,10 +75,10 @@
                 "passes": [
                     {
                         "sidecar": {
-                             "event_code": {
+                            "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "face": "Red/Red-blech",
+                                    "ball": "Blue/Blueish"
                                 }
                             }
                         },

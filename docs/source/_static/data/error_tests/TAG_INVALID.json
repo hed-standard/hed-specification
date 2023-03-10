@@ -18,7 +18,7 @@
             },
             "sidecar_tests": {
                 "fails": [
-                   {
+                    {
                         "event_code": {
                             "HED": {
                                 "face": "Brown-color/Red",
@@ -54,14 +54,15 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Brown-color/Red",
+                                    "ball": "Property/Sensory-event",
+                                    "square": "Sensory-event/Baloney"
                                 }
                             }
                         },
@@ -79,7 +80,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "ball": "Def/Acc/7, Blue/Apples"
                                 }
                             }
                         },
