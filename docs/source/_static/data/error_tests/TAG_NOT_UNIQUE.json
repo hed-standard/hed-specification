@@ -34,7 +34,7 @@
                     }
                 ]
             },
-           "event_tests": {
+            "event_tests": {
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
@@ -46,6 +46,43 @@
                         ["onset", "duration", "HED"],
                         [ 4.5, 0,  "(Event-context, (Red, Blue))"]
                     ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "(Event-context, (Red, Blue))",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "(Event-context, (Red, Blue))"]
+                            ]
+                    }
                 ]
             }
         }
