@@ -84,7 +84,7 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Red, Blue",
+                                    "face": "Red, Green",
                                     "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
                                 }
                             }

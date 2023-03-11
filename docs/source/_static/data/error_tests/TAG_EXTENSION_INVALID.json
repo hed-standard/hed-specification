@@ -49,8 +49,8 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Red-color/Red/Redish"],
-                        [ 5.5, 0, "((Green/Greenish))"]                        
+                        [4.5, 0, "Red-color/Red"],
+                        [ 5.5, 0, "((Green))"]                        
                     ]
                 ]
             },
@@ -79,7 +79,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Red-color/Red",
-                                    "ball": "Blue/Blueish"
+                                    "ball": "Blue"
                                 }
                             }
                         },
@@ -107,11 +107,9 @@
                     "Red/R#d"
                 ],
                 "passes": [
-                    "Red-color/Red/Redish",
-                    "Red-color/Red/Redish/More-redish",
-                    "((Green/Greenish))",
-                    "Red/1red",
-                    "Red/Red--2red"
+                    "Red-color/Red",
+                    "((Green))",
+                    "Red"
                 ]
             },
             "sidecar_tests": {
