@@ -2,7 +2,7 @@
     {
         "error_code": "TAG_INVALID",
         "name": "tag-invalid-in-schema",
-        "description": "The tag is not valid in the schema it associated with.",
+        "description": "The tag is not valid in the schema it is associated with.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

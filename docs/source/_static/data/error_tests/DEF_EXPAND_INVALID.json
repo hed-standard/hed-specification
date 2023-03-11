@@ -299,7 +299,7 @@
     {
         "error_code": "DEF_EXPAND_INVALID",
         "name": "def-expand-invalid-tags-not-in-definition",
-        "description": "The tags within a `Def-expand` do not match the corresponding definition.",
+        "description": "The tags within a Def-expand do not match the corresponding definition.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -387,8 +387,8 @@
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "(Def-expand/Acc/6.5 m-per-s^2, (Acceleration/7.5 m-per-s^2, Red))"],
-                                [ 5.5, 0, "ball", "(Def-expand/Acc/8.5 m-per-s^2, (Acceleration/9.5 m-per-s^2, Red))"]
+                                [ 4.5, 0, "face", "(Def-expand/Acc/6.5 m-per-s^2, (Acceleration/6.5 m-per-s^2, Red))"],
+                                [ 5.5, 0, "ball", "(Def-expand/Acc/8.5 m-per-s^2, (Acceleration/8.5 m-per-s^2, Red))"]
                             ]
                     }
                 ]
