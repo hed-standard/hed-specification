@@ -236,7 +236,7 @@
                         "events": 
                             [
                                 ["onset", "duration", "trial", "memory", "HED"],
-                                [ 4.5, 0, "5", "4", "Blue"],
+                                [ 4.5, 0, "5", "4", "Green"],
                                 [ 5.0, 0, "3", "2","Green, Def/MyColor"]
                             ]
                     }

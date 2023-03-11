@@ -86,10 +86,10 @@
                         "events": 
                             [
                                 ["onset", "duration", "event_code", "HED"],
-                                [ 5.5, 0, "(Onset, Def/Acc/5.4 m-per-s^2)"],
-                                [ 6.3, 0, "(Offset, Def/Acc/5.4 m-per-s^2)"],
+                                [ 5.5, 0, "n/a","(Onset, Def/Acc/5.4 m-per-s^2)"],
+                                [ 6.3, 0, "n/a","(Offset, Def/Acc/5.4 m-per-s^2)"],
                                 [ 8.5, 0, "face", "Blue"],
-                                [ 9.0, 0, "ball", "Green, ((Def-expand/MyColor, (Label/Pie)), Onset)"]
+                                [ 9.0, 0, "n/a", "Green, ((Def-expand/MyColor, (Label/Pie)), Onset)"]
                             ]
                     }
                 ]
@@ -268,7 +268,7 @@
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "n/a", "(Onset, Def/MyColor, (Blue)"]
+                                [ 5.0, 0, "n/a", "(Onset, Def/MyColor, (Blue))"]
                             ]
                     }
                 ]
