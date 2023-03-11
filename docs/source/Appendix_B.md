@@ -247,7 +247,7 @@ for additional information on the rules for group errors due to schema attribute
 
 ### TAG_INVALID
 
-**a.**  The tag is not valid in the schema it associated with.  
+**a.**  The tag is not valid in the schema it is associated with.  
 
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.
