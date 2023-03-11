@@ -174,14 +174,12 @@
                                 }
                             }
                         },
-                        "events": 
-                            [
+                        "events":
                                 [
                                     ["onset", "duration", "event_code", "HED"],
-                                    [ 4.5, 0,  "face", "Def/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"],
+                                    [ 4.5, 0,  "face", "Def/Acc/5.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"],
                                     [ 6.5, 0,  "ball", "n/a"]
                                 ]
-                            ]
                     }
                 ]
             }
