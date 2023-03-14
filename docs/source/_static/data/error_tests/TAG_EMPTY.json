@@ -11,7 +11,8 @@
                     "Red, , , Green",
                     "(, Red, Green), Blue",
                     "(Red, , Green), Blue",
-                    "(Red, Green,), Blue"
+                    "(Red, Green,), Blue",
+                    "(Red, Green), Blue,"
                 ],
                 "passes": [
                     "(Red, Blue), Green"

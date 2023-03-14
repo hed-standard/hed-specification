@@ -431,7 +431,7 @@
                         ["onset", "duration", "HED"],
                         [ 4.5, 0,  "(Onset, Def/MyColor)"],
                         [ 4.8, 0, "(Offset, Def/MyColor)"],
-                        [ 4.9, 0, "(Onset, Def/MyColor, (Red)"],
+                        [ 4.9, 0, "(Onset, Def/MyColor, (Red))"],
                         [ 5.5, 0, "((Def-expand/MyColor, (Label/Pie)), Offset)"]
                     ]
                 ]
