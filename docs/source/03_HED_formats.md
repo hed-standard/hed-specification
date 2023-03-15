@@ -745,7 +745,9 @@ must appear inside parentheses (e.g., must be in HED tag group).
 
 A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear
 in an unnested HED group in an assembled HED annotation.
-This `topLevelTagGroup` attribute is usually associated with tags
+Only one tag with the `topLevelTagGroup` attribute may appear in the same
+top-level group.
+The `topLevelTagGroup` attribute is usually associated with tags
 that have special meanings in HED such as `Definition` and `Onset`.
 
 See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) for
@@ -802,13 +804,12 @@ If the definition name includes the `#` placeholder extension,
 then the defining tags must
 include exactly one tag that takes a value along with its `#` placeholder.
 
-Definitions with the same name are considered duplicate definitions regardless of whether one has a placeholder
-and another does not.
+Definitions with the same name are considered duplicate definitions regardless of 
+whether one has a placeholder and another does not.
 **However, each distinct substituted value represents a distinct definition name for
 purposes of `Onset`/`Offset` processing.**
 
->**Under review:**   
-> The `Definition` tag groups may appear anywhere that HED annotations can be used,
+The `Definition` tag groups may appear anywhere that HED annotations can be used,
 including in sidecars, in the HED column of tabular files,
 or in HED-specified columns of tag spreadsheets.
 HED definitions are usually separated from
