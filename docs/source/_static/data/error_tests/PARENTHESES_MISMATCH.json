@@ -9,8 +9,8 @@
             "string_tests": {
                 "fails": [
                     "(Def/MyColor, (Blue, (Yellow)), Red))",
-                    "(Red, ((Blue, Green), Yellow))",
-                    "(Red, ((Blue), Green)), (Yellow)"
+                    "((Red, ((Blue, Green), Yellow))",
+                    "((Red, ((Blue), Green)), (Yellow)"
                 ],
                 "passes": [
                     "(Def/Acc/5.3 m-per-s^2, (Red))"

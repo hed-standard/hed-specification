@@ -87,7 +87,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Informational-property/Label/Num1",
-                                    "ball": "Informational-property/Label"
+                                    "ball": "Informational-property/Label/Num2"
                                 }
                             }
                         },
