@@ -325,7 +325,7 @@ This has distinct disadvantages for analysis if the offset is expected to elicit
 neural response, which is the case for most events involving visual or auditory presentations.
 
 
-### 5.3.3. Temporal offsets with *Delay*
+### 5.3.3. Temporal onsets with *Delay*
 
 The `Delay` tag is grouped with a set of tags to indicate that the associated tag-group is
 actually an implicit event that occurs at a time offset from the current event. 
@@ -336,7 +336,7 @@ HED tools could be developed to support the expansion of delayed events into
 actual events in the event stream, 
 provided delays were consistently provided as signed numerical values 
 relative to the anchor onset.
-This feature is currently not supported in HED tools.
+**This feature is currently not supported in HED tools.**
 
 In the following example, a trial consists of the presentation of a cross in the 
 center of the screen. The participant responds with a button press upon seeing the cross. 

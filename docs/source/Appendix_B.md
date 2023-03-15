@@ -115,11 +115,11 @@ different placeholder substitutions are considered to be different.
 
 **a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
 **b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def-expand` tag group or `Def` tag.
-**d.** An `Onset` group has more than one additional tag group.
-**e.** An `Offset` appears with one or more tags or additional tag groups.
-**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.  
-**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag
+**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def-expand` tag group or `Def` tag.   
+**d.** An `Onset` group has more than one additional tag group.   
+**e.** An `Offset` appears with one or more tags or additional tag groups.   
+**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
+**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
 without the appearance of an intervening `Onset` of the same name.   
 **h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand`
 that are not in a tag group.
@@ -240,7 +240,8 @@ for additional information on the tag extension rules.
 ### TAG_GROUP_ERROR
 
 **a.**  A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.   
-**b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.   
+**b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation. 
+**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group.
 
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
