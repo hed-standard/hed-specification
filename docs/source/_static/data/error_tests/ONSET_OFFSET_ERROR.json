@@ -306,12 +306,10 @@
                 "passes": [
                      {
                         "event_code": {
-                            "show": {
                                 "HED": {
                                     "face": "(Onset, Def/MyColor)",
                                     "ball": "((Def-expand/MyColor, (Label/Pie)), (Green, (Yellow)), Onset)"
                                 }
-                            }
                         }
                     }
                 ]
