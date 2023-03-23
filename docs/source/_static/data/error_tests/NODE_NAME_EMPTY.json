@@ -132,12 +132,10 @@
                 "passes": [
                     {
                         "event_code": {
-                            "show": {
                                 "HED": {
                                     "face": "Informational-property/Label/Num1",
                                     "ball":  "Def/Acc/4.5"
                                 }
-                            }
                         }
                     }                    
                 ]
