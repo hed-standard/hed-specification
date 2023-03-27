@@ -818,7 +818,7 @@ the annotations and gathered prior to other processing.
 See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) for
 a listing of situations in which a definition may be invalid.
 
-See also [**Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) 
+See also [**Chapter 5.1 Creating definitions**](./05_Advanced_annotation.md#51-creating-definitions) 
 for more details and examples.
 
 #### 3.2.8.2. `Def` and `Def-expand` tags
@@ -893,7 +893,7 @@ See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) and
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 for a listing of specific errors associated with onsets and offsets.
 
-[**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
+[**Chapter 5.3.1 Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
 

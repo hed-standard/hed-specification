@@ -26,9 +26,9 @@ HED specification
 The HED specification document formalizes the syntax and behavior of
 HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting tools. The specification supports three versions of the specification:
 
-- **latest** - development branch which is under discussion.
-- **master** - includes revisions approved by the HED Working Group but not released.
-- **stable** - the latest released form.
+- `develop <https://hed-specification.readthedocs.io/en/develop/index.html>`_ - development branch which is under discussion.
+- `latest <https://hed-specification.readthedocs.io/en/latest/index.html>`_ - includes revisions approved by the HED Working Group but not released.
+- `stable <https://hed-specification.readthedocs.io/en/stable/index.html>`_ - the latest released form.
 
 
 .. toctree::

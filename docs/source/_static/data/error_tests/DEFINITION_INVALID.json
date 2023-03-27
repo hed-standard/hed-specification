@@ -705,7 +705,7 @@
             }
         }
     },
-        {
+    {
         "error_code": "DEFINITION_INVALID",
         "name": "definition-not-allowed-here",
         "description": "A definition appears in an unexpected place such as an events file.",
