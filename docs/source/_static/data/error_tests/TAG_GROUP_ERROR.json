@@ -164,7 +164,7 @@
     {
         "error_code": "TAG_GROUP_ERROR",
         "name": "multiple-top-level-tags-in-same-group",
-        "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group.",
+        "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

@@ -61,6 +61,8 @@ See also [**TAG_EMPTY**](./Appendix_B.md#tag_empty).
 **b.**  A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.  
 **c.**  A `Def-expand` has a placeholder value of incorrect format or units for definition.   
 **d.**  The tags within a `Def-expand` do not match the corresponding definition.  
+**e.**  A `Def-expand` tag group is missing its inner tag group.  
+**f.**  A `Def-expand` tag group has extra tags or groups.
 
 
 See [**3.2.8.2. The Def and Def-expand tags**](./03_HED_formats.md#3282-def-and-def-expand-tags)
@@ -97,8 +99,9 @@ the definition's contents.
 **j.**  A definition appears in an unexpected place such as an events file.
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
-for an explanation of the rules for definitions
-and [**5.1. Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) 
+for an explanation of the rules for definitions.
+See also [**5.1. Creating definitions**](./05_Advanced_annotation.md#51-creating-definitions) 
+and [**5.2. Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples of definition syntax.
 
 ### NODE_NAME_EMPTY
@@ -122,7 +125,9 @@ different placeholder substitutions are considered to be different.
 **g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
 without the appearance of an intervening `Onset` of the same name.   
 **h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand`
-that are not in a tag group.
+that are not in a tag group.  
+**i.** An `Onset` or an `Offset` with a given `Def` or `Def-expand` anchor appears in the same
+event marker with another `Onset` or `Offset` that uses the same anchor.  
 
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
@@ -131,7 +136,7 @@ the `Def-expand` will be an additional internal tag group.
 See [**3.2.8.3 Onset and Offset tags**](./03_HED_formats.md#3283-onset-and-offset-tags)
 for a specification of the required behavior of `Onset` and `Offset`.
 
-[**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
+[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
 ### PARENTHESES_MISMATCH

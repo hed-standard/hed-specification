@@ -1,8 +1,8 @@
 # 5. Advanced annotation
 
-## 5.1. Definition syntax
+## 5.1. Creating definitions
 
-HED-3G introduces the `Definition` tag to facilitate tag reuse and 
+HED version 8.0.0 introduced the `Definition` tag to facilitate tag reuse and 
 to allow implementation of concepts such as **temporal scope**. 
 The `Definition` tag allows researchers to create a name to represent a group of tags and 
 then use the name in place of these tags when annotating data. 
@@ -14,26 +14,27 @@ Another important role of definitions is to provide the structure for
 implementing temporal scope as introduced in [**Chapter 5.3: Temporal Scope**](05_Advanced_annotation.md#53-temporal-scope).
 
 A **HED definition** is a tag group that includes one `Definition` tag whose required 
-child value names.
-The definition includes a tag-group specifying the actual definition information. 
-The following summarizes the syntax of definition.
+child value is the definition's name.
+The definition tag group also includes an internal tag-group 
+specifying the definition's content. 
+The following summarizes the syntax of HED definitions.
 
-``````{admonition} Syntax summary for definitions.
+``````{admonition} Syntax summary for HED definitions.
 
 **Short forms:** 
- ~ *(Definition/XXX, (tag-group))*
- ~ *(Definition/XXX/#, (tag-group))*
+ ~ *(Definition/XXX, (definition-content))*
+ ~ *(Definition/XXX/#, (definition-content))*
  
 **Long forms:**  
- ~ *(Property/Organizational-property/<strong>Definition/XXX</strong>, (tag-group))*
- ~ *(Property/Organizational-property/<strong>Definition/XXX/#</strong>, (tag-group))*
+ ~ *(Property/Organizational-property/<strong>Definition/XXX</strong>, (definition-content))*
+ ~ *(Property/Organizational-property/<strong>Definition/XXX/#</strong>, (definition-content))*
  
 ````{admonition} Notes:
 :class: tip
-1. *XXX* is the name of the definition and *(tag-group)* is the definition’s value.
-2. If the *XXX/#* form is used, then the definition’s *(tag-group)* MUST contain a single `#` 
+1. *XXX* is the name of the definition, and *(definition-content)* is a tag group
+containing the tags representing the definition’s contents.
+2. If the *XXX/#* form is used, then the *(definition-content)* MUST contain a single `#` 
 representing a value to be substituted for when the definition is used.
-4. The definition name *XXX* should not be a term in the HED schema.
 
 ````
 
@@ -41,7 +42,7 @@ representing a value to be substituted for when the definition is used.
 
 The following example defines the *PlayMovie* term. 
 
-````{admonition} **Example:** *PlayMovie* represents playing a movie on the screen.
+````{admonition} **Example:** *PlayMovie* defines the playing a movie on a computer screen.
 
 **Short form:** <br/> 
 > *(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))* 
@@ -54,11 +55,10 @@ The following example defines the *PlayMovie* term.
 
 ````
 
-The placeholder form of the definition is used, for example, 
-to annotate an experimental parameter whose value is selected 
-at random for each occurrence. 
-The annotator can use a single definition name and just substitute the value
-for each occurrence. 
+The next example gives a definition that uses a placeholder representing a presentation
+rate, for example, to annotate events in which a presentation rate is varied
+at random. Usually the specific value substituted for the `#` will come from 
+one of the columns in the `events.tsv` file.
 
 ````{admonition} **Example:** Use definition with placeholder to annotate a variable presentation rate.
 
@@ -74,30 +74,52 @@ for each occurrence.
 
 ````
 
+
+Definitions may only appear in dummy entries of JSON sidecars and as external dictionaries.
+Definitions cannot be nested. 
+Further, definitions must appear as top-level tag groups. 
+
+The validation checks made by the HED validator when assembling and processing definitions 
+are summarized in [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
+In addition to syntax checks, which occur in early processing passes,
+HED validators check that the definition names have unique definitions. 
+Additional checks for temporal scope are discussed in 
+[Chapter 5.2: Using definitions](05_Advanced_annotation.md#52-using-definitions) and
+[Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
+
+
 ## 5.2. Using definitions
 
-When a definition name such as *PlayMovie* or *PresentationRate* is used in an annotation, 
+This section describes how to use definitions to assist in annotation.
+
+### 5.2.1. The *Def* tag
+
+When a definition name such as `PlayMovie` or `PresentationRate` is used in an annotation, 
 the name is prefixed by the `Def` tag to indicate that the name represents a defined name. 
-In other words, `Def/PlayMovie` is shorthand for `(Visual, Movie, Screen)`. 
+In other words, `Def/PlayMovie` is shorthand for 
+`(Visual-presentation, Movie, Computer-screen)`.
+
 The following summarizes `Def` tag syntax rules.
 
 ``````{admonition} Syntax summary for the <code>Def</code> tag:
 **Short forms:** 
  ~ *Def/XXX*
- ~ *Def/XXX/#*
+ ~ *Def/XXX/YYY*
  
 **Long forms:**
  ~ *Property/Organizational-property/<strong>Def/XXX</strong>* 
- ~ *Property/Organizational-property/<strong>Def/XXX/#</strong>*
+ ~ *Property/Organizational-property/<strong>Def/XXX/YYY</strong>*
 
 ````{admonition} Notes:
 :class: tip
 1. *XXX* is the name of the definition.
-2. If the *XXX/#* form is used, then the corresponding definition’s tag-group MUST contain a single `#` 
+2. *YYY* is the value that is substituted for the definition's placeholder if it has one.
+2. If the *XXX/YYY* form is used, then the corresponding definition’s tag-group MUST contain a single `#` 
 representing a value to be substituted for when the definition is used.
 ````
 ``````
-The following example shows how a defined name is used in annotation.
+
+The following example shows how `Def` is used in annotation.
 
 ````{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
@@ -109,38 +131,52 @@ The following example shows how a defined name is used in annotation.
 
 ````
 
+### 5.2.2. The *Def-expand* tag
+
+The `Def-expand` tag provides an alternative to `Def` tag in annotations.
+Unlike the `Def` tag, a `Def-expand` tag must be in a tag group that includes 
+an inner tag group with the definition's contents.
+If the definition includes a placeholder, that must be replaced with these
+contents by the appropriate value.
+
+The following summarizes `Def-expand` tag syntax rules.
+
+``````{admonition} Syntax summary for the <code>Def-expand</code> tag:
+**Short forms:** 
+ ~ *(Def-expand/XXX, (definition-contents))*
+ ~ *(Def-expand/XXX/YYY, (definition-contents))*
+ 
+**Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def-expand/XXX</strong>, (definition-contents))* 
+ ~ *(Property/Organizational-property/<strong>Def-expand/XXX/YYY</strong>, (definition-contents))*
+
+````{admonition} Notes:
+:class: tip
+1. *XXX* is the name of the definition.
+2. If the *XXX/#* form is used in the definition, then the replacement value (*YYY* above)
+must replace placeholders both in the definition's name and its contents. 
+````
+``````
+
+The following example shows how `Def-expand` is used in an annotation.
+
+````{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
+
+**Short form:**  
+> *(Def-expand/PresentationRate/1.5 Hz,*  
+> *(Visual-presentation, Experimental-stimulus, Temporal-rate/1.5 Hz))*  
+
+**Long form:**  
+> *(Property/Organizational-property/<strong>Def-expand/PresentationRate/1.5 Hz</strong>,*  
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
+> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1.5 Hz</strong>))*  
+
+````
 During analysis, tools may replace `Def/PlayMovie` with a fully expanded tag string. 
-Tools must retain the association of the expanded tag string with the definition name for
-identification during searching and substitution. 
+Tools sometimes need to retain the association of the expanded tag string with the definition
+name for identification during searching and substitution. 
 
-When a definition is expanded, the resulting tag string should include the definition
-name using the `Def-expand` tag. 
-In other words, the tools should expand the definition as 
-`(Def-expand/PlayMovie, Visual, Movie, Screen)`. 
-The `Def-expand/PlayMovie` is inserted in the definition tag group as part 
-of the expansion to keep the association with the original definition.
-
-**Usually definitions do not contain tags from the `Event` subtree.** 
-The standard practice is to use the elements of the `Event` subtree as top-level tags to
-designate the general category of an event. 
-This practice makes it easier for search and analysis tools to filter 
-events without extensive parsing. 
-The annotator can use tags such as `Experimental-stimulus` 
-(Long form: `Property/Task-property/Task-event-role/Experimental-stimulus`) 
-to explain the role of a particular sensory presentation element in the experiment 
-within the definition.
-
-Definitions may only appear in dummy entries of JSON sidecars and as external dictionaries.
-Definitions cannot be nested. 
-Further, definitions must appear as top-level tag groups. 
-Tools generally make a pass through the event information to extract the definitions prior to other processing. 
-
-The validation checks made by the HED validator when assembling and processing definitions 
-are summarized in [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
-In addition to syntax checks, which occur in early processing passes,
-HED validators check that the definition names have unique definitions. 
-Additional checks for temporal scope are discussed in 
-[Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
 
 
 ## 5.3. Temporal scope
@@ -158,28 +194,56 @@ for an experiment, may have a temporal scope that spans the entire data recordin
 Other events, such as the playing of a movie clip or a participant performing an action in 
 response to a sensory presentation, may last for seconds or minutes. 
 Temporal scope captures the effects of these extended events in a machine-actionable manner.
-HED has two different mechanisms for expressing temporal scope: `Onset`/`Offset` and `Duration`.
+HED has two distinct mechanisms for expressing temporal scope: `Onset`/`Offset` and `Duration`/`Delay`.
+Tools can transform between one representation and the other.
+However, transform from the `Duration`/`Delay` representation to the `Onset`/`Offset`
+representation may require the addition of additional rows (time markers) in the events file.
+
+The mechanisms are summarized in the following table and discussed in more detail 
+in the following sections. 
 
 
-### 5.3.1. Onsets and offsets
 
-The most direct HED method of specifies scoped events by combining 
+| Tag  | Meaning  | Usage  |
+| ---- | ----------- |  ------- |
+| `Onset` |  Marks start of event |  Used with a `Def` or `Def-exand` tag anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor. |  
+| `Offset` | Marks end of event | Used with a `Def` or `Def-exand` tag anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition. |
+| `Inset`   | Marks event intermediate pt | New in standard schema 8.2.0. <br/> Used with a `Def` or `Def-exand` tag anchor. anchor. <br/> Must be within the event markers<br/>for an `Onset` marked-event with the same anchor. | 
+| `Duration ` | Marks end of an event.  | Doesn't need a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration. |
+| `Delay` | Marks delayed onset. | No definition anchor.<br/>If no `Duration`, treated as point event.<br/>Commonly for delayed response times. |
+| `Event-context` |  Context of ongoing events. | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.|
+
+All of these tags must appear in a `topLevelTagGroup`, which implies that they can't be nested.
+`Delay` and `Duration` will not be fully supported until HED standard schema version 8.2.0.
+
+The `Inset` tag will also not be included until HED standard schema version 8.2.0,
+but is listed here for completeness.  
+
+### 5.3.1. Using `Onset` and `Offset`
+
+The most direct HED method of specifying scoped events combines 
 `Onset` and `Offset` tags with defined names. 
 Using this method, an event with temporal scope actually corresponds to two point events. 
 
 The initiation event is tagged by a `(Def/XXX, Onset)` where `XXX` is a defined name.
 The end of the event’s temporal scope is marked either by a `(Def/XXX, Offset)` or by 
-another `(Def/XXX, Onset)`.
+another `(Def/XXX, Onset)`. The `Def/XXX` is said to **anchor** the definition.
+The `Onset` tag group may contain an additional internal tag group in addition to the
+anchor `Def` tag. This internal tag group usually contains annotations specific 
+to this instance of the event. 
 
 Event initiations identified by definitions with placeholders are handled similarly.
 Suppose the initiation event is tagged by a `(Def/XXX/YYY, Onset)` where `XXX`
 is a defined name and `YYY` is the value substituted for the `#` placeholder. 
 The end of this event's temporal scope is marked either by `(Def/XXX/YYY, Offset)` or by 
 another `(Def/XXX/YYY, Onset)`. 
-A subsequent `(Def/XXX/ZZZ, Onset)` where `YYY` and `ZZZ`
-are different is treated as a completely distinct temporal event.
+An intervening `(Def/XXX/ZZZ, Onset)`, where `YYY` and `ZZZ`
+are different, is treated as a completely distinct temporal event.
 
-Table 5.3 summarizes `Onset` and `Offset` usage.
+Table 5.3 summarizes `Onset` and `Offset` usage. 
+**Note**: A `Def-expand/XXX` tag group can be used
+interchangeably with the `Def/XXX`. 
+
 
 ``````{admonition} **Syntax summary for <code>Onset</code> and <code>Offset</code>.**
 **Short forms:**
@@ -199,10 +263,10 @@ Table 5.3 summarizes `Onset` and `Offset` usage.
 ````{admonition} Notes:
 :class: tip
 1. *XXX* is the name of the definition anchoring the scoped event.
-2. The *(tag-group)* give optional tags specific to that occurrence.
+2. The *(tag-group)* contains optional tags specific to that temporal event.
 This tag group is not the tag group specifying the contents of the definition..
 3. The additional <em>tag-group</em> is only in effect for that particular scoped event
- and not for all *XXX*.
+ and not for all events anchored by *Def/XXX*.
 4. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
 5. The entire definition identifier *Def/XXX/#*, including the value substituted for the `#`,
 is used as the anchor for temporal scope.
@@ -282,61 +346,67 @@ placeholder values as shown in the next example. The example assumes a definitio
 Because tools need to have the definitions in hand when fully expanding during validation 
 and analysis, tools must gather applicable definitions before final processing. 
 Library functions in Python, Matlab, and JavaScript are available to support 
-gathering of definitions and the expansion. 
+gathering of definitions and the expansion.
+These definitions may be given in JSON sidecars or provided externally.
 
 
-### 5.3.2. Durations
+### 5.3.2. Using `Duration`
 
 The `Duration` tag is an alternative method for specifying an event with temporal scope. 
 The start of the temporal scope is the event in which the `Duration` tag appears. 
 The end of the temporal scope is implicit and may not coincide with an actual event 
 appearing in the recording. 
-Instead, tools calculate when the scope ends in the data recording by
+Instead, tools calculate when the scope ends (i.e., the event offset) by
 adding the value of the duration to the onset of the event marker associated
 with that `Duration` tag.
 
-`Duration` tags do not need a defined label. 
+`Duration` tags do not need a definition anchor. 
 `Duration` may be grouped with tags representing additional information associated 
-with the temporal scope of that event.
+with the temporal scope of that event. The `Duration` tag must appear in a top level tag
+group, implying `Duration` tag groups cannot be nested.  
+However, several events with temporal-scopes defined by `Duration` tag groups 
+may appear in the annotations associated with the same event marker.
 
-````{admonition} **Example:** Use durations for the playing of a 2-s movie clip of Star Wars.
+````{admonition} **Example:** Use the Duration tag to annotate the playing of a 2-s movie clip of Star Wars.
 
 **Short form:**    
-> *Sensory-event,*  
-> *(Duration/2 s, Visual-presentation, (Movie, Label/StarWars), Computer-screen)*  
+> *(Duration/2 s, (Sensory-event, Visual-presentation, (Movie, Label/StarWars)))*  
 
-**Long form:**   
-> *Event/<strong>Sensory-event</strong>,*   
+**Long form:**    
 > *(Property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*  
+> *(Event/<strong>Sensory-event</strong>,*  
 > *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
 > *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*  
-> *Property/Informational-property/<strong>Label/StarWars</strong>),*  
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*  
-> *Property/Informational-property/Description/Play a movie clip for 2 s.)*  
+> *Property/Informational-property/<strong>Label/StarWars</strong>)))* 
 
 ````
 
-The `Duration` tag is convenient because its use does not require a definition. 
 The `Duration` tag has the same effect on event context as the 
-onset/offset mechanism explained in the previous sections. 
+`Onset`/`Offset` mechanism explained in 
+[**5.5. Event contexts**](./05_Advanced_annotation.md#55-event-contexts)
+
+The `Duration` tag is convenient because its use does not require a definition. 
 However, the ending time point of events whose temporal scope is defined 
 with `Duration` is not marked by an explicit event in the data recording. 
 This has distinct disadvantages for analysis if the offset is expected to elicit a
-neural response, which is the case for most events involving visual or auditory presentations.
+neural response, which is the case for many events involving visual or auditory presentations.
+The use of the `Duration` tag will not be fully supported by validators until HED
+standard schema version 8.2.0. 
 
-
-### 5.3.3. Temporal onsets with *Delay*
+### 5.3.3. Using `Delay`
 
 The `Delay` tag is grouped with a set of tags to indicate that the associated tag-group is
 actually an implicit event that occurs at a time offset from the current event. 
-A typical use case is when the user response time to a stimulus is recorded as a 
-delay time relative to the onset of the corresponding stimulus event. 
-This strategy is convenient for some time-locked analyses. 
-HED tools could be developed to support the expansion of delayed events into 
-actual events in the event stream, 
-provided delays were consistently provided as signed numerical values 
-relative to the anchor onset.
-**This feature is currently not supported in HED tools.**
+If the tag group containing the `Delay` also contains a `Duration` tag,
+then the tag group represents an event with temporal extent.
+Otherwise, it is considered a point event.
+
+A typical use case for `Delay` is when a secondary stimulus appears offset from
+the first. A typical use case for `Delay` combined with `Duration` is the encoding
+of a participant response, where the reaction time is measured relative to
+a secondary stimulus (such as a 'go').
+
+
 
 In the following example, a trial consists of the presentation of a cross in the 
 center of the screen. The participant responds with a button press upon seeing the cross. 
@@ -346,35 +416,36 @@ as part of the stimulus event.
 ````{admonition} **Example:** Use the delay mechanism for a participant response.
 
 **Short form:**  
-> *Sensory-event, Experimental-stimulus, Visual-presentation,*  
-> *(Cross, (Center-of, Computer-screen)),*  
-> *(Agent-action, Delay/2.83 ms, (Participant-response, (Press, Mouse-button)))*  
+> *(Sensory-event, (Experimental-stimulus, Visual-presentation, Cross))*  
+> *(Delay/2.83 ms, (Agent-action, Participant-response, (Press, Mouse-button)))*  
 
 **Long form:**    
-> *Event/<strong>Sensory-event</strong>,*  
+> *(Event/<strong>Sensory-event</strong>,*  
 > *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
 > *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *(Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>,*  
-> *(Relation/Spatial-relation/<strong>Center-of</strong>,*  
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>)),*  
-> *(Event/<strong>Agent-action</strong>,*  
-> *Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*  
+> *(Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>)),*   
+> (*Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,* 
+> *(Event/<strong>Agent-action</strong>,*   
 > *(Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*  
 > *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>/,*  
 > *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))),*  
-> *Property/Informational-property/Description/A cross is displayed*  
-> *in the center of the screen and the participant responds by pushing a button.*  
 
 ````
 
 Notice that the `Agent-action` tag from the `Event` subtree is 
 included in the `Delay` tag-group.
-This allows tools to identify this tag-group as representing a distinct event. 
-For BIDS datasets, such response delays would be in value columns of the `_events.tsv` 
+This allows tools to identify this tag group as a distinct event. 
+For BIDS datasets, such response delays would be recorded in a column of the `events.tsv` 
 event files. The HED annotation for the JSON sidecar corresponding to these files would 
 contain a `#`. At HED expansion time, tools replace the `#` with the column value (2.83)
 corresponding to each event. 
 
+The `Delay` tag can also be used in the same top level tag group as the `Duration` tag to
+define an event with temporal extent. 
+HED tools are being developed to support the expansion of delayed events to have their
+own event markers without the delay tag.
+However, use of the `Delay` tag will not be fully supported by validators until HED
+standard schema version 8.2.0.
 
 ## 5.4. Event streams
 
@@ -406,9 +477,9 @@ An event having the tag `Event-stream/XXX` indicates that event or marker is par
 Using a tag to identify an event stream makes it easier for downstream tools to compute
 relationships among subsets of events.
 
-Event streams are still under development.
+**Note:** Event streams are still under development.
 
-## 5.5. Event context
+## 5.5. Event contexts
 
 Event annotations generally focus on describing what happened at the instant an event was
 initiated. However, the details of the setting in which the event occurs also influence neural
@@ -434,20 +505,19 @@ Tools are available to insert the appropriate `Event-context` at analysis time.
 ``````{admonition} **Syntax summary for *Event-context*.**
 
 **Short form:**
- ~ *(Event-context, other-tags)*  
+ ~ *(Event-context, other-tag-groups)*  
  
 **Long form:**
- ~ *(Property/Organizational-property/<strong>Event-context</strong>, other-tags)*
+ ~ *(Property/Organizational-property/<strong>Event-context</strong>, other-tag-groups)*
  
 ````{admonition} Notes:
 :class: tip
 1. The `Event-context` may only appear in a top-level tag group of an assembled HED string.
-2. An event can have at most one `Event-context` tag group.
+2. An event can have at most one `Event-context` tag group in its assembled HED annotation.
 3. HED-compliant analysis tools should insert the annotations describing each temporally 
 scoped event into the `Event-context` tag group of the events within its 
 temporal scope during final assembly before analysis of the event.
-4. Other task-event relationships may be inserted as tags within the `Event-context`
-tag group either at annotation time or analysis time.
+4. Each of these internal annotations should be in a group, indicating that they represent a distinct event process.
 ````
 ``````
 
@@ -581,7 +651,7 @@ tags are used to represent factors in an experiment design.
 ## 5.7. Specialized annotation
 
 
-### 5.7.1 Parameter tags
+### 5.7.1. Parameter tags
 
 The `Parameter` tag and its children `Parameter-label` and `Parameter-value` 
 are general-purpose tags designed to fill the missing term gap. 
@@ -623,3 +693,5 @@ and their values, while statistical tools can look for dependencies on these var
 parameter names are designed to be self-documenting. Parameters are often used for derived 
 values such as response times that are used as indicator variables in the experiment. 
 They are also sometimes used as part of control variable definitions.
+
+**Note:** Parameters and related annotations are still under development.

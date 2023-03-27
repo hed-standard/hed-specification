@@ -546,7 +546,8 @@
                              "event_code": {
                                 "HED": {
                                     "face": "(Def/MyColor, Onset)",
-                                    "ball": "(Def/MyColor, Offset)"                                }
+                                    "ball": "(Def/MyColor, Offset)"
+                                }
                             }
                         },
                         "events": 
@@ -562,7 +563,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_ERROR",
-        "name": "onset-offset-error-multiple-groups",
+        "name": "onset-offset-error-extra tags",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -643,6 +644,103 @@
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+        {
+        "error_code": "ONSET_OFFSET_ERROR",
+        "name": "onset-offset-error-duplicated-onset-or-offset",
+        "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor, (Green), Onset)",
+                                    "ball": "Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "(Def/MyColor, (Blue), Onset)"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor, (Green), Onset)",
+                                    "ball": "(Def/MyColor, Onset)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "(Def/MyColor, Offset)"],
+                                [ 5.0, 0, "ball", "(Def/MyColor, Offset)"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor, (Green), Onset)",
+                                    "ball": "(Def/MyColor, Onset)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "(Def/MyColor, Offset)"],
+                                [ 5.0, 0, "ball", "(Def/MyColor, Offset)"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "((Blue, Green), Def/MyColor, Onset)",
+                                    "ball": "(Def/MyColor, Onset)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green"]
                             ]
                     }
                 ]
