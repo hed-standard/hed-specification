@@ -22,18 +22,18 @@ The following summarizes the syntax of HED definitions.
 ``````{admonition} Syntax summary for HED definitions.
 
 **Short forms:** 
- ~ *(Definition/XXX, (definition-content))*
- ~ *(Definition/XXX/#, (definition-content))*
+ ~ *(Definition/xxx, (definition-content))*
+ ~ *(Definition/xxx/#, (definition-content))*
  
 **Long forms:**  
- ~ *(Property/Organizational-property/<strong>Definition/XXX</strong>, (definition-content))*
- ~ *(Property/Organizational-property/<strong>Definition/XXX/#</strong>, (definition-content))*
+ ~ *(Property/Organizational-property/<strong>Definition/xxx</strong>, (definition-content))*
+ ~ *(Property/Organizational-property/<strong>Definition/xxx/#</strong>, (definition-content))*
  
 ````{admonition} Notes:
 :class: tip
-1. *XXX* is the name of the definition, and *(definition-content)* is a tag group
+1. *xxx* is the name of the definition, and *(definition-content)* is a tag group
 containing the tags representing the definition’s contents.
-2. If the *XXX/#* form is used, then the *(definition-content)* MUST contain a single `#` 
+2. If the *xxx/#* form is used, then the *(definition-content)* MUST contain a single `#` 
 representing a value to be substituted for when the definition is used.
 
 ````
@@ -103,18 +103,18 @@ The following summarizes `Def` tag syntax rules.
 
 ``````{admonition} Syntax summary for the <code>Def</code> tag:
 **Short forms:** 
- ~ *Def/XXX*
- ~ *Def/XXX/YYY*
+ ~ *Def/xxx*
+ ~ *Def/xxx/yyy*
  
 **Long forms:**
- ~ *Property/Organizational-property/<strong>Def/XXX</strong>* 
- ~ *Property/Organizational-property/<strong>Def/XXX/YYY</strong>*
+ ~ *Property/Organizational-property/<strong>Def/xxx</strong>* 
+ ~ *Property/Organizational-property/<strong>Def/xxx/yyy</strong>*
 
 ````{admonition} Notes:
 :class: tip
-1. *XXX* is the name of the definition.
-2. *YYY* is the value that is substituted for the definition's placeholder if it has one.
-2. If the *XXX/YYY* form is used, then the corresponding definition’s tag-group MUST contain a single `#` 
+1. *xxx* is the name of the definition.
+2. *yyy* is the value that is substituted for the definition's placeholder if it has one.
+2. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#` 
 representing a value to be substituted for when the definition is used.
 ````
 ``````
@@ -143,17 +143,17 @@ The following summarizes `Def-expand` tag syntax rules.
 
 ``````{admonition} Syntax summary for the <code>Def-expand</code> tag:
 **Short forms:** 
- ~ *(Def-expand/XXX, (definition-contents))*
- ~ *(Def-expand/XXX/YYY, (definition-contents))*
+ ~ *(Def-expand/xxx, (definition-contents))*
+ ~ *(Def-expand/xxx/yyy, (definition-contents))*
  
 **Long forms:**
- ~ *(Property/Organizational-property/<strong>Def-expand/XXX</strong>, (definition-contents))* 
- ~ *(Property/Organizational-property/<strong>Def-expand/XXX/YYY</strong>, (definition-contents))*
+ ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>, (definition-contents))* 
+ ~ *(Property/Organizational-property/<strong>Def-expand/xxx/yyy</strong>, (definition-contents))*
 
 ````{admonition} Notes:
 :class: tip
-1. *XXX* is the name of the definition.
-2. If the *XXX/#* form is used in the definition, then the replacement value (*YYY* above)
+1. *xxx* is the name of the definition.
+2. If the *xxx/#* form is used in the definition, then the replacement value (*yyy* above)
 must replace placeholders both in the definition's name and its contents. 
 ````
 ``````
@@ -225,50 +225,50 @@ The most direct HED method of specifying scoped events combines
 `Onset` and `Offset` tags with defined names. 
 Using this method, an event with temporal scope actually corresponds to two point events. 
 
-The initiation event is tagged by a `(Def/XXX, Onset)` where `XXX` is a defined name.
-The end of the event’s temporal scope is marked either by a `(Def/XXX, Offset)` or by 
-another `(Def/XXX, Onset)`. The `Def/XXX` is said to **anchor** the definition.
+The initiation event is tagged by a `(Def/xxx, Onset)` where `xxx` is a defined name.
+The end of the event’s temporal scope is marked either by a `(Def/xxx, Offset)` or by 
+another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the definition.
 The `Onset` tag group may contain an additional internal tag group in addition to the
 anchor `Def` tag. This internal tag group usually contains annotations specific 
-to this instance of the event. 
+to this instance of the event. As with all HED tags and groups, order does not matter.
 
 Event initiations identified by definitions with placeholders are handled similarly.
-Suppose the initiation event is tagged by a `(Def/XXX/YYY, Onset)` where `XXX`
-is a defined name and `YYY` is the value substituted for the `#` placeholder. 
-The end of this event's temporal scope is marked either by `(Def/XXX/YYY, Offset)` or by 
-another `(Def/XXX/YYY, Onset)`. 
-An intervening `(Def/XXX/ZZZ, Onset)`, where `YYY` and `ZZZ`
+Suppose the initiation event is tagged by a `(Def/xxx/yyy, Onset)` where `xxx`
+is a defined name and `yyy` is the value substituted for the `#` placeholder. 
+The end of this event's temporal scope is marked either by `(Def/xxx/yyy, Offset)` or by 
+another `(Def/xxx/yyy, Onset)`. 
+An intervening `(Def/xxx/zzz, Onset)`, where `yyy` and `zzz`
 are different, is treated as a completely distinct temporal event.
 
-Table 5.3 summarizes `Onset` and `Offset` usage. 
-**Note**: A `Def-expand/XXX` tag group can be used
-interchangeably with the `Def/XXX`. 
+The following table summarizes `Onset` and `Offset` usage. 
+**Note**: A `Def-expand/xxx` tag group can be used
+interchangeably with the `Def/xxx`. 
 
 
 ``````{admonition} **Syntax summary for <code>Onset</code> and <code>Offset</code>.**
 **Short forms:**
- ~ *(Def/XXX, Onset, (tag-group))*
- ~ *(Def/XXX/#, Onset, (tag-group))*
- ~ *(Def/XXX, Offset)*
- ~ *(Def/XXX/#, Offset)*
+ ~ *(Def/xxx, Onset, (tag-group))*
+ ~ *(Def/xxx/#, Onset, (tag-group))*
+ ~ *(Def/xxx, Offset)*
+ ~ *(Def/xxx/#, Offset)*
  
 **Long forms:**  
- ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,*  
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
- ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,*  
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*  
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
- ~ *(Property/Organizational-property/<strong>Def/XXX</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/XXX/#</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 
 ````{admonition} Notes:
 :class: tip
-1. *XXX* is the name of the definition anchoring the scoped event.
+1. *xxx* is the name of the definition anchoring the scoped event.
 2. The *(tag-group)* contains optional tags specific to that temporal event.
 This tag group is not the tag group specifying the contents of the definition..
 3. The additional <em>tag-group</em> is only in effect for that particular scoped event
- and not for all events anchored by *Def/XXX*.
-4. If the *Def/XXX/#* form is used, the `#` must be replaced by an actual value.
-5. The entire definition identifier *Def/XXX/#*, including the value substituted for the `#`,
+ and not for all events anchored by *Def/xxx*.
+4. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value.
+5. The entire definition identifier *Def/xxx/#*, including the value substituted for the `#`,
 is used as the anchor for temporal scope.
 ````
 ``````
@@ -358,16 +358,39 @@ The end of the temporal scope is implicit and may not coincide with an actual ev
 appearing in the recording. 
 Instead, tools calculate when the scope ends (i.e., the event offset) by
 adding the value of the duration to the onset of the event marker associated
-with that `Duration` tag.
+with that `Duration` tag. As with all HED tags and groups, order does not matter.
 
-`Duration` tags do not need a definition anchor. 
-`Duration` may be grouped with tags representing additional information associated 
+The following table summaries the syntax for `Duration`.
+
+``````{admonition} **Syntax summary for <code>Duration</code>.**
+**Short forms:**
+ ~ *(Duration/xxx, (tag-group))*
+ ~ *(Duration/xxx, Delay/yyy, (tag-group))*
+ 
+**Long forms:**  
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*  
+   *(tag-group)*
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*    
+   *(tag-group))*
+
+````{admonition} Notes:
+:class: tip
+1. *xxx* is a time value for the duration.
+2. *yyy* is a time value for the delay if given.
+2. The *(tag-group)* contains the additional tags specific to the temporal event whose duration is specified.
+
+````
+``````
+
+`Duration` tags do not use a definition anchor. 
+`Duration` should be grouped with tags representing additional information associated 
 with the temporal scope of that event. The `Duration` tag must appear in a top level tag
-group, implying `Duration` tag groups cannot be nested.  
-However, several events with temporal-scopes defined by `Duration` tag groups 
+group that may include an additional `Delay` tag.  
+Several events with temporal-scopes defined by `Duration` tag groups 
 may appear in the annotations associated with the same event marker.
 
-````{admonition} **Example:** Use the Duration tag to annotate the playing of a 2-s movie clip of Star Wars.
+````{admonition} **Example:** Use the <code>Duration</code> tag to annotate the playing of a 2-s movie clip of Star Wars.
 
 **Short form:**    
 > *(Duration/2 s, (Sensory-event, Visual-presentation, (Movie, Label/StarWars)))*  
@@ -395,11 +418,38 @@ standard schema version 8.2.0.
 
 ### 5.3.3. Using `Delay`
 
-The `Delay` tag is grouped with a set of tags to indicate that the associated tag-group is
+The `Delay` tag is grouped with an inner tag group to indicate that the associated tag-group is
 actually an implicit event that occurs at a time offset from the current event. 
+`Delay` tags do not use a definition anchor. 
+
 If the tag group containing the `Delay` also contains a `Duration` tag,
 then the tag group represents an event with temporal extent.
-Otherwise, it is considered a point event.
+Otherwise, it is considered a point event. 
+As with all HED tags and groups, order does not matter.
+
+The following table summarizes the syntax for `Delay`.
+
+``````{admonition} **Syntax summary for <code>Delay</code>.**
+**Short forms:**
+ ~ *(Delay/xxx, (tag-group))*
+ ~ *(Delay/xxx, Duration/yyy, (tag-group))*
+ 
+**Long forms:**  
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*  
+   *(tag-group)*
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*    
+   *(tag-group))*
+
+````{admonition} Notes:
+:class: tip
+1. *xxx* is a time value for the duration.
+2. *yyy* is a time value for the delay if given.
+2. The *(tag-group)* contains the additional tags specific to the temporal event whose duration is specified.
+
+````
+``````
+
 
 A typical use case for `Delay` is when a secondary stimulus appears offset from
 the first. A typical use case for `Delay` combined with `Duration` is the encoding
@@ -458,7 +508,7 @@ Event streams can be identified and tagged using the `Event-stream` tag, allowin
 to more easily identify subsets of events and interrelationships of events within those event
 sequences. 
 
-An event having the tag `Event-stream/XXX` indicates that event or marker is part of event stream `XXX`.  
+An event having the tag `Event-stream/xxx` indicates that event or marker is part of event stream `xxx`.  
 
 ````{admonition} **Example:** Tag a face event as part of the *Face-stream* event stream.
 

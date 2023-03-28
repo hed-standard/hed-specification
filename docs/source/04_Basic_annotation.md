@@ -343,7 +343,7 @@ should be documented as part of the overall experiment context.
 These details allow analysis tools to compare and contrast studies or to 
 translate visual stimuli into visual field information. 
 `Event-context` tags, which are introduced in 
-[**Chapter 5.5: Event context**](05_Advanced_annotation.md#55-event-context), 
+[**Chapter 5.5: Event contexts**](05_Advanced_annotation.md#55-event-contexts), 
 allow this information to be propagated to recording events in a manner 
 that is convenient for analysis.
 
