@@ -551,6 +551,9 @@ handle the implicit context created by enduring or scoped events.
 However, annotators may use the tag when an event has explicit context information 
 that must be accounted for. 
 Tools are available to insert the appropriate `Event-context` at analysis time.
+The `Event-context` has the `unique` attribute, 
+implying that only one `Event-context` tag group may appear in the assembled
+HED annotation corresponding to each time-marker value.
 
 ``````{admonition} **Syntax summary for *Event-context*.**
 
