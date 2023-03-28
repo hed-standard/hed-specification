@@ -265,10 +265,10 @@ specification, so tags from this schema may appear directly in the annotation.
 
 The `sc` and `ts` are local names used to distinguish
 tags from the additional schema.
-Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
+Tags from the `score` library schema are of the form `sc:xxx` where `xxx` 
 is a tag from the `score` schema.
-Similarly, tags from the `testlib` library schema are of the form `ts:YYY` 
-where `YYY` is a tag from the `testlib` schema.
+Similarly, tags from the `testlib` library schema are of the form `ts:yyy` 
+where `yyy` is a tag from the `testlib` schema.
 
 The array specification of the schema versions can have at most one version
 appearing without a colon prefix.

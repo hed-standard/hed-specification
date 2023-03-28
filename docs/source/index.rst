@@ -30,6 +30,8 @@ HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting too
 - `latest <https://hed-specification.readthedocs.io/en/latest/index.html>`_ - includes revisions approved by the HED Working Group but not released.
 - `stable <https://hed-specification.readthedocs.io/en/stable/index.html>`_ - the latest released form.
 
+For more information about HED see `The HED project homepage <https://www.hedtags.org>`_ and
+the `HED resources page <https://www.hed-resources.org>`_.
 
 .. toctree::
    :maxdepth: 4

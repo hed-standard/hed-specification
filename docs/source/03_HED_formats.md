@@ -221,7 +221,7 @@ The section properties include `unitClassProperty`, `unitModifierProperty`,
 Schema attributes without any section properties are assumed to apply to node elements.
 
 If a schema attribute may have multiple section properties, 
-indicating that the attribute may appear as a attribute in multiple sections of the schema.
+indicating that the attribute may appear as an attribute in multiple sections of the schema.
  
 See [**A.1.4 Schema attributes**](./Appendix_A.md#a14-schema-attributes) and 
 [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties) 
@@ -827,14 +827,15 @@ A definition is incorporated into annotations using the tag
 `Def/xxx` where `xxx` is the definition's name.
 
 Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` 
-where `xxx` is the definition's name and `yyy` represents the definition's tags,
-not including the inner groups enclosing parentheses. 
+where `xxx` is the definition's name and `yyy` is a tag group containing
+the definitions contents.
 
 The two usages are equivalent, and tools should be able to transform between the two representations.
-Note, however, that transforming from the `Def` to the `Def-expand` form requires the definition,
-while transforming from the `Def-expand` to `Def` form does not.
+Note, however, that transforming from a `Def` to a `Def-expand-group` requires the definition,
+while transforming from a `Def-expand-group` to `Def` form does not.
 
-A value must be substituted for the `#` placeholder in `Def` and `Def-expand` when final
+For definitions that include a placeholder, a value must be substituted for 
+the `#` placeholder in `Def` and `Def-expand-group` when final
 annotation assembly occurs. 
 
 See [**DEF_INVALID**](./Appendix_B.md#def_invalid) and
@@ -848,46 +849,25 @@ for more details and examples.
 
 The `Onset` and `Offset` tags are used to represent the temporal extent
 of events that have non-zero duration.
-
-`Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute.
-Hence, these tags must appear in within a single set of parentheses referred to as the
-tags enclosing tag group.
-
-As a consequence of the `topLevelTagGroup` and format requirements,
-`Onset` and `Offset` may not appear in the same tag group.
-Further, a HED definition cannot include `Onset` or `Offset` tags.
-
-In annotations, the `Onset` and `Offset` tag's enclosing tag group must contain
-a `Def` or `Def-expand` group,
-and optionally an additional tag group. No other items are allowed.
-
-An `Onset` tag group and a `Offset` tag group associated with the same definition name
-cannot appear in the assembled annotation for a single time-point.
-
-No `Definition` tags are allowed in an `Onset` or `Offset` tag's enclosing tag group.
+Each of these tags must appear in a top level tag group with a
+`Def` or `Def-expand-group` anchor.
 
 A tag group with an `Onset` represents the start of an event that extends over time.
-Only one `Def` or `Def-expand` group may be included in the `Onset` group at the top level.
-The name of the corresponding definition identifies the event that was initiated and
-is referred to as the anchor definition.
-
-In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or a `Def-expand` group,
-and optionally an additional tag group. No other items are allowed.
-The additional tag group may contain `Def` or `Def-expand` tags not having
-the `Onset` tag's anchor definition name. 
-
-In annotations, the `Offset` tag group includes the `Offset` tag and a `Def` or `Def-expand` group.
-No other items are allowed.
 A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group.
-The definition name associated with the top-level `Def` or `Def-expand` group identifies the
-event that ended.
+A given event of temporal extent is also terminated by the appearance of another
+`Onset` group with the same `Def` or `Def-expand-group` anchor.
 
+The `Onset` tag group may only contain its `Def` or `Def-expand-group` anchor and
+at most one additional inner tag group in addition to the `Onset` tag.
 
+The `Offset` tag group may only contain its `Def` or `Def-expand-group` anchor in
+addition to the `Offset` tag.
 
-In addition to the top-level `Def` or `Def-expand` group that identifies the event,
-`Def` or `Def-expand` groups may appear in the optional tag group within an `Onset` group.
-The definition names corresponding to these should not be used elsewhere to identify events.
-
+These requirements imply that `Onset` and `Offset` must be the only tags
+in their tag group with the `topLevelTagGroup` attribute.
+`Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute.
+This implies, for example, that HED definition's contents may not include 
+`Onset` or `Offset` tags. 
 
 See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) and 
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
@@ -912,7 +892,7 @@ See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 on validation errors related to `Event-context`.
 
 Additional details and examples for `Event-context` can be found in
-[**5.5. Event context**](./05_Advanced_annotation.md#55-event-context).
+[**5.5. Event contexts**](./05_Advanced_annotation.md#55-event-contexts).
 
 ### 3.2.9. Sidecars
 
