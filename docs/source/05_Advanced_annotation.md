@@ -153,7 +153,8 @@ The following summarizes `Def-expand` tag syntax rules.
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition.
-2. If the *xxx/#* form is used in the definition, then the replacement value (*yyy* above)
+2. *yyy* is the replacement value for the `#` placeholder.
+3. If the *xxx/yyy* form is used in the definition, then the replacement value (*yyy* above)
 must replace placeholders both in the definition's name and its contents. 
 ````
 ``````
@@ -206,11 +207,11 @@ in the following sections.
 
 | Tag  | Meaning  | Usage  |
 | ---- | ----------- |  ------- |
-| `Onset` |  Marks start of event |  Used with a `Def` or `Def-exand` tag anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor. |  
-| `Offset` | Marks end of event | Used with a `Def` or `Def-exand` tag anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition. |
-| `Inset`   | Marks event intermediate pt | New in standard schema 8.2.0. <br/> Used with a `Def` or `Def-exand` tag anchor. anchor. <br/> Must be within the event markers<br/>for an `Onset` marked-event with the same anchor. | 
-| `Duration ` | Marks end of an event.  | Doesn't need a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration. |
-| `Delay` | Marks delayed onset. | No definition anchor.<br/>If no `Duration`, treated as point event.<br/>Commonly for delayed response times. |
+| `Onset` |  Marks start of event |  Used with a `Def` tag or `Def-exand` group anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor. |  
+| `Offset` | Marks end of event | Used with a `Def` tag or `Def-exand` group anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition. |
+| `Inset`   | Marks event intermediate pt | New in standard schema 8.2.0. <br/> Used with a `Def` tag or `Def-exand` group anchor.<br/> Must be within the event markers<br/>for an `Onset` marked-event with the same anchor. | 
+| `Duration ` | Marks end of an event.  | Doesn't use a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration. |
+| `Delay` | Marks delayed onset. | Doesn't use a definition anchor.<br/>If no `Duration`, treated as point event.<br/>Commonly for delayed response times. |
 | `Event-context` |  Context of ongoing events. | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.|
 
 All of these tags must appear in a `topLevelTagGroup`, which implies that they can't be nested.
@@ -248,9 +249,9 @@ interchangeably with the `Def/xxx`.
 ``````{admonition} **Syntax summary for <code>Onset</code> and <code>Offset</code>.**
 **Short forms:**
  ~ *(Def/xxx, Onset, (tag-group))*
- ~ *(Def/xxx/#, Onset, (tag-group))*
+ ~ *(Def/xxx/yyy, Onset, (tag-group))*
  ~ *(Def/xxx, Offset)*
- ~ *(Def/xxx/#, Offset)*
+ ~ *(Def/xxx/yyy, Offset)*
  
 **Long forms:**  
  ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
@@ -263,12 +264,13 @@ interchangeably with the `Def/xxx`.
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition anchoring the scoped event.
-2. The *(tag-group)* contains optional tags specific to that temporal event.
+2. *yyy* is the value substituted for a definition's placeholder if it has one.
+3. The *(tag-group)* contains optional tags specific to that temporal event.
 This tag group is not the tag group specifying the contents of the definition..
-3. The additional <em>tag-group</em> is only in effect for that particular scoped event
+4. The additional <em>tag-group</em> is only in effect for that particular scoped event
  and not for all events anchored by *Def/xxx*.
-4. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value.
-5. The entire definition identifier *Def/xxx/#*, including the value substituted for the `#`,
+5. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value.
+6. The entire definition identifier *Def/xxx/#*, including the value substituted for the `#`,
 is used as the anchor for temporal scope.
 ````
 ``````
@@ -385,8 +387,12 @@ The following table summaries the syntax for `Duration`.
 
 `Duration` tags do not use a definition anchor. 
 `Duration` should be grouped with tags representing additional information associated 
-with the temporal scope of that event. The `Duration` tag must appear in a top level tag
-group that may include an additional `Delay` tag.  
+with the temporal scope of that event. 
+
+The `Duration` tag must appear in a top level tag
+group that may include an additional `Delay` tag.
+If the `Duration` appears with `Delay`, the end of the temporal event is the onset of the current event plus the delay value plus the duration value.
+
 Several events with temporal-scopes defined by `Duration` tag groups 
 may appear in the annotations associated with the same event marker.
 
