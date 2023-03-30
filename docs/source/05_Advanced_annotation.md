@@ -70,7 +70,7 @@ one of the columns in the `events.tsv` file.
 > *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*  
 > *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
 > *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*  
+> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/# Hz</strong>))*  
 
 ````
 
