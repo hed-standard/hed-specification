@@ -2,7 +2,7 @@
     {
         "error_code": "TAG_GROUP_ERROR",
         "name": "tag-group-error-missing",
-        "description": "A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.",
+        "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -99,7 +99,7 @@
     {
         "error_code": "TAG_GROUP_ERROR",
         "name": "tag-group-error-not-top-level",
-        "description": "A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.",
+        "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -154,6 +154,92 @@
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_GROUP_ERROR",
+        "name": "multiple-top-level-tags-in-same-group",
+        "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Def/MyColor, Onset, Event-context)",
+                    "(Event-context, Red, Offset)"
+                ],
+                "passes": [
+                    "(Def/MyColor, Onset)"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/banana",
+                                "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                     [
+                         ["onset", "duration", "HED"],
+                         [ 4.5, 0, "Red, (Event-context, Def/MyColor, Onset)"],
+                         [ 5.0, 0, "Green"]
+                     ]
+                ],
+                "passes": [
+                    [
+                         ["onset", "duration", "HED"],
+                         [ 4.5, 0, "Red, (Event-context, Def/MyColor)"],
+                         [ 5.0, 0, "Green"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/banana",
+                                    "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, (Def/MyColor, Event-context, Event-context)"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "(Def/Acc/3.0 m-per-s^2, Onset)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue, (Event-context, Label/Red)"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
                     }

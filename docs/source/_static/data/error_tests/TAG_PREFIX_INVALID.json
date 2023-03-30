@@ -95,16 +95,17 @@
         "error_code": "TAG_PREFIX_INVALID",
         "name": "tag-prefix-invalid-characters",
         "description": "A tag prefix has invalid characters.",
-        "schema": ["8.1.0", "sc1:score_1.0.0"],
+        "schema": ["8.1.0", "sc:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "sc2:Sleep-modulator, Red"
+                    "sc2:Sleep-modulator, Red",
+                    "sca:Sleep-modulator, Red"
                 ],
                 "passes": [
                     "Blue",
-                    "sc1:Sleep-modulator, Red"
+                    "sc:Sleep-modulator, Red"
                 ]
             },
             "sidecar_tests": {
@@ -167,7 +168,7 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2, sc1:Sleep-modulator",
+                                    "face": "Acceleration/5 m-per-s^2, sc:Sleep-modulator",
                                     "ball": "Def/Acc/7, Blue"
                                 }
                             }
@@ -183,4 +184,4 @@
             }
         }
     }
-]    
+]

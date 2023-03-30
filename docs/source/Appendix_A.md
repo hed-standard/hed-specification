@@ -95,64 +95,64 @@ SI units that are not unit symbols are modified by unit modifiers.
   - Description
 * - deca
   - da
-  - Multiple representing 10^1
+  - Multiple representing 10 to power 1
 * - hecto
   - h
-  - Multiple representing 10^2
+  - Multiple representing 10 to power 2
 * - kilo
   - k
-  - Multiple representing 10^3
+  - Multiple representing 10 to power 3
 * - mega
   - M
-  - Multiple representing 10^6
+  - Multiple representing 10 to power 6
 * - giga
   - G
-  - Multiple representing 10^9
+  - Multiple representing 10 to power 9
 * - tera
   - T
-  - Multiple representing 10^12
+  - Multiple representing 10 to power 12
 * - peta
   - P
-  - Multiple representing 10^15
+  - Multiple representing 10 to power 15
 * - exa
   - E	
-  - Multiple representing 10^18
+  - Multiple representing 10 to power 18
 * - zetta
   - Z
-  - Multiple representing 10^21
+  - Multiple representing 10 to power 21
 * - yotta
   - Y
-  - Multiple representing 10^24
+  - Multiple representing 10 to power 24
 * - deci
   - d
-  - Submultiple representing 10^−1
+  - Submultiple representing 10 to power −1
 * - centi
   - c
-  - Submultiple representing 10^−2
+  - Submultiple representing 10 to power -2
 * - milli
   - m
-  - Submultiple representing 10^−3
+  - Submultiple representing 10 to power -3
 * - micro
   - u
-  - Submultiple representing 10^−6
+  - Submultiple representing 10 to power -6
 * - nano
   - n
-  - Submultiple representing 10^−9
+  - Submultiple representing 10 to power −9
 * - pico
   - p
-  - Submultiple representing 10^−12
+  - Submultiple representing 10 to power −12
 * - femto
   - f
-  - Submultiple representing 10^−15
+  - Submultiple representing 10 to power −15
 * - atto
   - a
-  - Submultiple representing 10^−18
+  - Submultiple representing 10 to power −18
 * - zepto
   - z
-  - Submultiple representing 10^−21
+  - Submultiple representing 10 to power −21
 * - yocto
   - y
-  - Submultiple representing 10^−24
+  - Submultiple representing 10 to power −24
 ``````
 
 ### A.1.3. Value classes
@@ -626,8 +626,8 @@ and multiples. All unit modifiers are at level 1 of the `.mediawiki` file.
 
 ```moin
 '''Unit modifiers''' 
-* deca <nowiki>{SIUnitModifier} [SI unit multiple for 10^1]</nowiki> 
-* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10^1]</nowiki>
+* deca <nowiki>{SIUnitModifier} [SI unit multiple for 10 raised to power 1]</nowiki> 
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10 raised to power 1]</nowiki>
 ```
 ````
 

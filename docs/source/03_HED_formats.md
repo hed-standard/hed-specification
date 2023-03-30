@@ -141,7 +141,7 @@ as well as the associated units that can be used with tags that take values.
 Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
 singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
-HED uses a `pluralize` function available in both Python and Javascript to check validity.
+HED uses a `pluralize` function available in both Python and Javascript to check validity. 
 
 Units may be in one of four forms as designated by their unit type attributes: 
 
@@ -161,6 +161,8 @@ section other than the unit class definition section of the schema,
 a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
+
+**Units are not case-sensitive, but unit symbols maintain their case.**
 
 #### 3.1.2.5. Unit modifiers
 
@@ -220,8 +222,8 @@ The section properties include `unitClassProperty`, `unitModifierProperty`,
 `unitProperty`, and `valueClassProperty`.
 Schema attributes without any section properties are assumed to apply to node elements.
 
-If a schema attribute may have multiple section properties, 
-indicating that the attribute may appear as a attribute in multiple sections of the schema.
+A schema attribute may have multiple section properties, 
+indicating that the attribute may appear as an attribute in multiple sections of the schema.
  
 See [**A.1.4 Schema attributes**](./Appendix_A.md#a14-schema-attributes) and 
 [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties) 
@@ -266,7 +268,7 @@ They may not contain square brackets, curly braces, quotes, or other characters.
 
 #### 3.1.3.2. Epilogue and prologue
 The epilogue and prologue section text must conform to the rules for
-[`textClass`](./Appendix_A.md#a13-value-classes) and may not contain commas.
+[`textClass`](./Appendix_A.md#a13-value-classes).
 The section text may have new lines, which are preserved.
 
 #### 3.1.3.3. Naming in other blocks
@@ -277,7 +279,7 @@ with the remainder in camel case.
 
 Units and unit modifiers follow the naming conventions of the units they represent.
 
-Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings.
+Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings. The case for unit symbols is also maintained.
 
 
 ### 3.1.4. Mediawiki schema format
@@ -310,7 +312,12 @@ or schema processing tools will generate a [**SCHEMA_ATTRIBUTE_INVALID**](./Appe
 
 Allowed HED node attributes include unit class and value class values as well as
 HED schema attributes that do not have one of the following modifiers:
-`unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. 
+`unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`.
+Note: schema attributes having the `elementProperty` may apply anywhere in the
+schema, including the schema header,
+schema attributes having the `nodeProperty` may only apply to node elements.
+
+
 
 HED schema attributes that have the `boolProperty` appear with just their name
 in the schema element they are modifying.
@@ -579,12 +586,15 @@ other types of tag syntax errors.
 
 Although by convention tag terms start with a capital letter with the remainder being lower case,
 tag processing is case-insensitive.
+This convention makes annotation strings more readable and is recommended
+for tag extensions.
 Validators and other tools must treat tags containing the same characters,
 but different variations in capitalization as equivalent.
 
 The only exception to the case-insensitive processing rule is that the correct case of units
 should be preserved, both during schema processing and during annotation processing.
-This rule is required because SI distinguishes units that have different case.
+This rule is required because SI distinguishes symbols and unit modifiers
+that differ in case.
 
 ### 3.2.4. Tags that take values
 
@@ -700,8 +710,6 @@ when used in annotation.
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
-
-
 See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
@@ -713,8 +721,9 @@ prefix notation is used in BIDS.
 
 A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
 
-A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in
-parentheses. Tag groups may include other tag groups.
+A **HED tag group** is an unordered,
+comma-separated list of HED tags and/or tag groups enclosed in parentheses. 
+Tag groups may include other tag groups.
 
 The validation errors for HED tags and HED strings are summarized in
 [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
@@ -745,7 +754,9 @@ must appear inside parentheses (e.g., must be in HED tag group).
 
 A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear
 in an unnested HED group in an assembled HED annotation.
-This `topLevelTagGroup` attribute is usually associated with tags
+Only one tag with the `topLevelTagGroup` attribute may appear in the same
+top-level group.
+The `topLevelTagGroup` attribute is usually associated with tags
 that have special meanings in HED such as `Definition` and `Onset`.
 
 See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) for
@@ -790,10 +801,7 @@ assuring that definitions cannot be nested.
 
 HED definitions may not contain any `Def` or `Def-expand` tags and must contain
 exactly one `Definition` tag.
-
 Multiple definitions with the same definition name are not allowed.
-This issue may not be detected until all available locations for definitions are scanned.
-Thus, definitions are usually detected and removed during early stages of processing.
 
 The `Definition` tag must be extended with a 
 value representing the definition name and may
@@ -802,22 +810,15 @@ If the definition name includes the `#` placeholder extension,
 then the defining tags must
 include exactly one tag that takes a value along with its `#` placeholder.
 
-Definitions with the same name are considered duplicate definitions regardless of whether one has a placeholder
-and another does not.
+Definitions with the same name are considered duplicate definitions regardless of 
+whether one has a placeholder and another does not.
 **However, each distinct substituted value represents a distinct definition name for
 purposes of `Onset`/`Offset` processing.**
-
->**Under review:**   
-> The `Definition` tag groups may appear anywhere that HED annotations can be used,
-including in sidecars, in the HED column of tabular files,
-or in HED-specified columns of tag spreadsheets.
-HED definitions are usually separated from
-the annotations and gathered prior to other processing.
 
 See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) for
 a listing of situations in which a definition may be invalid.
 
-See also [**Definition syntax**](./05_Advanced_annotation.md#51-definition-syntax) 
+See also [**Chapter 5.1 Creating definitions**](./05_Advanced_annotation.md#51-creating-definitions) 
 for more details and examples.
 
 #### 3.2.8.2. `Def` and `Def-expand` tags
@@ -826,14 +827,15 @@ A definition is incorporated into annotations using the tag
 `Def/xxx` where `xxx` is the definition's name.
 
 Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` 
-where `xxx` is the definition's name and `yyy` represents the definition's tags,
-not including the inner groups enclosing parentheses. 
+where `xxx` is the definition's name and `yyy` is a tag group containing
+the definitions contents.
 
 The two usages are equivalent, and tools should be able to transform between the two representations.
-Note, however, that transforming from the `Def` to the `Def-expand` form requires the definition,
-while transforming from the `Def-expand` to `Def` form does not.
+Note, however, that transforming from a `Def` to a `Def-expand-group` requires the definition,
+while transforming from a `Def-expand-group` to `Def` form does not.
 
-A value must be substituted for the `#` placeholder in `Def` and `Def-expand` when final
+For definitions that include a placeholder, a value must be substituted for 
+the `#` placeholder in `Def` and `Def-expand-group` when final
 annotation assembly occurs. 
 
 See [**DEF_INVALID**](./Appendix_B.md#def_invalid) and
@@ -847,52 +849,31 @@ for more details and examples.
 
 The `Onset` and `Offset` tags are used to represent the temporal extent
 of events that have non-zero duration.
-
-`Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute.
-Hence, these tags must appear in within a single set of parentheses referred to as the
-tags enclosing tag group.
-
-As a consequence of the `topLevelTagGroup` and format requirements,
-`Onset` and `Offset` may not appear in the same tag group.
-Further, a HED definition cannot include `Onset` or `Offset` tags.
-
-In annotations, the `Onset` and `Offset` tag's enclosing tag group must contain
-a `Def` or `Def-expand` group,
-and optionally an additional tag group. No other items are allowed.
-
-An `Onset` tag group and a `Offset` tag group associated with the same definition name
-cannot appear in the assembled annotation for a single time-point.
-
-No `Definition` tags are allowed in an `Onset` or `Offset` tag's enclosing tag group.
+Each of these tags must appear in a top level tag group with a
+`Def` or `Def-expand-group` anchor.
 
 A tag group with an `Onset` represents the start of an event that extends over time.
-Only one `Def` or `Def-expand` group may be included in the `Onset` group at the top level.
-The name of the corresponding definition identifies the event that was initiated and
-is referred to as the anchor definition.
-
-In annotations, the `Onset` tag group includes the `Onset` tag, a `Def` or a `Def-expand` group,
-and optionally an additional tag group. No other items are allowed.
-The additional tag group may contain `Def` or `Def-expand` tags not having
-the `Onset` tag's anchor definition name. 
-
-In annotations, the `Offset` tag group includes the `Offset` tag and a `Def` or `Def-expand` group.
-No other items are allowed.
 A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group.
-The definition name associated with the top-level `Def` or `Def-expand` group identifies the
-event that ended.
+A given event of temporal extent is also terminated by the appearance of another
+`Onset` group with the same `Def` or `Def-expand-group` anchor.
 
+The `Onset` tag group may only contain its `Def` or `Def-expand-group` anchor and
+at most one additional inner tag group in addition to the `Onset` tag.
 
+The `Offset` tag group may only contain its `Def` or `Def-expand-group` anchor in
+addition to the `Offset` tag.
 
-In addition to the top-level `Def` or `Def-expand` group that identifies the event,
-`Def` or `Def-expand` groups may appear in the optional tag group within an `Onset` group.
-The definition names corresponding to these should not be used elsewhere to identify events.
-
+These requirements imply that `Onset` and `Offset` must be the only tags
+in their tag group with the `topLevelTagGroup` attribute.
+`Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute.
+This implies, for example, that HED definition's contents may not include 
+`Onset` or `Offset` tags. 
 
 See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) and 
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 for a listing of specific errors associated with onsets and offsets.
 
-[**Onsets and Offsets**](./05_Advanced_annotation.md#531-onsets-and-offsets)
+[**Chapter 5.3.1 Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
 
@@ -911,7 +892,7 @@ See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 on validation errors related to `Event-context`.
 
 Additional details and examples for `Event-context` can be found in
-[**5.5. Event context**](./05_Advanced_annotation.md#55-event-context).
+[**5.5. Event contexts**](./05_Advanced_annotation.md#55-event-contexts).
 
 ### 3.2.9. Sidecars
 
@@ -924,6 +905,11 @@ allows HED tools to assemble HED annotations for each row in the file.
 
 The rows of tabular files representing other types of information
 can also be annotated in the same way.
+
+The "HED" key, which may only appear at the second level in the JSON dictionary,
+designates an entry that contains HED annotations.
+"HED" keys that appear at other levels of the JSON sidecar are considered to be
+in error.
 
 HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
@@ -1100,7 +1086,7 @@ the row value is substituted for `#` placeholder in the annotation and the resul
 4. If a `HED` column annotation exists for that row, it is concatenated to the list.
 5. Finally, all the entries of the list are joined using a comma (`,`) separator.
 
-In all cases `n/a` row values are skipped.
+In all cases `n/a` column values are skipped.
 ````
 
 For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
