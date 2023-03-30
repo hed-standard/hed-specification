@@ -141,7 +141,7 @@ as well as the associated units that can be used with tags that take values.
 Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
 singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
-HED uses a `pluralize` function available in both Python and Javascript to check validity.
+HED uses a `pluralize` function available in both Python and Javascript to check validity. 
 
 Units may be in one of four forms as designated by their unit type attributes: 
 
@@ -161,6 +161,8 @@ section other than the unit class definition section of the schema,
 a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
+
+**Units are not case-sensitive, but unit symbols maintain their case.**
 
 #### 3.1.2.5. Unit modifiers
 
@@ -220,7 +222,7 @@ The section properties include `unitClassProperty`, `unitModifierProperty`,
 `unitProperty`, and `valueClassProperty`.
 Schema attributes without any section properties are assumed to apply to node elements.
 
-If a schema attribute may have multiple section properties, 
+A schema attribute may have multiple section properties, 
 indicating that the attribute may appear as an attribute in multiple sections of the schema.
  
 See [**A.1.4 Schema attributes**](./Appendix_A.md#a14-schema-attributes) and 
@@ -266,7 +268,7 @@ They may not contain square brackets, curly braces, quotes, or other characters.
 
 #### 3.1.3.2. Epilogue and prologue
 The epilogue and prologue section text must conform to the rules for
-[`textClass`](./Appendix_A.md#a13-value-classes) and may not contain commas.
+[`textClass`](./Appendix_A.md#a13-value-classes).
 The section text may have new lines, which are preserved.
 
 #### 3.1.3.3. Naming in other blocks
@@ -277,7 +279,7 @@ with the remainder in camel case.
 
 Units and unit modifiers follow the naming conventions of the units they represent.
 
-Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings.
+Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings. The case for unit symbols is also maintained.
 
 
 ### 3.1.4. Mediawiki schema format
@@ -310,7 +312,12 @@ or schema processing tools will generate a [**SCHEMA_ATTRIBUTE_INVALID**](./Appe
 
 Allowed HED node attributes include unit class and value class values as well as
 HED schema attributes that do not have one of the following modifiers:
-`unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. 
+`unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`.
+Note: schema attributes having the `elementProperty` may apply anywhere in the
+schema, including the schema header,
+schema attributes having the `nodeProperty` may only apply to node elements.
+
+
 
 HED schema attributes that have the `boolProperty` appear with just their name
 in the schema element they are modifying.
@@ -579,12 +586,15 @@ other types of tag syntax errors.
 
 Although by convention tag terms start with a capital letter with the remainder being lower case,
 tag processing is case-insensitive.
+This convention makes annotation strings more readable and is recommended
+for tag extensions.
 Validators and other tools must treat tags containing the same characters,
 but different variations in capitalization as equivalent.
 
 The only exception to the case-insensitive processing rule is that the correct case of units
 should be preserved, both during schema processing and during annotation processing.
-This rule is required because SI distinguishes units that have different case.
+This rule is required because SI distinguishes symbols and unit modifiers
+that differ in case.
 
 ### 3.2.4. Tags that take values
 
@@ -700,8 +710,6 @@ when used in annotation.
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
-
-
 See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
@@ -713,8 +721,9 @@ prefix notation is used in BIDS.
 
 A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
 
-A **HED tag group** is a comma-separated list of HED tags and/or tag groups enclosed in
-parentheses. Tag groups may include other tag groups.
+A **HED tag group** is an unordered,
+comma-separated list of HED tags and/or tag groups enclosed in parentheses. 
+Tag groups may include other tag groups.
 
 The validation errors for HED tags and HED strings are summarized in
 [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
@@ -792,10 +801,7 @@ assuring that definitions cannot be nested.
 
 HED definitions may not contain any `Def` or `Def-expand` tags and must contain
 exactly one `Definition` tag.
-
 Multiple definitions with the same definition name are not allowed.
-This issue may not be detected until all available locations for definitions are scanned.
-Thus, definitions are usually detected and removed during early stages of processing.
 
 The `Definition` tag must be extended with a 
 value representing the definition name and may
@@ -808,12 +814,6 @@ Definitions with the same name are considered duplicate definitions regardless o
 whether one has a placeholder and another does not.
 **However, each distinct substituted value represents a distinct definition name for
 purposes of `Onset`/`Offset` processing.**
-
-The `Definition` tag groups may appear anywhere that HED annotations can be used,
-including in sidecars, in the HED column of tabular files,
-or in HED-specified columns of tag spreadsheets.
-HED definitions are usually separated from
-the annotations and gathered prior to other processing.
 
 See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) for
 a listing of situations in which a definition may be invalid.
@@ -905,6 +905,11 @@ allows HED tools to assemble HED annotations for each row in the file.
 
 The rows of tabular files representing other types of information
 can also be annotated in the same way.
+
+The "HED" key, which may only appear at the second level in the JSON dictionary,
+designates an entry that contains HED annotations.
+"HED" keys that appear at other levels of the JSON sidecar are considered to be
+in error.
 
 HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
@@ -1081,7 +1086,7 @@ the row value is substituted for `#` placeholder in the annotation and the resul
 4. If a `HED` column annotation exists for that row, it is concatenated to the list.
 5. Finally, all the entries of the list are joined using a comma (`,`) separator.
 
-In all cases `n/a` row values are skipped.
+In all cases `n/a` column values are skipped.
 ````
 
 For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
