@@ -98,7 +98,13 @@
                     {
                         "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple)",
+                                    "def1": "(Definition/Apple)"
+                                }
+                            }
+                        },
+                    {
+                        "defs": {
+                                "HED": {
                                     "def2": "(Definition/Blech/#, ())"
                                 }
                             }
