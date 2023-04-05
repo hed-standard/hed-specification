@@ -17,7 +17,7 @@ HED specification
 
    * `HED resources <https://www.hed-resources.org/>`_
 
-   * `HED project homepage <https://hedtags.org/>`_
+   * `HED project homepage <https://www.hedtags.org/>`_
 
 |
 |
