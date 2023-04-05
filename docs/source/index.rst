@@ -7,7 +7,7 @@ HED specification
 
 .. sidebar:: **Links**
 
-   * `PDF released version (V3.0.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`_
+   * `PDF released version (V3.1.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_1_0.pdf>`_
 
    * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
 

@@ -672,6 +672,7 @@ The requirements for such an extension are:
 conforms to the rules for a *nameClass* value.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
+5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
 
 **Note:** The is-a relationship is not checked by validators.
 It is needed so that term search works correctly.
