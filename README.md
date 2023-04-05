@@ -4,15 +4,18 @@
 including information on the format and rules for HED vocabularies (schemas)
 as well as rules for how tools should treat HED-annotated data.
 
-If you just 
-want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org) documentation website. 
+If you just
+want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
 If you are a developer of a new HED vocabulary (schema) please see the
-[**Schema development guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
+[Schema development guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
 
 The latest version of the HED specification is available at the
 [**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html).
 
-The most current officially released version of the HED specification can be found at [HED specification (PDF)](<https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`)
+The official library schemas are now housed on the
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+
+The most current officially released version of the HED specification can be found at [**HED specification (PDF)**](<https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_0_0.pdf>`)
 
 ## About HED
 HED (Hierarchical Event Descriptors) is an evolving framework for the description and 
@@ -31,9 +34,9 @@ motion-capture, EKG, and audiovisual recording.
 
 The following white papers give an overview of HED and how it is used.
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).  
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2022).  
 > Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).   
-> Neuroinformatics Special Issue Building the NeuroCommons. Neuroinformatics https://doi.org/10.1007/s12021-021-09537-4.  
+> Neuroinformatics Special Issue Building the NeuroCommons. Neuroinformatics 20, pages463–481.
 > [https://link.springer.com/article/10.1007/s12021-021-09537-4](https://link.springer.com/article/10.1007/s12021-021-09537-4).
 
 > Robbins, K., Truong, D., Appelhoff, S., Delorme, A., & Makeig, S. (2021).  
@@ -48,9 +51,10 @@ The HED schema represents the allowed vocabulary for use in annotation.
 The HED specification document specifies how tools should implement 
 and validate various features of HED.
 
-| HED specification version  | Release date | HED schema versions |
-| ----------------- | -------------------------- | -------------------------- |
-|   HED Specification 3.0.0           |     Oct 27, 2022           |  >= HED 8.0.0                  |
+| Specification<br>Version  | Release date | Schema<br>versions | Description |
+| ---------- | ---------------- | -------------- | --------------  |
+|   3.0.0    |    Oct 27, 2022   |  &ge; 8.0.0  | - First official release  |
+| 3.1.0  | Apr 5, 2023 |  &ge; 8.0.0  | - Cleanup and clarification<br>- JSON unit tests keyed to errors. |
 
 The first official release of the HED specification, HED Specification 3.0.0, 
 marked the separation of the versioning of the specification and the schema.

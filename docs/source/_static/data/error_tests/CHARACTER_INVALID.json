@@ -1,0 +1,178 @@
+ [
+    {
+        "error_code": "CHARACTER_INVALID",
+        "name": "character-invalid-utf-8",
+        "description": "The HED string contains a UTF-8 character.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Description/This is a ʰ bad character"
+                ],
+                "passes": [
+                    "Red, Blue, Description/Red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "show": "Red, Label/a ʰ bad"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "show": "Red, Label/Good"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a ʰ bad"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/Temp"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "show": "Red, Label/a ʰ bad",
+                                    "ball": "Def/Acc/4.5 m-per-s^2"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "show", "Description/a ʰ good"],
+                                [ 5.0, 0, "ball", "Blue"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                         "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "show": "Red, Label/a"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "show", "Description/goodness"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "CHARACTER_INVALID",
+        "name": "character-invalid-#-value-class",
+        "description": "An extension or a value substituted for a `#` is not allowed by its value class.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": ["Acceleration/banana", "Def/Acc/apple3, Blue"],
+                "passes": ["Acceleration/3.4 m-per-s^2", "Def/Acc/10.1 m-per-s^2"]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/banana",
+                                "ball": "Def/Acc/apple3, Blue"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/6.8 m-per-s^2",
+                                "ball": "Def/Acc/5.433 m-per-s^2, Blue"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Acceleration/banana"],
+                        [ 5.5, 0, "Def/Acc/apple3, Blue"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Acceleration/6.8 m-per-s^2"],
+                        [ 5.5, 0, "Def/Acc/5.433 m-per-s^2, Blue"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/banana",
+                                    "ball": "Def/Acc/apple3, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    

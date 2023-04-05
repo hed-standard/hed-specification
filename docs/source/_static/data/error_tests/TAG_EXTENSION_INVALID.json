@@ -1,0 +1,199 @@
+[
+    {
+        "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-duplicate",
+        "description": "A tag extension term is already in the schema.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                    "Sensory-presentation/Red/Redish"
+                ],
+                "passes": [
+                    "Red-color/Red/Redish",
+                    "((Green/Greenish))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                                "ball": "Sensory-presentation/Red/Redish"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "((Green/Greenish))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red-color/Red/DarkRed, Sensory-presentation/Red"],
+                        [ 5.5, 0, "Sensory-presentation/Red/Redish"]                       
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Red-color/Red"],
+                        [ 5.5, 0, "((Green))"]                        
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Red-color/Red/DarkRed, Sensory-presentation/Red",
+                                    "ball": "Sensory-presentation/Red/Redish"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Red-color/Red",
+                                    "ball": "Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_EXTENSION_INVALID",
+        "name": "tag-extension-invalid-bad-node-name",
+        "description": "A tag extension term does not comply with rules for schema nodes.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red/Red$2",
+                    "Red/R#d"
+                ],
+                "passes": [
+                    "Red-color/Red",
+                    "((Green))",
+                    "Red"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red/Red$2",
+                                "ball": "Red/R#d"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red-color/Red/Redish",
+                                "ball": "Red-color/Red/Redish/More-redish",
+                                "square": "((Green/Greenish))",
+                                "triangle": "Red/1red",
+                                "catwalk": "Red/Red--2red"
+                            }
+                        }
+                    }                    
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red/Red$2"],
+                        [ 5.5, 0,  "Red/R#d"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Red-color/Red/Redish"],
+                        [ 5.5, 0, "Red-color/Red/Redish/More-redish"],
+                        [ 6.5, 0, "((Green/Greenish))"],
+                        [ 7.5, 0, "Red/1red"],
+                        [ 8.2, 0, "Red/Red--2red"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Red/Red$2",
+                                    "ball": "Red/R#d"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Red/Redish-like",
+                                    "ball": "Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    

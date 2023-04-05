@@ -1,0 +1,90 @@
+[
+    {
+        "error_code": "TAG_NOT_UNIQUE",
+        "name": "tag-not-unique",
+        "description": "A tag with unique attribute appears more than once in an event-level HED string.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
+                ],
+                "passes": [
+                    "(Event-context, (Red, Blue))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Event-context, (Red, Blue))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0,  "(Event-context, (Red, Blue))"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Event-context, (Red, Blue)), (Event-context, (Green, Yellow))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "(Event-context, (Red, Blue))",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "(Event-context, (Red, Blue))"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    

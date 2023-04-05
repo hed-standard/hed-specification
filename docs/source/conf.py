@@ -25,8 +25,8 @@ copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
-release = '3.0.0'
-version = '3.0.0'
+release = '3.1.0'
+version = '3.1.0'
 
 currentdir = os.path.abspath(os.path.dirname(__file__))
 
@@ -45,15 +45,14 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.githubpages",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.extlinks"
+    "sphinx.ext.napoleon"
 ]
 
 autosummary_generate = True
 autodoc_default_flags = ['members', 'inherited-members']
 add_module_names = False
 myst_all_links_external = False
-myst_heading_anchors = 2
+myst_heading_anchors = 5
 myst_enable_extensions = ["deflist"]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -86,7 +85,7 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 4,
+    'navigation_depth': 5,
     'includehidden': True,
     'titles_only': False
 }

@@ -18,7 +18,7 @@ usable by the broader user community.
 
 Third generation HED instead introduces the concept of the **HED library schema**. 
 To use a programming analogy, when programmers write a Python module, the resulting code 
-does not become part of the Python language or core library. Instead, the module becomes 
+does not become part of the Python language or core libraries. Instead, the module becomes 
 part of a library used in conjunction with core modules of the programming language. 
 
 Similar to the design principles imposed on function names and subclass organization in 
@@ -27,9 +27,9 @@ software development, HED library schemas must conform to some basic rules:
 ``````{admonition} Rules for HED library schema design.
 :class: tip
 
-1. Library schema must be given a name containing only alphabetic chararacters.
+1. A library schema must be given a name containing only alphabetic chararacters.
 This name must appear in the schema header line in the required format.
-2. The library must use semantic versioning and follow the versioning update rules used by
+2. A library library must use semantic versioning and follow the versioning update rules used by
 the HED standard schema.
 3. Every term must be unique within the library schema and must conform to the rules for
 HED schema terms.
@@ -38,7 +38,7 @@ should be meaningful in themselves without reference to their position in the sc
 5. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
 6. Terms that are used independently of one another should be in different sub-trees (orthogonality).
 7. The schema should include the schema attributes, unit classes, unit modifiers, value classes,
-and schema properties present in the standard HED schema.
+and schema properties present in the HED standard schema.
 
 ``````
 
@@ -47,9 +47,11 @@ and used, in addition to the standard HED schema. Libraries allow individual res
 communities to annotate details of events in experiments designed to answer questions 
 of interest to particular research or clinical communities. Since it would be impossible 
 to avoid naming conflicts across schema libraries that may be built in parallel by different
-user communities, HED supports schema library namespaces. Users will be able to add library 
-tags qualified with namespace designators. All HED schemas, including library schemas, 
-adhere to [semantic versioning](https://semver.org/).
+user communities, HED supports schema library namespaces 
+(the prefix notation described in the previous section).
+Users will be able to add library tags qualified with namespace designators. 
+All HED schemas, including library schemas, 
+adhere to [**semantic versioning**](https://semver.org/).
 
 In general, library schema developers should include the auxiliary schema classes from
 the standard HED schema: the schema attributes, unit classes, unit modifiers,
@@ -57,23 +59,20 @@ value classes, and schema properties. The HED tools support these auxiliary
 classes but in general would not support special handling of added classes beyond basic
 verification. 
 
-If your schema requires schema classes that are not available
+If your application requires schema classes that are not available
 in the standard HED schema and would like these classes to be supported,
-please make a request using the [**HED specification issues**](https://github.com/hed-standard/hed-specification/issues) forum.
+please make a request using the [**HED examples issues**](https://github.com/hed-standard/hed-examples/issues) forum.
 
-Please do not duplicate tags in the `Property/Informational-property` and
-`Relation` subtrees, as many of these tags have specialized uses and tool support.
-In particular, `Definition`, `Def`, `Def-expand` and `Event-context` should
-NEVER be duplicated in a library schema.
-
+A schema should not duplicate tags found in the standard schema.
 
 ## 7.1. Defining a schema
 
-A HED library schema is defined in the same way as the standard HED schema except that it has an
-additional attribute name-value pair, `library="xxx"` in the schema header. We will use as an
-illustration a library schema for driving. Syntax details for a library schema are similar to
-those for the standard HED schema. (See [Appendix A: Schema format](Appendix_A.md#a-schema-format)
-for more details).
+A HED library schema is defined in the same way as the standard HED schema 
+except that it has an additional attribute name-value pair `library="xxx"` 
+in the schema header. 
+We will use as a library schema for driving as an illustration.
+Syntax details for a library schema are similar to those for the standard HED schema.
+
 
 ````{admonition} **Example:** Driving library schema (MEDIAWIKI template).
 
@@ -101,44 +100,41 @@ and *property-specification*.
 ```
 ````
 
-The schema XML file should be saved as `HED_driving_1.0.0.xml` to facilitate 
-specification in tools.
+During annotation tags from different library schemas can
+be intermixed with those of the standard schema.
+Since the node names within a library must be
+unique, annotators can use short form as well as fully expanded tag paths for library schema 
+tags as well as those from the standard HED schema.
+
+The schema XML file should be saved as `HED_driving_1.0.0.xml` so that tools can locate them.
+The official location of HED standard and library schemas is the
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 ## 7.2. Schema namespaces
 
-As part of the HED annotation process, users must associate a standard HED schema with their
-datasets.
-Users may also include tags from an arbitrary number of additional library schemas.
-For each library schema used to annotate a data recording,
-the user must associate a local 
-name with the appropriate library schema name and version.
-Each library must be associated with a distinct local name within a recording annotations.
-The local names should be strictly alphanumeric with no blanks or punctuation. 
+As part of the HED annotation process, users must associate one or more
+HED schemas with their datasets.
+If multiple schemas are used, users must define a local prefix for
+each additional schema and prefix the tags from each of these
+additional schemas by their respective prefix in annotations.
+The local names should be strictly alphabetic with no blanks or punctuation.
+If a tag prefix is invalid in the version specification,
+a schema loading error occurs.
 
-The user must pass information about the library schema and their associated local names to 
-processing functions. HED uses a standard method of identifying namespace elements by prefixing
-HED library schema tags with the associated local names. Tags from different library schemas can
-be intermixed with those of the standard schema. Since the node names within a library must be
-unique, annotators can use short form as well as fully expanded tag paths for library schema 
-tags as well as those from the standard HED schema.
+
 
 ````{admonition} **Example:** Driving library schema example tags.
 
 ```
-dp:Action/Drive/Change-lanes
+dp:Drive-action/Change-lanes
 dp:Drive/Change-lanes
 dp:Change-lanes
 ```
 ````
 
 A colon (`:`) is used to separate the qualifying local name from the remainder of the tag. 
-Notice that *Action* also appears in the standard HED schema. Identical terms may be used 
-in a library schema and the standard HED schema. Use of the same term implies a similar 
-purpose. Library schema developers should try not to reuse terms in the standard schema 
-unless the intention is to convey a close or identical relationship.
 
-
-## 7.3. Attributes and classes
+## 7.3. Library schema layout
 
 In addition to the specification of tags in the main part of a schema, a HED schema has 
 sections that specify unit classes, unit modifiers, value classes, schema attributes, 
@@ -147,24 +143,25 @@ as follows:
 
 ### 7.3.1. Required sections
 
-The required sections of a library schema are: the *schema-specification*, 
-the *unit-class-specification*, the *unit-modifier-specification*, 
-the *value-class-specification* section, the *schema-attribute-specification* section, 
-and the *property-specification*. The library schema must include all required 
+The required sections of a library schema are the same as those for the
+standard schema.
+These sections are listed in 
+[**3.1.2. Schema layout overview**](./03_HED_formats.md#312-schema-layout-overview).
+The library schema must include all required 
 schema sections even if the content of these sections is empty.
 
 ### 7.3.2. Relation to standard HED schema
 
 Any schema attribute, unit class, unit modifier, value class, or property used in the
 library schema must be specified in the appropriate section of the library schema
-regardless of whether these appear in the standard HEd schema. Validators check the library
+regardless of whether these appear in the standard HED schema. Validators check the library
 schema strictly on the basis of its own specification without reference to another 
 schema.
 
 ### 7.3.3. Schema properties
 
-HED only supports the schema properties listed in Table B.2: *boolProperty*, 
-*unitClassProperty*, *unitModifierProperty*, *unitProperty*, and *valueClassProperty*.  
+HED only supports the schema properties listed in
+[**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties). 
 If the library schema uses one of these in the library schema specification, 
 then its specification must appear in the *property-specification* section of the library schema.
 
@@ -178,17 +175,21 @@ information for these.
 
 ### 7.3.5. Value classes
 
-The standard value classes (*dateTimeClass[*]*, *nameClass*, *numericClass[*]*, 
-*posixPath[*]*, *textClass[*]*) if used, should have the same meaning as in the 
-standard HED schema. The hard-coded behavior associated with the starred ([*]) value 
-classes will be the same. Library schema may define additional value classes and 
+The standard value classes listed in [**A.1.3. Value classes**](./Appendix_A.md#(a-13-value-classes)
+are the only value classes that should be used in designing library schemas as 
+these are the only ones that general tools will support.
+If additional value classes are needed, they should be proposed on `hed-schemas` repository
+[**issue forum**](https://github.com/hed-standard/hed-schemas/issues).
+
+Library schema may define additional value classes and 
 specify their allowed characters, but no additional hard-coded behavior will be 
 available in the standard toolset. This does not preclude special-purpose tools 
 from incorporating their own behavior.
 
 ### 7.3.6. Schema attributes
 
-The standard schema attributes (*allowedCharacter*, *defaultUnits*, *extensionAllowed*,
+The standard schema attributes listed in
+[**A.1.4. Schema attributes**](./Appendix_A.md#(*allowedCharacter*, *defaultUnits*, *extensionAllowed*,
 *recommended*, *relatedTag*, *requireChild*, *required*, *SIUnit*, *SIUnitModifier*,
 *SIUnitSymbolModifier*, *suggestedTag*, *tagGroup*, *takesValue*, *topLevelTagGroup*, 
 *unique*, *unitClass*, *unitPrefix*, *unitSymbol*, *valueClass*) should have the same
@@ -200,9 +201,10 @@ their own behavior.
 
 ### 7.3.7. Syntax checking
 
-Regardless of whether a specification is in the standard HED schema or not, HED tools can perform basic syntax checking.
+Regardless of whether an entity is in the standard HED schema or a library schema,
+HED schema validation tools perform basic syntax checking.
 
-````{admonition} Basic syntax checking for library schema.
+````{admonition} Basic syntax checking for HED schemas.
 :class: tip
 
 1. All attributes used in the schema proper must be defined in the schema attribute section of the schema.
@@ -211,76 +213,46 @@ Regardless of whether a specification is in the standard HED schema or not, HED 
 4. Actual handling of the semantics by HED tools only occurs for entities appearing in the standard HED schema.
 ````
 
-## 7.4. library schemas in BIDS
+## 7.4. Library schemas in BIDS
 
 The most common use case (for 99.9% of the HED users) is to tag events using
-one of the standard HED schemas (preferably the latest one) available in the
-`hedxml` directory of the `hed-specification` repository of the
+a standard HED schemas (preferably the latest one) available in the
+`standard_schema/hedxml` directory of the `hed-schemas` repository of the
 `hed-standard` organization on GitHub.
 The standard schemas are available at:
-[https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml).
+[**https://github.com/hed-standard/hed-schemas/tree/main/standard_schema**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema).
 
-This section explains the changes that are being proposed in BIDS to accommodate
-access to HED library schemas in addition to the standard HED schemas.
-This section will be updated as the proposals progress though the 
-BIDS review process.
-The initial proposal only supports **official standard schemas** available at 
-[https://github.com/hed-standard/hed-specification/tree/master/hedxml](https://github.com/hed-standard/hed-specification/tree/master/hedxml) 
-and **official library schemas** available at
-[https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas](https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas).
+The **official library schemas** are available at
+[**https://github.com/hed-standard/hed-schemas/tree/main/library_schemas**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas).
 
 Standard schemas are referenced by their version number (e.g., `8.0.0`),
 while library schema are referenced by a combination of library name
-and version number (e.g., `score_0.0.1`).
-
-The major change proposed to the BIDS specification is to allow the value
-associated with the `"HEDVersion"` key in the `dataset_description.json` 
-file to be an array rather than a string expressing the HED version. 
-This proposed change will allow users more flexibility in specifying the 
-standard HED schema and will accommodate an arbitrary number of library schemas.
-The different cases are illustrated in the following examples.
-
-The original BIDS specification just allows the standard HED schema,
-which is named using a version number.
-
-
-````{admonition} **Example:** Using just the standard HED schema in BIDS.
-```json
-{
-    "Name": "A wonderful experiment",
-    "BIDSVersion": "1.6.0",
-    "HEDVersion":  "8.0.0"
-}
-
-```
-````
-
+and version number (e.g., `score_1.0.0`).
 
 The following example specifies that version 8.0.0 of the standard HED schema is 
 to be used in addition to two library schemas: 
-the `score` library version `0.0.1` and the `testlib` library version `1.0.2`. 
+the `score` library version `1.0.0` and the `testlib` library version `1.0.2`. 
 
 
-````{admonition} **Example:** Proposed specification of library schema in BIDS.
+````{admonition} **Example:** An example specification with multiple schemas.
 
 ```json
 {
     "Name": "A wonderful experiment",
-    "BIDSVersion": "1.6.0",
-    "HEDVersion": ["8.0.0", "sc:score_0.0.1", "ts:testlib_1.0.2"]
+    "BIDSVersion": "1.8.0",
+    "HEDVersion": ["8.0.0", "sc:score_1.0.0", "ts:testlib_1.0.2"]
 }
 
 ```
 ````
 
-
 Based on the above description tools will download:
 1. The standard HED schema:  
-[https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml](https://github.com/hed-standard/hed-specification/tree/master/hedxml/HED8.0.0.xml).
-2. The HED `score` library schema version 0.0.1:  
-[https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas/score/hedxml/HED_score_0.0.1.xml](https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas/score/hedxml/HED_score_0.0.1.xml). 
+[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.0.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.0.0.xml).
+2. The HED `score` library schema version 1.0.0:  
+[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_1.0.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_0.0.1.xml). 
 3. The HED `testlib` library schema version 1.0.2:  
-[https://github.com/hed-standard/hed-schema-library/tree/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml](https://github.com/hed-standard/hed-schema-library/blob/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml).
+[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml).
 
 A schema browser is available for each library.
 For example the schema browser for the `score` library schema is available at
@@ -293,34 +265,43 @@ specification, so tags from this schema may appear directly in the annotation.
 
 The `sc` and `ts` are local names used to distinguish
 tags from the additional schema.
-Tags from the `score` library schema are of the form `sc:XXX` where `XXX` 
+Tags from the `score` library schema are of the form `sc:xxx` where `xxx` 
 is a tag from the `score` schema.
-Similarly, tags from the `testlib` library schema are of the form `ts:YYY` 
-where `YYY` is a tag from the `testlib` schema.
-
-In the following sample annotation `Data-feature` is from the standard HED schema,
-while `Photomyogenic-response` and `Wicket-spikes` are from the `score` library.
-
-````{admonition} **Example:** An annotation using tags from two schemas.
-```Text
-Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes
-```
-````
+Similarly, tags from the `testlib` library schema are of the form `ts:yyy` 
+where `yyy` is a tag from the `testlib` schema.
 
 The array specification of the schema versions can have at most one version
 appearing without a colon prefix.
 
-For some applications, the annotator will only want to use a particular
-library schema. The following example specifies that only the `score`
-library will be used. No prefixes are required in this case.
+
+### 7.1. Using library schema in BIDS
+
+The following `datset_description.json` of a BIDS dataset
+indicates that HED standard schema version 8.1.0 should be used
+alone with SCORE library schema 1.0.0.
+The tags are....
+````{admonition} Illustration of using the namespace prefix for tagging.
+:class: tip
 
 
-````{admonition} **Example:** Use of only the score library schema for tagging.
+
 ```json
 {
-    "Name": "A wonderful experiment",
-    "BIDSVersion": "1.6.0",
-    "HEDVersion": "score_0.0.1"
+  "Name": "A great experiment",
+  "BIDSVersion": "1.8.0",
+  "HEDVersion": ["8.1.0", "sc:score_1.0.0"]
 }
 ```
+
+```text
+"Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes"
+```
 ````
+
+
+Additional information can be found in [**HED schema format**](./03_HED_formats.md#31-hed-schema-format) of Chapter 3 
+and [**Appendix A: Schema format details**](Appendix_A.md) for additional information.
+
+Schema developers should also consult the
+[**HED schema development guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
+

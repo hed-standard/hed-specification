@@ -5,7 +5,7 @@
 
 Explanation of the history, development, and motivation for third generation HED: 
 
-> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2021).  
+> Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2022).  
 > Building FAIR functionality: Annotating events in time series data using Hierarchical Event Descriptors (HED).  
 > Neuroinformatics Special Issue Building the NeuroCommons. Neuroinformatics https://doi.org/10.1007/s12021-021-09537-4.  
 > [https://link.springer.com/article/10.1007/s12021-021-09537-4](https://link.springer.com/article/10.1007/s12021-021-09537-4).

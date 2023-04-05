@@ -1,0 +1,803 @@
+[
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-tag-group",
+        "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                    "Definition/Blech, (Red)"
+                ],
+                "passes": [
+                    "(Definition/Blech, (Red))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                                "def2": "Definition/Blech, (Red)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Blech, (Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Blue)), ((Definition/Blech, (Red)))",
+                                    "def2": "Definition/Blech, (Red)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/MyColor, Def/Apple"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Blue))",
+                                    "def2": "(Definition/Blech, (Red))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/MyColor, Def/Apple"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-missing-inner-group",
+        "description": "A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple)"
+                                }
+                            }
+                        },
+                    {
+                        "defs": {
+                                "HED": {
+                                    "def2": "(Definition/Blech/#, ())"
+                                }
+                            }
+                        }
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple), ((Definition/Blech, (Red)))",
+                                    "def2": "(Definition/Blech/#, ())"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/MyColor, Def/Apple"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Blue))",
+                                    "def2": "(Definition/Blech, (Red))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/MyColor, Def/Apple"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-multiple-definition-tags",
+        "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, Definition/Banana, (Blue))",
+                                "def2": "(Definition/Blech, (Red), Definition/Banana1)",
+                                "def3": "(Definition/Blech1, (Red), Blue)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Blue))",
+                                "def2": "((Red), Definition/Blech)"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, Definition/Banana, (Blue))",
+                                    "def2": "(Definition/Blech, (Red), Definition/Banana1)",
+                                    "def3": "(Definition/Blech1, (Red), Blue)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple, Def/Banana"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Blue))",
+                                    "def2": "((Red), Definition/Blech)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech, Def/Apple"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-inner-group-defs",
+        "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Definition/Banana, Blue))",
+                                "def2": "(Definition/Blech, (Red, Def/Apple))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/a"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Definition/Banana, (Blue)))",
+                                    "def2": "(Definition/Blech, ((Red), Def/MyColor))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple, Def/Banana"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Blue))",
+                                    "def2": "((Red), Definition/Blech)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech, Def/Apple"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-bad-number-of-placeholders",
+        "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple/#, (Label/#, Description/#))",
+                                "def2": "(Definition/Blech/#, (Red))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                         "defs": {
+                             "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, Label/#))"
+                             }
+                         }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#, Description/#))",
+                                    "def2": "(Definition/Blech/#, (Red))"
+                                }
+                        }
+                    },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple/3, Def/Blech/might"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, Label/#))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech/5, Def/Apple/4"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-placeholder-incorrect-of-positions",
+        "description": "A definition has placeholders (`#`) in incorrect positions.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [                    
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Label/#))",
+                                "def2": "(Definition/Blech/#, (Red, #))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Label/Blue))",
+                                "def2": "(Definition/Blech/#, (Label/#, Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, #))"
+                                }
+                        }
+                    },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple, Def/Blech/might"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, Label/#))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech/5, Def/Apple/4"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-placeholder-conflict",
+        "description": "Definitions of the same name appear with and without a `#`.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Label/#))",
+                                "def2": "(Definition/Apple/#, (Red, #))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Blech/#, (Label/#))",
+                                "def2": "(Definition/Apple, (Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Label/#))",
+                                    "def2": "(Definition/Apple/#, (Red, #))"
+                                }
+                        }
+                    },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple/3, Def/Apple"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech, (Red))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech, Def/Apple/4"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-invalid-multiple-definitions",
+        "description": "Multiple `Definition` tags with same name are encountered.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple/#, (Label/#, Description/#))",
+                                "def2": "(Definition/Apple/#, (Label/#))",
+                                "def3": "(Definition/MyColor, (Blue))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple/#, (Label/ThisIsALabel, Description/#))",
+                                "def2": "(Definition/Apple2/#, (Label/#))",
+                                "def3": "(Definition/MyColor2, (Blue))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#, Description/#))",
+                                    "def2": "(Definition/Apple/#, (Label/#))",
+                                    "def3": "(Definition/MyColor, (Blue))"
+                                }
+                        }
+                    },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple/3, Def/Blech/might"],
+                                [ 5.0, 0, "Def/MyColor"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, Label/#))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech/5, Def/Apple/4"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-has-unique-or-required-tag",
+        "description": "A tag with a required or unique attribute appears in a definition.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Event-context, Red))",
+                                "def2": "(Definition/Banana/#, (Label/#))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "defs": {
+                            "HED": {
+                                "def1": "(Definition/Apple, (Red))",
+                                "def2": "(Definition/Banana/#, (Label/#))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+                        "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Event-context, Red))",
+                                    "def2": "(Definition/Banana/#, (Label/#))"
+                                }
+                        }
+                    },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple, Def/Banana/might"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple, (Red))",
+                                    "def2": "(Definition/Banana/#, (Label/#))"                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Apple, Def/Banana/might"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "DEFINITION_INVALID",
+        "name": "definition-not-allowed-here",
+        "description": "A definition appears in an unexpected place such as an events file.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie)))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Red, Blue, (Definition/myDef, (Label/Red, Blue))"
+                ],
+                "passes": [
+                    "Red, Blue"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Red, Blue, (Definition/myDef, (Label/Red, Blue))",
+                                "ball": "Def/Acc/4.5 m-per-s^2"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "defs": {
+                            "HED": {
+                                "face": "(Definition/myDef, (Label/Red, Blue)), (Definition/myDef2, (Label/Red, Blue))",
+                                "ball": "(Definition/myDef1, (Label/Red, Blue))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Definition/myDef, (Label/Red, Green))"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Red, Blue, Def/MyColor"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Red, Blue, (Definition/myDef, (Label/Red, Blue))",
+                                    "ball": "Def/Acc/4.5 m-per-s^2"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/myDef, Red"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "defs": {
+                                "HED": {
+                                    "def1": "(Definition/Apple/#, (Label/#))",
+                                    "def2": "(Definition/Blech/#, (Red, Label/#))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "HED"],
+                                [ 4.5, 0, "Def/Blech/5, Def/Apple/4"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    

@@ -1,0 +1,191 @@
+[
+    {
+        "error_code": "PARENTHESES_MISMATCH",
+        "name": "parentheses-mismatch-unmatched-parentheses",
+        "description": "A HED string does not have the same number of open and closed parentheses.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Def/MyColor, (Blue, (Yellow)), Red))",
+                    "((Red, ((Blue, Green), Yellow))",
+                    "((Red, ((Blue), Green)), (Yellow)"
+                ],
+                "passes": [
+                    "(Def/Acc/5.3 m-per-s^2, (Red))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/MyColor, (Blue, (Yellow)), Red))",
+                                "ball": "(Red, ((Blue, Green), Yellow))",
+                                "square": "(Red, ((Blue), Green)), (Yellow)"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0,  "(Def/MyColor, (Blue, (Yellow)), Red))"],
+                        [ 5.5, 0, "(Red, ((Blue, Green), Yellow))"],
+                        [ 6.3, 0, "(Red, ((Blue), Green)), (Yellow)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"]
+                    ]
+                ]
+            },
+                        "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/banana",
+                                    "ball": "Def/Acc/apple3, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "PARENTHESES_MISMATCH",
+        "name": "parentheses-mismatch-incorrect-nesting",
+        "description": "The open and closed parentheses are not correctly nested in the HED string.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                    ")(Def/MyColor)), (Blue, (Yellow)), (Red))"
+                ],
+                "passes": [
+                    "(Def/Acc/5.3 m-per-s^2, (Red))",
+                    "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                   {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                                "ball": ")(Def/MyColor)), (Blue, (Yellow)), (Red))"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
+                                "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/MyColor)), (Blue, (Yellow)), (Red)"],
+                        [ 5.5, 0, ")(Def/MyColor)), (Blue, (Yellow)), (Red))"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"],
+                        [ 5.5, 0, "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                                    "ball": ")(Def/MyColor)), (Blue, (Yellow)), (Red))"                                                            }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "),Red, (((Def/MyColor)))"],
+                                [ 5.0, 0, "ball", "(Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
+                                    "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, ((Def/MyColor))"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    
