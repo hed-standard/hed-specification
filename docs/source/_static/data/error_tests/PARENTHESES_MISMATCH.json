@@ -54,7 +54,7 @@
                     ]
                 ]
             },
-                        "combo_tests": {
+            "combo_tests": {
                 "fails": [
                     {
                         "sidecar":  {
@@ -68,7 +68,7 @@
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 4.5, 0, "face", "(Red, Def/MyColor"],
                                 [ 5.0, 0, "ball", "Green"]
                             ]
                     }

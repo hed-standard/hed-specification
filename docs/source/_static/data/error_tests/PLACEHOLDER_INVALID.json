@@ -186,7 +186,7 @@
                             "HED": "Def/Acc/# m-per-s^2, Label #"
                         },
                         "memory": {
-                            "HED": "Blue, Red"
+                            "HED": "Blue, Red, Label/#"
                         }
                     }
                 ],
@@ -212,7 +212,7 @@
                                 "HED": "Def/Acc/#, Label #"
                             },
                             "memory": {
-                                "HED": "Blue, Red"
+                                "HED": "Blue, Red, Label/#"
                             }
                         },
                         "events": 
