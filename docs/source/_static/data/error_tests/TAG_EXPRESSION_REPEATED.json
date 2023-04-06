@@ -10,7 +10,7 @@
                 "fails": [
                     "Red, (Blue), Red, Green",
                     "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                    "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                    "(Red, (Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
                 ],
                 "passes": [
                     "Red, (Blue, Red)",
@@ -24,7 +24,7 @@
                             "HED": {
                                 "face": "Red, (Blue), Red, Green",
                                 "ball": "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                                "square": "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                                "square": "(Red, (Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
                             }
                         }
                     }
@@ -46,7 +46,7 @@
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Red, (Blue), Red, Green"],
                         [ 5.5, 0, "(Red, Blue, (Green)), (Red, Blue, (Green))"],
-                        [ 6.5, 0, "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"]
+                        [ 6.5, 0, "(Red, (Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"]
                     ]
                 ],
                 "passes": [
@@ -65,7 +65,7 @@
                                 "HED": {
                                     "face": "Red, (Blue), Red, Green",
                                     "ball": "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                                    "square": "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                                    "square": "(Red, (Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
                                 }
                             }
                         },
