@@ -8,9 +8,9 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Brown-color/Red",
-                    "Property/Sensory-event",
-                    "Sensory-event/Baloney"
+                    "Label #",
+                    "ReallyInvalid/Extension",
+                    "ReallyInvalid"
                 ],
                 "passes": [
                     "Brown-color/Brown"
@@ -21,9 +21,9 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Brown-color/Red",
-                                "ball": "Property/Sensory-event",
-                                "square": "Sensory-event/Baloney"
+                                "face": "Label #",
+                                "ball": "ReallyInvalid/Extension",
+                                "square": "ReallyInvalid"
                             }
                         }
                     }
@@ -42,7 +42,7 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Brown-color/Red"],
+                        [ 4.5, 0, "Label #"],
                         [ 5.5, 0, "Property/Sensory-event"],
                         [ 5.5, 0, "Sensory-event/Baloney"]
                     ]
@@ -60,7 +60,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Brown-color/Red",
+                                    "face": "ReallyInvalid",
                                     "ball": "Property/Sensory-event",
                                     "square": "Sensory-event/Baloney"
                                 }

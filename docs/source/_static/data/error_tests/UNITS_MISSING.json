@@ -9,7 +9,6 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Def/Acc/3",
                     "Acceleration/4.5"
                 ],
                 "passes": [

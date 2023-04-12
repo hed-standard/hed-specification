@@ -9,7 +9,7 @@
             "string_tests": {
                 "fails": [
                     "Def/Acc/3 s",
-                    "Data-maximum/3 ms"
+                    "Weight/3 ms"
                 ],
                 "passes": [
                     "Distance/4 km"
@@ -21,7 +21,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Def/Acc/3 s",
-                                "ball": "Data-maximum/3 ms"
+                                "ball": "Weight/3 ms"
                             }
                         }
                     }
@@ -42,7 +42,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Def/Acc/3 s"],
-                        [ 5.5, 0, "Data-maximum/3 ms"]
+                        [ 5.5, 0, "Weight/3 ms"]
                     ]
                 ],
                 "passes": [
@@ -60,7 +60,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Def/Acc/3 s",
-                                    "ball": "Data-maximum/3 ms"
+                                    "ball": "Weight/3 ms"
                                 }
                             }
                         },
