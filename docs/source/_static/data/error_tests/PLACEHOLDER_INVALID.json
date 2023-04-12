@@ -183,10 +183,10 @@
                 "fails": [
                     {
                         "trial": {
-                            "HED": "Def/Acc/# m-per-s^2, Label #"
+                            "HED": "Def/Acc/# m-per-s^2, Label/#"
                         },
                         "memory": {
-                            "HED": "Blue, Red"
+                            "HED": "Blue, Red, Label/#"
                         }
                     }
                 ],
@@ -209,16 +209,16 @@
                     {
                         "sidecar":  {
                              "trial": {
-                                "HED": "Def/Acc/#, Label #"
+                                "HED": "Def/Acc/#, Label/#"
                             },
                             "memory": {
-                                "HED": "Blue, Red"
+                                "HED": "Blue, Red, Label/#"
                             }
                         },
                         "events": 
                             [
                                 ["onset", "duration", "trial", "memory", "HED"],
-                                [ 4.5, 0, "3", "4","Red, Def/MyColor"],
+                                [ 4.5, 0, "3", "4","Green, Def/MyColor"],
                                 [ 5.0, 0, "2","6", "Green"]
                             ]
                     }

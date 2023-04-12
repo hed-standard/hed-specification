@@ -191,7 +191,7 @@
         "tests": {
             "string_tests": {
                 "fails": [ 
-                    "Collection/[x]"
+                    "Age/x123 asdf"
                 ],
                 "passes": [
                     "Collection/This-collection"
@@ -202,7 +202,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Collection/[x]"
+                                "face": "Age/x123 asdf"
                             }
                         }
                     }
@@ -221,7 +221,7 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "Collection/[x]"]
+                        [4.5, 0, "Age/x123 asdf"]
                     ]
                 ],
                 "passes": [

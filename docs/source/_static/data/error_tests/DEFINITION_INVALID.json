@@ -12,7 +12,6 @@
                     "Definition/Blech, (Red)"
                 ],
                 "passes": [
-                    "(Definition/Blech, (Red))"
                 ]
             },
             "sidecar_tests": {
@@ -716,7 +715,7 @@
         "name": "definition-not-allowed-here",
         "description": "A definition appears in an unexpected place such as an events file.",
         "schema": "8.1.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie)))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"],
         "tests": {
             "string_tests": {
                 "fails": [

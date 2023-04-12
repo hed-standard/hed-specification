@@ -8,6 +8,7 @@
         "tests": {
             "string_tests": {
                 "fails": [
+                    "Collection/[x]",
                     "Description/This is a ʰ bad character"
                 ],
                 "passes": [
