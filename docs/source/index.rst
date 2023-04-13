@@ -34,12 +34,8 @@ For more information about HED see `The HED project homepage <https://www.hedtag
 the `HED resources page <https://www.hed-resources.org>`_.
 
 
-Contents
-*********
-
-
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :caption: Contents:
 
    01_Introduction.md
