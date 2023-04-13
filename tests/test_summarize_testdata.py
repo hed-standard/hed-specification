@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         test_dir = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                                 '../docs/source/_static/data/error_tests'))
+                                                 'json_tests'))
         cls.test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) 
                           if os.path.isfile(os.path.join(test_dir, f))]
 
