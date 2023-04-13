@@ -52,7 +52,7 @@ autosummary_generate = True
 autodoc_default_flags = ['members', 'inherited-members']
 add_module_names = False
 myst_all_links_external = False
-myst_heading_anchors = 5
+myst_heading_anchors = 4
 myst_enable_extensions = ["deflist"]
 
 # Add any paths that contain templates here, relative to this directory.
