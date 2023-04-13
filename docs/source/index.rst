@@ -19,9 +19,9 @@ HED specification
 
    * `HED project homepage <https://www.hedtags.org/>`_
 
-|
-|
-|
+
+Specification role
+******************
 
 The HED specification document formalizes the syntax and behavior of
 HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting tools. The specification supports three versions of the specification:
@@ -32,6 +32,11 @@ HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting too
 
 For more information about HED see `The HED project homepage <https://www.hedtags.org>`_ and
 the `HED resources page <https://www.hed-resources.org>`_.
+
+
+Contents
+*********
+
 
 .. toctree::
    :maxdepth: 4
@@ -52,5 +57,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
