@@ -9,10 +9,10 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Red/red_blech"
+                    "Red-color/red"
                 ],
                 "passes": [
-                    "Blue/Blueish"
+                    "Blue-color/Blue"
                 ]
             },
             "sidecar_tests": {
@@ -21,7 +21,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Red/red_blech",
-                                "ball": "Blue/blueish"
+                                "ball": "Blue-color/blue"
                             }
                         }
                     }
@@ -30,8 +30,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Red/Red-blech",
-                                "ball": "Blue/Blueish"
+                                "face": "Red-color/Red",
+                                "ball": "Blue-color/Blue"
                             }
                         }
                     }
@@ -42,14 +42,14 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Red/red_blech"],
-                        [ 5.0, 0, "Blue/blueish"]
+                        [ 5.0, 0, "Blue-color/blue"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Red/Red-blech"],
-                        [ 5.0, 0, "Blue/Blueish"]
+                        [ 4.5, 0, "Red-color/Red"],
+                        [ 5.0, 0, "Blue-color/Blue"]
                     ]
                 ]
             },
@@ -60,7 +60,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Red/red_blech",
-                                    "ball": "Blue/blueish"
+                                    "ball": "Blue-color/blue"
                                 }
                             }
                         },
@@ -77,8 +77,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Red/Red-blech",
-                                    "ball": "Blue/Blueish"
+                                    "face": "Red-color/Red",
+                                    "ball": "Blue-color/Blue"
                                 }
                             }
                         },

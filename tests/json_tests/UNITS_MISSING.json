@@ -1,20 +1,18 @@
 [
     {
-        "error_code": "TAG_EXPRESSION_REPEATED",
-        "name": "tag-expression-repeated-same-level",
-        "description": "A tag is repeated in the same tag group or level.",
+        "error_code": "UNITS_MISSING",
+        "name": "units-missing-on-node-with-unit-class",
+        "description": "A tag that takes value and has a unit class does not have units.",
+        "warning": true,
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Red, (Blue), Red, Green",
-                    "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                    "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                    "Acceleration/4.5"
                 ],
                 "passes": [
-                    "Red, (Blue, Red)",
-                    "(Red, Blue, (Green)), (Red, Blue, ((Green)))"
+                    "Distance/4 km"
                 ]
             },
             "sidecar_tests": {
@@ -22,9 +20,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Red, (Blue), Red, Green",
-                                "ball": "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                                "square": "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                                "face": "Def/Acc/3",
+                                "ball": "Acceleration/4.5"
                             }
                         }
                     }
@@ -33,8 +30,8 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "Red, (Blue, Red)",
-                                "ball": "(Red, Blue, (Green)), (Red, Blue, ((Green)))"
+                                "face": "Distance/4 km",
+                                "ball": "Angle/4 degrees"
                             }
                         }
                     }
@@ -44,16 +41,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Red, (Blue), Red, Green"],
-                        [ 5.5, 0, "(Red, Blue, (Green)), (Red, Blue, (Green))"],
-                        [ 6.5, 0, "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"]
+                        [ 4.5, 0, "Def/Acc/3"],
+                        [ 5.5, 0, "Acceleration/4.5"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Red, (Blue, Red)"],
-                        [ 5.5, 0, "(Red, Blue, (Green)), (Red, Blue, ((Green)))"]
+                        [ 4.5, 0, "Distance/4 km"],
+                        [ 5.0, 0, "Angle/4 degrees"]
                     ]
                 ]
             },
@@ -63,9 +59,8 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Red, (Blue), Red, Green",
-                                    "ball": "(Red, Blue, (Green)), (Red, Blue, (Green))",
-                                    "square": "Red, (((Blue, Green, (Yellow)), Red, (Blue, Green, (Yellow)))"
+                                    "face": "Def/Acc/3",
+                                    "ball": "Acceleration/4.5"
                                 }
                             }
                         },
@@ -80,10 +75,10 @@
                 "passes": [
                     {
                         "sidecar": {
-                            "event_code": {
+                             "event_code": {
                                 "HED": {
-                                    "face": "Red, (Blue, Red)",
-                                    "ball": "(Red, Blue, (Green)), (Red, Blue, ((Green)))"
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
                                 }
                             }
                         },
