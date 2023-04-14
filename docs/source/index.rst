@@ -35,7 +35,7 @@ the `HED resources page <https://www.hed-resources.org>`_.
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: Contents:
 
    01_Introduction.md
