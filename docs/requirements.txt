@@ -11,3 +11,4 @@ sphinx_rtd_theme>=1.0.0
 Werkzeug>=2.1.2
 WTForms>=3.0.1
 xlrd>=2.0.1
+myst-parser>=0.18.1
