@@ -237,7 +237,8 @@ for additional information on the tag extension rules.
 ### TAG_EXTENSION_INVALID 
 
 **a.**  A tag extension term is already in the schema.   
-**b.**  A tag extension term does not comply with rules for schema nodes.   
+**b.**  A tag extension term does not comply with rules for schema nodes.
+**c.**  A tag has extension, but an extension is not allowed.
 
 See [**3.2.5 Tag extensions**](./03_HED_formats.md#325-tag-extensions)
 for additional information on the tag extension rules.

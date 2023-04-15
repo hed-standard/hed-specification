@@ -1,18 +1,19 @@
 [
     {
-        "error_code": "UNITS_INVALID",
-        "name": "units-invalid-for-unit-class",
-        "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
+        "error_code": "PARENTHESES_MISMATCH",
+        "name": "parentheses-mismatch-unmatched-parentheses",
+        "description": "A HED string does not have the same number of open and closed parentheses.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Def/Acc/3 s",
-                    "Data-maximum/3 ms"
+                    "(Def/MyColor, (Blue, (Yellow)), Red))",
+                    "((Red, ((Blue, Green), Yellow))",
+                    "((Red, ((Blue), Green)), (Yellow)"
                 ],
                 "passes": [
-                    "Distance/4 km"
+                    "(Def/Acc/5.3 m-per-s^2, (Red))"
                 ]
             },
             "sidecar_tests": {
@@ -20,18 +21,18 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Def/Acc/3 s",
-                                "ball": "Data-maximum/3 ms"
+                                "face": "(Def/MyColor, (Blue, (Yellow)), Red))",
+                                "ball": "(Red, ((Blue, Green), Yellow))",
+                                "square": "(Red, ((Blue), Green)), (Yellow)"
                             }
                         }
                     }
                 ],
                 "passes": [
-                     {
+                    {
                         "event_code": {
                             "HED": {
-                                "face": "Distance/4 km",
-                                "ball": "Angle/4 degrees"
+                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))"
                             }
                         }
                     }
@@ -41,15 +42,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Def/Acc/3 s"],
-                        [ 5.5, 0, "Data-maximum/3 ms"]
+                        [ 4.5, 0,  "(Def/MyColor, (Blue, (Yellow)), Red))"],
+                        [ 5.5, 0, "(Red, ((Blue, Green), Yellow))"],
+                        [ 6.3, 0, "(Red, ((Blue), Green)), (Yellow)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Distance/4 km"],
-                        [ 5.0, 0, "Angle/4 degrees"]
+                        [4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"]
                     ]
                 ]
             },
@@ -59,15 +60,15 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Def/Acc/3 s",
-                                    "ball": "Data-maximum/3 ms"
+                                    "face": "Acceleration/banana",
+                                    "ball": "Def/Acc/apple3, Blue"
                                 }
                             }
                         },
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
+                                [ 4.5, 0, "face", "(Red, Def/MyColor"],
                                 [ 5.0, 0, "ball", "Green"]
                             ]
                     }
@@ -94,37 +95,39 @@
         }
     },
     {
-        "error_code": "UNITS_INVALID",
-        "name": "units-invalid-si-units",
-        "description": "A unit modifier is applied to units that are not SI units.",
+        "error_code": "PARENTHESES_MISMATCH",
+        "name": "parentheses-mismatch-incorrect-nesting",
+        "description": "The open and closed parentheses are not correctly nested in the HED string.",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Distance/3 kfeet",
-                    "Distance/3 kmeters"
+                    "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                    ")(Def/MyColor)), (Blue, (Yellow)), (Red))"
                 ],
                 "passes": [
-                    "Distance/3 kilometres"
+                    "(Def/Acc/5.3 m-per-s^2, (Red))",
+                    "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
                 ]
             },
             "sidecar_tests": {
                 "fails": [
-                    {
+                   {
                         "event_code": {
                             "HED": {
-                                "face": "Distance/3 kfeet",
-                                "ball": "Distance/3 kmeters"
+                                "face": "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                                "ball": ")(Def/MyColor)), (Blue, (Yellow)), (Red))"
                             }
                         }
                     }
                 ],
                 "passes": [
-                     {
+                    {
                         "event_code": {
                             "HED": {
-                                "face": "Distance/3 kilometres"
+                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
+                                "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
                             }
                         }
                     }
@@ -134,14 +137,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Distance/3 kfeet"],
-                        [ 5.0, 0, "Distance/3 kmeters"]
+                        [ 4.5, 0, "(Def/MyColor)), (Blue, (Yellow)), (Red)"],
+                        [ 5.5, 0, ")(Def/MyColor)), (Blue, (Yellow)), (Red))"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Distance/3 kilometres"]
+                        [ 4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"],
+                        [ 5.5, 0, "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"]
                     ]
                 ]
             },
@@ -151,16 +155,15 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Distance/3 kfeet",
-                                    "ball": "Distance/3 kmeters"
-                                }
+                                    "face": "(Def/MyColor)), (Blue, (Yellow)), (Red)",
+                                    "ball": ")(Def/MyColor)), (Blue, (Yellow)), (Red))"                                                            }
                             }
                         },
                         "events": 
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
-                                [ 5.0, 0, "ball", "Green"]
+                                [ 4.5, 0, "face", "),Red, (((Def/MyColor)))"],
+                                [ 5.0, 0, "ball", "(Green"]
                             ]
                     }
                 ],
@@ -169,8 +172,8 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
+                                    "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
                                 }
                             }
                         },
@@ -178,7 +181,7 @@
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                                [ 5.0, 0, "ball", "Green, ((Def/MyColor))"]
                             ]
                     }
                 ]

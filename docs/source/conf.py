@@ -25,8 +25,8 @@ copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
-release = '3.1.0'
-version = '3.1.0'
+release = '3.1.1'
+version = '3.1.1'
 
 currentdir = os.path.abspath(os.path.dirname(__file__))
 
@@ -52,7 +52,7 @@ autosummary_generate = True
 autodoc_default_flags = ['members', 'inherited-members']
 add_module_names = False
 myst_all_links_external = False
-myst_heading_anchors = 5
+myst_heading_anchors = 4
 myst_enable_extensions = ["deflist"]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -85,7 +85,7 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 5,
+    'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False
 }
