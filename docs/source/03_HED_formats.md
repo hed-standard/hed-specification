@@ -1036,6 +1036,71 @@ Errors that are particularly relevant to sidecars include [**PLACEHOLDER_INVALID
 If the sidecar is missing an annotation for a categorical column value,
 the [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar_key_missing) warning is generated.
 
+#### 3.2.9.3. Sidecar curly braces
+
+The curly brace notation is new with HED specification version 3.2.0 and is 
+supported by all versions of the HED schema &ge; 8.0.0.
+The notation was introduced to
+facilitate proper nesting of HED tags associated with different event file
+columns when the complete HED annotation for an event marker is assembled.
+
+When a column name appears in curly braces within a HED annotation in
+a JSON sidecar, the corresponding HED annotation for that row is substituted
+for the curly braces and their contents when the HED annotation is assembled.
+
+
+``````{admonition} Rules for curly braces notation in sidecars.
+:class: tip
+
+1. The item within the curly braces must either be the word `HED` or
+the name of another HED-annotated column within the sidecar.
+2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
+3. A sidecar column name cannot both appear in a curly braces and have
+an annotation that uses curly braces (to prevent circular references).
+4. The curly braces cannot be used within a `Definition`. 
+
+``````
+
+The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
+Entries without a `"HED"` key in the second level entry dictionaries are ignored.
+
+(example-sidecar-anchor)=
+````{Admonition} Examples of the three types of sidecar annotation entries relevant to HED
+:class: tip
+```json
+{
+   "trial_type": {
+      "LongName": "Event category",
+      "Description": "Indicator of type of action that is expected",
+      "HED": {
+          "go": "Sensory-event, Visual-presentation, (Square, Blue)",
+          "stop": "Sensory-event, Visual-presentation, (Square, Red)"
+       }
+   },
+   "response_time": {
+       "LongName": "Response time after stimulus",
+       "Description": "Time from stimulus presentation until subject presses button",
+       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button)))"
+   },
+   "dummy_defs": {
+        "HED": {
+            "MyDef1": "(Definition/Cue1, (Buzz))",
+            "MyDef2": "(Definition/Image/#, (Image, Face, Label/#))"
+        }
+   }
+}
+```
+````
+
+
+If curly braces appear in an ordinary HED annotation (not in a sidecar),
+an [**CHARACTER_INVALID**](./Appendix_B.md#character_invalid) error is generated. 
+If a sidecar appears in a `Definition`,
+a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error is generated.
+If the curly brace notation is used improperly in a sidecar or elsewhere, a
+[**SIDECAR_BRACES_INVALID**](./Appendix_B.md#sidecar_braces_invalid) is generated.
+
+
 
 ### 3.2.10. Tabular files
 

@@ -86,5 +86,40 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "CHARACTER_INVALID",
+        "name": "curly-braces-not-in-sidecar",
+        "description": "The curly brace notation is used outside of a sidecar.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "{col_1}, Red"
+                ],
+                "passes": [
+                    "Red, Blue, Description/Red"
+                ]
+            },
+            "sidecar_tests": {
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "{who_knows}, Red"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/Temp"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+            }
+        }
     }
-]    
+ ]    
