@@ -53,7 +53,8 @@ on tag forms.
 Tools may assume that validated HED strings have no duplicates, empty tags,
 empty groups (parentheses enclosing only whitespace), or mismatched parentheses.
 
-Grouping with parentheses in HED means that the tags are associated.
+Grouping with parentheses in HED indicates that the tags are associated.
+Where possible, parentheses should be preserved.
 
 ````{warning} 
 HED-compliant tools should be able to handle arbitrary correctly **nested parentheses**

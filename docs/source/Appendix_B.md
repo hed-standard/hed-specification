@@ -25,9 +25,9 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character.  
+**a.**  The HED string contains a UTF-8 character. 
+**b.** Curly braces appear in a HED string not in a sidecar.
 
-**b.**  An extension or a value substituted for a `#` is not allowed by its value class.  
 
 **Notes:**  
 - HED uses ANSI encoding and does not support UTF-8.  
@@ -90,13 +90,14 @@ the definition's contents.
 **a.**  A `Definition` tag does not appear in a tag group at the top level in an annotation.   
 **b.**  A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).    
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
-**d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.    
-**e.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.    
-**f.**  A definition has placeholders (`#`) in incorrect positions.  
-**g.**  Definitions of the same name appear with and without a `#`.  
-**h.**  Multiple `Definition` tags with same name are encountered.
-**i.**  A tag with a `required` or `unique` attribute appears in a definition.
-**j.**  A definition appears in an unexpected place such as an events file.
+**d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.  
+**e.** A definition uses curly braces.  
+**f.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.   
+**g.**  A definition has placeholders (`#`) in incorrect positions.  
+**h.**  Definitions of the same name appear with and without a `#`.  
+**i.**  Multiple `Definition` tags with same name are encountered.
+**j.**  A tag with a `required` or `unique` attribute appears in a definition.
+**k.**  A definition appears in an unexpected place such as an events file.
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions.
@@ -169,6 +170,15 @@ An assembled event string must include all tags having the *required* schema att
 
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `required` tag.
+
+### SIDECAR_BRACES_INVALID
+
+**a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
+**b.**  A column name entry in a sidecar has a HED annotation with curly braces, but this name also appears in curly braces in another HED annotation.  
+**c.** The curly braces in a sidecar are nested or unmatched.
+
+See [**3.2.9.3. Sidecar curly braces**](./03_HED_formats.md#3293-sidecar-curly-braces) for information
+on the requirements for using sidecars.
 
 ### SIDECAR_INVALID
 
