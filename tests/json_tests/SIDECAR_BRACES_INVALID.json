@@ -267,7 +267,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "(Red, Blue), ({response_time}),(Green, (Yellow))",
+                                "face": "(Red, Blue), ({response_time}, (Green, (Yellow))",
                                 "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
                             }
                         },

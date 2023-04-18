@@ -2,12 +2,12 @@
 
 ## 7.1. Why library schemas?
 
-The variety and complexity of events in electrophysiological experiments makes full 
+The variety and complexity of events in electrophysiological experiments make full 
 documentation challenging. As more experiments move out of controlled laboratory environments
 and into less controlled virtual and real-world settings, the terminology required to adequately
 describe events has the potential to grow exponentially.  
 
-In addition, experiments in any given subfield can contribute to pressure to add 
+In addition, experiments in any given subfield can create pressures to add 
 overly-specific terms and jargon to the schema hierarchy—for example, adding musical 
 terms to tag events in music-based experiments, video markup terms for experiments 
 involving movie viewing, traffic terms for experiments involving
@@ -18,23 +18,25 @@ vocabularies for describing data features of clinical interest (e.g., seizure, s
 Including these discipline-specific terms quickly makes the standard HED schema unwieldy and less
 usable by the broader user community.
 
-Third generation HED instead introduces the concept of the **HED library schema**. 
+Third generation HED addressed the problem of vocabulary bloat by introducing
+**HED library schemas** to organize discipline-specific terminology. 
 To use a programming analogy, when programmers write a Python module, 
 the resulting code does not become part of the Python language or core libraries. 
 Instead, the module becomes part of a library used in conjunction with
 core modules of the programming language.
-A library schema contains the specialized vocabulary terms needed
+
+A HED library schema contains the specialized vocabulary terms needed
 for event annotation in a specialized area.
 An example of such a library is the [**HED SCORE schema**](https://hed-schemas.readthedocs.io/en/latest/hed_score_schema.html) for annotation of EEG by clinicians.
 
-## 7.2 Partnered schemas
+## 7.2. Partnered schemas
 
 HED library schemas were originally assumed to be **standalone** vocabularies,
 complete with all the needed schema attributes and properties.
 These standalone library schemas were usually used in conjunction with the 
 HED standard schema, and the tags from the two different vocabularies
 were distinguished by prefixing the tags from one of the vocabularies with `xx:`.
-Here `xx:` is called the **namespace** for the schema within the annotation
+Here `xx:` is called the **namespace** for that schema within the annotation
 and is chosen by the annotator.
 
 **Partnered library schemas** were introduced in HED specification version 3.2.0
@@ -42,58 +44,114 @@ and are supported by HED standard schema versions &ge; 8.2.0.
 
 A partnered library schema version is tied to a specific version of the HED standard schema
 as specified in its header.
-A given library schema version is either partnered or standalone.
+A given library schema version is either **partnered** or **standalone**.
 
-### 7.2.1 Partnered formats
+### 7.2.1. Partnered files
 
 The XML file corresponding to a partnered library schema is a single, unified schema
-consisting of the information in both the library and its standard schema partner
-and validated for consistency.
+containing the information from both the library and its standard schema partner
+and validated as an integrated whole. 
 
-Downstream tools, which use the XML version, 
-see a single unified schema and can process a partnered library schema with no special handling.
-The following example shows the XML header for SCORE library version 1.1.0.
+This XML merged schema file is downloaded and used by tools. 
+Downstream tools see a single schema and can process it with no special handling.
+The following example shows the XML header for merged SCORE library version 1.1.0.
 
-````{admonition} XML header for SCORE library 1.1.0 partnered with 8.2.0.
+````{admonition} XML header for SCORE library 1.1.0 partnered with 8.2.0 (merged).
 ```xml
 <?xml version="1.0" ?>
 <HED library="score" version="1.1.0" withStandard="8.2.0">
 
 ```
 ````
-The filename for this `.xml` file is `HED_score_1.1.0.xml`.
+The canonical filename for this `.xml` file is `HED_score_1.1.0.xml`.
+This file is always stored in the `hedxml` directory
+for the respective library schema in the 
+[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-As with any HED schema development, schema builders specify a schema in `mediawiki` markdown format.
-The following example shows the header for the `.mediawiki` file of a partnered library schema.
-
-````{admonition} Mediawiki header for SCORE library 1.1.0 partnered with 8.2.0.
-```html
-HED library="score" version="1.1.0" withStandard="8.2.0"
-```
-````
-
-The filename for this `.mediawiki` file is `HED_score_1.1.0.mediawiki`.
-
-Tools also support an alternative form of the `.mediawiki` library schema
-containing only the library portion of the schema.
-The header for an unmerged schema is:
+As with any HED schema, schema builders develop and maintain their schema in
+MediaWiki mark-down format and use tools to convert to XML.
+The schema developer's version is unmerged, 
+containing only the information specific to the library schema.
+The following example shows the header for the `.mediawiki` developer's version
+of a partnered library schema.
 
 ````{admonition} Mediawiki header for SCORE library 1.1.0 partnered with 8.2.0 (unmerged).
 ```html
-HED library="score" version="1.1.0" withStandard="8.2.0" unmerged
+HED library="score" version="1.1.0" withStandard="8.2.0" unmerged="true"
 ```
 ````
 
-If a partner is declared, 
-the merged library schema will appear in the `hedxml` folder for the respective library on
-[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository
-for download by tools.
+The canonical filename for this `.mediawiki` file is 
+`HED_score_1.1.0_unmerged.mediawiki`.
 
-The filename for this unmerged schema is `HED_score_1.1.0_unmerged.mediawiki`.
-Conversion tools are supplied to convert among the three formats 
-(`.xml`, `.mediawiki` and `unmerged.mediawiki`).
+Tools also support an alternative form of the `.mediawiki` library schema
+containing all the information in the merged schema (a mirror to the XML),
+which may be useful for debugging, but is usually not explicitly created.
 
-7.2.2 Partnered support
+The following table summarizes the different partnered library schema formats
+and their uses. File names and link examples are specifically for the SCORE
+library. For other libraries, substitue the library name for the word *score*.
+
+| Format | Merged<br/>status | Canonical filename | Handling |
+| ------ | ------------- | ------------------ | -------- |
+| XML    |   merged    |  `HED_score_1.1.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml).<br/>Used by tools. |
+| XML    |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
+| MediaWiki    |   merged    |  `HED_score_1.1.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki).<br/>Possibly used during schema development. |
+| MediaWiki   |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki). |
+
+### 7.2.2. Partnered formats
+
+There are four significant differences between merged and unmerged MediaWiki formats:
+1. The unmerged version has the `unmerged="true"` attribute in its header line.
+<br/>&nbsp;<br/>
+2. The unmerged version should only include the auxiliary sections (e.g., unit classes,
+unit modifiers, value classes, schema attributes, and schema properties)
+that it explicitly extends.
+<br/>&nbsp;<br/>
+3. Nodes with the `rooted` property must be top-level tags in the schema
+in the unmerged schema. In the merged schema, the subtrees under these `rooted` 
+nodes are placed directly under the respective nodes of the same name
+in the standard schema.
+<br/>&nbsp;<br/>
+4. Nodes in the unmerged version cannot have the `inLibrary` attribute.
+In contrast, nodes from the library schema are given the `inLibrary`
+attribute during the merging process.
+
+Similar differences occur between the merged and unmerged XML formats, 
+but only the merged XML format is useful.
+
+### 7.2.3. Auxiliary sections
+
+The unmerged version of a partnered library schema **must** have
+prologue and epilogue sections that appropriately explain the
+purpose of the library schema.
+The contents of these prologue and 
+epilogue sections become the prologue and epilogue, respectively,
+in the merged schema.
+
+All the other auxiliary sections of the corresponding partner standard schema
+are inherited by the merged schema.
+Most unmerged partnered library schemas will not contain any additional
+auxiliary sections.
+
+**Auxiliary section items that do not appear in a standard schema
+are unlikely to be supported by the HED infrastructure if
+they require special handling.**
+Thus, adding items to the auxiliary library schema sections is discouraged.
+
+Library schema developers who need to add an item, such as
+a unit class to an auxiliary section,
+should first contact the HED Working Group to determine whether
+this item could be appropriately added to the standard schema.
+If a new item must be added, only that item and its corresponding
+auxiliary section should appear in the unmerged schema.
+
+Library schema additions of units, unit classes, unit modifiers, value classes,
+and schema attributes are permitted, though not encouraged.
+**Library schemas cannot add information to the property definitions
+section of the schema.**
+
+### 7.2.4. Partnered attributes
 
 To support partnered library schema the following items were introduced in
 HED standard schema 8.2.0:
@@ -101,43 +159,62 @@ HED standard schema 8.2.0:
 | Name | Type  | Role |
 | --------- | ----- | ---- |
 | `withStandard` | Header attribute | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul> |
-| `unmerged` | Header attribute | <ul><li>Indicates that this schema just contains the library information.</li><li>The merged version can be generated with tools.</li></ul> |
-| `inLibrary` | Node attribute | <ul><li>Indicates that this node is a tag in the library schema.</li><li>Its value is `libraryName_version`.</li><li>The `inLibrary` attribute appears only merged schemas.</li></ul> |
-| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with the `rooted` attribute must be a top-level node<br/>in the unmerged schema.</li><li>A rooted node must not have a description or other attributes<br/>since these are inherited from its standard schema partner.</li></ul> |
-| `reserved` | Node attribute | <ul><li>Indicates that this node has special meaning or function.</li><li>Can only appear in standard schemas.</li></ul> |
+| `unmerged` | Header attribute | <ul><li>Indicates that this schema contains only library information.</li><li>Its value is either "true" or "false.</li><li>If "false", the attribute should be omitted.</li></ul> |
+| `inLibrary` | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The  attribute appears only merged schemas.</li></ul> |
+| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li><li>A rooted node in the unmerged schema must not<br/> have a description or other attributes,<br/>since these are inherited from the standard schema.</li></ul> |
+| `reserved` | Node attribute | <ul><li>Indicates that this node has special meaning or function.</li><li>**Can only appear in standard schemas.**</li></ul>. |
 
 
-### 7.2.3 Motivation for partners
+### 7.2.5. Motivation for partners
 Starting with HED specification version 3.2.0 and HED standard schema version 8.2.0, 
-**partnered library schema** have become the recommended form for library schemas.
+**partnered library schemas** have become the recommended form for library schemas.
 This section describes the motivation for this preference.
 
-#### 7.2.3.1 Auxiliary consistency
+#### 7.2.5.1. Auxiliary consistency
 
 A standalone library schema must duplicate the 
-[**auxiliary schema sections**](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas.
-Although standalone library schemas may add additional items to the auxiliary sections,
-HED tools only guarantee support of standard schema auxiliary items requiring special handling.
+[**auxiliary schema sections**](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
+introducing the possibility of inconsistency in usage or definition
+between the library schema and standard schemas.
+
 Partnered library schema automatically inherit the partner standard schema's auxiliary attributes,
-this assuring consistent handling by tools and preventing the introduction of inconsistenly
+this assuring consistent handling by tools and preventing the introduction of inconsistently
 handled attributes.
 
-#### 7.2.3.2 Reserved tag consistency
+Although standalone library schemas may add additional items to the auxiliary sections,
+HED tools only guarantee support of standard schema auxiliary items requiring special handling.
+**Thus, addition of items in the auxiliary sections of a library schema is discouraged.**
+
+
+#### 7.2.5.2. Reserved tag handling
 
 Several tags in the standard schema such as `Definition`, `Onset`, and `Offset` 
 define the structure of events and the data.
-By partnering with a standard schema a library schema is assured of having
+By partnering with a standard schema, a library schema is assured of having
 HED support for key features such as events of temporal extent and definitions.
 
-One of the difficult
-Library schemas are not allowed to reuse these *reserved* tags and were discouraged from
-reusing any terms appearing in the standard schema.
-Since the standard schema evolves over time, this requirement is impossible to check without
-pairing the library schema to a specific version of the 
-These *reserved* tags were assumed to
-have the same meaning regardless of the schema in which they appeared.
+As these structural features evolve in HED,
+partnership provides a natural update path for library schemas.
+Developers of library schemas are strongly encouraged to a release new version
+of the partnered library schema when a new HED standard schema version is released
+so that the latest version of a partnered library schema uses the latest version
+of the standard HED schema.
 
-#### 7.2.3.3 Library search
+If the update can be done without conflict,
+this update may be initiated as part of the release mechanism 
+by the maintainers of the HED repositories.
+
+#### 7.2.5.3. Annotation conciseness
+
+The most common use case for library schemas in annotation requires tags from both
+a standard schema and a library schema, thus requiring that a `xx:` be assigned to tags from
+one of the schemas when standalone library schemas are used.
+
+Because a partnered library schema is merged with a standard schema to form a single, unified schema,
+users can annotate data without the `xx:` prefix.
+The `xx:` is still needed if more than one library schema is used.
+
+#### 7.2.5.4. Library searches
 
 The subtrees appearing in the library schemas are often elaborations of a particular term
 in the standard schema. 
@@ -145,135 +222,162 @@ However, if the library schema terms are not in appropriate standard schema hier
 HED search can not be leveraged to find these elaborations by searching for a more 
 general standard schema term.
 
-#### 7.2.3.4 Annotation conciseness
+#### 7.2.5.5. Suggested tags
 
-The most common use case of library schema in annotation requires tags from both
-a standard schema and a library schema, thus requiring that a `xx:` be assigned to tags from
-one of the schemas.
-
-Because the library schema is merged with its respective partner standard schema,
-uses can annotate using the unified schema without the `xx:` prefix.
-The `xx:` is still needed if more than one library schema is used.
-
-#### 7.2.3.5 Suggested tags
-
-Library schema designers cannot use the `suggestedTag` attribute to suggest using particular
-tags from the standard schema for annotators to use with a given library schema tag.
+Standalone library schemas cannot use the `suggestedTag` or `relatedTag` attributes to 
+suggest using particular tags from the standard schema,
+since the values of the tags must be in the schemas themselves.
 However, with partnered library schemas, validation is only performed on
 the merged versions of the schema, so tags from the standard schema can be used
 as `suggestTag` or `relatedTag` values.
 
-Partnered library schemas solve these issues by declaring a specific standard schema version
-that the library schema will be merged with to create a single unified XML-formatted schema
-for tools to use in validation and analysis.
-Individual subtrees in the library schema can be top-level subtrees or rooted to a node
-in the partnered standard schema.
+
+## 7.3. Library schema design
+
+Library schema should be developed and maintained in MediaWiki format for readability.
+Developers should always validate the schema before converting to XML.
+Only validated versions of the schema should be uploaded to the GitHub
+[**hed-schemas**](https://github.com/) repository.
+More information about the development process is contained in the
+[**HED schema developers guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
 
 
+### 7.3.1. General design rules
 
-A partnered library schema can also use tags from its partnered standard schema
-as suggested tags, since each version of the library schema is partnered with a
-specific version of the standard schema.
+This section summarizes the general design rules for all library schema.
 
-
-
-## 7.3 Library schema design
-
-Similar to the design principles imposed on function names and subclass organization in 
-software development, HED library schemas must conform to some basic rules:
-
-### 7.3.1 Library design rules
-
-``````{admonition} Rules for HED library schema design.
+``````{admonition} General design rules for HED library schema.
 :class: tip
 
-1. A library schema must be given a name containing only alphabetic chararacters.
+1. **Follow naming conventions**:<br/>
+A library schema must be given a name containing only alphabetic chararacters.
 This name must appear in the schema header line in the required format.
-2. A library library must use semantic versioning and follow the versioning update rules used by
-the HED standard schema.
-3. Every term must be unique within the library schema and must conform to the rules for
-HED schema terms.
-4. Schema terms should be readily understood by most users. The terms should not be ambiguous and
+<br>&nbsp;</br>
+2. **Use semantic versioning**:<br/>
+A library library must use semantic versioning and follow the versioning update rules used by
+the HED standard schema as specified in [**Semantic versioning**](./03_HED_formats.md#33-semantic-versioning).
+<br>&nbsp;</br>
+3. **Tag uniqueness**:<br/>
+Every term must be unique within the library schema and must 
+conform to the rules for HED schema terms.
+<br>&nbsp;</br>
+4. **Have a meaningful prologue**:<br/>
+The schema should include a prologue section giving an overview, purpose and scope
+of the library schema.
+<br>&nbsp;</br>
+5. **Have a meaningful epilogue**:<br/>
+The schema should include an epilogue section containing reference, citation, and license information.
+<br>&nbsp;</br>
+6. **Be understandable**:<br/>
+Schema terms should be readily understood by most users. The terms should not be ambiguous and
 should be meaningful in themselves without reference to their position in the schema hierarchy.
-5. If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
-6. Terms that are used independently of one another should be in different sub-trees (orthogonality).
-7. The schema should include the schema attributes, unit classes, unit modifiers, value classes,
-and schema properties present in the HED standard schema.
+<br>&nbsp;</br>
+7. **Be well-organized**:<br/>
+If possible, no schema sub-tree should have more than 7 direct subordinate sub-trees.
+<br>&nbsp;</br>
+8. **Maintain subtree orthogonality**:<br/>
+Terms that are used independently of one another should be in different sub-trees (orthogonality).
+<br>&nbsp;</br>
+9. **Enforce is-a relationship between child nodes and their parents**:<br/>
+Every node in a HED hierarchy must be a subclass of its parent node.
+This is required for HED search generalizability.
 
 ``````
+Rules 1 through 5 are enforced by validators, while rules 6 through 9 are
+the responsibility of the schema designers and review committees.
 
-As in Python programming, we anticipate that many HED schema libraries may be defined 
-and used, in addition to the standard HED schema. Libraries allow individual research 
-communities to annotate details of events in experiments designed to answer questions 
-of interest to particular research or clinical communities. Since it would be impossible 
-to avoid naming conflicts across schema libraries that may be built in parallel by different
-user communities, HED supports schema library namespaces 
-(the prefix notation described in the previous section).
-Users will be able to add library tags qualified with namespace designators. 
-All HED schemas, including library schemas, 
-adhere to [**semantic versioning**](https://semver.org/).
+In general, library schema developers should avoid adding schema terms that
+duplicate those found in the latest HED standard schema at the time of release.
+Library schema developers should also try to avoid overlap of terms found
+in other schema libraries.
 
-In general, library schema developers should include the auxiliary schema classes from
-the standard HED schema: the schema attributes, unit classes, unit modifiers,
-value classes, and schema properties. The HED tools support these auxiliary
-classes but in general would not support special handling of added classes beyond basic
-verification. 
+All HED schemas, including library schemas, must use [**semantic versions**](https://semver.org/) and
+adhere to the rules specified [**3.3 Semantic versioning**](./03_HED_formats.md/#33-semantic-versioning).
+
+Standalone library schema developers must include the auxiliary schema classes from
+the standard HED schema including the schema attributes, unit classes, unit modifiers,
+value classes, and schema properties.
+No changes should be made to these sections since HED tools support the special auxiliary
+classes from the standard schema,
+but in general do not support special handling of added classes beyond basic verification. 
 
 If your application requires schema classes that are not available
 in the standard HED schema and would like these classes to be supported,
-please make a request using the [**HED examples issues**](https://github.com/hed-standard/hed-examples/issues) forum.
-
-A schema should not duplicate tags found in the standard schema.
-
-### 7.3.2 Defining a schema
-
-A HED library schema is defined in the same way as the standard HED schema 
-except that it has an additional attribute name-value pair `library="xxx"` 
-in the schema header. 
-We will use as a library schema for driving as an illustration.
-Syntax details for a library schema are similar to those for the standard HED schema.
+please make a request using the [**issues**](https://github.com/hed-standard/hed-schemas/issues) 
+forum of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 
-````{admonition} **Example:** Driving library schema (MEDIAWIKI template).
+### 7.3.2. Standalone design rules
 
-```moin
-HED library="driving" version="1.0.0" 
-!# start schema 
-   [... contents of the HED driving schema ...]
-!# end schema
-   [... required sections specifying schema attribute definitions ...]
-!# end hed
-```
-````
+The following design rules are specifically meant for standalone library schemas.
 
-The required sections specifying the schema attributes  are *unit-class-specification*, 
-*unit-modifier-specification*, *value-class-specification*, *schema-attribute-specification*,
-and *property-specification*.
+``````{admonition} Design rules specific to standalone HED library schemas.
+:class: tip
 
-````{admonition} **Example:** Driving library schema (XML template).
+1. **Avoid tag duplication**:<br/>
+The terms in the library schema should not overlap terms present in the latest
+version of the HED schema at the time of its release.
+<br>&nbsp;</br>
+2. **Do not modify the special auxiliary sections**:<br/>
+The standalone library schema should exactly duplicate of special auxiliary sections 
+of the HED standard schema that was the latest version when this schema version was released.
+The special sections include:  schema attributes, unit classes, 
+unit modifiers, value classes, and schema properties.
+<br>&nbsp;</br>
+3. **Avoid adding special auxiliary items**:<br/>
+A library schema may not modify any of the items in the special sections
+of the HED standard schema.
+<br>&nbsp;</br>
+4. **Obtain the appropriate reviews early**:<br/>
+Any additions to the special sections must be reviewed by the HED Working Group to
+determine what requirements the additions would impose on downstream tools.
+This should be done as early in the process as possible.
 
-```xml
-<?xml version="1.0" ?>
-<HED library="driving" version="1.0.0">
-    [... contents of the HED_DRIVE schema ... ]
-</HED>
-```
-````
+``````
 
-During annotation tags from different library schemas can
-be intermixed with those of the standard schema.
-Since the node names within a library must be
-unique, annotators can use short form as well as fully expanded tag paths for library schema 
-tags as well as those from the standard HED schema.
+Standalone library schemas are no longer recommended because of the difficulty
+in enforcing conflict rules with HED standard schemas.
 
-The schema XML file should be saved as `HED_driving_1.0.0.xml` so that tools can locate them.
-The official location of HED standard and library schemas is the
-[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+### 7.3.3. Partnered design rules
 
-### 7.3.3 Schema namespaces
+Partnered library schemas are now the recommended format for the reasons
+listed in [**Motivation for partners**](./07_Library_schemas.md#725-motivation-for-partners).
+The following design rules are specifically meant for partnered library schemas.
+
+``````{admonition} Design rules specific to partnered HED library schemas.
+:class: tip
+
+1. **Check for overlap**:<br/>
+The terms in the partnered library schema must not overlap with terms present in its partnered
+standard schema.
+<br>&nbsp;</br>
+2. **Use the latest released version of the standard schema**:<br/>
+A partnered library schema should always use the latest version of the HED schema
+available at the time of its release.
+<br>&nbsp;</br>
+3. **Do not put any auxiliary sections**:<br/>
+A partnered library schema should not contain the special auxiliary sections (e.g., schema attributes, unit classes, unit modifiers, value classes, and schema properties),
+unless a new item is added to the section, in which only that item should appear.
+<br>&nbsp;</br>
+4. **Seek reviews early in the process**:<br/>
+Any additions to the special sections must be reviewed by the HED Working Group to
+determine what requirements the additions would impose on downstream tools.
+
+``````
+It is recognized that HED standard and library schemas will both evolve and
+that additions or tag reorganizations may cause conflicts.
+These conflicts must be resolved as they occur.
+In general the standard schema takes precedence over any library schema in
+resolving these conflicts.
+
+### 7.3.4. Schema namespaces
 
 As part of the HED annotation process, users must associate one or more
 HED schemas with their datasets.
+Since it would be impossible to avoid naming conflicts across schema libraries built in parallel by different user communities, 
+HED supports schema library namespaces to facilitate the use of multiple schemas in
+annotating a datasets..
+
 If multiple schemas are used, users must define a local prefix for
 each additional schema and prefix the tags from each of these
 additional schemas by their respective prefix in annotations.
@@ -294,89 +398,13 @@ dp:Change-lanes
 
 A colon (`:`) is used to separate the qualifying local name from the remainder of the tag. 
 
-### 7.3.4 Library schema layout
+The introduction of partnered library schemas has greatly reduced the need for namespaces,
+since the most common use case is a library schema used with a standard schema.
 
-In addition to the specification of tags in the main part of a schema, a HED schema has 
-sections that specify unit classes, unit modifiers, value classes, schema attributes, 
-and properties. The rules for the handling of these sections for a library schema are 
-as follows:
-
-#### 7.4.1. Required sections
-
-The required sections of a library schema are the same as those for the
-standard schema.
-These sections are listed in 
-[**3.1.2. Schema layout overview**](./03_HED_formats.md#312-schema-layout-overview).
-The library schema must include all required 
-schema sections even if the content of these sections is empty.
-
-#### 7.4.2. Relation to standard HED schema
-
-Any schema attribute, unit class, unit modifier, value class, or property used in the
-library schema must be specified in the appropriate section of the library schema
-regardless of whether these appear in the standard HED schema. Validators check the library
-schema strictly on the basis of its own specification without reference to another 
-schema.
-
-#### 7.4.3. Schema properties
-
-HED only supports the schema properties listed in
-[**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties). 
-If the library schema uses one of these in the library schema specification, 
-then its specification must appear in the *property-specification* section of the library schema.
-
-#### 7.4.4. Unit classes
-
-The library schema may define unit classes and units as desired or include unit classes or 
-units from the standard HED schema. Similarly, library schema may define unit modifiers or 
-reuse unit modifiers from the standard HED schema. HED validation and basic analysis tools 
-validate these based strictly on the schema specification and do not use any outside 
-information for these.
-
-#### 7.4.5. Value classes
-
-The standard value classes listed in [**A.1.3. Value classes**](./Appendix_A.md#(a-13-value-classes)
-are the only value classes that should be used in designing library schemas as 
-these are the only ones that general tools will support.
-If additional value classes are needed, they should be proposed on `hed-schemas` repository
-[**issue forum**](https://github.com/hed-standard/hed-schemas/issues).
-
-Library schema may define additional value classes and 
-specify their allowed characters, but no additional hard-coded behavior will be 
-available in the standard toolset. This does not preclude special-purpose tools 
-from incorporating their own behavior.
-
-#### 7.4.6. Schema attributes
-
-The standard schema attributes listed in
-[**A.1.4. Schema attributes**](./Appendix_A.md#(*allowedCharacter*, *defaultUnits*, *extensionAllowed*,
-*recommended*, *relatedTag*, *requireChild*, *required*, *SIUnit*, *SIUnitModifier*,
-*SIUnitSymbolModifier*, *suggestedTag*, *tagGroup*, *takesValue*, *topLevelTagGroup*, 
-*unique*, *unitClass*, *unitPrefix*, *unitSymbol*, *valueClass*) should have the same
-meaning as in the standard HED schema. The hard-coded behavior associated with the schema 
-attributes will be the same. Library schema may define additional schema attributes. 
-They will be checked for syntax, but no additional hard-coded behavior will be available
-in the standard toolset. This does not preclude special-purpose tools from incorporating
-their own behavior.
-
-#### 7.4.7. Syntax checking
-
-Regardless of whether an entity is in the standard HED schema or a library schema,
-HED schema validation tools perform basic syntax checking.
-
-````{admonition} Basic syntax checking for HED schemas.
-:class: tip
-
-1. All attributes used in the schema proper must be defined in the schema attribute section of the schema.
-2. Undefined attributes cause an error in schema validation.
-3. Similar rules apply to unit classes, unit modifiers, value classes, and properties.
-4. Actual handling of the semantics by HED tools only occurs for entities appearing in the standard HED schema.
-````
-
-## 7.5. Library schemas in BIDS
+## 7.4. Library schemas in BIDS
 
 The most common use case (for 99.9% of the HED users) is to tag events using
-a standard HED schemas (preferably the latest one) available in the
+a standard HED schema (preferably the latest one) available in the
 `standard_schema/hedxml` directory of the `hed-schemas` repository of the
 `hed-standard` organization on GitHub.
 The standard schemas are available at:
@@ -385,65 +413,19 @@ The standard schemas are available at:
 The **official library schemas** are available at
 [**https://github.com/hed-standard/hed-schemas/tree/main/library_schemas**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas).
 
-Standard schemas are referenced by their version number (e.g., `8.0.0`),
+Standard schemas are referenced by their version number (e.g., `8.1.0`),
 while library schema are referenced by a combination of library name
 and version number (e.g., `score_1.0.0`).
 
-The following example specifies that version 8.0.0 of the standard HED schema is 
-to be used in addition to two library schemas: 
-the `score` library version `1.0.0` and the `testlib` library version `1.0.2`. 
+For BIDS datasets, the versions of the HED schema are specified by
+the `HEDVersion` field of the BIDS `dataset_description.json` file.
+The following example specifies that version 8.1.0 of the standard HED schema is 
+to be used in addition to `score` library schema version `1.0.0`.
 
-
-````{admonition} **Example:** An example specification with multiple schemas.
-
-```json
-{
-    "Name": "A wonderful experiment",
-    "BIDSVersion": "1.8.0",
-    "HEDVersion": ["8.0.0", "sc:score_1.0.0", "ts:testlib_1.0.2"]
-}
-
-```
-````
-
-Based on the above description tools will download:
-1. The standard HED schema:  
-[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.0.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.0.0.xml).
-2. The HED `score` library schema version 1.0.0:  
-[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_1.0.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_0.0.1.xml). 
-3. The HED `testlib` library schema version 1.0.2:  
-[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/testlib/hedxml/HED_testlib_1.0.2.xml).
-
-A schema browser is available for each library.
-For example the schema browser for the `score` library schema is available at
-[https://www.hedtags.org/display_hed_score.html](https://www.hedtags.org/display_hed_score.html).
-
-Given the `HEDVersion` specification from the previous example, annotators
-can use any combination of tags from the three indicated schemas.
-In this example the standard HED schema version appears without a prefix in the version
-specification, so tags from this schema may appear directly in the annotation.
-
-The `sc` and `ts` are local names used to distinguish
-tags from the additional schema.
-Tags from the `score` library schema are of the form `sc:xxx` where `xxx` 
-is a tag from the `score` schema.
-Similarly, tags from the `testlib` library schema are of the form `ts:yyy` 
-where `yyy` is a tag from the `testlib` schema.
-
-The array specification of the schema versions can have at most one version
-appearing without a colon prefix.
-
-
-### 7.5.1 Using library schema in BIDS
-
-The following `datset_description.json` of a BIDS dataset
-indicates that HED standard schema version 8.1.0 should be used
-alone with SCORE library schema 1.0.0.
-The tags are....
 ````{admonition} Illustration of using the namespace prefix for tagging.
 :class: tip
 
-
+The `dataset_description.json` file contains:
 
 ```json
 {
@@ -452,6 +434,8 @@ The tags are....
   "HEDVersion": ["8.1.0", "sc:score_1.0.0"]
 }
 ```
+
+A typical annotation is:
 
 ```text
 "Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes"
@@ -459,55 +443,41 @@ The tags are....
 ````
 
 
-Additional information can be found in [**HED schema format**](./03_HED_formats.md#31-hed-schema-format) of Chapter 3 
-and [**Appendix A: Schema format details**](Appendix_A.md) for additional information.
 
-Schema developers should also consult the
-[**HED schema development guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
+Based on the above description tools will download:
+1. The standard HED schema:  
+[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.1.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HED8.1.0.xml).
+2. The HED `score` library schema version 1.0.0:  
+[https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_1.0.0.xml](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/library_schemas/score/hedxml/HED_score_0.0.1.xml). 
 
-### 7.5.2 Partnered schemas in BIDS
+In the dataset annotations for the above example, tags drawn from the score schema would
+be prefixed with `sc:`, where `sc` is a local name used to distinguish
+tags from the additional schema.
 
-In the following example of a BIDS `dataset_description.json`,
-the annotator indicates that tags from the SCORE library version 1.0.0 will prefixed by `sc:`,
-while tags from HED standard schema version 8.1.0 will not be prefixed.
+The array specification of the schema versions in BIDS can have at most one version
+appearing without a colon prefix.
 
+SCORE version 1.0.0 is not partnered, so the HED version specification had to include
+both the library and standard schema versions.
+In contrast, SCORE version 1.1.0 is partnered with HED standard schema 8.2.0,
+so no namespace prefixes are needed as shown in the following example:
 
-````{admonition} **Example:** BIDS dataset description using HED version 8.1.0 and score library 1.0.0.
+````{admonition} **Example:** An example specification of HED version for a partnered schema.
+:class: tip
+
+The `dataset_description.json` file contains:
+
 ```json
-
-{
-  "Name": "A great experiment",
-  "BIDSVersion": "1.8.0",
-  "HEDVersion": ["8.1.0", "sc:score_1.0.0"]
-}
-```
-````
-
-
-In the following example of a BIDS `dataset_description.json`,
-the annotator indicates that tags from the SCORE library version 1.1.0 partnered schema.
-
-````{admonition} **Example:** BIDS dataset description using score library 1.1.0 partered with 8.2.0.
-```json
-
 {
   "Name": "A great experiment",
   "BIDSVersion": "1.8.0",
   "HEDVersion": "score_1.1.0"
 }
 ```
+
+A typical annotation is:
+
+```text
+"Data-feature, Photomyogenic-response, Wicket-spikes"
+```
 ````
-
-
-
-Notice that standard schema version 8.2.0 is not mentioned in the `HEDVersion` field.
-This is because a given version of a library schema is partnered with a fixed version
-of the standard schema as indicated by the schema header using the `withStandard`:
-
-
-If schema designers wish to partner with a different version of the standard schema,
-they must release a distinct version of the library schema.
-
-**Partnered library schema are strongly encouraged**.
-Library schema designers should partner with the latest HED standard schema and
-ideally release a new partnered version when a new version of the HED standard schema is released.
