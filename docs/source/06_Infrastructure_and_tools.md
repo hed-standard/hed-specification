@@ -9,7 +9,7 @@ In general, tools should either explicitly call HED validation to assure that th
 tag strings are valid or should make explicit that they assume the HED has already been validated.
 Most tools will use the later approach. 
 
-See [**3.2. HED annotation format**](./03_HED_formats.md#32-hed-annotation-format)
+See [**3.2. Annotation formats**](./03_HED_formats.md#32-annotation-formats)
 for more detailed specifications of HED formats. 
 
 See [**4. Basic annotation**](./04_Basic_annotation.md) and 
