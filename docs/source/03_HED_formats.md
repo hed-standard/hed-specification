@@ -714,7 +714,7 @@ Terms from only one schema can appear in the annotation without a namespace pref
 See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
-See [**7.5. Library schema in BIDS**](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the
+See [**7.4. Library schema in BIDS**](./07_Library_schemas.md#74-library-schemas-in-bids) for an example of how the
 prefix notation is used in BIDS.
 
 
@@ -897,144 +897,96 @@ Additional details and examples for `Event-context` can be found in
 
 ### 3.2.9. Sidecars
 
-A sidecar is a dictionary that can be used to associate tabular file columns
-and their values with HED annotations.
-The rows of tabular event files represent time markers on the experimental timeline,
-and the assembled annotations for each row describe what happened at that time marker.
+JSON sidecars are an integral part of the [**BIDS**](https://bids.neuroimaging.io/)
+(Brain Imaging Data Structure) neuroimaging standard and are used to associate
+metadata with data files.
+
+The JSON sidecars that are relevant to HED are associated with tabular data files.
+For example, the rows of tabular event files represent time markers on the experimental timeline,
+and the assembled HED annotations for each row describe what happened at that time marker.
 A sidecar containing annotations associated with the columns of such an event file
-allows HED tools to assemble HED annotations for each row in the file.
+allows HED tools to assemble HED annotations for each row of the file.
 
-The rows of tabular files representing other types of information
-can also be annotated in the same way.
+In addition to sidecars, HED annotations can also be given in the `HED` column of tabular files.
+At validation or analysis time the HED information from both the `HED` column of a tabular file
+and its associated sidecar are assembled to provide the annotation.
 
-The "HED" key, which may only appear at the second level in the JSON dictionary,
-designates an entry that contains HED annotations.
-"HED" keys that appear at other levels of the JSON sidecar are considered to be
-in error.
-
-HED sidecar validation assumes that the dictionary is saved in JSON format and complies with the
+HED validators assume that the annotation dictionary is saved in JSON format and 
+that they comply with the
 [**BIDS sidecar**](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
 #### 3.2.9.1. Sidecar entries
 
-A BIDS sidecar is dictionary with many possible types of entries, three of which are relevant to HED.
-These entries all have `"HED"` as a key in one or more second-level dictionaries.
+A BIDS sidecar is a JSON dictionary with several types of entries, three of which are relevant to HED:
 
-````{Admonition} Three types of JSON sidecar entries of interest to HED tools 
-- **Categorical entries**: are associated with a particular event file column and provide
-individual annotations for each column value. 
-The dictionary is not required to provide annotations for every possible
-value a categorical column, although tools may choose to issue a warning if appropriate.
-The dictionary may also include annotations for values that do not appear in the associated event file column.  
-<p></p>
 
-- **Value entries**: are associated with a particular event file column and provide
-an annotation that applies to any entry in the column.
-The HED annotation must contain a single `#` placeholder,
-and each individual column value is substituted for the `#` in the annotation
-when the annotation for the entire row is assembled.
+````{Admonition} Three types of JSON sidecar HED-related entries. 
+**Categorical entries**
+- The top-level JSON key corresponds to a column name in the event file.
+- The value associated with the HED key is a dictionary of HED annotations.
+- The keys of the annotation dictionary are the unique column values.
+- The entry is not required to have annotations for every possible unique column value.
+- Tools may choose to issue a warning if a column value does not have an annotation.
+- The annotation dictionary may include annotations for values that do not appear in a particular event file.  
 
-<p></p>
- 
-- **Dummy entries**: are similar in format to categorical entries,
-but are not associated with any event file columns.
-Rather these annotations are mainly used to gather HED definitions.
+
+**Value entries**:
+- The top-level JSON key corresponds to a column name in the event file.
+- The value associated with the HED key is a HED string.  
+- The entry's annotation is applicable to all values in its associated event file column.  
+- The HED annotation must contain a single `#` placeholder.  
+- Each row's column value is substituted for the `#` in the annotation
+when the row annotation is assembled.
+
+**Dummy entries**:
+- The top-level JSON key must not correspond to a column name in the event file.
+- The value associated with the HED key is a dictionary of HED annotations.
+- The keys are dummy entries.
+- Used to gather HED definitions.
 
 ````
 
-HED definitions are required to be separated into 
-dummy sidecar column entries.
-They may not appear in sidecar entries containing tags other than definitions.
+The other types of sidecar entries include categorical and value
+entries with no `"HED"` key, as well as arbitrary entries
+whose keys do not correspond to column names in an associated tabular file.
 
-The sidecar does not have to provide a HED-relevant entry for every event file column.
-Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation
-for an event file row.
+When annotations are assembled, sidecar entries with no `"HED"` key are ignored
+as are entries in the corresponding tabular data file that have `n/a` or blank values.
 
-For compatibility with [**BIDS**](https://bids.neuroimaging.io/),
-tabular file column entries containing `n/a` are ignored.
-The sidecar is not permitted to provide an annotation for `n/a`.
-Further, `"HED"` can only appear as a second-level dictionary key.
-
-The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
-Entries without a `"HED"` key in the second level entry dictionaries are ignored.
-
-(example-sidecar-anchor)=
-````{Admonition} Examples of the three types of sidecar annotation entries relevant to HED
-:class: tip
-```json
-{
-   "trial_type": {
-      "LongName": "Event category",
-      "Description": "Indicator of type of action that is expected",
-      "HED": {
-          "go": "Sensory-event, Visual-presentation, (Square, Blue)",
-          "stop": "Sensory-event, Visual-presentation, (Square, Red)"
-       }
-   },
-   "response_time": {
-       "LongName": "Response time after stimulus",
-       "Description": "Time from stimulus presentation until subject presses button",
-       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button)))"
-   },
-   "dummy_defs": {
-        "HED": {
-            "MyDef1": "(Definition/Cue1, (Buzz))",
-            "MyDef2": "(Definition/Image/#, (Image, Face, Label/#))"
-        }
-   }
-}
-```
-````
-
-In the example, the `trial_type` key references a **categorical** entry.
-Categorical entries have keys corresponding to the event file column names.
-The value of a categorical entry is a dictionary which has a `"HED"` key.
-In the above example, the keys of this second dictionary are the values (`go` and `stop`) that
-appear in the `trial_type` column of the event file.
-The values are the HED annotations associated with those values.
-Thus, the `"Sensory-event, Visual-presentation, (Square, Blue)"` is the HED annotation
-associated with a `go` value in the `trial_type` column of the associated event file.
-
-The `response_time` key references a **value annotation**.
-Value entries have keys, one of which is `"HED"`.
-Associated with the `"HED"` key is a HED annotation value.
-There must be exactly one `#` placeholder in the annotation.
-The actual value in the `response_time` column is substituted for the
-`#` when the annotation is needed.
-
-The `dummy_defs` is an example of a **dummy annotation**.
-The value of this entry is a dictionary with a `"HED"` key
-pointing to a dictionary.
-A dummy annotation is similar in form to a **categorical annotation**,
-but its keys do not correspond to any event file column names.
-Rather it is used as a container to organize HED definitions.
-
-In the example,
-`Definition/Cue1` is a definition that does not use a placeholder (`#`) modifier in its name,
-while `Definition/Image/#` is a definition whose name `Image` is modified by a placeholder value.
-Notice that `Image` is both a definition name and an actual tag in the schema in this example.
-This is permitted.
+See [**3.2.9.4. A sidecar example**](./03_HED_formats.md/#3294-a-sidecar-example)
+for an elaborated example of these different types of entries and
+[**3.2.10.2 Event-level processing**](./03_HED_formats.md/#32102-event-level-processing)
+for an example of how the resulting HED annotations are assembled.
 
 #### 3.2.9.2. Sidecar validation
 
-As with other entities definitions should be removed from sidecars and validated separately,
-although validation error messages for such definitions should be associated with
-the locations of the definitions in the sidecars.
+All HED-related entries in a JSON sidecar must 
+have `"HED"` as a key in a second-level dictionary.
+`"HED"` cannot appear as a sidecar key that is not at the second level.
+Further, a sidecar is not permitted to provide a HED annotation for `n/a`.
+Both of these generate a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid) error.
 
-HED categorical sidecar entries contain HED strings and should be validated in the same way.
+HED definitions are required to be separated into dummy sidecar column entries
+and cannot appear in sidecar entries containing tags other than definitions.
+A HED definition appearing in a categorical or value sidecar entry 
+generates a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error.
 
-HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated 
-with the entry. The `#` placeholder should correspond to a `#` in the HED schema,
-indicating that the parent tag (also included in the annotation) expects a value. 
+The sidecar does not have to provide a HED-relevant entry for every event file column.
+Columns with no corresponding sidecar entry are skipped during assembly of the 
+HED annotation for an event file row.
+However, if a value is encountered in a tabular file column that is
+annotated as a categorical column but does not have a HED annotation,
+a [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar_key_missing) warning is generated.
+
+HED value sidecar entries must contain exactly one `#` placeholder in 
+the HED string annotation associated with the entry.
+The `#` placeholder should correspond to a `#` in the HED schema,
+indicating that the parent tag (also included in the annotation) expects a value.
+These issues generate a [**PLACEHOLDER_INVALID**](./Appendix_B.md#placeholder_invalid) error.
 
 If the placeholder is followed by a unit designator, the validator checks that 
 these units are consistent with the unit class of the
 corresponding `#` in the schema.  The units are not mandatory.
-
-Errors that are particularly relevant to sidecars include [**PLACEHOLDER_INVALID**](./Appendix_B.md#placeholder_invalid) and [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid).
-
-If the sidecar is missing an annotation for a categorical column value,
-the [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar_key_missing) warning is generated.
 
 #### 3.2.9.3. Sidecar curly braces
 
@@ -1061,27 +1013,59 @@ an annotation that uses curly braces (to prevent circular references).
 
 ``````
 
-The following example illustrates the three types of JSON sidecar entries that are relevant to HED.
-Entries without a `"HED"` key in the second level entry dictionaries are ignored.
+If curly braces appear in an ordinary HED annotation (not in a sidecar),
+a [**CHARACTER_INVALID**](./Appendix_B.md#character_invalid) error is generated. 
 
-(example-sidecar-anchor1)=
-````{Admonition} Examples of the three types of sidecar annotation entries relevant to HED
+If a sidecar appears in a `Definition`,
+a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error is generated. 
+
+If the curly brace notation is used improperly in a sidecar or elsewhere, a
+[**SIDECAR_BRACES_INVALID**](./Appendix_B.md#sidecar_braces_invalid) is generated.
+
+
+#### 3.2.9.4. A sidecar example
+
+The following example illustrates the different types of JSON sidecar entries.
+
+(example-sidecar-anchor)=
+````{Admonition} Different types of sidecar annotation entries that might appear in 
 :class: tip
 ```json
 {
-   "trial_type": {
+   "event_type": {
       "LongName": "Event category",
-      "Description": "Indicator of type of action that is expected",
+      "Description": "Indicator of type of event.",
+      "Levels": {
+          "show": "Show a face to a participant.",
+          "press": "Participant presses key to indicate symmetry."
+       },
       "HED": {
-          "go": "Sensory-event, Visual-presentation, (Square, Blue)",
-          "stop": "Sensory-event, Visual-presentation, (Square, Red)"
+          "show": "Sensory-event, Visual-presentation, {stim_file}",
+          "press": "Agent-action, (Experiment-participant, (Press, {key}))"
        }
    },
-   "response_time": {
-       "LongName": "Response time after stimulus",
+   "stim_file": {
+       "LongName": "Stimulus image file",
        "Description": "Time from stimulus presentation until subject presses button",
-       "HED": "(Delay/# ms, Agent-action, (Experiment-participant, (Press, Mouse-button)))"
+       "HED": "(Image, Face, Pathname/#)"
    },
+   "key":   {
+       "LongName": "Indicates which key is pressed.",
+       "Description": "Indicator of participant evaluation.",
+       "HED": {
+          "left-arrow": "((Leftward, Arrow), Keypad-key)",
+          "right-arrow": "((Rightward, Arrow), Keypad-key)"
+       }
+   },
+   "symmetry":   {
+       "LongName": "Indicates symmetrical or asymmetrical.",
+       "Description": "Indicates the participant's judgement of symmetry.",
+       "HED": {
+          "symmetric": "(Judge, Asymmetrical)",
+          "asymmetric": "(Judge, Symmetrical)"
+       }
+   },
+
    "dummy_defs": {
         "HED": {
             "MyDef1": "(Definition/Cue1, (Buzz))",
@@ -1092,14 +1076,43 @@ Entries without a `"HED"` key in the second level entry dictionaries are ignored
 ```
 ````
 
+In the example, `"event_type"` is the name of a column that is annotated using the
+**categorical** strategy.
+Its top-level dictionary has `"LongName"`, `"Description"`, `"Levels"`, and `"HED"` keys.
 
-If curly braces appear in an ordinary HED annotation (not in a sidecar),
-an [**CHARACTER_INVALID**](./Appendix_B.md#character_invalid) error is generated. 
-If a sidecar appears in a `Definition`,
-a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error is generated.
-If the curly brace notation is used improperly in a sidecar or elsewhere, a
-[**SIDECAR_BRACES_INVALID**](./Appendix_B.md#sidecar_braces_invalid) is generated.
+The value of `"Levels"` is a dictionary with the unique values in the `"event_type"` 
+column keyed to full text descriptions of these unique values.
 
+The value of `"HED"` is a dictionary with the unique values in `"event_type"`
+keyed to the corresponding HED annotations of these unique values.
+In the above example, the unique values are `"show"` and `"press"`.
+The HED annotation for `show` is `"Sensory-event, Visual-presentation, {stim_file}"`.
+
+Notice use of curly braces in the notation. Here `"stim_file"` must
+correspond to another HED-annotated column in the sidecar.
+The `"stim_file"` column is an example of a value column.
+Its top level dictionary keys are `"LongName"`, `"Description"`, and `"HED"`.
+and its annotation entry:
+`"(Image, Face, Pathname/#)"`.
+This annotation has a single `#`. 
+The filename in the `stim_file` column replaces this `#` when the 
+
+Since `"stim_file` and `"key"` appear within curly braces in annotations
+for `"event_type"`, their HED annotations can not use curly braces.
+
+
+The `"dummy_defs"` is an example of a **dummy annotation**.
+The value of this entry is a dictionary with a `"HED"` key
+pointing to a dictionary.
+A dummy annotation is similar in form to a **categorical annotation**,
+but its keys do not correspond to any event file column names.
+Rather it is used as a container to organize HED definitions.
+
+In the example,
+`Definition/Cue1` is a definition that does not use a placeholder (`#`) modifier in its name,
+while `Definition/Image/#` is a definition whose name `Image` is modified by a placeholder value.
+Notice that `Image` is both a definition name and an actual tag in the schema in this example.
+This is permitted.
 
 
 ### 3.2.10. Tabular files
@@ -1142,7 +1155,21 @@ the HED strings associated with each row of the tabular file must be assembled t
 annotation for the row.
 We refer to this as *event-level* or *row* processing.
 
-````{Admonition} General procedure for event-level (row) processing. 
+If the HED schema used for processing contains a schema node that has the `required` attribute, then
+the assembled HED annotations for each row must include that tag.
+Currently, HED schema versions &ge; 8.0.0 do not contain any nodes with the `required`
+attribute, and this attribute may be deprecated in future versions of the schema.
+
+If the HED schema used for processing contains a schema node that has the `unique` attribute,
+then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
+Currently, only `Event-context` has the `unique` attribute for HED schema versions &ge; 8.0.0.
+
+See [**REQUIRED_TAG_MISSING**](./Appendix_B.md#required_tag_missing)
+and [**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for information
+on the validation errors that may occur with tags that have the `required` or `unique`
+schema attributes, respectively.
+
+````{Admonition} General procedure for event-level (row) assembly. 
 
 1. Start with an empty list.
 2. For each categorical column, the column value for the row is looked up in the sidecar.
@@ -1155,21 +1182,35 @@ the row value is substituted for `#` placeholder in the annotation and the resul
 In all cases `n/a` column values are skipped.
 ````
 
-For an example, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
+To illustrate the assembly process, consider the following excerpt from an event file:
 
-If the HED schema used for processing contains a schema node that has the `required` attribute, then
-the assembled HED annotations for each row must include that tag.
-Currently, HED schema versions >= 8.0.0 do not contain any nodes with the `required`
-attribute, and this attribute may be deprecated in future versions of the schema.
 
-If the HED schema used for processing contains a schema node that has the `unique` attribute,
-then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
-Currently, only `Event-context` has the `unique` attribute for HED schema versions >= 8.0.0.
+````{Admonition} General procedure for event-level (row) assembly. 
 
-See [**REQUIRED_TAG_MISSING**](./Appendix_B.md#required_tag_missing)
-and [**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for information
-on the validation errors that may occur with tags that have the `required` or `unique`
-schema attributes, respectively.
+| onset | duration | event_type | stim_file | key | symmetry | HED |
+| ----- | -------- | ---------- | --------- | --- | -------- | --- |
+| 3.42  | n/a   | show  |   h234.bmp  |  n/a |  n/a | "(Recording, Label/Setup)" |
+| 3.86  | n/a    | press  |  n/a  |  left-arrow  |  asymmetric | n/a |
+| 7.42  | n/a    | show  |   h734.bmp  |  n/a |   n/a | n/a |
+````
+
+Using the [**example sidecar**](example-sidecar-anchor) 
+results in the following assembled HED annotation for the first row of the event file:
+
+````{Admonition} General procedure for event-level (row) assembly. 
+:class: tip
+
+```shell
+"Sensory-event, Visual-presentation, (Image, Face, Pathname/h234.bmp), (Recording, Label/Setup)"
+```
+````
+
+The specific annotation `(Image, Face, Pathname/h234.bmp)` has been substituted for
+`{stim_file}` and the annotation for in the `HED` column of the `events.tsv` file
+has been included. The entries with `n/a` have been ignored.
+
+For more examples of event assembly, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
+
 
 #### 3.2.10.3 File-level processing
 
@@ -1185,6 +1226,7 @@ In particular every `Offset` tag group must correspond to a preceding `Onset` ta
 
 See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) for details on the
 type of errors that are generated due to `Onset` and `Offset` errors.
+
 
 ## 3.3. Semantic versioning
 

@@ -96,8 +96,8 @@ the definition's contents.
 **g.**  A definition has placeholders (`#`) in incorrect positions.  
 **h.**  Definitions of the same name appear with and without a `#`.  
 **i.**  Multiple `Definition` tags with same name are encountered.
-**j.**  A tag with a `required` or `unique` attribute appears in a definition.
-**k.**  A definition appears in an unexpected place such as an events file.
+**j.**  A tag with a `required` or `unique` attribute appears in a definition.  
+**k.**  A definition appears in an unexpected place such as an events file.  
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions.
@@ -175,17 +175,17 @@ additional information on the `required` tag.
 
 **a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
 **b.**  A column name entry in a sidecar has a HED annotation with curly braces, but this name also appears in curly braces in another HED annotation.  
-**c.** The curly braces in a sidecar are nested or unmatched.
+**c.** The curly braces in a sidecar are nested or unmatched.  
 
-See [**3.2.9.3. Sidecar curly braces**](./03_HED_formats.md#3293-sidecar-curly-braces) for information
+See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for information
 on the requirements for using sidecars.
 
 ### SIDECAR_INVALID
 
-**a.**  The `"HED"` key is not a second-level dictionary key.
-**b.**  An annotation entry is provided for `n/a`.
+**a.**  The `"HED"` key is not a second-level dictionary key.  
+**b.**  An annotation entry is provided for `n/a`.  
 
-See [**3.2.9.2. Sidecar validation**](./03_HED_formats.md#3292-sidecar-validation) for a
+See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
 
 ### SIDECAR_KEY_MISSING*
