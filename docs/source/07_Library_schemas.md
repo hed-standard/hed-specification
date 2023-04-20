@@ -161,7 +161,7 @@ HED standard schema 8.2.0:
 | `withStandard` | Header attribute | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul> |
 | `unmerged` | Header attribute | <ul><li>Indicates that this schema contains only library information.</li><li>Its value is either "true" or "false.</li><li>If "false", the attribute should be omitted.</li></ul> |
 | `inLibrary` | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The  attribute appears only merged schemas.</li></ul> |
-| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li><li>A rooted node in the unmerged schema must not<br/> have a description or other attributes,<br/>since these are inherited from the standard schema.</li></ul> |
+| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with this name must exist in both the library and its partnered library schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li><li>A rooted node in the unmerged schema must not<br/> have a description or other attributes,<br/>since these are inherited from the standard schema.</li></ul> |
 | `reserved` | Node attribute | <ul><li>Indicates that this node has special meaning or function.</li><li>**Can only appear in standard schemas.**</li></ul>. |
 
 
@@ -193,12 +193,9 @@ define the structure of events and the data.
 By partnering with a standard schema, a library schema is assured of having
 HED support for key features such as events of temporal extent and definitions.
 
-As these structural features evolve in HED,
-partnership provides a natural update path for library schemas.
-Developers of library schemas are strongly encouraged to a release new version
-of the partnered library schema when a new HED standard schema version is released
-so that the latest version of a partnered library schema uses the latest version
-of the standard HED schema.
+Developers of partnered library schemas should release new versions 
+whenever HED updates its standard schema.
+This ensures that the partnered library schema benefits from the latest updates to HED features and tools.
 
 If the update can be done without conflict,
 this update may be initiated as part of the release mechanism 

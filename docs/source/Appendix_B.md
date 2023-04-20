@@ -351,9 +351,6 @@ when the planned XSD validation is implemented start with HED_XML.
 
 ### B.2.1. General validation errors
 
-#### LIBRARY_NAME_INVALID
-
-**a.**  The specified library name is not alphabetic or lowercase.  
 
 #### SCHEMA_ATTRIBUTE_INVALID
 
@@ -378,6 +375,21 @@ under an appropriate unit class).
 
 **a.**  The schema header has invalid characters or format.  
 **b.**  The schema header has unrecognized attributes.
+
+#### SCHEMA_LIBRARY_INVALID
+
+Library schema errors are specific to library schema. Library schema may also raise any of the other schema errors.  
+**a.**  The specified library name is not alphabetic or lowercase.  
+**b.**  The `withStandard` attribute is used in a header that does not also have the `library` attribute.   
+**c.**  The `withStandard` attribute value does not correspond to a valid standard schema version.  
+**d.**  The `rooted` attribute appears in a schema whose header does not have `unmerged="true"` as well as appropriate `library` and `withStandard` header values.  
+**e.**  A node with the `rooted` attribute is not at the top level.  
+**f.**  A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.  
+**g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.
+**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.  
+
+
+
 
 #### SCHEMA_SECTION_MISSING
 
