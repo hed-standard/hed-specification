@@ -19,7 +19,14 @@ A key requirement for third generation HED (versions >=8.0.0) is that all node n
 the HED schema (except for `#` placeholders) **must be unique**.
 
 Additional details about HED schema format can be found in appendix
-[**A. Schema format details**](./Appendix_A.md)
+[**A. Schema format details**](./Appendix_A.md).
+[**7. Library schemas**](./07_Library_schemas.md#7-library-schemas)
+discusses the additional requirements and restrictions on library schemas.
+
+[**B.2. Schema validation errors**](./Appendix_B.md#b2-schema-validation-errors)
+gives the errors
+Library specific schema issues usually generate  [**SCHEMA_LIBRARY_INVALID**](./Appendix_B.md#schema_library_invalid) errors.
+
 
 ### 3.1.1. Official schema releases
 
@@ -91,10 +98,6 @@ See [**Appendix A. Schema format details**](./Appendix_A.md) for additional deta
 The schema header line specifies the version, which must satisfy semantic versioning.
 See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
 
-If the schema is a library schema rather than the standard schema, the library name must be included.
-Library names should be lowercase and may only contain alphabetic characters.
-Library names must contain only alphabetic lowercase characters and should be short and descriptive.
-See [**LIBRARY_NAME_INVALID**](./Appendix_B.md#library_name_invalid).
 
 A schema's library name or lack there of is used to locate the schema in the
 HED schema repository located in the
@@ -846,10 +849,11 @@ for details on the types of errors that occur with `Def` and `Def-expand`.
 See also [**Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples.
 
-#### 3.2.8.3. `Onset` and `Offset` tags
+#### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
 The `Onset` and `Offset` tags are used to represent the temporal extent
 of events that have non-zero duration.
+
 Each of these tags must appear in a top level tag group with a
 `Def` or `Def-expand-group` anchor.
 
@@ -870,9 +874,17 @@ in their tag group with the `topLevelTagGroup` attribute.
 This implies, for example, that HED definition's contents may not include 
 `Onset` or `Offset` tags. 
 
-See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) and 
+An `Inset` tag designates an intermediate time point in an event of temporal extent. 
+Like `Onset` and `Offset`, the `Inset` tag has the  `topLevelTagGroup` attribute
+and must be anchored by a `Def` or `Def-expand`.
+The anchor must be the same name as that of an ongoing `Onset`.
+In addition to its anchor, the `Inset` tag group may contain a single additional
+tag group with additional information about that marked point.
+An event of temporal extent may contain several of these intermediate points.
+
+See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) and 
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
-for a listing of specific errors associated with onsets and offsets.
+for a listing of specific errors associated with onsets, and offsets, and insets.
 
 [**Chapter 5.3.1 Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
@@ -1224,7 +1236,7 @@ The validator must also check to make sure that `Onset` and `Offset` tags are
 properly matched within the data recording.
 In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 
-See [**ONSET_OFFSET_ERROR**](./Appendix_B.md#onset_offset_error) for details on the
+See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) for details on the
 type of errors that are generated due to `Onset` and `Offset` errors.
 
 
