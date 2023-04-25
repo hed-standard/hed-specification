@@ -112,7 +112,7 @@ for more details and examples of definition syntax.
 
 See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
 
-### ONSET_OFFSET_ERROR
+### ONSET_OFFSET_INSET_ERROR
 
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
 different placeholder substitutions are considered to be different.
@@ -127,15 +127,17 @@ different placeholder substitutions are considered to be different.
 without the appearance of an intervening `Onset` of the same name.   
 **h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand-group`
 that are not in a tag group.  
-**i.** An `Onset` or an `Offset` with a given `Def` or `Def-expand-group` anchor appears in the same
-event marker with another `Onset` or `Offset` that uses the same anchor.  
-
+**i.** An `Onset`, `Inset` or  `Offset` with a given `Def` or `Def-expand-group` anchor
+appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
+that uses the same anchor.  
+**j.** An `Inset` tag is not grouped with a `Def` or `Def-expand` of an ongoing `Onset`.  
+**k.** An `Inset` group has more than a single tag group in addition to its defining `Def` or `Def-expand`.  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
 
-See [**3.2.8.3 Onset and Offset tags**](./03_HED_formats.md#3283-onset-and-offset-tags)
-for a specification of the required behavior of `Onset` and `Offset`.
+See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
+for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
 
 [**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
