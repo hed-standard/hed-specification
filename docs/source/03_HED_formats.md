@@ -1025,10 +1025,10 @@ an annotation that uses curly braces (to prevent circular references).
 
 ``````
 
-If curly braces appear in an ordinary HED annotation (not in a sidecar),
+If curly braces appear in the HED column of a tabular file,
 a [**CHARACTER_INVALID**](./Appendix_B.md#character_invalid) error is generated. 
 
-If a sidecar appears in a `Definition`,
+If curly braces appear in a `Definition`,
 a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error is generated. 
 
 If the curly brace notation is used improperly in a sidecar or elsewhere, a
@@ -1183,13 +1183,14 @@ schema attributes, respectively.
 
 ````{Admonition} General procedure for event-level (row) assembly. 
 
-1. Start with an empty list.
-2. For each categorical column, the column value for the row is looked up in the sidecar.
-If an annotation for that column value is available it is concatenated to the list. 
-3. For each value column, if a column an associated value entry in the sidecar,
-the row value is substituted for `#` placeholder in the annotation and the result concatenated to the list.
-4. If a `HED` column annotation exists for that row, it is concatenated to the list.
-5. Finally, all the entries of the list are joined using a comma (`,`) separator.
+1. Create an empty result list.
+2. Create an assembly list of columns that contain HED annotations 
+and whose names do not appear in the curly braces of other HED annotations.
+3. For each the column in the assembly list look up the annotation in the sidecar, replacing all curly braces and place holder values appropriately.
+Append to the result list.
+4. If a `HED` column annotation exists for that row and `HED` did not appear
+in curly braces in the sidecar, concatentate the annotation to the result list.
+5. Finally, join all the entries of the result list using a comma (`,`) separator.
 
 In all cases `n/a` column values are skipped.
 ````
@@ -1209,7 +1210,7 @@ To illustrate the assembly process, consider the following excerpt from an event
 Using the [**example sidecar**](example-sidecar-anchor) 
 results in the following assembled HED annotation for the first row of the event file:
 
-````{Admonition} General procedure for event-level (row) assembly. 
+````{Admonition} A result for event-level (row) assembly of the sample file.
 :class: tip
 
 ```shell
