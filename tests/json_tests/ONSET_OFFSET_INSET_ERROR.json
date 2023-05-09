@@ -3,7 +3,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-not-tag-group",
         "description": "An Onset or Offset tag does not appear in a tag group.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -65,7 +65,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "ball", "Onset, Red"],
@@ -83,7 +83,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 5.5, 0, "n/a","(Onset, Def/Acc/5.4 m-per-s^2)"],
@@ -100,7 +100,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-nested-group",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -155,7 +155,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "n/a", "((Onset, Def/MyColor), Red)"],
@@ -172,7 +172,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -187,7 +187,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-wrong-number-of-defs",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -246,7 +246,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "face", "Green, Def/MyColor"],
@@ -264,7 +264,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -279,7 +279,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-error-onset-has-more-groups",
         "description": "An Onset group has more than one additional tag group.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -341,7 +341,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -360,7 +360,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "((Def-expand/MyColor, (Label/Pie)), (Green, (Yellow)), Onset)"],
@@ -375,7 +375,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-offset-has-groups",
         "description": "An Offset appears with one or more tags or additional tag groups.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -396,7 +396,7 @@
                                 "ball": "((Def-expand/MyColor, (Label/Pie)), Onset)",
                                 "square": "(Offset, Def/MyColor, (Red))",
                                 "circle": "((Def-expand/MyColor, (Label/Pie)), Offset, Blue)"
-                                
+
                             }
                         }
                     }
@@ -444,11 +444,11 @@
                                     "ball": "((Def-expand/MyColor, (Label/Pie)), Onset)",
                                     "square": "(Offset, Def/MyColor, (Red))",
                                     "circle": "((Def-expand/MyColor, (Label/Pie)), Offset, Blue)"
-                                    
+
                                 }
                         }
                     },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0,  "face", "n/a"],
@@ -470,7 +470,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0,  "face", "n/a"],
@@ -487,7 +487,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-mismatch",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -531,7 +531,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "ball", "Red, Blue"],
@@ -550,7 +550,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -565,7 +565,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-extra tags",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -621,7 +621,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -639,7 +639,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -654,7 +654,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "onset-offset-error-duplicated-onset-or-offset",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -686,7 +686,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "(Def/MyColor, (Blue), Onset)"],
@@ -702,7 +702,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "(Def/MyColor, Offset)"],
@@ -718,7 +718,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "(Def/MyColor, Offset)"],
@@ -736,7 +736,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -751,7 +751,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "inset-outside-its-event",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -796,7 +796,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "snack", "Red, Blue"],
@@ -816,7 +816,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -832,7 +832,7 @@
         "error_code": "ONSET_OFFSET_INSET_ERROR",
         "name": "inset-group-has-extras",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
