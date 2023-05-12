@@ -1,0 +1,548 @@
+[
+    {
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "name": "sidecar-braces-contents-invalid",
+        "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description but no HED"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_action": {
+                            "Description": "Does not correspond to curly braces"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_action": {
+                            "Description": "Does not correspond to curly braces"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED", "response_time"],
+                                [ 4.5, 0, "face", "Blue", 0],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
+                                [ 5.0, 0, "face", "", 2],
+                                [ 5.0, 0, "face", "n/a", 3]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "name": "sidecar-braces-circular-reference",
+        "description": "The item in curly braces has a HED annotation that contains curly braces.",
+        "schema": "8.2.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow)), {HED}",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "HED": "Label/#, {event_code}"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow)), {HED}",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)",
+                                "dog": "Orange, {event_type}"
+                            }
+                        },
+                        "response_time": {
+                            "HED": "Label/#"
+                        },
+                        "event_type": {
+                            "HED": {
+                            "banana": "Blue, {response_time}",
+                            "apple": "Green"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        },
+                        "response_count": {
+                            "Description": "A count used to test curly braces in value columns.",
+                            "HED": "(Item-count/#, {response_time})"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2, {response_action})"
+                            }
+                        },
+                        "response_action": {
+                            "Description": "Does not correspond to curly braces",
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "response_time", "event_code","HED"],
+                                [ 4.5, 0, 3.4, "face",  "Blue"],
+                                [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
+                                [ 5.0, 0, "n/a", "face", ""],
+                                [ 5.0, 0, "any", "face", "n/a"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "name": "sidecar-braces-self-reference",
+        "description": "The item in curly braces has a HED annotation that contains itself.",
+        "schema": "8.2.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow)), {HED}",
+                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "HED": "Label/#, {response_time}"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        },
+                        "response_count": {
+                            "Description": "A count used to test curly braces in value columns.",
+                            "HED": "(Item-count/#, {response_time})"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2, {response_action})"
+                            }
+                        },
+                        "response_action": {
+                            "Description": "Does not correspond to curly braces",
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{HED}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#, {response_time}"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "response_time", "event_code","HED"],
+                                [ 4.5, 0, 3.4, "face",  "Blue"],
+                                [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
+                                [ 5.0, 0, "n/a", "face", ""],
+                                [ 5.0, 0, "any", "face", "n/a"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "response_time", "event_code","HED"],
+                                [ 4.5, 0, 3.4, "face",  "Blue"],
+                                [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
+                                [ 5.0, 0, "n/a", "face", ""],
+                                [ 5.0, 0, "any", "face", "n/a"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+     {
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "name": "sidecar-braces-nested-or-mismatched",
+        "description": "The curly braces in the sidecar are mismatched or nested.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}{, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description but no HED",
+                            "HED": "Label/#"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description but no HED",
+                            "HED": "Label/#"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{{response_time}}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description but no HED",
+                            "HED": "Label/#"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), ({response_time}, (Green, (Yellow)))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "({HED}, (Def/Acc/3.5 m-per-s^2))"
+                            }
+                        },
+                        "response_action": {
+                            "Description": "Does not correspond to curly braces"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"],
+                                [ 5.0, 0, "face", ""],
+                                [ 5.0, 0, "face", "n/a"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED", "response_time"],
+                                [ 4.5, 0, "face", "Blue", 1],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
+                                [ 5.0, 0, "face", "", 1],
+                                [ 5.0, 0, "face", "n/a", 1]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "INVALID_CHARACTER",
+        "name": "sidecar-braces-in-events-file",
+        "description": "The curly braces in the sidecar are mismatched or nested.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "{HED}, Def/MyColor"
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "{who_knows}, Red"]
+                    ]
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue, {response_time}"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"],
+                                [ 5.0, 0, "face", ""],
+                                [ 5.0, 0, "face", "n/a"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED", "response_time"],
+                                [ 4.5, 0, "face", "Blue", 1],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
+                                [ 5.0, 0, "face", "", 1],
+                                [ 5.0, 0, "face", "n/a", 1]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]

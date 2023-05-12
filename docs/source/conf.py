@@ -25,8 +25,8 @@ copyright = '2021-{}, HED Working Group'.format(date.today().year)
 author = 'HED Working Group'
 
 # The full version, including alpha/beta/rc tags
-release = '3.1.1'
-version = '3.1.1'
+release = '3.2.0'
+version = '3.2.0'
 
 currentdir = os.path.abspath(os.path.dirname(__file__))
 

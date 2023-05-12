@@ -228,7 +228,12 @@ Using this method, an event with temporal scope actually corresponds to two poin
 
 The initiation event is tagged by a `(Def/xxx, Onset)` where `xxx` is a defined name.
 The end of the event’s temporal scope is marked either by a `(Def/xxx, Offset)` or by 
-another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the definition.
+another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the `Onset` 
+(and similarly for `Offset`). 
+By anchor, we mean that tools use the anchor to determine
+where each event of temporal extent begins and ends. 
+A `Def-expand` tag group can also anchor the `Onset` and `Offset` groups.
+
 The `Onset` tag group may contain an additional internal tag group in addition to the
 anchor `Def` tag. This internal tag group usually contains annotations specific 
 to this instance of the event. As with all HED tags and groups, order does not matter.
@@ -255,18 +260,20 @@ interchangeably with the `Def/xxx`.
  
 **Long forms:**  
  ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
-   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
  ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*  
-   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, (tag-group)*
- ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,  Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition anchoring the scoped event.
 2. *yyy* is the value substituted for a definition's placeholder if it has one.
-3. The *(tag-group)* contains optional tags specific to that temporal event.
-This tag group is not the tag group specifying the contents of the definition..
+3. The *(tag-group)*, which is optional, contains tags specific to that temporal event.
+This tag group is not the tag group specifying the contents of the definition.
 4. The additional <em>tag-group</em> is only in effect for that particular scoped event
  and not for all events anchored by *Def/xxx*.
 5. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value.
@@ -295,9 +302,9 @@ playing of different clips.
 **Long form:**  
 > [event 1]  
 > *Event/<strong>Sensory-event</strong>,*  
-> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*  
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*  
 > *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*  
-> *(Attribute/Informational/<strong>Label/StarWars</strong>,*  
+> *(Property/Informational-property/<strong>Label/StarWars</strong>,*  
 > *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*  
 > *Properity/Informational-property/<strong>ID/3284</strong>)))*  
             
@@ -305,7 +312,7 @@ playing of different clips.
 
 > [event n]  
 > *Event/<strong>Sensory-event</strong>,*  
-> *(Attribute/Informational/<strong>Def/PlayMovie</strong>,*  
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*  
 > *Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*  
 ````
 
@@ -350,6 +357,45 @@ and analysis, tools must gather applicable definitions before final processing.
 Library functions in Python, Matlab, and JavaScript are available to support 
 gathering of definitions and the expansion.
 These definitions may be given in JSON sidecars or provided externally.
+
+### 5.3.2. Using `Inset`
+
+The `Inset` tag group marks an intermediate point in an event of temporal extent
+defined by `Onset` and `Offset`.
+Like the `Offset`, the `Inset` tag is anchored by a `Def` tag or `Def-expand` tag group
+that is the anchor of its enclosing `Onset`.
+
+The `Inset` tag group may contain an additional internal tag group in addition to the
+anchor `Def` tag. This internal tag group usually contains annotations specific 
+to this instance of the event. As with all HED tags and groups, order does not matter.
+
+The following table summarizes `Inset` usage. 
+**Note**: A `Def-expand/xxx` tag group can be used
+interchangeably with the `Def/xxx`. 
+
+
+``````{admonition} **Syntax summary for <code>Inset</code>.**
+**Short forms:**
+ ~ *(Def/xxx, Inset, (tag-group))*
+ ~ *(Def/xxx/yyy, Inset, (tag-group))*
+ 
+**Long forms:**  
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*  
+   *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
+
+````{admonition} Notes:
+:class: tip
+1. *xxx* is the name of the definition anchoring the scoped event.
+2. *yyy* is the value substituted for a definition's placeholder if it has one.
+3. The *(tag-group)*, which is optional, contains information specific to that intermediate.
+point in the ongoing event. This tag group is not the tag group specifying the contents of the definition..
+4. The additional <em>tag-group</em> is only in effect at that particular point.
+5. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value that is
+the same as the value used for its `Onset`.
+````
+``````
 
 
 ### 5.3.2. Using `Duration`
