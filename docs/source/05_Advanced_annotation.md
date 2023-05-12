@@ -228,7 +228,12 @@ Using this method, an event with temporal scope actually corresponds to two poin
 
 The initiation event is tagged by a `(Def/xxx, Onset)` where `xxx` is a defined name.
 The end of the event’s temporal scope is marked either by a `(Def/xxx, Offset)` or by 
-another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the definition.
+another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the `Onset` 
+(and similarly for `Offset`). 
+By anchor, we mean that tools use the anchor to determine
+where each event of temporal extent begins and ends. 
+A `Def-expand` tag group can also anchor the `Onset` and `Offset` groups.
+
 The `Onset` tag group may contain an additional internal tag group in addition to the
 anchor `Def` tag. This internal tag group usually contains annotations specific 
 to this instance of the event. As with all HED tags and groups, order does not matter.
@@ -357,8 +362,8 @@ These definitions may be given in JSON sidecars or provided externally.
 
 The `Inset` tag group marks an intermediate point in an event of temporal extent
 defined by `Onset` and `Offset`.
-Like the `Offset`, the `Inset` tag is anchored by a `Def` or `Def-expand` tag
-that is the anchor of some `Onset`.
+Like the `Offset`, the `Inset` tag is anchored by a `Def` tag or `Def-expand` tag group
+that is the anchor of its enclosing `Onset`.
 
 The `Inset` tag group may contain an additional internal tag group in addition to the
 anchor `Def` tag. This internal tag group usually contains annotations specific 

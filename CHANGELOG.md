@@ -1,5 +1,15 @@
 # CHANGELOG for HED specification
 
+## Changes for HED specification 3.2.0
+- The `Inset` tag was introduced to mark intermediate points in events of temporal extent.
+- Partnered schemas were introduced using the `withStandard` schema header attribute
+and the `rooted` schema attribute.
+- The curly brace annotation for sidecars was introduced.
+
+## Changes for HED specification 3.1.1
+This release is added additional minor corrections and 
+clarifications in the specification document and does not include any enhancements from version 3.0.0.
+
 ## Changes for HED specification 3.1.0
 This release is focused on corrections and clarifications in the specification document
 and does not include any enhancements.
