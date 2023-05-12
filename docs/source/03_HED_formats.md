@@ -1019,9 +1019,11 @@ for the curly braces and their contents when the HED annotation is assembled.
 1. The item within the curly braces must either be the word `HED` or
 the name of another HED-annotated column within the sidecar.
 2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
-3. A sidecar column name cannot both appear in a curly braces and have
+3. During assembly of a HED annoation for an event, if an 'n/a' value appears in a curly brace column,
+the curly brace express is removed and any extra parentheses or commas are also removed. 
+4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
-4. The curly braces cannot be used within a `Definition`. 
+5. The curly braces cannot be used within a `Definition`. 
 
 ``````
 
