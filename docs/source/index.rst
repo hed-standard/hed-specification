@@ -9,7 +9,7 @@ HED specification
 
    * `PDF released version (V3.2.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_2_0.pdf>`_
 
-   * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/latest/pdf/>`_
+   * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/develop/pdf/>`_
 
    * `Specification source <https://github.com/hed-standard/hed-specification/tree/master/docs/source>`_
 
