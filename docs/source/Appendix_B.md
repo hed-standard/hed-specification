@@ -25,9 +25,9 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character.  
+**a.**  The HED string contains a UTF-8 character. 
+**b.** Curly braces appear in a HED string not in a sidecar.
 
-**b.**  An extension or a value substituted for a `#` is not allowed by its value class.  
 
 **Notes:**  
 - HED uses ANSI encoding and does not support UTF-8.  
@@ -90,13 +90,14 @@ the definition's contents.
 **a.**  A `Definition` tag does not appear in a tag group at the top level in an annotation.   
 **b.**  A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).    
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
-**d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.    
-**e.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.    
-**f.**  A definition has placeholders (`#`) in incorrect positions.  
-**g.**  Definitions of the same name appear with and without a `#`.  
-**h.**  Multiple `Definition` tags with same name are encountered.
-**i.**  A tag with a `required` or `unique` attribute appears in a definition.
-**j.**  A definition appears in an unexpected place such as an events file.
+**d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.  
+**e.** A definition uses curly braces.  
+**f.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.   
+**g.**  A definition has placeholders (`#`) in incorrect positions.  
+**h.**  Definitions of the same name appear with and without a `#`.  
+**i.**  Multiple `Definition` tags with same name are encountered.
+**j.**  A tag with a `required` or `unique` attribute appears in a definition.  
+**k.**  A definition appears in an unexpected place such as an events file.  
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions.
@@ -111,7 +112,7 @@ for more details and examples of definition syntax.
 
 See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
 
-### ONSET_OFFSET_ERROR
+### ONSET_OFFSET_INSET_ERROR
 
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
 different placeholder substitutions are considered to be different.
@@ -126,15 +127,17 @@ different placeholder substitutions are considered to be different.
 without the appearance of an intervening `Onset` of the same name.   
 **h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand-group`
 that are not in a tag group.  
-**i.** An `Onset` or an `Offset` with a given `Def` or `Def-expand-group` anchor appears in the same
-event marker with another `Onset` or `Offset` that uses the same anchor.  
-
+**i.** An `Onset`, `Inset` or  `Offset` with a given `Def` or `Def-expand-group` anchor
+appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
+that uses the same anchor.  
+**j.** An `Inset` tag is not grouped with a `Def` or `Def-expand` of an ongoing `Onset`.  
+**k.** An `Inset` group has more than a single tag group in addition to its defining `Def` or `Def-expand`.  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
 
-See [**3.2.8.3 Onset and Offset tags**](./03_HED_formats.md#3283-onset-and-offset-tags)
-for a specification of the required behavior of `Onset` and `Offset`.
+See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
+for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
 
 [**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
@@ -170,12 +173,21 @@ An assembled event string must include all tags having the *required* schema att
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `required` tag.
 
+### SIDECAR_BRACES_INVALID
+
+**a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
+**b.**  A column name entry in a sidecar has a HED annotation with curly braces, but this name also appears in curly braces in another HED annotation.  
+**c.** The curly braces in a sidecar are nested or unmatched.  
+
+See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for information
+on the requirements for using sidecars.
+
 ### SIDECAR_INVALID
 
-**a.**  The `"HED"` key is not a second-level dictionary key.
-**b.**  An annotation entry is provided for `n/a`.
+**a.**  The `"HED"` key is not a second-level dictionary key.  
+**b.**  An annotation entry is provided for `n/a`.  
 
-See [**3.2.9.2. Sidecar validation**](./03_HED_formats.md#3292-sidecar-validation) for a
+See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
 
 ### SIDECAR_KEY_MISSING*
@@ -341,9 +353,6 @@ when the planned XSD validation is implemented start with HED_XML.
 
 ### B.2.1. General validation errors
 
-#### LIBRARY_NAME_INVALID
-
-**a.**  The specified library name is not alphabetic or lowercase.  
 
 #### SCHEMA_ATTRIBUTE_INVALID
 
@@ -368,6 +377,21 @@ under an appropriate unit class).
 
 **a.**  The schema header has invalid characters or format.  
 **b.**  The schema header has unrecognized attributes.
+
+#### SCHEMA_LIBRARY_INVALID
+
+Library schema errors are specific to library schema. Library schema may also raise any of the other schema errors.  
+**a.**  The specified library name is not alphabetic or lowercase.  
+**b.**  The `withStandard` attribute is used in a header that does not also have the `library` attribute.   
+**c.**  The `withStandard` attribute value does not correspond to a valid standard schema version.  
+**d.**  The `rooted` attribute appears in a schema whose header does not have `unmerged="true"` as well as appropriate `library` and `withStandard` header values.  
+**e.**  A node with the `rooted` attribute is not at the top level.  
+**f.**  A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.  
+**g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.
+**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.  
+
+
+
 
 #### SCHEMA_SECTION_MISSING
 

@@ -9,7 +9,7 @@ In general, tools should either explicitly call HED validation to assure that th
 tag strings are valid or should make explicit that they assume the HED has already been validated.
 Most tools will use the later approach. 
 
-See [**3.2. HED annotation format**](./03_HED_formats.md#32-hed-annotation-format)
+See [**3.2. Annotation formats**](./03_HED_formats.md#32-annotation-formats)
 for more detailed specifications of HED formats. 
 
 See [**4. Basic annotation**](./04_Basic_annotation.md) and 
@@ -53,7 +53,8 @@ on tag forms.
 Tools may assume that validated HED strings have no duplicates, empty tags,
 empty groups (parentheses enclosing only whitespace), or mismatched parentheses.
 
-Grouping with parentheses in HED means that the tags are associated.
+Grouping with parentheses in HED indicates that the tags are associated.
+Where possible, parentheses should be preserved.
 
 ````{warning} 
 HED-compliant tools should be able to handle arbitrary correctly **nested parentheses**

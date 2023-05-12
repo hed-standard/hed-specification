@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7869149.svg)](https://doi.org/10.5281/zenodo.7869149)
+
 # HED specification
 
 **Note** This repository is primarily for managing the HED ecosystem specification,
