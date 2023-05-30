@@ -90,7 +90,7 @@ which may be useful for debugging, but is usually not explicitly created.
 
 The following table summarizes the different partnered library schema formats
 and their uses. File names and link examples are specifically for the SCORE
-library. For other libraries, substitue the library name for the word *score*.
+library. For other libraries, substitute the library name for the word *score*.
 
 | Format | Merged<br/>status | Canonical filename | Handling |
 | ------ | ------------- | ------------------ | -------- |
@@ -108,14 +108,38 @@ There are four significant differences between merged and unmerged MediaWiki for
 unit modifiers, value classes, schema attributes, and schema properties)
 that it explicitly extends.
 <br/>&nbsp;<br/>
-3. Nodes with the `rooted` property must be top-level tags in the schema
-in the unmerged schema. In the merged schema, the subtrees under these `rooted` 
-nodes are placed directly under the respective nodes of the same name
-in the standard schema.
+3. In the unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags,
+and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly
+under the standard schema node `XXX`.
 <br/>&nbsp;<br/>
 4. Nodes in the unmerged version cannot have the `inLibrary` attribute.
 In contrast, nodes from the library schema are given the `inLibrary`
 attribute during the merging process.
+
+The following excerpt from an unmerged library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the
+standard schema. 
+
+````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
+```html
+                      . . .
+'''Data-mode''' <nowiki>{rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>   
+* <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
+                      . . .
+```
+````
+Notice that the indentation asterisks (*) indicate that the node's children are at the first level.
+In the merged schema, these are adjusted accordingly as shown in the following:
+
+````{admonition} When merged with the standard schema, the indentation levels are adjusted.
+```html 
+                      . . .
+*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
+**** Data-mode''' <nowiki>{inLibrary}[A value that occurs most often in data.]</nowiki>   
+***** <nowiki># {takesValue, valueClass=numericClass, inLibrary}</nowiki> 
+                      . . .
+```
+````
+
 
 Similar differences occur between the merged and unmerged XML formats, 
 but only the merged XML format is useful.
@@ -161,7 +185,7 @@ HED standard schema 8.2.0:
 | `withStandard` | Header attribute | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul> |
 | `unmerged` | Header attribute | <ul><li>Indicates that this schema contains only library information.</li><li>Its value is either "true" or "false.</li><li>If "false", the attribute should be omitted.</li></ul> |
 | `inLibrary` | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The  attribute appears only in merged schemas.</li></ul> |
-| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with this name must exist in both the library and its partnered library schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li><li>A rooted node in the unmerged schema must not<br/> have a description or other attributes,<br/>since these are inherited from the standard schema.</li></ul> |
+| `rooted=XXX` | Node attribute | <ul><li>Indicates that this node is to appear directly under<br/> standard schema node `XXX` in the merged schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li></ul> |
 | `reserved` | Node attribute | <ul><li>Indicates that this node has special meaning or function.</li><li>**Can only appear in standard schemas.**</li></ul>. |
 
 

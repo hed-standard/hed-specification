@@ -231,14 +231,20 @@ Only the schema attributes listed in the following table can be handled by curre
   - Specifies a character used in values of this class.
 * - `conversionFactor` 
   - unit, unitModifier
-  - Multiplicative factor to multiply by to convert to default units. <br/>
-    (Added in version 8.1.0.)
+  - Multiplicative factor to multiply by to convert to default <br/>
+    units. (Added in version 8.1.0.)
 * - `defaultUnits`*
   - unitClass
   - Specifies units to use if placeholder value has no units.   
+* - `deprecatedFrom`*
+  - element
+  - This element is deprecated. The value of the attribute <br/>is the latest schema version in which the element<br/>appeared before it was deprecated..   
 * - `extensionAllowed`
   - node
   - A tag can have unlimited levels of child nodes added.
+* - `inLibrary`
+  - element
+  - This schema element is from the named library schema,<br/>not the standard schema. (Added/removed by tools.)
 * - `recommended`
   - node
   - Event-level HED strings should include this tag.
@@ -251,6 +257,12 @@ Only the schema attributes listed in the following table can be handled by curre
 * - `required`
   - node      
   - Event-level HED string must include this tag.
+* - `reserved`
+  - node      
+  - This tag has special meaning and requires <br/>special handling by tools.
+* - `rooted`*
+  - node      
+  - A top-level library schema node should appear<br/>under this standard schema node when merged.  
 * - `SIUnit`
   - unit   
   - This unit represents an SI unit and can be modified.
@@ -299,7 +311,7 @@ However, the following group designations are allowed as values for this attribu
 
 If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
 does not have units, tools may assume the value has `defaultUnits` if the unit class has them.
-For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions >=8.0.0.
+For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions.
 Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because `Duration` has
 `defaultUnits` of `s`.
 
@@ -314,7 +326,7 @@ In addition to the attributes listed above, some schema attributes have been dep
 and are no longer supported in HED, although they are still present in earlier versions of 
 the schema. The following table lists these.
 
-`````{list-table} Schema attributes deprecated for versions >=8.0.0 (* indicates attribute has a value).
+`````{list-table} Schema attributes deprecated for versions &ge; 8.0.0 (* indicates attribute has a value).
 :widths: 20 15 45
 :header-rows: 1
 
@@ -448,8 +460,7 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
      - Description
    * - library
      - optional
-     - Name of library used in XML file names.  
-     
+     - Name of library used in XML file names.
        The value should only have lowercase alphabetic characters.
    * - version
      - required
@@ -460,7 +471,13 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
    * - xsi
      - optional
      - xsi:noNamespaceSchemaLocation points to an XSD file.
-
+   * - withStandard
+     - optional
+     - The version of the standard schema partner if this is a partnered library schema.
+   * - unmerged
+     - optional
+     - If true, this is an unmerged partnered library schema.
+       If omitted, assumed false.      
 ````
 
 The following example gives a sample *header-line* for standard schema version 8.0.0 in `.mediawiki` format.
@@ -773,6 +790,17 @@ directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) G
 
 Unknown header-line attributes are translated as attributes of the `HED` root node of the 
 `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
+
+The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
+
+Library schemas may also be partnered as is `HED_testlib_2.0.0.xml`.
+
+````{admonition} **Example:** Partnered library schema testlib version 2.0.0 in .xml format.
+```xml
+<HED library="testlib" version="2.0.0" withStandard="8.2.0">
+```
+````
+
 
 ### A.3.3. The prologue and epilogue
 
