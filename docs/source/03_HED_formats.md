@@ -835,11 +835,11 @@ where `xxx` is the definition's name and `yyy` is a tag group containing
 the definitions contents.
 
 The two usages are equivalent, and tools should be able to transform between the two representations.
-Note, however, that transforming from a `Def` to a `Def-expand-group` requires the definition,
-while transforming from a `Def-expand-group` to `Def` form does not.
+Note, however, that transforming from a `Def` tag to a `Def-expand` group requires the definition,
+while transforming from a `Def-expand` group to `Def` tag does not.
 
 For definitions that include a placeholder, a value must be substituted for 
-the `#` placeholder in `Def` and `Def-expand-group` when final
+the `#` placeholder in `Def` tag and `Def-expand` group when final
 annotation assembly occurs. 
 
 See [**DEF_INVALID**](./Appendix_B.md#def_invalid) and
@@ -855,17 +855,17 @@ The `Onset` and `Offset` tags are used to represent the temporal extent
 of events that have non-zero duration.
 
 Each of these tags must appear in a top level tag group with a
-`Def` or `Def-expand-group` anchor.
+`Def` tag or `Def-expand` group anchor.
 
 A tag group with an `Onset` represents the start of an event that extends over time.
 A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group.
 A given event of temporal extent is also terminated by the appearance of another
-`Onset` group with the same `Def` or `Def-expand-group` anchor.
+`Onset` group with the same `Def` tag or `Def-expand` group anchor.
 
-The `Onset` tag group may only contain its `Def` or `Def-expand-group` anchor and
+The `Onset` tag group may only contain its `Def` tag or `Def-expand` group anchor and
 at most one additional inner tag group in addition to the `Onset` tag.
 
-The `Offset` tag group may only contain its `Def` or `Def-expand-group` anchor in
+The `Offset` tag group may only contain its `Def` tag or `Def-expand` group anchor in
 addition to the `Offset` tag.
 
 These requirements imply that `Onset` and `Offset` must be the only tags

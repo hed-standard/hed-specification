@@ -1,7 +1,7 @@
 [
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-not-tag-group",
+        "name": "onset-offset-inset-error-not-tag-group",
         "description": "An Onset or Offset tag does not appear in a tag group.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -98,7 +98,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-nested-group",
+        "name": "onset-offset-inset-error-nested-group",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -185,7 +185,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-wrong-number-of-defs",
+        "name": "onset-offset-inset-error-wrong-number-of-defs",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -277,7 +277,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-error-onset-has-more-groups",
+        "name": "onset-offset-inset-error-onset-has-more-groups",
         "description": "An Onset group has more than one additional tag group.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -373,7 +373,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-offset-has-groups",
+        "name": "onset-offset-inset-error-offset-has-groups",
         "description": "An Offset appears with one or more tags or additional tag groups.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -485,7 +485,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-mismatch",
+        "name": "onset-offset-inset-error-mismatch",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -563,7 +563,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-extra tags",
+        "name": "onset-offset-inset-error-extra tags",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -652,7 +652,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "onset-offset-error-duplicated-onset-or-offset",
+        "name": "onset-offset-inset-error-duplicated-onset-or-offset",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -749,7 +749,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "inset-outside-its-event",
+        "name": "onset-offset-inset-error-inset-outside-its-event",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -770,7 +770,7 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def/MyColor, Offset)"],
+                        [ 4.5, 0, "(Inset, (Red))"],
                         [ 6.5, 0, "Red, (Def/MyColor, Offset)"],
                         [ 5.5, 0, "(Def/MyColor, Offset)"]
                     ]
@@ -830,7 +830,7 @@
     },
     {
         "error_code": "ONSET_OFFSET_INSET_ERROR",
-        "name": "inset-group-has-extras",
+        "name": "onset-offset-inset-error-inset-group-has-extras",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],

@@ -398,7 +398,7 @@ the same as the value used for its `Onset`.
 ``````
 
 
-### 5.3.2. Using `Duration`
+### 5.3.3. Using `Duration`
 
 The `Duration` tag is an alternative method for specifying an event with temporal scope. 
 The start of the temporal scope is the event in which the `Duration` tag appears. 
@@ -468,7 +468,7 @@ neural response, which is the case for many events involving visual or auditory 
 The use of the `Duration` tag will not be fully supported by validators until HED
 standard schema version 8.2.0. 
 
-### 5.3.3. Using `Delay`
+### 5.3.4. Using `Delay`
 
 The `Delay` tag is grouped with an inner tag group to indicate that the associated tag-group is
 actually an implicit event that occurs at a time offset from the current event. 
