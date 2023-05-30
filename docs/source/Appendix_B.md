@@ -119,15 +119,15 @@ different placeholder substitutions are considered to be different.
 
 **a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
 **b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand-group`.   
+**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
 **d.** An `Onset` group has more than one additional tag group.   
 **e.** An `Offset` appears with one or more tags or additional tag groups.   
 **f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
 **g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
 without the appearance of an intervening `Onset` of the same name.   
-**h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand-group`
+**h.**  An `Onset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
 that are not in a tag group.  
-**i.** An `Onset`, `Inset` or  `Offset` with a given `Def` or `Def-expand-group` anchor
+**i.** An `Onset`, `Inset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
 appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
 that uses the same anchor.  
 **j.** An `Inset` tag is not grouped with a `Def` or `Def-expand` of an ongoing `Onset`.  
