@@ -702,23 +702,23 @@ particularly when a long or intermediate form of the tag is used.
 For this reason the [**TAG_EXTENDED**](./Appendix_B.md#tag_extended)
 warning is issued for extended tags during validation.
 
-### 3.2.6. Tag prefixes
+### 3.2.6. Tag namespace prefixes
 
 Users may select tags from multiple schemas, 
 but additional schemas must be included in the HED version specification.
 
 Users are free to use any alphabetic prefix and associate it with a specific
 schema in the HED version specification.
-Tags from the associated schema must be prefixed with this name (followed by a colon)
+Tags from the associated schema must be prefixed with this namespace designator (including the colon)
 when used in annotation.
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
-See [**TAG_PREFIX_INVALID**](./Appendix_B.md#tag_prefix_invalid) 
+See [**TAG_NAMESPACE_PREFIX_INVALID**](./Appendix_B.md#tag_namespace_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
 See [**7.4. Library schema in BIDS**](./07_Library_schemas.md#74-library-schemas-in-bids) for an example of how the
-prefix notation is used in BIDS.
+namespace prefix notation is used in BIDS.
 
 
 ### 3.2.7. Strings and groups

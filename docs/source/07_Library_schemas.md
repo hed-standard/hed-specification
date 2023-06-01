@@ -238,7 +238,7 @@ a standard schema and a library schema, thus requiring that a `xx:` be assigned 
 one of the schemas when standalone library schemas are used.
 
 Because a partnered library schema is merged with a standard schema to form a single, unified schema,
-users can annotate data without the `xx:` prefix.
+users can annotate data without the `xx:` namespace designator.
 The `xx:` is still needed if more than one library schema is used.
 
 #### 7.2.5.4. Library searches
@@ -405,11 +405,11 @@ Since it would be impossible to avoid naming conflicts across schema libraries b
 HED supports schema library namespaces to facilitate the use of multiple schemas in
 annotating a datasets..
 
-If multiple schemas are used, users must define a local prefix for
+If multiple schemas are used, users must define a local namespace for
 each additional schema and prefix the tags from each of these
-additional schemas by their respective prefix in annotations.
+additional schemas by their respective namespace in annotations.
 The local names should be strictly alphabetic with no blanks or punctuation.
-If a tag prefix is invalid in the version specification,
+If a tag namespace prefix is invalid in the version specification,
 a schema loading error occurs.
 
 

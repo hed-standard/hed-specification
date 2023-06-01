@@ -270,21 +270,21 @@ for additional information on the rules for group errors due to schema attribute
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.
 
+### TAG_NAMESPACE_PREFIX_INVALID
+
+**a.**  A tag starting with *name:* does not have an associated schema.  
+**b.**  A tag prefix has invalid characters.
+
+See [**3.2.6. Tag namespace prefixes**](./03_HED_formats.md#326-tag-namespace-prefixes) and
+[**7. Library schema**](./07_Library_schemas.md) for additional information
+on using multiple schemas in annotation.
+
 ### TAG_NOT_UNIQUE
  
 **a.**  A tag with `unique` attribute appears more than once in an event-level HED string. 
 
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `unique` tag.
-
-### TAG_PREFIX_INVALID
-
-**a.**  A tag starting with *name:* does not have an associated schema.
-**b.**  A tag prefix has invalid characters.
-
-See [**3.2.6. Tag prefixes**](./03_HED_formats.md#326-tag-prefixes) and
-[**7. Library schema**](./07_Library_schemas.md) for additional information
-on using multiple schemas in annotation.
 
 ### TAG_REQUIRES_CHILD 
  
