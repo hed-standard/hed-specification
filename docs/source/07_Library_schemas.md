@@ -54,19 +54,20 @@ and validated as an integrated whole.
 
 This XML merged schema file is downloaded and used by tools. 
 Downstream tools see a single schema and can process it with no special handling.
-The following example shows the XML header for merged SCORE library version 1.1.0.
+The following example shows the XML header for merged TESTLIB library version 2.0.0.
 
-````{admonition} XML header for SCORE library 1.1.0 partnered with 8.2.0 (merged).
+````{admonition} XML header for TESTLIB library 2.0.0 partnered with 8.2.0 (merged).
 ```xml
 <?xml version="1.0" ?>
-<HED library="score" version="1.1.0" withStandard="8.2.0">
+<HED library="testlib" version="2.0.0" withStandard="8.2.0">
 
 ```
 ````
-The canonical filename for this `.xml` file is `HED_score_1.1.0.xml`.
-This file is always stored in the `hedxml` directory
-for the respective library schema in the 
+The canonical filename for this `.xml` file is `HED_testlib_2.0.0.xml`.
+This file is always stored in the libraries `hedxml` directory in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+For the above example, the directory is [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).
+
 
 As with any HED schema, schema builders develop and maintain their schema in
 MediaWiki mark-down format and use tools to convert to XML.
@@ -75,29 +76,29 @@ containing only the information specific to the library schema.
 The following example shows the header for the `.mediawiki` developer's version
 of a partnered library schema.
 
-````{admonition} Mediawiki header for SCORE library 1.1.0 partnered with 8.2.0 (unmerged).
+````{admonition} Mediawiki header for TESTLIB library 2.0.0 partnered with 8.2.0 (unmerged).
 ```html
-HED library="score" version="1.1.0" withStandard="8.2.0" unmerged="true"
+HED library="testlib" version="2.0.0" withStandard="8.2.0" unmerged="true"
 ```
 ````
 
 The canonical filename for this `.mediawiki` file is 
-`HED_score_1.1.0_unmerged.mediawiki`.
+`HED_testlib_2.0.0_unmerged.mediawiki`.
 
 Tools also support an alternative form of the `.mediawiki` library schema
 containing all the information in the merged schema (a mirror to the XML),
 which may be useful for debugging, but is usually not explicitly created.
 
 The following table summarizes the different partnered library schema formats
-and their uses. File names and link examples are specifically for the SCORE
-library. For other libraries, substitute the library name for the word *score*.
+and their uses. File names and link examples are specifically for the TESTLIB
+library. For other libraries, substitute the library name for the word *testlib*.
 
 | Format | Merged<br/>status | Canonical filename | Handling |
 | ------ | ------------- | ------------------ | -------- |
-| XML    |   merged    |  `HED_score_1.1.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml).<br/>Used by tools. |
-| XML    |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
-| MediaWiki    |   merged    |  `HED_score_1.1.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki).<br/>Possibly used during schema development. |
-| MediaWiki   |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki). |
+| XML    |   merged    |  `HED_testlib_2.0.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).<br/>Used by tools. |
+| XML    |   unmerged    |  `HED_testlib_2.0.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
+| MediaWiki    |   merged    |  `HED_testlib_2.0.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki).<br/>Possibly used during<br/>schema development. |
+| MediaWiki   |   unmerged    |  `HED_testlib_2.0.0_unmerged.mediawiki` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki). |
 
 ### 7.2.2. Partnered formats
 
@@ -113,10 +114,10 @@ and `XXX` must correspond to a node in the standard schema. In the merged schema
 under the standard schema node `XXX`.
 <br/>&nbsp;<br/>
 4. Nodes in the unmerged version cannot have the `inLibrary` attribute.
-In contrast, nodes from the library schema are given the `inLibrary`
-attribute during the merging process.
+In contrast, nodes from the library schema are given the `inLibrary==YYY`
+attribute during the merging process. Here `YYY` is the library schema name.
 
-The following excerpt from an unmerged library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the
+The following excerpt from an unmerged TESTLIB library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the
 standard schema. 
 
 ````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
@@ -133,9 +134,14 @@ In the merged schema, these are adjusted accordingly as shown in the following:
 ````{admonition} When merged with the standard schema, the indentation levels are adjusted.
 ```html 
                       . . .
-*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
-**** Data-mode''' <nowiki>{inLibrary}[A value that occurs most often in data.]</nowiki>   
-***** <nowiki># {takesValue, valueClass=numericClass, inLibrary}</nowiki> 
+*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>              
+                       . . .
+**** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+**** Data-mode''' <nowiki>{inLibrary=testlib, rooted}[A value that occurs most often in data.]</nowiki>   
+***** <nowiki># {takesValue, valueClass=numericClass, inLibrary=testlib}</nowiki> 
+**** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
                       . . .
 ```
 ````

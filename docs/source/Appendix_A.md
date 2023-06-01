@@ -242,7 +242,7 @@ Only the schema attributes listed in the following table can be handled by curre
 * - `extensionAllowed`
   - node
   - A tag can have unlimited levels of child nodes added.
-* - `inLibrary`
+* - `inLibrary`*
   - element
   - This schema element is from the named library schema,<br/>not the standard schema. (Added/removed by tools.)
 * - `recommended`
@@ -381,14 +381,20 @@ The following is a list of schema attribute properties.
   - Description
 * - `boolProperty`
   - A schema attribute's value is either true or false.<br/>Presence indicates true, absence false. 
+* - `elementProperty`
+  - Indicates this schema attribute can apply to any type<br/>of element (tag term, unit class, etc). 
+* - `isInheritedProperty`
+  - Indicates that this attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes. 
+* - `nodeProperty`
+  - Indicates this schema attribute applies to node (tag-term) elements.<br/>This was added to allow for an attribute to apply to multiple elements.  
 * - `unitClassProperty`
-  - A schema attribute only applies to unit classes.
+  - A schema attribute applies to unit classes.
 * - `unitModifierProperty`
-  - A schema attribute only applies to unit modifiers.
+  - A schema attribute applies to unit modifiers.
 * - `unitProperty`
-  - A schema attribute only applies to units.
+  - A schema attribute applies to units.
 * - `valueClassProperty`
-  - A schema attribute only applies to value classes.
+  - A schema attribute applies to value classes.
 ``````
 
 The element that a schema attribute can apply to is controlled by the
@@ -460,8 +466,9 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
      - Description
    * - library
      - optional
-     - Name of library used in XML file names.
-       The value should only have lowercase alphabetic characters.
+     - |
+       | Name of library used in XML file names.
+       | The value should only have lowercase alphabetic characters.
    * - version
      - required
      - A valid semantic version number of the schema.  
@@ -473,11 +480,14 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
      - xsi:noNamespaceSchemaLocation points to an XSD file.
    * - withStandard
      - optional
-     - The version of the standard schema partner if this is a partnered library schema.
+     - |  
+       | The version of the standard schema partner 
+       | if this is a partnered library schema.
    * - unmerged
      - optional
-     - If true, this is an unmerged partnered library schema.
-       If omitted, assumed false.      
+     - | 
+       | If true, this is an unmerged partnered library schema.
+       | If omitted, assumed false.      
 ````
 
 The following example gives a sample *header-line* for standard schema version 8.0.0 in `.mediawiki` format.
@@ -521,7 +531,7 @@ The prologue is used by tools for help and display purposes.
 
 Early versions of HED use the prologue section to record a CHANGE_LOG as well as 
 information about the syntax and rules. 
-HED versions >= 8.0.0 include a separate change log file for released versions.
+HED versions &ge; 8.0.0 include a separate change log file for released versions.
 
 Similar to the prologue section, the epilogue is an optional paragraph of text,
 usually containing references and license information.
@@ -571,12 +581,12 @@ followed by a blank and then the name.
 The number of asterisks indicates the level of the node in the subtree.
 The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
 
-Node names in HED versions >= 8.0.0 can only contain alphanumeric characters, 
+Node names in HED versions &ge; 8.0.0 can only contain alphanumeric characters, 
 hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes).
 They cannot contain blanks and must be unique.
 
 HED versions < 8.0.0 allow blanks in node names and also have some duplicate node names.
-Use of HED versions < 8.0.0 is deprecated, although validators still support them at this time.
+Use of HED versions < 8.0.0 is deprecated and validators no longer support their use.
 
 For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags.
 The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
@@ -862,8 +872,8 @@ giving the value(s) of the attribute.
 
 **Example:** The `requireChild` attribute represents a boolean value. In the `.mediawiki` representation this attribute appears as `{requireChild}` if present and is omitted if absent.
 
-The format of the XML attributes was changed with HED versions > 8.0.0.
-The old version is deprecated, but still supported for validation.
+The format of the XML attributes was changed with HED versions &ge 8.0.0.
+Earlier versions of the schema have been deprecated and tools no longer support their validation.
 
 ````{admonition} The requireChild attribute represents a boolean value.
 
