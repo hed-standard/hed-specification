@@ -212,10 +212,10 @@ It is possible to include library schema in the HED version specification of the
 ````
 
 The version specification indicates that tags from the `score` library must be prefixed with `sc:` 
-in dataset HED annotations.
+namespace identifier in dataset HED annotations.
 
 The prefix notation (such as the `sc:` prefix for the `score` library in the previous example is required when more than one schema is used in the annotation.
-However, prefixes can be used with the standard schema as well as library schemas
+However, namespace prefixes can be used with the standard schema as well as library schemas
 as illustrated by the following example.
 
 ````{admonition} **Example:** Prefixed standard schema in BIDS dataset description version specification.
@@ -232,7 +232,7 @@ as illustrated by the following example.
 
 For this specification tags from the standard schema must be prefixed
 by `st:`, while tags from the `score` library are unprefixed.
-The `sc:` and `st:` prefixes are arbitrary (usually short) alphabetic strings
+The `sc:` and `st:` namespace prefixes are arbitrary (usually short) alphabetic strings
 chosen by the annotation and are specific to each dataset based on its
 version specification.
 
