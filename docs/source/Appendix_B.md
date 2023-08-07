@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character. 
+**a.**  The HED string contains a UTF-8 character.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -119,19 +119,18 @@ different placeholder substitutions are considered to be different.
 
 **a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
 **b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand-group`.   
-**d.** An `Onset` group has more than one additional tag group.   
+**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
+**d.** An `Onset` or an `Inset` tag group contains more than one additional tag group.   
 **e.** An `Offset` appears with one or more tags or additional tag groups.   
 **f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
 **g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
 without the appearance of an intervening `Onset` of the same name.   
-**h.**  An `Onset` tag group with has tags besides the anchor `Def` or `Def-expand-group`
+**h.**  An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
 that are not in a tag group.  
-**i.** An `Onset`, `Inset` or  `Offset` with a given `Def` or `Def-expand-group` anchor
+**i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
 appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
 that uses the same anchor.  
-**j.** An `Inset` tag is not grouped with a `Def` or `Def-expand` of an ongoing `Onset`.  
-**k.** An `Inset` group has more than a single tag group in addition to its defining `Def` or `Def-expand`.  
+**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
@@ -271,21 +270,21 @@ for additional information on the rules for group errors due to schema attribute
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.
 
+### TAG_NAMESPACE_PREFIX_INVALID
+
+**a.**  A tag starting with *name:* does not have an associated schema.  
+**b.**  A tag prefix has invalid characters.
+
+See [**3.2.6. Tag namespace prefixes**](./03_HED_formats.md#326-tag-namespace-prefixes) and
+[**7. Library schema**](./07_Library_schemas.md) for additional information
+on using multiple schemas in annotation.
+
 ### TAG_NOT_UNIQUE
  
 **a.**  A tag with `unique` attribute appears more than once in an event-level HED string. 
 
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
 additional information on the `unique` tag.
-
-### TAG_PREFIX_INVALID
-
-**a.**  A tag starting with *name:* does not have an associated schema.
-**b.**  A tag prefix has invalid characters.
-
-See [**3.2.6. Tag prefixes**](./03_HED_formats.md#326-tag-prefixes) and
-[**7. Library schema**](./07_Library_schemas.md) for additional information
-on using multiple schemas in annotation.
 
 ### TAG_REQUIRES_CHILD 
  
@@ -307,7 +306,6 @@ The tilde notation is not supported.
 **a.**  A tag has a value with units that are invalid or not of the 
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
-
 
 ### UNITS_MISSING*
 (WARNING)
@@ -388,10 +386,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **e.**  A node with the `rooted` attribute is not at the top level.  
 **f.**  A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.  
 **g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.
-**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.  
-
-
-
+**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.
 
 #### SCHEMA_SECTION_MISSING
 

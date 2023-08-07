@@ -54,19 +54,20 @@ and validated as an integrated whole.
 
 This XML merged schema file is downloaded and used by tools. 
 Downstream tools see a single schema and can process it with no special handling.
-The following example shows the XML header for merged SCORE library version 1.1.0.
+The following example shows the XML header for merged TESTLIB library version 2.0.0.
 
-````{admonition} XML header for SCORE library 1.1.0 partnered with 8.2.0 (merged).
+````{admonition} XML header for TESTLIB library 2.0.0 partnered with 8.2.0 (merged).
 ```xml
 <?xml version="1.0" ?>
-<HED library="score" version="1.1.0" withStandard="8.2.0">
+<HED library="testlib" version="2.0.0" withStandard="8.2.0">
 
 ```
 ````
-The canonical filename for this `.xml` file is `HED_score_1.1.0.xml`.
-This file is always stored in the `hedxml` directory
-for the respective library schema in the 
+The canonical filename for this `.xml` file is `HED_testlib_2.0.0.xml`.
+This file is always stored in the libraries `hedxml` directory in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+For the above example, the directory is [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).
+
 
 As with any HED schema, schema builders develop and maintain their schema in
 MediaWiki mark-down format and use tools to convert to XML.
@@ -75,29 +76,29 @@ containing only the information specific to the library schema.
 The following example shows the header for the `.mediawiki` developer's version
 of a partnered library schema.
 
-````{admonition} Mediawiki header for SCORE library 1.1.0 partnered with 8.2.0 (unmerged).
+````{admonition} Mediawiki header for TESTLIB library 2.0.0 partnered with 8.2.0 (unmerged).
 ```html
-HED library="score" version="1.1.0" withStandard="8.2.0" unmerged="true"
+HED library="testlib" version="2.0.0" withStandard="8.2.0" unmerged="true"
 ```
 ````
 
 The canonical filename for this `.mediawiki` file is 
-`HED_score_1.1.0_unmerged.mediawiki`.
+`HED_testlib_2.0.0_unmerged.mediawiki`.
 
 Tools also support an alternative form of the `.mediawiki` library schema
 containing all the information in the merged schema (a mirror to the XML),
 which may be useful for debugging, but is usually not explicitly created.
 
 The following table summarizes the different partnered library schema formats
-and their uses. File names and link examples are specifically for the SCORE
-library. For other libraries, substitue the library name for the word *score*.
+and their uses. File names and link examples are specifically for the TESTLIB
+library. For other libraries, substitute the library name for the word *testlib*.
 
 | Format | Merged<br/>status | Canonical filename | Handling |
 | ------ | ------------- | ------------------ | -------- |
-| XML    |   merged    |  `HED_score_1.1.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml).<br/>Used by tools. |
-| XML    |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
-| MediaWiki    |   merged    |  `HED_score_1.1.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki).<br/>Possibly used during schema development. |
-| MediaWiki   |   unmerged    |  `HED_score_1.1.0_unmerged.xml` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki). |
+| XML    |   merged    |  `HED_testlib_2.0.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).<br/>Used by tools. |
+| XML    |   unmerged    |  `HED_testlib_2.0.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
+| MediaWiki    |   merged    |  `HED_testlib_2.0.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki).<br/>Possibly used during<br/>schema development. |
+| MediaWiki   |   unmerged    |  `HED_testlib_2.0.0_unmerged.mediawiki` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki). |
 
 ### 7.2.2. Partnered formats
 
@@ -108,14 +109,43 @@ There are four significant differences between merged and unmerged MediaWiki for
 unit modifiers, value classes, schema attributes, and schema properties)
 that it explicitly extends.
 <br/>&nbsp;<br/>
-3. Nodes with the `rooted` property must be top-level tags in the schema
-in the unmerged schema. In the merged schema, the subtrees under these `rooted` 
-nodes are placed directly under the respective nodes of the same name
-in the standard schema.
+3. In the unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags,
+and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly
+under the standard schema node `XXX`.
 <br/>&nbsp;<br/>
 4. Nodes in the unmerged version cannot have the `inLibrary` attribute.
-In contrast, nodes from the library schema are given the `inLibrary`
-attribute during the merging process.
+In contrast, nodes from the library schema are given the `inLibrary==YYY`
+attribute during the merging process. Here `YYY` is the library schema name.
+
+The following excerpt from an unmerged TESTLIB library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the
+standard schema. 
+
+````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
+```html
+                      . . .
+'''Data-mode''' <nowiki>{rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>   
+* <nowiki># {takesValue, valueClass=numericClass}</nowiki> 
+                      . . .
+```
+````
+Notice that the indentation asterisks (*) indicate that the node's children are at the first level.
+In the merged schema, these are adjusted accordingly as shown in the following:
+
+````{admonition} When merged with the standard schema, the indentation levels are adjusted.
+```html 
+                      . . .
+*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>              
+                       . . .
+**** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+**** Data-mode''' <nowiki>{inLibrary=testlib, rooted}[A value that occurs most often in data.]</nowiki>   
+***** <nowiki># {takesValue, valueClass=numericClass, inLibrary=testlib}</nowiki> 
+**** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
+***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+                      . . .
+```
+````
+
 
 Similar differences occur between the merged and unmerged XML formats, 
 but only the merged XML format is useful.
@@ -161,7 +191,7 @@ HED standard schema 8.2.0:
 | `withStandard` | Header attribute | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul> |
 | `unmerged` | Header attribute | <ul><li>Indicates that this schema contains only library information.</li><li>Its value is either "true" or "false.</li><li>If "false", the attribute should be omitted.</li></ul> |
 | `inLibrary` | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The  attribute appears only in merged schemas.</li></ul> |
-| `rooted` | Node attribute | <ul><li>Indicates that this node is equivalent to a node in its<br/>partnered standard schema.</li><li>A node with this name must exist in both the library and its partnered library schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li><li>A rooted node in the unmerged schema must not<br/> have a description or other attributes,<br/>since these are inherited from the standard schema.</li></ul> |
+| `rooted=XXX` | Node attribute | <ul><li>Indicates that this node is to appear directly under<br/> standard schema node `XXX` in the merged schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li></ul> |
 | `reserved` | Node attribute | <ul><li>Indicates that this node has special meaning or function.</li><li>**Can only appear in standard schemas.**</li></ul>. |
 
 
@@ -208,7 +238,7 @@ a standard schema and a library schema, thus requiring that a `xx:` be assigned 
 one of the schemas when standalone library schemas are used.
 
 Because a partnered library schema is merged with a standard schema to form a single, unified schema,
-users can annotate data without the `xx:` prefix.
+users can annotate data without the `xx:` namespace designator.
 The `xx:` is still needed if more than one library schema is used.
 
 #### 7.2.5.4. Library searches
@@ -375,11 +405,11 @@ Since it would be impossible to avoid naming conflicts across schema libraries b
 HED supports schema library namespaces to facilitate the use of multiple schemas in
 annotating a datasets..
 
-If multiple schemas are used, users must define a local prefix for
+If multiple schemas are used, users must define a local namespace for
 each additional schema and prefix the tags from each of these
-additional schemas by their respective prefix in annotations.
+additional schemas by their respective namespace in annotations.
 The local names should be strictly alphabetic with no blanks or punctuation.
-If a tag prefix is invalid in the version specification,
+If a tag namespace prefix is invalid in the version specification,
 a schema loading error occurs.
 
 

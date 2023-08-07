@@ -99,14 +99,14 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''Event''' {rooted=Event}",
             "!# end schema",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''Event''' {rooted=Property}",
             "!# end schema",
             "'''Schema attributes'''",
             "* rooted <nowiki>{nodeProperty} </nowiki>",
@@ -119,7 +119,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewThing''' {rooted=Event}",
             "!# end schema",
             "!# end hed"
           ]
@@ -141,7 +141,7 @@
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
             "'''NewNode'''",
-            "* NewExtension {rooted}",
+            "* NewExtension {rooted=Event}",
             "!# end schema",
             "!# end hed"
           ]
@@ -150,7 +150,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewNode''' {rooted=Event}",
             "!# end schema",
             "!# end hed"
           ]
@@ -172,14 +172,14 @@
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
             "'''DummyTag'''",
-            "'''DummyTag'''{rooted}",
+            "'''NewTag'''{rooted=DummyTag}",
             "!# end schema",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''DummyTag'''{rooted}",
+            "'''DummyTag'''{rooted=NotRealTag}",
             "!# end schema",
             "!# end hed"
           ]
@@ -188,7 +188,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewTag''' {rooted=Event}",
             "!# end schema",
             "!# end hed"
           ]
@@ -209,7 +209,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent {inLibrary=\"score\"}",
             "!# end schema",
             "!# end hed"
@@ -219,7 +219,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
             "!# end schema",
             "!# end hed"
@@ -241,7 +241,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
             "!# end schema",
             "'''Unit classes'''",
@@ -254,7 +254,7 @@
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "!# start schema",
-            "'''Event''' {rooted}",
+            "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
             "!# end schema",
             "'''Unit classes'''",
