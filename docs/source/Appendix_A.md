@@ -421,8 +421,9 @@ The `boolProperty` controls the form of the schema attribute.
 
 ````
 
-
-
+See [**property example**](#a-2-5-5-schema-properties) for an example
+in MediaWiki format and its 
+https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-3-5-5-schema-properties
 ## A.2. Mediawiki file format
 
 The rules for creating a valid `.mediawiki` specification of a HED schema are given below. 
@@ -582,7 +583,7 @@ The number of asterisks indicates the level of the node in the subtree.
 The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
 
 Node names in HED versions &ge; 8.0.0 can only contain alphanumeric characters, 
-hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes).
+hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)).
 They cannot contain blanks and must be unique.
 
 HED versions < 8.0.0 allow blanks in node names and also have some duplicate node names.
@@ -717,6 +718,9 @@ The following example defines the `valueClassProperty` in `.mediawiki` format.
 * valueClassProperty <nowiki>[Attribute is meant to be applied to value classes.]</nowiki> 
 ```
 ````
+
+See [**Schema properties**](a-1-5-schema-properties) for a list of
+available schema properties.
 
 ## A.3. XML file format
 
@@ -1069,3 +1073,6 @@ The following is an example of the layout of the `valueClassProperty` in `.xml` 
    </propertyDefinitions>
 ```
 ````
+
+See [**Schema properties**](a-1-5-schema-properties) for a list of
+available schema properties.

@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character. 
+**a.**  The HED string contains a UTF-8 character.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -307,7 +307,6 @@ The tilde notation is not supported.
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
 
-
 ### UNITS_MISSING*
 (WARNING)
  
@@ -387,10 +386,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **e.**  A node with the `rooted` attribute is not at the top level.  
 **f.**  A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.  
 **g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.
-**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.  
-
-
-
+**h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.
 
 #### SCHEMA_SECTION_MISSING
 
