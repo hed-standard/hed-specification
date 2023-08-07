@@ -82,7 +82,7 @@
     {
         "error_code": "DEFINITION_INVALID",
         "name": "definition-invalid-missing-inner-group",
-        "description": "A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).",
+        "description": "A definition's enclosing tag group is missing the inner tag group (i.e., the definition's contents).",
         "schema": "8.1.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -697,7 +697,8 @@
                             "defs": {
                                 "HED": {
                                     "def1": "(Definition/Apple, (Red))",
-                                    "def2": "(Definition/Banana/#, (Label/#))"                                }
+                                    "def2": "(Definition/Banana/#, (Label/#))"
+                                }
                             }
                         },
                         "events": 
