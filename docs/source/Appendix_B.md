@@ -402,8 +402,14 @@ schema attributes, and properties) are not in the correct order and hence not de
 **b.**  A HED version specification does not have the correct syntax for the schema file format.  
 **c.**  A HED schema version does not comply with semantic versioning.  
 
+### B.2.2. Invalid usage error
 
-### B.2.2. Mediawiki format errors
+#### SCHEMA_DEPRECATED_INVALID
+
+**a.**  The value of a `deprecatedFrom` attribute does not correspond to a valid schema version.   
+**b.**  An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute.  
+
+### B.2.3. Mediawiki format errors
 
 #### WIKI_DELIMITERS_INVALID
 
@@ -420,13 +426,13 @@ schema attributes, and properties) are not in the correct order and hence not de
 **a.**  Required wiki section separator is missing or misplaced.   
 **b.**  A required schema separator is missing. (The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.)  
 
-### B.2.3. XML format errors
+### B.2.4. XML format errors
 
 #### XML_SYNTAX_INVALID
 
 **a.**  XML syntax or does not comply with specified XSD.  
 
-### B.2.4 Schema loading errors
+### B.2.5 Schema loading errors
 
 Schema loading errors can occur because the file is inaccessible or is not proper XML.
 Schema loading errors are handled in different ways by the Python and JavaScript tools.
