@@ -1,0 +1,47 @@
+[
+  {
+    "error_code": "SCHEMA_NON_PLACEHOLDER_HAS_CLASS",
+    "name": "attribute-on-nonplaceholder-invalid",
+    "warning": true,
+    "description": "A non placeholder tag has takes value, unit class, or value class",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\"",
+            "!# start schema",
+            "'''BaseTag''' {takesValue}",
+            "!# end schema",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "!# start schema",
+            "'''BaseTag''' {valueClass=numericClass}",
+            "!# end schema",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "!# start schema",
+            "'''BaseTag''' {unitClass=timeUnits}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''BaseTag''' {relatedTag=Event}",
+            "* # {takesValue, unitClass=timeUnits, valueClass=numericClass}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]
