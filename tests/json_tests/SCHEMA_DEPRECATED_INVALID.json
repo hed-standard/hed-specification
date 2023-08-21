@@ -1,0 +1,66 @@
+[
+  {
+    "error_code": "SCHEMA_DEPRECATED_INVALID",
+    "name": "schema-deprecated-invalid",
+    "warning": true,
+    "description": "A schema deprecation issue, saying there is an invalid version",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''BaseTag'''",
+            "* Extension {deprecatedFrom=0.5.0}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''BaseTag'''",
+            "* Extension {deprecatedFrom=1.0.0}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  },
+    {
+    "error_code": "SCHEMA_DEPRECATED_INVALID",
+    "name": "schema-deprecated-invalid-child",
+    "warning": true,
+    "description": "A schema deprecation issue, saying there is an invalid child of a deprecated node",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''BaseTag''' {deprecatedFrom=1.0.0}",
+            "* Extension ",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''BaseTag''' {deprecatedFrom=1.0.0}",
+            "* Extension {deprecatedFrom=1.0.0}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]
