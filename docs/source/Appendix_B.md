@@ -359,9 +359,30 @@ when the planned XSD validation is implemented start with HED_XML.
 under an appropriate unit class).  
 
 **Note:** 
-- A `unitClass` attribute must be defined in the `unitClassDefinitions` section of the schema.  
-- A `valueClass` attributes must be defined in the `valueClassDefinitions` section of the schema.  
+- A `tag` element can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
+- A `unitClass` element can only have schema attributes that have the `unitClassProperty` or the `elementProperty`.  
+- A `unitModifier` element can only have schema attributes that have the `unitModifierProperty` or the `elementProperty`.  
+- A `unit` element can only have schema attributes that have the `unitProperty` or the `elementProperty`.  
+- A `valueClass` element can only have schema attributes that have the `valueClassProperty` or the `elementProperty`.  
 - A `schemaAttribute` must be defined in the `schemaAttributeDefinitions` section of the schema.  
+
+#### SCHEMA_ATTRIBUTE_VALUE_INVALID
+
+**a.**  A non-boolean schema attribute has an invalid value as indicated by the following table.  
+
+| Attribute | Invalid attribute value                                                            |
+| --------- |------------------------------------------------------------------------------------|
+| `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
+| `conversionFactor` | Not a postive numeric value.                                                       |  
+| `defaultUnits` | Not a valid unit in this unit class.                                               |   
+| `deprecatedFrom` | Not a valid semantic version number not later than current schema version. |
+| `inLibrary` |  |
+| `relatedTag` |  |
+| `rooted` |  |
+| `suggestedTag` |  |
+| `unitClass` |  |
+| `valueClass` |  |
+
 
 #### SCHEMA_CHARACTER_INVALID
 

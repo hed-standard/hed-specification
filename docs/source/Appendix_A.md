@@ -296,13 +296,13 @@ Only the schema attributes listed in the following table can be handled by curre
   - Unit is a prefix (e.g., $ in the currency units).
 * - [`unitSymbol`](#a1423-unitsymbol)
   - unit        
-  - Tag is an abbreviation representing a unit.
+  - An abbreviation representing a unit.
 * - [`valueClass`*](#a1424-valueclass)
   - node #        
   - Type of value this is.        
 ``````
 
-#### A.1.4.1. allowedCharacter
+#### A.1.4.1. allowedCharacter*
 
 The `allowedCharacter` attribute should appear separately for each individual character to be allowed.
 However, the following group designations are allowed as values for this attribute:
@@ -311,7 +311,10 @@ However, the following group designations are allowed as values for this attribu
 - `digits` indicates the digits 0-9 may be used in the value.
 - `alphanumeric` indicates `letters` and `digits`
 
-#### A.1.4.2. conversionFactor
+#### A.1.4.2. conversionFactor*
+
+The value of `conversionFactor` is the factor to multiply by the current units to convert to default
+    units. (Added in version 8.1.0.). The `conversionFactor` value must be numeric and positive.
 
 #### A.1.4.3. defaultUnits
 If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
@@ -321,6 +324,8 @@ Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because 
 `defaultUnits` of `s`.
 
 #### A.1.4.4. deprecatedFrom
+
+The value must be an existing semantic schema version that is earlier than the current version.
 
 #### A.1.4.5. extensionAllowed
 The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators.
