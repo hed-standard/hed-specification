@@ -266,7 +266,7 @@ Only the schema attributes listed in the following table can be handled by curre
 * - [`SIUnit`](#a1413-siunit)
   - unit   
   - This unit represents an SI unit and can be modified.
-* - [`SIUnitModifier`](#a1414-siunitmodifer]
+* - [`SIUnitModifier`](#a1414-siunitmodifer)
   - unitModifier   
   - Modifier applies to base units.
 * - [`SIUnitSymbolModifier`](#a1415-siunitsymbolmodifier)
@@ -278,13 +278,13 @@ Only the schema attributes listed in the following table can be handled by curre
 * - [`tagGroup`](#a1417-taggroup)
   - node   
   - Tag can only appear inside a tag group.
-* - [`takesValue`](#a1418-takesvalue]
+* - [`takesValue`](#a1418-takesvalue)
   - node #   
   - Placeholder (#)should be replaced by a value.
 * - [`topLevelTagGroup`](#a1419-topleveltaggroup)
   - node        
   - Tag (or its descendants) can be in a top-level tag group.
-* - [`unique`](#a1420-unique]
+* - [`unique`](#a1420-unique)
   - node        
   - Tag or its descendants can only occur once in <br/>
     an event-level HED string.
