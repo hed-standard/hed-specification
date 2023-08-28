@@ -1,0 +1,32 @@
+[
+  {
+    "error_code": "SCHEMA_ATTRIBUTE_INVALID",
+    "name": "attribute-invalid-unknown",
+    "warning": true,
+    "description": "A schema attribute issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\"",
+            "!# start schema",
+            "'''Tag-with-unknown''' {unknownAttribute=invalid}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''Tag-with-unknown''' {suggestedTag=Event}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]

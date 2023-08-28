@@ -1019,7 +1019,7 @@ for the curly braces and their contents when the HED annotation is assembled.
 1. The item within the curly braces must either be the word `HED` or
 the name of another HED-annotated column within the sidecar.
 2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
-3. During assembly of a HED annoation for an event, if the 'n/a' value appears in a curly brace column,
+3. During assembly of a HED annotation for an event, if the 'n/a' value appears in a curly brace column,
 the curly brace expression including the curly braces as well as any extra parentheses or commas are removed. 
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
@@ -1109,7 +1109,8 @@ Its top level dictionary keys are `"LongName"`, `"Description"`, and `"HED"`.
 and its annotation entry:
 `"(Image, Face, Pathname/#)"`.
 This annotation has a single `#`. 
-The filename in the `stim_file` column replaces this `#` when the 
+The filename in the `stim_file` column replaces this `#` when the HED annotation for a
+line in an associated `events.tsv` file is assembled.
 
 Since `"stim_file` and `"key"` appear within curly braces in annotations
 for `"event_type"`, their HED annotations can not use curly braces.
@@ -1119,7 +1120,7 @@ The `"dummy_defs"` is an example of a **dummy annotation**.
 The value of this entry is a dictionary with a `"HED"` key
 pointing to a dictionary.
 A dummy annotation is similar in form to a **categorical annotation**,
-but its keys do not correspond to any event file column names.
+but its keys do not correspond to any event file column values.
 Rather it is used as a container to organize HED definitions.
 
 In the example,

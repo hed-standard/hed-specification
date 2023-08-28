@@ -1,0 +1,34 @@
+[
+  {
+    "error_code": "SCHEMA_UNIT_CLASS_INVALID",
+    "name": "attribute-invalid-unit-class",
+    "warning": true,
+    "description": "A schema unit class issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''Tag-with-unknown'''",
+            "* # {unitClass=unknown}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "!# start schema",
+            "'''Tag-with-unknown'''",
+            "* # {unitClass=timeUnits}",
+            "!# end schema",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]

@@ -226,81 +226,83 @@ Only the schema attributes listed in the following table can be handled by curre
 * - Attribute
   - Target
   - Description
-* - `allowedCharacter`*
+* - [`allowedCharacter`*](#a141-allowedcharacter)  
   - valueClass
   - Specifies a character used in values of this class.
-* - `conversionFactor` 
+* - [`conversionFactor`](#a142-conversionfactor)
   - unit, unitModifier
   - Multiplicative factor to multiply by to convert to default <br/>
     units. (Added in version 8.1.0.)
-* - `defaultUnits`*
+* - [`defaultUnits`*](#a143-defaultunits)
   - unitClass
   - Specifies units to use if placeholder value has no units.   
-* - `deprecatedFrom`*
+* - [`deprecatedFrom`*](#a144-deprecatedfrom)
   - element
   - This element is deprecated. The value of the attribute <br/>is the latest schema version in which the element<br/>appeared before it was deprecated..   
-* - `extensionAllowed`
+* - [`extensionAllowed`](#a145-extensionallowed)
   - node
   - A tag can have unlimited levels of child nodes added.
-* - `inLibrary`*
+* - [`inLibrary`*](#a146-inlibrary)
   - element
   - This schema element is from the named library schema,<br/>not the standard schema. (Added/removed by tools.)
-* - `recommended`
+* - [`recommended`](#a147-recommended)
   - node
   - Event-level HED strings should include this tag.
-* - `relatedTag`*
+* - [`relatedTag`*](#a148-relatedtag)
   - node
   - A HED tag closely related to this HED tag.
-* - `requireChild`
+* - [`requireChild`](#a149-requirechild)
   - node    
   - A child of this node must be included in the HED tag.
-* - `required`
+* - [`required`](#a1410-required)
   - node      
   - Event-level HED string must include this tag.
-* - `reserved`
+* - [`reserved`](#a1411-reserved)
   - node      
   - This tag has special meaning and requires <br/>special handling by tools.
-* - `rooted`*
+* - [`rooted`*](#a1412-rooted)
   - node      
   - A top-level library schema node should appear<br/>under this standard schema node when merged.  
-* - `SIUnit`
+* - [`SIUnit`](#a1413-siunit)
   - unit   
   - This unit represents an SI unit and can be modified.
-* - `SIUnitModifier`
+* - [`SIUnitModifier`](#a1414-siunitmodifer)
   - unitModifier   
   - Modifier applies to base units.
-* - `SIUnitSymbolModifier`
+* - [`SIUnitSymbolModifier`](#a1415-siunitsymbolmodifier)
   - unitModifier    
   - Modifier applies to unit symbols.
-* - `suggestedTag`*
+* - [`suggestedTag`*](#a1416-suggestedtag)
   - node   
   - Tag could be included with this HED tag.
-* - `tagGroup`
+* - [`tagGroup`](#a1417-taggroup)
   - node   
   - Tag can only appear inside a tag group.
-* - `takesValue`
+* - [`takesValue`](#a1418-takesvalue)
   - node #   
   - Placeholder (#)should be replaced by a value.
-* - `topLevelTagGroup`
+* - [`topLevelTagGroup`](#a1419-topleveltaggroup)
   - node        
   - Tag (or its descendants) can be in a top-level tag group.
-* - `unique`
+* - [`unique`](#a1420-unique)
   - node        
   - Tag or its descendants can only occur once in <br/>
     an event-level HED string.
-* - `unitClass`*
+* - [`unitClass`*](#a1421-unitclass)
   - node #        
   - Unit class this replacement value belongs to.
-* - `unitPrefix`
+* - [`unitPrefix`](#a1422-unitprefix)
   - unit        
   - Unit is a prefix (e.g., $ in the currency units).
-* - `unitSymbol`
+* - [`unitSymbol`](#a1423-unitsymbol)
   - unit        
-  - Tag is an abbreviation representing a unit.
-* - `valueClass`*
+  - An abbreviation representing a unit.
+* - [`valueClass`*](#a1424-valueclass)
   - node #        
   - Type of value this is.        
 ``````
+
+#### A.1.4.1. allowedCharacter*
 
 The `allowedCharacter` attribute should appear separately for each individual character to be allowed.
 However, the following group designations are allowed as values for this attribute:
@@ -309,19 +311,67 @@ However, the following group designations are allowed as values for this attribu
 - `digits` indicates the digits 0-9 may be used in the value.
 - `alphanumeric` indicates `letters` and `digits`
 
+#### A.1.4.2. conversionFactor*
+
+The value of `conversionFactor` is the factor to multiply by the current units to convert to default
+    units. (Added in version 8.1.0.). The `conversionFactor` value must be numeric and positive.
+
+#### A.1.4.3. defaultUnits
 If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
 does not have units, tools may assume the value has `defaultUnits` if the unit class has them.
 For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions.
 Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because `Duration` has
 `defaultUnits` of `s`.
 
+#### A.1.4.4. deprecatedFrom
+
+The value must be an existing semantic schema version that is earlier than the current version.
+
+#### A.1.4.5. extensionAllowed
 The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators.
 However, any node that has a placeholder (`#`) child cannot be extended,
 regardless of the `extensionAllowed` attribute,
 since the node's single child is always interpreted as a user-supplied value. 
 
-Tags with the `required` or `unique` attributes cannot appear in definitions.
+#### A.1.4.6. inLibrary
 
+#### A.1.4.7. recommended
+
+#### A.1.4.8. relatedTag
+
+#### A.1.4.9. requireChild
+
+#### A.1.4.10. required
+
+#### A.1.4.11. reserved
+
+#### A.1.4.12. rooted
+
+#### A.1.4.13. SIUnit
+
+#### A.1.4.14. SIUnitModifier
+
+#### A.1.4.15. SIUnitSymbolModifier
+
+#### A.1.4.16. suggestedTag
+
+#### A.1.4.17. tagGroup
+
+#### A.1.4.18. takesValue
+
+#### A.1.4.19. topLevelTagGroup
+
+#### A.1.4.20. unique
+
+#### A.1.4.21. unitClass
+
+#### A.1.4.22. unitPrefix
+
+#### A.1.4.23. unitSymbol
+
+#### A.1.4.24. valueClass
+
+#### A.1.4.x. Deprecated attributes
 In addition to the attributes listed above, some schema attributes have been deprecated
 and are no longer supported in HED, although they are still present in earlier versions of 
 the schema. The following table lists these.
@@ -421,7 +471,7 @@ The `boolProperty` controls the form of the schema attribute.
 
 ````
 
-See [**property example**](#a-2-5-5-schema-properties) for an example
+See [**property example**](#a255-schema-properties) for an example
 in MediaWiki format and its 
 https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-3-5-5-schema-properties
 ## A.2. Mediawiki file format
@@ -719,7 +769,7 @@ The following example defines the `valueClassProperty` in `.mediawiki` format.
 ```
 ````
 
-See [**Schema properties**](a-1-5-schema-properties) for a list of
+See [**Schema properties**](#a15-schema-properties) for a list of
 available schema properties.
 
 ## A.3. XML file format
@@ -1074,5 +1124,5 @@ The following is an example of the layout of the `valueClassProperty` in `.xml` 
 ```
 ````
 
-See [**Schema properties**](a-1-5-schema-properties) for a list of
+See [**Schema properties**](#a15-schema-properties) for a list of
 available schema properties.
