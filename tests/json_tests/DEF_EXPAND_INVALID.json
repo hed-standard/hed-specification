@@ -189,7 +189,7 @@
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "ball", "(Def-expand/MyColor, (Label/Pie))"]
+                                [ 5.2, 0, "ball", "(Def-expand/MyColor, (Label/Pie))"]
                             ]
                     }
                 ]

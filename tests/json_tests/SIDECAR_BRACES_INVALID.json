@@ -91,10 +91,67 @@
                                 ["onset", "duration", "event_code","HED", "response_time"],
                                 [ 4.5, 0, "face", "Blue", 0],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
-                                [ 5.0, 0, "face", "", 2],
-                                [ 5.0, 0, "face", "n/a", 3]
+                                [ 5.5, 0, "face", "", 2],
+                                [ 5.7, 0, "face", "n/a", 3]
                             ]
                     }
+                ]
+            }
+        }
+    },
+        {
+        "error_code": "VALUE_INVALID",
+        "name": "sidecar-braces-invalid-spot",
+        "description": "A curly brace reference must only appear where a tag could.",
+        "schema": "8.1.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "(Def/Acc/{response_time})"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Red, Blue), (Green, (Yellow))",
+                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
+                            }
+                        },
+                        "response_time": {
+                            "Description": "Has description with HED",
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                ],
+                "passes": [
                 ]
             }
         }
@@ -203,8 +260,8 @@
                                 ["onset", "duration", "response_time", "event_code","HED"],
                                 [ 4.5, 0, 3.4, "face",  "Blue"],
                                 [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "n/a", "face", ""],
-                                [ 5.0, 0, "any", "face", "n/a"]
+                                [ 5.2, 0, "n/a", "face", ""],
+                                [ 5.5, 0, "any", "face", "n/a"]
                             ]
                     }
                 ]
@@ -295,8 +352,8 @@
                                 ["onset", "duration", "response_time", "event_code","HED"],
                                 [ 4.5, 0, 3.4, "face",  "Blue"],
                                 [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "n/a", "face", ""],
-                                [ 5.0, 0, "any", "face", "n/a"]
+                                [ 5.2, 0, "n/a", "face", ""],
+                                [ 5.5, 0, "any", "face", "n/a"]
                             ]
                     }
                 ],
@@ -319,8 +376,8 @@
                                 ["onset", "duration", "response_time", "event_code","HED"],
                                 [ 4.5, 0, 3.4, "face",  "Blue"],
                                 [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "n/a", "face", ""],
-                                [ 5.0, 0, "any", "face", "n/a"]
+                                [ 5.2, 0, "n/a", "face", ""],
+                                [ 5.5, 0, "any", "face", "n/a"]
                             ]
                     }
                 ]
@@ -431,8 +488,8 @@
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "face", ""],
-                                [ 5.0, 0, "face", "n/a"]
+                                [ 5.2, 0, "face", ""],
+                                [ 5.5, 0, "face", "n/a"]
                             ]
                     }
                 ],
@@ -455,8 +512,8 @@
                                 ["onset", "duration", "event_code","HED", "response_time"],
                                 [ 4.5, 0, "face", "Blue", 1],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
-                                [ 5.0, 0, "face", "", 1],
-                                [ 5.0, 0, "face", "n/a", 1]
+                                [ 5.2, 0, "face", "", 1],
+                                [ 5.5, 0, "face", "n/a", 1]
                             ]
                     }
                 ]
@@ -513,8 +570,8 @@
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue, {response_time}"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"],
-                                [ 5.0, 0, "face", ""],
-                                [ 5.0, 0, "face", "n/a"]
+                                [ 5.2, 0, "face", ""],
+                                [ 5.5, 0, "face", "n/a"]
                             ]
                     }
                 ],
@@ -537,8 +594,8 @@
                                 ["onset", "duration", "event_code","HED", "response_time"],
                                 [ 4.5, 0, "face", "Blue", 1],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor", 1],
-                                [ 5.0, 0, "face", "", 1],
-                                [ 5.0, 0, "face", "n/a", 1]
+                                [ 5.2, 0, "face", "", 1],
+                                [ 5.5, 0, "face", "n/a", 1]
                             ]
                     }
                 ]
