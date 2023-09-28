@@ -1,0 +1,141 @@
+[
+  {
+    "error_code": "SCHEMA_DUPLICATE_NODE",
+    "name": "attribute-duplicate-node",
+    "warning": true,
+    "description": "A schema attribute issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "* Tag",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers''' <nowiki></nowiki>",
+            "* mod1 <nowiki></nowiki>",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers''' <nowiki></nowiki>",
+            "* mod1 <nowiki></nowiki>",
+            "* mod1 <nowiki></nowiki>",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "!# end schema",
+            "'''Unit classes''' <nowiki></nowiki>",
+            "* unitClass1 <nowiki></nowiki>",
+            "** unit1 <nowiki></nowiki>",
+            "** unit1 <nowiki></nowiki>",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "!# end schema",
+            "'''Unit classes''' <nowiki></nowiki>",
+            "* unitClass1 <nowiki></nowiki>",
+            "** unit1 <nowiki></nowiki>",
+            "* unitClass2 <nowiki></nowiki>",
+            "** unit1 <nowiki></nowiki>",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag'''",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes''' <nowiki></nowiki>",
+            "* unitAttribute <nowiki></nowiki>",
+            "'''Properties''' <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "* unitProperty <nowiki></nowiki>",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Tag-with-unknown''' {suggestedTag=Event}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]

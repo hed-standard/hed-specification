@@ -1,6 +1,6 @@
 [
   {
-    "error_code": "SCHEMA_DEFAULT_UNITS_INVALID",
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
     "name": "attribute-default-unit-invalid",
     "warning": true,
     "description": "A schema unit class has an invalid default value",
@@ -11,6 +11,7 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "!# end schema",
             "'''Unit classes''' [Unit classes and the units for the nodes.]",
@@ -18,12 +19,18 @@
             "** testUnit1",
             "** testUnit2",
             "** testUnit3",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "!# end schema",
             "'''Unit classes''' [Unit classes and the units for the nodes.]",
@@ -31,6 +38,11 @@
             "** testUnit1",
             "** testUnit2",
             "** testUnit3",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]

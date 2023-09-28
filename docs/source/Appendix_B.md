@@ -357,6 +357,15 @@ when the planned XSD validation is implemented start with HED_XML.
 **a.**  An attribute is used in the schema, but is not defined in the schema attribute section.  
 **b.**  A schema attribute is applied to the incorrect type (e.g., an element with the unit definition does appear
 under an appropriate unit class).  
+**c.** A schema attribute is used in an invalid way
+
+| Attribute          | Invalid Usage Location                                                                                         |
+|--------------------|----------------------------------------------------------------------------------------------------------------|
+| `deprecatedFrom`   | An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute. |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#SCHEMA_LIBRARY_INVALID)                              |
+| `takesValue`       | Used on a non-placeholder(#) node.                                                                             |
+| `unitClass`        | Used on a non-placeholder(#) node.                                                                             |
+| `valueClass`       | Used on a non-placeholder(#) node.                                                                             |
 
 **Note:** 
 - A `tag` element can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
@@ -368,20 +377,20 @@ under an appropriate unit class).
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
-**a.**  A non-boolean schema attribute has an invalid value as indicated by the following table.  
+**a.** A non-boolean schema attribute has an invalid value or usage as indicated by the following table.
 
-| Attribute | Invalid attribute value                                                            |
-| --------- |------------------------------------------------------------------------------------|
+| Attribute       | Invalid Attribute Value                                                            |
+|-----------------|------------------------------------------------------------------------------------|
 | `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
-| `conversionFactor` | Not a postive numeric value.                                                       |  
-| `defaultUnits` | Not a valid unit in this unit class.                                               |   
-| `deprecatedFrom` | Not a valid semantic version number not later than current schema version. |
-| `inLibrary` |  |
-| `relatedTag` |  |
-| `rooted` |  |
-| `suggestedTag` |  |
-| `unitClass` |  |
-| `valueClass` |  |
+| `conversionFactor` | Not a positive numeric value.                                                      |
+| `defaultUnits`    | Not a valid unit in this unit class.                                               |
+| `deprecatedFrom`  | Does not correspond to a valid schema version.                                     |
+| `inLibrary`       | The value of an inLibrary attribute is for the wrong library.                      |
+| `relatedTag`      | Not an existing tag.                                                               |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#SCHEMA_LIBRARY_INVALID)                              |
+| `suggestedTag`    | Not an existing tag.                                                               |
+| `unitClass`       | Not an existing unit class.                                                        |
+| `valueClass`      | Not an existing value class.                                                       |
 
 
 #### SCHEMA_CHARACTER_INVALID
@@ -412,8 +421,8 @@ Library schema errors are specific to library schema. Library schema may also ra
 #### SCHEMA_SECTION_MISSING
 
 **a.**  A required schema section is missing.   
-**b.**  The required sections (corresponding to the schema, unit classes, unit modifiers, value classes,
-schema attributes, and properties) are not in the correct order and hence not detected.  
+**b.**  The required sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes,
+schema attributes, properties and epilogue) are not in the correct order and hence not detected.  
 
 **Note:** Required schema sections may be empty, but still be given.
 
@@ -423,13 +432,6 @@ schema attributes, and properties) are not in the correct order and hence not de
 **b.**  A HED version specification does not have the correct syntax for the schema file format.  
 **c.**  A HED schema version does not comply with semantic versioning.  
 
-### B.2.2. Invalid usage error
-
-#### SCHEMA_DEPRECATED_INVALID
-
-**a.**  The value of a `deprecatedFrom` attribute does not correspond to a valid schema version.   
-**b.**  An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute.  
-
 ### B.2.3. Mediawiki format errors
 
 #### WIKI_DELIMITERS_INVALID
@@ -437,6 +439,7 @@ schema attributes, and properties) are not in the correct order and hence not de
 **a.**  Delimiters used in the wiki are invalid.    
 **b.**  Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.  
 **c.**  A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.  
+**d.**  Attributes section of a node is malformed(eg hanging `=` character).
 
 #### WIKI_LINE_START_INVALID
 
@@ -444,8 +447,8 @@ schema attributes, and properties) are not in the correct order and hence not de
 
 #### WIKI_SEPARATOR_INVALID
 
-**a.**  Required wiki section separator is missing or misplaced.   
-**b.**  A required schema separator is missing. (The required separators are: `!# start schema`, `!# end schema`, and  `!# end hed`.)  
+**a.**  A malformed section separator is present   
+**b.**  A duplicate section separator is present.  
 
 ### B.2.4. XML format errors
 

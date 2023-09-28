@@ -10,20 +10,57 @@
       "schema_tests": {
         "fails": [
           [
-            "HED version=\"1.0.0\" library=\"score_invalidchar\" withStandard=\"8.2.0\" unmerged=\"True\""
+            "HED version=\"1.0.0\" library=\"score_invalidchar\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ],
           [
-            "HED version=\"1.0.0\" library=\"score1\" withStandard=\"8.2.0\" unmerged=\"True\""
+            "HED version=\"1.0.0\" library=\"score1\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ],
           [
-            "HED version=\"1.0.0\" library=\"Score\" withStandard=\"8.2.0\" unmerged=\"True\""
+            "HED version=\"1.0.0\" library=\"Score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -41,17 +78,44 @@
       "schema_tests": {
         "fails": [
           [
-            "HED version=\"1.0.0\" withStandard=\"8.2.0\" unmerged=\"True\""
+            "HED version=\"1.0.0\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ],
           [
-            "HED version=\"1.0.0\" withStandard=\"8.2.0\""
+            "HED version=\"1.0.0\" withStandard=\"8.2.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -69,17 +133,44 @@
       "schema_tests": {
         "fails": [
           [
-            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.9.9\" unmerged=\"True\""
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.9.9\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ],
           [
-            "HED version=\"1.0.0\" library=\"score\" withStandard=\"7.9.9\" unmerged=\"True\""
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"7.9.9\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -98,29 +189,48 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Event''' {rooted=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Event''' {rooted=Property}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
             "'''Schema attributes'''",
             "* rooted <nowiki>{nodeProperty} </nowiki>",
             "'''Properties'''",
             "* nodeProperty",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewThing''' {rooted=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -139,19 +249,33 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewNode'''",
             "* NewExtension {rooted=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewNode''' {rooted=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -170,26 +294,47 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''DummyTag'''",
             "'''NewTag'''{rooted=DummyTag}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''DummyTag'''{rooted=NotRealTag}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewTag''' {rooted=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -208,20 +353,34 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewTag''' {rooted=Event}",
-            "* ExtendedEvent {inLibrary=\"score\"}",
+            "* ExtendedEvent {inLibrary=score}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
@@ -240,6 +399,7 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
@@ -247,12 +407,18 @@
             "'''Unit classes'''",
             "* weightUnits",
             "** g <nowiki>{SIUnit, unitSymbol, conversionFactor=1.0}</nowiki>",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''NewTag''' {rooted=Event}",
             "* ExtendedEvent",
@@ -260,6 +426,11 @@
             "'''Unit classes'''",
             "* weightUnits",
             "** testNewUnit <nowiki>{conversionFactor=10.0}</nowiki>",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]

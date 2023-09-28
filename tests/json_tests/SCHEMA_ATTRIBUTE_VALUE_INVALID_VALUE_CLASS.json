@@ -1,6 +1,6 @@
 [
   {
-    "error_code": "SCHEMA_VALUE_CLASS_INVALID",
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
     "name": "attribute-invalid-value-class",
     "warning": true,
     "description": "A schema value class issue, saying there is an unknown one.",
@@ -11,20 +11,34 @@
         "fails": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown'''",
             "* # {valueClass=unknown}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown'''",
             "* # {valueClass=numericClass}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]
