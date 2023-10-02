@@ -121,7 +121,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 *** <nowiki># {takesValue}</nowiki> 
 * Group ID <nowiki>{requireChild, predicateType=propertyOf} [Optional]</nowiki> 
 ** <nowiki># {takesValue}</nowiki> 
-* Object <nowiki> [Visually discernible objects. This item excludes sounds that are Items but not objects]</nowiki> 
+* Object <nowiki> [Visually discernable objects. This item excludes sounds that are Items but not objects]</nowiki> 
 ** Vehicle 
 *** Bicycle 
 *** Car 
@@ -1161,7 +1161,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning.
 * Psychomotor vigilance task
 * Pursuit rotor task 
 * Pyramids and palm trees task 
-* Rapid automated naming test 
+* Rapid automatized naming test 
 * Rapid serial object transformation 
 * Reading - Covert
 * Reading - Overt

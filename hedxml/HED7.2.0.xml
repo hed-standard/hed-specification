@@ -280,7 +280,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning. </prologue>
       </node>
       <node>
          <name>Object</name>
-         <description>Visually discernible objects. This item excludes sounds that are Items but not objects</description>
+         <description>Visually discernable objects. This item excludes sounds that are Items but not objects</description>
          <node>
             <name>Vehicle</name>
             <node>
@@ -3645,7 +3645,7 @@ From version 2.2, HED adheres to http://semver.org/ versioning. </prologue>
          <name>Pyramids and palm trees task</name>
       </node>
       <node>
-         <name>Rapid automated naming test</name>
+         <name>Rapid automatized naming test</name>
       </node>
       <node>
          <name>Rapid serial object transformation</name>
