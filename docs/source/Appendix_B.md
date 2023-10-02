@@ -373,7 +373,7 @@ under an appropriate unit class).
 | Attribute | Invalid attribute value                                                            |
 | --------- |------------------------------------------------------------------------------------|
 | `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
-| `conversionFactor` | Not a postive numeric value.                                                       |  
+| `conversionFactor` | Not a positive numeric value.                                                       |  
 | `defaultUnits` | Not a valid unit in this unit class.                                               |   
 | `deprecatedFrom` | Not a valid semantic version number not later than current schema version. |
 | `inLibrary` |  |
