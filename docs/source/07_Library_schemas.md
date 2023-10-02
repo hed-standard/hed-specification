@@ -277,7 +277,7 @@ This section summarizes the general design rules for all library schema.
 :class: tip
 
 1. **Follow naming conventions**:<br/>
-A library schema must be given a name containing only alphabetic chararacters.
+A library schema must be given a name containing only alphabetic characters.
 This name must appear in the schema header line in the required format.
 <br>&nbsp;</br>
 2. **Use semantic versioning**:<br/>
