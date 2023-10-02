@@ -1,6 +1,6 @@
 [
   {
-    "error_code": "SCHEMA_RELATED_TAG_INVALID",
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
     "name": "attribute-relatedTag-invalid",
     "warning": true,
     "description": "A related tag points to an unknown tag",
@@ -11,33 +11,61 @@
         "fails": [
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown''' {relatedTag=invalid}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown''' {relatedTag=Event, relatedTag=invalid}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown''' {relatedTag=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''Tag-with-unknown''' {relatedTag=Event}",
             "* ExtendedTag {relatedTag=Tag-with-unknown, relatedTag=Event}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]

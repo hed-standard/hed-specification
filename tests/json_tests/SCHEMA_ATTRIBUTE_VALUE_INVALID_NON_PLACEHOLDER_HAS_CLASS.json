@@ -1,6 +1,6 @@
 [
   {
-    "error_code": "SCHEMA_NON_PLACEHOLDER_HAS_CLASS",
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
     "name": "attribute-on-nonplaceholder-invalid",
     "warning": true,
     "description": "A non placeholder tag has takes value, unit class, or value class",
@@ -11,33 +11,61 @@
         "fails": [
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {takesValue}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {valueClass=numericClass}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ],
           [
             "HED version=\"1.0.0\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {unitClass=timeUnits}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ],
         "passes": [
           [
             "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {relatedTag=Event}",
             "* # {takesValue, unitClass=timeUnits, valueClass=numericClass}",
             "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
             "!# end hed"
           ]
         ]

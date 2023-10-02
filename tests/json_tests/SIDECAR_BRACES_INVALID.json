@@ -521,7 +521,7 @@
         }
     },
     {
-        "error_code": "INVALID_CHARACTER",
+        "error_code": "CHARACTER_INVALID",
         "name": "sidecar-braces-in-events-file",
         "description": "The curly braces in the sidecar are mismatched or nested.",
         "schema": "8.1.0",
