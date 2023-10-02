@@ -1192,7 +1192,7 @@ and whose names do not appear in the curly braces of other HED annotations.
 3. For each the column in the assembly list look up the annotation in the sidecar, replacing all curly braces and place holder values appropriately.
 Append to the result list.
 4. If a `HED` column annotation exists for that row and `HED` did not appear
-in curly braces in the sidecar, concatenate the annotation to the result list.
+in curly braces in the sidecar, concatentate the annotation to the result list.
 5. Finally, join all the entries of the result list using a comma (`,`) separator.
 
 In all cases `n/a` column values are skipped.

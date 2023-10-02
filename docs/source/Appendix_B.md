@@ -392,7 +392,6 @@ under an appropriate unit class).
 | `unitClass`       | Not an existing unit class.                                                        |
 | `valueClass`      | Not an existing value class.                                                       |
 
-
 #### SCHEMA_CHARACTER_INVALID
 
 **a.**  The specification contains an invalid character for the section in which it appears. 

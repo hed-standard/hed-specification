@@ -306,7 +306,7 @@ playing of different clips.
 > *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*  
 > *(Property/Informational-property/<strong>Label/StarWars</strong>,*  
 > *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*  
-> *Property/Informational-property/<strong>ID/3284</strong>)))*  
+> *Properity/Informational-property/<strong>ID/3284</strong>)))*  
             
 >         .... [The Star Wars movie clip is playing] ....
 
