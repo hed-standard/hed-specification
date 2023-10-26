@@ -367,13 +367,12 @@ under an appropriate unit class).
 | `unitClass`        | Used on a non-placeholder(#) node.                                                                             |
 | `valueClass`       | Used on a non-placeholder(#) node.                                                                             |
 
-**Note:** 
-- A `tag` element can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
+**Notes:** 
+- A `tag` (referred to as a node element in the schema) can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
 - A `unitClass` element can only have schema attributes that have the `unitClassProperty` or the `elementProperty`.  
 - A `unitModifier` element can only have schema attributes that have the `unitModifierProperty` or the `elementProperty`.  
 - A `unit` element can only have schema attributes that have the `unitProperty` or the `elementProperty`.  
 - A `valueClass` element can only have schema attributes that have the `valueClassProperty` or the `elementProperty`.  
-- A `schemaAttribute` must be defined in the `schemaAttributeDefinitions` section of the schema.  
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
@@ -414,7 +413,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **d.**  The `rooted` attribute appears in a schema whose header does not have `unmerged="true"` as well as appropriate `library` and `withStandard` header values.  
 **e.**  A node with the `rooted` attribute is not at the top level.  
 **f.**  A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.  
-**g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.
+**g.**  A library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.  
 **h.**  A library schema with the `unmerged="true"` duplicates special section items found in its partnered standard schema.
 
 #### SCHEMA_SECTION_MISSING
