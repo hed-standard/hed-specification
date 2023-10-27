@@ -105,7 +105,7 @@
                 "fails": [
                      "(Def-expand/Acc, (Acceleration, Red))",
                      "(Def-expand/Acc/4.5/3, (Acceleration, Red))",
-                     "(Def-expand/MyColor2/4, (Label/Pie))"
+                     "(Def-expand/MyColor/Blue, (Label/Pie))"
                 ],
                 "passes": [
                     "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
@@ -582,4 +582,4 @@
             }
         }
     }
-]    
+]
