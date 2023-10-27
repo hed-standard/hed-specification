@@ -92,5 +92,24 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "UNITS_MISSING",
+        "name": "units-missing-on-node-with-unit-class",
+        "description": "A tag that takes value and has a unit class does not have units.",
+        "warning": true,
+        "schema": "8.1.0",
+        "definitions": [
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Temperature/4.5"
+                ],
+                "passes": [
+                    "Temperature/4 oC"
+                ]
+            }
+        }
     }
 ]    
