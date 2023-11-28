@@ -177,6 +177,7 @@ additional information on the `required` tag.
 **a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
 **b.**  A column name entry in a sidecar has a HED annotation with curly braces, but this name also appears in curly braces in another HED annotation.  
 **c.** The curly braces in a sidecar are nested or unmatched.  
+**d.** The curly braces appear as the substitution for a placeholder in another tag.
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for information
 on the requirements for using sidecars.

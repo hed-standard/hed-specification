@@ -1023,7 +1023,10 @@ the name of another HED-annotated column within the sidecar.
 the curly brace expression including the curly braces as well as any extra parentheses or commas are removed. 
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
-5. The curly braces cannot be used within a `Definition`. 
+5. The curly braces cannot be used within a `Definition`.
+6. Curly braces can not appear in the HED column of a tabular file.
+7. Curly braces can not be nested. 
+8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
 
 ``````
 
