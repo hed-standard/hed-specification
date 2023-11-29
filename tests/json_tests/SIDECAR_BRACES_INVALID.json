@@ -614,6 +614,58 @@
         }
     },
     {
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "name": "sidecar-braces-ref-ignore-column",
+        "description": "Curly braces reference a column that exists, but is marked ignore.",
+        "schema": "8.2.0",
+        "definitions": [],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
+                                    "ball": "{onset}"
+                                }
+                            },
+                            "response_time": {
+                                "Description": "Has description with HED",
+                                "HED": "Label/#"
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "Blue"]
+                            ]
+                    }
+                ],
+                "passes": [
+                ]
+            }
+        }
+    },
+    {
         "error_code": "CHARACTER_INVALID",
         "name": "sidecar-braces-in-events-file",
         "description": "The curly braces appear in HED column of events file.",
