@@ -615,8 +615,8 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
-        "name": "sidecar-braces-ref-ignore-column",
-        "description": "Curly braces reference a column that exists, but is marked ignore.",
+        "name": "sidecar-braces-ref-not-hed-column",
+        "description": "Curly braces reference a column that exists, but isn't marked as hed data.",
         "schema": "8.2.0",
         "definitions": [],
         "tests": {
