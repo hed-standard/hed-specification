@@ -967,7 +967,7 @@ as are entries in the corresponding tabular data file that have `n/a` or blank v
 
 See [**3.2.9.4. A sidecar example**](./03_HED_formats.md/#3294-a-sidecar-example)
 for an elaborated example of these different types of entries and
-[**3.2.10.2 Event-level processing**](./03_HED_formats.md/#32102-event-level-processing)
+[**3.2.10.2 Event-level processing**](./03_HED_formats.md/#32103-event-level-processing)
 for an example of how the resulting HED annotations are assembled.
 
 #### 3.2.9.2. Sidecar validation
@@ -1135,37 +1135,54 @@ This is permitted.
 
 ### 3.2.10. Tabular files
 
-A tabular file is a text file in which each line represents a row in a table.
-The column entries in a given row are separated by tabs.
-Further, the first line of the file must contain a tab-separated list of
+A tabular (`.tsv`) file is a text file in which each line represents a row in a table.
+The column entries in a given row are separated by tabs. 
+The first line of the file must contain a tab-separated list of
 column names, which should be unique.
-This description of tabular file conforms to that used by [**BIDS**](https://bids.neuroimaging.io/).
+This description of tabular files conforms to that used by [**BIDS**](https://bids.neuroimaging.io/).
+
+#### 3.2.10.1 Tabular types
 
 Generally each row in a tabular file represents an item and the columns values provide properties of that item.
-The most common HED-annotated tabular file represents event markers in an experiment.
-In this case each row in the file represents a time at which something happened.
+The most common HED-annotated tabular files represent event markers in an experiment (e.g., BIDS `events.tsv` files).
+In this case each row in represents a time at which something happened.
 
-Another common HED-annotated tabular file represents experiment participants.
-In this case each row in the file represents a participant, and the columns provide
+Another common HED-annotated tabular file represents experiment participants
+(e.g., BIDS `participants.tsv`).
+Each row in the file represents a participant, and the columns provide
 characteristics or other information about the participant identified in that row.
+
+The `events.tsv` and the `participants.tsv` are representative of two distinct types
+of tabular files: ones representing time markers and those representing other types of information.
+To be recognized as having time-markers, the first column of the file must be `onset`.
+Non-time marker files cannot use the `Onset`, `Offset`, or `Inset` tags as these
+tags are reserved for annotations of time processes.
 
 In any case, the general strategy for validation or other processing is:
 1. Process the individual components of the HED annotation (tag and string level processing).
 2. Assemble the component annotations for a row (event or row level processing).
 3. Check consistency and relationships among the row annotations (file-level processing).
 
-#### 3.2.10.1. Tabular annotations
+See [**BIDS tabular files**](06_Infrastructure_and_tools.md#631-bids-tabular-files) for
+more examples.
+
+#### 3.2.10.2. Tabular annotations
 
 HED annotations in tabular files can occur both in a `HED` column within the file and
 in an associated JSON sidecar.
 
 The HED strings that appear in a `HED` column must be valid HED strings.
+If the first column is not called `onset`, the assembled annotation for
+the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
 
-Definitions many not appear in the `HED` column of a tabular file.
-Definitions may not appear in any entry of a JSON sidecar corresponding
-to a column of the tabular file.
+Definitions many not appear in the `HED` column of a tabular file or
+in any entry of a JSON sidecar corresponding that contains items other than definitions.
 
-#### 3.2.10.2. Event-level processing
+See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid)
+and [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) for information.
+
+
+#### 3.2.10.3. Event-level processing
 
 After individual HED tags and HED strings in the `HED` column of tabular files and 
 in the associated sidecars are validated or otherwise processed,
@@ -1231,7 +1248,7 @@ has been included. The entries with `n/a` have been ignored.
 For more examples of event assembly, see [**How HED works in BIDS**](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
 
 
-#### 3.2.10.3 File-level processing
+#### 3.2.10.4. File-level processing
 
 HED versions >= 8.0.0 allow annotation of relationships among rows in a tabular file.
 Hence, processing generally requires that annotations for all the rows be assembled

@@ -266,7 +266,7 @@ Only the schema attributes listed in the following table can be handled by curre
 * - [`SIUnit`](#a1413-siunit)
   - unit   
   - This unit represents an SI unit and can be modified.
-* - [`SIUnitModifier`](#a1414-siunitmodifer)
+* - [`SIUnitModifier`](#a1414-siunitmodifier)
   - unitModifier   
   - Modifier applies to base units.
 * - [`SIUnitSymbolModifier`](#a1415-siunitsymbolmodifier)

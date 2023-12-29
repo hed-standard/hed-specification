@@ -114,16 +114,39 @@ if the tool does not support these tags.
 widely-adopted specification and supporting tools for organizing and 
 describing brain imaging and behavioral data.
 
-BIDS dataset events are stored in tab-separated value files whose names end in `events.tsv`.
-HED's use of tabular files and sidecars closely aligns with BIDS and its requirements.
-HED has been incorporated into the BIDS standard as the mechanism for annotating
-tabular files. 
-
 ### 6.3.1. BIDS tabular files
+
+HED has been incorporated into the BIDS standard as the mechanism for annotating
+BIDS tabular files, which are tab-separated value files whose first line has the column names.
+A BIDS tabular file has extension `.tsv` and can be optionally accompanied by a 
+similarly named `.json` file (i.e., a sidecar) containing metadata for the file.
+
+The most common types of BIDS tabular files are shown in the following table.
+
+(tabular-types-anchor)=
+| Ends with            | Time? | A row represents                                   |
+|----------------------|-------|----------------------------------------------------| 
+| `_events.tsv`        | Yes   | Markers on the timeline of another file.           | 
+| `_participants.tsv`  | No    | Metadata about one dataset subject.                |
+| `_scans.tsv`         | No    | Metadata about one dataset recording.              | 
+| `_beh.tsv`           | No    | A measurement not associated with an `onset`. |  
+| `_samples.tsv `      | No    | Properties of a particular sample (e.g., tissue).  |
+| `phenotype/xxx_.tsv` | No    | A measurement from a particular participant.       |  
+
+HED treats tabular files such as (e.g., `_events.tsv` files) whose first column has 
+the name `onset` as expressing markers on a timeline.
+These timeline files allow `Onset`, `Inset`, and `Offset` tags in their
+annotations and receive additional [**file-level processing**](./03_HED_formats.md#32104-file-level-processing) to assure that these tags are properly
+matched. 
+
+**Tabular files that do not represent timelines are not permitted to use
+`Onset`, `Inset`, and `Offset` tags in their annotations.**
+See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error)
+for additional information.
 
 The following shows an excerpt from a BIDS event file:
 
-````{admonition} **Example:** Excerpt from a BIDS event file.
+````{admonition} **Example:** Excerpt from a BIDS _events.tsv file.
 
 ```
 onset  duration  trial_type  response_time  HED
@@ -132,21 +155,39 @@ onset  duration  trial_type  response_time  HED
 ```
 ````
 
-
-The first two columns in a BIDS events file are required to be `onset` and `duration`, respectively.
+The first two columns in a BIDS event file are required to be `onset` and `duration`, respectively.
 The `onset` is the time in seconds of an event marker relative to the start of its corresponding
 data recording, 
 while the `duration` represents the duration in seconds of some aspect of the event.
 The remaining columns in this event file are optional.
 
-BIDS reserves an optional column named `HED` to contain HED strings relevant for the event instance.
+BIDS reserves an optional column named `HED` to contain HED strings relevant for the instance
+represented by that row.
 In the above example, the first row `HED` column contains `Label/Starting-point, Quiet`,
-while the second row contains `n/a`, indicating that entry should be ignored.
+meaning that the event that starts at time 1.2 has these particular annotations
+in addition to annotations contributed by any relevant sidecars.
+The `HED` column in the second row contains `n/a`, indicating that entry should be ignored.
+In this case only annotations from applicable sidecars are applied.
 
 HED annotations can also be associated with entries in other columns of the event file
 through an associated JSON sidecar as described in the next section.
 
-### 6.3.2. BIDS sidecars
+
+### 6.3.2. BIDS timeseries
+
+BIDS also includes another type of file with extension `.tsv` that represents 
+continuous timeseries data. 
+For example, the motion capture `_motion.tsv` files give samples from
+channels of a motion capture apparatus,
+while physiological data files
+ `_physio.tsv` and `_stim.tsv` represent continuous 
+physiological recordings such as cardiac and respiratory signals. 
+These tabular files do not have column headers,
+but rather use other files to define the column names.
+**BIDS currently does not support HED in these types of files.**
+
+
+### 6.3.3. BIDS sidecars
 
 BIDS also recommends data dictionaries in the form of JSON sidecars to document
 the meaning of the data in the event files.
@@ -155,7 +196,7 @@ in compatibly-named sidecars.
 See the [**example sidecar**](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3
 for an explanation of the different sidecar entries.
 
-### 6.3.3. Annotation assembly
+### 6.3.4. Annotation assembly
 
 HED tools are available to assemble the annotations associated with each row in
 a tabular file using its `HED` column and the sidecar information associated
@@ -176,7 +217,7 @@ to give the following annotation:
 ````
 The process is to look up the appropriate row annotation for each column in the sidecar and append these with an annotation in the `HED` column if available.
 
-### 6.3.4. HED version in BIDS
+### 6.3.5. HED version in BIDS
 
 The HED version is included as the value of the `"HEDVersion"` key in the 
 `dataset_description.json` metadata file located at the top level in a BIDS dataset. 
@@ -244,13 +285,13 @@ tags.
 ````
 
 
-### 6.3.5. HED in the BIDS validator
+### 6.3.6. HED in the BIDS validator
 
 HED provides a JavaScript validator in the [**hed-javascript**](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [**npm**](https://www.npmjs.com/). 
 The [**BIDS validator**](https://github.com/bids-standard/bids-validator) 
 incorporates calls to this package to validate HED tags in BIDS datasets.
 
-### 6.3.5. HED python tools
+### 6.3.7. HED python tools
 
 The [**hedtools**](https://pypi.org/project/hedtools/) package includes
 input functions that use [**Pandas**](https://pandas.pydata.org/) data frames to construct internal
