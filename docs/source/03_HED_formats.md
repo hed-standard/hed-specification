@@ -46,7 +46,7 @@ whose name is the library name.
 ### 3.1.2. Schema layout overview
 
 Schemas can be specified in either `.mediawiki` or `.xml` format.
-[**Online tools**](https://hedtools.ucsd.edu/hed/schema) 
+The HED schema [**online tools**](https://hedtools.org/hed/schemas) 
 provide an easy way for users to validate schema and convert between formats.
 
 HED schema developers usually use `.mediawiki` format for more convenient editing,
