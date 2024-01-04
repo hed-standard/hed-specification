@@ -967,8 +967,8 @@
                             [
                                 ["event_code", "HED"],
                                 ["face", "Def/MyColor, Red, Blue"],
-                                ["snack", "Def/MyColor, Red, Blue"],
-                                ["ball", "Green"]
+                                ["ball", "Def/MyColor, Red, Blue"],
+                                ["snack", "Green"]
                             ]
                     }
                 ],
@@ -977,7 +977,7 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "(Def/MyColor",
+                                    "face": "(Def/MyColor)",
                                     "ball": "(Def/MyColor)",
                                     "snack": "(Def/MyColor)"
                                 }
