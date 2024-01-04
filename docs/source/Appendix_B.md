@@ -95,9 +95,10 @@ the definition's contents.
 **f.**  A definition that includes a placeholder (`#`) does not have exactly two `#` characters.   
 **g.**  A definition has placeholders (`#`) in incorrect positions.  
 **h.**  Definitions of the same name appear with and without a `#`.  
-**i.**  Multiple `Definition` tags with same name are encountered.
+**i.**  Multiple `Definition` tags with same name are encountered.  
 **j.**  A tag with a `required` or `unique` attribute appears in a definition.  
-**k.**  A definition appears in an unexpected place such as an events file.  
+**k.**  A definition appears in an unexpected place such as an events file or in a sidecar dictionary that
+contains non-definition entries.  
 
 See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions.
@@ -130,7 +131,8 @@ that are not in a tag group.
 **i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
 appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
 that uses the same anchor.  
-**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.
+**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
+**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.   
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
@@ -169,7 +171,7 @@ schema attribute.
 **Note:**
 An assembled event string must include all tags having the *required* schema attribute.
 
-See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
+See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `required` tag.
 
 ### SIDECAR_BRACES_INVALID
@@ -177,6 +179,7 @@ additional information on the `required` tag.
 **a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
 **b.**  A column name entry in a sidecar has a HED annotation with curly braces, but this name also appears in curly braces in another HED annotation.  
 **c.** The curly braces in a sidecar are nested or unmatched.  
+**d.** The curly braces appear as the substitution for a placeholder in another tag.
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for information
 on the requirements for using sidecars.
@@ -283,7 +286,7 @@ on using multiple schemas in annotation.
  
 **a.**  A tag with `unique` attribute appears more than once in an event-level HED string. 
 
-See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32102-event-level-processing) for
+See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `unique` tag.
 
 ### TAG_REQUIRES_CHILD 
@@ -362,7 +365,7 @@ under an appropriate unit class).
 | Attribute          | Invalid Usage Location                                                                                         |
 |--------------------|----------------------------------------------------------------------------------------------------------------|
 | `deprecatedFrom`   | An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute. |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#SCHEMA_LIBRARY_INVALID)                              |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                                                          |
 | `takesValue`       | Used on a non-placeholder(#) node.                                                                             |
 | `unitClass`        | Used on a non-placeholder(#) node.                                                                             |
 | `valueClass`       | Used on a non-placeholder(#) node.                                                                             |
@@ -386,7 +389,7 @@ under an appropriate unit class).
 | `deprecatedFrom`  | Does not correspond to a valid schema version.                                     |
 | `inLibrary`       | The value of an inLibrary attribute is for the wrong library.                      |
 | `relatedTag`      | Not an existing tag.                                                               |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#SCHEMA_LIBRARY_INVALID)                              |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
 | `suggestedTag`    | Not an existing tag.                                                               |
 | `unitClass`       | Not an existing unit class.                                                        |
 | `valueClass`      | Not an existing value class.                                                       |

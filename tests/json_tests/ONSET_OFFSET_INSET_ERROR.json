@@ -911,5 +911,88 @@
                 ]
             }
         }
+    },
+     {
+        "error_code": "ONSET_OFFSET_INSET_ERROR",
+        "name": "onset-offset-inset-tag-appears-where-not-allowed",
+        "description": "An Inset, Offset, or Onset tag appears in a tsv with no onset column",
+        "schema": "8.2.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["duration", "HED"],
+                        [0, "Red, (Def/MyColor, Onset)"],
+                        [0, "(Def/MyColor, Yellow, Inset)"],
+                        [0, "Red, (Def/MyColor, Onset)"],
+                        [0, "(Def/MyColor, Offset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["duration", "HED"],
+                        [0, "(Def/MyColor, (Blue))"],
+                        [0, "(Def/MyColor, (Green))"],
+                        [0, "(Def/MyColor)"],
+                        [0, "Red"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor, Onset)",
+                                    "ball": "(Def/MyColor, Offset)",
+                                    "snack": "(Def/MyColor, Inset)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["event_code", "HED"],
+                                ["face", "Def/MyColor, Red, Blue"],
+                                ["ball", "Def/MyColor, Red, Blue"],
+                                ["snack", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "(Def/MyColor)",
+                                    "ball": "(Def/MyColor)",
+                                    "snack": "(Def/MyColor)"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["event_code", "HED"],
+                                [ "face", "Blue"],
+                                ["face", "Blue"],
+                                ["snack", "Blue"]
+                            ]
+                    }
+                ]
+            }
+        }
     }
 ]    
