@@ -552,7 +552,7 @@ HED version="8.0.0"
 
 The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the 
 [**standard_schema/hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
+directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
 The `xsi` attribute is required if `xmlns:xsi` is given.

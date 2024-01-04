@@ -300,8 +300,7 @@ representations of HED-annotated event files.
 HED schema developers generally do initial development of the schema using `.mediawiki` format.
 The tools to convert schema between `.mediawiki` and `.xml` format are located 
 in the `hed.schema` module of the 
-[**hedtools**](https://github.com/hed-standard/hed-python/tree/master/hedtools) 
-project of the [**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
+[**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
 conversions. 
