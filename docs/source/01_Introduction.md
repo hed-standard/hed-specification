@@ -50,7 +50,7 @@ As the name HED implies, much of the HED framework focuses on
 associating metadata with the experimental timeline to make datasets analysis-ready and
 machine-actionable. However, HED annotations and framework can be used to incorporate 
 other types of metadata into analysis by providing a common API (Application Programming 
-Interface) for building inter-operable tools. 
+Interface) for building interoperable tools. 
 
 This specification describes the official release of third 
 generation of HED or HED-3G, which is HED version 8.0.0. 

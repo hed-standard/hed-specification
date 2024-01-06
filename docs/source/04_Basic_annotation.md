@@ -15,7 +15,7 @@ following (or preceding) event markers. The addition of HED context, allows info
 about events that occur over extended periods of time to propagate to intermediate time points. 
 [**Chapter 5: Advanced annotation**](05_Advanced_annotation.md#5-advanced-annotation) 
 develops the HED concepts needed to capture these advanced models of events as well as event
-and task inter-relationships. 
+and task interrelationships. 
 
 
 ## 4.1. Instantaneous events

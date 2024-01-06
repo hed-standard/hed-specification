@@ -570,7 +570,7 @@ HED library="testlib" version="1.0.2"
 
 The `library` and `version` values are used to form the official file name `HED_testlib_1.0.2.mediawiki`.
 The file is found in [**library_schemas/testlib/hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
+directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 A warning is generated when unknown header-line attributes are translated as attributes of the `HED` line
 during `.mediawiki` file validation.
