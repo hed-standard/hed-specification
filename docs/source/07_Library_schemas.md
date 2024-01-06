@@ -403,7 +403,7 @@ As part of the HED annotation process, users must associate one or more
 HED schemas with their datasets.
 Since it would be impossible to avoid naming conflicts across schema libraries built in parallel by different user communities, 
 HED supports schema library namespaces to facilitate the use of multiple schemas in
-annotating a datasets..
+annotating a datasets.
 
 If multiple schemas are used, users must define a local namespace for
 each additional schema and prefix the tags from each of these

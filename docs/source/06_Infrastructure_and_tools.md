@@ -7,7 +7,7 @@ its integration into other systems such as [**BIDS**](https://bids.neuroimaging.
 
 In general, tools should either explicitly call HED validation to assure that the input
 tag strings are valid or should make explicit that they assume the HED has already been validated.
-Most tools will use the later approach. 
+Most tools will use the latter approach. 
 
 See [**3.2. Annotation formats**](./03_HED_formats.md#32-annotation-formats)
 for more detailed specifications of HED formats. 
@@ -126,14 +126,14 @@ The most common types of BIDS tabular files are shown in the following table.
 (tabular-types-anchor)=
 | Ends with            | Time? | A row represents                                   |
 |----------------------|-------|----------------------------------------------------| 
-| `_events.tsv`        | Yes   | Markers on the timeline of another file.           | 
-| `_participants.tsv`  | No    | Metadata about one dataset subject.                |
-| `_scans.tsv`         | No    | Metadata about one dataset recording.              | 
-| `_beh.tsv`           | No    | A measurement not associated with an `onset`. |  
-| `_samples.tsv `      | No    | Properties of a particular sample (e.g., tissue).  |
-| `phenotype/xxx_.tsv` | No    | A measurement from a particular participant.       |  
+| `events.tsv`        | Yes   | Markers on the timeline of another file.           | 
+| `participants.tsv`  | No    | Metadata about one dataset subject.                |
+| `scans.tsv`         | No    | Metadata about one dataset recording.              | 
+| `beh.tsv`           | No    | A measurement not associated with an `onset`. |  
+| `samples.tsv `      | No    | Properties of a particular sample (e.g., tissue).  |
+| `phenotype/xxx.tsv` | No    | A measurement from a particular participant.       |  
 
-HED treats tabular files such as (e.g., `_events.tsv` files) whose first column has 
+HED treats tabular files such as (e.g., `events.tsv` files) whose first column has 
 the name `onset` as expressing markers on a timeline.
 These timeline files allow `Onset`, `Inset`, and `Offset` tags in their
 annotations and receive additional [**file-level processing**](./03_HED_formats.md#32104-file-level-processing) to assure that these tags are properly
@@ -146,7 +146,7 @@ for additional information.
 
 The following shows an excerpt from a BIDS event file:
 
-````{admonition} **Example:** Excerpt from a BIDS _events.tsv file.
+````{admonition} **Example:** Excerpt from a BIDS events.tsv file.
 
 ```
 onset  duration  trial_type  response_time  HED
@@ -255,7 +255,7 @@ It is possible to include library schema in the HED version specification of the
 The version specification indicates that tags from the `score` library must be prefixed with `sc:` 
 namespace identifier in dataset HED annotations.
 
-The prefix notation (such as the `sc:` prefix for the `score` library in the previous example is required when more than one schema is used in the annotation.
+The prefix notation (such as the `sc:` prefix for the `score` library in the previous example) is required when more than one schema is used in the annotation.
 However, namespace prefixes can be used with the standard schema as well as library schemas
 as illustrated by the following example.
 
