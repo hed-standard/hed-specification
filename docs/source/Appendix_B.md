@@ -440,7 +440,7 @@ schema attributes, properties and epilogue) are not in the correct order and hen
 **a.**  Delimiters used in the wiki are invalid.    
 **b.**  Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.  
 **c.**  A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.  
-**d.**  Attributes section of a node is malformed(eg hanging `=` character).
+**d.**  Attributes section of a node is malformed(e.g., hanging `=` character).
 
 #### WIKI_LINE_START_INVALID
 

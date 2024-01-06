@@ -114,8 +114,8 @@ Together with [**the epilogue**](./03_HED_formats.md#3129-the-epilogue) section,
 the contents are used by tools to provide information about the schema to the users.
 
 The prologue may only contain the following: letters, digits, blank, comma, newline,
-+, -, :, ;, ., /, (, ), ?, *, %, $, @ or
-a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
++, -, :, ;, ., /, (, ), ?, *, %, $, @. 
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
 #### 3.1.2.3. The schema section
@@ -237,7 +237,8 @@ for information and a listing of schema attributes and their respective properti
 The epilogue should give license information, acknowledgments, and references.
 
 The epilogue may only contain the following: letters, digits, blank, comma, newline,
-+, -, :, ;, ., /, (, ), ?, *, %, $, @ or
++, -, :, ;, ., /, (, ), ?, *, %, $, @,
+If other characters appear, 
 a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
@@ -685,7 +686,7 @@ It is needed so that term search works correctly.
 Tag extensions should follow the same naming conventions as
 those for schema nodes. 
 See [**3.1.3. Naming conventions**](#313-naming-conventions) for more information about HED naming conventions.
-A [**STYLE_WARNING**](Appendix_B.md#style_warning) warning is
+A [**STYLE_WARNING**](Appendix_B.md#style_warning) is
 issued for extension tags that do not follow the HED naming convention.
 
 Users should not use tag extension unless necessary for their application,
@@ -1145,22 +1146,24 @@ This description of tabular files conforms to that used by [**BIDS**](https://bi
 
 Generally each row in a tabular file represents an item and the columns values provide properties of that item.
 The most common HED-annotated tabular files represent event markers in an experiment (e.g., BIDS `events.tsv` files).
-In this case each row in represents a time at which something happened.
+In this case each row represents a time at which something happened.
 
 Another common HED-annotated tabular file represents experiment participants
 (e.g., BIDS `participants.tsv`).
 Each row in the file represents a participant, and the columns provide
 characteristics or other information about the participant identified in that row.
 
-The `events.tsv` and the `participants.tsv` are representative of two distinct types
-of tabular files: ones representing time markers and those representing other types of information.
-To be recognized as having time-markers, the first column of the file must be `onset`.
-Non-time marker files cannot use the `Onset`, `Offset`, or `Inset` tags as these
-tags are reserved for annotations of time processes.
+The `events.tsv` files are tabular files representing markers on a timeline.
+This type of tabular file must have `onset` as the first column,
+and HED tools use the time values in this column to resolve `Onset`, `Offset` and `Inset`.
+In contrast, the `participants.tsv` file, which contains information about the
+experimental participants, is representative of a non time-marker file.
+Non time-marker files cannot use the `Onset`, `Offset`, or `Inset` tags as these
+tags are reserved for annotations of time processes and cannot be resolved if there is no time.
 
 In any case, the general strategy for validation or other processing is:
-1. Process the individual components of the HED annotation (tag and string level processing).
-2. Assemble the component annotations for a row (event or row level processing).
+1. Process the individual components of the HED annotation (tag-level and string-level processing).
+2. Assemble the component annotations for a row (event-level or row-level processing).
 3. Check consistency and relationships among the row annotations (file-level processing).
 
 See [**BIDS tabular files**](06_Infrastructure_and_tools.md#631-bids-tabular-files) for
@@ -1176,7 +1179,7 @@ If the first column is not called `onset`, the assembled annotation for
 the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
 
 Definitions many not appear in the `HED` column of a tabular file or
-in any entry of a JSON sidecar corresponding that contains items other than definitions.
+in any entry of a JSON sidecar that contains items other than definitions.
 
 See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid)
 and [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) for information.
