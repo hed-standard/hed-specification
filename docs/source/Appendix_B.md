@@ -106,6 +106,16 @@ See also [**5.1. Creating definitions**](./05_Advanced_annotation.md#51-creating
 and [**5.2. Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples of definition syntax.
 
+### ELEMENT_DEPRECATED*
+A schema element has been deprecated and should not be used. When an element is updated,
+its description is updated to include the reason for deprecation and a suggested path for updating usage.  
+
+**a.** A tag has been deprecated and an alternative method of tagging should be used.  
+**b.** A unit, unit class, value class has been deprecated and an alternative should be used.  
+
+See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
+about the `deprecatedFrom` schema attribute.
+
 ### NODE_NAME_EMPTY
 
 **a.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
