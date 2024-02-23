@@ -68,7 +68,10 @@ However, they follow the same rules for unit modifiers as do SI units.
   - metre, m*, inch, foot, mile   
 * - speedUnits
   - m-per-s 
-  - m-per-s*, mph, kph     
+  - m-per-s*, mph, kph   
+* - temperatureUnits
+  - degree-Celsius
+  - degree-Celsius, oC    
 * - timeUnits
   - s 
   - second, s*, day, minute, hour

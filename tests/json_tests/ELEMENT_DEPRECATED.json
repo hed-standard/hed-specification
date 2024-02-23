@@ -1,0 +1,97 @@
+[
+    {
+        "error_code": "ELEMENT_DEPRECATED",
+        "name": "tag-deprecated",
+        "description": "A tag is deprecated",
+        "warning": true,
+        "schema": "8.2.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Def/MyColor, Green, Gentalia",
+                    "Gentalia"
+                ],
+                "passes": [
+                    "Torso"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Def/MyColor, Green, Gentalia",
+                                "ball": "Green, Blue"
+                            }
+                        },
+                        "other_code": {
+                            "HED": "Label/#, Gentalia"
+                        }
+                    }
+                ],
+                "passes": [
+                      {
+                        "event_code": {
+                            "HED": {
+                                "face": "Torso"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Gentalia, Green"],
+                        [ 5.5, 0, "n/a"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Torso"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Gentalia",
+                                    "ball": "Green"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0, "ball", "Blue"],
+                                [ 5.5, 0, "face", "Red"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Torso"
+                                }
+                            }
+                        },
+                        "events": 
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    }
+]    
