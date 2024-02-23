@@ -79,7 +79,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Torso"
+                                    "face": "Torso",
+                                    "ball": "Blue"
                                 }
                             }
                         },
