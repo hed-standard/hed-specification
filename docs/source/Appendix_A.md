@@ -328,7 +328,16 @@ Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because 
 
 #### A.1.4.4. deprecatedFrom
 
-The value must be an existing semantic schema version that is earlier than the current version.
+The `deprecatedFrom` attribute value takes a value that must be an existing semantic schema version earlier 
+than the current version.
+Since `deprecatedFrom` has the `elementProperty`, it may be applied to any element in the schema.
+It is an error for the schema to use an element that has the `deprecatedFrom` attribute in a non-deprecated context.
+For example, if a tag has the `deprecatedFrom` attribute, then that tag may not
+appear as a `suggestedTag` or `relatedTag`. 
+Deprecated schema attributes, units, unit modifiers, or value classes cannot be applied except to
+elements that are deprecated. In addition, the children of a deprecated tag must be deprecated
+or moved to a parent that is not deprecated.
+
 
 #### A.1.4.5. extensionAllowed
 The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators.
