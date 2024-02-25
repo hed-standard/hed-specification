@@ -406,7 +406,16 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.**  The specification contains an invalid character for the section in which it appears. 
+**a.**  The specification contains an invalid character for the section in which it appears.  
+
+#### SCHEMA_DEPRECATION_ERROR  
+
+**a.** The value of `deprecatedFrom` is not a previously released HED schema version.  
+**b.** A deprecated tag is used as a `suggestedTag` or a `relatedTag` in a non-deprecated tag.  
+**c.** A child tag of a deprecated tag does not have the `deprecatedFrom` attribute.  
+**d.** A deprecated attribute, unit, unit modifier or value class is used in a non-deprecated tag.  
+**e.** A deprecated unit class has non-deprecated units.  
+
 
 #### SCHEMA_DUPLICATE_NODE
 
