@@ -23,11 +23,26 @@
             "'''Properties'''",
             "'''Epilogue'''",
             "!# end hed"
+          ],
+          [
+            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''BaseTag'''",
+            "* Extension {deprecatedFrom=1.0.0}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "'''Properties'''",
+            "'''Epilogue'''",
+            "!# end hed"
           ]
         ],
         "passes": [
           [
-            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "HED version=\"1.1.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "'''Prologue'''",
             "!# start schema",
             "'''BaseTag'''",
@@ -56,7 +71,7 @@
       "schema_tests": {
         "fails": [
           [
-            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "HED version=\"1.1.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {deprecatedFrom=1.0.0}",
@@ -73,7 +88,7 @@
         ],
         "passes": [
           [
-            "HED version=\"1.0.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
+            "HED version=\"1.1.0\" library=\"score\" withStandard=\"8.2.0\" unmerged=\"True\"",
             "'''Prologue'''",
             "!# start schema",
             "'''BaseTag''' {deprecatedFrom=1.0.0}",
