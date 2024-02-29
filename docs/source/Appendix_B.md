@@ -372,13 +372,13 @@ when the planned XSD validation is implemented start with HED_XML.
 under an appropriate unit class).  
 **c.** A schema attribute is used in an invalid way
 
-| Attribute          | Invalid Usage Location                                                                                         |
-|--------------------|----------------------------------------------------------------------------------------------------------------|
-| `deprecatedFrom`   | An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute. |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                                                          |
-| `takesValue`       | Used on a non-placeholder(#) node.                                                                             |
-| `unitClass`        | Used on a non-placeholder(#) node.                                                                             |
-| `valueClass`       | Used on a non-placeholder(#) node.                                                                             |
+| Attribute          | Invalid Usage Location                                    |
+|--------------------|-----------------------------------------------------------|
+| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error) |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)     |
+| `takesValue`       | Used on a non-placeholder(#) node.                        |
+| `unitClass`        | Used on a non-placeholder(#) node.                        |
+| `valueClass`       | Used on a non-placeholder(#) node.                        |
 
 **Notes:** 
 - A `tag` (referred to as a node element in the schema) can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
@@ -391,18 +391,18 @@ under an appropriate unit class).
 
 **a.** A non-boolean schema attribute has an invalid value or usage as indicated by the following table.
 
-| Attribute       | Invalid Attribute Value                                                            |
-|-----------------|------------------------------------------------------------------------------------|
+| Attribute          | Invalid Attribute Value                                                            |
+|--------------------|------------------------------------------------------------------------------------|
 | `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
 | `conversionFactor` | Not a positive numeric value.                                                      |
-| `defaultUnits`    | Not a valid unit in this unit class.                                               |
-| `deprecatedFrom`  | Does not correspond to a valid schema version.                                     |
-| `inLibrary`       | The value of an inLibrary attribute is for the wrong library.                      |
-| `relatedTag`      | Not an existing tag.                                                               |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
-| `suggestedTag`    | Not an existing tag.                                                               |
-| `unitClass`       | Not an existing unit class.                                                        |
-| `valueClass`      | Not an existing value class.                                                       |
+| `defaultUnits`     | Not a valid unit in this unit class.                                               |
+| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error)                          |
+| `inLibrary`        | The value of an inLibrary attribute is for the wrong library.                      |
+| `relatedTag`       | Not an existing tag.                                                               |
+| `rooted`           | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
+| `suggestedTag`     | Not an existing tag.                                                               |
+| `unitClass`        | Not an existing unit class.                                                        |
+| `valueClass`       | Not an existing value class.                                                       |
 
 #### SCHEMA_CHARACTER_INVALID
 
@@ -413,9 +413,12 @@ under an appropriate unit class).
 **a.** The value of `deprecatedFrom` is not a previously released HED schema version.  
 **b.** A deprecated tag is used as a `suggestedTag` or a `relatedTag` in a non-deprecated tag.  
 **c.** A child tag of a deprecated tag does not have the `deprecatedFrom` attribute.  
-**d.** A deprecated attribute, unit, unit modifier or value class is used in a non-deprecated tag.  
-**e.** A deprecated unit class has non-deprecated units.  
-
+**d.** A deprecated attribute is used on a non-deprecated element.
+**e.** A deprecated property is used on a non-deprecated attribute.
+**f.** A deprecated unit class has non-deprecated units.
+**g.** A tag has deprecated unit or value classes.
+**h.** A deprecated unit class has non-deprecated units.
+**i.** A unit class has a deprecated default unit
 
 #### SCHEMA_DUPLICATE_NODE
 
