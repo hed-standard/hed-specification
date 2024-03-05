@@ -123,36 +123,6 @@ about the `deprecatedFrom` schema attribute.
 
 See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
 
-### ONSET_OFFSET_INSET_ERROR
-
-Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
-different placeholder substitutions are considered to be different.
-
-**a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
-**b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
-**d.** An `Onset` or an `Inset` tag group contains more than one additional tag group.   
-**e.** An `Offset` appears with one or more tags or additional tag groups.   
-**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
-**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
-without the appearance of an intervening `Onset` of the same name.   
-**h.**  An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
-that are not in a tag group.  
-**i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
-appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
-that uses the same anchor.  
-**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
-**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.   
-
-**Note:** if the `Onset` tag group's definition is in expanded form, 
-the `Def-expand` will be an additional internal tag group.
-
-See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
-for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
-
-[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
-in Chapter 5 gives examples of usage and additional details.
-
 ### PARENTHESES_MISMATCH
 
 **a.**  A HED string does not have the same number of open and closed parentheses.  
@@ -271,7 +241,7 @@ for additional information on the tag extension rules.
 
 **a.**  A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.   
 **b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation. 
-**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group.
+**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group.(note: Duration and Delay may be paired)
 
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
@@ -305,6 +275,39 @@ additional information on the `unique` tag.
 
 See [**3.2.4. Tags that take values**](03_HED_formats.md#324-tags-that-take-values)
 for an explanation of the `requireChild` attribute.
+
+### TEMPORAL_TAG_ERROR
+
+Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
+different placeholder substitutions are considered to be different.
+
+**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.  
+**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).   
+**c.**  An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
+**d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.   
+**e.** An `Offset` appears with one or more tags or additional tag groups.   
+**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
+**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
+without the appearance of an intervening `Onset` of the same name.   
+**h.**  An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
+that are not in a tag group.  
+**i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
+appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
+that uses the same anchor.  
+**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
+**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.
+**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.
+**m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
+Delay and Duration which can be paired
+
+**Note:** if the `Onset` tag group's definition is in expanded form, 
+the `Def-expand` will be an additional internal tag group.
+
+See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
+for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
+
+[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
+in Chapter 5 gives examples of usage and additional details.
 
 ### TILDES_UNSUPPORTED
 

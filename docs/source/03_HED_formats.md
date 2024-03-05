@@ -883,7 +883,7 @@ In addition to its anchor, the `Inset` tag group may contain a single additional
 tag group with additional information about that marked point.
 An event of temporal extent may contain several of these intermediate points.
 
-See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) and 
+See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporaltagerror) and 
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 for a listing of specific errors associated with onsets, and offsets, and insets.
 
@@ -1182,7 +1182,7 @@ Definitions many not appear in the `HED` column of a tabular file or
 in any entry of a JSON sidecar that contains items other than definitions.
 
 See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid)
-and [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) for information.
+and [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporaltagerror) for information.
 
 
 #### 3.2.10.3. Event-level processing
@@ -1263,7 +1263,7 @@ The validator must also check to make sure that `Onset` and `Offset` tags are
 properly matched within the data recording.
 In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 
-See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error) for details on the
+See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporaltagerror) for details on the
 type of errors that are generated due to `Onset` and `Offset` errors.
 
 

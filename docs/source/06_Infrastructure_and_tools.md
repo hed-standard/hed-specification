@@ -141,7 +141,7 @@ matched.
 
 **Tabular files that do not represent timelines are not permitted to use
 `Onset`, `Inset`, and `Offset` tags in their annotations.**
-See [**ONSET_OFFSET_INSET_ERROR**](./Appendix_B.md#onset_offset_inset_error)
+See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporaltagerror)
 for additional information.
 
 The following shows an excerpt from a BIDS event file:
