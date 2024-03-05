@@ -241,7 +241,7 @@ for additional information on the tag extension rules.
 
 **a.**  A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.   
 **b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation. 
-**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group.(note: Duration and Delay may be paired)
+**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Duration` and a single `Delay` may be in the same group.  
 
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
@@ -298,7 +298,7 @@ that uses the same anchor.
 **k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
-Delay and Duration which can be paired
+Delay and Duration which can be paired.
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
