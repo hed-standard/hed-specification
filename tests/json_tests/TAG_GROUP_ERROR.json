@@ -192,9 +192,31 @@
                                 "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
                             }
                         }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/5.0",
+                                "ball": "Onset"
+                            }
+                        },
+                        "val_col": {
+                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                        }
                     }
                 ],
                 "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/5.0",
+                                "ball": "Delay/5.0 s"
+                            }
+                        },
+                        "val_col": {
+                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                        }
+                    }
                 ]
             },
             "event_tests": {
