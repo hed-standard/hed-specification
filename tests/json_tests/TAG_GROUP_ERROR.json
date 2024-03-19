@@ -209,8 +209,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Acceleration/5.0",
-                                "ball": "Delay/5.0 s"
+                                "face": "(Acceleration/5.0)",
+                                "ball": "Delay/5.0 s, (Acceleration/5.0)"
                             }
                         },
                         "val_col": {
@@ -264,7 +264,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue, (Event-context, Label/Red)"],
