@@ -186,30 +186,35 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - Value class
   - Allowed characters
 * - dateTimeClass
-  - `digits`  `T`  `:`  `-` 
+  - `digits`,  `colon`,  `hyphen`, `period`, `uppercase`
 * - nameClass
-  - `alphanumeric`  `-`  `_`
+  - `alphanumeric`, `blank`, `hyphen`, `period`, `underbar`, `non-ascii` 
 * - numericClass
-  - `digits`  `.`  `-`  `+`  `E`  `e` 
+  - `digits`,  `period`,  `hyphen`,  `plus`, 'caret',  `E`,  `e` `
 * - posixPath
-  -  As yet unspecified
+  -  As yet unspecified.
 * - textClass
-  - `alphanumeric`  `blank`  `+`  `-`  `:`  `;`  `.`  `/`  `(`  `)`  `?`  ` *`  `%`  ` $`  `@`  `^`  `_`
+  - `printable` or `non-ascii` excluding curly braces.
+* - IRIClass
+  - Valid International Resource Identifier as standardized by rfc3987.
 ``````
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
 
 1. Commas or single quotes are not allowed in any values with the exception of
-the Prologue, Epilogue, or term descriptions in the HED schema.
-These characters are not allowed in substitutions for `#` placeholders.
-2. Date-times should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.
+the Prologue, Epilogue, term descriptions in the HED schema, and list values in tsv columns 
+declared to be of type list. The latter must be handled specially by tools.
+2. Date-times should conform to ISO8601 date-time format "YYYY-MM-DDThh:mm:ss[.000000][Z]".
+A BIDS regular expression for this is
+[0-9]{4}-[0-9]{2}-[0-9]{2}T(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9](\.[0-9]{1,6})?([A-Z]{2,4})?
 3. Any variation on the full form of ISO8601 date-time is allowed.
-4. The `nameClass` is for schema nodes and labels.
+4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
 7. The `textClass` is for descriptions, mainly for use with the `Description` tag or schema element descriptions.
 8. The `posixPath` class is as yet unspecified and currently allows any characters except commas.
+9. The IRIClass validity is determined by a library implementing the IETF rfc3987 standard.
 
 ````
 
@@ -498,7 +503,7 @@ Empty lines and lines containing only blanks are ignored.
 ````{admonition} Overall layout of a HED MEDIAWIKI schema file.
 
 ```moin
-header-line
+header
 prologue
              . . .
 !# start schema
@@ -514,9 +519,9 @@ epilogue
 ```
 ````
 
-### A.2.2. The *header-line*
+### A.2.2. MediaWiki header
 
-The first line of the `.mediawiki` file should be a _header-line_ that starts with the 
+The first line of the `.mediawiki` file should be a _header_ that starts with the 
 keyword `HED` followed by a blank-separated list of name-value pairs.
 
 ````{eval-rst}
@@ -553,9 +558,9 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
        | If omitted, assumed false.      
 ````
 
-The following example gives a sample *header-line* for standard schema version 8.0.0 in `.mediawiki` format.
+The following example gives a sample *header* for standard schema version 8.0.0 in `.mediawiki` format.
 
-````{admonition} **Example:** Sample *header-line* for version 8.0.0 in .mediawiki format.
+````{admonition} **Example:** Sample *header* for version 8.0.0 in .mediawiki format.
 
 ```moin
 HED version="8.0.0"
@@ -571,9 +576,9 @@ The `xsi` attribute is required if `xmlns:xsi` is given.
 The [**XSD file**](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd)
 allows validators to check the format of the `.xml` using standard XML validators.
 
-The following example shows a sample *header-line* for `testlib` library schema version 1.0.2 in `.mediawiki` format.
+The following example shows a sample *header* for `testlib` library schema version 1.0.2 in `.mediawiki` format.
 
-````{admonition} **Example:** Sample *header-line* for testlib library version 1.0.2 in .mediawiki format.
+````{admonition} **Example:** Sample *header* for testlib library version 1.0.2 in .mediawiki format.
 
 ```moin
 HED library="testlib" version="1.0.2"
@@ -584,12 +589,12 @@ The `library` and `version` values are used to form the official file name `HED_
 The file is found in [**library_schemas/testlib/hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki)
 directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-A warning is generated when unknown header-line attributes are translated as attributes of the `HED` line
+A warning is generated when unknown header attributes are translated as attributes of the `HED` line
 during `.mediawiki` file validation.
 
-### A.2.3. The prologue and epilogue
+### A.2.3. Mediawiki prologue and epilogue
 
-The prologue is an optional paragraph of text appearing after the *header-line*.
+The prologue is an optional paragraph of text appearing after the *header*.
 The prologue is used by tools for help and display purposes.
 
 Early versions of HED use the prologue section to record a CHANGE_LOG as well as 
@@ -603,7 +608,7 @@ The epilogue appears directly before the ending line of the file.
 Both the prologue and epilogue may contain commas and new lines in addition
 to the characters specified by the  [`textClass`](./Appendix_A.md#a13-value-classes).
 
-### A.2.4. Schema sections
+### A.2.4. Mediawiki schema section
 
 The beginning of the actual specification of the HED vocabulary is marked by the *start-line*:
 
@@ -680,7 +685,7 @@ The tag: `Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/
 is the long form. The placeholder in the example is the node directly below `Duration` 
 in the hierarchy.
 
-### A.2.5. Auxiliary sections
+### A.2.5. MediaWiki auxiliary sections
 
 After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains 
 the unit class definitions, unit modifier definitions, value class definitions, 
@@ -788,7 +793,7 @@ available schema properties.
 
 This section describes details of the XML schema format.
 
-### A.3.1. Overall file layout
+### A.3.1. XML file layout
 
 The XML schema file format has a header, prologue, main schema, definitions, and epilogue
 sections. The general layout is as follows:
@@ -835,7 +840,7 @@ sections. The general layout is as follows:
 ```
 ````
 
-### A.3.2. The header
+### A.3.2. XML header
 
 The `HED` node is the root node of the XML schema.
 
@@ -864,7 +869,7 @@ The `library` and `version` values are used to form the official xml file name `
 The file is found in [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml)
 directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
 
-Unknown header-line attributes are translated as attributes of the `HED` root node of the 
+Unknown header attributes are translated as attributes of the `HED` root node of the 
 `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
 
 The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
@@ -878,7 +883,7 @@ Library schemas may also be partnered as is `HED_testlib_2.0.0.xml`.
 ````
 
 
-### A.3.3. The prologue and epilogue
+### A.3.3. XML prologue and epilogue
 
 The `<prologue>...</prologue>` and `<epilogue>...</epilogue>` elements 
 are meant to be treated as opaque as far as schema processing goes.
@@ -888,7 +893,7 @@ as well as some basic documentation of syntax.
 The epilogue section contained additional metadata to be ignored during processing. 
 
 
-### A.3.4. The schema section
+### A.3.4. XML schema section
 
 The schema section of the HED XML document consists of an arbitrary number of `<node></node>` 
 elements enclosed in a single `<schema></schema>` element.
@@ -992,7 +997,7 @@ in any form (short, long, or intermediate).
 ```
 ````
 
-### A.3.5. Auxiliary sections
+### A.3.5. XML auxiliary sections
 
 The auxiliary sections define various aspects of behavior of various types of elements in the schema.
 

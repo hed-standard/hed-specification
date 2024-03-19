@@ -95,17 +95,20 @@ See [**Appendix A. Schema format details**](./Appendix_A.md) for additional deta
 
 #### 3.1.2.1. The header
 
-The schema header line specifies the version, which must satisfy semantic versioning.
+The schema header line MUST specify the `version` attribute whose MUST be a semantic version.
 See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
 
-
+A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas.
 A schema's library name or lack there of is used to locate the schema in the
-HED schema repository located in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header line may optionally include an XSD namespace specification.
+The header may optionally contain The header line may optionally include an XSD namespace specification.
 If the schema contains any additional unrecognized attributes, 
 [**SCHEMA_HEADER_INVALID**](./Appendix_B.md#schema_header_invalid) error occurs.
+
+See [**A.2.2. MediaWiki header**](./Appendix_A.md#a22-mediawiki-header)
+and [**A.3.2. XML header**](./Appendix_A.md#a32-xml-header) for more
+detailed information on the MediaWiki and XML header formats, respectively.
 
 #### 3.1.2.2. The prologue
 
@@ -113,8 +116,7 @@ The prologue should contain a concise introduction to the schema and its purpose
 Together with [**the epilogue**](./03_HED_formats.md#3129-the-epilogue) section, 
 the contents are used by tools to provide information about the schema to the users.
 
-The prologue may only contain the following: letters, digits, blank, comma, newline,
-+, -, :, ;, ., /, (, ), ?, *, %, $, @. 
+The prologue may contain `text` characters or `newline`.
 If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
@@ -126,10 +128,13 @@ The location of the node element within the section specifies its relationship t
 
 A node element specifies a name,
 node attributes, and an informative description of the tag term's meaning.
-A node name may only contain alphanumeric characters, hyphen, and underscore.
-An exception to this is the `#` character which is used to represent a placeholder
-for a value to be provided during annotation.
-See [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) and
+A node name may only contain valid `name` characters 
+(alphanumeric, blank, hyphen, underbar, period, and non-ascii).
+
+This also applies to tag extensions.
+Substitutions for the `#` placeholder that have value classes are governed by
+the rules of that value class.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 Each schema node element must be unique or a
 [**SCHEMA_DUPLICATE_NODE**](./Appendix_B.md#schema_duplicate_node) error is generated.
@@ -144,7 +149,7 @@ as well as the associated units that can be used with tags that take values.
 Only the singular version of each unit is explicitly specified,
 but the corresponding plurals of the explicitly mentioned 
 singular version are also allowed (e.g., `feet` is allowed in addition to `foot`). 
-HED uses a `pluralize` function available in both Python and Javascript to check validity. 
+HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
 Units may be in one of four forms as designated by their unit type attributes: 
 
@@ -166,6 +171,9 @@ See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classe
 for additional details and a listing.
 
 **Units are not case-sensitive, but unit symbols maintain their case.**
+Unit class names are insensitive, but must contain only valid `name` characters.
+Unit names should not contain blanks.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 #### 3.1.2.5. Unit modifiers
 
@@ -177,8 +185,8 @@ SI unit modifiers used with ordinary SI units have the `SIUnitModifier` attribut
 while unit modifiers used with SI unit symbols have the `SIUnitSymbolModifier` attribute.
 
 If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a 
-section other than `unit modifier section of the schema,
-a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
+section other than unit modifier section of the schema,
+a [**SCHEMA_ELEMENT_WRONG_SECTION**](./Appendix_B.md#schema_element_wrong_section) error occurs.
 
 **Unit modifiers are case-sensitive.**
 
@@ -194,6 +202,8 @@ or dates. Placeholders that have no `valueClass` attributes, are assumed to take
 
 See appendix [**A.1.3. Value classes**](./Appendix_A.md#a13-value-classes)
 for additional details and a listing of values for the standard schema.
+
+Value class names are insensitive, but must contain only valid `name` characters.
 
 #### 3.1.2.7. Schema attributes
 
@@ -236,10 +246,8 @@ for information and a listing of schema attributes and their respective properti
 
 The epilogue should give license information, acknowledgments, and references.
 
-The epilogue may only contain the following: letters, digits, blank, comma, newline,
-+, -, :, ;, ., /, (, ), ?, *, %, $, @,
-If other characters appear, 
-a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+The prologue may contain `text` characters or `newline`.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 
 ### 3.1.3. Naming conventions
@@ -264,15 +272,15 @@ are as follows:
 ````{admonition} Naming conventions for nodes (tag terms) in HED schema. 
 :class: tip
 1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case. 
-2. Schema node names consisting of multiple words may not contain blanks and should be hyphenated.
+2. Schema node names consisting of multiple words should not not contain blanks and should be hyphenated.
 3. Schema descriptions should be concise sentences, possibly with clarifying examples.
-4. Schema descriptions may include characters allowed by `textClass` as well as commas.
-They may not contain square brackets, curly braces, quotes, or other characters.
+4. Schema descriptions may include only `text` characters but should not contain `newline` or
+square brackets or braces.
 ````
 
 #### 3.1.3.2. Epilogue and prologue
 The epilogue and prologue section text must conform to the rules for
-[`textClass`](./Appendix_A.md#a13-value-classes).
+[`text`](./Appendix_A.md#a13-value-classes) value.
 The section text may have new lines, which are preserved.
 
 #### 3.1.3.3. Naming in other blocks
@@ -320,8 +328,6 @@ HED schema attributes that do not have one of the following modifiers:
 Note: schema attributes having the `elementProperty` may apply anywhere in the
 schema, including the schema header,
 schema attributes having the `nodeProperty` may only apply to node elements.
-
-
 
 HED schema attributes that have the `boolProperty` appear with just their name
 in the schema element they are modifying.
@@ -595,8 +601,8 @@ for tag extensions.
 Validators and other tools must treat tags containing the same characters,
 but different variations in capitalization as equivalent.
 
-The only exception to the case-insensitive processing rule is that the correct case of units
-should be preserved, both during schema processing and during annotation processing.
+The only exception to the case-insensitive processing rule is that the correct case of unit symbols
+or unit modifiers should be preserved, both during schema processing and during annotation processing.
 This rule is required because SI distinguishes symbols and unit modifiers
 that differ in case.
 
@@ -629,12 +635,10 @@ Units with the `unitPrefix` attribute, such as `$`, appear before the value. Uni
 Some unit classes have the `defaultUnits` attribute specifying the units
 that downstream analysis tools should assume if units are omitted.
 
-Additional checks may be made on the substituted values depending on the `valueClass`
-
-| valueClass  | Additional value checks |
-| ----------- | ----------------------- |
-| numericClass | Must be a valid floating point number. |
-| dateTimeClass | Must be a valid ISO8601 value. |
+Additional checks may be made on the substituted values depending on the `valueClass`.
+For example `numericClass` values must be valid floating point numbers and `dateTimeClass` 
+values must be valid ISO8601 values conforming to the 
+[**BIDS data-time requirements**](https://bids-specification.readthedocs.io/en/stable/glossary.html#datetime-formats).
 
 The values of HED tag placeholders cannot stand alone,
 but must include the parent when used in a HED string. 
@@ -655,8 +659,6 @@ Certain unit classes allow other special characters in their value specification
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` value class.
 
-
-
 See [**VALUE_INVALID**](./Appendix_B.md#value_invalid) and
 [**UNITS_INVALID**](./Appendix_B.md#units_invalid) for information
 on the specific validation errors associated with tags that take values.
@@ -672,8 +674,7 @@ The requirements for such an extension are:
 ````{warning} **Requirements for tag extensions by users:**
 
 1. Unlike values, an extension term must not already be a node in the schema.
-2. The extension term must only have alphanumeric, hyphen, or underbar characters so that it
-conforms to the rules for a *nameClass* value.
+2. The extension term contain only `name` characters. Blanks should be avoided.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
