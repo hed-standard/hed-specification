@@ -95,14 +95,14 @@ See [**Appendix A. Schema format details**](./Appendix_A.md) for additional deta
 
 #### 3.1.2.1. The header
 
-The schema header line MUST specify the `version` attribute whose MUST be a semantic version.
+The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version.
 See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas.
 A schema's library name or lack there of is used to locate the schema in the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain The header line may optionally include an XSD namespace specification.
+The header may optionally contain an XSD namespace specification.
 If the schema contains any additional unrecognized attributes, 
 [**SCHEMA_HEADER_INVALID**](./Appendix_B.md#schema_header_invalid) error occurs.
 
@@ -129,7 +129,7 @@ The location of the node element within the section specifies its relationship t
 A node element specifies a name,
 node attributes, and an informative description of the tag term's meaning.
 A node name may only contain valid `name` characters 
-(alphanumeric, blank, hyphen, underbar, period, and non-ascii).
+(alphanumeric, blank, hyphen, underscore, period, and non-ascii).
 
 This also applies to tag extensions.
 Substitutions for the `#` placeholder that have value classes are governed by
@@ -170,9 +170,9 @@ a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
 
-**Units are not case-sensitive, but unit symbols maintain their case.**
-Unit class names are insensitive, but must contain only valid `name` characters.
-Unit names should not contain blanks.
+**Units names are case-insensitive and should not contain blanks.
+Unit symbols MUST maintain their case.**
+Unit class names are case-insensitive, but MUST contain only valid `name` characters.
 If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 #### 3.1.2.5. Unit modifiers
@@ -246,7 +246,7 @@ for information and a listing of schema attributes and their respective properti
 
 The epilogue should give license information, acknowledgments, and references.
 
-The prologue may contain `text` characters or `newline`.
+The epilogue may contain `text` characters or `newline`.
 If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
 
 

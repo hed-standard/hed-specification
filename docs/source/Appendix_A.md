@@ -188,9 +188,9 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - dateTimeClass
   - `digits`,  `colon`,  `hyphen`, `period`, `uppercase`
 * - nameClass
-  - `alphanumeric`, `blank`, `hyphen`, `period`, `underbar`, `non-ascii` 
+  - `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `non-ascii` 
 * - numericClass
-  - `digits`,  `period`,  `hyphen`,  `plus`, 'caret',  `E`,  `e` `
+  - `digits`,  `period`,  `hyphen`,  `plus`, 'caret`,  `E`,  `e` `
 * - posixPath
   -  As yet unspecified.
 * - textClass
@@ -203,8 +203,8 @@ behavior of certain value classes (for example the `numericClass` value class).
 :class: tip
 
 1. Commas or single quotes are not allowed in any values with the exception of
-the Prologue, Epilogue, term descriptions in the HED schema, and list values in tsv columns 
-declared to be of type list. The latter must be handled specially by tools.
+the Prologue, Epilogue, term descriptions in the HED schema, and in tsv column values
+declared to be of type "list". The latter must be handled specially by tools.
 2. Date-times should conform to ISO8601 date-time format "YYYY-MM-DDThh:mm:ss[.000000][Z]".
 A BIDS regular expression for this is
 [0-9]{4}-[0-9]{2}-[0-9]{2}T(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9](\.[0-9]{1,6})?([A-Z]{2,4})?

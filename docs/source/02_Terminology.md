@@ -146,11 +146,11 @@ The types of characters referred to in this specification are:
 | ---- | ----------- |
 | `ascii` | utf-8 codes 0 to 127 (single byte) |  
 | `non-ascii` | utf-8 codes greater than 128 (multi-byte) |  
-| `printable` | ascii 32 <= code < 127 |  
-| `letters` | ascii characters a-z and A-Z |  
-| `uppercase` | ascii characters A-Z |  
+| `printable` | ascii 32 <= code < 127 |
 |`lowercase` | ascii characters a-z |  
-| `text` | `printable` or `non-ascii` |  
+| `uppercase` | ascii characters A-Z |
+| `letters` | `lowercase` and/or `uppercase` |  
+| `text` | `printable` and/or `non-ascii` |  
 | `digits` | 0-9 |  
 | `blank` | ascii code 32 |  
 | `plus` | ascii code 42 |  
@@ -158,9 +158,9 @@ The types of characters referred to in this specification are:
 | `period` | ascii code 46 |  
 | `colon` | ascii code 58 |  
 | `caret` | ascii code 94 |
-| `underbar` | ascii code 95 |
+| `underscore` | ascii code 95 |
 | `newline` | ascii code 10 (linefeed) |
-| `alphanumeric` | `letters` and  `digits` |
-| `name` | `alphanumeric`, `blank`, `hyphen`, `period`, `underbar`, `non-ascii` |
+| `alphanumeric` | `letters` and/or  `digits` |
+| `name` | `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `non-ascii` |
 
 

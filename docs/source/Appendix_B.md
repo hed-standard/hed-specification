@@ -409,10 +409,10 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.** A schema node contains non `name` characters.  
-**b.** A unit class name contains non `name` characters.  
-**c.** A unit contains characters non `name` characters.  
-**d.** A value class name contains non `name` characters.  
+**a.** A schema node contains non-`name` characters.  
+**b.** A unit class name contains non-`name` characters.  
+**c.** A unit contains non-`name` characters.  
+**d.** A value class name contains non-`name` characters.  
 **e.** The prologue or epilogue contain characters other than `text` or newline.  
 **f.** A unit name contains a blank.  
 
