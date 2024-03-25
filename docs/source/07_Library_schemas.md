@@ -258,6 +258,47 @@ However, with partnered library schemas, validation is only performed on
 the merged versions of the schema, so tags from the standard schema can be used
 as `suggestTag` or `relatedTag` values.
 
+#### 7.2.5.6 Loading multiple partnered schemas
+
+HED allows multiple partnered schemas to be loaded and used without prefixes provided that
+there are no conflicts. We refer to this process as **lazy merging**. Conflicting schemas
+can always be used together if all but one have an associated prefix.
+A merge is attempted for all non-prefixed schemas and for each group of schemas with the
+same prefix.  
+
+In the following example, all the library schemas are partnered with '8.2.0'.
+The schemas library schemas `liba_1.0.0` and `libc_4.3.2` are merged. 
+The schemas `ac:libb_2.8.1` and `ac:exam_2.3.2` are merged with prefix `ac:`. 
+The schema `sc:test_1.3.2` stays the same and schema `8.2.0` has no effect,
+since it is already included as a partner of `liba_1.0.0` and
+`libc_4.3.2`. If there are any conflicts during the merging process, an error is raised.
+
+
+````{admonition} Example: Merging of multiple schemas.
+
+```
+     ['liba_1.0.0', 'ac:libb_2.8.1', 'libc_4.3.2', '8.2.0', sc:test_1.3.2', 'ac:exam_2.3.2']
+```
+```` 
+
+The schema versions are given in a list and merged successively into the first one.
+schema appears
+
+````{admonition} Rules for lazy merging of partnered schemas A and B. 
+:class: tip
+1. Partnered library schemas MUST be partnered with the same standard schema in order to merge.
+2. Partnered library schemes with the same prefix are merged into one schema.
+3. Partnered library schemas with no prefix are merged into one schema
+4. The schema versions are given in a list and merged successively.
+5. Including a standard schema separately has no effect if it is a partner of another schema in the same
+merge group.  
+6. The prefixes of the resulting merged groups must be unique. Only one merged group has no prefix. 
+7. If any tags match in two schemas being merged, even if identical, the load fails.
+````
+
+If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
+error is generated.
+
 
 ## 7.3. Library schema design
 
