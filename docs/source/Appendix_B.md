@@ -409,14 +409,15 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.** A schema node contains non-`name` characters.  
+**a.** A non-placeholder schema node contains non-`name` characters.
 **b.** A unit class name contains non-`name` characters.  
-**c.** A unit contains non-`name` characters.  
-**d.** A value class name contains non-`name` characters.  
-**e.** The prologue or epilogue contain characters other than `text` or newline.  
-**f.** A unit name contains a blank.  
+**c.** A value or unit class name  contains non-`name` or blank characters.
+**d.** The prologue or epilogue contain characters other than `text` or newline.  
 
+See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
+for definitions of the different types of characters.
 
+Note: tag extensions may contain non-ascii characters.
 
 #### SCHEMA_DEPRECATION_ERROR  
 

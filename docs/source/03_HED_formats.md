@@ -255,7 +255,6 @@ If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#sch
 The different parts of the HED schema have different rules 
 for the characters and the names that are allowed. 
 
-UTF-8 characters are not supported.
 
 
 #### 3.1.3.1. Node elements

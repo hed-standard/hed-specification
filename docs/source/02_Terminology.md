@@ -144,22 +144,24 @@ The types of characters referred to in this specification are:
 
 | Name | Description |
 | ---- | ----------- |
-| `ascii` | utf-8 codes 0 to 127 (single byte) |  
-| `non-ascii` | utf-8 codes greater than 128 (multi-byte) |  
-| `printable` | ascii 32 <= code < 127 |
-|`lowercase` | ascii characters a-z |  
-| `uppercase` | ascii characters A-Z |
-| `letters` | `lowercase` and/or `uppercase` |  
-| `text` | `printable` and/or `non-ascii` |  
-| `digits` | 0-9 |  
-| `blank` | ascii code 32 |  
-| `plus` | ascii code 42 |  
-| `hyphen` | ascii code 45 |
-| `period` | ascii code 46 |  
-| `colon` | ascii code 58 |  
-| `caret` | ascii code 94 |
-| `underscore` | ascii code 95 |
-| `newline` | ascii code 10 (linefeed) |
+| `ascii` | utf-8 codes 0 to 127 (single byte) |
+| `non-ascii` | utf-8 codes greater than 128 (multi-byte) |
+| `printable` | ASCII 32 <= code < 127 |
+|`lowercase` | ASCII characters a-z |  
+| `uppercase` | ASCII characters A-Z |
+| `letters` | `lowercase` and/or `uppercase` |
+| `text` | `printable` and/or `non-ascii` |
+| `digits` | 0-9 |
+| `tab` | ASCII code 09 |
+| `newline` | ASCII code 10 (linefeed) |
+| `blank` | ASCII code 32 |
+| `number-sign` | ASCII code 35 |
+| `plus` | ASCII code 42 |
+| `hyphen` | ASCII code 45 |
+| `period` | ASCII code 46 |
+| `colon` | ASCII code 58 |
+| `caret` | ASCII code 94 |
+| `underscore` | ASCII code 95 |
 | `alphanumeric` | `letters` and/or  `digits` |
 | `name` | `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `non-ascii` |
 

@@ -196,7 +196,7 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - textClass
   - `printable` or `non-ascii` excluding curly braces.
 * - IRIClass
-  - Valid International Resource Identifier as standardized by rfc3987.
+  - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
 ``````
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
