@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character.  
+**a.** A tag extension contains a non `name` character.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -409,7 +409,15 @@ under an appropriate unit class).
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.**  The specification contains an invalid character for the section in which it appears.  
+**a.** A non-placeholder schema node contains non-`name` characters.
+**b.** A unit class name contains non-`name` characters.  
+**c.** A value or unit class name  contains non-`name` or blank characters.
+**d.** The prologue or epilogue contain characters other than `text` or newline.  
+
+See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
+for definitions of the different types of characters.
+
+Note: tag extensions may contain non-ascii characters.
 
 #### SCHEMA_DEPRECATION_ERROR  
 
@@ -426,6 +434,12 @@ under an appropriate unit class).
 #### SCHEMA_DUPLICATE_NODE
 
 **a.**  A schema node name appears in the schema more than once.  
+
+
+#### SCHEMA_ELEMENT_WRONG_SECTION
+
+**a.**  A schema element appears in the wrong section.  
+
 
 #### SCHEMA_HEADER_INVALID
 
