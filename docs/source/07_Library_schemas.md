@@ -294,11 +294,15 @@ schema appears
 merge group.  
 6. The prefixes of the resulting merged groups must be unique. Only one merged group has no prefix. 
 7. If any tags match in two schemas being merged, even if identical, the load fails.
+8. The prologues of libary schemas in the same merge group are concatenated with empty lines between them.
+9. The epilogues of library schemas in the same merge group are concatenated with empty lines between them.
 ````
 
 If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
 error is generated.
 
+Note: With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas 
+should not have auxiliary sections except for the prologue and epilogue.
 
 ## 7.3. Library schema design
 

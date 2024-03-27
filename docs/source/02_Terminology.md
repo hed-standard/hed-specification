@@ -156,6 +156,7 @@ The types of characters referred to in this specification are:
 | `newline` | ASCII code 10 (linefeed) |
 | `blank` | ASCII code 32 |
 | `number-sign` | ASCII code 35 |
+| `dollar` | ASCII code 36 |
 | `plus` | ASCII code 42 |
 | `hyphen` | ASCII code 45 |
 | `period` | ASCII code 46 |
