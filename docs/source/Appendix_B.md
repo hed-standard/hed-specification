@@ -154,6 +154,14 @@ An assembled event string must include all tags having the *required* schema att
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `required` tag.
 
+### SCHEMA_LOAD_FAILED
+
+**a.** Different standard schema versions in a merge group.  
+**b.** Library schemas in merge group have the same tag.  
+
+See [**7.2.5.6 Loading multiple partnered schemas**](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
+for a more detailed description of the rules.
+
 ### SIDECAR_BRACES_INVALID
 
 **a.**  A name appearing in curly braces in a sidecar HED annotation is not the word `HED` or the name of a HED-annotated column in the sidecar.  
@@ -417,7 +425,7 @@ under an appropriate unit class).
 See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
 for definitions of the different types of characters.
 
-Note: tag extensions may contain non-ascii characters.
+Note: tag extensions may contain nonascii characters.
 
 #### SCHEMA_DEPRECATION_ERROR  
 

@@ -188,13 +188,13 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - dateTimeClass
   - `digits`,  `colon`,  `hyphen`, `period`, `uppercase`
 * - nameClass
-  - `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `non-ascii` 
+  - `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `nonascii` 
 * - numericClass
   - `digits`,  `period`,  `hyphen`,  `plus`, 'caret`,  `E`,  `e` `
 * - posixPath
   -  As yet unspecified.
 * - textClass
-  - `printable` or `non-ascii` excluding curly braces.
+  - `printable` or `nonascii` excluding curly braces.
 * - IRIClass
   - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
 ``````
@@ -206,8 +206,10 @@ behavior of certain value classes (for example the `numericClass` value class).
 the Prologue, Epilogue, term descriptions in the HED schema, and in tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
 2. Date-times should conform to ISO8601 date-time format "YYYY-MM-DDThh:mm:ss[.000000][Z]".
-A BIDS regular expression for this is
+A BIDS regular expression for this is:
+```text
 [0-9]{4}-[0-9]{2}-[0-9]{2}T(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9](\.[0-9]{1,6})?([A-Z]{2,4})?
+```
 3. Any variation on the full form of ISO8601 date-time is allowed.
 4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.

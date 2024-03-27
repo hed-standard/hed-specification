@@ -145,17 +145,18 @@ The types of characters referred to in this specification are:
 | Name | Description |
 | ---- | ----------- |
 | `ascii` | utf-8 codes 0 to 127 (single byte) |
-| `non-ascii` | utf-8 codes greater than 128 (multi-byte) |
+| `nonascii` | utf-8 codes greater than 128 (multi-byte) |
 | `printable` | ASCII 32 <= code < 127 |
 |`lowercase` | ASCII characters a-z |  
 | `uppercase` | ASCII characters A-Z |
 | `letters` | `lowercase` and/or `uppercase` |
-| `text` | `printable` and/or `non-ascii` |
+| `text` | `printable` and/or `nonascii` |
 | `digits` | 0-9 |
 | `tab` | ASCII code 09 |
 | `newline` | ASCII code 10 (linefeed) |
 | `blank` | ASCII code 32 |
 | `number-sign` | ASCII code 35 |
+| `dollar` | ASCII code 36 |
 | `plus` | ASCII code 42 |
 | `hyphen` | ASCII code 45 |
 | `period` | ASCII code 46 |
@@ -163,6 +164,6 @@ The types of characters referred to in this specification are:
 | `caret` | ASCII code 94 |
 | `underscore` | ASCII code 95 |
 | `alphanumeric` | `letters` and/or  `digits` |
-| `name` | `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `non-ascii` |
+| `name` | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii` |
 
 
