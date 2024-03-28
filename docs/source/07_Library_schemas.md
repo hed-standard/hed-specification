@@ -267,8 +267,8 @@ A merge is attempted for all non-prefixed schemas and for each group of schemas 
 same prefix.  
 
 In the following example, all the library schemas are partnered with '8.2.0'.
-The schemas library schemas `liba_1.0.0` and `libc_4.3.2` are merged. 
-The schemas `ac:libb_2.8.1` and `ac:exam_2.3.2` are merged with prefix `ac:`. 
+Library schemas `liba_1.0.0` and `libc_4.3.2` are merged with no prefix, and 
+library schemas `ac:libb_2.8.1` and `ac:exam_2.3.2` are merged with prefix `ac:`. 
 The schema `sc:test_1.3.2` stays the same and schema `8.2.0` has no effect,
 since it is already included as a partner of `liba_1.0.0` and
 `libc_4.3.2`. If there are any conflicts during the merging process, an error is raised.
@@ -281,28 +281,38 @@ since it is already included as a partner of `liba_1.0.0` and
 ```
 ```` 
 
-The schema versions are given in a list and merged successively into the first one.
-schema appears
 
 ````{admonition} Rules for lazy merging of partnered schemas A and B. 
 :class: tip
 1. Partnered library schemas MUST be partnered with the same standard schema in order to merge.
 2. Partnered library schemes with the same prefix are merged into one schema.
-3. Partnered library schemas with no prefix are merged into one schema
+3. Partnered library schemas with no prefix are merged into one schema.
 4. The schema versions are given in a list and merged successively.
 5. Including a standard schema separately has no effect if it is a partner of another schema in the same
 merge group.  
-6. The prefixes of the resulting merged groups must be unique. Only one merged group has no prefix. 
+6. The prefixes of the resulting merge groups must be unique. Only one merge group has no prefix. 
 7. If any tags match in two schemas being merged, even if identical, the load fails.
-8. The prologues of libary schemas in the same merge group are concatenated with empty lines between them.
-9. The epilogues of library schemas in the same merge group are concatenated with empty lines between them.
+8. The prologue and epilogue sections of the schema are ignored since merge groups are never saved.
+9. Partnered library schemas can only specify new unit classes or units, not value classes, schema attributes,
+or properties.
+10. New library schema unit classes and their accompanying units are merged directly. 
+11. New library schema units under an existing unit class are merged if there is no conflict in the units.
 ````
 
 If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
 error is generated.
 
-Note: With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas 
-should not have auxiliary sections except for the prologue and epilogue.
+````{admonition} Avoid new auxilliary section entries in library schemas.
+:class: warning
+**Note:** With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas 
+should not have auxiliary sections except for the `prologue` and `epilogue`.  
+
+Auxilliary sections have information for HED tools, and new entries may require modification to
+schema validation tools.  
+
+If a new entry is needed, contact the HED Working Group (hed.maintainers@gmail.com) to see if the
+entry might be added to the standard schema instead.
+````
 
 ## 7.3. Library schema design
 
