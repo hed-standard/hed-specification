@@ -302,7 +302,7 @@ or properties.
 If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
 error is generated.
 
-````{admonition} Avoid new auxilliary section entries in library schemas.
+````{admonition} Avoid new auxiliary section entries in library schemas.
 :class: warning
 **Note:** With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas 
 should not have auxiliary sections except for the `prologue` and `epilogue`.  
