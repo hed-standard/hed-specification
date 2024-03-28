@@ -147,7 +147,7 @@ The types of characters referred to in this specification are:
 | `ascii` | utf-8 codes 0 to 127 (single byte) |
 | `nonascii` | utf-8 codes greater than 128 (multi-byte) |
 | `printable` | ASCII 32 <= code < 127 |
-|`lowercase` | ASCII characters a-z |  
+| `lowercase` | ASCII characters a-z |  
 | `uppercase` | ASCII characters A-Z |
 | `letters` | `lowercase` and/or `uppercase` |
 | `text` | `printable` and/or `nonascii` |
@@ -166,6 +166,7 @@ The types of characters referred to in this specification are:
 | `right-paren` | ASCII code 41 |
 | `asterick` | ASCII code 42 |
 | `plus` | ASCII code 43 |
+| `comma` | ASCII code 44 |
 | `hyphen` | ASCII code 45 |
 | `period` | ASCII code 46 |
 | `slash` | ASCII code 47
