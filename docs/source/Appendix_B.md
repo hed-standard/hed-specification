@@ -425,7 +425,7 @@ under an appropriate unit class).
 See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
 for definitions of the different types of characters.
 
-Note: tag extensions may contain nonascii characters.
+Note: tag extensions may contain `nonascii` characters.
 
 #### SCHEMA_DEPRECATION_ERROR  
 

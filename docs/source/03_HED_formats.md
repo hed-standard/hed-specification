@@ -129,7 +129,7 @@ The location of the node element within the section specifies its relationship t
 A node element specifies a name,
 node attributes, and an informative description of the tag term's meaning.
 A node name may only contain valid `name` characters 
-(alphanumeric, hyphen, underscore, period, and nonascii).
+(`alphanumeric`, `hyphen`, `underscore`, `period`, and `nonascii`).
 
 This also applies to tag extensions.
 Substitutions for the `#` placeholder that have value classes are governed by

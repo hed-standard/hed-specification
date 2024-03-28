@@ -155,14 +155,32 @@ The types of characters referred to in this specification are:
 | `tab` | ASCII code 09 |
 | `newline` | ASCII code 10 (linefeed) |
 | `blank` | ASCII code 32 |
+| `exclamation` | ASCII code 33 |
+| `double-quote ` | ASCII code 34 |
 | `number-sign` | ASCII code 35 |
 | `dollar` | ASCII code 36 |
-| `plus` | ASCII code 42 |
+| `percent-sign` | ASCII code 37 |
+| `ampersand` | ASCII code 38 |
+| `single-quote ` | ASCII code 39 |
+| `left-paren` | ASCII code 40 |
+| `right-paren` | ASCII code 41 |
+| `asterick` | ASCII code 42 |
+| `plus` | ASCII code 43 |
 | `hyphen` | ASCII code 45 |
 | `period` | ASCII code 46 |
+| `slash` | ASCII code 47
 | `colon` | ASCII code 58 |
+| `semicolon` | ASCII code 59 |
+| `less-than` | ASCII code 60 |
+| `equals` | ASCII code 61 |
+| `greater-than` | ASCII code 62 |
+| `question-mark` | ASCII code 63|
+| `at-sign` | ASCII code 64 |
+| `backslash` | ASCII code 92 |
 | `caret` | ASCII code 94 |
 | `underscore` | ASCII code 95 |
+| `verbar` | ASCII code 124 |
+| `tilde` | ASCII code 126 |
 | `alphanumeric` | `letters` and/or  `digits` |
 | `name` | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii` |
 
