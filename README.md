@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7869149.svg)](https://doi.org/10.5281/zenodo.7869149)
 [![Documentation Status](https://readthedocs.org/projects/hed-specification/badge/?version=latest)](https://hed-specification.readthedocs.io/en/latest/?badge=latest)
-[![@HEDstandard](http://img.shields.io/twitter/follow/hedstandard.svg?style=social)](https://twitter.com/HEDstandard)
+
 
 # HED specification
 
