@@ -420,20 +420,20 @@ the schema. The following table lists these.
   - Target
   - Description
 * - `default`
-  - node #
-  - Indicates a default value used if no value is provided.
+  - node
+  - A default value used if no value is provided. Removed in standard schema version 8.0.0. 
 * - `position`
   - node    
-  - Indicates where this tag should appear during display. Deprecated for standard schema version 8.0.0.  
+  - Indicates where this tag should appear during display. Removed in standard schema version 8.0.0.  
 * - `predicateType`
   - node   
-  - Indicates the relationship of the node to its parent.  Deprecated for standard schema version 8.0.0.  
-* - `recommended`(#a147-recommended)
+  - Indicates the relationship of the node to its parent.  Removed standard schema version 8.0.0.  
+* - `recommended`
   - node
-  - Event-level HED strings should include this tag.  Deprecated for standard schema version 8.3.0.  
+  - Event-level HED strings should include this tag.  Removed in standard schema version 8.3.0.  
 * - `required`
   - node      
-  - Event-level HED string must include this tag. Deprecated for standard schema version 8.3.0.  
+  - Event-level HED string must include this tag. Removed in standard schema version 8.3.0.  
 ``````
 
 The `default` attribute was not implemented in existing tools. 
