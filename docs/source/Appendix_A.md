@@ -252,7 +252,7 @@ Only the schema attributes listed in the following table can be handled by curre
 * - [`deprecatedFrom`](#a144-deprecatedfrom)
   - element
   - string
-  - The schema version number when this element was first deprecated. The value of the attribute is the latest schema version in which the element appeared in undeprecated form. 
+  - The latest schema version in which the element was not deprecated.  
 * - [`extensionAllowed`](#a145-extensionallowed)  
   - node
   - boolean
@@ -478,9 +478,9 @@ The following is a list of schema attribute properties.
   - This schema attribute can apply to any type<br/>of element (tag term, unit class, etc).<br/>This property was formerly named `elementProperty`. 
 * - `isInheritedProperty`
   - This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.   
-* - `nodeDomain`
+* - `tagDomain`
   - This schema attribute can apply to node (tag-term) elements.<br/>This was added so attributes could apply to multiple types of elements.<br/>This property was formerly named `nodeProperty`.   
-* - `nodeRange`
+* - `tagRange`
   - This schema attribute's value can be a node.<br/>This property was formerly named `nodeProperty`. 
 * - `numericRange`
   - This schema attribute's value can be numeric.  
@@ -513,7 +513,7 @@ that a schema attribute applies to.
 String with HED standard schema version 8.3.0 the property names
 `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, 
 `unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed 
-as `elementDomain`, `nodeDomain`, `unitClassDomain`, `unitModifierDomain`, 
+as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, 
 `unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify
 their role and to facilitate mapping to the HED ontology.
 
