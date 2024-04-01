@@ -258,7 +258,7 @@ However, with partnered library schemas, validation is only performed on
 the merged versions of the schema, so tags from the standard schema can be used
 as `suggestTag` or `relatedTag` values.
 
-#### 7.2.5.6 Loading multiple partnered schemas
+#### 7.2.6 Lazy partnering
 
 HED allows multiple partnered schemas to be loaded and used without prefixes provided that
 there are no conflicts. We refer to this process as **lazy merging**. Conflicting schemas
@@ -282,21 +282,23 @@ since it is already included as a partner of `liba_1.0.0` and
 ```` 
 
 
-````{admonition} Rules for lazy merging of partnered schemas A and B. 
+````{admonition} Rules for lazy merging of multiple partnered schemas. 
 :class: tip
-1. Partnered library schemas MUST be partnered with the same standard schema in order to merge.
-2. Partnered library schemes with the same prefix are merged into one schema.
-3. Partnered library schemas with no prefix are merged into one schema.
-4. The schema versions are given in a list and merged successively.
-5. Including a standard schema separately has no effect if it is a partner of another schema in the same
-merge group.  
-6. The prefixes of the resulting merge groups must be unique. Only one merge group has no prefix. 
-7. If any tags match in two schemas being merged, even if identical, the load fails.
-8. The prologue and epilogue sections of the schema are ignored since merge groups are never saved.
-9. Partnered library schemas can only specify new unit classes or units, not value classes, schema attributes,
-or properties.
-10. New library schema unit classes and their accompanying units are merged directly. 
-11. New library schema units under an existing unit class are merged if there is no conflict in the units.
+1. Partnered library schemas MUST have same standard schema partner to merge.
+2. Partnered library schemas with no prefix form a merge group.
+3. Schemas with the same namespace prefix form a merge group.
+4. Schemas in the same merged group are merged in the order.
+5. Standard schemas in a merge group are ignored if already the group partner.  
+6. Standard schemas in a merge group raise an error if different from the group partner.
+7. The prefixes of the resulting merge groups must be unique. 
+8. If any tags match in two library schemas in a merge group, even if identical, the load fails.
+9. The prologues and epilogues of the schemas are ignored since merge groups are never saved.
+10. Partnered library schemas can specify schema attributes or properties.
+11. New library schema unit classes and their accompanying units are merged directly. 
+12. New library schema units under an existing unit class are merged if no conflicts.
+13. New library schema value classes are merged if no conflicts. 
+
+
 ````
 
 If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
