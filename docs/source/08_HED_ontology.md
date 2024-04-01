@@ -14,6 +14,12 @@ which has been made explicit starting with HED standard schema 8.3.0 in order to
 leverage links to additional information and examples as well as external knowledge sources
 during both annotation and analysis.
 
+HED requires that child tags of tags in the HED schema satisfy the **is-a** relationship.
+This requirement is satisfied in HED ontology using subclass relationship.
+The HED requirement of orthogonality between tags in different top-level subtrees 
+can be captured in the HED ontology by imposing *disjointness* on the top-level trees,
+but this is not currently being enforced.
+
 
 ## 8.1. HED global identifiers
 
@@ -40,7 +46,7 @@ If there are conflicts, user-selected namespace prefixes must be used
 in the version specification and in annotations.
  
 
-### 8.1.2 Ontology namespace
+### 8.1.2. Ontology namespace
 
 The HED ontology uses GUIDs (Global Universal Identifiers) of the form HED_xxxxxxx for all elements of HED 
 schemas.
@@ -95,25 +101,30 @@ to illustrate how subclassing is represented in the various HED formats.
 
 #### 8.2.1.1. Mediawiki tag format
 
-The **MediaWiki** representation uses asterisks to mark the parentage relationships.
-For the example, the `Action` tag is a top-level tag (enclosed in a set of three quotes).
-In the HED ontology it is a subclass of `HedTag`.
+The **MediaWiki** representation of a HED tag uses asterisks to mark parentage relationships.
+The parent of a tag prefixed by *X* number of asterisks is the first tag
+above it with *X-1* asterisks.
+Top level tags are enclosed by three quotes and have no parent within the schema.
+Each top-level tag is the root of a HED tree of tags that are orthogonal.
 
+For the example, the `Action` tag is a top-level tag (enclosed in a set of three quotes).
 The `Communicate` tag is a child (subclass) of `Action`.
-The parent of a tag prefixed by X number of asterisks is the first tag
-above it with X-1 asterisks.
+
 
 ````{admonition} **Example** HED MediaWiki representation of subclasses.
 
 ```text
 '''Action''' <nowiki>{extensionAllowed, hedId=HED_0012016}[Do something.]</nowiki>
-* Communicate <nowiki>{hedId=HED_0012017}[Action conveying knowledge of or information about something.]</nowiki>
+* Communicate <nowiki>{hedId=HED_0012017}[Action conveying knowledge of or about something.]</nowiki>
 ```
 
 ````
+The tag's schema attributes are enclosed in curly braces, 
+and the tag's description is enclosed in square brackets.
 
-v
-The **XML** representation uses nesting to indicate hierarchical relationships in the HED schema. 
+#### 8.2.1.2. XML tag format
+
+The **XML** representation of a HED tag uses nesting to indicate hierarchical relationships in the HED schema. 
 For HED tags (nodes) the nesting indicates subclassing.
 For other schema elements such as unit classes and units,
 nesting indicates organizational grouping rather than subclasses.
@@ -142,6 +153,11 @@ nesting indicates organizational grouping rather than subclasses.
 </node>
 ```
 ````
+`Communicate` tag is a subclass (is-a) of `Action` because
+its &lt;node&gt; &lt;/node&gt; definition is nested with the  &lt;node&gt; &lt;/node&gt; definition of `Action`.
+
+
+#### 8.2.1.3. OWL format
 
 We use the [**OWL Manchester syntax**](https://www.w3.org/TR/owl2-manchester-syntax/)
 for the examples in this specification document because of readability.
@@ -170,18 +186,46 @@ Class: hed:HED_0012017
 ```
 ````
 
-The HED requirement of orthogonality between tags in different top-level subtrees 
-can be captured by imposing *disjointness* on the top-level trees,
-but this is not currently being enforced.
 
 ### 8.2.2. Schema attributes
 
-Schema attributes are mappings of schema elements into values or into
-other schema elements.
-The attribute properties section of a HED schema is an auxiliary schema section
-of a HED schema that specifies how schema attributes should behave.
+Schema attributes are mappings of schema elements into values or into other schema elements.
+How a given HED schema attribute is mapped into its corresponding HED ontology is
+determined by the domain, the range, and whether the attribute is inherited.
+The mapping strategy is summarized in the following table.
 
-#### 8.2.2.1. The annotationProperty
+| Ontology | Domain | Range | Inherited? |
+| -------- | ------ | ----- | ----------- |
+| AnnotationProperty | HED element | string, numeric, boolean | No |  
+| ObjectProperty | HED element | string, numeric, boolean | Yes | 
+| DataProperty | HED element | HED element | Yes | 
+
+A HED element refers to a HED tag, unit, unit class, or value class element.
+The schema attributes themselves are also considered HED elements.
+
+
+
+
+* hedId <nowiki>{annotationProperty, elementDomain, stringRange}[The unique identifier of this element in the HED namespace.]</nowiki>
+Example:
+<schemaAttributeDefinition>
+   <name>hedId</name>
+   <description>The unique identifier of this element in the HED namespace.</description>
+   <property>
+      <name>annotationProperty</name>
+      <name>elementDomain</name>
+      <name>stringRange</name>
+   </property>
+</schemaAttributeDefinition>
+
+#### 8.2.3.1. Schema attribute properties
+
+The auxiliary schema attribute `Properties` section of the HED schema defines
+notation for designating where a schema attribute for designating 
+the domain, range and inheritance properties of a schema object.
+
+All items in the schema `Properties` auxiliary schema section are indicator variables:
+presence indicates `true` and absence indicates `false`.
 
 The presence of the `annotationProperty` in a schema attribute definition
 indicates that this schema attribute is not inherited by its children.
@@ -214,7 +258,8 @@ this property only appears in schema attributes applicable to HED tags.
 wapplies indicates that this schema attribute is not inherited by its children and is <nowiki>[This schema attribute is inherited by child nodes. This property only applies to schema attributes for nodes.]</nowiki>
 
 
-
+The attribute properties section of a HED schema is an auxiliary schema section
+of a HED schema that specifies how schema attributes should behave.
 #### 8.2.2.1 Attribute domains
 Property names ending in `Domain` specify what types of schema elements
 an attribute is allowed to be associated with.
