@@ -29,7 +29,9 @@ A HED library schema contains the specialized vocabulary terms needed
 for event annotation in a specialized area.
 An example of such a library is the [**HED SCORE schema**](https://hed-schemas.readthedocs.io/en/latest/hed_score_schema.html) for annotation of EEG by clinicians.
 
-## 7.2. Partnered schemas
+## 7.2. Standalone schemas
+
+## 7.3. Partnered schemas
 
 HED library schemas were originally assumed to be **standalone** vocabularies,
 complete with all the needed schema attributes and properties.
@@ -46,7 +48,7 @@ A partnered library schema version is tied to a specific version of the HED stan
 as specified in its header.
 A given library schema version is either **partnered** or **standalone**.
 
-### 7.2.1. Partnered files
+### 7.3.1. Partnered files
 
 The XML file corresponding to a partnered library schema is a single, unified schema
 containing the information from both the library and its standard schema partner
@@ -100,7 +102,7 @@ library. For other libraries, substitute the library name for the word *testlib*
 | MediaWiki    |   merged    |  `HED_testlib_2.0.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki).<br/>Possibly used during<br/>schema development. |
 | MediaWiki   |   unmerged    |  `HED_testlib_2.0.0_unmerged.mediawiki` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki). |
 
-### 7.2.2. Partnered formats
+### 7.3.2. Partnered formats
 
 There are four significant differences between merged and unmerged MediaWiki formats:
 1. The unmerged version has the `unmerged="true"` attribute in its header line.
@@ -150,7 +152,7 @@ In the merged schema, these are adjusted accordingly as shown in the following:
 Similar differences occur between the merged and unmerged XML formats, 
 but only the merged XML format is useful.
 
-### 7.2.3. Auxiliary sections
+### 7.3.3. Auxiliary sections
 
 The unmerged version of a partnered library schema **must** have
 prologue and epilogue sections that appropriately explain the
@@ -181,7 +183,7 @@ and schema attributes are permitted, though not encouraged.
 **Library schemas cannot add information to the property definitions
 section of the schema.**
 
-### 7.2.4. Partnered attributes
+### 7.3.4. Partnered attributes
 
 To support partnered library schema the following items were introduced in
 HED standard schema 8.2.0:
@@ -200,7 +202,7 @@ Starting with HED specification version 3.2.0 and HED standard schema version 8.
 **partnered library schemas** have become the recommended form for library schemas.
 This section describes the motivation for this preference.
 
-#### 7.2.5.1. Auxiliary consistency
+#### 7.3.5.1. Auxiliary consistency
 
 A standalone library schema must duplicate the 
 [**auxiliary schema sections**](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
@@ -216,7 +218,7 @@ HED tools only guarantee support of standard schema auxiliary items requiring sp
 **Thus, addition of items in the auxiliary sections of a library schema is discouraged.**
 
 
-#### 7.2.5.2. Reserved tag handling
+#### 7.3.5.2. Reserved tag handling
 
 Several tags in the standard schema such as `Definition`, `Onset`, and `Offset` 
 define the structure of events and the data.
@@ -231,7 +233,7 @@ If the update can be done without conflict,
 this update may be initiated as part of the release mechanism 
 by the maintainers of the HED repositories.
 
-#### 7.2.5.3. Annotation conciseness
+#### 7.3.5.3. Annotation conciseness
 
 The most common use case for library schemas in annotation requires tags from both
 a standard schema and a library schema, thus requiring that a `xx:` be assigned to tags from
@@ -241,7 +243,7 @@ Because a partnered library schema is merged with a standard schema to form a si
 users can annotate data without the `xx:` namespace designator.
 The `xx:` is still needed if more than one library schema is used.
 
-#### 7.2.5.4. Library searches
+#### 7.3.5.4. Library searches
 
 The subtrees appearing in the library schemas are often elaborations of a particular term
 in the standard schema. 
@@ -249,7 +251,7 @@ However, if the library schema terms are not in appropriate standard schema hier
 HED search can not be leveraged to find these elaborations by searching for a more 
 general standard schema term.
 
-#### 7.2.5.5. Suggested tags
+#### 7.3.5.5. Suggested tags
 
 Standalone library schemas cannot use the `suggestedTag` or `relatedTag` attributes to 
 suggest using particular tags from the standard schema,
@@ -258,7 +260,7 @@ However, with partnered library schemas, validation is only performed on
 the merged versions of the schema, so tags from the standard schema can be used
 as `suggestTag` or `relatedTag` values.
 
-#### 7.2.6 Lazy partnering
+#### 7.3.6 Lazy partnering
 
 HED allows multiple partnered schemas to be loaded and used without prefixes provided that
 there are no conflicts. We refer to this process as **lazy merging**. Conflicting schemas
@@ -316,7 +318,7 @@ If a new entry is needed, contact the HED Working Group (hed.maintainers@gmail.c
 entry might be added to the standard schema instead.
 ````
 
-## 7.3. Library schema design
+## 7.4. Library schema design
 
 Library schema should be developed and maintained in MediaWiki format for readability.
 Developers should always validate the schema before converting to XML.
@@ -326,7 +328,7 @@ More information about the development process is contained in the
 [**HED schema developers guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
 
 
-### 7.3.1. General design rules
+### 7.4.1. General design rules
 
 This section summarizes the general design rules for all library schema.
 
@@ -391,7 +393,7 @@ please make a request using the [**issues**](https://github.com/hed-standard/hed
 forum of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 
-### 7.3.2. Standalone design rules
+### 7.4.2. Standalone design rules
 
 The following design rules are specifically meant for standalone library schemas.
 
@@ -422,7 +424,7 @@ This should be done as early in the process as possible.
 Standalone library schemas are no longer recommended because of the difficulty
 in enforcing conflict rules with HED standard schemas.
 
-### 7.3.3. Partnered design rules
+### 7.4.3. Partnered design rules
 
 Partnered library schemas are now the recommended format for the reasons
 listed in [**Motivation for partners**](./07_Library_schemas.md#725-motivation-for-partners).
@@ -454,7 +456,7 @@ These conflicts must be resolved as they occur.
 In general the standard schema takes precedence over any library schema in
 resolving these conflicts.
 
-### 7.3.4. Schema namespaces
+### 7.4.4. Schema namespaces
 
 As part of the HED annotation process, users must associate one or more
 HED schemas with their datasets.
@@ -468,7 +470,6 @@ additional schemas by their respective namespace in annotations.
 The local names should be strictly alphabetic with no blanks or punctuation.
 If a tag namespace prefix is invalid in the version specification,
 a schema loading error occurs.
-
 
 
 ````{admonition} **Example:** Driving library schema example tags.
@@ -485,7 +486,7 @@ A colon (`:`) is used to separate the qualifying local name from the remainder o
 The introduction of partnered library schemas has greatly reduced the need for namespaces,
 since the most common use case is a library schema used with a standard schema.
 
-## 7.4. Library schemas in BIDS
+## 7.5. Library schemas in BIDS
 
 The most common use case (for 99.9% of the HED users) is to tag events using
 a standard HED schema (preferably the latest one) available in the

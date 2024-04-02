@@ -718,7 +718,7 @@ Terms from only one schema can appear in the annotation without a namespace pref
 See [**TAG_NAMESPACE_PREFIX_INVALID**](./Appendix_B.md#tag_namespace_prefix_invalid) 
 for information on the specific validation errors associated with missing schemas.
 
-See [**7.4. Library schema in BIDS**](./07_Library_schemas.md#74-library-schemas-in-bids) for an example of how the
+See [**7.5. Library schema in BIDS**](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the
 namespace prefix notation is used in BIDS.
 
 
