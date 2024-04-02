@@ -1,0 +1,13 @@
+:root {
+  --code-background: #f6f8fa; /* GitHub-like background color for code */
+  --code-color: #24292e; /* GitHub-like text color for code */
+}
+
+.highlight .s, .highlight .nv { /* targeting single-quoted items */
+  background-color: var(--code-background);
+  color: var(--code-color);
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 3px;
+}
