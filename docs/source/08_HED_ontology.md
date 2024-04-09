@@ -1,10 +1,11 @@
 # 8. The HED ontology
 
 --------DRAFT DRAFT DRAFT DRAFT DRAFT ------------
+## 8.1. Two views of HED
 
-HED (Hierarchical Event Descriptors) has a standard vocabulary (the HED standard schema) 
+HED (Hierarchical Event Descriptors) has a standard hierarchically-organized vocabulary (the HED standard schema) 
 and additional community-specific vocabularies (HED library schemas) that can be used to annotate and analyze experimental data.
-The structure of HED vocabularies and the supporting HED ecosystem focus on supporting these activities.
+The HED vocabularies and the supporting HED ecosystem are designed to support these activities.
 
 A second view of HED --- the HED ontology provides a mapping between HED schemas and classical
 ontologies in order to support semantic analysis and reasoning.
@@ -12,6 +13,16 @@ The HED ontology structure and its mapping has been made explicit starting with 
 The goal is to better leverage links to additional information and examples during annotation, 
 and to leverage AI tools during annotation and analysis.
 
+A key idea is that 
+### 8.1.1. The annotator's view
+
+
+![annotator view](_static/images/AnnotatorsView.png)
+
+
+
+### 8.1.2. The ontologist's view
+![ontologist view](_static/images/OntologyView.png)
 
 ## 8.1. Overall ontology structure
 
