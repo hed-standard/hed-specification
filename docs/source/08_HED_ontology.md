@@ -1,49 +1,91 @@
 # 8. The HED ontology
 
 --------DRAFT DRAFT DRAFT DRAFT DRAFT ------------
-## 8.1. Two views of HED
+
+## 8.1. HED views and representations
+
+### 8.1.1. The annotator's view
 
 HED (Hierarchical Event Descriptors) has a standard hierarchically-organized vocabulary (the HED standard schema) 
 and additional community-specific vocabularies (HED library schemas) that can be used to annotate and analyze experimental data.
 The HED vocabularies and the supporting HED ecosystem are designed to support these activities.
 
-A second view of HED --- the HED ontology provides a mapping between HED schemas and classical
-ontologies in order to support semantic analysis and reasoning.
-The HED ontology structure and its mapping has been made explicit starting with HED standard schema 8.3.0.
-The goal is to better leverage links to additional information and examples during annotation, 
-and to leverage AI tools during annotation and analysis.
-
-A key idea is that 
-### 8.1.1. The annotator's view
-
+When annotating data, the annotator's natural view is top-down -- identifying a general category and
+then filling out the details with more specific tags in that category or grouping with descriptive tags
+from other categories. The HED schema hierarchy as illustrated in the following image is organized in a top-down manner.
 
 ![annotator view](_static/images/AnnotatorsView.png)
 
+In the schematic, top-level tags `S1`, `S4`, and `L6` represent general categories
+and are roots of subtrees organized so that child nodes are more specific terms.
+HED supports "search generality", so searches may specify an exact match or a match to a term and any of its
+(more specific) child terms.
 
+The [**HED schema viewer**](https://www.hedtags.org/display_hed.html),
+by allowing users focus on top-level categories or expand the hierarchy view to any specified level of detail.
 
 ### 8.1.2. The ontologist's view
+
+A second view of HED --- the HED ontology provides a mapping between HED schemas and classical
+ontologies in order to support semantic analysis and reasoning.
+The HED ontology structure and its mapping has been made explicit starting with HED standard schema 8.3.0.
+The goal is to better leverage links to additional information including provenance and examples during annotation 
+and to leverage AI tools during annotation and analysis.
+
+The following image shows a schematic of the ontology view of HED. 
+While the HED schema hierarchical relationships are embedded in the ontology,
+the view bottom-up is from a child class as a subclass of a parent class (represented by yellow arrows).
+
 ![ontologist view](_static/images/OntologyView.png)
 
-## 8.1. Overall ontology structure
+The ontology represents a complex network of interrelationships, both between the terms in the HED 
+hierarchy and terms in other ontologies. 
 
-HED requires that child tags of tags in the HED schema satisfy the **is-a** relationship.
-This requirement is satisfied in HED ontology using subclass relationship.
-The HED requirement of orthogonality between tags in different top-level subtrees 
-can be captured in the HED ontology by imposing *disjointness* on the top-level trees,
-but this is not currently being enforced.
+### 8.1.3. HED information space
 
+The HED information space is illustrated schematically in the following diagram:
 
+![hed information space](_static/images/HedInformationSpace.png)
 
-| Schema | Ontology |
-| ------ | -------- |
-| Header | Class with data properties version, library, withStandard, and merged. |
-| Tag    | Classes using subclassing to represent schema structure. |
-| Unit classes | Classes |
-| Units  | Classes with object property `hasUnitClass` |
-| Unit modifiers | Classes |
-| Value classes | Classes |
-| Attributes | Object, data, or annotation properties defined in structure schema. |
-| Properties | Implicitly captured in the domains and ranges of the properties. |
+The HED schema contains the core HED vocabulary and captures the "annotator's view" of HED.
+This information is completely represented in the HED MediaWiki and HED XML formats.
+The HED schema is used for annotation, validation, searching, and most analysis.
+Tools access the HED schema in its XML format, but schema developers create
+and update the schema in MediaWiki format, which is easier to read and displays as formatted
+MarkDown on GitHub.
+
+The HED schema is embedded in a larger information space that includes
+additional information such as sources, provenance, and links to other ontologies. 
+The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema 8.3.0.
+The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) 
+of the form *https://purl.org/hed/HED_xxxxxxx*.
+This extended information space is completely represented by the HED ontology in OWL format.
+In this document we use Manchester format (`.omn`) for ease of use.  
+
+### 8.1.4. HED representations
+
+The HED vocabularies have 4 different formats as shown in the following table:
+
+| Format | Content | Uses | Editing |
+| ------ | ------- | ---- | ------- |
+| Mediawiki | Schema | Schema development<br/>Schema updating | Manual editing<br/>Updated from spreadsheet |  
+| XML | Schema | Annotation tools<br/>Validation tools<br/>Analysis tools | Generated from MediaWiki |
+| Spreadsheet | Complete | Schema development<br/>Schema updating<br/>Ontology updating | Manual editing<br/>Updated from MediaWiki<br/>Updated from OWL |
+| OWL | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet |
+
+In addition to the standard HED schema representations in MediaWiki and XML formats, 
+HED has a spreadsheet representation as well as a classical OWL ontological representation.
+The HED spreadsheet representation for HED tags and its relationship to MediaWiki and OWL
+are illustrated in the following figure. (XML is not shown because it is always generated from the MediaWiki.)
+
+![hed representations](_static/images/HedRepresentations.png)
+
+The first column in the spreadsheet representation is always the value of the `hedId`. 
+The `rdfs:label` corresponds to the HED tag name in the MediaWiki. 
+The `dc:description` corresponds to the tag's description, which appears in square brackets in the MediaWiki file.
+The `Attributes` contains the same information as in the `EquivalentTo` section, but is more convenient for
+mapping to MediaWiki. Users may add additional columns to the spreadsheet that are ignored for the MediaWiki,
+but will be translated into OWL based on their column names.
 
 
 ## 8.2. HED global identifiers
@@ -109,7 +151,30 @@ The examples in this section use `heds:` to denote the namespace of structural e
 and `hed:` to represent schema-specific elements.
 Both namespaces map to the same PURL.
 
-### 8.3.1. HED Tags
+## 8.3.1. Overall ontology structure
+
+HED requires that child tags of tags in the HED schema satisfy the **is-a** relationship.
+This requirement is satisfied in HED ontology using subclass relationship.
+The HED requirement of orthogonality between tags in different top-level subtrees 
+can be captured in the HED ontology by imposing *disjointness* on the top-level trees,
+but this is not currently being enforced.
+
+
+
+| Schema | Ontology |
+| ------ | -------- |
+| Header | Class with data properties version, library, withStandard, and merged. |
+| Tag    | Classes using subclassing to represent schema structure. |
+| Unit classes | Classes |
+| Units  | Classes with object property `hasUnitClass` |
+| Unit modifiers | Classes |
+| Value classes | Classes |
+| Attributes | Object, data, or annotation properties defined in structure schema. |
+| Properties | Implicitly captured in the domains and ranges of the properties. |
+
+
+
+### 8.3.2. HED Tags
 
 A HED tag is represented in the HED ontology by the `HedTag` class (HED_0000005).
 
@@ -122,7 +187,7 @@ HED schema must satisfy the **is-a** relationship with its parent in the HED sch
 The examples of this section use the `Action` tag and its child `Communicate`
 to illustrate how subclassing is represented in the various HED formats.
 
-#### 8.3.1.1. Mediawiki tag format
+#### 8.3.2.1. Mediawiki tag format
 
 The **MediaWiki** representation of a HED tag uses asterisks to mark parentage relationships.
 The parent of a tag prefixed by *X* number of asterisks is the first tag
@@ -145,7 +210,7 @@ The `Communicate` tag is a child (subclass) of `Action`.
 The tag's schema attributes are enclosed in curly braces, 
 and the tag's description is enclosed in square brackets.
 
-#### 8.3.1.2. XML tag format
+#### 8.3.2.2. XML tag format
 
 The **XML** representation of a HED tag uses nesting to indicate hierarchical relationships in the HED schema. 
 For HED tags (nodes) the nesting indicates subclassing.
@@ -180,7 +245,7 @@ nesting indicates organizational grouping rather than subclasses.
 its `<node></node>` definition is nested within the  `<node></node>` definition of `Action`.
 
 
-#### 8.3.1.3. OWL format for HED classes
+#### 8.3.2.3. OWL format for HED classes
 
 We use the [**OWL Manchester syntax**](https://www.w3.org/TR/owl2-manchester-syntax/)
 for the examples in this specification document because of readability.
@@ -230,13 +295,13 @@ Since `Communicate` is a subclass of `Action`, it inherits the `inHedSchema` ass
 with the correct version of the standard schema.
 
 
-### 8.3.2. Schema attributes
+### 8.3.3. Schema attributes
 
 The purpose of HED schema attributes is to specify characteristics and/or behavior of schema elements.
 These attributes map schema elements into values or into other schema elements.
 
 
-#### 8.3.2.1 Attribute ontology types
+#### 8.3.3.1 Attribute ontology types
 
 A given HED schema attribute's representation in the HED ontology is
 determined by its domain, its range, and whether the attribute is inherited.
@@ -251,7 +316,7 @@ The mapping strategy is summarized in the following table.
 `DataProperty` and `ObjectProperty` entities are inherited by subclasses, and reasoners can check their consistency.
 `AnnotationProperty` entities are not inherited by subclasses, and reasoners ignore them.
 
-#### 8.3.2.2. Attribute properties
+#### 8.3.3.2. Attribute properties
 
 Schema attribute properties appear in the `Properties` section of a HED schema.
 They determine how schema attributes behave as described in the following table.
@@ -273,7 +338,7 @@ They determine how schema attributes behave as described in the following table.
 | `valueClassDomain` | The attribute can apply to value classes. This property was formerly named `valueClassProperty`. |
 | `valueClassRange` | The value can be a value class. |
 
-#### 8.3.2.3. Attribute representation
+#### 8.3.3.3. Attribute representation
 
 The following table lists schema attributes with their types (A=`AnnotationProperty`, D=`DataProperty`, 
 and O=`ObjectProperty`), domains and ranges.
@@ -305,7 +370,7 @@ and O=`ObjectProperty`), domains and ranges.
 | `valueClass` | O | `tagDomain` | `valueClassRange`  |   |
 
 
-#### 8.3.2.4. Mediawiki attribute format
+#### 8.3.3.4. Mediawiki attribute format
 
 In the MediaWiki format, schema attributes appear in the `Schema Attributes` section of the schema.
 
@@ -318,7 +383,7 @@ In the MediaWiki format, schema attributes appear in the `Schema Attributes` sec
 ```
 ````
 
-#### 8.3.2.5. XML attribute format
+#### 8.3.3.5. XML attribute format
 
 
 Schema attribute definitions are nexted in the `<schemaAttributeDefinitions>` section of the schema's XML file.
@@ -342,11 +407,9 @@ The format of an individual schema attribute is shown here.
 ````
 
 
-#### 8.3.2.6. OWL format for attributes.
+#### 8.3.3.6. OWL format for attributes.
 
-The Manchester Owl syntax for schema attributes is similar to that of classes
-above in [**#### 8.3.1.3. OWL format for HED classes**](#8313-owl-format-for-hed-classes).
-For 
+The Manchester Owl syntax for schema attributes is similar to that of classes above.
 
 
 ````{admonition} **Example** HED Manchester OWL syntax for extensionAllowed.
