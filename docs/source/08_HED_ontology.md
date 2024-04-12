@@ -10,57 +10,54 @@ HED (Hierarchical Event Descriptors) has a standard hierarchically-organized voc
 and additional community-specific vocabularies (HED library schemas) that can be used to annotate and analyze experimental data.
 The HED vocabularies and the supporting HED ecosystem are designed to support these activities.
 
-When annotating data, the annotator's natural view is top-down -- identifying a general category and
+The data annotator's natural view is top-down -- identifying a general category and
 then filling out the details with more specific tags in that category or grouping with descriptive tags
-from other categories. The HED schema hierarchy as illustrated in the following image is organized in a top-down manner.
+from other categories. As illustrated in the following diagram, the HED schema hierarchy is organized in a top-down 
+manner to support this work-flow.
 
 ![annotator view](_static/images/AnnotatorsView.png)
 
-In the schematic, top-level tags `S1`, `S4`, and `L6` represent general categories
+In the diagram, top-level tags `S1`, `S4`, and `L6` represent general categories
 and are roots of subtrees organized so that child nodes are more specific terms.
-HED supports "search generality", so searches may specify an exact match or a match to a term and any of its
-(more specific) child terms.
+HED supports "search generality", so searches may specify an exact match or matches any term in a particular subtree.
+In the latter case a search for `Event` may also match `Sensory-event` or `Agent-action` or any other descendent of
+`Event`.
 
 The [**HED schema viewer**](https://www.hedtags.org/display_hed.html),
-by allowing users focus on top-level categories or expand the hierarchy view to any specified level of detail.
+allows users to focus on top-level categories or expand the hierarchy view to any specified level of detail.
 
 ### 8.1.2. The ontologist's view
 
-A second view of HED --- the HED ontology provides a mapping between HED schemas and classical
-ontologies in order to support semantic analysis and reasoning.
-The HED ontology structure and its mapping has been made explicit starting with HED standard schema 8.3.0.
-The goal is to better leverage links to additional information including provenance and examples during annotation 
-and to leverage AI tools during annotation and analysis.
+A second view of HED --- the HED ontology --- provides a mapping between HED schemas and classical
+ontologies in order to support semantic analysis and reasoning. 
 
-The following image shows a schematic of the ontology view of HED. 
-While the HED schema hierarchical relationships are embedded in the ontology,
-the view bottom-up is from a child class as a subclass of a parent class (represented by yellow arrows).
+The following diagram shows the ontology view of HED. 
+The nodes of the HED schema are embedded in the ontology,
+but the view is "term-centric" or "bottom-up" with links from the given term to its
+parent class (yellow arrows) and as well links between the given term and other terms (gray arrows).
 
 ![ontologist view](_static/images/OntologyView.png)
 
-The ontology represents a complex network of interrelationships, both between the terms in the HED 
+The ontology represents a complex network of interrelationships among the terms in the HED 
 hierarchy and terms in other ontologies. 
+The HED ontology and its mapping has been made explicit starting with HED standard schema 8.3.0.
+The goal is to include links to additional information including provenance and examples during annotation 
+and to leverage AI tools during annotation and analysis.
 
 ### 8.1.3. HED information space
 
-The HED information space is illustrated schematically in the following diagram:
+The HED schema is embedded in a larger information space that includes
+additional information such as sources, provenance, and links to other ontologies.
+This HED information space is illustrated schematically in the following diagram.
 
 ![hed information space](_static/images/HedInformationSpace.png)
 
-The HED schema contains the core HED vocabulary and captures the "annotator's view" of HED.
-This information is completely represented in the HED MediaWiki and HED XML formats.
-The HED schema is used for annotation, validation, searching, and most analysis.
-Tools access the HED schema in its XML format, but schema developers create
-and update the schema in MediaWiki format, which is easier to read and displays as formatted
-MarkDown on GitHub.
-
-The HED schema is embedded in a larger information space that includes
-additional information such as sources, provenance, and links to other ontologies. 
 The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema 8.3.0.
 The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) 
 of the form *https://purl.org/hed/HED_xxxxxxx*.
-This extended information space is completely represented by the HED ontology in OWL format.
-In this document we use Manchester format (`.omn`) for ease of use.  
+
+The extended information space is completely represented by the HED ontology in OWL format.
+In this document we use OWL Manchester format (`.omn`) for readability.  
 
 ### 8.1.4. HED representations
 
@@ -73,19 +70,66 @@ The HED vocabularies have 4 different formats as shown in the following table:
 | Spreadsheet | Complete | Schema development<br/>Schema updating<br/>Ontology updating | Manual editing<br/>Updated from MediaWiki<br/>Updated from OWL |
 | OWL | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet |
 
-In addition to the standard HED schema representations in MediaWiki and XML formats, 
-HED has a spreadsheet representation as well as a classical OWL ontological representation.
-The HED spreadsheet representation for HED tags and its relationship to MediaWiki and OWL
-are illustrated in the following figure. (XML is not shown because it is always generated from the MediaWiki.)
+The HED schema, which contains the core HED vocabulary and captures the "annotator's view" of HED,
+is completely represented in either the HED MediaWiki and HED XML formats.
+The HED schema is used for annotation, validation, searching, and most analyses.
+Tools access the HED schema in its XML format, but schema developers create
+and update the schema in MediaWiki format, which is easier to read and displays as formatted
+MarkDown on GitHub.
+
+The HED schema also has a HED spreadsheet representation 
+(with columns containing a tag's name, parent, attributes, and description).
+The mapping between the HED MediaWiki format and the HED spreadsheet is illustrated in the following example:
+
+![hed mediawiki to spreadsheet](_static/images/HEDSpreadsheetMediawiki.png)
+
+
+| Spreadsheet | MediaWiki format |
+| ----------- | ---------- |
+| hedId  | {hedId=xxx, ... other attributes in comma separated list} |
+| level 0  | This row corresponds to a top-level HED tag. Example:  `'''tag'''`  |  
+| Level n | For level *n* > 0, *n* asterisks appear in front of `tag`<br/>Example:  `* tag` when *n* = 1. |
+| rdfs:label | The column value is the tag name. |
+| Parent | The parent tag name of this tag in the HED hierarchy. |
+| Attribute | The contents of the curly braces.<br/>The `hedId` also included in the curly braces. |
+| dc:description | The contents of the square braces. |
+
+HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and
+can use tools to update the representations.
+Users may NOT assign a `hedId` in the MediaWiki file.
+If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. 
+Tools will assign and validate a `hedId` during the update process.
+
+HED spreadsheets have been expanded to include additional columns to capture all the information 
+contained in the HED ontology as illustrated in the following example.
 
 ![hed representations](_static/images/HedRepresentations.png)
 
-The first column in the spreadsheet representation is always the value of the `hedId`. 
-The `rdfs:label` corresponds to the HED tag name in the MediaWiki. 
-The `dc:description` corresponds to the tag's description, which appears in square brackets in the MediaWiki file.
-The `Attributes` contains the same information as in the `EquivalentTo` section, but is more convenient for
-mapping to MediaWiki. Users may add additional columns to the spreadsheet that are ignored for the MediaWiki,
-but will be translated into OWL based on their column names.
+HED tags are always represented by classes in the HED ontology. 
+A tag class IRI (International Resource Identifier) is its `hedId`.
+HED tag names also uniquely identify HED tags. 
+The `hedId` values are managed by tools and not allowed to be modified by users.
+
+The value in the `rdfs:label` column, which corresponds to the HED tag name in the MediaWiki,
+maps to `rdfs:label` in the `Annotation` section for the tag class in the ontology.
+The `rdfs:` prefix indicates that `label` is a term from the 
+[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
+For ease in editing, the spreadsheet uses an item's `rdfs:label` column value when referring to the item
+rather than its `hedId`, but the Ontology representation always uses the `hedId`.
+
+A top-level (level 0) tag such as `Event` is a subclass of `HedTag`, 
+while any tag lower in the HED schema hierarchy is a subclass of its parent tag (class).
+
+The value in the  `dc:description` which corresponds to the tag's description 
+maps to the `dc:description` in the `Annotation` for the tag class in the ontology.
+The `dc:` prefix indicates that `description` is a term from the Dublin Core ontology.
+
+If a HED tag has no attributes, its parent class in the HED hierarchy is given using `SubClassOf` in the ontology.
+However, if a tag has attributes, the class must be declared using restrictions with `EquivalentTo`.
+
+Users may add additional columns to the spreadsheet with qualified column names of the form `yyy:xxx`.
+`yyy` is a shortcut ref to a particular ontology, while `yyy` is a property in that ontology.
+These items are added automatically to the `Annotations:` section of the HED ontology.
 
 
 ## 8.2. HED global identifiers
