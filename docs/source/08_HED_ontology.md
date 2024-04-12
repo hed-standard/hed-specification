@@ -77,33 +77,59 @@ Tools access the HED schema in its XML format, but schema developers create
 and update the schema in MediaWiki format, which is easier to read and displays as formatted
 MarkDown on GitHub.
 
+#### 8.1.4.1. Spreadsheet <--> Mediawiki
+
 The HED schema also has a HED spreadsheet representation 
 (with columns containing a tag's name, parent, attributes, and description).
 The mapping between the HED MediaWiki format and the HED spreadsheet is illustrated in the following example:
 
 ![hed mediawiki to spreadsheet](_static/images/HEDSpreadsheetMediawiki.png)
 
+Note: The information about a single tag in the MediaWiki file must be on a single line,
+but the above diagram has formatted the information so that it will fit within image boundaries.
 
-| Spreadsheet | MediaWiki format |
-| ----------- | ---------- |
-| hedId  | {hedId=xxx, ... other attributes in comma separated list} |
-| level 0  | This row corresponds to a top-level HED tag. Example:  `'''tag'''`  |  
-| Level n | For level *n* > 0, *n* asterisks appear in front of `tag`<br/>Example:  `* tag` when *n* = 1. |
-| rdfs:label | The column value is the tag name. |
-| Parent | The parent tag name of this tag in the HED hierarchy. |
-| Attribute | The contents of the curly braces.<br/>The `hedId` also included in the curly braces. |
-| dc:description | The contents of the square braces. |
+The mapping of the spreadsheet row and column values to a line in the MediaWiki is further explained in the
+following table:
+
+| Spreadsheet<br/>column | Row value | MediaWiki format |
+| ----------- |:------------------:| ------- |
+| **hedId**  | *xxx* | {hedId=*xxx*, ... other attributes in comma separated list} |
+| **level**  | 0 | This row corresponds to a top-level HED tag. Example:  `'''tag'''`.  |  
+| **Level**  | *n* | For level *n* > 0, *n* asterisks appear in front of `tag`.<br/>Example: `* tag` when *n* = 1. Example: `** tag` when *n*=2. |
+| **rdfs:label**  | *yyy* | The tag's unique name is *yyy*. |
+| **Parent** | *zzz* | The tag's parent tag in the HED hierarchy is *zzz*. |
+| **Attributes** | *uuu*, *vvv*, ... | List appearing in curly braces: {hedId=*xxx*, *uuu*, *vvv*, ...} |
+| **dc:description** | *www* | The contents of the square braces: [*www*]. |
 
 HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and
 can use tools to update the representations.
-Users may NOT assign a `hedId` in the MediaWiki file.
+Users may NOT assign or modify the `hedId` in the MediaWiki file.
 If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. 
-Tools will assign and validate a `hedId` during the update process.
+Tools will assign and validate the `hedId` during the update process.
+
+#### 8.1.4.2. Spreadsheet <--> Ontology
 
 HED spreadsheets have been expanded to include additional columns to capture all the information 
 contained in the HED ontology as illustrated in the following example.
 
 ![hed representations](_static/images/HedRepresentations.png)
+
+The mapping of the spreadsheet row and column values to a line in the MediaWiki is further explained in the
+following table:
+
+
+| Spreadsheet<br/>column | Row value | Ontology format |
+| ----------- |:------------------:| ------- |
+| **hedId**  | *xxx* | `Class: hed:xxx` |
+| **Level**  | *n* | Redundant information -- can be recovered using class hierarchy. |
+| **rdfs:label**  | *yyy* | `rdfs:label yyy` in the `Annotations` section |
+| **Parent** | *zzz* | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified by **hedId* rather name. |
+| **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. |
+| **dc:description** | *www* | `dc:description www` in the `Annotations` section. |
+|**EquivalentTo** |    | A combination of the information in **Parent** and **Attributes** |
+
+In this table `hed:` is the abbreviation for HED's IRI (International Resource Identifier)
+as explained in [**8.3 HED global identifiers](./#83-global-identifiers)
 
 HED tags are always represented by classes in the HED ontology. 
 A tag class IRI (International Resource Identifier) is its `hedId`.
@@ -131,71 +157,16 @@ Users may add additional columns to the spreadsheet with qualified column names 
 `yyy` is a shortcut ref to a particular ontology, while `yyy` is a property in that ontology.
 These items are added automatically to the `Annotations:` section of the HED ontology.
 
+## 8.2. HED schema to ontology
 
-## 8.2. HED global identifiers
-
-### 8.2.1. Schema identifiers
-
-The HED tags in each HED schema are unique, 
-so a HED tag is uniquely identified by its name (label) and schema version.
-If the tag is from a library schema, the library name is part of the version. 
-The rules for updating HED version numbers are specified in 
-[**HED semantic versioning**](https://github.com/hed-standard/hed-schemas/blob/main/README.md#hed-semantic-versioning).
-
-Starting with HED schema version 8.2.0 (released April 28, 2023),
-HED library schemas are strongly recommended to be 
-[**partnered with a standard schema**](./07_Library_schemas.md#73-partnered-schemas).
-Partnered schemas are joined with a specific version of the standard schema
-and are treated as a single integrated vocabulary for annotation and analysis.
-Partnered schemas MUST not have name conflicts with their standard schema partner.
-
-[**Lazy partnering**](./07_Library_schemas.md#736-lazy-partnering), 
-introduced with HED schema version 8.3.0, allows any number of library schemas to be loaded
-into a single integrated vocabulary provided they are partnered with the same version of the standard schema
-and there are no name conflicts.
-If there are conflicts, user-selected namespace prefixes must be used
-in the version specification and in annotations to resolve the conflicts.
- 
-
-### 8.2.2. Ontology namespace
-
-The HED ontology uses GUIDs (Global Universal Identifiers) of the form HED_xxxxxxx for all entities of HED 
-schemas.
-
-All HED standard and library schema entities are mapped to the `HED_xxxxxxx` namespace
-using the range assignments described in the following table.
-
-| HED ID |  Type |
-| ------ | ----- | 
-| HED_0000001-HED_0000099 | `Class` entities defining the structure of a HED schema  |
-| HED_0000100-HED_0000299 | `ObjectProperty` entities common to all HED schemas.|
-| HED_0000300-HED-0000499 | `DataProperty` entities common to all HED schemas. |  
-| HED_0000500- | `AnnotationProperty` entities common to all HED schemas. |
-| HED_0010001-HED_0010099  | `Class` structure of standard schema. |
-| HED_0011300-HED_0011399 | `HedValueClass` definitions in the standard schema. |
-| HED_0011400-HED_0011499 | `HedUnitModifier` definitions in the standard schema. |
-| HED_0011500-HED_0011599 | `HedUnitClass` definitions in the standard schema. |
-| HED_0011600-            | `HedUnit` definitions in the standard schema. |
-| HED_0012000-HED_0029999  | `HedTag` entities in the standard schema. |
-| HED_0032000-HED_0039999  | `HedTag` entities in the score schema. |
-| HED_0042000-HED_0049999  | `HedTag` entities in the lang schema. |
-
-### 8.2.3. HED IRIs
-
-HED IRIs [(**International Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped
-to [**https://purl.org/hed**](https://purl.org/hed).
-
-## 8.3. HED schema to ontology
-
-Starting with HED standard schema 8.3.0.
 Each HED element (tag, unit, unit class, unit modifier, or value class) is associated with its
 GUID in a HED schema using the `hedId` schema attribute.
 
 The examples in this section use `heds:` to denote the namespace of structural elements,
 and `hed:` to represent schema-specific elements.
-Both namespaces map to the same PURL.
+Both namespaces map to the same PURL (Persistent Uniform Resource Locator).
 
-## 8.3.1. Overall ontology structure
+## 8.2.1. Overall ontology structure
 
 HED requires that child tags of tags in the HED schema satisfy the **is-a** relationship.
 This requirement is satisfied in HED ontology using subclass relationship.
@@ -204,21 +175,19 @@ can be captured in the HED ontology by imposing *disjointness* on the top-level 
 but this is not currently being enforced.
 
 
-
 | Schema | Ontology |
 | ------ | -------- |
-| Header | Class with data properties version, library, withStandard, and merged. |
-| Tag    | Classes using subclassing to represent schema structure. |
-| Unit classes | Classes |
-| Units  | Classes with object property `hasUnitClass` |
-| Unit modifiers | Classes |
-| Value classes | Classes |
-| Attributes | Object, data, or annotation properties defined in structure schema. |
-| Properties | Implicitly captured in the domains and ranges of the properties. |
+| Header | Class with `DataProperty` values for `version`, `library`, `withStandard`, and `merged`. |
+| Tag    | Class using subclassing to represent schema structure.<br/>The parent class appears either in `SubClassOf` or `EquivalentTo`. |
+| Unit class | Class inheriting from `StandardUnitClass` (`HED_0010006`)<br/>if defined in the standard schema. |
+| Unit  | Class inheriting from `StandardUnit` (`HED_0010007`)<br/>if defined in the standard schema.<br/>The class must have `hasUnitClass` some unit class. |
+| Unit modifier | Class in inheriting from `StandardUnitModifier` (`HED_0010008`)<br/>if defined in the standard schema. |
+| Value class | Classes |
+| Attribute | `ObjectProperty`, `DataProperty`, or `AnnotationProperty` depending on range and inheritability.<br>Attributes are defined in the structure ontology. |
+| Property | Implicitly captured in the domains and ranges of the attributes. |
 
 
-
-### 8.3.2. HED Tags
+### 8.2.2. HED Tags
 
 A HED tag is represented in the HED ontology by the `HedTag` class (HED_0000005).
 
@@ -231,7 +200,7 @@ HED schema must satisfy the **is-a** relationship with its parent in the HED sch
 The examples of this section use the `Action` tag and its child `Communicate`
 to illustrate how subclassing is represented in the various HED formats.
 
-#### 8.3.2.1. Mediawiki tag format
+#### 8.2.2.1. Mediawiki tag format
 
 The **MediaWiki** representation of a HED tag uses asterisks to mark parentage relationships.
 The parent of a tag prefixed by *X* number of asterisks is the first tag
@@ -254,7 +223,7 @@ The `Communicate` tag is a child (subclass) of `Action`.
 The tag's schema attributes are enclosed in curly braces, 
 and the tag's description is enclosed in square brackets.
 
-#### 8.3.2.2. XML tag format
+#### 8.2.2.2. XML tag format
 
 The **XML** representation of a HED tag uses nesting to indicate hierarchical relationships in the HED schema. 
 For HED tags (nodes) the nesting indicates subclassing.
@@ -289,7 +258,7 @@ nesting indicates organizational grouping rather than subclasses.
 its `<node></node>` definition is nested within the  `<node></node>` definition of `Action`.
 
 
-#### 8.3.2.3. OWL format for HED classes
+#### 8.2.2.3. OWL format for HED classes
 
 We use the [**OWL Manchester syntax**](https://www.w3.org/TR/owl2-manchester-syntax/)
 for the examples in this specification document because of readability.
@@ -339,13 +308,13 @@ Since `Communicate` is a subclass of `Action`, it inherits the `inHedSchema` ass
 with the correct version of the standard schema.
 
 
-### 8.3.3. Schema attributes
+### 8.2.3. Schema attributes
 
 The purpose of HED schema attributes is to specify characteristics and/or behavior of schema elements.
 These attributes map schema elements into values or into other schema elements.
 
 
-#### 8.3.3.1 Attribute ontology types
+#### 8.2.3.1. Attribute ontology types
 
 A given HED schema attribute's representation in the HED ontology is
 determined by its domain, its range, and whether the attribute is inherited.
@@ -360,7 +329,7 @@ The mapping strategy is summarized in the following table.
 `DataProperty` and `ObjectProperty` entities are inherited by subclasses, and reasoners can check their consistency.
 `AnnotationProperty` entities are not inherited by subclasses, and reasoners ignore them.
 
-#### 8.3.3.2. Attribute properties
+#### 8.2.3.2. Attribute properties
 
 Schema attribute properties appear in the `Properties` section of a HED schema.
 They determine how schema attributes behave as described in the following table.
@@ -382,7 +351,7 @@ They determine how schema attributes behave as described in the following table.
 | `valueClassDomain` | The attribute can apply to value classes. This property was formerly named `valueClassProperty`. |
 | `valueClassRange` | The value can be a value class. |
 
-#### 8.3.3.3. Attribute representation
+#### 8.2.3.3. Attribute representation
 
 The following table lists schema attributes with their types (A=`AnnotationProperty`, D=`DataProperty`, 
 and O=`ObjectProperty`), domains and ranges.
@@ -414,10 +383,9 @@ and O=`ObjectProperty`), domains and ranges.
 | `valueClass` | O | `tagDomain` | `valueClassRange`  |   |
 
 
-#### 8.3.3.4. Mediawiki attribute format
+#### 8.2.3.4. Mediawiki attribute format
 
 In the MediaWiki format, schema attributes appear in the `Schema Attributes` section of the schema.
-
 
 
 ````{admonition} **Example** HED MediaWiki representation of a schema attribute.
@@ -427,7 +395,7 @@ In the MediaWiki format, schema attributes appear in the `Schema Attributes` sec
 ```
 ````
 
-#### 8.3.3.5. XML attribute format
+#### 8.2.3.5. XML attribute format
 
 
 Schema attribute definitions are nexted in the `<schemaAttributeDefinitions>` section of the schema's XML file.
@@ -450,8 +418,7 @@ The format of an individual schema attribute is shown here.
 ```
 ````
 
-
-#### 8.3.3.6. OWL format for attributes.
+#### 8.2.3.6. OWL format for attributes.
 
 The Manchester Owl syntax for schema attributes is similar to that of classes above.
 
@@ -487,7 +454,7 @@ AnnotationProperty: heds:HED_0000502
 ```
 ````    
 
-### 8.3.4 Other auxiliary sections
+### 8.2.4 Other auxiliary sections
 
 The schema-ontology mapping for HED schema units, unit classes, unit modifiers and value classes is
 similar to that of HED tags. However, each of these auxiliary items should have an `inHedSchema` (HED_0000102)
@@ -495,3 +462,56 @@ restriction to identify which schema it is in.
 
 A conscious decision was made not to subclass `HedUnit`, `HedUnitClass`, `HedUnitModifier` and `ValueClass`
 so that library schemas could be more transparently merged.
+
+## 8.3. HED global identifiers
+
+### 8.3.1. Schema identifiers
+
+The HED tags in each HED schema are unique, 
+so a HED tag is uniquely identified by its name (label) and schema version.
+If the tag is from a library schema, the library name is part of the version. 
+The rules for updating HED version numbers are specified in 
+[**HED semantic versioning**](https://github.com/hed-standard/hed-schemas/blob/main/README.md#hed-semantic-versioning).
+
+Starting with HED schema version 8.2.0 (released April 28, 2023),
+HED library schemas are strongly recommended to be 
+[**partnered with a standard schema**](./07_Library_schemas.md#73-partnered-schemas).
+Partnered schemas are joined with a specific version of the standard schema
+and are treated as a single integrated vocabulary for annotation and analysis.
+Partnered schemas MUST not have name conflicts with their standard schema partner.
+
+[**Lazy partnering**](./07_Library_schemas.md#736-lazy-partnering), 
+introduced with HED schema version 8.3.0, allows any number of library schemas to be loaded
+into a single integrated vocabulary provided they are partnered with the same version of the standard schema
+and there are no name conflicts.
+If there are conflicts, user-selected namespace prefixes must be used
+in the version specification and in annotations to resolve the conflicts.
+ 
+
+### 8.3.2. Ontology namespace
+
+The HED ontology uses GUIDs (Global Universal Identifiers) of the form HED_xxxxxxx for all entities of HED 
+schemas.
+
+All HED standard and library schema entities are mapped to the `HED_xxxxxxx` namespace
+using the range assignments described in the following table.
+
+| HED ID |  Type |
+| ------ | ----- | 
+| HED_0000001-HED_0000099 | `Class` entities defining the structure of a HED schema  |
+| HED_0000100-HED_0000299 | `ObjectProperty` entities common to all HED schemas.|
+| HED_0000300-HED-0000499 | `DataProperty` entities common to all HED schemas. |  
+| HED_0000500- | `AnnotationProperty` entities common to all HED schemas. |
+| HED_0010001-HED_0010099  | `Class` structure of standard schema. |
+| HED_0011300-HED_0011399 | `HedValueClass` definitions in the standard schema. |
+| HED_0011400-HED_0011499 | `HedUnitModifier` definitions in the standard schema. |
+| HED_0011500-HED_0011599 | `HedUnitClass` definitions in the standard schema. |
+| HED_0011600-            | `HedUnit` definitions in the standard schema. |
+| HED_0012000-HED_0029999  | `HedTag` entities in the standard schema. |
+| HED_0032000-HED_0039999  | `HedTag` entities in the score schema. |
+| HED_0042000-HED_0049999  | `HedTag` entities in the lang schema. |
+
+### 8.3.3. HED IRIs
+
+HED IRIs [(**International Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped
+to [**https://purl.org/hed**](https://purl.org/hed).
