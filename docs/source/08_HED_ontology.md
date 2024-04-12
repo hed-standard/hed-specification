@@ -2,6 +2,21 @@
 
 --------DRAFT DRAFT DRAFT DRAFT DRAFT ------------
 
+This chapter defines the HED ontology and explains the relationship
+between the HED ontology and the HED schema.
+
+The `hed:` prefix is the abbreviation for HED's 
+[**IRI**](https://datatracker.ietf.org/doc/html/rfc3987)(International Resource Identifier) prefix.
+Terms with this prefix are associated with a particular schema -- either the standard schema or a library schema.
+Terms with the `heds:` prefix are structural elements common to all HED schemas.
+Both the `hed:` and `heds:` namespaces map to the same PURL (Persistent Uniform Resource Locator)
+as explained in [**8.3 HED global identifiers**](./#83-global-identifiers).
+
+Terms with the `rdfs:` prefix are from the 
+[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
+Terms with the `dc:` prefix are drawn from the
+[**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/).
+
 ## 8.1. HED views and representations
 
 ### 8.1.1. The annotator's view
@@ -114,7 +129,7 @@ contained in the HED ontology as illustrated in the following example.
 
 ![hed representations](_static/images/HedRepresentations.png)
 
-The mapping of the spreadsheet row and column values to a line in the MediaWiki is further explained in the
+The mapping of the spreadsheet row and column values to a line in the HED ontology is further explained in the
 following table:
 
 
@@ -123,50 +138,26 @@ following table:
 | **hedId**  | *xxx* | `Class: hed:xxx` |
 | **Level**  | *n* | Redundant information -- can be recovered using class hierarchy. |
 | **rdfs:label**  | *yyy* | `rdfs:label yyy` in the `Annotations` section |
-| **Parent** | *zzz* | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified by **hedId* rather name. |
-| **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. |
+| **Parent** | *zzz* | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
+| **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [**8.2.3. Schema attributes**|(./#823-schema-attributes). |
 | **dc:description** | *www* | `dc:description www` in the `Annotations` section. |
-|**EquivalentTo** |    | A combination of the information in **Parent** and **Attributes** |
+|**EquivalentTo** |    | A combination of the information in **Parent** and **Attributes**. |
 
-In this table `hed:` is the abbreviation for HED's IRI (International Resource Identifier)
-as explained in [**8.3 HED global identifiers](./#83-global-identifiers)
-
-HED tags are always represented by classes in the HED ontology. 
-A tag class IRI (International Resource Identifier) is its `hedId`.
-HED tag names also uniquely identify HED tags. 
-The `hedId` values are managed by tools and not allowed to be modified by users.
-
-The value in the `rdfs:label` column, which corresponds to the HED tag name in the MediaWiki,
-maps to `rdfs:label` in the `Annotation` section for the tag class in the ontology.
-The `rdfs:` prefix indicates that `label` is a term from the 
-[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
-For ease in editing, the spreadsheet uses an item's `rdfs:label` column value when referring to the item
-rather than its `hedId`, but the Ontology representation always uses the `hedId`.
-
-A top-level (level 0) tag such as `Event` is a subclass of `HedTag`, 
-while any tag lower in the HED schema hierarchy is a subclass of its parent tag (class).
-
-The value in the  `dc:description` which corresponds to the tag's description 
-maps to the `dc:description` in the `Annotation` for the tag class in the ontology.
-The `dc:` prefix indicates that `description` is a term from the Dublin Core ontology.
-
-If a HED tag has no attributes, its parent class in the HED hierarchy is given using `SubClassOf` in the ontology.
-However, if a tag has attributes, the class must be declared using restrictions with `EquivalentTo`.
-
-Users may add additional columns to the spreadsheet with qualified column names of the form `yyy:xxx`.
-`yyy` is a shortcut ref to a particular ontology, while `yyy` is a property in that ontology.
-These items are added automatically to the `Annotations:` section of the HED ontology.
+The next section describes the ontology structure in more detail.
 
 ## 8.2. HED schema to ontology
 
-Each HED element (tag, unit, unit class, unit modifier, or value class) is associated with its
-GUID in a HED schema using the `hedId` schema attribute.
+Each HED element (tag, unit, unit class, unit modifier, or value class) is associated with a
+unique persistent globally unique identifier --- the `hedId` schema attribute value in the
+HED schema and the entity ID in the HED ontology.
+The structural elements, common to all schemas also have unique assigned identifiers.
+The HED schema attributes are part of the HED structural ontology and 
 
-The examples in this section use `heds:` to denote the namespace of structural elements,
+The examples in this section 
 and `hed:` to represent schema-specific elements.
 Both namespaces map to the same PURL (Persistent Uniform Resource Locator).
 
-## 8.2.1. Overall ontology structure
+### 8.2.1. Overall ontology structure
 
 HED requires that child tags of tags in the HED schema satisfy the **is-a** relationship.
 This requirement is satisfied in HED ontology using subclass relationship.
@@ -181,8 +172,8 @@ but this is not currently being enforced.
 | Tag    | Class using subclassing to represent schema structure.<br/>The parent class appears either in `SubClassOf` or `EquivalentTo`. |
 | Unit class | Class inheriting from `StandardUnitClass` (`HED_0010006`)<br/>if defined in the standard schema. |
 | Unit  | Class inheriting from `StandardUnit` (`HED_0010007`)<br/>if defined in the standard schema.<br/>The class must have `hasUnitClass` some unit class. |
-| Unit modifier | Class in inheriting from `StandardUnitModifier` (`HED_0010008`)<br/>if defined in the standard schema. |
-| Value class | Classes |
+| Unit modifier | Class inheriting from `StandardUnitModifier` (`HED_0010008`)<br/>if defined in the standard schema. |
+| Value class | Class inheriting from `StandardValueClass` (`HED_0010009`)<br/>if defined in the standard schema. |
 | Attribute | `ObjectProperty`, `DataProperty`, or `AnnotationProperty` depending on range and inheritability.<br>Attributes are defined in the structure ontology. |
 | Property | Implicitly captured in the domains and ranges of the attributes. |
 
