@@ -65,7 +65,7 @@ The HED schema is embedded in a larger information space that includes
 additional information such as sources, provenance, and links to other ontologies.
 This HED information space is illustrated schematically in the following diagram.
 
-![hed information space](_static/images/HedInformationSpace.png)
+![hed information space](_static/images/HEDInformationSpace.png)
 
 The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema 8.3.0.
 The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) 
