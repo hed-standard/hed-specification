@@ -472,12 +472,14 @@ The following is a list of schema attribute properties.
 
 * - Property
   - Description
+* - `annotationProperty`
+  - This schema attribute is NOT inherited.<br/>Replaces `isInheritedProperty`.
 * - `boolRange`
   - This schema attribute's value can be true or false.<br/>This property was formerly named `boolProperty`.  
 * - `elementDomain`
   - This schema attribute can apply to any type<br/>of element (tag term, unit class, etc).<br/>This property was formerly named `elementProperty`. 
 * - `isInheritedProperty`
-  - This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.   
+  - **Deprecated from 8.2.0** in favor of `annotationProperty`.<br/>This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.   
 * - `tagDomain`
   - This schema attribute can apply to node (tag-term) elements.<br/>This was added so attributes could apply to multiple types of elements.<br/>This property was formerly named `nodeProperty`.   
 * - `tagRange`
