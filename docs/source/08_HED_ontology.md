@@ -17,6 +17,9 @@ Terms with the `rdfs:` prefix are from the
 Terms with the `dc:` prefix are drawn from the
 [**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/).
 
+Finally, the GitHub source repository for the HED ontologies is [**hed-ontology**](https://github.com/hed-standard/hed-ontology).
+The GitHub source repository for the HED schemas is [**hed-schemas**](https://github.com/hed-standard/hed-schemas).
+
 ## 8.1. HED views and representations
 
 ### 8.1.1. The annotator's view
