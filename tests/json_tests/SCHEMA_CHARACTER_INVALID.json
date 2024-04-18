@@ -356,9 +356,9 @@
             "'''Unit modifiers'''",
             "'''Value classes'''",
             "'''Schema attributes'''",
-            "* allowedCharacter {unitProperty}",
+            "* allowedCharacter {unitDomain}",
             "'''Properties'''",
-            "* unitProperty",
+            "* unitDomain",
             "'''Epilogue'''",
             "!# end hed"
           ],
@@ -375,11 +375,11 @@
             "'''Unit modifiers'''",
             "'''Value classes'''",
             "'''Schema attributes'''",
-            "* allowedCharacter {unitProperty}",
-            "* defaultUnit {unitClassProperty}",
+            "* allowedCharacter {unitDomain}",
+            "* defaultUnit {unitClassDomain}",
             "'''Properties'''",
-            "* unitProperty",
-            "* unitClassProperty",
+            "* unitDomain",
+            "* unitClassDomain",
             "'''Epilogue'''",
             "!# end hed"
           ]
