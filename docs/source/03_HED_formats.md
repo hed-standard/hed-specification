@@ -186,7 +186,7 @@ while unit modifiers used with SI unit symbols have the `SIUnitSymbolModifier` a
 
 If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a 
 section other than unit modifier section of the schema,
-a [**SCHEMA_ELEMENT_WRONG_SECTION**](./Appendix_B.md#schema_element_wrong_section) error occurs.
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_element_wrong_section) error occurs.
 
 **Unit modifiers are case-sensitive.**
 

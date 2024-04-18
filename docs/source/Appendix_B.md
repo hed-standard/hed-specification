@@ -441,13 +441,7 @@ Note: tag extensions may contain `nonascii` characters.
 
 #### SCHEMA_DUPLICATE_NODE
 
-**a.**  A schema node name appears in the schema more than once.  
-
-
-#### SCHEMA_ELEMENT_WRONG_SECTION
-
-**a.**  A schema element appears in the wrong section.  
-
+**a.**  A schema node name appears in the schema more than once.
 
 #### SCHEMA_HEADER_INVALID
 
