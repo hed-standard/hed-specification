@@ -138,7 +138,7 @@ contained in the HED ontology as illustrated in the following example.
 Notice that while the spreadsheet always refers to the entities by name (e.g., `rdfs:label`),
 the ontology uses the `hedId`.
 
-![hed representations](_static/images/HedRepresentations.png)
+![hed representations](_static/images/HEDRepresentations.png)
 
 Most HED entities (i.e., tags, unit classes, units, unit modifiers, and value classes) map to 
 classes in the HED ontology.
