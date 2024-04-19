@@ -219,7 +219,7 @@ The following table summarizes how the HED schema and HED ontology are mapped.
   - * Defined in the `Unit Modifiers` section of the HED schema.
     * Usually only defined in the standard schema
     * Defining schemas must define a class extending `HedUnitModifier` (`heds:HED_0000008`).
-    * Unit modifers in the standard schema inherit from `StandardUnitModifier` (`HED_0010008`).
+    * Unit modifiers in the standard schema inherit from `StandardUnitModifier` (`HED_0010008`).
 * - **Value class** 
   - * Defined in the `Value classes` section of the HED schema.
     * Usually only defined in the standard schema.

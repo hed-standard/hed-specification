@@ -238,7 +238,7 @@ Only the schema attributes listed in the following table can be handled by curre
   - Range
   - Description  
 * - [`allowedCharacter`](#a141-allowedcharacter)  
-  - unit<br/>unit modifer<br/>value class  
+  - unit<br/>unit modifier<br/>value class  
   - string
   - Specifies a character used in values of this class.  
 * - [`conversionFactor`](#a142-conversionfactor)
