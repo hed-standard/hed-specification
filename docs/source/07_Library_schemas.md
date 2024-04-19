@@ -311,7 +311,7 @@ error is generated.
 **Note:** With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas 
 should not have auxiliary sections except for the `prologue` and `epilogue`.  
 
-Auxilliary sections have information for HED tools, and new entries may require modification to
+Auxiliary sections have information for HED tools, and new entries may require modification to
 schema validation tools.  
 
 If a new entry is needed, contact the HED Working Group (hed.maintainers@gmail.com) to see if the
@@ -336,7 +336,7 @@ This section summarizes the general design rules for all library schema.
 :class: tip
 
 1. **Follow naming conventions**:<br/>
-A library schema must be given a name containing only alphabetic chararacters.
+A library schema must be given a name containing only alphabetic characters.
 This name must appear in the schema header line in the required format.
 <br>&nbsp;</br>
 2. **Use semantic versioning**:<br/>
