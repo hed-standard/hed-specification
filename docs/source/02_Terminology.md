@@ -150,7 +150,7 @@ The types of characters referred to in this specification are:
 | `lowercase` | ASCII characters a-z |  
 | `uppercase` | ASCII characters A-Z |
 | `letters` | `lowercase` and/or `uppercase` |
-| `text` | `printable` and/or `nonascii` exluding comma, square brackets, and curly braces.|
+| `text` | `printable` and/or `nonascii` excluding comma, square brackets, and curly braces.|
 | `digits` | 0-9 |
 | `tab` | ASCII code 09 |
 | `newline` | ASCII code 10 (linefeed) |
