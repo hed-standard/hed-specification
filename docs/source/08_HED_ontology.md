@@ -384,7 +384,7 @@ The mapping strategy is summarized in the following table.
 `DataProperty` and `ObjectProperty` are inherited by subclasses, and reasoners can check their consistency.
 `AnnotationProperty` is not inherited by subclasses, and reasoners ignore them.
 
-#### 8.2.3.2. Attribute properties
+#### 8.2.3.2. Schema attribute properties
 
 Schema attribute properties appear in the `Properties` section of a HED schema.
 Schema attribute properties determine how schema attributes behave and described in the following table.
@@ -406,6 +406,8 @@ Schema attribute properties determine how schema attributes behave and described
 | `valueClassDomain` | The attribute can apply to value classes. This property was formerly named `valueClassProperty`. |
 | `valueClassRange` | The value can be a value class. |
 
+Each schema attribute property is translated to an `AnnotationProperty` in the ontology.
+
 #### 8.2.3.3. Attribute representation
 
 The following table lists schema attributes with their types (A=`AnnotationProperty`, D=`DataProperty`, 
@@ -420,6 +422,7 @@ and O=`ObjectProperty`), domains and ranges.
 | `extensionAllowed`  |  | `tagDomain` | `boolRange` |   |
 | `hedId` | A | `elementDomain` | `stringRange` | Tools: Assign and verify. |
 | `inLibrary` | D | `elementDomain` | `stringRange` |    |
+| `isPartOf` | O | `tagDomain` | `tagRange` |  |
 | `relatedTag` | O | `tagDomain` | `tagRange` |    |
 | `requireChild`  | A | `tagDomain` | `boolRange` | Tools: Verify.  |
 | `reserved`  | D  | `tagDomain` | `boolRange` |   |
@@ -561,20 +564,24 @@ schemas.
 All HED standard and library schema entities are mapped to the `HED_xxxxxxx` namespace
 using the range assignments described in the following table.
 
-| HED ID |  Type |
-| ------ | ----- | 
-| HED_0000001-HED_0000099 | `Class` entities defining the structure of a HED schema  |
-| HED_0000100-HED_0000299 | `ObjectProperty` entities common to all HED schemas.|
-| HED_0000300-HED-0000499 | `DataProperty` entities common to all HED schemas. |  
-| HED_0000500- | `AnnotationProperty` entities common to all HED schemas. |
-| HED_0010001-HED_0010099  | `Class` structure of standard schema. |
-| HED_0011300-HED_0011399 | `HedValueClass` definitions in the standard schema. |
-| HED_0011400-HED_0011499 | `HedUnitModifier` definitions in the standard schema. |
-| HED_0011500-HED_0011599 | `HedUnitClass` definitions in the standard schema. |
-| HED_0011600-            | `HedUnit` definitions in the standard schema. |
-| HED_0012000-HED_0039999  | `HedTag` entities in the standard schema. |
-| HED_0042000-HED_0059999  | `HedTag` entities in the score schema. |
-| HED_0062000-HED_0079999  | `HedTag` entities in the lang schema. |
+| HED ID |  Owl type | Description |
+| ------ | --------- | ----------- |
+| HED_0000001-<br/>HED_0000099 | `Class`  | HED schema structure (EX: `HedTag`). |
+| HED_0000100-<br/>HED_0000299 | `ObjectProperty` | Common object function (EX: `hasUnitClass`).|
+| HED_0000300-<br/>HED-0000499 | `DataProperty` | Common data function (EX: `library`). |
+| HED_0000500-<br/>HED_0000999 | `AnnotationProperty` | Currently not used. |
+| HED_0010001-<br/>HED_0010099 | `Class` | Standard schema structure (EX: `StandardHeader`). |
+| HED_0010100-<br/>HED_0010299 | `ObjectProperty` | Standard schema object function (EX: `suggestedTag`).|
+| HED_0010300-<br/>HED-0010499 | `DataProperty` | Standard schema data function (EX: `extensionAllowed`). |
+| HED_0010500-<br/>HED-0010699 | `AnnotationProperty` | Standard schema property not inherited (EX: `takesValue`). |
+| HED_0010700-<br/>HED-0010899 | `AnnotationProperty` | Standard schema attribute property (EX: `tagDomain`). |
+| HED_0011300-<br/>HED_0011399 | `HedValueClass` | Standard schema value class (EX:`textClass`). |
+| HED_0011400-<br/>HED_0011499 | `HedUnitModifier` | Standard schema unit modifier (EX: `deca`). |
+| HED_0011500-<br/>HED_0011599 | `HedUnitClass` | Standard schema unit class (EX: `timeUnits`). |
+| HED_0011600-<br/>HED_0011699 | `HedUnit` | Standard schema unit (EX: `hour`). |
+| HED_0012000-<br/>HED_0039999  | `HedTag` | Standard schema HED tag (EX: `Sensory-event`). |
+| HED_0042000-<br/>HED_0059999  | `HedTag` | SCORE schema HED tag (EX: `Episode`). |
+| HED_0062000-<br/>HED_0079999  | `HedTag` | LANG schema HED tag. |
 
 ### 8.3.3. HED IRIs
 
