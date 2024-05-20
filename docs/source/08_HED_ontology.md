@@ -1,23 +1,11 @@
 # 8. The HED ontology
 
---------DRAFT DRAFT DRAFT DRAFT DRAFT ------------
-
-This chapter defines the HED ontology and explains the relationship
-between the HED ontology and the HED schema.
-
-The `hed:` prefix is the abbreviation for HED's 
-[**IRI**](https://datatracker.ietf.org/doc/html/rfc3987) (International Resource Identifier) prefix.
-Terms with this prefix are associated with a particular schema -- either the standard schema or a library schema.
-Terms with the `heds:` prefix are structural elements common to all HED schemas.
-Both the `hed:` and `heds:` namespaces map to the same PURL (Persistent Uniform Resource Locator)
+This chapter defines the HED ontology and its relationship to the HED schema.
+HED maps all of its entities (i.e., standard schema, library schemas, structural elements, properties)
+into a single namespace with unique [**IRI**](https://datatracker.ietf.org/doc/html/rfc3987) (International Resource Identifier) identifiers
 as explained in [**8.3 HED global identifiers**](#83-hed-global-identifiers).
 
-Terms with the `rdfs:` prefix are from the 
-[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
-Terms with the `dc:` prefix are drawn from the
-[**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/).
-
-Finally, the GitHub source repository for the HED ontologies is [**hed-ontology**](https://github.com/hed-standard/hed-ontology).
+The GitHub source repository for the HED ontologies is [**hed-ontology**](https://github.com/hed-standard/hed-ontology).
 The GitHub source repository for the HED schemas is [**hed-schemas**](https://github.com/hed-standard/hed-schemas).
 
 ## 8.1. HED views and representations
@@ -37,9 +25,9 @@ manner to support this work-flow.
 
 In the diagram, top-level tags `S1`, `S4`, and `L6` represent general categories
 and are roots of subtrees organized so that child nodes are more specific terms.
-HED supports "search generality", so searches may specify an exact match or matches any term in a particular subtree.
-In the latter case a search for `Event` may also match `Sensory-event` or `Agent-action` or any other descendent of
-`Event`.
+HED supports "search generality", so searches may specify an exact match or matches to any term in a particular subtree.
+In the latter case, a search for `Event` may also match any of its descendents
+(e.g., `Sensory-event` or `Agent-action`).
 
 The [**HED schema viewer**](https://www.hedtags.org/display_hed.html),
 allows users to focus on top-level categories or expand the hierarchy view to any specified level of detail.
@@ -89,23 +77,54 @@ The HED vocabularies have 4 different formats as shown in the following table:
 | OWL | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet |
 
 The HED schema, which contains the core HED vocabulary and captures the "annotator's view" of HED,
-is completely represented in either the HED MediaWiki and HED XML formats.
+can be completely represented in the HED Mediawiki, XML, or spreadsheet formats.
 The HED schema is used for annotation, validation, searching, and most analyses.
-Tools access the HED schema in its XML format, but schema developers create
-and update the schema in MediaWiki format, which is easier to read and displays as formatted
+Tools access the HED schema in its XML format, but schema developers usually create
+and update the schema in Mediawiki format, which is easier to read and displays as formatted
 MarkDown on GitHub.
+Alternatively schema developers may opt to create or update schemas from the HED spreadsheets.
 
-The HED ontology represents the entire HED information space in 
-[**OWL**](https://www.w3.org/OWL/) (Web Ontology Language).
-The HED ontology is available in both [**OWL/RDF**](https://www.w3.org/TR/owl2-mapping-to-rdf/) format
-and [**OWL Manchester**](https://www.w3.org/TR/owl2-manchester-syntax/) format
-but the examples in this specification use OWL Manchester format for readability.
+#### 8.1.4.1 The Mediawiki format
+The Mediawiki format is line-oriented with non-blank line corresponding to a HED tag or other HED entity
+such as a unit class or schema attribute definition.
+See [**A.2. Mediawiki file format**](./Appendix_A.md#a-2-mediawiki-file-format)
+for a detailed description of the Mediawiki format.
+
+#### 8.1.4.1. Spreadsheet format
+
+The spreadsheet format consists of 10 tab-separated value (tsv) files each containing
+the information for one type of entity as summarized in the following table.
+The `xxx_` prefix identifies the schema version.
+For example  `HED_`
+
+| tsv file name          | Contents |
+|------------------------| -------- |
+| xxx_AnnotationProperty |  Properties that |
+| xxx_AttributeProperty      | Definitions of the schema attribute properties in `Properties` |
+| xxx_DataProperty           | Schema attributes whose value is a literal such as boolean, string or numeric. |
+| xxx_ObjectProperty         | Schema attributes whose value is another schema entity such as a HED tag. |
+| xxx_Structure              | Structural entities needed for the ontology.<br/>This file doesn't change. |
+| xxx_Tag                    | Definitions of the HED tags (vocabulary) in the schema. |
+| xxx_Unit                   | Definitions of the HED unit entities. |
+| xxx_UnitClass              | Definitions of the HED unit classes. |
+| xxx_UnitModifier           | Definitions of the HED unit modifiers. |
+| xxx_ValueClass             | Defintions of the HED value classes. |
+
+Most schema developers will ed
+
+In this document, entities from the HED ontology are prefixed with `hed:`.
+Terms with the `rdfs:` prefix are from the 
+[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
+Terms with the `dc:` prefix are drawn from the
+[**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/).
+
+
 
 #### 8.1.4.1. Spreadsheet <--> Mediawiki
 
-The HED schema also has a HED spreadsheet representation 
-(with columns containing a tag's name, parent, attributes, and description).
-The mapping between the HED MediaWiki format and the HED spreadsheet is illustrated in the following example:
+Each non-blank line in a HED Mediawiki file corresponds to a single HED entity such as a HED tag.
+Similarly, each row in a HED The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet
+as illustrated in the following example:
 
 ![hed mediawiki to spreadsheet](_static/images/HEDSpreadsheetMediawiki.png)
 
@@ -139,6 +158,13 @@ Notice that while the spreadsheet always refers to the entities by name (e.g., `
 the ontology uses the `hedId`.
 
 ![hed representations](_static/images/HEDRepresentations.png)
+
+The HED ontology represents the entire HED information space in 
+[**OWL**](https://www.w3.org/OWL/) (Web Ontology Language).
+The HED ontology is available in both [**OWL/RDF**](https://www.w3.org/TR/owl2-mapping-to-rdf/) format
+and [**OWL Manchester**](https://www.w3.org/TR/owl2-manchester-syntax/) format,
+but the examples in this specification use OWL Manchester format for readability.
+Developers must use the HED spreadsheets to create or update a HED ontology.
 
 Most HED entities (i.e., tags, unit classes, units, unit modifiers, and value classes) map to 
 classes in the HED ontology.
