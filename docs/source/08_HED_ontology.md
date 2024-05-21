@@ -84,43 +84,70 @@ and update the schema in Mediawiki format, which is easier to read and displays 
 MarkDown on GitHub.
 Alternatively schema developers may opt to create or update schemas from the HED spreadsheets.
 
-#### 8.1.4.1 The Mediawiki format
-The Mediawiki format is line-oriented with non-blank line corresponding to a HED tag or other HED entity
+#### 8.1.4.1. The Mediawiki format
+The Mediawiki format is line-oriented with each non-blank line corresponding to a HED tag or other HED entity
 such as a unit class or schema attribute definition.
 See [**A.2. Mediawiki file format**](./Appendix_A.md#a-2-mediawiki-file-format)
 for a detailed description of the Mediawiki format.
 
-#### 8.1.4.1. Spreadsheet format
+#### 8.1.4.2. Spreadsheet files
 
 The spreadsheet format consists of 10 tab-separated value (tsv) files each containing
-the information for one type of entity as summarized in the following table.
+the information for one type of HED entity as summarized in the following table.
+
+
+| tsv file name          | Contents                                                                       |
+|------------------------|--------------------------------------------------------------------------------|
+| `xxx_AnnotationProperty` | Properties that                                                                |
+| `xxx_AttributeProperty`  | Definitions of the schema attribute properties in `Properties`                 |
+| `xxx_DataProperty`   | Schema attributes whose value is a literal such as boolean, string or numeric. |
+| `xxx_ObjectProperty`   | Schema attributes whose value is another schema entity such as a HED tag.      |
+| `xxx_Structure`    | Structural entities including the header, prologue, and epilogue.              |
+| `xxx_Tag`   | Definitions of the HED tags (vocabulary) in the schema.                        |
+| `xxx_Unit`   | Definitions of the HED unit entities.                                          |
+| `xxx_UnitClass`   | Definitions of the HED unit classes.                                           |
+| `xxx_UnitModifier`   | Definitions of the HED unit modifiers.                                         |
+| `xxx_ValueClass`    | Definitions of the HED value classes.                                          |
+
 The `xxx_` prefix identifies the schema version.
-For example  `HED_`
+For example, the prefix for standard schema version 8.3.0 is  `HED8.3.0_` and
+the prefix for SCORE library schema 2.0.0 is `HED_score_2.0.0_`.
 
-| tsv file name          | Contents |
-|------------------------| -------- |
-| xxx_AnnotationProperty |  Properties that |
-| xxx_AttributeProperty      | Definitions of the schema attribute properties in `Properties` |
-| xxx_DataProperty           | Schema attributes whose value is a literal such as boolean, string or numeric. |
-| xxx_ObjectProperty         | Schema attributes whose value is another schema entity such as a HED tag. |
-| xxx_Structure              | Structural entities needed for the ontology.<br/>This file doesn't change. |
-| xxx_Tag                    | Definitions of the HED tags (vocabulary) in the schema. |
-| xxx_Unit                   | Definitions of the HED unit entities. |
-| xxx_UnitClass              | Definitions of the HED unit classes. |
-| xxx_UnitModifier           | Definitions of the HED unit modifiers. |
-| xxx_ValueClass             | Defintions of the HED value classes. |
-
-Most schema developers will ed
-
-In this document, entities from the HED ontology are prefixed with `hed:`.
-Terms with the `rdfs:` prefix are from the 
-[**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema).
-Terms with the `dc:` prefix are drawn from the
-[**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/).
+Most schema developers will only edit the `xxx_Tag.tsv` file or the `xxx_Structure.tsv` file.
 
 
+#### 8.1.4.3. Spreadsheet format
 
-#### 8.1.4.1. Spreadsheet <--> Mediawiki
+Each HED spreadsheet must start with a 1-line header containing the column names of the file.
+The first two column names are always `hedId` and `rdfs:label`
+
+| tsv file name          | Required column names                                                                                      |
+|------------------------|------------------------------------------------------------------------------------------------------------|
+| `xxx_AnnotationProperty` | `hedId`, `rdfs:label`, `Type`, `omn:Domain`, `omn:Range`, `dc:description`                                 |
+| `xxx_AttributeProperty`  | `hedId`, `rdfs:label`, `Type`, `dc:description`                                                            |
+| `xxx_DataProperty`   | `hedId`, `rdfs:label`, `Type`, `omn:Domain`, `omn:Range`, `Properties`, `dc:description`                   |
+| `xxx_ObjectProperty`   | `hedId`, `rdfs:label`, `Type`, `omn:Domain`, `omn:Range`, `Properties`, `dc:description`                   |
+| `xxx_Structure`    | `hedId`, `rdfs:label`, `Attributes`, `dc:description`                                                      |
+| `xxx_Tag`   | `hedId`, `Level`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`       |
+| `xxx_Unit`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `hadUnitClass`, `Attributes`, `dc:description`, `omn:EquivalentTo` |
+| `xxx_UnitClass`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`                                                                      |
+| `xxx_UnitModifier`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`                                                                    |
+| `xxx_ValueClass`    | `hedId`, `rdfs:label`, `omn:SubClassOf`,  `Attributes`, `dc:description`, `omn:EquivalentTo`                                                                      |
+
+The prefixes on column names have the following meanings:
+
+| Column name prefix | Meaning                                                                                                            |
+| ------------------ |--------------------------------------------------------------------------------------------------------------------|
+|   `rdfs:`  | from [**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema). |
+| `dc:` | from [**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/). |
+|`omn:` | translated directly to OWL Manchester Format. |
+
+Users may add additional columns corresponding to annotation properties from
+the Dublin Core or the RDF schema (e.g., `dc:comment`) and the HED ontology framework will
+include them in the ontology. However, these columns do not impact the HED schema.
+
+
+#### 8.1.4.4. Spreadsheet <--> Mediawiki
 
 Each non-blank line in a HED Mediawiki file corresponds to a single HED entity such as a HED tag.
 Similarly, each row in a HED The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet
@@ -146,11 +173,11 @@ following table:
 
 HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and
 can use tools to update the representations.
-Users may NOT assign or modify the `hedId` in the MediaWiki file.
+Users may NOT assign or modify the `hedId`. When creating a new entity such as a tag, leave the `hedId` column blank.
 If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. 
 Tools will assign and validate the `hedId` during the update process.
 
-#### 8.1.4.2. Spreadsheet <--> Ontology
+#### 8.1.4.5. Tag spreadsheet <--> Ontology
 
 HED spreadsheets have been expanded to include additional columns to capture all the information 
 contained in the HED ontology as illustrated in the following example.
@@ -180,8 +207,8 @@ following table:
 | Spreadsheet<br/>column | Row value | Ontology format |
 | ----------- |:------------------:| ------- |
 | **hedId**  | *xxx* | `Class: hed:xxx` |
-| **Level**  | *n* | Redundant information -- can be recovered using class hierarchy. |
 | **rdfs:label**  | *yyy* | `rdfs:label yyy` in the `Annotations` section |
+| **Level**  | *n* | Redundant information -- can be recovered using class hierarchy. |
 | **omn:SubClassOf** | *zzz* | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
 | **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [**8.2.3. Schema attributes**|(./#823-schema-attributes). |
 | **dc:description** | *www* | `dc:description www` in the `Annotations` section. |
