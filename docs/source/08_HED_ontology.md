@@ -96,18 +96,18 @@ The spreadsheet format consists of 10 tab-separated value (tsv) files each conta
 the information for one type of HED entity as summarized in the following table.
 
 
-| tsv file name          | Contents                                                                       |
-|------------------------|--------------------------------------------------------------------------------|
-| `xxx_AnnotationProperty` | Properties that                                                                |
-| `xxx_AttributeProperty`  | Definitions of the schema attribute properties in `Properties`                 |
-| `xxx_DataProperty`   | Schema attributes whose value is a literal such as boolean, string or numeric. |
-| `xxx_ObjectProperty`   | Schema attributes whose value is another schema entity such as a HED tag.      |
-| `xxx_Structure`    | Structural entities including the header, prologue, and epilogue.              |
-| `xxx_Tag`   | Definitions of the HED tags (vocabulary) in the schema.                        |
-| `xxx_Unit`   | Definitions of the HED unit entities.                                          |
-| `xxx_UnitClass`   | Definitions of the HED unit classes.                                           |
-| `xxx_UnitModifier`   | Definitions of the HED unit modifiers.                                         |
-| `xxx_ValueClass`    | Definitions of the HED value classes.                                          |
+| tsv file name          | Contents                                                                                                                 |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `xxx_AnnotationProperty` | These correspond to schema attributes that are not inherited.                                                            |
+| `xxx_AttributeProperty`  | Definitions of the schema attribute properties corresponding<br/><br/>to the `Properties` section in the MediaWiki File. |
+| `xxx_DataProperty`   | Schema attributes whose value is a literal such as boolean, string or numeric.                                           |
+| `xxx_ObjectProperty`   | Schema attributes whose value is another schema entity such as a HED tag.                                                |
+| `xxx_Structure`    | Structural entities including the header, prologue, and epilogue.                                                        |
+| `xxx_Tag`   | Definitions of the HED tags (vocabulary) in the schema.                                                                  |
+| `xxx_Unit`   | Definitions of the HED unit entities.                                                                                    |
+| `xxx_UnitClass`   | Definitions of the HED unit classes.                                                                                     |
+| `xxx_UnitModifier`   | Definitions of the HED unit modifiers.                                                                                   |
+| `xxx_ValueClass`    | Definitions of the HED value classes.                                                                                    |
 
 The `xxx_` prefix identifies the schema version.
 For example, the prefix for standard schema version 8.3.0 is  `HED8.3.0_` and
@@ -119,7 +119,7 @@ Most schema developers will only edit the `xxx_Tag.tsv` file or the `xxx_Structu
 #### 8.1.4.3. Spreadsheet format
 
 Each HED spreadsheet must start with a 1-line header containing the column names of the file.
-The first two column names are always `hedId` and `rdfs:label`
+The first two column names are always `hedId` and `rdfs:label`.
 
 | tsv file name          | Required column names                                                                                      |
 |------------------------|------------------------------------------------------------------------------------------------------------|
@@ -128,7 +128,7 @@ The first two column names are always `hedId` and `rdfs:label`
 | `xxx_DataProperty`   | `hedId`, `rdfs:label`, `Type`, `omn:Domain`, `omn:Range`, `Properties`, `dc:description`                   |
 | `xxx_ObjectProperty`   | `hedId`, `rdfs:label`, `Type`, `omn:Domain`, `omn:Range`, `Properties`, `dc:description`                   |
 | `xxx_Structure`    | `hedId`, `rdfs:label`, `Attributes`, `dc:description`                                                      |
-| `xxx_Tag`   | `hedId`, `Level`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`       |
+| `xxx_Tag`   | `hedId`, `rdfs:label`, `Level`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`       |
 | `xxx_Unit`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `hadUnitClass`, `Attributes`, `dc:description`, `omn:EquivalentTo` |
 | `xxx_UnitClass`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`                                                                      |
 | `xxx_UnitModifier`   | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `omn:EquivalentTo`                                                                    |
@@ -150,7 +150,8 @@ include them in the ontology. However, these columns do not impact the HED schem
 #### 8.1.4.4. Spreadsheet <--> Mediawiki
 
 Each non-blank line in a HED Mediawiki file corresponds to a single HED entity such as a HED tag.
-Similarly, each row in a HED The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet
+Similarly, each row in a HED spreadsheet file corresponds to a single HED entity.
+The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet
 as illustrated in the following example:
 
 ![hed mediawiki to spreadsheet](_static/images/HEDSpreadsheetMediawiki.png)
@@ -219,11 +220,12 @@ The next section describes the ontology structure in more detail.
 
 ## 8.2. HED schema to ontology
 
-Each HED element (tag, unit, unit class, unit modifier, or value class) is associated with a
-unique persistent globally unique identifier --- the `hedId` schema attribute value in the
-HED schema and the entity ID in the HED ontology.
-The structural elements, common to all schemas also have unique assigned identifiers.
-The HED schema attributes are part of the HED structural ontology and 
+Each element of a HED schema (i.e., tag, unit, unit class, unit modifier, value class, schema attribute, 
+schema attribute property, schema header, epilogue, and prologue) is assigned a
+unique persistent globally unique identifier (GUID).
+This GUID appears as the entity identifier in the ontology and as the `hedId` attribute value in the HED schema.
+In addition to the HED elements the HED ontology also has some overall structural elements
+that are also assigned `hedId` values.
 
 The examples in this section 
 and `hed:` to represent schema-specific elements.
@@ -249,10 +251,11 @@ The following table summarizes how the HED schema and HED ontology are mapped.
   - Class with `DataProperty` values for:
     * `version` - (required) semantic version of schema.
     * `library` - (optional) library name if library.
-    * `withStandard` - (optional) semantic version of library's standard partner).
+    * `withStandard` - (optional) semantic version of library's standard partner.
     * `merged`- (optional) library has been merged with its standard schema partner.
 * - **Tag**
-  - * Defined in the `schema` section of the HED schema.
+  - Class representing HED tags:
+    * Defined in the `schema` section of the HED schema.
     * Uses subclassing to represent HED schema structure.
     * Top-level tags extend `HedTag` (`heds:HED_0000005`).
     * A rooted library tag extends its root in the standard schema.
@@ -296,7 +299,7 @@ The following table summarizes how the HED schema and HED ontology are mapped.
 
 The HED schema hierarchy is captured by subclassing in the HED ontology.
 Top-level tag nodes in the HED schema are direct subclasses of the `HedTag` class (`heds:HED_0000005`).
-A descendent of a top-level tag node is a direct subclass of its parent tag node in the HED schema.
+A descendant of a top-level tag node is a direct subclass of its parent tag node in the HED schema.
 The ontology subclass relationship enforces the HED requirement that each tag in the
 HED schema must satisfy the **is-a** relationship with its parent in the HED schema.
 
@@ -306,7 +309,7 @@ to illustrate how subclassing is represented in the various HED formats.
 #### 8.2.2.1. Mediawiki tag format
 
 The **MediaWiki** representation uses ordering and asterisks to mark parentage relationships.
-In other words, the HED Wikimedia schema tree is given in depth-first search order.
+In other words, the HED MediaWiki schema tree is given in depth-first search order.
 The parent of a tag prefixed by *X* number of asterisks is a direct child of the first tag
 above it with *X-1* asterisks.
 Top level tags are enclosed by three quotes and have no parent within the schema (i.e., *X* = 0).
@@ -508,7 +511,10 @@ In the MediaWiki format, schema attributes appear in the `Schema Attributes` sec
 ```
 Note: this example has line breaks added to fit on the page. Each element in Mediawiki must appear on one line.
 ````
-The `extensionAllowed` attribute has a unique `hedId
+The `extensionAllowed` attribute has a unique `hedId` value `HED_0010307`. The `tagDomain` attribute indicates that 
+`extensionAllowed` is only a schema attribute of HED tags.
+The `boolRange` attribute indicates that `extenstionAllowed` is true if present and false if absent.
+
 #### 8.2.3.5. XML attribute format
 
 
