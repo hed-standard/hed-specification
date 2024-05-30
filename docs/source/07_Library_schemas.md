@@ -78,7 +78,7 @@ containing only the information specific to the library schema.
 The following example shows the header for the `.mediawiki` developer's version
 of a partnered library schema.
 
-````{admonition} Mediawiki header for TESTLIB library 2.0.0 partnered with 8.2.0 (unmerged).
+````{admonition} MediaWiki header for TESTLIB library 2.0.0 partnered with 8.2.0 (unmerged).
 ```html
 HED library="testlib" version="2.0.0" withStandard="8.2.0" unmerged="true"
 ```

@@ -69,26 +69,26 @@ In this document we use OWL Manchester format (`.omn`) for readability.
 
 The HED vocabularies have 4 different formats as shown in the following table:
 
-| Format | Content | Uses | Editing |
-| ------ | ------- | ---- | ------- |
-| Mediawiki | Schema | Schema development<br/>Schema updating | Manual editing<br/>Updated from spreadsheet |  
-| XML | Schema | Annotation tools<br/>Validation tools<br/>Analysis tools | Generated from MediaWiki |
+| Format      | Content | Uses | Editing |
+|-------------| ------- | ---- | ------- |
+| MediaWiki   | Schema | Schema development<br/>Schema updating | Manual editing<br/>Updated from spreadsheet |  
+| XML         | Schema | Annotation tools<br/>Validation tools<br/>Analysis tools | Generated from MediaWiki |
 | Spreadsheet | Complete | Schema development<br/>Schema updating<br/>Ontology updating | Manual editing<br/>Updated from MediaWiki<br/>Updated from OWL |
-| OWL | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet |
+| OWL         | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet |
 
 The HED schema, which contains the core HED vocabulary and captures the "annotator's view" of HED,
-can be completely represented in the HED Mediawiki, XML, or spreadsheet formats.
+can be completely represented in the HED MediaWiki, XML, or spreadsheet formats.
 The HED schema is used for annotation, validation, searching, and most analyses.
 Tools access the HED schema in its XML format, but schema developers usually create
-and update the schema in Mediawiki format, which is easier to read and displays as formatted
+and update the schema in MediaWiki format, which is easier to read and displays as formatted
 MarkDown on GitHub.
 Alternatively schema developers may opt to create or update schemas from the HED spreadsheets.
 
-#### 8.1.4.1. The Mediawiki format
-The Mediawiki format is line-oriented with each non-blank line corresponding to a HED tag or other HED entity
+#### 8.1.4.1. The MediaWiki format
+The MediaWiki format is line-oriented with each non-blank line corresponding to a HED tag or other HED entity
 such as a unit class or schema attribute definition.
-See [**A.2. Mediawiki file format**](./Appendix_A.md#a-2-mediawiki-file-format)
-for a detailed description of the Mediawiki format.
+See [**A.2. MediaWiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
+for a detailed description of the MediaWiki format.
 
 #### 8.1.4.2. Spreadsheet files
 
@@ -147,9 +147,9 @@ the Dublin Core or the RDF schema (e.g., `dc:comment`) and the HED ontology fram
 include them in the ontology. However, these columns do not impact the HED schema.
 
 
-#### 8.1.4.4. Spreadsheet <--> Mediawiki
+#### 8.1.4.4. Spreadsheet <--> MediaWiki
 
-Each non-blank line in a HED Mediawiki file corresponds to a single HED entity such as a HED tag.
+Each non-blank line in a HED MediaWiki file corresponds to a single HED entity such as a HED tag.
 Similarly, each row in a HED spreadsheet file corresponds to a single HED entity.
 The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet
 as illustrated in the following example:
@@ -162,15 +162,18 @@ but the above diagram has formatted the information so that it will fit within i
 The mapping of the spreadsheet row and column values to a line in the MediaWiki is further explained in the
 following table:
 
-| Spreadsheet<br/>column | Row value | MediaWiki format |
-| ----------- |:------------------:| ------- |
-| **hedId**  | *xxx* | {hedId=*xxx*, ... other attributes in comma separated list} |
-| **Level**  | 0 | This row corresponds to a top-level HED tag. **EX:**  `'''tag'''`.  |  
+| Spreadsheet<br/>column | Row value | MediaWiki format                                                                                                  |
+| ----------- |:------------------:|-------------------------------------------------------------------------------------------------------------------|
+| **hedId**  | *xxx* | {hedId=*xxx*, ... other attributes in comma separated list}                                                       |
+| **rdfs:label**  | *yyy* | The tag's unique name is *yyy*.                                                                                   |
+| **Level**  | 0 | This row corresponds to a top-level HED tag. **EX:**  `'''tag'''`.                                                |  
 | **Level**  | *n* | For level *n* > 0, *n* asterisks appear in front of `tag`.<br/>Example: `* tag` when *n* = 1. **EX:** `** tag` when *n*=2. |
-| **rdfs:label**  | *yyy* | The tag's unique name is *yyy*. |
-| **omn:SubClassOf** | *zzz* | The tag's parent tag in the HED hierarchy is *zzz*. |
-| **Attributes** | *uuu*, *vvv*, ... | List appearing in curly braces: {hedId=*xxx*, *uuu*, *vvv*, ...} |
-| **dc:description** | *www* | The contents of the square braces: [*www*]. |
+| **omn:SubClassOf** | *zzz* | The tag's parent tag in the HED hierarchy is *zzz*.                                                               |
+| **Attributes** | *uuu*, *vvv*, ... | List appearing in curly braces: {hedId=*xxx*, *uuu*,  *vvv*, ...}         |
+| **dc:description** | *www* | The contents of the square braces: [*www*].                                                                       |
+
+Note: Attributes that have boolean values are true if the attribute is present and false if absent.
+Non-boolean attributes are specified using "attribute-name=value".
 
 HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and
 can use tools to update the representations.
@@ -306,7 +309,7 @@ HED schema must satisfy the **is-a** relationship with its parent in the HED sch
 The examples of this section use the `Action` tag and its child `Communicate`
 to illustrate how subclassing is represented in the various HED formats.
 
-#### 8.2.2.1. Mediawiki tag format
+#### 8.2.2.1. MediaWiki tag format
 
 The **MediaWiki** representation uses ordering and asterisks to mark parentage relationships.
 In other words, the HED MediaWiki schema tree is given in depth-first search order.
@@ -326,7 +329,7 @@ The `Communicate` tag is a child (subclass) of `Action`.
 ```
 
 In this example `Action` is level 0 (top-level) and `Communicate` is level 1. 
-Mediawiki uses ordering to determine subclasses. 
+MediaWiki uses ordering to determine subclasses. 
 Since `Action` is the closest preceding tag whose level is one less than
 that of `Communicate`, so `Action` is the parent tag of `Communicate`.
 
@@ -470,34 +473,34 @@ The following table lists schema attributes with their types (A=`AnnotationPrope
 and O=`ObjectProperty`), domains and ranges.
 
 | Attribute | Type |  Domain  |  Range |  Handling
-| --------- | ---------- | ---------  | ---------- | ------|
-| `allowedCharacter`  | D | `unitDomain`<br/>`unitModifierDomain`<br/>`valueClassDomain` | string  |    |
-| `conversionFactor` | D | `unitDomain`<br/>`unitModifierDomain` | `numericRange` |    |
-| `defaultUnits`  | O | `unitClassDomain` | `unitRange` |    |
-|  `deprecatedFrom` | D | `elementDomain` | `stringRange`   |    |
-| `extensionAllowed`  |  | `tagDomain` | `boolRange` |   |
-| `hedId` | A | `elementDomain` | `stringRange` | Tools: Assign and verify. |
-| `inLibrary` | D | `elementDomain` | `stringRange` |    |
-| `isPartOf` | O | `tagDomain` | `tagRange` |  |
-| `relatedTag` | O | `tagDomain` | `tagRange` |    |
-| `requireChild`  | A | `tagDomain` | `boolRange` | Tools: Verify.  |
-| `reserved`  | D  | `tagDomain` | `boolRange` |   |
-| `rooted`  | A | `tagDomain` | `tagRange` | Tools: make tag subclass of tag in range. |
-| `SIUnit`  | D | `unitDomain` | `boolRange` |   |
-| `SIUnitModifier` | D | `unitModifierDomain` | `boolRange` |   |   |
-| `SIUnitSymbolModifier` | D | `SIUnitSymbolModifier` |  `boolRange` |   | 
-| `suggestedTag` | O | `tagDomain` | `tagRange` |   |
-| `tagGroup`  | D | `tagDomain` | `boolRange` |   |
-| `takesValue` | A | `tagDomain` | `boolRange` | Only placeholders |
-| `topLevelTagGroup` | D | `tagDomain` | `boolRange`  |    | 
-| `unique` | D |`tagDomain`  | `boolRange`  |    |
-| `unitClass` | O | `tagDomain` | `unitRange`  |   |
-| `unitPrefix` | D | `unitDomain` | `boolRange`  |  |
-| `unitSymbol` | D |`unitDomain` |  `boolRange`  |   |
-| `valueClass` | O | `tagDomain` | `valueClassRange`  |   |
+| --------- |------| ---------  | ---------- | ------|
+| `allowedCharacter`  | D    | `unitDomain`<br/>`unitModifierDomain`<br/>`valueClassDomain` | string  |    |
+| `conversionFactor` | D    | `unitDomain`<br/>`unitModifierDomain` | `numericRange` |    |
+| `defaultUnits`  | O    | `unitClassDomain` | `unitRange` |    |
+|  `deprecatedFrom` | D    | `elementDomain` | `stringRange`   |    |
+| `extensionAllowed`  | D  | `tagDomain` | `boolRange` |   |
+| `hedId` | A    | `elementDomain` | `stringRange` | Tools: Assign and verify. |
+| `inLibrary` | D    | `elementDomain` | `stringRange` |    |
+| `isPartOf` | O    | `tagDomain` | `tagRange` |  |
+| `relatedTag` | O    | `tagDomain` | `tagRange` |    |
+| `requireChild`  | A    | `tagDomain` | `boolRange` | Tools: Verify.  |
+| `reserved`  | D    | `tagDomain` | `boolRange` |   |
+| `rooted`  | A    | `tagDomain` | `tagRange` | Tools: make tag subclass of tag in range. |
+| `SIUnit`  | D    | `unitDomain` | `boolRange` |   |
+| `SIUnitModifier` | D    | `unitModifierDomain` | `boolRange` |   |   |
+| `SIUnitSymbolModifier` | D    | `SIUnitSymbolModifier` |  `boolRange` |   | 
+| `suggestedTag` | O    | `tagDomain` | `tagRange` |   |
+| `tagGroup`  | D    | `tagDomain` | `boolRange` |   |
+| `takesValue` | A    | `tagDomain` | `boolRange` | Only placeholders |
+| `topLevelTagGroup` | D    | `tagDomain` | `boolRange`  |    | 
+| `unique` | D    |`tagDomain`  | `boolRange`  |    |
+| `unitClass` | O    | `tagDomain` | `unitRange`  |   |
+| `unitPrefix` | D    | `unitDomain` | `boolRange`  |  |
+| `unitSymbol` | D    |`unitDomain` |  `boolRange`  |   |
+| `valueClass` | O    | `tagDomain` | `valueClassRange`  |   |
 
 
-#### 8.2.3.4. Mediawiki attribute format
+#### 8.2.3.4. MediaWiki attribute format
 
 In the MediaWiki format, schema attributes appear in the `Schema Attributes` section of the schema.
 
@@ -509,7 +512,7 @@ In the MediaWiki format, schema attributes appear in the `Schema Attributes` sec
                             under this tag. This tag is propagated to child nodes except for 
                             hashtag placeholders.]</nowiki>
 ```
-Note: this example has line breaks added to fit on the page. Each element in Mediawiki must appear on one line.
+Note: this example has line breaks added to fit on the page. Each element in MediaWiki must appear on one line.
 ````
 The `extensionAllowed` attribute has a unique `hedId` value `HED_0010307`. The `tagDomain` attribute indicates that 
 `extensionAllowed` is only a schema attribute of HED tags.

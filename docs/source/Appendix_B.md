@@ -474,7 +474,7 @@ schema attributes, properties and epilogue) are not in the correct order and hen
 **b.**  A HED version specification does not have the correct syntax for the schema file format.  
 **c.**  A HED schema version does not comply with semantic versioning.  
 
-### B.2.3. Mediawiki format errors
+### B.2.3. MediaWiki format errors
 
 #### WIKI_DELIMITERS_INVALID
 

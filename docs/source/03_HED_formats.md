@@ -59,7 +59,7 @@ Both formats must be available and synchronized in the
 Regardless of the format, a valid HED schema must have the following sections in this order:
 
 ````{Admonition} Required sections of a HED schema (in the required order):
-| Section   | Mediawiki format | XML format  |
+| Section   | MediaWiki format | XML format  |
 |------- | --------- | ---------- |
 | Header line  | `HED version="8.0.0"` | `<HED version="8.0.0">` |
 | Prologue | `'''Prologue'''`  | `<prologue> ... </prologue>` |
@@ -293,9 +293,9 @@ Units and unit modifiers follow the naming conventions of the units they represe
 Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings. The case for unit symbols is also maintained.
 
 
-### 3.1.4. Mediawiki schema format
+### 3.1.4. MediaWiki schema format
 
-[**Mediawiki**](https://www.mediawiki.org/wiki/Cheatsheet) is a markdown-like format that was
+[**MediaWiki**](https://www.mediawiki.org/wiki/Cheatsheet) is a markdown-like format that was
 selected as the HED schema editing format because of its flexibility
 and ability to represent nested or hierarchical relationships.
 
@@ -403,7 +403,7 @@ everything after the asterisks, including the `#` placeholder, enclosed by `<now
 
 
 Additional details and rules can be found in appendix
-[**A.2 Mediawiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
+[**A.2 MediaWiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
 
 ### 3.1.5. XML schema format
 

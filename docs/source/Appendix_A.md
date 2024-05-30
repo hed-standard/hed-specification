@@ -537,9 +537,9 @@ their role and to facilitate mapping to the HED ontology.
 
 ````
 
-See [**property example**](#a255-schema-properties) for an example in MediaWiki format and its 
-https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-3-5-5-schema-properties
-## A.2. Mediawiki file format
+See [**property example**](#a255-schema-properties) for an example in MediaWiki format.
+
+## A.2. MediaWiki file format
 
 The rules for creating a valid `.mediawiki` specification of a HED schema are given below. 
 The format is line-oriented, meaning that all information about an individual entity 
@@ -640,7 +640,7 @@ directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) 
 A warning is generated when unknown header attributes are translated as attributes of the `HED` line
 during `.mediawiki` file validation.
 
-### A.2.3. Mediawiki prologue and epilogue
+### A.2.3. MediaWiki prologue and epilogue
 
 The prologue is an optional paragraph of text appearing after the *header*.
 The prologue is used by tools for help and display purposes.
@@ -656,7 +656,7 @@ The epilogue appears directly before the ending line of the file.
 Both the prologue and epilogue may contain commas and new lines in addition
 to the characters specified by the  [`textClass`](./Appendix_A.md#a13-value-classes).
 
-### A.2.4. Mediawiki schema section
+### A.2.4. MediaWiki schema section
 
 The beginning of the actual specification of the HED vocabulary is marked by the *start-line*:
 
