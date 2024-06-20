@@ -392,7 +392,6 @@ in the MediaWiki version of the schema.
 Class: hed:HED_0012016
     Annotations: 
         dc:description "Do something.,
-        heds:hedId "HED_0012016",
         rdfs:label "Action"   
     EquivalentTo: 
         heds:HED_0000005
@@ -402,7 +401,6 @@ Class: hed:HED_0012016
 Class: hed:HED_0012017
     Annotations: 
         dc:description "Action conveying knowledge of or information about something.",
-        heds:hedId "HED_0012017",
         rdfs:label "Communicate"   
     SubClassOf: 
         hed:HED_0012016
@@ -548,16 +546,17 @@ The format of an individual schema attribute is shown here.
 #### 8.2.3.6. OWL format for attributes.
 
 The Manchester Owl syntax for schema attributes is similar to that of classes above.
+The following example shows the OWL definition for the HED `extensionAllowed dataProperty`:
 
+````{admonition} **Example** HED Manchester OWL syntax for DataProperty extensionAllowed.
 
-````{admonition} **Example** HED Manchester OWL syntax for extensionAllowed.
-
-```yaml
+```text
 DataProperty: hed:HED_0010307
     Annotations: 
-        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes
-        under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
-        rdfs:label "extensionAllowed" 
+        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
+        rdfs:label "extensionAllowed",
+        hed:HED_0010704 true,
+		hed:HED_0010702 true 
     Domain: 
         heds:HED_0000005  
     Range: 
@@ -565,6 +564,38 @@ DataProperty: hed:HED_0010307
 
 ```
 ````
+
+The HED `DataProperty` entities map an entity (Domain) into a value (Range) as
+specified by the `Domain` and `Range` fields.
+The `heds:HED_0000005` ID is the `HedTag` class.
+In the HED schema, the domain and range of a schema attribute are 
+conveyed by the schema properties,
+which are also given as annotation properties.
+The `hed:HED_0010704 true` annotation corresponds to the `tagDomain` schema property being true, 
+while the `hed:HED_0010702 true` annotation corresponds to the `boolRange` schema property being true.
+
+Similarly, the HED `ObjectProperty` entities map an entity (Domain) into another entity (Range)
+specified by the `Domain` and `Range` fields as illustrated in the following example:
+
+````{admonition} **Example** HED Manchester OWL syntax for rooted.
+```text
+bjectProperty: hed:HED_0010106
+	Annotations:
+		dc:description "A tag that is often associated with this tag. This attribute is used by tagging tools to provide tagging suggestions.",
+		rdfs:label "suggestedTag",
+		hed:HED_0010704 true,
+		hed:HED_0010705 true
+	Domain:
+		hed:HED_0000005
+	Range:
+		hed:HED_0000005
+```
+````
+
+The `heds:HED_0000005` ID is the `HedTag` class, indicating that `suggestedTag`
+maps one HED tag into another. 
+The `hed:HED_0010704 true` and `hed:HED_0010705 true` provide this information as annotations.
+
 
 Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attributes 
 are not inherited and do not use domain and range specifications.
@@ -574,13 +605,13 @@ In the OWL representation, information about the handling should be provided in 
 
 ````{admonition} **Example** HED Manchester OWL syntax for rooted.
 
-```yaml
+```text
 AnnotationProperty: heds:HED_0010502
     Annotations: 
-        dc:description "This top-level library schema node should have a parent which 
-        is the indicated node in the partnered standard schema.",
-        rdfs:comment "Maps a HedTag into a HedTag name as a string.",
-        rdfs:label "rooted"
+        dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
+        rdfs:label "rooted",
+        hed:HED_0010704 true,
+		hed:HED_0010705 true
 ```
 ````    
 
