@@ -1,0 +1,69 @@
+[
+  {
+    "error_code": "SCHEMA_LOAD_FAILED",
+    "name": "different-standard-schemas-in-same-merge-group",
+    "description": "Schemas in a merge group must be associated with the same standard schema.",
+    "schema": [
+      "8.1.0",
+      "testlib_2.0.0"
+    ],
+    "definitions": [
+    ],
+    "tests": {
+      "string_tests": {
+        "fails": [
+          "Red",
+          "Blue"
+        ],
+        "passes": [
+        ]
+      }
+    }
+  },
+  {
+    "error_code": "SCHEMA_LOAD_FAILED",
+    "name": "extra-standard-schemas-in-same-merge-group",
+    "description": "Standard schema in same group as its partners is okay.",
+    "schema": [
+      "8.2.0",
+      "testlib_2.0.0",
+      "testlib_3.0.0",
+      "sc:8.1.0"
+    ],
+    "definitions": [
+    ],
+    "tests": {
+      "string_tests": {
+        "fails": [
+        ],
+        "passes": [
+          "Red",
+          "Blue"
+        ]
+      }
+    }
+  },
+  {
+    "error_code": "SCHEMA_LOAD_FAILED",
+    "name": "incompatible-merge-schemas ",
+    "description": "Schemas in a merge group must be associated with the same standard schema].",
+    "schema": [
+      "testlib_2.0.0",
+      "testlib_4.0.0"
+    ],
+    "definitions": [
+    ],
+    "tests": {
+      "string_tests": {
+        "fails": [
+          "Red",
+          "Blue"
+        ],
+        "passes": [
+          "Red",
+          "Blue"
+        ]
+      }
+    }
+  }
+]

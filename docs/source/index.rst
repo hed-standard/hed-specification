@@ -47,6 +47,7 @@ the `HED resources page <https://www.hed-resources.org>`_.
    05_Advanced_annotation.md
    06_Infrastructure_and_tools.md
    07_Library_schemas.md
+   08_HED_ontology.md
    Appendix_A.md
    Appendix_B.md
 

@@ -3,18 +3,22 @@
         "error_code": "TAG_GROUP_ERROR",
         "name": "tag-group-error-missing",
         "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "Definition, (Red)",
                     "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
-                    "Onset"
+                    "Onset",
+                    "Duration/3.0 s",
+                    "Delay/3.0 s"
                 ],
                 "passes": [
                     "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                    "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"
+                    "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)",
+                    "(Duration/3.0 s, (Event))",
+                    "(Duration/3.0 s, Delay/2.0 s, (Event))"
                 ]
             },
             "sidecar_tests":{
@@ -66,7 +70,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -84,7 +88,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -99,7 +103,7 @@
         "error_code": "TAG_GROUP_ERROR",
         "name": "tag-group-error-not-top-level",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -131,7 +135,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -149,7 +153,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -164,16 +168,19 @@
         "error_code": "TAG_GROUP_ERROR",
         "name": "multiple-top-level-tags-in-same-group",
         "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
-        "schema": "8.1.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "(Def/MyColor, Onset, Event-context)",
-                    "(Event-context, Red, Offset)"
+                    "(Event-context, Red, Offset)",
+                    "(Event-context, Duration/3.0 s, Offset)",
+                    "(Delay/3.0 s, Duration/2.0 s, Offset)"
                 ],
                 "passes": [
-                    "(Def/MyColor, Onset)"
+                    "(Def/MyColor, Onset)",
+                    "((Event), Duration/3.0 s, Delay/2.0 s)"
                 ]
             },
             "sidecar_tests": {
@@ -185,9 +192,31 @@
                                 "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
                             }
                         }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Acceleration/5.0",
+                                "ball": "Onset"
+                            }
+                        },
+                        "val_col": {
+                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                        }
                     }
                 ],
                 "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "(Acceleration/5.0)",
+                                "ball": "Delay/5.0 s, (Acceleration/5.0)"
+                            }
+                        },
+                        "val_col": {
+                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                        }
+                    }
                 ]
             },
             "event_tests": {
@@ -235,7 +264,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue, (Event-context, Label/Red)"],

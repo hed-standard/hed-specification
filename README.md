@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7869149.svg)](https://doi.org/10.5281/zenodo.7869149)
 [![Documentation Status](https://readthedocs.org/projects/hed-specification/badge/?version=latest)](https://hed-specification.readthedocs.io/en/latest/?badge=latest)
-[![@HEDstandard](http://img.shields.io/twitter/follow/hedstandard.svg?style=social)](https://twitter.com/HEDstandard)
+
 
 # HED specification
 
@@ -8,8 +8,7 @@
 including information on the format and rules for HED vocabularies (schemas)
 as well as rules for how tools should treat HED-annotated data.
 
-If you just
-want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
+If you want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
 If you are a developer of a new HED vocabulary (schema) please see the
 [Schema development guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
 

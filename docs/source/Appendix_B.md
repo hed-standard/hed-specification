@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.**  The HED string contains a UTF-8 character.  
+**a.** A tag extension contains a non `name` character.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -106,42 +106,22 @@ See also [**5.1. Creating definitions**](./05_Advanced_annotation.md#51-creating
 and [**5.2. Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples of definition syntax.
 
+### ELEMENT_DEPRECATED*
+A schema element has been deprecated and should not be used. When an element is updated,
+its description is updated to include the reason for deprecation and a suggested path for updating usage.  
+
+**a.** A tag has been deprecated and an alternative method of tagging should be used.  
+**b.** A unit, unit class, value class has been deprecated and an alternative should be used.  
+
+See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
+about the `deprecatedFrom` schema attribute.
+
 ### NODE_NAME_EMPTY
 
 **a.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
 **b.**  A tag contains consecutive forward slashes (ignoring whitespace).  
 
 See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
-
-### ONSET_OFFSET_INSET_ERROR
-
-Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
-different placeholder substitutions are considered to be different.
-
-**a.**  An `Onset` or `Offset` tag does not appear in a tag group.  
-**b.**  An `Onset` or `Offset` tag appears in a nested tag group (not a top-level tag group).   
-**c.**  An `Onset` or `Offset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
-**d.** An `Onset` or an `Inset` tag group contains more than one additional tag group.   
-**e.** An `Offset` appears with one or more tags or additional tag groups.   
-**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
-**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
-without the appearance of an intervening `Onset` of the same name.   
-**h.**  An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
-that are not in a tag group.  
-**i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
-appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
-that uses the same anchor.  
-**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
-**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.   
-
-**Note:** if the `Onset` tag group's definition is in expanded form, 
-the `Def-expand` will be an additional internal tag group.
-
-See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
-for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
-
-[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
-in Chapter 5 gives examples of usage and additional details.
 
 ### PARENTHESES_MISMATCH
 
@@ -173,6 +153,14 @@ An assembled event string must include all tags having the *required* schema att
 
 See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `required` tag.
+
+### SCHEMA_LOAD_FAILED
+
+**a.** Different standard schema versions in a merge group.  
+**b.** Library schemas in merge group have the same tag.  
+
+See [**7.2.5.6 Loading multiple partnered schemas**](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
+for a more detailed description of the rules.
 
 ### SIDECAR_BRACES_INVALID
 
@@ -261,7 +249,7 @@ for additional information on the tag extension rules.
 
 **a.**  A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.   
 **b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation. 
-**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group.
+**c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Duration` and a single `Delay` may be in the same group.  
 
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
@@ -295,6 +283,39 @@ additional information on the `unique` tag.
 
 See [**3.2.4. Tags that take values**](03_HED_formats.md#324-tags-that-take-values)
 for an explanation of the `requireChild` attribute.
+
+### TEMPORAL_TAG_ERROR
+
+Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
+different placeholder substitutions are considered to be different.
+
+**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.  
+**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).   
+**c.**  An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
+**d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.   
+**e.** An `Offset` appears with one or more tags or additional tag groups.   
+**f.**  An `Offset` tag appears before an `Onset` tag associated with the same definition.     
+**g.**  An `Offset` tag associated with a given definition appears after a previous `Offset` tag.
+without the appearance of an intervening `Onset` of the same name.   
+**h.**  An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group
+that are not in a tag group.  
+**i.** An `Onset` or  `Offset` with a given `Def` tag or `Def-expand` group anchor
+appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
+that uses the same anchor.  
+**j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
+**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.
+**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.
+**m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
+Delay and Duration which can be paired.
+
+**Note:** if the `Onset` tag group's definition is in expanded form, 
+the `Def-expand` will be an additional internal tag group.
+
+See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
+for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
+
+[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
+in Chapter 5 gives examples of usage and additional details.
 
 ### TILDES_UNSUPPORTED
 
@@ -362,13 +383,13 @@ when the planned XSD validation is implemented start with HED_XML.
 under an appropriate unit class).  
 **c.** A schema attribute is used in an invalid way
 
-| Attribute          | Invalid Usage Location                                                                                         |
-|--------------------|----------------------------------------------------------------------------------------------------------------|
-| `deprecatedFrom`   | An element with a `deprecatedFrom` attribute has a child node that does not have a `deprecatedFrom` attribute. |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                                                          |
-| `takesValue`       | Used on a non-placeholder(#) node.                                                                             |
-| `unitClass`        | Used on a non-placeholder(#) node.                                                                             |
-| `valueClass`       | Used on a non-placeholder(#) node.                                                                             |
+| Attribute          | Invalid Usage Location                                    |
+|--------------------|-----------------------------------------------------------|
+| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error) |
+| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)     |
+| `takesValue`       | Used on a non-placeholder(#) node.                        |
+| `unitClass`        | Used on a non-placeholder(#) node.                        |
+| `valueClass`       | Used on a non-placeholder(#) node.                        |
 
 **Notes:** 
 - A `tag` (referred to as a node element in the schema) can have schema attributes that have the `nodeClassProperty` or the `elementProperty` or have no type property designator. 
@@ -381,26 +402,46 @@ under an appropriate unit class).
 
 **a.** A non-boolean schema attribute has an invalid value or usage as indicated by the following table.
 
-| Attribute       | Invalid Attribute Value                                                            |
-|-----------------|------------------------------------------------------------------------------------|
+| Attribute          | Invalid Attribute Value                                                            |
+|--------------------|------------------------------------------------------------------------------------|
 | `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
 | `conversionFactor` | Not a positive numeric value.                                                      |
-| `defaultUnits`    | Not a valid unit in this unit class.                                               |
-| `deprecatedFrom`  | Does not correspond to a valid schema version.                                     |
-| `inLibrary`       | The value of an inLibrary attribute is for the wrong library.                      |
-| `relatedTag`      | Not an existing tag.                                                               |
-| `rooted`          | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
-| `suggestedTag`    | Not an existing tag.                                                               |
-| `unitClass`       | Not an existing unit class.                                                        |
-| `valueClass`      | Not an existing value class.                                                       |
+| `defaultUnits`     | Not a valid unit in this unit class.                                               |
+| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error)                          |
+| `inLibrary`        | The value of an inLibrary attribute is for the wrong library.                      |
+| `relatedTag`       | Not an existing tag.                                                               |
+| `rooted`           | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
+| `suggestedTag`     | Not an existing tag.                                                               |
+| `unitClass`        | Not an existing unit class.                                                        |
+| `valueClass`       | Not an existing value class.                                                       |
 
 #### SCHEMA_CHARACTER_INVALID
 
-**a.**  The specification contains an invalid character for the section in which it appears. 
+**a.** A non-placeholder schema node contains non-`name` characters.
+**b.** A unit class name contains non-`name` characters.  
+**c.** A value or unit class name  contains non-`name` or blank characters.
+**d.** The prologue or epilogue contain characters other than `text` or newline.  
+
+See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
+for definitions of the different types of characters.
+
+Note: tag extensions may contain `nonascii` characters.
+
+#### SCHEMA_DEPRECATION_ERROR  
+
+**a.** The value of `deprecatedFrom` is not a previously released HED schema version.  
+**b.** A deprecated tag is used as a `suggestedTag` or a `relatedTag` in a non-deprecated tag.  
+**c.** A child tag of a deprecated tag does not have the `deprecatedFrom` attribute.  
+**d.** A deprecated attribute is used on a non-deprecated element.
+**e.** A deprecated property is used on a non-deprecated attribute.
+**f.** A deprecated unit class has non-deprecated units.
+**g.** A tag has deprecated unit or value classes.
+**h.** A deprecated unit class has non-deprecated units.
+**i.** A unit class has a deprecated default unit
 
 #### SCHEMA_DUPLICATE_NODE
 
-**a.**  A schema node name appears in the schema more than once.  
+**a.**  A schema node name appears in the schema more than once.
 
 #### SCHEMA_HEADER_INVALID
 
@@ -433,7 +474,7 @@ schema attributes, properties and epilogue) are not in the correct order and hen
 **b.**  A HED version specification does not have the correct syntax for the schema file format.  
 **c.**  A HED schema version does not comply with semantic versioning.  
 
-### B.2.3. Mediawiki format errors
+### B.2.3. MediaWiki format errors
 
 #### WIKI_DELIMITERS_INVALID
 
