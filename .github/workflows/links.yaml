@@ -1,0 +1,27 @@
+---
+name: Lychee link checker
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+permissions:
+  contents: read
+
+jobs:
+  codespell:
+    name: Lychee link checker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+          # Check all markdown, html and reStructuredText files in repo (default)
+          args: --base . --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst' --exclude '(_anchor|-anchor)'
