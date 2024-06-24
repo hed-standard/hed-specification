@@ -30,7 +30,8 @@ error messages in the validators could use the error code as a link into the spe
 for more information about the cause of errors.
 * [**Improvement**] A standardized set of validation test data keyed to the error codes 
 was added to the specification repository in the 
-[**error_tests**](https://github.com/hed-standard/hed-specification/tree/master/docs/source/_static/data/error_tests) directory. This test data will be validated by both the Python 
+[**tests**](https://github.com/hed-standard/hed-specification/tree/master/tests) directory. 
+This test data will be validated by both the Python 
 and JavaScript validators in addition to their internal tests as part of the GitHub actions.
 * [**Clarification**] All chapters of the specification were edited for clarity and correctness.
 
