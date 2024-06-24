@@ -2,10 +2,7 @@
 name: Lychee link checker
 
 on:
-  push:
-    branches: [develop]
-  pull_request:
-    branches: [develop]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -24,4 +21,4 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           # Check all markdown, html and reStructuredText files in repo (default)
-          args: --base . --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst' --exclude '(_anchor|-anchor)'
+          args: --base . --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst'
