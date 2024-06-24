@@ -10,7 +10,7 @@ as well as rules for how tools should treat HED-annotated data.
 
 If you want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
 If you are a developer of a new HED vocabulary (schema) please see the
-[Schema development guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopmentGuide.html).
+[Schema development guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
 
 The latest version of the HED specification is available at the
 [**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html).

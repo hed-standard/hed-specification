@@ -901,7 +901,7 @@ The `HED` node is the root node of the XML schema.
 
 The file name corresponding to this example is `HED8.0.0.xml`.
 The file is found in the [**standard_schema/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
+directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Library schemas must include the `library` attribute with the library name
 in their header line as shown in the following example.

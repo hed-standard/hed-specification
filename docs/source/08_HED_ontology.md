@@ -60,7 +60,11 @@ This HED information space is illustrated schematically in the following diagram
 
 The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema 8.3.0.
 The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) 
-of the form *https://purl.org/hed/HED_xxxxxxx*.
+in the [**https://purl.org/hed/hed.owl**](https://purl.org/hed/hed.owl) file.
+This file is currently hosted on GitHub and does not have a mechanism to address individual IDs defined within the file.
+The ontology files are versioned by release date.
+Releases are located in the [**releases**](https://github.com/hed-standard/hed-ontology/tree/main/releases)
+subdirectory of the [**hed-ontology**](https://github.com/hed-standard/hed-ontology) repository on GitHub.
 
 The extended information space is completely represented by the HED ontology in OWL format.
 In this document we use OWL Manchester format (`.omn`) for readability.  
@@ -679,4 +683,4 @@ using the range assignments described in the following table.
 ### 8.3.3. HED IRIs
 
 HED IRIs [(**International Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped
-to [**https://purl.org/hed**](https://purl.org/hed).
+to [**https://purl.org/hed/hed.owl**](https://purl.org/hed/hed.owl).
