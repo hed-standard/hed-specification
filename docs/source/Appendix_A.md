@@ -901,7 +901,7 @@ The `HED` node is the root node of the XML schema.
 
 The file name corresponding to this example is `HED8.0.0.xml`.
 The file is found in the [**standard_schema/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
+directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Library schemas must include the `library` attribute with the library name
 in their header line as shown in the following example.
@@ -915,7 +915,7 @@ in their header line as shown in the following example.
 
 The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
 The file is found in [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hedschemas) GitHub repository.
+directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Unknown header attributes are translated as attributes of the `HED` root node of the 
 `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
