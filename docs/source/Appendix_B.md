@@ -504,23 +504,11 @@ Schema loading errors can occur because the file is inaccessible or is not prope
 Schema loading errors are handled in different ways by the Python and JavaScript tools.
 
 Python tools generally raise a `HedFileError` exception when a failure to load the 
-schema occurs. The calling programs are responsible for deciding how to handle such a
-failure.
+schema occurs. The calling programs are responsible for deciding how to handle such a failure.
 
 JavaScript tools in contrast are mainly used for validation in HED validation BIDS and
 are mainly called by the [BIDS](https://bids.neuroimaging.io/) validator. 
-Usually BIDS datasets provide a HED version number to designate the version of HED 
-to be used, and the HED JavaScript validator is 
-responsible for locating and loading schema. 
-
-BIDS validator users do not always have
-unrestricted access to the Internet during the validation process. The HED JavaScript
-tools have a fallback of the loading of the specified schema fails. The validator loads
-an internal copy of the most recent version of the HED schema and loads it. However, it
-also reports a `SCHEMA_LOAD_FAILED` issue to alert the user that the schema used
-for validation may not be the one designated in the dataset. However, validation will 
-continue with the fallback schema.
-
-If the fallback schema stored with the HED validator fails to load, 
-the `SCHEMA_LOAD_FAILED` issue will also be reported and no additional
-HED validation will occur.
+If a **BIDS dataset uses HED**, it must provide a HED version specification in the`dataset_description.json` file.
+If the HED JavaScript validator cannot load a valid HED schema based on this specification
+it reports a `SCHEMA_LOAD_FAILED` issue.
+A BIDS dataset 
