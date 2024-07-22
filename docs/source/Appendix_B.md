@@ -257,6 +257,8 @@ for additional information on the rules for group errors due to schema attribute
 ### TAG_INVALID
 
 **a.**  The tag is not valid in the schema it is associated with.  
+**b.**  The tag has extra internal whitespace, including directly before or after slashes.
+**c.**  The tag has a leading, trailing, or consecutive slashes.  
 
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.

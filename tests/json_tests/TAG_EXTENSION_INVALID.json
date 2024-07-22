@@ -3,7 +3,7 @@
         "error_code": "TAG_EXTENSION_INVALID",
         "name": "tag-extension-invalid-duplicate",
         "description": "A tag extension term is already in the schema.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -98,7 +98,7 @@
         "error_code": "TAG_EXTENSION_INVALID",
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

@@ -4,7 +4,7 @@
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -98,7 +98,7 @@
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": [
         ],
         "tests": {
