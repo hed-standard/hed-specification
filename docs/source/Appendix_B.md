@@ -116,13 +116,6 @@ its description is updated to include the reason for deprecation and a suggested
 See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
 about the `deprecatedFrom` schema attribute.
 
-### NODE_NAME_EMPTY
-
-**a.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
-**b.**  A tag contains consecutive forward slashes (ignoring whitespace).  
-
-See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
-
 ### PARENTHESES_MISMATCH
 
 **a.**  A HED string does not have the same number of open and closed parentheses.  

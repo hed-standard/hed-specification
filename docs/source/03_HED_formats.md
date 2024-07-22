@@ -587,9 +587,8 @@ HED tools are available to map between shortened and long forms as needed.
 The tag must be associated with a schema and must correspond to a path in the schema
 (excluding any extension or value).
 
-See [**NODE_NAME_EMPTY**](./Appendix_B.md#node_name_empty) for errors involving
-forward slashes (`/`) and [**TAG_INVALID**](./Appendix_B.md#tag_invalid) for
-other types of tag syntax errors.
+See [**TAG_INVALID**](./Appendix_B.md#tag_invalid) for errors involving
+forward slashes (`/`), extra white-space, and other types of tag syntax errors.
 
 ### 3.2.3. Tag case-sensitivity
 

@@ -107,8 +107,8 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Sensory- presentation,Green",
-                    "Sensory -presentation,Blue",
+                    "Sensory- event,Green",
+                    "Sensory -event,Blue",
                     "Event /Sensory-event, Black",
                     "Event/ Sensory-event,White"
                 ],
@@ -121,8 +121,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "square": "Sensory- presentation,Green",
-                                "test": "Sensory -presentation,Blue",
+                                "square": "Sensory- event,Green",
+                                "test": "Sensory -event,Blue",
                                 "pine": "Event /Sensory-event, Black",
                                 "apple": "Event/ Sensory-event,White"
                             }
@@ -151,12 +151,12 @@
                         [
                             5.5,
                             0,
-                            "Sensory- presentation,Green"
+                            "Sensory- event,Green"
                         ],
                         [
                             7.5,
                             0,
-                            "Sensory -presentation,Blue"
+                            "Sensory -event,Blue"
                         ],
                         [
                             8.2,
@@ -191,8 +191,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "square": "Sensory- presentation,Green",
-                                    "test": "Sensory -presentation,Blue",
+                                    "square": "Sensory- event,Green",
+                                    "test": "Sensory -event,Blue",
                                     "pine": "Event /Sensory-event, Black",
                                     "apple": "Event/ Sensory-event,White"
                                 }
@@ -271,10 +271,14 @@
                     "Red/",
                     "Event//Sensory-event",
                     "//Event",
-                    "Body-part/Head-part//Brain"
+                    "Body-part/Head-part//Brain",
+                     "Def/Acc/4.5//",
+                    "Def/Acc/4.5/",
+                    "/ /Def/Acc/4.5 ms/"
                 ],
                 "passes": [
-                    "Body-part/Head-part/Brain"
+                    "Body-part/Head-part/Brain",
+                    "Label/Red, Informational-property/Label/Blue"
                 ]
             },
             "sidecar_tests": {
@@ -284,7 +288,8 @@
                             "HED": {
                                 "face":  "Event//Sensory-event",
                                 "ball":   "/Event",
-                                "square": "Red/"
+                                "square": "Red/",
+                                "test":  "/ /Def/Acc/4.5 ms/"
                             }
                         }
                     }
@@ -303,40 +308,17 @@
             "event_tests": {
                 "fails": [
                     [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "/Event,"
-                        ],
-                        [
-                            5.5,
-                            0,
-                            "Body-part/Head-part//Brain"
-                        ],
-                        [
-                            6.5,
-                            0,
-                            "Event/Sensory-event/"
-                        ]
+                        [ "onset", "duration", "HED"],
+                        [ 4.5, 0, "/Event,"],
+                        [5.5, 0, "Body-part/Head-part//Brain"],
+                        [6.5, 0, "Event/Sensory-event/"],
+                        [ 7.2, 0, "/ /Def/Acc/4.5 ms/"]
                     ]
                 ],
                 "passes": [
                     [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Event/Sensory-event"
-                        ]
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "Event/Sensory-event"]
                     ]
                 ]
             },
@@ -348,29 +330,16 @@
                                 "HED": {
                                     "face": "Event//Sensory-event",
                                     "ball":  "//Event",
-                                    "square":  "Body-part/Head-part//Brain"
+                                    "square":  "Body-part/Head-part//Brain",
+                                    "test":  "/ /Def/Acc/4.5 ms/"
                                 }
                             }
                         },
                         "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Red/, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green"
-                            ]
+                            ["onset", "duration", "event_code", "HED"],
+                            [4.5, 0, "face", "Red/, Def/MyColor"],
+                            [5.0, 0, "ball", "Green"],
+                            [ 7.2, 0, "n/a", "/ /Def/Acc/4.5 ms/"]
                         ]
                     }
                 ],
