@@ -3,7 +3,7 @@
         "error_code": "NODE_NAME_EMPTY",
         "name": "node-name-empty-forward-slashes",
         "description": "A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -106,7 +106,7 @@
         "error_code": "NODE_NAME_EMPTY",
         "name": "node-name-empty-forward-consecutive",
         "description": "A tag contains consecutive forward slashes (ignoring whitespace).",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

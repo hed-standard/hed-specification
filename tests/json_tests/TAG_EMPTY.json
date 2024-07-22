@@ -3,7 +3,7 @@
         "error_code": "TAG_EMPTY",
         "name": "tag-empty-extra-commas-or-parentheses",
         "description": "A HED string has extra commas or parentheses separated by only white space.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -105,7 +105,7 @@
         "error_code": "TAG_EMPTY",
         "name": "tag-empty-begin-end-comma",
         "description": "A HED string begins or ends with a comma (ignoring white space).",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -202,7 +202,7 @@
         "error_code": "TAG_EMPTY",
         "name": "tag-empty-empty-parentheses",
         "description": "A tag group is empty (i.e., empty parentheses are not allowed).",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

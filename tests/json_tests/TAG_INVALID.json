@@ -3,7 +3,7 @@
         "error_code": "TAG_INVALID",
         "name": "tag-invalid-in-schema",
         "description": "The tag is not valid in the schema it is associated with.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -94,5 +94,319 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "TAG_INVALID",
+        "name": "tag-has-extra-white space",
+        "description": "A HED tag has extra internal whitespace, including directly before or after slashes.",
+        "schema": "8.3.0",
+        "definitions": [
+            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/MyColor, (Label/Pie))"
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Sensory- presentation,Green",
+                    "Sensory -presentation,Blue",
+                    "Event /Sensory-event, Black",
+                    "Event/ Sensory-event,White"
+                ],
+                "passes": [
+                    "Sensory-event, Green"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "square": "Sensory- presentation,Green",
+                                "test": "Sensory -presentation,Blue",
+                                "pine": "Event /Sensory-event, Black",
+                                "apple": "Event/ Sensory-event,White"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Sensory-event, Green",
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            5.5,
+                            0,
+                            "Sensory- presentation,Green"
+                        ],
+                        [
+                            7.5,
+                            0,
+                            "Sensory -presentation,Blue"
+                        ],
+                        [
+                            8.2,
+                            0,
+                            "Event /Sensory-event, Black"
+                        ],
+                        [
+                            9.1,
+                            0,
+                            "Event/ Sensory-event,White"
+                        ]
+                    ]
+                ],
+                "passes": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Sensory-event, Green"
+                        ]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "square": "Sensory- presentation,Green",
+                                    "test": "Sensory -presentation,Blue",
+                                    "pine": "Event /Sensory-event, Black",
+                                    "apple": "Event/ Sensory-event,White"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "test",
+                                "Red, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "apple",
+                                "Green"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": " Red, Green",
+                                    "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "Blue"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "Green, Def/MyColor"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_INVALID",
+        "name": "tag-has-leading-trailing-or-consecutive-slashes",
+        "description": "A HED tag has leading, trailing or consecutive slashes.",
+        "schema": "8.3.0",
+        "definitions": [
+            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/MyColor, (Label/Pie))"
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "/Event",
+                    "Red/",
+                    "Event//Sensory-event",
+                    "//Event",
+                    "Body-part/Head-part//Brain"
+                ],
+                "passes": [
+                    "Body-part/Head-part/Brain"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face":  "Event//Sensory-event",
+                                "ball":   "/Event",
+                                "square": "Red/"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face":  "Body-part/Head-part/Brain",
+                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "/Event,"
+                        ],
+                        [
+                            5.5,
+                            0,
+                            "Body-part/Head-part//Brain"
+                        ],
+                        [
+                            6.5,
+                            0,
+                            "Event/Sensory-event/"
+                        ]
+                    ]
+                ],
+                "passes": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Event/Sensory-event"
+                        ]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Event//Sensory-event",
+                                    "ball":  "//Event",
+                                    "square":  "Body-part/Head-part//Brain"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "Red/, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "Green"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "Blue"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "Event/Sensory-event"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
     }
-]    
+]

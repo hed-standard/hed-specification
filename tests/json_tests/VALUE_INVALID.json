@@ -3,7 +3,7 @@
         "error_code": "VALUE_INVALID",
         "name": "value-invalid-#-substitution",
         "description": "The value substituted for a placeholder (`#`) is not valid.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -99,7 +99,7 @@
         "error_code": "VALUE_INVALID",
         "name": "value-invalid-incompatible-value-class",
         "description": "A tag value is incompatible with the specified value class.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -187,7 +187,7 @@
         "error_code": "VALUE_INVALID",
         "name": "value-invalid-value-class-missing",
         "description": "A tag value with no value class is assumed to be a text and contains invalid characters.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -277,7 +277,7 @@
         "error_code": "VALUE_INVALID",
         "name": "value-invalid-blank-missing",
         "description": "The units are not separated from the value by a single blank.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -366,7 +366,7 @@
         "error_code": "VALUE_INVALID",
         "name": "value-invalid-#-value-class",
         "description": "An extension or a value substituted for a `#` is not allowed by its value class.",
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
