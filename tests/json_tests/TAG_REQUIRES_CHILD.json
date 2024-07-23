@@ -3,7 +3,7 @@
         "error_code": "TAG_REQUIRES_CHILD",
         "name": "tag-requires-child-no-child",
         "description": "A tag has the requireChild schema attribute but does not have a child.",
-        "schema": "8.3.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
