@@ -3,7 +3,7 @@
         "error_code": "CHARACTER_INVALID",
         "name": "character-invalid-utf-8",
         "description": "The HED string contains a UTF-8 character.",
-        "schema": "8.3.0",
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
