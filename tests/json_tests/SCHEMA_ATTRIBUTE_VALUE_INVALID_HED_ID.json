@@ -1,0 +1,146 @@
+[
+  {
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
+    "name": "attribute-invalid-hed-id-changed",
+    "warning": true,
+    "description": "A schema value class issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Event'''{hedId=HED_0015001}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''Event'''{hedId=HED_0012001}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
+    "name": "attribute-invalid-hed-id-out-range",
+    "warning": true,
+    "description": "A schema value class issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''NewTagWithNewID'''{hedId=HED_0055000}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''NewTagWithNewID'''{hedId=HED_0015001}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "error_code": "SCHEMA_ATTRIBUTE_VALUE_INVALID",
+    "name": "attribute-invalid-hed-id-invalid",
+    "warning": true,
+    "description": "A schema value class issue, saying there is an unknown one.",
+    "schema": "",
+    "definitions": [],
+    "tests": {
+      "schema_tests": {
+        "fails": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''NewTagWithNewID'''{hedId=HED_XXXXXXX}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ],
+        "passes": [
+          [
+            "HED version=\"8.4.0\"",
+            "'''Prologue'''",
+            "!# start schema",
+            "'''NewTagWithNewID'''{hedId=HED_0015001}",
+            "!# end schema",
+            "'''Unit classes'''",
+            "'''Unit modifiers'''",
+            "'''Value classes'''",
+            "'''Schema attributes'''",
+            "* hedId {elementDomain}",
+            "'''Properties'''",
+            "* elementDomain",
+            "'''Epilogue'''",
+            "!# end hed"
+          ]
+        ]
+      }
+    }
+  }
+]
