@@ -30,7 +30,7 @@ A HED string contains an invalid character.
 
 
 **Notes:**  
-- HED uses ANSI encoding and does not support UTF-8.  
+- Starting with HED 8.3.0, HED supports UTF-8 encoding.  
 - Different parts of a HED string have different rules for acceptable characters.
  
 See 

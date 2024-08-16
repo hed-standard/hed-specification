@@ -9,10 +9,11 @@
             "string_tests": {
                 "fails": [
                     "Collection/[x]",
-                    "Description/This is a ʰ bad character"
+                    "Item/Bl\b"
                 ],
                 "passes": [
-                    "Red, Blue, Description/Red"
+                    "Red, Blue, Description/Red",
+                    "Description/This is a ʰ good character"
                 ]
             },
             "sidecar_tests": {
@@ -20,7 +21,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red, Label/a ʰ bad"
+                                "show": "Red, Item/Bl\b"
                             }
                         }
                     }
@@ -29,7 +30,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red, Label/Good"
+                                "show": "Red,  Label/a ʰ good"
                             }
                         }
                     }
@@ -39,13 +40,13 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Item/Bl\b"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/Temp"]
+                        [ 4.5, 0, "Label/Temp, Label/a ʰ good"]
                     ]
                 ]
             },
@@ -55,7 +56,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "show": "Red, Label/a ʰ bad",
+                                    "show": "Red, Item/Bl\b",
                                     "ball": "Def/Acc/4.5 m-per-s^2"
                                 }
                             }
@@ -73,7 +74,7 @@
                          "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "show": "Red, Label/a"
+                                    "show": "Red, Label/a, Description/a ʰ good"
                                 }
                             }
                         },
@@ -90,7 +91,7 @@
     {
         "error_code": "CHARACTER_INVALID",
         "name": "curly-braces-not-in-sidecar",
-        "description": "The curly brace notation is used outside of a sidecar.",
+        "description": "The curly brace notation is used outside a sidecar.",
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -103,6 +104,8 @@
                 ]
             },
             "sidecar_tests": {
+                "fails": [{}],
+                "passes": [{}]
             },
             "event_tests": {
                 "fails": [
