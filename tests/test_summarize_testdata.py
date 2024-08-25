@@ -11,6 +11,7 @@ class MyTestCase(unittest.TestCase):
         cls.test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) 
                           if os.path.isfile(os.path.join(test_dir, f))]
 
+
     @staticmethod
     def get_test_info(test_file, details=True):
         indent = "   "
@@ -21,7 +22,7 @@ class MyTestCase(unittest.TestCase):
             out_list.append(f"\n{indent}{info['description']}")
             out_list.append(f"{indent}HED {info['schema']}")
             out_list.append(f"{indent}Definitions:")
-            for defs in info["definitions"]:
+            for defs in info.get("definitions", []):
                 out_list.append(f"{indent*2}{defs}")
             if "string_tests" in info["tests"]:
                 out_list = out_list + MyTestCase.get_test_details(info["tests"]["string_tests"], "string_tests", indent)
@@ -34,9 +35,9 @@ class MyTestCase(unittest.TestCase):
         return "\n".join(out_list)
 
     @staticmethod
-    def get_test_details(test_item, title, indent, details=True): 
-        num_fail_tests = len(test_item.get("fails", 0))
-        num_pass_tests = len(test_item.get("passes", 0))
+    def get_test_details(test_item, title, indent, details=True):
+        num_fail_tests = len(test_item.get("fails", []))
+        num_pass_tests = len(test_item.get("passes", []))
         detail_list = [f"{indent*2}{title}: fail_tests={num_fail_tests} pass_tests={num_pass_tests}"]
         if num_fail_tests > 0:
             detail_list.append(f"{indent*3}fail_tests:")
@@ -54,13 +55,13 @@ class MyTestCase(unittest.TestCase):
             print(out_str)
         self.assertEqual(True, True)  # add assertion here
 
-    def test_summary_full(self):
-        for test_file in self.test_files:
-            print(test_file)
-            out_str = self.get_test_info(test_file, details=True)
-            print(out_str + '\n')
-
-        self.assertEqual(True, True)  # add assertion here
+    # def test_summary_full(self):
+    #     for test_file in self.test_files:
+    #         print(test_file)
+    #         out_str = self.get_test_info(test_file, details=True)
+    #         print(out_str + '\n')
+    #
+    #     self.assertEqual(True, True)  # add assertion here
 
 
 if __name__ == '__main__':
