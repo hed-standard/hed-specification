@@ -23,6 +23,10 @@
                 ],
                 "passes": [
                 ]
+            },
+            "combo_tests": {
+                 "fails": [],
+                "passes": []
             }
         }
     },
@@ -50,13 +54,11 @@
                 ],
                 "passes": [
                 ]
+            },
+            "combo_tests": {
+                "fails": [],
+                "passes": []
             }
-        },
-        "combo_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
-            }
+        }
     }
 ]    

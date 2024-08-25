@@ -247,6 +247,9 @@ for additional information on the tag extension rules.
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
 
+**See also:** [**TEMPORAL_TAG_ERROR**](#temporal_tag_error) for errors involving `Onset`, `Offset`, `Inset`, 
+`Duration` and `Delay`.
+
 ### TAG_INVALID
 
 **a.**  The tag is not valid in the schema it is associated with.  
@@ -284,8 +287,8 @@ for an explanation of the `requireChild` attribute.
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
 different placeholder substitutions are considered to be different.
 
-**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.  
-**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).   
+**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.   
+**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).    
 **c.**  An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
 **d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.   
 **e.** An `Offset` appears with one or more tags or additional tag groups.   
@@ -298,10 +301,12 @@ that are not in a tag group.
 appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
 that uses the same anchor.  
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
-**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.
-**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.
+**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.  
+**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.  
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
-Delay and Duration which can be paired.
+`Delay` and `Duration` which can be paired.  
+
+**See also:** [**TAG_GROUP_ERROR**](#tag_group_error).  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.

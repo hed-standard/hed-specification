@@ -109,6 +109,18 @@
                 "passes": [
                     "Temperature/4 oC"
                 ]
+            },
+            "sidecar_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [],
+                "passes": []
             }
         }
     }
