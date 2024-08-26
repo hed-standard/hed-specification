@@ -1,6 +1,7 @@
 [
     {
         "error_code": "SIDECAR_KEY_MISSING",
+        "alt_codes": [],
         "name": "sidecar-key-missing",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,

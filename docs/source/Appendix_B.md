@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.** A tag extension contains a non `name` character.  
+**a.** A non-printable character (ASCII code < 32 or == 127) appears in a HED string.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -169,6 +169,7 @@ on the requirements for using sidecars.
 
 **a.**  The `"HED"` key is not a second-level dictionary key.  
 **b.**  An annotation entry is provided for `n/a`.  
+**c.**  A sidecar refers to a column in curly braces, but that column has no HED.  
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
@@ -253,8 +254,9 @@ for additional information on the rules for group errors due to schema attribute
 ### TAG_INVALID
 
 **a.**  The tag is not valid in the schema it is associated with.  
-**b.**  The tag has extra internal whitespace, including directly before or after slashes.
-**c.**  The tag has a leading, trailing, or consecutive slashes.  
+**b.**  The tag has extra internal whitespace, including directly before or after forward slashes.  
+**c.**  The tag has a leading, trailing, or consecutive forward slashes.  
+**d.**  A tag or tag extension contains a non `name` character.  
 
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.

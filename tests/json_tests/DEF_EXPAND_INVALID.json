@@ -1,8 +1,10 @@
 [
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-name-not-definition",
         "description": "A `Def-expand` tag's name does not correspond to a definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -96,8 +98,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-missing-placeholder",
         "description": "A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -198,8 +202,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-bad-placeholder-units",
         "description": "A `Def-expand` has a placeholder value of incorrect format or units for definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -298,8 +304,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-tags-not-in-definition",
         "description": "The tags within a Def-expand do not match the corresponding definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -397,8 +405,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-missing-inner-group",
         "description": "A Def-expand is missing its inner group containing the definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"
@@ -490,8 +500,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-has-extras",
         "description": "A Def-expand has extra tags or groups.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"

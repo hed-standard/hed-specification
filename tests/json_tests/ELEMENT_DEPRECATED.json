@@ -1,6 +1,7 @@
 [
     {
         "error_code": "ELEMENT_DEPRECATED",
+        "alt_codes": [],
         "name": "tag-deprecated",
         "description": "A tag is deprecated",
         "warning": true,

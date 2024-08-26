@@ -1,8 +1,10 @@
 [
     {
         "error_code": "TEMPORAL_TAG_ERROR",
+        "alt_codes": [],
         "name": "onset-offset-inset-error-not-tag-group-delay",
         "description": "An Onset or Offset tag does not appear in a tag group.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
