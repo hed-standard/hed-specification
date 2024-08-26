@@ -144,45 +144,43 @@ The types of characters referred to in this specification are:
 
 | Name | Description |
 | ---- | ----------- |
-| `ascii` | utf-8 codes 0 to 127 (single byte) |
-| `nonascii` | utf-8 codes greater than 128 (multi-byte) |
-| `printable` | ASCII 32 <= code < 127 |
-| `lowercase` | ASCII characters a-z |  
-| `uppercase` | ASCII characters A-Z |
-| `letters` | `lowercase` and/or `uppercase` |
-| `text` | `printable` and/or `nonascii` excluding comma, square brackets, and curly braces.|
-| `digits` | 0-9 |
-| `tab` | ASCII code 09 |
-| `newline` | ASCII code 10 (linefeed) |
-| `blank` | ASCII code 32 |
-| `exclamation` | ASCII code 33 |
-| `double-quote` | ASCII code 34 |
-| `number-sign` | ASCII code 35 |
-| `dollar` | ASCII code 36 |
-| `percent-sign` | ASCII code 37 |
+| `alphanumeric` | `letters` and/or  `digits` |
 | `ampersand` | ASCII code 38 |
-| `single-quote` | ASCII code 39 |
-| `left-paren` | ASCII code 40 |
-| `right-paren` | ASCII code 41 |
+| `ascii` | utf-8 codes 0 to 127 (single byte) |
 | `asterisk` | ASCII code 42 |
-| `plus` | ASCII code 43 |
-| `comma` | ASCII code 44 |
-| `hyphen` | ASCII code 45 |
-| `period` | ASCII code 46 |
-| `slash` | ASCII code 47 |
-| `colon` | ASCII code 58 |
-| `semicolon` | ASCII code 59 |
-| `less-than` | ASCII code 60 |
-| `equals` | ASCII code 61 |
-| `greater-than` | ASCII code 62 |
-| `question-mark` | ASCII code 63 |
 | `at-sign` | ASCII code 64 |
 | `backslash` | ASCII code 92 |
+| `blank` | ASCII code 32 |
 | `caret` | ASCII code 94 |
-| `underscore` | ASCII code 95 |
-| `verical-bar` | ASCII code 124 |
-| `tilde` | ASCII code 126 |
-| `alphanumeric` | `letters` and/or  `digits` |
+| `colon` | ASCII code 58 |
+| `comma` | ASCII code 44 |
+| `dollar` | ASCII code 36 |
+| `digits` | 0-9 |
+| `double-quote` | ASCII code 34 |
+| `equals` | ASCII code 61 |
+| `exclamation` | ASCII code 33 |
+| `greater-than` | ASCII code 62 |
+| `hyphen` | ASCII code 45 |
+| `left-paren` | ASCII code 40 |
+| `less-than` | ASCII code 60 |
+| `letters` | `lowercase` and/or `uppercase` |
+| `lowercase` | ASCII characters a-z |
 | `name` | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii` |
-
-
+| `newline` | ASCII code 10 (linefeed) |
+| `nonascii` | utf-8 codes greater than 128 (multi-byte) |
+| `number-sign` | ASCII code 35 |
+| `percent-sign` | ASCII code 37 |
+| `period` | ASCII code 46 |
+| `plus` | ASCII code 43 |
+| `printable` | ASCII 32 <= code < 127 |
+| `question-mark` | ASCII code 63 |
+| `right-paren` | ASCII code 41 |
+| `semicolon` | ASCII code 59 |
+| `single-quote` | ASCII code 39 |
+| `slash` | ASCII code 47 |
+| `tab` | ASCII code 09 |
+| `text` | `printable` and/or `nonascii` excluding comma, square brackets, and curly braces.|
+| `tilde` | ASCII code 126 |
+| `underscore` | ASCII code 95 |
+| `uppercase` | ASCII characters A-Z |
+| `verical-bar` | ASCII code 124 |

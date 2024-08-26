@@ -1,8 +1,10 @@
 [
     {
         "error_code": "COMMA_MISSING",
+        "alt_codes": [],
         "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -97,8 +99,10 @@
     },
     {
         "error_code": "COMMA_MISSING",
+        "alt_codes": [],
         "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

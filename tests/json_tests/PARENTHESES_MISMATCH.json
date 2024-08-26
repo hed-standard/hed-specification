@@ -1,8 +1,10 @@
 [
     {
         "error_code": "PARENTHESES_MISMATCH",
+        "alt_codes": [],
         "name": "parentheses-mismatch-unmatched-parentheses",
         "description": "A HED string does not have the same number of open and closed parentheses.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -96,8 +98,10 @@
     },
     {
         "error_code": "PARENTHESES_MISMATCH",
+        "alt_codes": [],
         "name": "parentheses-mismatch-incorrect-nesting",
         "description": "The open and closed parentheses are not correctly nested in the HED string.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

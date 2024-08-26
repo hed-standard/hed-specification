@@ -1,8 +1,10 @@
 [
     {
         "error_code": "TILDES_UNSUPPORTED",
+        "alt_codes": [],
         "name": "tildes-unsupported",
         "description": "The tilde syntax is no longer supported for any version of HED.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

@@ -1,6 +1,7 @@
 [
     {
         "error_code": "UNITS_MISSING",
+        "alt_codes": [],
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,
@@ -95,6 +96,7 @@
     },
     {
         "error_code": "UNITS_MISSING",
+        "alt_codes": [],
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,

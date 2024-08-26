@@ -1012,6 +1012,9 @@ When a column name appears in curly braces within a HED annotation in
 a JSON sidecar, the corresponding HED annotation for that row is substituted
 for the curly braces and their contents when the HED annotation is assembled.
 
+If a column is used in curly braces in a HED annotation,
+then that column must have a HED annotation or a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid) error is generated.
+
 
 ``````{admonition} Rules for curly braces notation in sidecars.
 :class: tip

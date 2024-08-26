@@ -1,8 +1,10 @@
 [
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-invalid-in-schema",
         "description": "The tag is not valid in the schema it is associated with.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -97,8 +99,10 @@
     },
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-has-extra-white space",
         "description": "A HED tag has extra internal whitespace, including directly before or after slashes.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -257,8 +261,10 @@
     },
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-has-leading-trailing-or-consecutive-slashes",
         "description": "A HED tag has leading, trailing or consecutive slashes.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",

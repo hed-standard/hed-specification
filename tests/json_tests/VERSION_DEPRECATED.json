@@ -1,6 +1,7 @@
 [
     {
         "error_code": "VERSION_DEPRECATED",
+        "alt_codes": [],
         "name": "version-deprecated",
         "warning": true,
         "description": "The HED schema version being used as been deprecated.",

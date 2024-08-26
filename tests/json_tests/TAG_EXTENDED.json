@@ -1,6 +1,7 @@
 [
     {
         "error_code": "TAG_EXTENDED",
+        "alt_codes": [],
         "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
         "warning": true,

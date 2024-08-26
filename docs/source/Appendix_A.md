@@ -188,7 +188,7 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - dateTimeClass
   - `digits`,  `colon`,  `hyphen`, `period`, `uppercase`
 * - nameClass
-  - `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `nonascii` 
+  - `alphanumeric`, `hyphen`, `underscore`, `nonascii` 
 * - numericClass
   - `digits`,  `period`,  `hyphen`,  `plus`, 'caret`,  `E`,  `e` `
 * - posixPath

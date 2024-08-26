@@ -1,8 +1,10 @@
 [
     {
         "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
         "name": "tag-namespace_prefix-invalid-no-schema",
         "description": "A tag starting with name: does not have an associated schema.",
+        "warning": false,
         "schema": ["8.3.0", "sc:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -93,8 +95,10 @@
     },
     {
         "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
         "name": "tag-namespace_prefix-invalid-characters",
         "description": "A tag prefix has invalid characters.",
+        "warning": false,
         "schema": ["8.3.0", "sc:score_1.0.0"],
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {

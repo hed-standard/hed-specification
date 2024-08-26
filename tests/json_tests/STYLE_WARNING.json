@@ -1,6 +1,7 @@
 [
     {
         "error_code": "STYLE_WARNING",
+        "alt_codes": [],
         "name": "style-warning-bad-naming-style",
         "description": "An extension or label does not follow HED naming conventions.",
         "warning": true,
