@@ -252,7 +252,7 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_EXTENSION_INVALID"],
         "name": "placeholder-invalid-json-#-misplaced",
         "description": "A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.",
         "warning": false,

@@ -1,7 +1,7 @@
 [
     {
         "error_code": "TILDES_UNSUPPORTED",
-        "alt_codes": [],
+        "alt_codes": ["CHARACTER_INVALID"],
         "name": "tildes-unsupported",
         "description": "The tilde syntax is no longer supported for any version of HED.",
         "warning": false,

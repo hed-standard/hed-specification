@@ -1,20 +1,20 @@
 [
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "alt_codes": [],
-        "name": "onset-offset-inset-error-not-tag-group-delay",
-        "description": "An Onset or Offset tag does not appear in a tag group.",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-not-tag-group-delay",
+        "description": "A Delay is not in the tag group.",
         "warning": false,
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Onset, Red",
-                    "Offset, Def/Acc/5.4 m-per-s^2"
+                    "Delay, Red",
+                    "Delay, Def/Acc/5.4 m-per-s^2"
                 ],
                 "passes": [
-                    "(Onset, Def/Acc/5.4 m-per-s^2)"
+                    "(Delay/5 s, (Def/Acc/5.4 m-per-s^2))"
                 ]
             },
             "sidecar_tests": {
@@ -22,8 +22,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Onset, Red",
-                                "ball": "Delay/5.0 s, Offset, Def/Acc/5.4 m-per-s^2"
+                                "face": "Blue, Red",
+                                "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
                             }
                         }
                     }
@@ -100,7 +100,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-nested-group-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-nested-group-delay",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -187,7 +188,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-wrong-number-of-defs-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-wrong-number-of-defs-delay",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -279,7 +281,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-onset-has-more-groups-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-onset-has-more-groups-delay",
         "description": "An Onset group has more than one additional tag group.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -375,7 +378,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-offset-has-groups-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-offset-has-groups-delay",
         "description": "An Offset appears with one or more tags or additional tag groups.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -487,7 +491,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-mismatch-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-mismatch-delay",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -565,7 +570,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-extra tags-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-extra tags-delay",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -654,7 +660,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-duplicated-onset-or-offset-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-duplicated-onset-or-offset-delay",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -751,7 +758,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-outside-its-event-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-inset-outside-its-event-delay",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -832,7 +840,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-group-has-extras-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-inset-group-has-extras-delay",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
@@ -916,7 +925,8 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-tag-appears-where-not-allowed-delay",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+        "name": "temporal-tag-error-tag-appears-where-not-allowed-delay",
         "description": "An Inset, Offset, or Onset tag appears in a tsv with no onset column",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],

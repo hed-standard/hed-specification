@@ -1,7 +1,7 @@
 [
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-tag-group",
         "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
         "warning": false,
@@ -403,7 +403,7 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_INVALID"],
         "name": "definition-invalid-placeholder-incorrect-of-positions",
         "description": "A definition has placeholders (`#`) in incorrect positions.",
         "warning": false,
@@ -484,7 +484,7 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_INVALID"],
         "name": "definition-invalid-placeholder-conflict",
         "description": "Definitions of the same name appear with and without a `#`.",
         "warning": false,
@@ -655,7 +655,7 @@
         "description": "A tag with a required or unique attribute appears in a definition.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))"],
         "tests": {
             "string_tests": {
                 "fails": [
