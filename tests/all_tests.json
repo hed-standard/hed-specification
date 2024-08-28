@@ -1,8 +1,14 @@
 [
     {
         "error_code": "CHARACTER_INVALID",
-        "name": "character-invalid-utf-8",
+        "alt_codes": [
+            "TAG_INVALID",
+            "UNITS_INVALID",
+            "VALUE_INVALID"
+        ],
+        "name": "character-invalid-non-printing appears",
         "description": "The HED string contains a UTF-8 character.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11,7 +17,6 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Collection/[x]",
                     "Item/Bl\b"
                 ],
                 "passes": [
@@ -132,8 +137,14 @@
     },
     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": [
+            "TAG_INVALID",
+            "UNITS_INVALID",
+            "VALUE_INVALID"
+        ],
         "name": "curly-braces-not-in-sidecar",
         "description": "The curly brace notation is used outside a sidecar.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -150,7 +161,18 @@
             },
             "sidecar_tests": {
                 "fails": [],
-                "passes": []
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
             },
             "event_tests": {
                 "fails": [
@@ -190,8 +212,13 @@
     },
     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": [
+            "TAG_INVALID",
+            "VALUE_INVALID"
+        ],
         "name": "invalid-character-name-value-class",
         "description": "An invalid character was used in an 8.3.0 or greater style text value class.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -201,10 +228,14 @@
             "string_tests": {
                 "fails": [
                     "Parameter-label/[",
-                    "Parameter-label/Taco*"
+                    "Parameter-label/Taco*",
+                    "Label/30$",
+                    "Label/30db kg"
                 ],
                 "passes": [
-                    "Parameter-label/Words"
+                    "Parameter-label/Words",
+                    "Label/30e10",
+                    "Label/3e10asdf"
                 ]
             },
             "sidecar_tests": {
@@ -226,8 +257,58 @@
                 ]
             },
             "event_tests": {
-                "fails": [],
-                "passes": []
+                "fails": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Statistical-accuracy/1max1"
+                        ]
+                    ],
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/30$"
+                        ]
+                    ],
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/30db kg"
+                        ]
+                    ]
+                ],
+                "passes": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/3e10asdf"
+                        ]
+                    ]
+                ]
             },
             "combo_tests": {
                 "fails": [],
@@ -237,8 +318,14 @@
     },
     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": [
+            "TAG_INVALID",
+            "UNITS_INVALID",
+            "VALUE_INVALID"
+        ],
         "name": "invalid-character-name-value-class-deprecated",
         "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -285,8 +372,12 @@
     },
     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": [
+            "UNITS_INVALID"
+        ],
         "name": "invalid-character-numeric-class",
         "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [],
         "tests": {
@@ -343,54 +434,11 @@
         }
     },
     {
-        "error_code": "CHARACTER_INVALID",
-        "name": "invalid-character-name-class",
-        "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
-        "schema": "8.3.0",
-        "definitions": [],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Label/30$",
-                    "Label/30db kg"
-                ],
-                "passes": [
-                    "Label/30e10",
-                    "Label/3e10asdf"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "show": "Label/3.0a"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": "Label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [],
-                "passes": []
-            }
-        }
-    },
-    {
         "error_code": "COMMA_MISSING",
+        "alt_codes": [],
         "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -545,8 +593,10 @@
     },
     {
         "error_code": "COMMA_MISSING",
+        "alt_codes": [],
         "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -696,8 +746,12 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
         "name": "definition-invalid-tag-group",
         "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -790,8 +844,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-missing-inner-group",
         "description": "A definition's enclosing tag group is missing the inner tag group (i.e., the definition's contents).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -879,8 +935,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-multiple-definition-tags",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -973,8 +1031,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-inner-group-defs",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1069,8 +1129,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-bad-number-of-placeholders",
         "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1161,8 +1223,12 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [
+            "TAG_INVALID"
+        ],
         "name": "definition-invalid-placeholder-incorrect-of-positions",
         "description": "A definition has placeholders (`#`) in incorrect positions.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1253,8 +1319,12 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [
+            "TAG_INVALID"
+        ],
         "name": "definition-invalid-placeholder-conflict",
         "description": "Definitions of the same name appear with and without a `#`.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1345,8 +1415,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-multiple-definitions",
         "description": "Multiple `Definition` tags with same name are encountered.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1445,12 +1517,13 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-has-unique-or-required-tag",
         "description": "A tag with a required or unique attribute appears in a definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Event-context, Item, (Label/Pie))"
+            "(Definition/Acc/#, (Acceleration/#, Red))"
         ],
         "tests": {
             "string_tests": {
@@ -1537,8 +1610,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-not-allowed-here",
         "description": "A definition appears in an unexpected place such as an events file or sidecar.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1659,8 +1734,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-name-not-definition",
         "description": "A `Def-expand` tag's name does not correspond to a definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1811,8 +1888,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-missing-placeholder",
         "description": "A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -1987,8 +2066,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-bad-placeholder-units",
         "description": "A `Def-expand` has a placeholder value of incorrect format or units for definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2156,8 +2237,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-invalid-tags-not-in-definition",
         "description": "The tags within a Def-expand do not match the corresponding definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2319,8 +2402,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-missing-inner-group",
         "description": "A Def-expand is missing its inner group containing the definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2468,8 +2553,10 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
+        "alt_codes": [],
         "name": "def-expand-has-extras",
         "description": "A Def-expand has extra tags or groups.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2618,8 +2705,10 @@
     },
     {
         "error_code": "DEF_INVALID",
+        "alt_codes": [],
         "name": "def-invalid-name",
         "description": "A `Def` tag's name does not correspond to a definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2761,8 +2850,10 @@
     },
     {
         "error_code": "DEF_INVALID",
+        "alt_codes": [],
         "name": "def-invalid-missing-placeholder",
         "description": "A `Def` tag is missing an expected placeholder value or has an unexpected placeholder value.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -2911,8 +3002,10 @@
     },
     {
         "error_code": "DEF_INVALID",
+        "alt_codes": [],
         "name": "def-invalid-bad-placeholder-units",
         "description": "A `Def` has a placeholder value of incorrect format or units for definition.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3083,6 +3176,7 @@
     },
     {
         "error_code": "ELEMENT_DEPRECATED",
+        "alt_codes": [],
         "name": "tag-deprecated",
         "description": "A tag is deprecated",
         "warning": true,
@@ -3230,8 +3324,10 @@
     },
     {
         "error_code": "PARENTHESES_MISMATCH",
+        "alt_codes": [],
         "name": "parentheses-mismatch-unmatched-parentheses",
         "description": "A HED string does not have the same number of open and closed parentheses.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3380,8 +3476,10 @@
     },
     {
         "error_code": "PARENTHESES_MISMATCH",
+        "alt_codes": [],
         "name": "parentheses-mismatch-incorrect-nesting",
         "description": "The open and closed parentheses are not correctly nested in the HED string.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3530,8 +3628,10 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "alt_codes": [],
         "name": "placeholder-invalid-misplaced",
         "description": "A `#` appears in a place that it should not (such as in the `HED` column of an event file outside a definition).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3670,8 +3770,10 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "alt_codes": [],
         "name": "placeholder-invalid-#-in-categorical-column",
         "description": "A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3778,8 +3880,10 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "alt_codes": [],
         "name": "placeholder-invalid-json-value-column",
         "description": "A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3889,8 +3993,12 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
+        "alt_codes": [
+            "TAG_EXTENSION_INVALID"
+        ],
         "name": "placeholder-invalid-json-#-misplaced",
         "description": "A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -3994,8 +4102,10 @@
     },
     {
         "error_code": "REQUIRED_TAG_MISSING",
+        "alt_codes": [],
         "name": "required-tag-missing",
         "description": "An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. (Note this is deprecated so no tests.)",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -4022,8 +4132,10 @@
     },
     {
         "error_code": "REQUIRED_TAG_MISSING",
+        "alt_codes": [],
         "name": "required-tag-in-definition",
         "description": "A required tag appears in a definition",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -6892,8 +7004,12 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
+        "alt_codes": [
+            "CHARACTER_INVALID"
+        ],
         "name": "sidecar-braces-contents-invalid",
         "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -7018,9 +7134,15 @@
         }
     },
     {
-        "error_code": "VALUE_INVALID",
+        "error_code": "SIDECAR_BRACES_INVALID",
+        "alt_codes": [
+            "VALUE_INVALID",
+            "CHARACTER_INVALID",
+            "UNITS_INVALID"
+        ],
         "name": "sidecar-braces-invalid-spot",
         "description": "A curly brace reference must only appear where a tag could.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -7073,8 +7195,10 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
+        "alt_codes": [],
         "name": "sidecar-braces-circular-reference",
         "description": "The item in curly braces has a HED annotation that contains curly braces.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -7212,8 +7336,10 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
+        "alt_codes": [],
         "name": "sidecar-braces-self-reference",
         "description": "The item in curly braces has a HED annotation that contains itself.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -7385,181 +7511,14 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
-        "name": "sidecar-braces-self-reference",
-        "description": "The item in curly braces has a HED annotation that contains itself.",
-        "schema": "8.2.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Label/Pie))"
+        "alt_codes": [
+            "CHARACTER_INVALID",
+            "VALUE_INVALID",
+            "UNITS_INVALID"
         ],
-        "tests": {
-            "string_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "(Red, Blue), (Green, (Yellow)), {HED}",
-                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2)"
-                            }
-                        },
-                        "response_time": {
-                            "HED": "Label/#, {response_time}"
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "(Red, Blue), (Green, (Yellow))",
-                                "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
-                            }
-                        },
-                        "response_time": {
-                            "Description": "Has description with HED",
-                            "HED": "Label/#"
-                        },
-                        "response_count": {
-                            "Description": "A count used to test curly braces in value columns.",
-                            "HED": "(Item-count/#, {response_time})"
-                        }
-                    },
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "(Red, Blue), (Green, (Yellow))",
-                                "ball": "{HED}, (Def/Acc/3.5 m-per-s^2, {response_action})"
-                            }
-                        },
-                        "response_action": {
-                            "Description": "Does not correspond to curly braces",
-                            "HED": "Label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{HED}, (Def/Acc/3.5 m-per-s^2)"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#, {response_time}"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "response_time",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                3.4,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                6.8,
-                                "ball",
-                                "Green, Def/MyColor"
-                            ],
-                            [
-                                5.2,
-                                0,
-                                "n/a",
-                                "face",
-                                ""
-                            ],
-                            [
-                                5.5,
-                                0,
-                                "any",
-                                "face",
-                                "n/a"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "response_time",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                3.4,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                6.8,
-                                "ball",
-                                "Green, Def/MyColor"
-                            ],
-                            [
-                                5.2,
-                                0,
-                                "n/a",
-                                "face",
-                                ""
-                            ],
-                            [
-                                5.5,
-                                0,
-                                "any",
-                                "face",
-                                "n/a"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "SIDECAR_BRACES_INVALID",
         "name": "sidecar-braces-appear-as-value-rather-than-tag",
         "description": "The curly braces are in a value rather than as a separate tag substitute.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -7722,259 +7681,11 @@
         }
     },
     {
-        "error_code": "SIDECAR_BRACES_INVALID",
-        "name": "sidecar-braces-ref-not-hed-column",
-        "description": "Curly braces reference a column that exists, but isn't marked as hed data.",
-        "schema": "8.2.0",
-        "definitions": [],
-        "tests": {
-            "string_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "sidecar_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{onset}"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "ball",
-                                "Blue"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": []
-            }
-        }
-    },
-    {
-        "error_code": "SIDECAR_BRACES_INVALID",
-        "name": "sidecar-braces-ref-ignore-column",
-        "description": "Curly braces reference a column that exists, but is marked ignore.",
-        "schema": "8.2.0",
-        "definitions": [],
-        "tests": {
-            "string_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "sidecar_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{onset}"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "ball",
-                                "Blue"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": []
-            }
-        }
-    },
-    {
-        "error_code": "CHARACTER_INVALID",
-        "name": "sidecar-braces-in-events-file",
-        "description": "The curly braces appear in HED column of events file.",
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Label/Pie))"
-        ],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "{HED}, Def/MyColor"
-                ],
-                "passes": []
-            },
-            "sidecar_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "{who_knows}, Red"
-                        ]
-                    ]
-                ],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue, {response_time}"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor"
-                            ],
-                            [
-                                5.2,
-                                0,
-                                "face",
-                                ""
-                            ],
-                            [
-                                5.5,
-                                0,
-                                "face",
-                                "n/a"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "(Red, Blue), (Green, (Yellow)), ({HED})",
-                                    "ball": "{response_time}, (Def/Acc/3.5 m-per-s^2)"
-                                }
-                            },
-                            "response_time": {
-                                "Description": "Has description with HED",
-                                "HED": "Label/#"
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED",
-                                "response_time"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue",
-                                1
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor",
-                                1
-                            ],
-                            [
-                                5.2,
-                                0,
-                                "face",
-                                "",
-                                1
-                            ],
-                            [
-                                5.5,
-                                0,
-                                "face",
-                                "n/a",
-                                1
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
         "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
         "name": "sidecar-invalid-key-at-wrong-level",
         "description": "The HED key is not a second-level dictionary key.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -8116,8 +7827,10 @@
     },
     {
         "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
         "name": "sidecar-invalid-na-annotated",
         "description": "An annotation entry is provided for `n/a`.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -8223,7 +7936,128 @@
         }
     },
     {
+        "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
+        "name": "curly-braces-has-no-hed",
+        "description": "A column name appears in curly braces, but that column name does not have a HED annotation.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": [
+            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/MyColor, (Label/Pie))"
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "HED": "Label/#"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Statistical-accuracy/0.677, {response}"
+                                }
+                            },
+                            "response": "Label/#"
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "response",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "yes",
+                                "Red, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "no",
+                                "Green"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "response",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "yes",
+                                "Red, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "no",
+                                "Green"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
         "error_code": "SIDECAR_KEY_MISSING",
+        "alt_codes": [],
         "name": "sidecar-key-missing",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,
@@ -8252,7 +8086,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "ball": "Black, Blue"
                                 }
                             }
                         },
@@ -8315,6 +8149,7 @@
     },
     {
         "error_code": "STYLE_WARNING",
+        "alt_codes": [],
         "name": "style-warning-bad-naming-style",
         "description": "An extension or label does not follow HED naming conventions.",
         "warning": true,
@@ -8464,8 +8299,10 @@
     },
     {
         "error_code": "TAG_EMPTY",
+        "alt_codes": [],
         "name": "tag-empty-extra-commas-or-parentheses",
         "description": "A HED string has extra commas or parentheses separated by only white space.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -8625,8 +8462,10 @@
     },
     {
         "error_code": "TAG_EMPTY",
+        "alt_codes": [],
         "name": "tag-empty-begin-end-comma",
         "description": "A HED string begins or ends with a comma (ignoring white space).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -8777,8 +8616,10 @@
     },
     {
         "error_code": "TAG_EMPTY",
+        "alt_codes": [],
         "name": "tag-empty-empty-parentheses",
         "description": "A tag group is empty (i.e., empty parentheses are not allowed).",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -8927,8 +8768,10 @@
     },
     {
         "error_code": "TAG_EXPRESSION_REPEATED",
+        "alt_codes": [],
         "name": "tag-expression-repeated-same-level",
         "description": "A tag is repeated in the same tag group or level.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9085,6 +8928,7 @@
     },
     {
         "error_code": "TAG_EXTENDED",
+        "alt_codes": [],
         "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
         "warning": true,
@@ -9237,8 +9081,10 @@
     },
     {
         "error_code": "TAG_EXTENSION_INVALID",
+        "alt_codes": [],
         "name": "tag-extension-invalid-duplicate",
         "description": "A tag extension term is already in the schema.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9387,8 +9233,10 @@
     },
     {
         "error_code": "TAG_EXTENSION_INVALID",
+        "alt_codes": [],
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9556,8 +9404,12 @@
     },
     {
         "error_code": "TAG_GROUP_ERROR",
+        "alt_codes": [
+            "TEMPORAL_TAG_ERROR"
+        ],
         "name": "tag-group-error-missing",
         "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9566,7 +9418,7 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Definition, (Red)",
+                    "Definition/Blech, (Red)",
                     "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
                     "Onset",
                     "Duration/3.0 s",
@@ -9711,8 +9563,12 @@
     },
     {
         "error_code": "TAG_GROUP_ERROR",
+        "alt_codes": [
+            "TEMPORAL_TAG_ERROR"
+        ],
         "name": "tag-group-error-not-top-level",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9728,8 +9584,50 @@
                 "passes": []
             },
             "event_tests": {
-                "fails": [],
-                "passes": []
+                "fails": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "event_code",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "face",
+                            "Red, Def/MyColor, ((Duration/5 s, (Red)))"
+                        ],
+                        [
+                            5.0,
+                            0,
+                            "ball",
+                            "Green"
+                        ]
+                    ]
+                ],
+                "passes": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "event_code",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "face",
+                            "Red, Def/MyColor, (Duration/5 s, (Red))"
+                        ],
+                        [
+                            5.0,
+                            0,
+                            "ball",
+                            "Green"
+                        ]
+                    ]
+                ]
             },
             "combo_tests": {
                 "fails": [
@@ -9801,8 +9699,12 @@
     },
     {
         "error_code": "TAG_GROUP_ERROR",
+        "alt_codes": [
+            "TEMPORAL_TAG_ERROR"
+        ],
         "name": "multiple-top-level-tags-in-same-group",
         "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -9967,8 +9869,10 @@
     },
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-invalid-in-schema",
         "description": "The tag is not valid in the schema it is associated with.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -10118,8 +10022,10 @@
     },
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-has-extra-white space",
         "description": "A HED tag has extra internal whitespace, including directly before or after slashes.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -10278,8 +10184,10 @@
     },
     {
         "error_code": "TAG_INVALID",
+        "alt_codes": [],
         "name": "tag-has-leading-trailing-or-consecutive-slashes",
         "description": "A HED tag has leading, trailing or consecutive slashes.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -10449,8 +10357,10 @@
     },
     {
         "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
         "name": "tag-namespace_prefix-invalid-no-schema",
         "description": "A tag starting with name: does not have an associated schema.",
+        "warning": false,
         "schema": [
             "8.3.0",
             "sc:score_1.0.0"
@@ -10595,8 +10505,10 @@
     },
     {
         "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
         "name": "tag-namespace_prefix-invalid-characters",
         "description": "A tag prefix has invalid characters.",
+        "warning": false,
         "schema": [
             "8.3.0",
             "sc:score_1.0.0"
@@ -10738,8 +10650,10 @@
     },
     {
         "error_code": "TAG_NOT_UNIQUE",
+        "alt_codes": [],
         "name": "tag-not-unique",
         "description": "A tag with unique attribute appears more than once in an event-level HED string.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -10873,8 +10787,10 @@
     },
     {
         "error_code": "TAG_REQUIRES_CHILD",
+        "alt_codes": [],
         "name": "tag-requires-child-no-child",
         "description": "A tag has the requireChild schema attribute but does not have a child.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11023,8 +10939,12 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-not-tag-group",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-not-tag-group",
         "description": "An Onset or Offset tag does not appear in a tag group.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11198,8 +11118,12 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-nested-group",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-nested-group",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11332,8 +11256,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-wrong-number-of-defs",
+        "alt_codes": [],
+        "name": "temporal-tag-error-wrong-number-of-defs",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11480,8 +11406,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-onset-has-more-groups",
+        "alt_codes": [],
+        "name": "temporal-tag-error-onset-has-more-groups",
         "description": "An Onset group has more than one additional tag group.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11636,8 +11564,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-offset-has-groups",
+        "alt_codes": [],
+        "name": "temporal-tag-error-offset-has-groups",
         "description": "An Offset appears with one or more tags or additional tag groups.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11837,8 +11767,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-mismatch",
+        "alt_codes": [],
+        "name": "temporal-tag-error-offset-with-no-onset",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -11979,8 +11911,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-extra tags",
+        "alt_codes": [],
+        "name": "temporal-tag-error-extra tags",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12115,8 +12049,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-duplicated-onset-or-offset",
+        "alt_codes": [],
+        "name": "temporal-tag-error-duplicated-onset-or-offset",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12265,8 +12201,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-outside-its-event",
+        "alt_codes": [],
+        "name": "temporal-tag-error-inset-outside-its-event",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12415,8 +12353,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-group-has-extras",
+        "alt_codes": [],
+        "name": "temporal-tag-error-inset-group-has-extras",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12581,8 +12521,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-duration-group",
-        "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
+        "alt_codes": [],
+        "name": "temporal-tag-error-duration-group",
+        "description": "A Duration or Delay has extra tags or groups.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12707,8 +12649,12 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-tag-appears-where-not-allowed",
-        "description": "An Inset, Offset, or Onset tag appears in a tsv with no onset column",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-tag-appears-where-not-allowed",
+        "description": "A temporal tag appears appears in a tsv with no onset column",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12729,6 +12675,10 @@
                         [
                             "duration",
                             "HED"
+                        ],
+                        [
+                            0,
+                            "(Duration/5 s, (Red))"
                         ],
                         [
                             0,
@@ -12791,6 +12741,10 @@
                                 "HED"
                             ],
                             [
+                                "n/a",
+                                "(Duration/5.0, (Red))"
+                            ],
+                            [
                                 "face",
                                 "Def/MyColor, Red, Blue"
                             ],
@@ -12808,8 +12762,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "(Def/MyColor, Duration)",
-                                    "ball": "(Def/MyColor, Delay)"
+                                    "face": "(Duration/5.0, (Red))",
+                                    "ball": "(Delay/4.0, (Green))"
                                 }
                             }
                         },
@@ -12865,8 +12819,12 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-not-tag-group-delay",
-        "description": "An Onset or Offset tag does not appear in a tag group.",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-not-tag-group-delay",
+        "description": "A Delay is not in the tag group.",
+        "warning": false,
         "schema": "8.2.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -12875,11 +12833,11 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Onset, Red",
-                    "Offset, Def/Acc/5.4 m-per-s^2"
+                    "Delay, Red",
+                    "Delay, Def/Acc/5.4 m-per-s^2"
                 ],
                 "passes": [
-                    "(Onset, Def/Acc/5.4 m-per-s^2)"
+                    "(Delay/5 s, (Def/Acc/5.4 m-per-s^2))"
                 ]
             },
             "sidecar_tests": {
@@ -12887,8 +12845,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Onset, Red",
-                                "ball": "Delay/5.0 s, Offset, Def/Acc/5.4 m-per-s^2"
+                                "face": "Blue, Red",
+                                "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
                             }
                         }
                     }
@@ -13040,7 +12998,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-nested-group-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-nested-group-delay",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
         "schema": "8.2.0",
         "definitions": [
@@ -13174,7 +13135,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-wrong-number-of-defs-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-wrong-number-of-defs-delay",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
         "schema": "8.2.0",
         "definitions": [
@@ -13322,7 +13286,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-onset-has-more-groups-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-onset-has-more-groups-delay",
         "description": "An Onset group has more than one additional tag group.",
         "schema": "8.2.0",
         "definitions": [
@@ -13478,7 +13445,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-offset-has-groups-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-offset-has-groups-delay",
         "description": "An Offset appears with one or more tags or additional tag groups.",
         "schema": "8.2.0",
         "definitions": [
@@ -13679,7 +13649,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-mismatch-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-mismatch-delay",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
         "schema": "8.2.0",
         "definitions": [
@@ -13821,7 +13794,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-extra tags-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-extra tags-delay",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
         "schema": "8.2.0",
         "definitions": [
@@ -13957,7 +13933,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-duplicated-onset-or-offset-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-duplicated-onset-or-offset-delay",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
         "schema": "8.2.0",
         "definitions": [
@@ -14107,7 +14086,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-outside-its-event-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-inset-outside-its-event-delay",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
         "schema": "8.2.0",
         "definitions": [
@@ -14257,7 +14239,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-error-inset-group-has-extras-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-inset-group-has-extras-delay",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
         "schema": "8.2.0",
         "definitions": [
@@ -14423,7 +14408,10 @@
     },
     {
         "error_code": "TEMPORAL_TAG_ERROR",
-        "name": "onset-offset-inset-tag-appears-where-not-allowed-delay",
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
+        "name": "temporal-tag-error-tag-appears-where-not-allowed-delay",
         "description": "An Inset, Offset, or Onset tag appears in a tsv with no onset column",
         "schema": "8.2.0",
         "definitions": [
@@ -14581,8 +14569,12 @@
     },
     {
         "error_code": "TILDES_UNSUPPORTED",
+        "alt_codes": [
+            "CHARACTER_INVALID"
+        ],
         "name": "tildes-unsupported",
         "description": "The tilde syntax is no longer supported for any version of HED.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -14725,8 +14717,10 @@
     },
     {
         "error_code": "UNITS_INVALID",
+        "alt_codes": [],
         "name": "units-invalid-for-unit-class",
         "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -14874,8 +14868,10 @@
     },
     {
         "error_code": "UNITS_INVALID",
+        "alt_codes": [],
         "name": "units-invalid-si-units",
         "description": "A unit modifier is applied to units that are not SI units.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -15017,6 +15013,7 @@
     },
     {
         "error_code": "UNITS_MISSING",
+        "alt_codes": [],
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,
@@ -15166,6 +15163,7 @@
     },
     {
         "error_code": "UNITS_MISSING",
+        "alt_codes": [],
         "name": "units-missing-on-node-with-unit-class",
         "description": "A tag that takes value and has a unit class does not have units.",
         "warning": true,
@@ -15196,8 +15194,13 @@
     },
     {
         "error_code": "VALUE_INVALID",
+        "alt_codes": [
+            "CHARACTER_INVALID",
+            "TAG_INVALID"
+        ],
         "name": "value-invalid-#-substitution",
         "description": "The value substituted for a placeholder (`#`) is not valid.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -15205,15 +15208,8 @@
         ],
         "tests": {
             "string_tests": {
-                "fails": [
-                    "Def/Acc/MyMy",
-                    "Distance/4mxxx",
-                    "Acceleration/banana"
-                ],
-                "passes": [
-                    "Def/Acc/3.4 m-per-s^2",
-                    "Distance/4 m"
-                ]
+                "fails": [],
+                "passes": []
             },
             "sidecar_tests": {
                 "fails": [
@@ -15238,61 +15234,22 @@
                 ]
             },
             "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Def/Acc/MyMy"
-                        ],
-                        [
-                            5.0,
-                            0,
-                            "Distance/4mxxx"
-                        ]
-                    ]
-                ],
-                "passes": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Def/Acc/3.4 m-per-s^2"
-                        ],
-                        [
-                            5.0,
-                            0,
-                            "Distance/4 m"
-                        ]
-                    ]
-                ]
+                "fails": [],
+                "passes": []
             },
             "combo_tests": {
                 "fails": [
                     {
                         "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Def/Acc/MyMy",
-                                    "ball": "Distance/4mxxx"
-                                }
+                            "response": {
+                                "HED": "Item-count/#"
                             }
                         },
                         "events": [
                             [
                                 "onset",
                                 "duration",
-                                "event_code",
+                                "response",
                                 "HED"
                             ],
                             [
@@ -15304,7 +15261,7 @@
                             [
                                 5.0,
                                 0,
-                                "ball",
+                                4,
                                 "Green"
                             ]
                         ]
@@ -15313,30 +15270,27 @@
                 "passes": [
                     {
                         "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
+                            "response": {
+                                "HED": "Item-count/#"
                             }
                         },
                         "events": [
                             [
                                 "onset",
                                 "duration",
-                                "event_code",
+                                "response",
                                 "HED"
                             ],
                             [
                                 4.5,
                                 0,
-                                "face",
+                                5,
                                 "Blue"
                             ],
                             [
                                 5.0,
                                 0,
-                                "ball",
+                                2,
                                 "Green, Def/MyColor"
                             ]
                         ]
@@ -15347,8 +15301,12 @@
     },
     {
         "error_code": "VALUE_INVALID",
+        "alt_codes": [
+            "CHARACTER_INVALID"
+        ],
         "name": "value-invalid-incompatible-value-class",
-        "description": "A tag value is incompatible with the specified value class.",
+        "description": "A tag placeholder value is incompatible with the specified value class.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -15482,145 +15440,14 @@
     },
     {
         "error_code": "VALUE_INVALID",
-        "name": "value-invalid-value-class-missing",
-        "description": "A tag value with no value class is assumed to be a text and contains invalid characters.",
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Label/Pie))"
+        "alt_codes": [
+            "CHARACTER_INVALID",
+            "TAG_INVALID",
+            "UNITS_INVALID"
         ],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Age/x123 asdf",
-                    "Def/Acc/apple3"
-                ],
-                "passes": [
-                    "Collection/This-collection"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Age/x123 asdf"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Collection/This-collection"
-                            }
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Age/x123 asdf"
-                        ]
-                    ]
-                ],
-                "passes": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Collection/This-collection"
-                        ]
-                    ]
-                ]
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "VALUE_INVALID",
-        "name": "value-invalid-blank-missing",
+        "name": "value-invalid-blank-missing-before-units",
         "description": "The units are not separated from the value by a single blank.",
+        "warning": false,
         "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
@@ -15754,157 +15581,8 @@
         }
     },
     {
-        "error_code": "VALUE_INVALID",
-        "name": "value-invalid-#-value-class",
-        "description": "An extension or a value substituted for a `#` is not allowed by its value class.",
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Label/Pie))"
-        ],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Def/Acc/apple3, Blue",
-                    "Acceleration/banana"
-                ],
-                "passes": [
-                    "Acceleration/3.4 m-per-s^2",
-                    "Def/Acc/10.1 m-per-s^2"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Acceleration/banana",
-                                "ball": "Def/Acc/apple3, Blue"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Acceleration/6.8 m-per-s^2",
-                                "ball": "Def/Acc/5.433 m-per-s^2, Blue"
-                            }
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Acceleration/banana"
-                        ],
-                        [
-                            5.5,
-                            0,
-                            "Def/Acc/apple3, Blue"
-                        ]
-                    ]
-                ],
-                "passes": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Acceleration/6.8 m-per-s^2"
-                        ],
-                        [
-                            5.5,
-                            0,
-                            "Def/Acc/5.433 m-per-s^2, Blue"
-                        ]
-                    ]
-                ]
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
         "error_code": "VERSION_DEPRECATED",
+        "alt_codes": [],
         "name": "version-deprecated",
         "warning": true,
         "description": "The HED schema version being used as been deprecated.",
