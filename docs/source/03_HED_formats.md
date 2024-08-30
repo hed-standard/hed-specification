@@ -796,9 +796,8 @@ more details on validation errors due to repeated tag expressions.
 #### 3.2.8.1. The `Definition` tag
 
 A HED definition is a tag group consist of a `Definition` tag that takes
-a value representing the definition's name and a tag group defining the concept.
+a value representing the definition's name and an optional tag group defining the concept.
 Each definition is independent and stands alone.
-The definition must contain a non-empty tag group.
 
 The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute,
 assuring that definitions cannot be nested. 
@@ -886,11 +885,32 @@ See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal_tag_error) and
  [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
 for a listing of specific errors associated with onsets, and offsets, and insets.
 
-[**Chapter 5.3.1 Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
+[**Chapter 5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
+#### 3.2.8.4. `Duration` and `Delay`
 
-#### 3.2.8.4. The `Event-context` tag
+The `Delay` tag MUST appear in a top-level tag group and MUST take a numerical value.
+Its tag group must contain an inner tag group representing an event whose onset time is delayed by
+the specified amount.
+If the top-level tag group contains a `Duration` tag, then this event has the indicated duration
+otherwise the event is considered a point event.
+
+The `Duration` tag MUST appear in a top-level tag group and MUST take a numerical value indicating
+the duration of the event represented by the other tags in its group.
+The `Duration` top-level tag group may contain a `Delay`, but no other tags with the `topLevelTagGroup attribute`
+(e.g., `Onset`, `Offset`, `Inset`, `Event-context`, `Definition`).
+
+Note that the starting or the ending time of the event group with `Delay` or `Duration`, respectively,
+may not correspond to an actual event-marker appearing in the events file.
+Instead, tools calculate when the scope at analysis time and may insert additional markers if required.
+As with all HED tags and groups, order does not matter.
+
+See [**Chapter 5.3.3. Using Duration**](./05_Advanced_annotation.md#533-using-duration) and
+[**Chapter 5.3.4. Using Delay**](./05_Advanced_annotation.md#534-using-delay) for more information.
+
+
+#### 3.2.8.5. The `Event-context` tag
 
 The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes.
 This implies that there can be only one `Event-context` group in each assembled event-level HED string.

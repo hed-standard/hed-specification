@@ -22,10 +22,12 @@ The following summarizes the syntax of HED definitions.
 ``````{admonition} Syntax summary for HED definitions.
 
 **Short forms:** 
+ ~ *(Definition/xxx)*
  ~ *(Definition/xxx, (definition-content))*
  ~ *(Definition/xxx/#, (definition-content))*
  
 **Long forms:**  
+ ~ *(Property/Organizational-property/<strong>Definition/xxx</strong>)*
  ~ *(Property/Organizational-property/<strong>Definition/xxx</strong>, (definition-content))*
  ~ *(Property/Organizational-property/<strong>Definition/xxx/#</strong>, (definition-content))*
  
@@ -35,6 +37,8 @@ The following summarizes the syntax of HED definitions.
 containing the tags representing the definition’s contents.
 2. If the *xxx/#* form is used, then the *(definition-content)* MUST contain a single `#` 
 representing a value to be substituted for when the definition is used.
+3. A definition without a *(definition-content)* is sometimes use as a general purpose definition for
+anchoring `Onset` groups with varying content.  
 
 ````
 
