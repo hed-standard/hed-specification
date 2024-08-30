@@ -88,7 +88,7 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 the definition's contents.  
 
 **a.**  A `Definition` tag does not appear in a tag group at the top level in an annotation.   
-**b.**  A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).    
+**b.**  A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).    
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
 **d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.  
 **e.** A definition uses curly braces.  
