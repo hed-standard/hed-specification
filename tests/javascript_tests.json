@@ -868,7 +868,9 @@
                                 "def2": "(Definition/Blech/#, ())"
                             }
                         }
-                    },
+                    }
+                ],
+                "passes": [
                     {
                         "defs": {
                             "HED": {
@@ -876,8 +878,7 @@
                             }
                         }
                     }
-                ],
-                "passes": []
+                ]
             },
             "event_tests": {
                 "fails": [],
@@ -889,7 +890,6 @@
                         "sidecar": {
                             "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple), ((Definition/Blech, (Red)))",
                                     "def2": "(Definition/Blech/#, ())"
                                 }
                             }
@@ -937,7 +937,9 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
         "name": "definition-invalid-multiple-definition-tags",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
         "warning": false,
@@ -1033,7 +1035,9 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": [
+            "TAG_GROUP_ERROR"
+        ],
         "name": "definition-invalid-inner-group-defs",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
         "warning": false,
@@ -9716,13 +9720,21 @@
                                 "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
                             }
                         }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Blue, Red",
+                                "ball": "Delay/5.0 s, (Def/Acc/5.4 m-per-s^2)"
+                            }
+                        }
                     }
                 ],
                 "passes": [
                     {
                         "event_code": {
                             "HED": {
-                                "face": "(Delay/5.0 s, Onset, Def/Acc/5.4 m-per-s^2)"
+                                "face": "(Delay/5.0 s, (Def/Acc/5.4 m-per-s^2))"
                             }
                         }
                     }
@@ -9737,19 +9749,21 @@
                             "HED"
                         ],
                         [
-                            4.5,
-                            0,
-                            "Delay/1.0 s, Onset, Red"
-                        ],
-                        [
-                            4.8,
-                            0,
-                            "(Onset, MyColor)"
-                        ],
-                        [
                             5.0,
                             0,
-                            "Delay/1.0 s, Offset, MyColor"
+                            "Delay/1.0 s, Red"
+                        ]
+                    ],
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Delay/1.0 s, (Red))"
                         ]
                     ]
                 ],
@@ -9763,17 +9777,7 @@
                         [
                             4.5,
                             0,
-                            "(Delay/5.0 s, Onset, (Def-expand/MyColor, (Label/Pie)), (Red))"
-                        ],
-                        [
-                            5.5,
-                            0,
-                            "(Delay/5.0 s, Onset, Def/Acc/5.4 m-per-s^2)"
-                        ],
-                        [
-                            6.3,
-                            0,
-                            "(Delay/5.0 s, Offset, Def/Acc/5.4 m-per-s^2)"
+                            "(Delay/5.0 s, (Red))"
                         ]
                     ]
                 ]
@@ -9784,8 +9788,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Onset, Red",
-                                    "ball": "Delay/5.0 s, Offset, Def/Acc/5.4 m-per-s^2"
+                                    "face": "Red",
+                                    "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
                                 }
                             }
                         },
@@ -9800,29 +9804,28 @@
                                 4.5,
                                 0,
                                 "ball",
-                                "Onset, Red"
+                                "Red"
                             ],
                             [
                                 4.8,
                                 0,
                                 "n/a",
-                                "(Onset/MyColor)"
+                                "Blue"
                             ],
                             [
                                 5.0,
                                 0,
                                 "face",
-                                "Offset, MyColor"
+                                "Green"
                             ]
                         ]
-                    }
-                ],
-                "passes": [
+                    },
                     {
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "(Onset, Delay/5.0 s, Def/Acc/5.4 m-per-s^2)"
+                                    "face": "Red",
+                                    "ball": "Delay/5.0 s, (Def/Acc/5.4 m-per-s^2)"
                                 }
                             }
                         },
@@ -9834,16 +9837,29 @@
                                 "HED"
                             ],
                             [
-                                5.5,
+                                4.5,
                                 0,
-                                "n/a",
-                                "(Onset, Delay/5.0 s, Def/Acc/5.4 m-per-s^2)"
-                            ],
+                                "ball",
+                                "Red"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "(Delay/5.0 s, (Def/Acc/5.4 m-per-s^2))"
+                                }
+                            }
+                        },
+                        "events": [
                             [
-                                6.3,
-                                0,
-                                "n/a",
-                                "(Offset, Delay/5.0 s, Def/Acc/5.4 m-per-s^2)"
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
                             ],
                             [
                                 8.5,
@@ -9855,7 +9871,7 @@
                                 9.0,
                                 0,
                                 "n/a",
-                                "Green, (Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Onset)"
+                                "Green, (Delay/5.0 s, (Def/MyColor))"
                             ]
                         ]
                     }
