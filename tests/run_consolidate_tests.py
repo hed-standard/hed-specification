@@ -17,22 +17,22 @@ def combine_tests(test_names, test_dir, output_path):
         json.dump(combined_data, output_file, indent=4)
 
 
-def main(exclude_names=[]):
+def main(exclude_names=[], out_name='temp.json'):
     relative_dir = "json_tests"  # relative directory to read
-    javascript_name = "nonschema_tests.json"
-    python_name = "all_tests.json"
+
     script_dir = os.path.dirname(os.path.abspath(__file__)) # directory of this script
     target_dir = os.path.join(script_dir, relative_dir) # full path of the
 
-    # Write all the tests for Python
+    # Write the indicated files
     file_names = [f for f in os.listdir(target_dir) if os.path.isfile(os.path.join(target_dir, f))]
-    combine_tests(file_names, target_dir, os.path.join(script_dir, python_name))
-
-    # Write the non-schema tests for JavaScript
     filtered_files = [f for f in file_names if not any(f.startswith(prefix) for prefix in exclude_names)]
-    combine_tests(filtered_files, target_dir, os.path.join(script_dir, javascript_name))
+    combine_tests(filtered_files, target_dir, os.path.join(script_dir, out_name))
 
 
 if __name__ == '__main__':
     exclude_names =['SCHEMA', 'TAG_NAMESPACE', 'VERSION_DEPRECATED']
-    main(exclude_names)
+
+    javascript_name = "javascript_tests.json"
+    main(exclude_names, javascript_name)
+    python_name = "python_tests.json"
+    main([], python_name)
