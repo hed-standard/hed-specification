@@ -104,7 +104,9 @@
                                     "def2": "(Definition/Blech/#, ())"
                                 }
                         }
-                    },
+                    }
+                ],
+                "passes": [
                     {
                         "defs": {
                                 "HED": {
@@ -112,8 +114,6 @@
                                 }
                             }
                         }
-                ],
-                "passes": [
                 ]
             },
             "event_tests": {
@@ -128,7 +128,6 @@
                         "sidecar": {
                             "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple), ((Definition/Blech, (Red)))",
                                     "def2": "(Definition/Blech/#, ())"
                                 }
                             }
@@ -162,7 +161,7 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-multiple-definition-tags",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
         "warning": false,
@@ -245,7 +244,7 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-inner-group-defs",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
         "warning": false,
