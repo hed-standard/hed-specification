@@ -1524,7 +1524,7 @@
     {
         "error_code": "DEFINITION_INVALID",
         "alt_codes": [],
-        "name": "definition-has-unique-or-required-tag",
+        "name": "definition-invalid-content-has-top-level-tag",
         "description": "A tag with a required or unique attribute appears in a definition.",
         "warning": false,
         "schema": "8.3.0",

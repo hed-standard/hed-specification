@@ -54,7 +54,7 @@
                     ],
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Delay/1.0 s, (Red))"]
+                        [ 4.5, 0, "Delay/1.0 s, (Red)"]
                     ]
                 ],
                 "passes": [
