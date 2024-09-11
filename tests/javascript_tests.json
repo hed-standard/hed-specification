@@ -847,7 +847,7 @@
         "alt_codes": [
             "TAG_EMPTY"
         ],
-        "name": "definition-invalid-missing-inner-group",
+        "name": "definition-invalid-empty-inner-group",
         "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
         "warning": false,
         "schema": "8.3.0",
@@ -5124,7 +5124,7 @@
                             }
                         },
                         "response": {
-                            "HED": "Label/#"
+                            "Description": "This is a response"
                         }
                     }
                 ],
@@ -5154,7 +5154,7 @@
                                     "face": "Statistical-accuracy/0.677, {response}"
                                 }
                             },
-                            "response": "Label/#"
+                            "response": "This is a response"
                         },
                         "events": [
                             [
@@ -9763,7 +9763,7 @@
                         [
                             4.5,
                             0,
-                            "Delay/1.0 s, (Red))"
+                            "Delay/1.0 s, (Red)"
                         ]
                     ]
                 ],
