@@ -847,6 +847,7 @@
         "alt_codes": [
             "TAG_EMPTY"
         ],
+        "name": "definition-invalid-empty-inner-group",
         "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
         "warning": false,
         "schema": "8.3.0",
