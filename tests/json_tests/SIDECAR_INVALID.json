@@ -1,9 +1,11 @@
 [
     {
         "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
         "name": "sidecar-invalid-key-at-wrong-level",
         "description": "The HED key is not a second-level dictionary key.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -22,7 +24,9 @@
                                     "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
                                 }
                             }
-                        },
+                        }
+                    },
+                    {
                         "HED": {
                             "face": "(Red, Blue), (Green, (Yellow))",
                             "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
@@ -104,9 +108,11 @@
     },
     {
         "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
         "name": "sidecar-invalid-na-annotated",
         "description": "An annotation entry is provided for `n/a`.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -178,6 +184,128 @@
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "SIDECAR_INVALID",
+        "alt_codes": [],
+        "name": "curly-braces-has-no-hed",
+        "description": "A column name appears in curly braces, but that column name does not have a HED annotation.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": [
+            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/MyColor, (Label/Pie))"
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "Description": "This is a response"
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Statistical-accuracy/0.677, {response}"
+                                }
+                            },
+                            "response": "This is a response"
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "response",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "yes",
+                                "Red, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "no",
+                                "Green"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5 m-per-s^2",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "response",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "yes",
+                                "Red, Def/MyColor"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "no",
+                                "Green"
+                            ]
+                        ]
                     }
                 ]
             }

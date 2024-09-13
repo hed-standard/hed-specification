@@ -1,18 +1,20 @@
  [
-    {
+     {
         "error_code": "CHARACTER_INVALID",
-        "name": "character-invalid-utf-8",
+        "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
+        "name": "character-invalid-non-printing appears",
         "description": "The HED string contains a UTF-8 character.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Collection/[x]",
-                    "Description/This is a ʰ bad character"
+                    "Item/Bl\b"
                 ],
                 "passes": [
-                    "Red, Blue, Description/Red"
+                    "Red, Blue, Description/Red",
+                    "Description/This is a ʰ good character"
                 ]
             },
             "sidecar_tests": {
@@ -20,7 +22,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red, Label/a ʰ bad"
+                                "show": "Red, Item/Bl\b"
                             }
                         }
                     }
@@ -29,7 +31,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red, Label/Good"
+                                "show": "Red,  Label/a ʰ good"
                             }
                         }
                     }
@@ -39,13 +41,13 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/a ʰ bad"]
+                        [ 4.5, 0, "Item/Bl\b"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/Temp"]
+                        [ 4.5, 0, "Label/Temp, Label/a ʰ good"]
                     ]
                 ]
             },
@@ -55,7 +57,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "show": "Red, Label/a ʰ bad",
+                                    "show": "Red, Item/Bl\b",
                                     "ball": "Def/Acc/4.5 m-per-s^2"
                                 }
                             }
@@ -73,7 +75,7 @@
                          "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "show": "Red, Label/a"
+                                    "show": "Red, Label/a, Description/a ʰ good"
                                 }
                             }
                         },
@@ -87,22 +89,33 @@
             }
         }
     },
-    {
+     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
         "name": "curly-braces-not-in-sidecar",
-        "description": "The curly brace notation is used outside of a sidecar.",
-        "schema": "8.1.0",
+        "description": "The curly brace notation is used outside a sidecar.",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
-                "fails": [
-                    "{col_1}, Red"
-                ],
-                "passes": [
-                    "Red, Blue, Description/Red"
-                ]
+                "fails": ["{col_1}, Red"],
+                "passes": ["Red, Blue, Description/Red"]
             },
             "sidecar_tests": {
+                "fails": [],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Statistical-accuracy/0.677, {response}"
+                            }
+                        },
+                        "response": {
+                            "HED": "Label/#"
+                        }
+                    }
+                ]
             },
             "event_tests": {
                 "fails": [
@@ -119,66 +132,31 @@
                 ]
             },
             "combo_tests": {
+                "fails": [],
+                "passes": []
             }
         }
     },
      {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": ["TAG_INVALID", "VALUE_INVALID"],
         "name": "invalid-character-name-value-class",
         "description": "An invalid character was used in an 8.3.0 or greater style text value class.",
+        "warning": false,
         "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "Parameter-label/[",
-                    "Parameter-label/Taco*"
-                ],
-                "passes": [
-                    "Parameter-label/Words"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "show": "Parameter-label/["
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": "Parameter-label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
-            },
-            "combo_tests": {
-            }
-        }
-    },
-     {
-        "error_code": "CHARACTER_INVALID",
-        "name": "invalid-character-name-value-class-deprecated",
-        "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
-        "schema": "8.2.0",
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Parameter-label/[",
-                    "Parameter-label/TacoÄ"
+                    "Parameter-label/Taco*",
+                    "Label/30$",
+                    "Label/30db kg"
                 ],
                 "passes": [
                     "Parameter-label/Words",
-                    "Parameter-label/Taco*"
+                    "Label/30e10",
+                    "Label/3e10asdf"
                 ]
             },
             "sidecar_tests": {
@@ -201,19 +179,81 @@
             },
             "event_tests": {
                 "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Statistical-accuracy/1max1"]
+                    ],
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/30$"]
+                    ],
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/30db kg"]
+                    ]
                 ],
                 "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/3e10asdf"]
+                    ]
                 ]
             },
             "combo_tests": {
+                 "fails": [],
+                "passes": []
             }
         }
     },
-    {
+     {
         "error_code": "CHARACTER_INVALID",
+        "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
+        "name": "invalid-character-name-value-class-deprecated",
+        "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
+        "warning": false,
+        "schema": "8.2.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": ["Parameter-label/[", "Parameter-label/TacoÄ"],
+                "passes": ["Parameter-label/Words", "Parameter-label/Taco*"]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "show": "Parameter-label/["
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": "Parameter-label/#"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [],
+                "passes": []
+            }
+        }
+    },
+     {
+        "error_code": "CHARACTER_INVALID",
+        "alt_codes": ["UNITS_INVALID"],
         "name": "invalid-character-numeric-class",
         "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
+        "warning": false,
         "schema": "8.3.0",
+        "definitions": [],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -258,56 +298,12 @@
                 ]
             },
             "event_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
+                "fails": [],
+                "passes": []
             },
             "combo_tests": {
-            }
-        }
-    },
-    {
-        "error_code": "CHARACTER_INVALID",
-        "name": "invalid-character-name-class",
-        "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
-        "schema": "8.3.0",
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Label/30$",
-                    "Label/30db kg"
-                ],
-                "passes": [
-                    "Label/30e10",
-                    "Label/3e10asdf"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "show": "Label/3.0a"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": "Label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                ],
-                "passes": [
-                ]
-            },
-            "combo_tests": {
+                "fails": [],
+                "passes": []
             }
         }
     }

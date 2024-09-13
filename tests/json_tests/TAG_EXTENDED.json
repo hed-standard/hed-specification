@@ -1,10 +1,11 @@
 [
     {
         "error_code": "TAG_EXTENDED",
+        "alt_codes": [],
         "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
         "warning": true,
-        "schema": "8.1.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

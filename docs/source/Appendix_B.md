@@ -25,12 +25,12 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.** A tag extension contains a non `name` character.  
+**a.** A non-printable character (ASCII code < 32 or == 127) appears in a HED string.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
 **Notes:**  
-- HED uses ANSI encoding and does not support UTF-8.  
+- Starting with HED 8.3.0, HED supports UTF-8 encoding.  
 - Different parts of a HED string have different rules for acceptable characters.
  
 See 
@@ -88,7 +88,7 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 the definition's contents.  
 
 **a.**  A `Definition` tag does not appear in a tag group at the top level in an annotation.   
-**b.**  A definition's enclosing tag group is missing the inner tag group (.i.e., the definition's contents).    
+**b.**  A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).    
 **c.**  A definition's enclosing tag group contains more than a `Definition` tag and an inner group.    
 **d.**  A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.  
 **e.** A definition uses curly braces.  
@@ -115,13 +115,6 @@ its description is updated to include the reason for deprecation and a suggested
 
 See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
 about the `deprecatedFrom` schema attribute.
-
-### NODE_NAME_EMPTY
-
-**a.**  A tag has one or more forward slashes (`/`) at beginning or end (ignoring whitespace).  
-**b.**  A tag contains consecutive forward slashes (ignoring whitespace).  
-
-See [**3.2.3 Tag forms**](./03_HED_formats.md#322-tag-forms) for more information.
 
 ### PARENTHESES_MISMATCH
 
@@ -176,6 +169,7 @@ on the requirements for using sidecars.
 
 **a.**  The `"HED"` key is not a second-level dictionary key.  
 **b.**  An annotation entry is provided for `n/a`.  
+**c.**  A sidecar refers to a column in curly braces, but that column has no HED.  
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
@@ -254,9 +248,15 @@ for additional information on the tag extension rules.
 See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
 
+**See also:** [**TEMPORAL_TAG_ERROR**](#temporal_tag_error) for errors involving `Onset`, `Offset`, `Inset`, 
+`Duration` and `Delay`.
+
 ### TAG_INVALID
 
 **a.**  The tag is not valid in the schema it is associated with.  
+**b.**  The tag has extra internal whitespace, including directly before or after forward slashes.  
+**c.**  The tag has a leading, trailing, or consecutive forward slashes.  
+**d.**  A tag or tag extension contains a non `name` character.  
 
 See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.
@@ -289,8 +289,8 @@ for an explanation of the `requireChild` attribute.
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with
 different placeholder substitutions are considered to be different.
 
-**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.  
-**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).   
+**a.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.   
+**b.**  An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).    
 **c.**  An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.   
 **d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.   
 **e.** An `Offset` appears with one or more tags or additional tag groups.   
@@ -303,10 +303,12 @@ that are not in a tag group.
 appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset`
 that uses the same anchor.  
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.  
-**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.
-**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.
+**k.** An `Onset`, `Inset`, or `Offset` tag appears in an annotation for a non-time tabular file.  
+**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.  
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
-Delay and Duration which can be paired.
+`Delay` and `Duration` which can be paired.  
+
+**See also:** [**TAG_GROUP_ERROR**](#tag_group_error).  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.

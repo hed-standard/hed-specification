@@ -1,9 +1,11 @@
 [
     {
         "error_code": "UNITS_INVALID",
+        "alt_codes": [],
         "name": "units-invalid-for-unit-class",
         "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -95,9 +97,11 @@
     },
     {
         "error_code": "UNITS_INVALID",
+        "alt_codes": [],
         "name": "units-invalid-si-units",
         "description": "A unit modifier is applied to units that are not SI units.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

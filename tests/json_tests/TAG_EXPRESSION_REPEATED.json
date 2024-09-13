@@ -1,9 +1,11 @@
 [
     {
         "error_code": "TAG_EXPRESSION_REPEATED",
+        "alt_codes": [],
         "name": "tag-expression-repeated-same-level",
         "description": "A tag is repeated in the same tag group or level.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

@@ -188,13 +188,13 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - dateTimeClass
   - `digits`,  `colon`,  `hyphen`, `period`, `uppercase`
 * - nameClass
-  - `alphanumeric`, `blank`, `hyphen`, `period`, `underscore`, `nonascii` 
+  - `alphanumeric`, `hyphen`, `underscore`, `nonascii` 
 * - numericClass
-  - `digits`,  `period`,  `hyphen`,  `plus`, 'caret`,  `E`,  `e` `
+  - `digits`,  `period`,  `hyphen`,  `plus`, `caret`,  `E`,  `e` `
 * - posixPath
   -  As yet unspecified.
 * - textClass
-  - `printable` or `nonascii` excluding curly braces.
+  - `printable` or `nonascii` excluding curly braces, commas, and single quotes.
 * - IRIClass
   - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
 ``````
@@ -215,6 +215,7 @@ A BIDS regular expression for this is:
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
 7. The `textClass` is for descriptions, mainly for use with the `Description` tag or schema element descriptions.
+It is also allowed as the value for other tags such as
 8. The `posixPath` class is as yet unspecified and currently allows any characters except commas.
 9. The IRIClass validity is determined by a library implementing the IETF rfc3987 standard.
 

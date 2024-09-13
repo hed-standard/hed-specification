@@ -1,9 +1,11 @@
 [
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-tag-group",
         "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -81,9 +83,10 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "name": "definition-invalid-missing-inner-group",
-        "description": "A definition's enclosing tag group is missing the inner tag group (i.e., the definition's contents).",
-        "schema": "8.1.0",
+        "alt_codes": ["TAG_EMPTY"],
+g        "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -97,19 +100,19 @@
                     {
                         "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple)"
+                                    "def2": "(Definition/Blech/#, ())"
                                 }
-                            }
-                        },
+                        }
+                    }
+                ],
+                "passes": [
                     {
                         "defs": {
                                 "HED": {
-                                    "def2": "(Definition/Blech/#, ())"
+                                    "def1": "(Definition/Apple)"
                                 }
                             }
                         }
-                ],
-                "passes": [
                 ]
             },
             "event_tests": {
@@ -124,7 +127,6 @@
                         "sidecar": {
                             "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple), ((Definition/Blech, (Red)))",
                                     "def2": "(Definition/Blech/#, ())"
                                 }
                             }
@@ -141,7 +143,7 @@
                         "sidecar": {
                             "defs": {
                                 "HED": {
-                                    "def1": "(Definition/Apple, (Blue))",
+                                    "def1": "(Definition/Apple)",
                                     "def2": "(Definition/Blech, (Red))"
                                 }
                             }
@@ -158,9 +160,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-multiple-definition-tags",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -239,9 +243,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "definition-invalid-inner-group-defs",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -314,9 +320,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-bad-number-of-placeholders",
         "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -393,9 +401,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": ["TAG_INVALID"],
         "name": "definition-invalid-placeholder-incorrect-of-positions",
         "description": "A definition has placeholders (`#`) in incorrect positions.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -472,9 +482,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": ["TAG_INVALID"],
         "name": "definition-invalid-placeholder-conflict",
         "description": "Definitions of the same name appear with and without a `#`.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -551,9 +563,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-invalid-multiple-definitions",
         "description": "Multiple `Definition` tags with same name are encountered.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -634,10 +648,12 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
-        "name": "definition-has-unique-or-required-tag",
+        "alt_codes": [],
+        "name": "definition-invalid-content-has-top-level-tag",
         "description": "A tag with a required or unique attribute appears in a definition.",
-        "schema": "8.1.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Event-context, Item, (Label/Pie))"],
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -713,9 +729,11 @@
     },
     {
         "error_code": "DEFINITION_INVALID",
+        "alt_codes": [],
         "name": "definition-not-allowed-here",
         "description": "A definition appears in an unexpected place such as an events file or sidecar.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"],
         "tests": {
             "string_tests": {

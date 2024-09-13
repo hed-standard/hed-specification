@@ -1,9 +1,11 @@
 [
     {
         "error_code": "TAG_NOT_UNIQUE",
+        "alt_codes": [],
         "name": "tag-not-unique",
         "description": "A tag with unique attribute appears more than once in an event-level HED string.",
-        "schema": "8.1.0",
+        "warning": false,
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
