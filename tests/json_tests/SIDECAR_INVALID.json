@@ -214,7 +214,7 @@
                             }
                         },
                         "response": {
-                            "HED": "Label/#"
+                            "Description": "This is a response"
                         }
                     }
                 ],
@@ -246,7 +246,7 @@
                                     "face": "Statistical-accuracy/0.677, {response}"
                                 }
                             },
-                            "response": "Label/#"
+                            "response": "This is a response"
                         },
                         "events": [
                             [

@@ -84,8 +84,7 @@
     {
         "error_code": "DEFINITION_INVALID",
         "alt_codes": ["TAG_EMPTY"],
-        "name": "definition-invalid-missing-inner-group",
-        "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
+g        "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
         "warning": false,
         "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
