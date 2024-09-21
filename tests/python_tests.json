@@ -38,7 +38,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red,  Label/a \u00ca\u00b0 good"
+                                "show": "Red,  Label/a-\u00ca\u00b0-good"
                             }
                         }
                     }
@@ -69,7 +69,7 @@
                         [
                             4.5,
                             0,
-                            "Label/Temp, Label/a \u00ca\u00b0 good"
+                            "Label/Temp, Label/a-\u00ca\u00b0-good"
                         ]
                     ]
                 ]
@@ -9058,7 +9058,10 @@
     },
     {
         "error_code": "TAG_EXTENSION_INVALID",
-        "alt_codes": [],
+        "alt_codes": [
+            "CHARACTER_INVALID",
+            "PLACEHOLDER_INVALID"
+        ],
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
         "warning": false,
