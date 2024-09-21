@@ -31,7 +31,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red,  Label/a ʰ good"
+                                "show": "Red,  Label/a-ʰ-good"
                             }
                         }
                     }
@@ -47,7 +47,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Label/Temp, Label/a ʰ good"]
+                        [ 4.5, 0, "Label/Temp, Label/a-ʰ-good"]
                     ]
                 ]
             },
