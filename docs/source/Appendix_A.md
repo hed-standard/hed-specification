@@ -190,7 +190,7 @@ behavior of certain value classes (for example the `numericClass` value class).
 * - nameClass
   - `alphanumeric`, `hyphen`, `underscore`, `nonascii` 
 * - numericClass
-  - `digits`,  `period`,  `hyphen`,  `plus`, `caret`,  `E`,  `e` `
+  - `digits`,  `period`,  `hyphen`,  `plus`, `caret`,  `E`,  `e`
 * - posixPath
   -  As yet unspecified.
 * - textClass
