@@ -9,7 +9,7 @@
         "name": "character-invalid-non-printing appears",
         "description": "The HED string contains a UTF-8 character.",
         "warning": false,
-        "schema": "8.2.0",
+        "schema": "8.3.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/#, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -38,7 +38,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "show": "Red,  Label/a \u00ca\u00b0 good"
+                                "show": "Red,  Label/a-\u00ca\u00b0-good"
                             }
                         }
                     }
@@ -69,7 +69,7 @@
                         [
                             4.5,
                             0,
-                            "Label/Temp, Label/a \u00ca\u00b0 good"
+                            "Label/Temp, Label/a-\u00ca\u00b0-good"
                         ]
                     ]
                 ]
@@ -217,7 +217,7 @@
             "VALUE_INVALID"
         ],
         "name": "invalid-character-name-value-class",
-        "description": "An invalid character was used in an 8.3.0 or greater style text value class.",
+        "description": "An invalid character was used in an 8.3.0 or greater style name value class.",
         "warning": false,
         "schema": "8.3.0",
         "definitions": [
@@ -267,7 +267,7 @@
                         [
                             4.5,
                             0,
-                            "Statistical-accuracy/1max1"
+                            "Label/%max1"
                         ]
                     ],
                     [
@@ -279,7 +279,7 @@
                         [
                             4.5,
                             0,
-                            "Label/30$"
+                            "Label/$30"
                         ]
                     ],
                     [
@@ -356,69 +356,6 @@
                     {
                         "event_code": {
                             "HED": "Parameter-label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [],
-                "passes": []
-            }
-        }
-    },
-    {
-        "error_code": "CHARACTER_INVALID",
-        "alt_codes": [
-            "UNITS_INVALID"
-        ],
-        "name": "invalid-character-numeric-class",
-        "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
-        "warning": false,
-        "schema": "8.3.0",
-        "definitions": [],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Weight/3.0$ kg",
-                    "Weight/3.0db kg",
-                    "Weight/3.0& kg",
-                    "Weight/abc kg",
-                    "Weight/*3.0 kg",
-                    "Weight/3.0% kg",
-                    "Weight/3.0^ kg",
-                    "Weight/3.0? kg"
-                ],
-                "passes": [
-                    "Weight/3.0e10 kg",
-                    "Weight/3e10 kg",
-                    "Weight/3.0 kg",
-                    "Weight/3000 kg",
-                    "Weight/3e10 kg",
-                    "Weight/3.5e10 kg",
-                    "Weight/2.998e8 g",
-                    "Weight/6.022e23 g",
-                    "Weight/7.0e-10 g",
-                    "Weight/1.6e-35 kg"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "show": "Weight/3.0a"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": "Weight/# g"
                         }
                     }
                 ]
@@ -3904,7 +3841,7 @@
                 "fails": [
                     {
                         "trial": {
-                            "HED": "Def/Acc/# m-per-s^2, Label/#"
+                            "HED": "Def/Acc/#, Label/#"
                         },
                         "memory": {
                             "HED": "Blue, Red, Label/#"
@@ -3914,7 +3851,7 @@
                 "passes": [
                     {
                         "trial": {
-                            "HED": "Def/Acc/# m-per-s^2"
+                            "HED": "Def/Acc/#"
                         }
                     }
                 ]
@@ -4169,7 +4106,8 @@
     {
         "error_code": "SIDECAR_BRACES_INVALID",
         "alt_codes": [
-            "CHARACTER_INVALID"
+            "CHARACTER_INVALID",
+            "SIDECAR_INVALID"
         ],
         "name": "sidecar-braces-contents-invalid",
         "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
@@ -4302,7 +4240,8 @@
         "alt_codes": [
             "VALUE_INVALID",
             "CHARACTER_INVALID",
-            "UNITS_INVALID"
+            "UNITS_INVALID",
+            "DEF_INVALID"
         ],
         "name": "sidecar-braces-invalid-spot",
         "description": "A curly brace reference must only appear where a tag could.",
@@ -4323,7 +4262,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue), (Green, (Yellow))",
-                                "ball": "(Def/Acc/{response_time})"
+                                "ball": "(Label/{response_time})"
                             }
                         },
                         "response_time": {
@@ -4453,7 +4392,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#"
+                                "HED": "Parameter-value/#"
                             }
                         },
                         "events": [
@@ -4524,7 +4463,7 @@
                             }
                         },
                         "response_time": {
-                            "HED": "Label/#, {response_time}"
+                            "HED": "Parameter-value/#, {response_time}"
                         }
                     }
                 ],
@@ -4538,7 +4477,7 @@
                         },
                         "response_time": {
                             "Description": "Has description with HED",
-                            "HED": "Label/#"
+                            "HED": "Parameter-value/#"
                         },
                         "response_count": {
                             "Description": "A count used to test curly braces in value columns.",
@@ -4554,7 +4493,7 @@
                         },
                         "response_action": {
                             "Description": "Does not correspond to curly braces",
-                            "HED": "Label/#"
+                            "HED": "Parameter-value/#"
                         }
                     }
                 ]
@@ -4575,7 +4514,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#, {response_time}"
+                                "HED": "Parameter-value/#, {response_time}"
                             }
                         },
                         "events": [
@@ -4628,7 +4567,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#"
+                                "HED": "Parameter-value/#"
                             }
                         },
                         "events": [
@@ -5092,126 +5031,6 @@
                                 0,
                                 "ball",
                                 "Green, Def/MyColor"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "SIDECAR_INVALID",
-        "alt_codes": [],
-        "name": "curly-braces-has-no-hed",
-        "description": "A column name appears in curly braces, but that column name does not have a HED annotation.",
-        "warning": false,
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
-            "(Definition/MyColor, (Label/Pie))"
-        ],
-        "tests": {
-            "string_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Statistical-accuracy/0.677, {response}"
-                            }
-                        },
-                        "response": {
-                            "Description": "This is a response"
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Statistical-accuracy/0.677, {response}"
-                            }
-                        },
-                        "response": {
-                            "HED": "Label/#"
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [],
-                "passes": []
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Statistical-accuracy/0.677, {response}"
-                                }
-                            },
-                            "response": "This is a response"
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "response",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "yes",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "no",
-                                "Green"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "response",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "yes",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "no",
-                                "Green"
                             ]
                         ]
                     }
@@ -6397,7 +6216,10 @@
     },
     {
         "error_code": "TAG_EXTENSION_INVALID",
-        "alt_codes": [],
+        "alt_codes": [
+            "CHARACTER_INVALID",
+            "PLACEHOLDER_INVALID"
+        ],
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
         "warning": false,
@@ -12460,6 +12282,69 @@
                         ]
                     }
                 ]
+            }
+        }
+    },
+    {
+        "error_code": "VALUE_INVALID",
+        "alt_codes": [
+            "UNITS_INVALID"
+        ],
+        "name": "invalid-character-numeric-class",
+        "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": [],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Weight/3.0$ kg",
+                    "Weight/3.0db kg",
+                    "Weight/3.0& kg",
+                    "Weight/abc kg",
+                    "Weight/*3.0 kg",
+                    "Weight/3.0% kg",
+                    "Weight/3.0^ kg",
+                    "Weight/3.0? kg"
+                ],
+                "passes": [
+                    "Weight/3.0e10 kg",
+                    "Weight/3e10 kg",
+                    "Weight/3.0 kg",
+                    "Weight/3000 kg",
+                    "Weight/3e10 kg",
+                    "Weight/3.5e10 kg",
+                    "Weight/2.998e8 g",
+                    "Weight/6.022e23 g",
+                    "Weight/7.0e-10 g",
+                    "Weight/1.6e-35 kg"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "show": "Weight/3.0a"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": "Weight/# g"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [],
+                "passes": []
             }
         }
     }

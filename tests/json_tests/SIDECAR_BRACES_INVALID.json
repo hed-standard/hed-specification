@@ -1,7 +1,7 @@
 [
     {
         "error_code": "SIDECAR_BRACES_INVALID",
-        "alt_codes": ["CHARACTER_INVALID"],
+        "alt_codes": ["CHARACTER_INVALID", "SIDECAR_INVALID"],
         "name": "sidecar-braces-contents-invalid",
         "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
         "warning": false,
@@ -103,7 +103,7 @@
     },
     {
         "error_code": "SIDECAR_BRACES_INVALID",
-        "alt_codes": ["VALUE_INVALID", "CHARACTER_INVALID", "UNITS_INVALID"],
+        "alt_codes": ["VALUE_INVALID", "CHARACTER_INVALID", "UNITS_INVALID", "DEF_INVALID"],
         "name": "sidecar-braces-invalid-spot",
         "description": "A curly brace reference must only appear where a tag could.",
         "warning": false,
@@ -122,7 +122,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue), (Green, (Yellow))",
-                                "ball": "(Def/Acc/{response_time})"
+                                "ball": "(Label/{response_time})"
                             }
                         },
                         "response_time": {
@@ -258,7 +258,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#"
+                                "HED": "Parameter-value/#"
                             }
                         },
                         "events":
@@ -299,7 +299,7 @@
                             }
                         },
                         "response_time": {
-                            "HED": "Label/#, {response_time}"
+                            "HED": "Parameter-value/#, {response_time}"
                         }
                     }
                 ],
@@ -313,7 +313,7 @@
                         },
                         "response_time": {
                             "Description": "Has description with HED",
-                            "HED": "Label/#"
+                            "HED": "Parameter-value/#"
                         },
                         "response_count": {
                             "Description": "A count used to test curly braces in value columns.",
@@ -329,7 +329,7 @@
                         },
                         "response_action": {
                             "Description": "Does not correspond to curly braces",
-                            "HED": "Label/#"
+                            "HED": "Parameter-value/#"
                         }
                     }
                 ]
@@ -352,7 +352,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#, {response_time}"
+                                "HED": "Parameter-value/#, {response_time}"
                             }
                         },
                         "events":
@@ -376,7 +376,7 @@
                             },
                             "response_time": {
                                 "Description": "Has description with HED",
-                                "HED": "Label/#"
+                                "HED": "Parameter-value/#"
                             }
                         },
                         "events":

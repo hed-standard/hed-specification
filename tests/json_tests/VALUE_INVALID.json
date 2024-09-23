@@ -252,5 +252,66 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "VALUE_INVALID",
+        "alt_codes": ["UNITS_INVALID"],
+        "name": "invalid-character-numeric-class",
+        "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": [],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Weight/3.0$ kg",
+                    "Weight/3.0db kg",
+                    "Weight/3.0& kg",
+                    "Weight/abc kg",
+                    "Weight/*3.0 kg",
+                    "Weight/3.0% kg",
+                    "Weight/3.0^ kg",
+                    "Weight/3.0? kg"
+                ],
+                "passes": [
+                    "Weight/3.0e10 kg",
+                    "Weight/3e10 kg",
+                    "Weight/3.0 kg",
+                    "Weight/3000 kg",
+                    "Weight/3e10 kg",
+                    "Weight/3.5e10 kg",
+                    "Weight/2.998e8 g",
+                    "Weight/6.022e23 g",
+                    "Weight/7.0e-10 g",
+                    "Weight/1.6e-35 kg"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "show": "Weight/3.0a"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": "Weight/# g"
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [],
+                "passes": []
+            }
+        }
     }
 ]    
