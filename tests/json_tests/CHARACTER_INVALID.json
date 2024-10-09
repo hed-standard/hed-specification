@@ -10,7 +10,8 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Item/Bl\b"
+                    "Item/Bl\b",
+                    "Item/ABC\u009E"
                 ],
                 "passes": [
                     "Red, Blue, Description/Red",
@@ -42,6 +43,10 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Item/Bl\b"]
+                    ],
+                   [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Item/{abc}"]
                     ]
                 ],
                 "passes": [
