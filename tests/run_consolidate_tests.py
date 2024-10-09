@@ -20,8 +20,8 @@ def combine_tests(test_names, test_dir, output_path):
 def main(exclude_names=[], out_name='temp.json'):
     relative_dir = "json_tests"  # relative directory to read
 
-    script_dir = os.path.dirname(os.path.abspath(__file__)) # directory of this script
-    target_dir = os.path.join(script_dir, relative_dir) # full path of the
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # directory of this script
+    target_dir = os.path.join(script_dir, relative_dir)  # full path of the
 
     # Write the indicated files
     file_names = [f for f in os.listdir(target_dir) if os.path.isfile(os.path.join(target_dir, f))]
@@ -30,7 +30,7 @@ def main(exclude_names=[], out_name='temp.json'):
 
 
 if __name__ == '__main__':
-    exclude_names =['SCHEMA', 'TAG_NAMESPACE', 'VERSION_DEPRECATED']
+    exclude_names = ['SCHEMA', 'TAG_NAMESPACE', 'VERSION_DEPRECATED']
 
     javascript_name = "javascript_tests.json"
     main(exclude_names, javascript_name)

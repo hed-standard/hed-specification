@@ -25,7 +25,7 @@ of errors keyed to the HED specification.
 
 A HED string contains an invalid character.
 
-**a.** A non-printable character (ASCII code < 32 or == 127) appears in a HED string.  
+**a.** An invalid character (character code < 32 or 127 <= character code < 160) appears in a HED string.  
 **b.** Curly braces appear in a HED string not in a sidecar.
 
 
@@ -33,7 +33,7 @@ A HED string contains an invalid character.
 - Starting with HED 8.3.0, HED supports UTF-8 encoding.  
 - Different parts of a HED string have different rules for acceptable characters.
  
-See 
+See also:
 [**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and
 [**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for
 an explanation of the rules for tag values and extensions.

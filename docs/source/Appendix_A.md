@@ -199,6 +199,9 @@ behavior of certain value classes (for example the `numericClass` value class).
   - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
 ``````
 
+See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets_and_restrictions) for
+definitions of the various character class definitions.
+
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
 :class: tip
 
