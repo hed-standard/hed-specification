@@ -11,7 +11,6 @@ class MyTestCase(unittest.TestCase):
         cls.test_files = [os.path.join(test_dir, f) for f in os.listdir(test_dir) 
                           if os.path.isfile(os.path.join(test_dir, f))]
 
-
     @staticmethod
     def get_test_info(test_file, details=True):
         indent = "   "
@@ -55,13 +54,6 @@ class MyTestCase(unittest.TestCase):
             print(out_str)
         self.assertEqual(True, True)  # add assertion here
 
-    # def test_summary_full(self):
-    #     for test_file in self.test_files:
-    #         print(test_file)
-    #         out_str = self.get_test_info(test_file, details=True)
-    #         print(out_str + '\n')
-    #
-    #     self.assertEqual(True, True)  # add assertion here
 
 
 if __name__ == '__main__':
