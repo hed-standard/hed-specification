@@ -6,7 +6,7 @@
         "description": "A tag starting with name: does not have an associated schema.",
         "warning": false,
         "schema": ["8.3.0", "sc:score_1.0.0"],
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -100,7 +100,7 @@
         "description": "A tag prefix has invalid characters.",
         "warning": false,
         "schema": ["8.3.0", "sc:score_1.0.0"],
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -118,7 +118,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "sc1:Sleep-modulator, Red",
-                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -128,7 +128,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -155,7 +155,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "sc1:Sleep-modulator, Red",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                                 }
                             }
                         },

@@ -6,7 +6,7 @@
         "description": "The HED key is not a second-level dictionary key.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -21,7 +21,7 @@
                             "temp": {
                                 "HED": {
                                     "face": "(Red, Blue), (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                                    "ball": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                                 }
                             }
                         }
@@ -29,7 +29,7 @@
                     {
                         "HED": {
                             "face": "(Red, Blue), (Green, (Yellow))",
-                            "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                            "ball": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                         }
                     }
                 ],
@@ -38,7 +38,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -58,7 +58,7 @@
                                 "temp": {
                                     "HED": {
                                         "face": "(Red, Blue), (Green, (Yellow))",
-                                        "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                                        "ball": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                                     }
                                 }
                             }
@@ -74,7 +74,7 @@
                         "sidecar": {
                             "HED": {
                                 "face": "(Red, Blue), (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                             }
                         },
                         "events": 
@@ -90,7 +90,7 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
+                                    "face": "Acceleration/5",
                                     "ball": "Def/Acc/7, Blue"
                                 }
                             }
@@ -113,7 +113,7 @@
         "description": "An annotation entry is provided for `n/a`.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -127,7 +127,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),(Green, (Yellow))",
-                                "n/a": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                                "n/a": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                             }
                         }
                     }
@@ -137,7 +137,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -156,7 +156,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "(Red, Blue),(Green, (Yellow))",
-                                    "n/a": "(Def/MyColor, Onset), (Def/Acc/3.5 m-per-s^2)"
+                                    "n/a": "(Def/MyColor, Onset), (Def/Acc/3.5)"
                                 }
                             }
                     },
@@ -173,7 +173,7 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
+                                    "face": "Acceleration/5",
                                     "ball": "Def/Acc/7, Blue"
                                 }
                             }
