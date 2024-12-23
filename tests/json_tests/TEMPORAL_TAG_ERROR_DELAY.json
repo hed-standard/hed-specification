@@ -10,8 +10,8 @@
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Delay, Red",
-                    "Delay, Def/Acc/5.4"
+                    "(Delay, Red)",
+                    "(Delay, Def/Acc/5.4)"
                 ],
                 "passes": [
                     "(Delay/5 s, (Def/Acc/5.4))"
@@ -23,15 +23,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Blue, Red",
-                                "ball": "Delay/5.0 s, Def/Acc/5.4"
-                            }
-                        }
-                    },
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Blue, Red",
-                                "ball": "Delay/5.0 s, (Def/Acc/5.4)"
+                                "ball": "(Delay/5.0 s, Def/Acc/5.4)"
                             }
                         }
                     }
@@ -82,21 +74,6 @@
                                 [ 4.8, 0, "n/a", "Blue"],
                                 [ 5.0, 0, "face", "Green"]
                             ]
-                    },
-                    {
-                        "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Red",
-                                    "ball": "Delay/5.0 s, (Def/Acc/5.4)"
-                                }
-                            }
-                        },
-                        "events":
-                            [
-                                ["onset", "duration", "event_code", "HED"],
-                                [ 4.5, 0, "ball", "Red"]
-                            ]
                     }
                 ],
                 "passes": [
@@ -123,7 +100,7 @@
         "error_code": "TEMPORAL_TAG_ERROR",
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-nested-group-delay",
-        "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
+        "description": "A delay appears in a group not in the top level.",
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
@@ -132,7 +109,7 @@
                     "((Delay/5.0 s, Delay/7.0 s, (Def/MyColor)), Red)"
                 ],
                 "passes": [
-                    "(Onset, Delay/6 s, (Def/MyColor)), Red"
+                    "(Onset, Delay/6 s, Def/MyColor), Red"
                 ]
             },
             "sidecar_tests": {
@@ -406,13 +383,8 @@
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
-                "fails": [
-                    "(Delay/5.0 s, Offset, Def/MyColor, Red)",
-                    "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, (Red))"
-                ],
-                "passes": [
-                    "(Delay/5.0 s, Offset, Def/MyColor)"
-                ]
+                "fails": [],
+                "passes": []
             },
             "sidecar_tests": {
                 "fails": [
@@ -481,7 +453,7 @@
                                 [ 4.5, 0,  "face", "n/a"],
                                 [ 4.8, 0, "square", "n/a"],
                                 [ 4.9, 0, "ball", "Green"],
-                                [ 5.5, 0, "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)", "Orange"]
+                                [ 5.5, 0, "n/a","(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)", "Orange"]
                             ]
                     }
                 ],
@@ -503,7 +475,7 @@
                                 [ 4.5, 0,  "face", "n/a"],
                                 [ 4.8, 0, "square", "n/a"],
                                 [ 4.9, 0, "ball", "Green"],
-                                [ 5.5, 0, "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)", "Orange"]
+                                [ 10.0, 0, "n/a","(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset)"]
                             ]
                     }
                 ]

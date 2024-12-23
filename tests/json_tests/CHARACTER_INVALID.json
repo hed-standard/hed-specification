@@ -2,7 +2,7 @@
      {
         "error_code": "CHARACTER_INVALID",
         "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
-        "name": "character-invalid-non-printing appears",
+        "name": "character-invalid-non-printing-appears",
         "description": "The HED string contains a UTF-8 character.",
         "warning": false,
         "schema": "8.3.0",

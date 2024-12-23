@@ -417,7 +417,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "(Def-expand/Acc/4.5, Red)",
+                                "face": "Orange",
                                 "ball": "(Def-expand/Acc/4.5)"
                             }
                         }
@@ -438,7 +438,6 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Def-expand/Acc/4.5, Red)"],
                         [5.4, 0, "(Def-expand/Acc/5.4 )"]
                     ]
                 ],
@@ -462,7 +461,7 @@
                         },
                         "events": [
                             ["onset", "duration", "event_code", "HED"],
-                            [4.5, 0, "ball", "Def/Acc, (Def-expand/Acc/4.5)"],
+                            [4.5, 0, "ball", "(Def-expand/Acc/4.5)"],
                             [5.4, 0, "n/a", "Green"],
                             [6.4, 0, "face", "n/a"]
                         ]

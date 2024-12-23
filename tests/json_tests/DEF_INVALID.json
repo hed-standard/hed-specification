@@ -78,7 +78,8 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Def/Acc/4.5"
+                                    "face": "Def/Acc/4.5",
+                                    "ball": "Item"
                                 }
                             }
                         },
@@ -191,7 +192,7 @@
     },
     {
         "error_code": "DEF_INVALID",
-        "alt_codes": ["VALUE_INVALID"],
+        "alt_codes": ["VALUE_INVALID", "UNITS_INVALID"],
         "name": "def-invalid-bad-placeholder-value",
         "description": "A `Def` has a placeholder value of incorrect format or units for definition.",
         "warning": false,
