@@ -333,11 +333,6 @@ The tilde notation is not supported.
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
 
-### UNITS_MISSING*
-(WARNING)
- 
-**a.**  A tag that takes value and has a unit class does not have units.
-
 See [**3.2.4 Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 for more information.
 

@@ -6,7 +6,7 @@
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -32,7 +32,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
+                                    "face": "Acceleration/5",
                                     "ball": "Black, Blue"
                                 }
                             }
@@ -51,7 +51,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
+                                    "ball": "Def/Acc/7, Blue"
                                 }
                             }
                         },

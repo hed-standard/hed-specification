@@ -5,16 +5,17 @@
         "name": "temporal-tag-error-not-tag-group-delay",
         "description": "A Delay is not in the tag group.",
         "warning": false,
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Delay, Red",
-                    "Delay, Def/Acc/5.4 m-per-s^2"
+                    "(Delay/5, Red)",
+                    "(Delay/5, Def/Acc/5.4)",
+                    "(Delay/5, (Def-expand/Acc/5.4, (Acceleration/5.4 m-per-s^2, Red)))"
                 ],
                 "passes": [
-                    "(Delay/5 s, (Def/Acc/5.4 m-per-s^2))"
+                    "(Delay/5 s, (Def/Acc/5.4))"
                 ]
             },
             "sidecar_tests": {
@@ -23,15 +24,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Blue, Red",
-                                "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
-                            }
-                        }
-                    },
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Blue, Red",
-                                "ball": "Delay/5.0 s, (Def/Acc/5.4 m-per-s^2)"
+                                "ball": "(Delay/5.0 s, Def/Acc/5.4)"
                             }
                         }
                     }
@@ -40,7 +33,7 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "(Delay/5.0 s, (Def/Acc/5.4 m-per-s^2))"
+                                "face": "(Delay/5.0 s, (Def/Acc/5.4))"
                             }
                         }
                     }
@@ -71,7 +64,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Red",
-                                    "ball": "Delay/5.0 s, Def/Acc/5.4 m-per-s^2"
+                                    "ball": "Delay/5.0 s, Def/Acc/5.4"
                                 }
                             }
                         },
@@ -82,21 +75,6 @@
                                 [ 4.8, 0, "n/a", "Blue"],
                                 [ 5.0, 0, "face", "Green"]
                             ]
-                    },
-                    {
-                        "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Red",
-                                    "ball": "Delay/5.0 s, (Def/Acc/5.4 m-per-s^2)"
-                                }
-                            }
-                        },
-                        "events":
-                            [
-                                ["onset", "duration", "event_code", "HED"],
-                                [ 4.5, 0, "ball", "Red"]
-                            ]
                     }
                 ],
                 "passes": [
@@ -104,7 +82,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "(Delay/5.0 s, (Def/Acc/5.4 m-per-s^2))"
+                                    "face": "(Delay/5.0 s, (Def/Acc/5.4))"
                                 }
                             }
                         },
@@ -123,16 +101,16 @@
         "error_code": "TEMPORAL_TAG_ERROR",
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-nested-group-delay",
-        "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "description": "A delay appears in a group not in the top level.",
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "((Delay/5.0 s, Onset, Def/MyColor), Red)"
+                    "((Delay/5.0 s, Delay/7.0 s, (Def/MyColor)), Red)"
                 ],
                 "passes": [
-                    "(Delay/5.0 s, Onset, Def/MyColor), Red"
+                    "(Onset, Delay/6 s, Def/MyColor), Red"
                 ]
             },
             "sidecar_tests": {
@@ -212,8 +190,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-wrong-number-of-defs-delay",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -230,7 +208,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Delay/5.0 s, Onset, (Red))",
-                                "ball": "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3 m-per-s^2)"
+                                "ball": "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3)"
                             }
                         }
                     }
@@ -250,7 +228,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Delay/5.0 s, Onset, (Red))"],
-                        [ 5.5, 0, "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3 m-per-s^2)"]
+                        [ 5.5, 0, "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3)"]
                     ]
                 ],
                 "passes": [
@@ -267,7 +245,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "(Delay/5.0 s, Onset, (Red))",
-                                    "ball": "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3 m-per-s^2)"
+                                    "ball": "(Delay/5.0 s, Onset, Def/MyColor, Def/Acc/4.3)"
                                 }
                             }
                         },
@@ -305,8 +283,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-onset-has-more-groups-delay",
         "description": "An Onset group has more than one additional tag group.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -323,7 +301,13 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face":  "(Delay/5.0 s, Onset, Def/MyColor, (Red), (Blue))",
+                                "face":  "(Delay/5.0 s, Onset, Def/MyColor, (Red), (Blue))"
+                            }
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
                                 "ball": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), (Green), (Yellow), Onset)"
                             }
                         }
@@ -344,7 +328,10 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0,  "(Delay/5.0 s, Onset, Def/MyColor, (Red), (Blue))"],
+                        [ 4.5, 0,  "(Delay/5.0 s, Onset, Def/MyColor, (Red), (Blue))"]
+                    ],
+                    [
+                        ["onset", "duration", "HED"],
                         [ 5.5, 0, "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), (Green), ((Yellow)), Onset)"]
                     ]
                 ],
@@ -362,7 +349,20 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), (Green), ((Yellow)), Onset)",
+                                    "face": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), (Green), ((Yellow)), Onset)"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Red, Def/MyColor"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
                                     "ball": "(Delay/5.0 s, Onset, Def/MyColor, (Red), (Blue))"
                                 }
                             }
@@ -370,8 +370,20 @@
                         "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
-                                [ 5.0, 0, "ball", "Green"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "ball": "(Delay/5.0 s, Onset, Def/MyColor, (Blue))"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
                                 [ 6.0, 0, "n/a", "(Delay/5.0 s, Def/MyColor, (Red), (Blue), Onset)"]
                             ]
                     }
@@ -402,17 +414,12 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-offset-has-groups-delay",
         "description": "An Offset appears with one or more tags or additional tag groups.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
-                "fails": [
-                    "(Delay/5.0 s, Offset, Def/MyColor, Red)",
-                    "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, (Red))"
-                ],
-                "passes": [
-                    "(Delay/5.0 s, Offset, Def/MyColor)"
-                ]
+                "fails": [],
+                "passes": []
             },
             "sidecar_tests": {
                 "fails": [
@@ -421,9 +428,16 @@
                             "HED": {
                                 "face":  "(Delay/5.0 s, Onset, Def/MyColor)",
                                 "ball": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Onset)",
-                                "square": "(Delay/5.0 s, Offset, Def/MyColor, (Red))",
+                                "square": "(Delay/5.0 s, Offset, Def/MyColor, (Red))"
+                            }
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face":  "(Delay/5.0 s, Onset, Def/MyColor)",
+                                "ball": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Onset)",
                                 "circle": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)"
-
                             }
                         }
                     }
@@ -469,19 +483,37 @@
                                 "HED": {
                                     "face":  "(Delay/5.0 s, Onset, Def/MyColor)",
                                     "ball": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Onset)",
-                                    "square": "(Delay/5.0 s, Offset, Def/MyColor, (Red))",
-                                    "circle": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)"
-
+                                    "square": "(Delay/5.0 s, Offset, Def/MyColor)"
                                 }
-                        }
-                    },
+                            }
+                        },
                         "events":
                             [
                                 ["onset", "duration", "event_code", "HED"],
                                 [ 4.5, 0,  "face", "n/a"],
                                 [ 4.8, 0, "square", "n/a"],
                                 [ 4.9, 0, "ball", "Green"],
-                                [ 5.5, 0, "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)", "Orange"]
+                                [ 5.5, 0, "n/a","(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue), Orange"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face":  "(Delay/5.0 s, Onset, Def/MyColor)",
+                                    "ball": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Onset)",
+                                    "square": "(Delay/5.0 s, Offset, Def/MyColor, (Red))",
+                                    "circle": "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)"
+
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 4.5, 0,  "face", "n/a"],
+                                [ 4.8, 0, "square", "n/a"],
+                                [ 4.9, 0, "ball", "Green"]
                             ]
                     }
                 ],
@@ -503,7 +535,7 @@
                                 [ 4.5, 0,  "face", "n/a"],
                                 [ 4.8, 0, "square", "n/a"],
                                 [ 4.9, 0, "ball", "Green"],
-                                [ 5.5, 0, "(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset, Blue)", "Orange"]
+                                [ 10.0, 0, "n/a","(Delay/5.0 s, (Def-expand/MyColor, (Label/Pie)), Offset)"]
                             ]
                     }
                 ]
@@ -515,8 +547,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-mismatch-delay",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -594,8 +626,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-extra tags-delay",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -684,8 +716,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-duplicated-onset-or-offset-delay",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -782,8 +814,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-inset-outside-its-event-delay",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -864,8 +896,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-inset-group-has-extras-delay",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -886,7 +918,7 @@
                         [ 2.5, 0, "Red, (Delay/5.0 s, Def/MyColor, Onset)"],
                         [ 4.5, 0, "(Delay/5.0 s, Def/MyColor, Blue, Inset)"],
                         [ 6.5, 0, "Red, (Delay/5.0 s, Def/MyColor, Onset)"],
-                        [ 5.5, 0, "(DDelay/5.0 s, ef/MyColor, Offset)"]
+                        [ 5.5, 0, "(Delay/5.0 s, Def/MyColor, Offset)"]
                     ]
                 ],
                 "passes": [
@@ -949,8 +981,8 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-tag-appears-where-not-allowed-delay",
         "description": "An Inset, Offset, or Onset tag appears in a tsv with no onset column",
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -1009,7 +1041,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "(Delay/5.0 s, Def/MyColor, Duration)",
-                                    "ball": "(Delay/5.0 s, Def/MyColor, Delay)"
+                                    "ball": "(Delay/5.0 s, Def/MyColor, Delay/4.2)"
                                 }
                             }
                         },

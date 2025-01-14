@@ -2,11 +2,11 @@
      {
         "error_code": "CHARACTER_INVALID",
         "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
-        "name": "character-invalid-non-printing appears",
+        "name": "character-invalid-non-printing-appears",
         "description": "The HED string contains a UTF-8 character.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -63,7 +63,7 @@
                             "event_code": {
                                 "HED": {
                                     "show": "Red, Item/Bl\b",
-                                    "ball": "Def/Acc/4.5 m-per-s^2"
+                                    "ball": "Def/Acc/4.5"
                                 }
                             }
                         },
@@ -101,7 +101,7 @@
         "description": "The curly brace notation is used outside a sidecar.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": ["{col_1}, Red"],
@@ -149,7 +149,7 @@
         "description": "An invalid character was used in an 8.3.0 or greater style name value class.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -217,7 +217,7 @@
         "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
         "warning": false,
         "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": ["Parameter-label/[", "Parameter-label/TacoÄ"],

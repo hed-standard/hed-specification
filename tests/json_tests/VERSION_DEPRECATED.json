@@ -6,7 +6,7 @@
         "warning": true,
         "description": "The HED schema version being used as been deprecated.",
         "schema": "8.0.0-beta.1",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

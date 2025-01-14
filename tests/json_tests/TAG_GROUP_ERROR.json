@@ -1,24 +1,24 @@
 [
     {
         "error_code": "TAG_GROUP_ERROR",
-        "alt_codes": ["TEMPORAL_TAG_ERROR"],
+        "alt_codes": ["TEMPORAL_TAG_ERROR", "TAG_INVALID", "DEFINITION_INVALID"],
         "name": "tag-group-error-missing",
         "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
         "warning": false,
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "Definition/Blech, (Red)",
-                    "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
+                    "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5, Red)",
                     "Onset",
                     "Duration/3.0 s",
                     "Delay/3.0 s"
                 ],
                 "passes": [
-                    "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                    "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)",
+                    "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red))",
+                    "((Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset)",
                     "(Duration/3.0 s, (Event))",
                     "(Duration/3.0 s, Delay/2.0 s, (Event))"
                 ]
@@ -28,8 +28,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
-                                "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset"
+                                "face": "Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)",
+                                "ball": "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset"
                             }
                         }
                     }
@@ -38,8 +38,8 @@
                      {
                         "event_code": {
                             "HED": {
-                                "face": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))",
-                                "ball": "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"
+                                "face": "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red))",
+                                "ball": "((Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset)"
                             }
                         }
                     }
@@ -49,15 +49,15 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)"],
-                        [ 5.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset"]
+                        [ 4.5, 0, "Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)"],
+                        [ 5.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red))"],
-                        [ 5.5, 0, "((Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset)"]
+                        [4.5, 0, "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red))"],
+                        [ 5.5, 0, "((Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset)"]
                     ]
                 ]
             },
@@ -67,8 +67,8 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)",
-                                    "ball": "(Def-expand/Acc/4.5 m-per-s^2, (Acceleration/4.5 m-per-s^2, Red)), Onset"
+                                    "face": "Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)",
+                                    "ball": "(Def-expand/Acc/4.5, (Acceleration/4.5 m-per-s^2, Red)), Onset"
                                 }
                             }
                         },
@@ -107,8 +107,8 @@
         "name": "tag-group-error-not-top-level",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "warning": false,
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -145,7 +145,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Acceleration/banana",
-                                    "ball": "((Def/Acc/3.0 m-per-s^2, Onset))"
+                                    "ball": "((Def/Acc/3.0, Onset))"
                                 }
                             }
                         },
@@ -163,7 +163,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "(Def/Acc/3.0 m-per-s^2, Onset)"
+                                    "ball": "(Def/Acc/3.0, Onset)"
                                 }
                             }
                         },
@@ -184,8 +184,8 @@
         "name": "multiple-top-level-tags-in-same-group",
         "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
         "warning": false,
-        "schema": "8.2.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -205,7 +205,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Acceleration/banana",
-                                "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
+                                "ball": "(Def/Acc/3.0, Onset, Event-context)"
                             }
                         }
                     },
@@ -213,11 +213,11 @@
                         "event_code": {
                             "HED": {
                                 "face": "Acceleration/5.0",
-                                "ball": "Onset"
+                                "ball": "Red"
                             }
                         },
                         "val_col": {
-                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                            "HED": "Time-interval/# s, (Duration/5.0 s, ({event_code}), Duration/6.0)"
                         }
                     }
                 ],
@@ -246,7 +246,7 @@
                 "passes": [
                     [
                          ["onset", "duration", "HED"],
-                         [ 4.5, 0, "Red, (Event-context, Def/MyColor)"],
+                         [ 4.5, 0, "Red, (Event-context, (Def/MyColor))"],
                          [ 5.0, 0, "Green"]
                     ]
                 ]
@@ -258,7 +258,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Acceleration/banana",
-                                    "ball": "(Def/Acc/3.0 m-per-s^2, Onset, Event-context)"
+                                    "ball": "(Def/Acc/3.0, Onset, Event-context)"
                                 }
                             }
                         },
@@ -275,15 +275,15 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "(Def/Acc/3.0 m-per-s^2, Onset)"
+                                    "face": "Acceleration/5",
+                                    "ball": "(Def/Acc/3.02, Onset)"
                                 }
                             }
                         },
                         "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue, (Event-context, Label/Red)"],
+                                [ 4.5, 0, "face", "Blue, (Event-context, (Label/Red))"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
                     }

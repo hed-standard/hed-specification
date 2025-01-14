@@ -6,7 +6,7 @@
         "description": "A tag is repeated in the same tag group or level.",
         "warning": false,
         "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -94,6 +94,156 @@
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_EXPRESSION_REPEATED",
+        "alt_codes": [],
+        "name": "tags-duplicated-across-multiple-rows",
+        "description": "Tags are repeated because two rows have the same onset value.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "sidecar_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Red, Blue, Green)"],
+                        [ 5.5, 0, "(Red, Blue, Green)"],
+                        [ 4.5, 0, "(Blue, Red, Green)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Red, Blue, Green)"],
+                        [ 5.5, 0, "(Red, Blue, Green)"],
+                        [ 4.5, 0, "(Blue, (Red, Green))"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "ball": "(Green, ((Blue, Orange, (Black, Purple))), White), Blue, Orange"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "(Red, Blue, Green)"],
+                                [ 5.5, 0, "ball","(Red, Blue, Green)"],
+                                [ 4.5, 0, "n/a","(Blue, Red, Green)"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                       "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "ball": "(Green, ((Blue, Orange, (Black, Purple))), White), Blue, Orange"
+                                }
+                            }
+                        },
+                        "events":
+                           [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "(Red, Blue, Green)"],
+                                [ 5.5, 0, "ball","(Red, Blue, Green)"],
+                                [ 4.5, 0, "n/a","(Blue, (Red, Green))"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_EXPRESSION_REPEATED",
+        "alt_codes": [],
+        "name": "tags-with-duplicated-onsets-across-multiple-rows",
+        "description": "Tags are repeated because two rows have the same onset value.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "sidecar_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Onset, Def/MyColor)"],
+                        [ 5.5, 0, "(Onset, Def/MyColor)"],
+                        [ 4.5, 0, "(Def/MyColor, Onset)"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "(Onset, Def/MyColor)"],
+                        [ 5.5, 0, "(Onset, Def/MyColor)"],
+                        [ 4.5, 0, "(Blue, (Red, Green))"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "ball": "(Green, ((Blue, Orange, (Black, Purple))), White), Blue, Orange"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "(Onset, Def/MyColor)"],
+                                [ 5.5, 0, "ball","(Red, Blue, Green)"],
+                                [ 4.5, 0, "n/a","(Def/MyColor, Onset)"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "ball": "(Green, ((Blue, Orange, (Black, Purple))), White), Blue, Orange"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "(Onset, Def/MyColor)"],
+                                [ 5.5, 0, "ball","(Def/MyColor, Onset)"],
+                                [ 4.5, 0, "n/a","Red"]
                             ]
                     }
                 ]
