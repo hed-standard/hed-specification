@@ -5,7 +5,7 @@
         "name": "tag-group-error-missing",
         "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
         "warning": false,
-        "schema": "8.2.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -107,7 +107,7 @@
         "name": "tag-group-error-not-top-level",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "warning": false,
-        "schema": "8.2.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -184,7 +184,7 @@
         "name": "multiple-top-level-tags-in-same-group",
         "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
         "warning": false,
-        "schema": "8.2.0",
+        "schema": "8.3.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
