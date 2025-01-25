@@ -489,7 +489,7 @@
     },
     {
         "error_code": "DEF_EXPAND_INVALID",
-        "alt_codes": ["TAG_GROUP_ERROR"],
+        "alt_codes": ["DEFINITION_INVALID"],
         "name": "def-expand-has-extras",
         "description": "A Def-expand has extra tags or groups.",
         "warning": false,

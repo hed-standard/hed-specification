@@ -187,5 +187,98 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
+        "name": "tag-namespace_prefix-with-colon-values",
+        "description": "A tag prefix has invalid characters.",
+        "warning": false,
+        "schema": ["ts:8.3.0"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Creation-date/2009-04-09T12:04:14"
+                ],
+                "passes": [
+                    "ts:Creation-date/2009-04-09T12:04:14"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Creation-date/2009-04-09T12:04:14",
+                                "ball": "Red"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "ts:Creation-date/2009-04-09T12:04:14",
+                                "ball": "Blue"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Creation-date/2009-04-09T12:04:14"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "ts:Creation-date/2009-04-09T12:04:14"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Creation-date/2009-04-09T12:04:14",
+                                    "ball": "Blue"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "Creation-date/2009-04-09T12:04:14"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "ts:Creation-date/2009-04-09T12:04:14",
+                                    "ball": "Def/Acc/7, Blue"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "Blue"],
+                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
     }
 ]
