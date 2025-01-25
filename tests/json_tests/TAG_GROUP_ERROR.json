@@ -226,11 +226,11 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Acceleration/5.0)",
-                                "ball": "Delay/5.0 s, (Acceleration/5.0)"
+                                "ball": "(Delay/5.0 s, (Acceleration/5.0))"
                             }
                         },
                         "val_col": {
-                            "HED": "Time-interval/# s, (Duration/5.0 s, {event_code})"
+                            "HED": "Time-interval/# s, (Duration/5.0 s, (Red)), {event_code}"
                         }
                     }
                 ]
