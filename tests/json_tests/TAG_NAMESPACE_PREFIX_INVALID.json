@@ -64,7 +64,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -82,7 +82,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue, sc:Sleep-modulator"],
@@ -159,7 +159,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -177,7 +177,7 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
@@ -195,7 +195,7 @@
         "description": "A tag prefix has invalid characters.",
         "warning": false,
         "schema": ["ts:8.3.0"],
-        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(ts:Definition/Acc/#, (ts:Acceleration/# m-per-s^2, ts:Red))", "(ts:Definition/MyColor, (ts:Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -221,7 +221,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "ts:Creation-date/2009-04-09T12:04:14",
-                                "ball": "Blue"
+                                "ball": "ts:Blue"
                             }
                         }
                     }
@@ -266,15 +266,15 @@
                              "event_code": {
                                 "HED": {
                                     "face": "ts:Creation-date/2009-04-09T12:04:14",
-                                    "ball": "Def/Acc/7, Blue"
+                                    "ball": "ts:Def/Acc/7, ts:Blue"
                                 }
                             }
                         },
                         "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue"],
-                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                                [ 4.5, 0, "face", "ts:Blue"],
+                                [ 5.0, 0, "ball", "ts:Green, ts:Def/MyColor"]
                             ]
                     }
                 ]

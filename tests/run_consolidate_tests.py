@@ -30,9 +30,9 @@ def main(exclude_names=[], out_name='temp.json'):
 
 
 if __name__ == '__main__':
-    exclude_names = ['SCHEMA', 'TAG_NAMESPACE', 'VERSION_DEPRECATED']
+    exclude_names = ['SCHEMA', 'VERSION_DEPRECATED']
 
     javascript_name = "javascriptTests.json"
     main(exclude_names, javascript_name)
-    # python_name = "python_tests.json"
+    python_name = "python_tests.json"
     # main([], python_name)
