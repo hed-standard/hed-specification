@@ -151,6 +151,7 @@ additional information on the `required` tag.
 
 **a.** Different standard schema versions in a merge group.  
 **b.** Library schemas in merge group have the same tag.  
+**c.** A schema with that name, version, and namespace prefix cannot be found.   
 
 See [**7.2.5.6 Loading multiple partnered schemas**](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
 for a more detailed description of the rules.
@@ -263,8 +264,7 @@ of tag forms and their relationship to the HED schema.
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.**  A tag starting with *name:* does not have an associated schema.  
-**b.**  A tag prefix has invalid characters.
+**a.**  A tag prefix has invalid characters.  
 
 See [**3.2.6. Tag namespace prefixes**](./03_HED_formats.md#326-tag-namespace-prefixes) and
 [**7. Library schema**](./07_Library_schemas.md) for additional information
