@@ -179,6 +179,7 @@ general explanation of sidecar requirements.
 (WARNING) 
 
 **a.**  A value in a categorical column does not have an expected entry in a sidecar.    
+**b.**  A {ref} in a sidecar does not correspond to a column in the associated tabular file.  
 
 **Note:** This warning is only triggered if the categorical column in which the value
 appears does have HED annotations.

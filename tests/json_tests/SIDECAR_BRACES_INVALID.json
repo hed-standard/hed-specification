@@ -323,6 +323,14 @@
                     {
                         "event_code": {
                             "HED": {
+                                "face": "{HED}",
+                                "ball": "Red"
+                            }
+                        }
+                    },
+                    {
+                        "event_code": {
+                            "HED": {
                                 "face": "(Red, Blue), (Green, (Yellow))",
                                 "ball": "{HED}, (Def/Acc/3.5, {response_action})"
                             }
@@ -386,6 +394,22 @@
                                 [ 5.0, 0, 6.8, "ball", "Green, Def/MyColor"],
                                 [ 5.2, 0, "n/a", "face", ""],
                                 [ 5.5, 0, "7,3", "face", "n/a"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "{HED}",
+                                    "ball": "Red"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "response_time", "event_code"],
+                                [ 4.5, 0, 3.4, "face"],
+                                [ 5.0, 0, 6.8, "ball"]
                             ]
                     }
                 ]
