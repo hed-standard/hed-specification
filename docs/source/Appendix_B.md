@@ -26,8 +26,10 @@ of errors keyed to the HED specification.
 A HED string contains an invalid character.
 
 **a.** An invalid character (character code < 32 or 127 <= character code < 160) appears in a HED string.  
-**b.** Curly braces appear in a HED string not in a sidecar.
-
+**b.** Curly braces appear in a HED string not in a sidecar.  
+**c.**  The **tilde syntax is no longer supported** for any version of HED.  
+   
+Note: Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
 
 **Notes:**  
 - Starting with HED 8.3.0, HED supports UTF-8 encoding.  
@@ -54,7 +56,6 @@ for an explanation of the rules for empty tags.
 
 See also [**TAG_EMPTY**](./Appendix_B.md#tag_empty).
 
-
 ### DEF_EXPAND_INVALID
 
 **a.**  A `Def-expand` tag's name does not correspond to a definition.  
@@ -70,7 +71,6 @@ for an explanation of the rules for `Def-expand` and
 [**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
 
-
 ### DEF_INVALID
 
 **a.**  A `Def` tag's name does not correspond to a definition.   
@@ -81,7 +81,6 @@ See [**3.2.8.2. The Def and Def-expand tags**](./03_HED_formats.md#3282-def-and-
 for an explanation of the rules for `Def` and 
 [**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
-
 
 ### DEFINITION_INVALID
 A **definition** is a tag group containing a `Definition` tag and a single tag group with
@@ -110,7 +109,7 @@ for more details and examples of definition syntax.
 A schema element has been deprecated and should not be used. When an element is updated,
 its description is updated to include the reason for deprecation and a suggested path for updating usage.  
 
-**a.** A tag has been deprecated and an alternative method of tagging should be used.  
+**a.** A tag has been deprecated and an alternative method of tagging should be used. See tag description for how to replace.    
 **b.** A unit, unit class, value class has been deprecated and an alternative should be used.  
 
 See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
@@ -186,14 +185,6 @@ appears does have HED annotations.
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
-
-### STYLE_WARNING*
-
-(WARNING) 
-**a.**  An extension or label does not follow HED naming conventions.  
-
-See [**3.1.3. Naming conventions**](./03_HED_formats.md#313-naming-conventions)
-for an explanation of HED naming conventions.
 
 ### TAG_EMPTY
 
@@ -320,13 +311,6 @@ for a specification of the required behavior of the `Onset`, `Offset`, and `Inse
 [**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
-### TILDES_UNSUPPORTED
-
-The tilde notation is not supported.  
-
-**a.**  The **tilde syntax is no longer supported** for any version of HED.  
-   Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
-**b.**  The tilde (`~`) is considered an invalid character in all versions of the schema.  
 
 ### UNITS_INVALID
  
@@ -346,21 +330,6 @@ for more information.
 
 See [**3.2.4 Tags that take values**](./03_HED_formats.md) for more information.
 
-### VERSION_DEPRECATED*
-(WARNING) 
-
-**a.**  The HED schema version being used as been deprecated.   
-
-It is strongly recommended that a current schema version be used as these deprecated 
-versions may not be supported in the future. Deprecated versions can be found in the
-[**standard_schema/hedxml/deprecated**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml/deprecated) subdirectory
-or the corresponding subdirectory for individual library schemas in
-the [**hed-standard/hed-schemas**](https://github.com/hed-standard/hed-schemas)
-GitHub repository.
-
-**Note:** Support for versions of the schema less than 8.0.0 is being phased out.
-If you are using a deprecated version, you may need to switch to an earlier version
-of the HED validators.
 
 ## B.2. Schema validation errors
 
