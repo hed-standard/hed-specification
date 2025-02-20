@@ -333,11 +333,10 @@
         "error_code": "CHARACTER_INVALID",
         "alt_codes": [
             "TAG_INVALID",
-            "UNITS_INVALID",
             "VALUE_INVALID"
         ],
-        "name": "invalid-character-name-value-class-deprecated",
-        "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
+        "name": "invalid-character-name-value-class",
+        "description": "An invalid character was used in an 8.2.0 or earlier.",
         "warning": false,
         "schema": "8.2.0",
         "definitions": [
@@ -348,11 +347,14 @@
             "string_tests": {
                 "fails": [
                     "Parameter-label/[",
-                    "Parameter-label/Taco\u00c3\u201e"
+                    "Parameter-label/Taco*",
+                    "Label/30$",
+                    "Label/30db kg"
                 ],
                 "passes": [
                     "Parameter-label/Words",
-                    "Parameter-label/Taco*"
+                    "Label/30e10",
+                    "Label/3e10asdf"
                 ]
             },
             "sidecar_tests": {
@@ -374,8 +376,58 @@
                 ]
             },
             "event_tests": {
-                "fails": [],
-                "passes": []
+                "fails": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/%max1"
+                        ]
+                    ],
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/$30"
+                        ]
+                    ],
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/30db kg"
+                        ]
+                    ]
+                ],
+                "passes": [
+                    [
+                        [
+                            "onset",
+                            "duration",
+                            "HED"
+                        ],
+                        [
+                            4.5,
+                            0,
+                            "Label/3e10asdf"
+                        ]
+                    ]
+                ]
             },
             "combo_tests": {
                 "fails": [],
@@ -5197,156 +5249,6 @@
                                 0,
                                 "ball",
                                 "Black"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "STYLE_WARNING",
-        "alt_codes": [],
-        "name": "style-warning-bad-naming-style",
-        "description": "An extension or label does not follow HED naming conventions.",
-        "warning": true,
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
-            "(Definition/MyColor, (Label/Pie))"
-        ],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Red-color/red"
-                ],
-                "passes": [
-                    "Blue-color/Blue"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Red/red_blech",
-                                "ball": "Blue-color/blue"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Red-color/Red",
-                                "ball": "Blue-color/Blue"
-                            }
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Red/red_blech"
-                        ],
-                        [
-                            5.0,
-                            0,
-                            "Blue-color/blue"
-                        ]
-                    ]
-                ],
-                "passes": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Red-color/Red"
-                        ],
-                        [
-                            5.0,
-                            0,
-                            "Blue-color/Blue"
-                        ]
-                    ]
-                ]
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Red/red_blech",
-                                    "ball": "Blue-color/blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Red-color/Red",
-                                    "ball": "Blue-color/Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor"
                             ]
                         ]
                     }
@@ -11957,154 +11859,6 @@
                             [
                                 "snack",
                                 "Blue"
-                            ]
-                        ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "TILDES_UNSUPPORTED",
-        "alt_codes": [
-            "CHARACTER_INVALID"
-        ],
-        "name": "tildes-unsupported",
-        "description": "The tilde syntax is no longer supported for any version of HED.",
-        "warning": false,
-        "schema": "8.3.0",
-        "definitions": [
-            "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
-            "(Definition/MyColor, (Label/Pie))"
-        ],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "Red ~ Blue",
-                    "Red, Blue ~ Green ~ Yellow"
-                ],
-                "passes": [
-                    "Red, Blue"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "Red ~ Blue",
-                                "ball": "Red, Blue ~ Green ~ Yellow"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "(Red, Blue),   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
-                            }
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "Red ~ Blue"
-                        ],
-                        [
-                            5.0,
-                            0,
-                            "Red, Blue ~ Green ~ Yellow"
-                        ]
-                    ]
-                ],
-                "passes": [
-                    [
-                        [
-                            "onset",
-                            "duration",
-                            "HED"
-                        ],
-                        [
-                            4.5,
-                            0,
-                            "(Red, Blue),   (Green, (Yellow))"
-                        ]
-                    ]
-                ]
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Red ~ Blue",
-                                    "ball": "Red, Blue ~ Green ~ Yellow"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Red, Def/MyColor"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Blue ~ Green ~ Yellow"
-                            ]
-                        ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                            "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue"
-                                }
-                            }
-                        },
-                        "events": [
-                            [
-                                "onset",
-                                "duration",
-                                "event_code",
-                                "HED"
-                            ],
-                            [
-                                4.5,
-                                0,
-                                "face",
-                                "Blue"
-                            ],
-                            [
-                                5.0,
-                                0,
-                                "ball",
-                                "Green, Def/MyColor"
                             ]
                         ]
                     }

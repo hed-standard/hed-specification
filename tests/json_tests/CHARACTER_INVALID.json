@@ -210,18 +210,27 @@
             }
         }
     },
-     {
+    {
         "error_code": "CHARACTER_INVALID",
-        "alt_codes": ["TAG_INVALID", "UNITS_INVALID", "VALUE_INVALID"],
-        "name": "invalid-character-name-value-class-deprecated",
-        "description": "An invalid character was used in an 8.2.0 or lower style text value class.",
+        "alt_codes": ["TAG_INVALID", "VALUE_INVALID"],
+        "name": "invalid-character-name-value-class",
+        "description": "An invalid character was used in an 8.2.0 or earlier.",
         "warning": false,
         "schema": "8.2.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
-                "fails": ["Parameter-label/[", "Parameter-label/TacoÄ"],
-                "passes": ["Parameter-label/Words", "Parameter-label/Taco*"]
+                "fails": [
+                    "Parameter-label/[",
+                    "Parameter-label/Taco*",
+                    "Label/30$",
+                    "Label/30db kg"
+                ],
+                "passes": [
+                    "Parameter-label/Words",
+                    "Label/30e10",
+                    "Label/3e10asdf"
+                ]
             },
             "sidecar_tests": {
                 "fails": [
@@ -242,14 +251,31 @@
                 ]
             },
             "event_tests": {
-                "fails": [],
-                "passes": []
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/%max1"]
+                    ],
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/$30"]
+                    ],
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/30db kg"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Label/3e10asdf"]
+                    ]
+                ]
             },
             "combo_tests": {
-                "fails": [],
+                 "fails": [],
                 "passes": []
             }
         }
     }
-
  ]
