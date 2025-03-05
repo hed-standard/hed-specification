@@ -200,7 +200,7 @@ for the rules on empty tags and groups.
 **a.**  A tag is repeated in the same tag group or level.  
 
 Suppose `A`, `B`, and `C` represent HED expressions.
-HED strings are not ordered, so (`B`, `C`) is equivalent to (`B`, `C`).
+HED strings are not ordered, so (`B`, `C`) is equivalent to (`C`, `B`).
 Thus, (`A`, (`A`, `B`)) is not a duplicate, but 
 (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.  
 
