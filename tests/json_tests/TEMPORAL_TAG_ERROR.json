@@ -1090,5 +1090,101 @@
                 ]
             }
         }
+    },
+    {
+        "error_code": "TEMPORAL_TAG_ERROR",
+        "alt_codes": ["TAG_GROUP_ERROR"],
+         "name": "na-in-onset column",
+        "description": "n/a is in the onset column.",
+        "warning": false,
+        "schema": "8.3.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "event_tests": {
+                "fails": [],
+                "passes": []
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5",
+                                    "ball": "Black, White"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration","event_code", "HED"],
+                                [5.0, 0, "face", "Def/MyColor, Red, Blue"],
+                                ["n/a", 0, "ball","(Onset, Def/MyColor, (Red))"]
+                            ]
+                    },
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Orange",
+                                    "ball": "(Delay/4.0, (Green))"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration","event_code", "HED"],
+                                [5.0, 0, "face", "Def/MyColor, Red, Blue"],
+                                ["n/a", 0, "ball","Item"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5",
+                                    "ball": "(Black, White)"
+                                }
+                            }
+                        },
+                        "events": [
+                                ["onset", "duration", "event_code", "HED"],
+                                [ 5.0, "face", "Red, Blue"],
+                                ["n/a", 0, "ball", "(Duration/5.0, (Red))"]
+                        ]
+                    },
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Acceleration/5",
+                                    "ball": "(Black, White)"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration","event_code", "HED"],
+                                [5.0, 0, "face", "Red, Blue"],
+                                ["n/a", 0, "ball","(Duration/5.0, (Red))"]
+                            ]
+                    }
+                ]
+            }
+        }
     }
-]    
+]
