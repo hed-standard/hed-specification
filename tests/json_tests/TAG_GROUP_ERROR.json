@@ -234,21 +234,6 @@
                 "passes": [
                     {
                         "duration": {
-                            "HED": "Duration/#, (Red, Blue)"
-                        },
-                        "event_code": {
-                            "HED": {
-                                "face": "{duration}, (Red, Blue)",
-                                "ball": "Black"
-                            }
-                        },
-                        "ball_type": {
-                            "Description": "Has description with HED",
-                            "HED": "Label/#"
-                        }
-                    },
-                    {
-                        "duration": {
                             "HED": "Parameter-value/#"
                         },
                         "event_code": {
