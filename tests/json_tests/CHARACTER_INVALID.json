@@ -5,7 +5,7 @@
         "name": "character-invalid-non-printing-appears",
         "description": "The HED string contains a UTF-8 character.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -100,7 +100,7 @@
         "name": "curly-braces-not-in-sidecar",
         "description": "The curly brace notation is used outside a sidecar.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -148,7 +148,7 @@
         "name": "invalid-character-name-value-class",
         "description": "An invalid character was used in an 8.3.0 or greater style name value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

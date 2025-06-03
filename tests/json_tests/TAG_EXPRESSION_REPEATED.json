@@ -5,7 +5,7 @@
         "name": "tag-expression-repeated-same-level",
         "description": "A tag is repeated in the same tag group or level.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -106,7 +106,7 @@
         "name": "tags-duplicated-across-multiple-rows",
         "description": "Tags are repeated because two rows have the same onset value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -181,7 +181,7 @@
         "name": "tags-with-duplicated-onsets-across-multiple-rows",
         "description": "Tags are repeated because two rows have the same onset value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

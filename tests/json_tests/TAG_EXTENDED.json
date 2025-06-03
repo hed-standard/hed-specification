@@ -5,7 +5,7 @@
         "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

@@ -5,7 +5,7 @@
         "name": "def-expand-invalid-name-not-definition",
         "description": "A `Def-expand` tag's name does not correspond to a definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -101,7 +101,7 @@
         "name": "def-expand-invalid-missing-placeholder",
         "description": "A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -196,7 +196,7 @@
         "name": "def-expand-invalid-bad-placeholder-value-or-units",
         "description": "A `Def-expand` has an incorrect type of placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -298,7 +298,7 @@
         "name": "def-expand-invalid-tags-not-in-definition",
         "description": "The tags within a Def-expand do not match the corresponding definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -399,7 +399,7 @@
         "name": "def-expand-missing-inner-group",
         "description": "A Def-expand is missing its inner group containing the definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"
         ],
@@ -493,7 +493,7 @@
         "name": "def-expand-has-extras",
         "description": "A Def-expand has extra tags or groups.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Item, (Label/Pie)))"
         ],

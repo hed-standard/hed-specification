@@ -5,7 +5,7 @@
         "name": "sidecar-invalid-key-at-wrong-level",
         "description": "The HED key is not a second-level dictionary key.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -112,7 +112,7 @@
         "name": "sidecar-invalid-na-annotated",
         "description": "An annotation entry is provided for `n/a`.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

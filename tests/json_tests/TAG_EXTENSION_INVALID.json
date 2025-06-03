@@ -5,7 +5,7 @@
         "name": "tag-extension-invalid-duplicate",
         "description": "A tag extension term is already in the schema.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -102,7 +102,7 @@
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

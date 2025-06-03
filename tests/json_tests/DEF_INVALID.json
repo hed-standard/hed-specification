@@ -5,7 +5,7 @@
         "name": "def-invalid-name",
         "description": "A `Def` tag's name does not correspond to a definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -100,7 +100,7 @@
         "name": "def-invalid-missing-placeholder",
         "description": "A `Def` tag is missing an expected placeholder value or has an unexpected placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions":["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -196,7 +196,7 @@
         "name": "def-invalid-bad-placeholder-value",
         "description": "A `Def` has a placeholder value of incorrect format or units for definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
