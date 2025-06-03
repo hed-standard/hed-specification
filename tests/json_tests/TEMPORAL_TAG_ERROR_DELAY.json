@@ -5,7 +5,7 @@
         "name": "temporal-tag-error-not-tag-group-delay",
         "description": "A Delay is not in the tag group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -102,7 +102,7 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-nested-group-delay",
         "description": "A delay appears in a group not in the top level.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -190,7 +190,7 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-wrong-number-of-defs-delay",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -283,7 +283,7 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-onset-has-more-groups-delay",
         "description": "An Onset group has more than one additional tag group.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -414,7 +414,7 @@
         "alt_codes": ["TAG_GROUP_ERROR"],
         "name": "temporal-tag-error-offset-has-groups-delay",
         "description": "An Offset appears with one or more tags or additional tag groups.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

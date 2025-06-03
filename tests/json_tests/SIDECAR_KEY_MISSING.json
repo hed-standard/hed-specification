@@ -5,7 +5,7 @@
         "name": "sidecar-key-missing",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -72,7 +72,7 @@
         "name": "sidecar-refers-to-missing-tsv-hed-column",
         "description": "(Warning) A sidecar uses a {HED} column which does not appear in the corresponding tsv file.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"

@@ -5,7 +5,7 @@
         "name": "parentheses-mismatch-unmatched-parentheses",
         "description": "A HED string does not have the same number of open and closed parentheses.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -102,7 +102,7 @@
         "name": "parentheses-mismatch-incorrect-nesting",
         "description": "The open and closed parentheses are not correctly nested in the HED string.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

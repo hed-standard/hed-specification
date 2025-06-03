@@ -9,7 +9,7 @@
         "name": "character-invalid-non-printing-appears",
         "description": "The HED string contains a UTF-8 character.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -158,7 +158,7 @@
         "name": "curly-braces-not-in-sidecar",
         "description": "The curly brace notation is used outside a sidecar.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -232,7 +232,7 @@
         "name": "invalid-character-name-value-class",
         "description": "An invalid character was used in an 8.3.0 or greater style name value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -441,7 +441,7 @@
         "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -599,7 +599,7 @@
         "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -755,7 +755,7 @@
         "name": "definition-invalid-tag-group",
         "description": "A Definition tag does not appear in a tag group at the top level in an annotation.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -853,7 +853,7 @@
         "name": "definition-invalid-empty-inner-group",
         "description": "A definition's enclosing tag group has an empty inner group (i.e., the definition's contents).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -946,7 +946,7 @@
         "name": "definition-invalid-multiple-definition-tags",
         "description": "A definition's enclosing tag group contains more than a `Definition` tag and an inner group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1044,7 +1044,7 @@
         "name": "definition-invalid-inner-group-defs",
         "description": "A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1142,7 +1142,7 @@
         "name": "definition-invalid-bad-number-of-placeholders",
         "description": "A definition that includes a placeholder (`#`) does not have exactly two `#` characters.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1239,7 +1239,7 @@
         "name": "definition-invalid-placeholder-incorrect-of-positions",
         "description": "A definition has placeholders (`#`) in incorrect positions.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1336,7 +1336,7 @@
         "name": "definition-invalid-placeholder-conflict",
         "description": "Definitions of the same name appear with and without a `#`.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1430,7 +1430,7 @@
         "name": "definition-invalid-multiple-definitions",
         "description": "Multiple `Definition` tags with same name are encountered.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1534,7 +1534,7 @@
         "name": "definition-invalid-content-has-top-level-tag",
         "description": "A tag with a required or unique attribute appears in a definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))"
         ],
@@ -1629,7 +1629,7 @@
         "name": "definition-not-allowed-here",
         "description": "A definition appears in an unexpected place such as an events file or sidecar.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Item, (Label/Pie)))"
@@ -1753,7 +1753,7 @@
         "name": "def-expand-invalid-name-not-definition",
         "description": "A `Def-expand` tag's name does not correspond to a definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -1908,7 +1908,7 @@
         "name": "def-expand-invalid-missing-placeholder",
         "description": "A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -2059,7 +2059,7 @@
         "name": "def-expand-invalid-bad-placeholder-value-or-units",
         "description": "A `Def-expand` has an incorrect type of placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -2230,7 +2230,7 @@
         "name": "def-expand-invalid-tags-not-in-definition",
         "description": "The tags within a Def-expand do not match the corresponding definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -2395,7 +2395,7 @@
         "name": "def-expand-missing-inner-group",
         "description": "A Def-expand is missing its inner group containing the definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Item, (Label/Pie)))"
@@ -2543,7 +2543,7 @@
         "name": "def-expand-has-extras",
         "description": "A Def-expand has extra tags or groups.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Item, (Label/Pie)))"
@@ -2695,7 +2695,7 @@
         "name": "def-invalid-name",
         "description": "A `Def` tag's name does not correspond to a definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -2841,7 +2841,7 @@
         "name": "def-invalid-missing-placeholder",
         "description": "A `Def` tag is missing an expected placeholder value or has an unexpected placeholder value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -2996,7 +2996,7 @@
         "name": "def-invalid-bad-placeholder-value",
         "description": "A `Def` has a placeholder value of incorrect format or units for definition.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3318,7 +3318,7 @@
         "name": "parentheses-mismatch-unmatched-parentheses",
         "description": "A HED string does not have the same number of open and closed parentheses.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3470,7 +3470,7 @@
         "name": "parentheses-mismatch-incorrect-nesting",
         "description": "The open and closed parentheses are not correctly nested in the HED string.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3624,7 +3624,7 @@
         "name": "placeholder-invalid-misplaced",
         "description": "A `#` appears in a place that it should not (such as in the `HED` column of an event file outside a definition).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3766,7 +3766,7 @@
         "name": "placeholder-invalid-#-in-categorical-column",
         "description": "A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3876,7 +3876,7 @@
         "name": "placeholder-invalid-json-value-column",
         "description": "A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -3992,7 +3992,7 @@
         "name": "placeholder-invalid-json-#-misplaced",
         "description": "A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4102,7 +4102,7 @@
         "name": "sidecar-braces-contents-invalid",
         "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4236,7 +4236,7 @@
         "name": "sidecar-braces-invalid-spot",
         "description": "A curly brace reference must only appear where a tag could.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4292,7 +4292,7 @@
         "name": "sidecar-braces-circular-reference",
         "description": "The item in curly braces has a HED annotation that contains curly braces.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4433,7 +4433,7 @@
         "name": "sidecar-braces-self-reference",
         "description": "The item in curly braces has a HED annotation that contains itself.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4650,7 +4650,7 @@
         "name": "sidecar-braces-appear-as-value-rather-than-tag",
         "description": "The curly braces are in a value rather than as a separate tag substitute.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4817,7 +4817,7 @@
         "name": "sidecar-invalid-key-at-wrong-level",
         "description": "The HED key is not a second-level dictionary key.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -4962,7 +4962,7 @@
         "name": "sidecar-invalid-na-annotated",
         "description": "An annotation entry is provided for `n/a`.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5072,7 +5072,7 @@
         "name": "sidecar-key-missing",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5164,7 +5164,7 @@
         "name": "sidecar-refers-to-missing-tsv-hed-column",
         "description": "(Warning) A sidecar uses a {HED} column which does not appear in the corresponding tsv file.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5262,7 +5262,7 @@
         "name": "tag-empty-extra-commas-or-parentheses",
         "description": "A HED string has extra commas or parentheses separated by only white space.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5425,7 +5425,7 @@
         "name": "tag-empty-begin-end-comma",
         "description": "A HED string begins or ends with a comma (ignoring white space).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5579,7 +5579,7 @@
         "name": "tag-empty-empty-parentheses",
         "description": "A tag group is empty (i.e., empty parentheses are not allowed).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5731,7 +5731,7 @@
         "name": "tag-expression-repeated-same-level",
         "description": "A tag is repeated in the same tag group or level.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -5891,7 +5891,7 @@
         "name": "tags-duplicated-across-multiple-rows",
         "description": "Tags are repeated because two rows have the same onset value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6039,7 +6039,7 @@
         "name": "tags-with-duplicated-onsets-across-multiple-rows",
         "description": "Tags are repeated because two rows have the same onset value.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6187,7 +6187,7 @@
         "name": "tag-extended-extension",
         "description": "A tag represents an extension from the schema.",
         "warning": true,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6340,7 +6340,7 @@
         "name": "tag-extension-invalid-duplicate",
         "description": "A tag extension term is already in the schema.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6495,7 +6495,7 @@
         "name": "tag-extension-invalid-bad-node-name",
         "description": "A tag extension term does not comply with rules for schema nodes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6670,7 +6670,7 @@
         "name": "tag-group-error-missing",
         "description": "A tag has tagGroup or topLevelTagGroup attribute, but is not enclosed in parentheses.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6829,7 +6829,7 @@
         "name": "tag-group-error-not-top-level",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -6965,7 +6965,7 @@
         "name": "tag-group-error-deferred-in-splice",
         "description": "A tag with the topLevelTagGroup does not appear at a HED tag group at the top level in an assembled HED annotation.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -7162,7 +7162,7 @@
         "name": "multiple-top-level-tags-in-same-group",
         "description": "Multiple tags with the topLevelTagGroup attribute appear in the same top-level tag group. (Delay and Duration are allowed to be in the same topLevelTagGroup).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -7332,7 +7332,7 @@
         "name": "tag-invalid-in-schema",
         "description": "The tag is not valid in the schema it is associated with.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -7485,7 +7485,7 @@
         "name": "tag-has-extra-white space",
         "description": "A HED tag has extra internal whitespace, including directly before or after slashes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -7647,7 +7647,7 @@
         "name": "tag-has-leading-trailing-or-consecutive-slashes",
         "description": "A HED tag has leading, trailing or consecutive slashes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8107,7 +8107,7 @@
         "name": "tag-not-unique",
         "description": "A tag with unique attribute appears more than once in an event-level HED string.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8244,7 +8244,7 @@
         "name": "tag-requires-child-no-child",
         "description": "A tag has the requireChild schema attribute but does not have a child.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8393,7 +8393,7 @@
         "name": "temporal-tag-error-not-tag-group",
         "description": "An Onset or Offset tag does not appear in a tag group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8546,7 +8546,7 @@
         "name": "temporal-tag-error-nested-group",
         "description": "An Onset or Offset tag appears in a nested tag group (not a top-level tag group).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8684,7 +8684,7 @@
         "name": "temporal-tag-error-wrong-number-of-defs",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8836,7 +8836,7 @@
         "name": "temporal-tag-error-onset-has-more-groups",
         "description": "An Onset group has more than one additional tag group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -8996,7 +8996,7 @@
         "name": "temporal-tag-error-offset-has-groups",
         "description": "An Offset appears with one or more tags or additional tag groups.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9194,7 +9194,7 @@
         "name": "temporal-tag-error-offset-with-no-onset",
         "description": "An Offset tag associated with a given definition appears after a previous Offset tag without the appearance of an intervening Onset of the same name.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9340,7 +9340,7 @@
         "name": "temporal-tag-error-extra tags",
         "description": "An Onset tag group with has tags besides the anchor Def or Def-expand that are not in a tag group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9478,7 +9478,7 @@
         "name": "temporal-tag-error-duplicated-onset-or-offset",
         "description": "An Onset or an Offset with a given Def or Def-expand anchor appears in the same event marker with another Onset or Offset that uses the same anchor.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9630,7 +9630,7 @@
         "name": "temporal-tag-error-inset-outside-its-event",
         "description": "An Inset tag is not grouped with a Def or Def-expand of an ongoing Onset.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9784,7 +9784,7 @@
         "name": "temporal-tag-error-inset-group-has-extras",
         "description": "An Inset group has tags or groups in addition to its defining Def or Def-expand.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -9954,7 +9954,7 @@
         "name": "temporal-tag-error-duration-group",
         "description": "A Duration or Delay has extra tags or groups.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10084,7 +10084,7 @@
         "name": "temporal-tag-error-tag-appears-where-not-allowed",
         "description": "A temporal tag appears appears in a tsv with no onset column",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10254,7 +10254,7 @@
         "name": "na-in-onset column",
         "description": "n/a is in the onset column.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10407,7 +10407,7 @@
         "name": "temporal-tag-error-not-tag-group-delay",
         "description": "A Delay is not in the tag group.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10566,7 +10566,7 @@
         ],
         "name": "temporal-tag-error-nested-group-delay",
         "description": "A delay appears in a group not in the top level.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10703,7 +10703,7 @@
         ],
         "name": "temporal-tag-error-wrong-number-of-defs-delay",
         "description": "An Onset or Offset tag is not grouped with exactly one Def-expand tag group or a Def tag.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -10854,7 +10854,7 @@
         ],
         "name": "temporal-tag-error-onset-has-more-groups-delay",
         "description": "An Onset group has more than one additional tag group.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -11059,7 +11059,7 @@
         ],
         "name": "temporal-tag-error-offset-has-groups-delay",
         "description": "An Offset appears with one or more tags or additional tag groups.",
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -12222,7 +12222,7 @@
         "name": "units-invalid-for-unit-class",
         "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -12373,7 +12373,7 @@
         "name": "units-invalid-si-units",
         "description": "A unit modifier is applied to units that are not SI units.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -12627,7 +12627,7 @@
         "name": "value-invalid-incompatible-value-class",
         "description": "A tag placeholder value is incompatible with the specified value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -12768,7 +12768,7 @@
         "name": "value-invalid-blank-missing-before-units",
         "description": "The units are not separated from the value by a single blank.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
             "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
@@ -12908,7 +12908,7 @@
         "name": "invalid-character-numeric-class",
         "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [],
         "tests": {
             "string_tests": {

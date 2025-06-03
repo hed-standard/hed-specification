@@ -5,7 +5,7 @@
         "name": "sidecar-braces-contents-invalid",
         "description": "The item in curly braces is not the word HED or a column name with HED annotations in the sidecar.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -107,7 +107,7 @@
         "name": "sidecar-braces-invalid-spot",
         "description": "A curly brace reference must only appear where a tag could.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -166,7 +166,7 @@
         "name": "sidecar-braces-circular-reference",
         "description": "The item in curly braces has a HED annotation that contains curly braces.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -280,7 +280,7 @@
         "name": "sidecar-braces-self-reference",
         "description": "The item in curly braces has a HED annotation that contains itself.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -422,7 +422,7 @@
         "name": "sidecar-braces-appear-as-value-rather-than-tag",
         "description": "The curly braces are in a value rather than as a separate tag substitute.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {

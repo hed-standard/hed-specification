@@ -78,7 +78,7 @@
         "name": "value-invalid-incompatible-value-class",
         "description": "A tag placeholder value is incompatible with the specified value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -168,7 +168,7 @@
         "name": "value-invalid-blank-missing-before-units",
         "description": "The units are not separated from the value by a single blank.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -259,7 +259,7 @@
         "name": "invalid-character-numeric-class",
         "description": "An invalid character was used in an 8.3.0 or greater style numeric value class.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [],
         "tests": {
             "string_tests": {

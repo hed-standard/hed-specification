@@ -5,7 +5,7 @@
         "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
@@ -103,7 +103,7 @@
         "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
