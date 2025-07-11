@@ -23,22 +23,25 @@ of errors keyed to the HED specification.
 
 ### CHARACTER_INVALID
 
-A HED string contains an invalid character.
+**a.** A HED string cannot contain the following characters:  
+- Character code <= 31 (hex 0x1f).
+- 127 (hex 0x7f) <= character code <= 159 (hex 0x9f).  
+- Left or right square brackets (`[`, `]`).
+- Tilde (`~`) character. Replace: the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).
+- Double quotes (`"`).  
 
-**a.** An invalid character (character code < 32 or 127 <= character code < 160) appears in a HED string.  
-**b.** Curly braces appear in a HED string not in a sidecar.  
-**c.**  The **tilde syntax is no longer supported** for any version of HED.  
-   
-Note: Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
+**b.** Curly braces (`{`, `}`) can only appear in a sidecar and indicate a column template, not HED.  
 
 **Notes:**  
-- Starting with HED 8.3.0, HED supports UTF-8 encoding.  
-- Different parts of a HED string have different rules for acceptable characters.
+1. Starting with HED 8.3.0, HED supports UTF-8 encoding.  
+2. Different parts of a HED string have different rules for acceptable characters. For example tag names
+must satisfy the rules for the  HED name class. The values used after tag names depend on the value classes of the tag
+and the unit classes of the tag.
  
-See also:
-[**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and
-[**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for
-an explanation of the rules for tag values and extensions.
+**See also:**
+- [**A.1. Auxiliary schema sections**](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
+- [**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and [**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
 ### COMMA_MISSING
 
@@ -128,7 +131,9 @@ for the rules for parentheses in HED.
 **a.**  A `#` appears in a place that it should not (such as in the `HED` column of an events file).  
 **b.**  A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.  
 **c.**  A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.  
-**d.**  A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.  
+**d.**  A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child. 
+**e.**  Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).  
+**f.**  A placeholder (`#`) does not appear directly after a slash (e.g., `"Label/ #"`).  
 
 See [**3.2.4. Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 and [**3.2.9.1. Sidecar entries**](./03_HED_formats.md#3291-sidecar-entries) for
