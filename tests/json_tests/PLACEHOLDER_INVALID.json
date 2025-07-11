@@ -1,17 +1,17 @@
 [
     {
         "error_code": "PLACEHOLDER_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["VALUE_INVALID"],
         "name": "placeholder-invalid-misplaced",
         "description": "A `#` appears in a place that it should not (such as in the `HED` column of an event file outside a definition).",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "Label/#",
-                    "Def/Acc/# m-per-s^2"
+                    "Def/Acc/#"
                 ],
                 "passes": [
                     "Label/This-label"
@@ -23,7 +23,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Label/#",
-                                "ball": "Def/Acc/# m-per-s^2"
+                                "ball": "Def/Acc/#2"
                             }
                         }
                     }
@@ -36,14 +36,14 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Label/#"],
-                        [ 5.0, 0, "Def/Acc/# m-per-s^2"]
+                        [ 5.0, 0, "Def/Acc/#"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Label/This-label"],
-                        [ 6.0, 0, "(Def/Acc/3.5 m-per-s^2)"]
+                        [ 6.0, 0, "(Def/Acc/3.5)"]
                     ]
                 ]
             },
@@ -93,8 +93,8 @@
         "name": "placeholder-invalid-#-in-categorical-column",
         "description": "A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -108,7 +108,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Label/#",
-                                "ball": "Def/Acc/# m-per-s^2"
+                                "ball": "Def/Acc/#"
                             }
                         }
                     }
@@ -118,7 +118,7 @@
                         "event_code": {
                             "HED": {
                                 "face":  "Label/This-label",
-                                "ball": "(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -176,8 +176,8 @@
         "name": "placeholder-invalid-json-value-column",
         "description": "A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -252,12 +252,12 @@
     },
     {
         "error_code": "PLACEHOLDER_INVALID",
-        "alt_codes": ["TAG_EXTENSION_INVALID"],
+        "alt_codes": ["TAG_EXTENSION_INVALID", "VALID_INVALID"],
         "name": "placeholder-invalid-json-#-misplaced",
         "description": "A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

@@ -5,8 +5,8 @@
         "name": "tag-not-unique",
         "description": "A tag with unique attribute appears more than once in an event-level HED string.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [

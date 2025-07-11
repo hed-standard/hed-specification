@@ -5,8 +5,8 @@
         "name": "parentheses-mismatch-unmatched-parentheses",
         "description": "A HED string does not have the same number of open and closed parentheses.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -15,7 +15,7 @@
                     "((Red, ((Blue), Green)), (Yellow)"
                 ],
                 "passes": [
-                    "(Def/Acc/5.3 m-per-s^2, (Red))"
+                    "(Def/Acc/5.3, (Red))"
                 ]
             },
             "sidecar_tests": {
@@ -34,7 +34,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))"
+                                "face": "(Def/Acc/5.3, (Red))"
                             }
                         }
                     }
@@ -52,7 +52,7 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"]
+                        [4.5, 0, "(Def/Acc/5.3, (Red))"]
                     ]
                 ]
             },
@@ -62,8 +62,8 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
-                                    "ball": "Def/Acc/apple3, Blue"
+                                    "face": "Acceleration/5",
+                                    "ball": "Def/Acc/6, Blue"
                                 }
                             }
                         },
@@ -102,8 +102,8 @@
         "name": "parentheses-mismatch-incorrect-nesting",
         "description": "The open and closed parentheses are not correctly nested in the HED string.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -111,8 +111,8 @@
                     ")(Def/MyColor)), (Blue, (Yellow)), (Red))"
                 ],
                 "passes": [
-                    "(Def/Acc/5.3 m-per-s^2, (Red))",
-                    "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                    "(Def/Acc/5.3, (Red))",
+                    "(((((Def/Acc/5.3, (Red))))))"
                 ]
             },
             "sidecar_tests": {
@@ -130,8 +130,8 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
-                                "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                                "face": "(Def/Acc/5.3, (Red))",
+                                "ball": "(((((Def/Acc/5.3, (Red))))))"
                             }
                         }
                     }
@@ -148,8 +148,8 @@
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "(Def/Acc/5.3 m-per-s^2, (Red))"],
-                        [ 5.5, 0, "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"]
+                        [ 4.5, 0, "(Def/Acc/5.3, (Red))"],
+                        [ 5.5, 0, "(((((Def/Acc/5.3, (Red))))))"]
                     ]
                 ]
             },
@@ -176,8 +176,8 @@
                         "sidecar": {
                              "event_code": {
                                 "HED": {
-                                    "face": "(Def/Acc/5.3 m-per-s^2, (Red))",
-                                    "ball": "(((((Def/Acc/5.3 m-per-s^2, (Red))))))"
+                                    "face": "(Def/Acc/5.3, (Red))",
+                                    "ball": "(((((Def/Acc/5.3, (Red))))))"
                                 }
                             }
                         },

@@ -23,20 +23,25 @@ of errors keyed to the HED specification.
 
 ### CHARACTER_INVALID
 
-A HED string contains an invalid character.
+**a.** A HED string cannot contain the following characters:  
+- Character code <= 31 (hex 0x1f).
+- 127 (hex 0x7f) <= character code <= 159 (hex 0x9f).  
+- Left or right square brackets (`[`, `]`).
+- Tilde (`~`) character. Replace: the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).
+- Double quotes (`"`).  
 
-**a.** An invalid character (character code < 32 or 127 <= character code < 160) appears in a HED string.  
-**b.** Curly braces appear in a HED string not in a sidecar.
-
+**b.** Curly braces (`{`, `}`) can only appear in a sidecar and indicate a column template, not HED.  
 
 **Notes:**  
-- Starting with HED 8.3.0, HED supports UTF-8 encoding.  
-- Different parts of a HED string have different rules for acceptable characters.
+1. Starting with HED 8.3.0, HED supports UTF-8 encoding.  
+2. Different parts of a HED string have different rules for acceptable characters. For example tag names
+must satisfy the rules for the  HED name class. The values used after tag names depend on the value classes of the tag
+and the unit classes of the tag.
  
-See also:
-[**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and
-[**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for
-an explanation of the rules for tag values and extensions.
+**See also:**
+- [**A.1. Auxiliary schema sections**](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
+- [**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and [**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
 ### COMMA_MISSING
 
@@ -54,7 +59,6 @@ for an explanation of the rules for empty tags.
 
 See also [**TAG_EMPTY**](./Appendix_B.md#tag_empty).
 
-
 ### DEF_EXPAND_INVALID
 
 **a.**  A `Def-expand` tag's name does not correspond to a definition.  
@@ -70,7 +74,6 @@ for an explanation of the rules for `Def-expand` and
 [**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
 
-
 ### DEF_INVALID
 
 **a.**  A `Def` tag's name does not correspond to a definition.   
@@ -81,7 +84,6 @@ See [**3.2.8.2. The Def and Def-expand tags**](./03_HED_formats.md#3282-def-and-
 for an explanation of the rules for `Def` and 
 [**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
-
 
 ### DEFINITION_INVALID
 A **definition** is a tag group containing a `Definition` tag and a single tag group with
@@ -110,7 +112,7 @@ for more details and examples of definition syntax.
 A schema element has been deprecated and should not be used. When an element is updated,
 its description is updated to include the reason for deprecation and a suggested path for updating usage.  
 
-**a.** A tag has been deprecated and an alternative method of tagging should be used.  
+**a.** A tag has been deprecated and an alternative method of tagging should be used. See tag description for how to replace.    
 **b.** A unit, unit class, value class has been deprecated and an alternative should be used.  
 
 See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
@@ -129,7 +131,9 @@ for the rules for parentheses in HED.
 **a.**  A `#` appears in a place that it should not (such as in the `HED` column of an events file).  
 **b.**  A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.  
 **c.**  A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.  
-**d.**  A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.  
+**d.**  A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child. 
+**e.**  Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).  
+**f.**  A placeholder (`#`) does not appear directly after a slash (e.g., `"Label/ #"`).  
 
 See [**3.2.4. Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 and [**3.2.9.1. Sidecar entries**](./03_HED_formats.md#3291-sidecar-entries) for
@@ -151,6 +155,7 @@ additional information on the `required` tag.
 
 **a.** Different standard schema versions in a merge group.  
 **b.** Library schemas in merge group have the same tag.  
+**c.** A schema with that name, version, and namespace prefix cannot be found.   
 
 See [**7.2.5.6 Loading multiple partnered schemas**](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
 for a more detailed description of the rules.
@@ -178,20 +183,13 @@ general explanation of sidecar requirements.
 (WARNING) 
 
 **a.**  A value in a categorical column does not have an expected entry in a sidecar.    
+**b.**  A {ref} in a sidecar does not correspond to a column in the associated tabular file.  
 
 **Note:** This warning is only triggered if the categorical column in which the value
 appears does have HED annotations.
 
 See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
-
-### STYLE_WARNING*
-
-(WARNING) 
-**a.**  An extension or label does not follow HED naming conventions.  
-
-See [**3.1.3. Naming conventions**](./03_HED_formats.md#313-naming-conventions)
-for an explanation of HED naming conventions.
 
 ### TAG_EMPTY
 
@@ -263,8 +261,7 @@ of tag forms and their relationship to the HED schema.
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.**  A tag starting with *name:* does not have an associated schema.  
-**b.**  A tag prefix has invalid characters.
+**a.**  A tag prefix has invalid characters.  
 
 See [**3.2.6. Tag namespace prefixes**](./03_HED_formats.md#326-tag-namespace-prefixes) and
 [**7. Library schema**](./07_Library_schemas.md) for additional information
@@ -319,24 +316,12 @@ for a specification of the required behavior of the `Onset`, `Offset`, and `Inse
 [**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
-### TILDES_UNSUPPORTED
-
-The tilde notation is not supported.  
-
-**a.**  The **tilde syntax is no longer supported** for any version of HED.  
-   Annotators should replace the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).  
-**b.**  The tilde (`~`) is considered an invalid character in all versions of the schema.  
 
 ### UNITS_INVALID
  
 **a.**  A tag has a value with units that are invalid or not of the 
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
-
-### UNITS_MISSING*
-(WARNING)
- 
-**a.**  A tag that takes value and has a unit class does not have units.
 
 See [**3.2.4 Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
 for more information.
@@ -350,21 +335,6 @@ for more information.
 
 See [**3.2.4 Tags that take values**](./03_HED_formats.md) for more information.
 
-### VERSION_DEPRECATED*
-(WARNING) 
-
-**a.**  The HED schema version being used as been deprecated.   
-
-It is strongly recommended that a current schema version be used as these deprecated 
-versions may not be supported in the future. Deprecated versions can be found in the
-[**standard_schema/hedxml/deprecated**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml/deprecated) subdirectory
-or the corresponding subdirectory for individual library schemas in
-the [**hed-standard/hed-schemas**](https://github.com/hed-standard/hed-schemas)
-GitHub repository.
-
-**Note:** Support for versions of the schema less than 8.0.0 is being phased out.
-If you are using a deprecated version, you may need to switch to an earlier version
-of the HED validators.
 
 ## B.2. Schema validation errors
 

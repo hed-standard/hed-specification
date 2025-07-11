@@ -5,17 +5,17 @@
         "name": "comma-missing-tag-groups",
         "description": "Two tag groups are not separated by commas: (A, B)(C, D).",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "(Red, Blue)(Green, (Yellow))",
-                    "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                    "(Def/MyColor, Onset)(Def/Acc/3.5)"
                 ],
                 "passes": [
                     "(Red, Blue),   (Green, (Yellow))",
-                    "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                    "(Def/MyColor, Onset),(Def/Acc/3.5)"
                 ]
             },
             "sidecar_tests": {
@@ -24,7 +24,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue)(Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -34,7 +34,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),   (Green, (      Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -45,14 +45,14 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Red, Blue)(Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"]
+                        [ 5.5, 0, "(Def/MyColor, Onset)(Def/Acc/3.5)"]
                     ]
                 ],
                 "passes": [
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "(Red, Blue),   (Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"]
+                        [ 5.5, 0, "(Def/MyColor, Onset),(Def/Acc/3.5)"]
                     ]
                 ]
             },
@@ -63,7 +63,7 @@
                             "event_code": {
                                 "HED": {
                                 "face": "(Red, Blue)(Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                                 }
                             }
                         },
@@ -82,7 +82,7 @@
                              "event_code": {
                                 "HED": {
                                 "face": "(Red, Blue),   (Green, (      Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                                 }
                             }
                         },
@@ -103,17 +103,17 @@
         "name": "comma-missing-tag-and-group",
         "description": "A tag and a tag group are not separated by commas: A(B,D).",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
                     "Red, Blue(Green, (Yellow))",
-                    "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
+                    "(Def/MyColor, Onset)Def/Acc/3.5"
                 ],
                 "passes": [
                     "Red,   (Green, (Yellow))",
-                    "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
+                    "(Def/MyColor, Onset),Def/Acc/3.5"
                 ]
             },
             "sidecar_tests": {
@@ -122,7 +122,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Red(Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
+                                "ball": "(Def/MyColor, Onset)Def/Acc/3.5"
                             }
                         }
                     }                   
@@ -132,7 +132,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Red,   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"
+                                "ball": "(Def/MyColor, Onset),Def/Acc/3.5"
                             }
                         }
                     }                    
@@ -143,7 +143,7 @@
                     [
                         ["onset", "duration", "HED"],
                         [ 4.5, 0, "Red(Green, (Yellow))"],
-                        [ 5.5, 0, "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"]
+                        [ 5.5, 0, "(Def/MyColor, Onset)Def/Acc/3.5"]
                     ]
                 ],
                 "passes": [
@@ -160,7 +160,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": "Red(Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset)Def/Acc/3.5 m-per-s^2"
+                                    "ball": "(Def/MyColor, Onset)Def/Acc/3.5"
                                 }
                             }
                         },
@@ -179,7 +179,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Red,   (Green, (Yellow))",
-                                    "ball": "(Def/MyColor, Onset),Def/Acc/3.5 m-per-s^2"                                }
+                                    "ball": "(Def/MyColor, Onset),Def/Acc/3.5"                                }
                             }
                         },
                         "events": 

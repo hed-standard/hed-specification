@@ -1,12 +1,12 @@
 [
     {
         "error_code": "TAG_INVALID",
-        "alt_codes": [],
+        "alt_codes": ["PLACEHOLDER_INVALID"],
         "name": "tag-invalid-in-schema",
         "description": "The tag is not valid in the schema it is associated with.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -103,9 +103,9 @@
         "name": "tag-has-extra-white space",
         "description": "A HED tag has extra internal whitespace, including directly before or after slashes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
         ],
         "tests": {
@@ -138,7 +138,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "Sensory-event, Green",
-                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
+                                "ball": "Def/Acc/4.5, Def/Acc/3.2"
                             }
                         }
                     }
@@ -230,7 +230,7 @@
                             "event_code": {
                                 "HED": {
                                     "face": " Red, Green",
-                                    "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2"
+                                    "ball": "Def/Acc/4.5, Def/Acc/3.2"
                                 }
                             }
                         },
@@ -265,9 +265,9 @@
         "name": "tag-has-leading-trailing-or-consecutive-slashes",
         "description": "A HED tag has leading, trailing or consecutive slashes.",
         "warning": false,
-        "schema": "8.3.0",
+        "schema": "8.4.0",
         "definitions": [
-            "(Definition/Acc/#, (Acceleration/#, Red))",
+            "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
             "(Definition/MyColor, (Label/Pie))"
         ],
         "tests": {
@@ -295,7 +295,7 @@
                                 "face":  "Event//Sensory-event",
                                 "ball":   "/Event",
                                 "square": "Red/",
-                                "test":  "/ /Def/Acc/4.5 ms/"
+                                "test":  "/ /Def/Acc/4.5/"
                             }
                         }
                     }
@@ -305,7 +305,7 @@
                         "event_code": {
                             "HED": {
                                 "face":  "Body-part/Head-part/Brain",
-                                "ball": "Def/Acc/4.5 m-per-s^2, Def/Acc/3.2 m-per-s^2"
+                                "ball": "Def/Acc/4.5, Def/Acc/3.2"
                             }
                         }
                     }
@@ -318,7 +318,7 @@
                         [ 4.5, 0, "/Event,"],
                         [5.5, 0, "Body-part/Head-part//Brain"],
                         [6.5, 0, "Event/Sensory-event/"],
-                        [ 7.2, 0, "/ /Def/Acc/4.5 ms/"]
+                        [ 7.2, 0, "/ /Def/Acc/4.5/"]
                     ]
                 ],
                 "passes": [
@@ -337,7 +337,7 @@
                                     "face": "Event//Sensory-event",
                                     "ball":  "//Event",
                                     "square":  "Body-part/Head-part//Brain",
-                                    "test":  "/ /Def/Acc/4.5 ms/"
+                                    "test":  "/ /Def/Acc/4.5"
                                 }
                             }
                         },
@@ -345,7 +345,7 @@
                             ["onset", "duration", "event_code", "HED"],
                             [4.5, 0, "face", "Red/, Def/MyColor"],
                             [5.0, 0, "ball", "Green"],
-                            [ 7.2, 0, "n/a", "/ /Def/Acc/4.5 ms/"]
+                            [ 7.2, 0, "n/a", "/ /Def/Acc/4.5"]
                         ]
                     }
                 ],
@@ -354,7 +354,7 @@
                         "sidecar": {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
+                                    "face": "Acceleration/5",
                                     "ball": "Def/Acc/7, Blue"
                                 }
                             }

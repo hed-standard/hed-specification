@@ -2,105 +2,11 @@
     {
         "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
         "alt_codes": [],
-        "name": "tag-namespace_prefix-invalid-no-schema",
-        "description": "A tag starting with name: does not have an associated schema.",
-        "warning": false,
-        "schema": ["8.3.0", "sc:score_1.0.0"],
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
-        "tests": {
-            "string_tests": {
-                "fails": [
-                    "ts:Red, Blue",
-                    "(ts:Red, (sc:Sleep-modulator))"
-                ],
-                "passes": [
-                    "sc:Sleep-modulator"
-                ]
-            },
-            "sidecar_tests": {
-                "fails": [
-                    {
-                        "event_code": {
-                            "HED": {
-                                "face": "ts:Red, Blue",
-                                "ball": "(ts:Red, (sc:Sleep-modulator))"
-                            }
-                        }
-                    }
-                ],
-                "passes": [
-                     {
-                        "event_code": {
-                            "HED": {
-                                "face": "sc:Sleep-modulator"
-                            }
-                        }
-                    }
-                ]
-            },
-            "event_tests": {
-                "fails": [
-                    [
-                        ["onset", "duration", "HED"],
-                        [ 4.5, 0, "ts:Red, Blue"],
-                        [ 5.5, 0, "(ts:Red, (sc:Sleep-modulator))"]
-                    ]
-                ],
-                "passes": [
-                    [
-                        ["onset", "duration", "HED"],
-                        [4.5, 0, "sc:Sleep-modulator"]
-                    ]
-                ]
-            },
-            "combo_tests": {
-                "fails": [
-                    {
-                        "sidecar":  {
-                            "event_code": {
-                                "HED": {
-                                    "face": "ts:Red, Blue",
-                                    "ball": "(ts:Red, (sc:Sleep-modulator))"
-                                }
-                            }
-                        },
-                        "events": 
-                            [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Red, Def/MyColor"],
-                                [ 5.0, 0, "ball", "Green"]
-                            ]
-                    }
-                ],
-                "passes": [
-                    {
-                        "sidecar": {
-                             "event_code": {
-                                "HED": {
-                                    "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7, Blue, sc:Sleep-modulator"
-                                }
-                            }
-                        },
-                        "events": 
-                            [
-                                ["onset", "duration", "event_code","HED"],
-                                [ 4.5, 0, "face", "Blue, sc:Sleep-modulator"],
-                                [ 5.0, 0, "ball", "Green, Def/MyColor"]
-                            ]
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
-        "alt_codes": [],
         "name": "tag-namespace_prefix-invalid-characters",
         "description": "A tag prefix has invalid characters.",
         "warning": false,
         "schema": ["8.3.0", "sc:score_1.0.0"],
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -118,7 +24,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "sc1:Sleep-modulator, Red",
-                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -128,7 +34,7 @@
                         "event_code": {
                             "HED": {
                                 "face": "(Red, Blue),   (Green, (Yellow))",
-                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5 m-per-s^2)"
+                                "ball": "(Def/MyColor, Onset),(Def/Acc/3.5)"
                             }
                         }
                     }
@@ -155,11 +61,11 @@
                             "event_code": {
                                 "HED": {
                                     "face": "sc1:Sleep-modulator, Red",
-                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5 m-per-s^2)"
+                                    "ball": "(Def/MyColor, Onset)(Def/Acc/3.5)"
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Red, Def/MyColor"],
@@ -177,11 +83,104 @@
                                 }
                             }
                         },
-                        "events": 
+                        "events":
                             [
                                 ["onset", "duration", "event_code","HED"],
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
+                            ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "TAG_NAMESPACE_PREFIX_INVALID",
+        "alt_codes": [],
+        "name": "tag-namespace_prefix-with-colon-values",
+        "description": "A tag prefix has invalid characters.",
+        "warning": false,
+        "schema": ["ts:8.3.0"],
+        "definitions": ["(ts:Definition/Acc/#, (ts:Acceleration/# m-per-s^2, ts:Red))", "(ts:Definition/MyColor, (ts:Label/Pie))"],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                    "Creation-date/2009-04-09T12:04:14"
+                ],
+                "passes": [
+                    "ts:Creation-date/2009-04-09T12:04:14"
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                    {
+                        "event_code": {
+                            "HED": {
+                                "face": "Creation-date/2009-04-09T12:04:14",
+                                "ball": "Red"
+                            }
+                        }
+                    }
+                ],
+                "passes": [
+                     {
+                        "event_code": {
+                            "HED": {
+                                "face": "ts:Creation-date/2009-04-09T12:04:14",
+                                "ball": "ts:Blue"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [ 4.5, 0, "Creation-date/2009-04-09T12:04:14"]
+                    ]
+                ],
+                "passes": [
+                    [
+                        ["onset", "duration", "HED"],
+                        [4.5, 0, "ts:Creation-date/2009-04-09T12:04:14"]
+                    ]
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar":  {
+                            "event_code": {
+                                "HED": {
+                                    "face": "Creation-date/2009-04-09T12:04:14",
+                                    "ball": "Blue"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "ball", "Creation-date/2009-04-09T12:04:14"],
+                                [ 5.0, 0, "ball", "Green"]
+                            ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                             "event_code": {
+                                "HED": {
+                                    "face": "ts:Creation-date/2009-04-09T12:04:14",
+                                    "ball": "ts:Def/Acc/7, ts:Blue"
+                                }
+                            }
+                        },
+                        "events":
+                            [
+                                ["onset", "duration", "event_code","HED"],
+                                [ 4.5, 0, "face", "ts:Blue"],
+                                [ 5.0, 0, "ball", "ts:Green, ts:Def/MyColor"]
                             ]
                     }
                 ]

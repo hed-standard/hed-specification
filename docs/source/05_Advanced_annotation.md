@@ -209,14 +209,14 @@ in the following sections.
 
 
 
-| Tag  | Meaning  | Usage  |
-| ---- | ----------- |  ------- |
-| `Onset` |  Marks start of event |  Used with a `Def` tag or `Def-exand` group anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor. |  
-| `Offset` | Marks end of event | Used with a `Def` tag or `Def-exand` group anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition. |
-| `Inset`   | Marks event intermediate pt | New in standard schema 8.2.0. <br/> Used with a `Def` tag or `Def-exand` group anchor.<br/> Must be within the event markers<br/>for an `Onset` marked-event with the same anchor. | 
-| `Duration ` | Marks end of an event.  | Doesn't use a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration. |
-| `Delay` | Marks delayed onset. | Doesn't use a definition anchor.<br/>If no `Duration`, treated as point event.<br/>Commonly for delayed response times. |
-| `Event-context` |  Context of ongoing events. | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.|
+| Tag  | Meaning                                  | Usage                                                                                                                                                                                                                     |
+| ---- |------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Onset` | Marks start of event.                    | Used with a `Def` tag or `Def-exand` group anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor.                                                                                  |  
+| `Offset` | Marks end of event.   | Used with a `Def` tag or `Def-exand` group anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition.                                                                                            |
+| `Inset`   | Marks event intermediate pt              | New in standard schema 8.2.0. <br/> Used with a `Def` tag or `Def-exand` group anchor.<br/> Must be within an `Onset` and and `Inset`<br/>for an `Onset` marker with the same anchor.                                     | 
+| `Duration ` | Marks end of an event.                   | Doesn't use a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration.                                      |
+| `Delay` | Marks delayed time<br/>of a time marker. | Doesn't use a definition anchor.<br/>May be used with `Onset`, `Inset`, `Offset`<br/>or `Duration`. If not grouped with other temporal<br/>tags, it is treated as a point event.<br/>Commonly for delayed response times. |
+| `Event-context` | Context of ongoing events.               | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.                                                                                                              |
 
 All of these tags must appear in a `topLevelTagGroup`, which implies that they can't be nested.
 `Delay` and `Duration` will not be fully supported until HED standard schema version 8.2.0.

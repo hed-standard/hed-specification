@@ -5,8 +5,8 @@
         "name": "sidecar-key-missing",
         "description": "A value in a categorical column does not have an expected entry in a sidecar.",
         "warning": true,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
@@ -32,7 +32,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Acceleration/banana",
+                                    "face": "Acceleration/5",
                                     "ball": "Black, Blue"
                                 }
                             }
@@ -51,7 +51,7 @@
                              "event_code": {
                                 "HED": {
                                     "face": "Acceleration/5 m-per-s^2",
-                                    "ball": "Def/Acc/7 m-per-s^2, Blue"
+                                    "ball": "Def/Acc/7, Blue"
                                 }
                             }
                         },
@@ -61,6 +61,109 @@
                                 [ 4.5, 0, "face", "Blue"],
                                 [ 5.0, 0, "ball", "Green, Def/MyColor"]
                             ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "error_code": "SIDECAR_KEY_MISSING",
+        "alt_codes": [],
+        "name": "sidecar-refers-to-missing-tsv-hed-column",
+        "description": "(Warning) A sidecar uses a {HED} column which does not appear in the corresponding tsv file.",
+        "warning": true,
+        "schema": "8.4.0",
+        "definitions": [
+            "(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))",
+            "(Definition/MyColor, (Label/Pie))"
+        ],
+        "tests": {
+            "string_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "sidecar_tests": {
+                "fails": [
+                ],
+                "passes": [
+                    {
+                        "event_code": {
+                            "HED": {
+                               "face": "{HED}",
+                               "ball": "Red"
+                            }
+                        }
+                    }
+                ]
+            },
+            "event_tests": {
+                "fails": [
+                ],
+                "passes": [
+                ]
+            },
+            "combo_tests": {
+                "fails": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "{HED}",
+                                    "ball": "Red"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball"
+                            ]
+                        ]
+                    }
+                ],
+                "passes": [
+                    {
+                        "sidecar": {
+                            "event_code": {
+                                "HED": {
+                                    "face": "{HED}",
+                                    "ball": "Red"
+                                }
+                            }
+                        },
+                        "events": [
+                            [
+                                "onset",
+                                "duration",
+                                "event_code",
+                                "HED"
+                            ],
+                            [
+                                4.5,
+                                0,
+                                "face",
+                                "Green"
+                            ],
+                            [
+                                5.0,
+                                0,
+                                "ball",
+                                "Black"
+                            ]
+                        ]
                     }
                 ]
             }

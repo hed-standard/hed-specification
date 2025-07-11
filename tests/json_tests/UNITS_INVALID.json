@@ -5,12 +5,12 @@
         "name": "units-invalid-for-unit-class",
         "description": "A tag has a value with units that are invalid or not of the correct unit class for the tag.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
-                    "Def/Acc/3 s",
+                    "Acceleration/3 s",
                     "Weight/3 ms"
                 ],
                 "passes": [
@@ -22,7 +22,7 @@
                     {
                         "event_code": {
                             "HED": {
-                                "face": "Def/Acc/3 s",
+                                "face": "Acceleration/3 s",
                                 "ball": "Weight/3 ms"
                             }
                         }
@@ -43,7 +43,7 @@
                 "fails": [
                     [
                         ["onset", "duration", "HED"],
-                        [ 4.5, 0, "Def/Acc/3 s"],
+                        [ 4.5, 0, "Acceleration/3 s"],
                         [ 5.5, 0, "Weight/3 ms"]
                     ]
                 ],
@@ -61,7 +61,7 @@
                         "sidecar":  {
                             "event_code": {
                                 "HED": {
-                                    "face": "Def/Acc/3 s",
+                                    "face": "Acceleration/3 s",
                                     "ball": "Weight/3 ms"
                                 }
                             }
@@ -101,8 +101,8 @@
         "name": "units-invalid-si-units",
         "description": "A unit modifier is applied to units that are not SI units.",
         "warning": false,
-        "schema": "8.3.0",
-        "definitions": ["(Definition/Acc/#, (Acceleration/#, Red))", "(Definition/MyColor, (Label/Pie))"],
+        "schema": "8.4.0",
+        "definitions": ["(Definition/Acc/#, (Acceleration/# m-per-s^2, Red))", "(Definition/MyColor, (Label/Pie))"],
         "tests": {
             "string_tests": {
                 "fails": [
