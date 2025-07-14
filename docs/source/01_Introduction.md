@@ -1,4 +1,4 @@
-# 1. Introduction to HED
+# Introduction to HED
 This document contains the specification for third generation HED or HED-3G. 
 It is meant for the implementers and users of HED tools. Other tutorials and tagging 
 guides are available to researchers using HED to annotate their data.
@@ -227,4 +227,4 @@ tutorials and code examples.
 
 All HED source code and resources are open-source and staged in 
 the HED Standards Organization GitHub repository
-[**https://github.com/hed-standard**](https://github.com/hed-standard). 
+[**https://github.com/hed-standard**](https://github.com/hed-standard).

@@ -1,4 +1,4 @@
-# B. HED errors
+# HED errors
 
 This appendix summarizes the error codes used by HED validators and other tools.
 
@@ -483,4 +483,4 @@ are mainly called by the [BIDS](https://bids.neuroimaging.io/) validator.
 If a **BIDS dataset uses HED**, it must provide a HED version specification in the`dataset_description.json` file.
 If the HED JavaScript validator cannot load a valid HED schema based on this specification
 it reports a `SCHEMA_LOAD_FAILED` issue.
-A BIDS dataset 
+A BIDS dataset

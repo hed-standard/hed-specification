@@ -1,5 +1,4 @@
-(3-hed-formats-anchor)=
-# 3. HED formats
+# HED formats
 
 This chapter describes the requirements and formats for HED schema and HED annotations.
 
@@ -351,7 +350,7 @@ This prologue introduces the schema.
 '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-event-role,suggestedTag=Sensory-presentation}[Something perceivable by an agent.]</nowiki>
                               . . .
-'''Property'''<nowiki>{extensionAllowed}[A characteristic.] </nowiki>
+'''Property'''<nowiki>{extensionAllowed}[A characteristic.]</nowiki>
 * Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
 ** Label <nowiki>[A string of 20 or fewer characters.]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
@@ -695,7 +694,7 @@ proposing that the new term be added to the schema in question,
 if you think the term would be useful to other users.
 
 See [**TAG_EXTENSION_INVALID**](./Appendix_B.md#tag_extension_invalid) 
-for information on the specific validation errors associated invalid tag extensions.
+for information on the specific validation errors associated with missing schemas.
 
 **Note:** User tag extensions are sometimes accidental and due to misspelling,
 particularly when a long or intermediate form of the tag is used.

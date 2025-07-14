@@ -1,4 +1,4 @@
-# 8. The HED ontology
+# The HED ontology
 
 This chapter defines the HED ontology and its relationship to the HED schema.
 HED maps all of its entities (i.e., standard schema, library schemas, structural elements, properties)
@@ -616,7 +616,6 @@ AnnotationProperty: heds:HED_0010502
         rdfs:label "rooted",
         hed:HED_0010704 true,
 		hed:HED_0010705 true
-```
 ````    
 
 ### 8.2.4 Other auxiliary sections

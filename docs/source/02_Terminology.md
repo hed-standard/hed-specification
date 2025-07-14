@@ -1,4 +1,4 @@
-# 2. HED terminology
+# HED terminology
 
 The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
 "RECOMMENDED", "MAY", and "OPTIONAL" in this specification are to be interpreted as described in

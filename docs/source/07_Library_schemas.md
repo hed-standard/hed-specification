@@ -1,4 +1,4 @@
-# 7. Library schemas
+# Library schemas
 
 ## 7.1. Why library schemas?
 
@@ -524,7 +524,6 @@ A typical annotation is:
 
 ```text
 "Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes"
-```
 ````
 
 
@@ -564,5 +563,4 @@ A typical annotation is:
 
 ```text
 "Data-feature, Photomyogenic-response, Wicket-spikes"
-```
 ````

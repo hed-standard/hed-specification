@@ -1,4 +1,4 @@
-# 6. Infrastructure and tools
+# Infrastructure and tools
 
 The HED infrastructure includes libraries written in Python, Matlab,
 and JavaScript that support the use of HED in validation and/or applications.
@@ -303,4 +303,4 @@ in the `hed.schema` module of the
 [**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
-conversions. 
+conversions.
