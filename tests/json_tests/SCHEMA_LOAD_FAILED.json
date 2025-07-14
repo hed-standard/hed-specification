@@ -47,9 +47,9 @@
     "error_code": "SCHEMA_LOAD_FAILED",
     "name": "incompatible-merge-schemas ",
     "description": "Schemas in a merge group must be associated with the same standard schema].",
-    "schema": [
-      "testlib_2.0.0",
-      "testlib_4.0.0"
+    "schema":  [
+      "score_2.0.0",
+      "lang_1.1.0"
     ],
     "definitions": [
     ],
@@ -59,10 +59,7 @@
           "Red",
           "Blue"
         ],
-        "passes": [
-          "Red",
-          "Blue"
-        ]
+        "passes": [ ]
       }
     }
   },
