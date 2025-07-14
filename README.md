@@ -37,6 +37,12 @@ motion-capture, EKG, and audiovisual recording.
 
 The following white papers give an overview of HED and how it is used.
 
+
+> Makeig, S. and K. Robbins (2024).      
+> Events in context—The HED framework for the study of brain, experience and behavior.    
+> Front. Neuroinform. Vol. 18 Research Topic 15 Years of impact, open neuroscience.  
+> [https://doi.org/10.3389/fninf.2024.1292667]( https://doi.org/10.3389/fninf.2024.1292667).
+
 > Robbins, K., Truong, D., Jones, A., Callanan, I., & Makeig, S. (2022).  
 > Building FAIR functionality: Annotating event-related imaging data using Hierarchical Event Descriptors (HED).   
 > Neuroinformatics Special Issue Building the NeuroCommons. Neuroinformatics 20, pages463–481.
