@@ -37,14 +37,15 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Build documentation
+      - name: Build documentation with Sphinx
         run: |
-          mkdocs build --strict
+          cd docs
+          sphinx-build -b html source _build/html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/site
+          path: docs/_build/html
 
   deploy:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
