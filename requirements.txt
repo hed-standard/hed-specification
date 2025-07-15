@@ -8,7 +8,6 @@ linkify-it-py>=2.0.0
 
 # LaTeX/PDF generation support
 sphinxcontrib-bibtex>=2.5.0
-sphinx-latex-table>=1.0.0
 
 # Alternative: MkDocs with auto-generation
 # mkdocs>=1.5.0
