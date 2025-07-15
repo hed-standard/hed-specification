@@ -8,5 +8,5 @@ Update process:
    3.  Make your changes and then push to that new branch on your own repository.
    4.  When you are done, do a pull request for hed-specification to the actual repository on hed-standard.  
    5.  Ask for reviews. 
-   5.  When all reviewers have approved, the administrator will merge to the master branch of hed-standard.  
+   5.  When all reviewers have approved, the administrator will merge to the main branch of hed-standard.  
 

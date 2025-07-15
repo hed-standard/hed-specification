@@ -218,7 +218,7 @@ rules for library schema creation.
 [Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED schema format rules, and
 [Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
 A common set of test cases for these errors is available 
-in the [tests](https://github.com/hed-standard/hed-specification/tree/master/tests) directory of the 
+in the [tests](https://github.com/hed-standard/hed-specification/tree/main/tests) directory of the 
 [hed-specification](https://github.com/hed-standard/hed-specification) GitHub repository.
 
 Other resources include a comprehensive list of 
