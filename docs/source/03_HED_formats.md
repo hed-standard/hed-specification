@@ -1,4 +1,3 @@
-(3-hed-formats-anchor)=
 # 3. HED formats
 
 This chapter describes the requirements and formats for HED schema and HED annotations.
@@ -23,9 +22,9 @@ Additional details about HED schema format can be found in appendix
 [**7. Library schemas**](./07_Library_schemas.md#7-library-schemas)
 discusses the additional requirements and restrictions on library schemas.
 
-[**B.2. Schema validation errors**](./Appendix_B.md#b2-schema-validation-errors)
+[**B.2. Schema validation errors**](./Appendix_B.md#b-2-schema-validation-errors)
 gives the errors
-Library specific schema issues usually generate  [**SCHEMA_LIBRARY_INVALID**](./Appendix_B.md#schema_library_invalid) errors.
+Library specific schema issues usually generate  [**SCHEMA_LIBRARY_INVALID**](./Appendix_B.md#schema-library-invalid) errors.
 
 
 ### 3.1.1. Official schema releases
@@ -84,19 +83,19 @@ while the remaining sections specify additional information and behavior.
 These additional sections are required, but are allowed to be empty.
 
 If any of the required sections of the schema are missing or out of order,
-a [**SCHEMA_SECTION_MISSING**](./Appendix_B.md#schema_section_missing) error occurs.
+a [**SCHEMA_SECTION_MISSING**](./Appendix_B.md#schema-section-missing) error occurs.
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned
 to elements in a given section.
 If a schema attribute is applied improperly to an element in a given section,
-the [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
+the [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema-attribute-invalid) error occurs.
 
-See [**Appendix A. Schema format details**](./Appendix_A.md) for additional details.
+See [**Appendix A.s**](./Appendix_A.md) for additional details on format.
 
 #### 3.1.2.1. The header
 
 The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version.
-See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema_version_invalid).
+See [**SCHEMA_VERSION_INVALID**](./Appendix_B.md#schema-version-invalid).
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas.
 A schema's library name or lack there of is used to locate the schema in the
@@ -104,7 +103,7 @@ A schema's library name or lack there of is used to locate the schema in the
 
 The header may optionally contain an XSD namespace specification.
 If the schema contains any additional unrecognized attributes, 
-[**SCHEMA_HEADER_INVALID**](./Appendix_B.md#schema_header_invalid) error occurs.
+[**SCHEMA_HEADER_INVALID**](./Appendix_B.md#schema-header-invalid) error occurs.
 
 See [**A.2.2. MediaWiki header**](./Appendix_A.md#a22-mediawiki-header)
 and [**A.3.2. XML header**](./Appendix_A.md#a32-xml-header) for more
@@ -113,11 +112,11 @@ detailed information on the MediaWiki and XML header formats, respectively.
 #### 3.1.2.2. The prologue
 
 The prologue should contain a concise introduction to the schema and its purpose.
-Together with [**the epilogue**](./03_HED_formats.md#3129-the-epilogue) section, 
+Together with [**the epilogue**](#the-epilogue) section, 
 the contents are used by tools to provide information about the schema to the users.
 
 The prologue may contain `text` characters or `newline`.
-If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema-character-invalid) error occurs.
 
 
 #### 3.1.2.3. The schema section
@@ -134,7 +133,7 @@ A node name may only contain valid `name` characters
 This also applies to tag extensions.
 Substitutions for the `#` placeholder that have value classes are governed by
 the rules of that value class.
-If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema-character-invalid) error occurs.
 
 Each schema node element must be unique or a
 [**SCHEMA_DUPLICATE_NODE**](./Appendix_B.md#schema_duplicate_node) error is generated.
@@ -166,14 +165,14 @@ These units have the `unitPrefix` attribute.
 
 If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a 
 section other than the unit class definition section of the schema,
-a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema-attribute-invalid) error occurs.
 See appendix [**A.1.1. Unit classes and units**](./Appendix_A.md#a11-unit-classes-and-units)
 for additional details and a listing.
 
 **Units names are case-insensitive and should not contain blanks.
 Unit symbols MUST maintain their case.**
 Unit class names are case-insensitive, but MUST contain only valid `name` characters.
-If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema-character-invalid) error occurs.
 
 #### 3.1.2.5. Unit modifiers
 
@@ -186,7 +185,7 @@ while unit modifiers used with SI unit symbols have the `SIUnitSymbolModifier` a
 
 If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a 
 section other than unit modifier section of the schema,
-a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema-attribute-invalid) error occurs.
 
 **Unit modifiers are case-sensitive.**
 
@@ -213,7 +212,7 @@ schema elements in other sections of the schema (except for the properties secti
 The specification of which type of schema elements a particular schema attribute may apply
 to is specified by its schema properties. 
 If a schema attribute appears in a section contradicted by its properties,
-a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error occurs.
+a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema-attribute-invalid) error occurs.
 
 See appendices [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes)
 and [**A.1.5. Schema properties**](./Appendix_A.md#a15-schema-properties)
@@ -247,7 +246,7 @@ for information and a listing of schema attributes and their respective properti
 The epilogue should give license information, acknowledgments, and references.
 
 The epilogue may contain `text` characters or `newline`.
-If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema_character_invalid) error occurs.
+If other characters appear, a [**SCHEMA_CHARACTER_INVALID**](./Appendix_B.md#schema-character-invalid) error occurs.
 
 
 ### 3.1.3. Naming conventions
@@ -319,7 +318,7 @@ modifying values should be used and handled by tools.
 
 If an attribute or property is referenced in the schema,
 it must be defined in the appropriate definition section of the schema,
-or schema processing tools will generate a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema_attribute_invalid) error.
+or schema processing tools will generate a [**SCHEMA_ATTRIBUTE_INVALID**](./Appendix_B.md#schema-attribute-invalid) error.
 
 Allowed HED node attributes include unit class and value class values as well as
 HED schema attributes that do not have one of the following modifiers:
@@ -351,7 +350,7 @@ This prologue introduces the schema.
 '''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
 * Sensory-event <nowiki>{suggestedTag=Task-event-role,suggestedTag=Sensory-presentation}[Something perceivable by an agent.]</nowiki>
                               . . .
-'''Property'''<nowiki>{extensionAllowed}[A characteristic.] </nowiki>
+'''Property'''<nowiki>{extensionAllowed}[A characteristic.]</nowiki>
 * Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
 ** Label <nowiki>[A string of 20 or fewer characters.]</nowiki>
 *** <nowiki># {takesValue}</nowiki> 
@@ -587,7 +586,7 @@ HED tools are available to map between shortened and long forms as needed.
 The tag must be associated with a schema and must correspond to a path in the schema
 (excluding any extension or value).
 
-See [**TAG_INVALID**](./Appendix_B.md#tag_invalid) for errors involving
+See [**TAG_INVALID**](./Appendix_B.md#tag-invalid) for errors involving
 forward slashes (`/`), extra white-space, and other types of tag syntax errors.
 
 ### 3.2.3. Tag case-sensitivity
@@ -657,8 +656,8 @@ Certain unit classes allow other special characters in their value specification
 These special characters are specified in the schema with the `allowedCharacter` attribute. 
 An example of this is the colon in the `dateTimeClass` value class.
 
-See [**VALUE_INVALID**](./Appendix_B.md#value_invalid) and
-[**UNITS_INVALID**](./Appendix_B.md#units_invalid) for information
+See [**VALUE_INVALID**](./Appendix_B.md#value-invalid) and
+[**UNITS_INVALID**](./Appendix_B.md#units-invalid) for information
 on the specific validation errors associated with tags that take values.
 
 ### 3.2.5. Tag extensions
@@ -685,7 +684,7 @@ It is needed so that term search works correctly.
 Tag extensions should follow the same naming conventions as
 those for schema nodes. 
 See [**3.1.3. Naming conventions**](#313-naming-conventions) for more information about HED naming conventions.
-A [**STYLE_WARNING**](Appendix_B.md#style_warning) is
+A [**STYLE_WARNING**](Appendix_B.md#style-warning) is
 issued for extension tags that do not follow the HED naming convention.
 
 Users should not use tag extension unless necessary for their application,
@@ -694,12 +693,12 @@ Please open an [**issue**](https://github.com/hed-standard/hed-examples/issues)
 proposing that the new term be added to the schema in question,
 if you think the term would be useful to other users.
 
-See [**TAG_EXTENSION_INVALID**](./Appendix_B.md#tag_extension_invalid) 
-for information on the specific validation errors associated invalid tag extensions.
+See [**TAG_EXTENSION_INVALID**](./Appendix_B.md#tag-extension-invalid) 
+for information on the specific validation errors associated with missing schemas.
 
 **Note:** User tag extensions are sometimes accidental and due to misspelling,
 particularly when a long or intermediate form of the tag is used.
-For this reason the [**TAG_EXTENDED**](./Appendix_B.md#tag_extended)
+For this reason the [**TAG_EXTENDED**](./Appendix_B.md#tag-extended)
 warning is issued for extended tags during validation.
 
 ### 3.2.6. Tag namespace prefixes
@@ -714,7 +713,7 @@ when used in annotation.
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
-See [**TAG_NAMESPACE_PREFIX_INVALID**](./Appendix_B.md#tag_namespace_prefix_invalid) 
+See [**TAG_NAMESPACE_PREFIX_INVALID**](./Appendix_B.md#tag-namespace-prefix-invalid) 
 for information on the specific validation errors associated with missing schemas.
 
 See [**7.5. Library schema in BIDS**](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the
@@ -747,7 +746,7 @@ whereas `A`, `B` means that `A` and `B` are each annotating some larger construc
 
 Specific rules of association will be encoded in a future version of the HED specification.
 
-See [**PARENTHESES_MISMATCH**](./Appendix_B.md#parentheses_mismatch)
+See [**PARENTHESES_MISMATCH**](./Appendix_B.md#parentheses-mismatch)
 for validation errors result from improper use of parentheses.
 
 
@@ -763,7 +762,7 @@ top-level group.
 The `topLevelTagGroup` attribute is usually associated with tags
 that have special meanings in HED such as `Definition` and `Onset`.
 
-See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) for
+See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag-group-error) for
 information on the group errors detected based on schema attributes.
 
 #### 3.2.7.3. Empty tags and groups
@@ -773,10 +772,10 @@ as are HED strings with leading or trailing commas.
 Hence, if `A` and `B` are any HED expressions,  
 (`A`, ((`B`))) is valid but (`A`, ()) is not.
 
-See [**TAG_EMPTY**](./Appendix_B.md#tag_empty) for
+See [**TAG_EMPTY**](./Appendix_B.md#tag-empty) for
 information on the validation errors due to empty tags or groups.
 Some of these errors may be reported as 
-[**COMMA_MISSING*](./Appendix_B.md#comma_missing)
+[**COMMA_MISSING*](./Appendix_B.md#comma-missing)
 
 
 #### 3.2.7.4. Repeated expressions
@@ -787,7 +786,7 @@ For example, the expressions (`Red`, `Blue`, `Red`) and
 (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same
 level and are hence invalid.
 
-See [**TAG_EXPRESSION_REPEATED**](./Appendix_B.md#tag_expression_repeated) for
+See [**TAG_EXPRESSION_REPEATED**](./Appendix_B.md#tag-expression-repeated) for
 more details on validation errors due to repeated tag expressions.
 
 
@@ -818,7 +817,7 @@ whether one has a placeholder and another does not.
 **However, each distinct substituted value represents a distinct definition name for
 purposes of `Onset`/`Offset` processing.**
 
-See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) for
+See [**DEFINITION_INVALID**](./Appendix_B.md#definition-invalid) for
 a listing of situations in which a definition may be invalid.
 
 See also [**Chapter 5.1 Creating definitions**](./05_Advanced_annotation.md#51-creating-definitions) 
@@ -841,8 +840,8 @@ For definitions that include a placeholder, a value must be substituted for
 the `#` placeholder in `Def` tag and `Def-expand` group when final
 annotation assembly occurs. 
 
-See [**DEF_INVALID**](./Appendix_B.md#def_invalid) and
-[**DEF_EXPAND_INVALID**](./Appendix_B.md#def_expand_invalid)
+See [**DEF_INVALID**](./Appendix_B.md#def-invalid) and
+[**DEF_EXPAND_INVALID**](./Appendix_B.md#def-expand-invalid)
 for details on the types of errors that occur with `Def` and `Def-expand`.
 
 See also [**Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
@@ -881,8 +880,8 @@ In addition to its anchor, the `Inset` tag group may contain a single additional
 tag group with additional information about that marked point.
 An event of temporal extent may contain several of these intermediate points.
 
-See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal_tag_error) and 
- [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
+See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal-tag-error) and 
+ [**TAG_GROUP_ERROR**](./Appendix_B.md#tag-group-error) and
 for a listing of specific errors associated with onsets, and offsets, and insets.
 
 [**Chapter 5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
@@ -920,8 +919,8 @@ associated with the event marker for which the annotation is included.
 In general, the `Event-context` group is not included in annotations, but is generated by tools during
 downstream event processing. 
 
-See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag_group_error) and
-[**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for additional information
+See [**TAG_GROUP_ERROR**](./Appendix_B.md#tag-group-error) and
+[**TAG_NOT_UNIQUE**](./Appendix_B.md#tag-not-unique) for additional information
 on validation errors related to `Event-context`.
 
 Additional details and examples for `Event-context` can be found in
@@ -996,25 +995,25 @@ All HED-related entries in a JSON sidecar must
 have `"HED"` as a key in a second-level dictionary.
 `"HED"` cannot appear as a sidecar key that is not at the second level.
 Further, a sidecar is not permitted to provide a HED annotation for `n/a`.
-Both of these generate a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid) error.
+Both of these generate a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar-invalid) error.
 
 HED definitions are required to be separated into dummy sidecar column entries
 and cannot appear in sidecar entries containing tags other than definitions.
 A HED definition appearing in a categorical or value sidecar entry 
-generates a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error.
+generates a [**DEFINITION_INVALID**](./Appendix_B.md#definition-invalid) error.
 
 The sidecar does not have to provide a HED-relevant entry for every event file column.
 Columns with no corresponding sidecar entry are skipped during assembly of the 
 HED annotation for an event file row.
 However, if a value is encountered in a tabular file column that is
 annotated as a categorical column but does not have a HED annotation,
-a [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar_key_missing) warning is generated.
+a [**SIDECAR_KEY_MISSING**](./Appendix_B.md#sidecar-key-missing) warning is generated.
 
 HED value sidecar entries must contain exactly one `#` placeholder in 
 the HED string annotation associated with the entry.
 The `#` placeholder should correspond to a `#` in the HED schema,
 indicating that the parent tag (also included in the annotation) expects a value.
-These issues generate a [**PLACEHOLDER_INVALID**](./Appendix_B.md#placeholder_invalid) error.
+These issues generate a [**PLACEHOLDER_INVALID**](./Appendix_B.md#placeholder-invalid) error.
 
 If the placeholder is followed by a unit designator, the validator checks that 
 these units are consistent with the unit class of the
@@ -1033,7 +1032,7 @@ a JSON sidecar, the corresponding HED annotation for that row is substituted
 for the curly braces and their contents when the HED annotation is assembled.
 
 If a column is used in curly braces in a HED annotation,
-then that column must have a HED annotation or a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar_invalid) error is generated.
+then that column must have a HED annotation or a [**SIDECAR_INVALID**](./Appendix_B.md#sidecar-invalid) error is generated.
 
 
 ``````{admonition} Rules for curly braces notation in sidecars.
@@ -1054,13 +1053,13 @@ an annotation that uses curly braces (to prevent circular references).
 ``````
 
 If curly braces appear in the HED column of a tabular file,
-a [**CHARACTER_INVALID**](./Appendix_B.md#character_invalid) error is generated. 
+a [**CHARACTER_INVALID**](./Appendix_B.md#character-invalid) error is generated. 
 
 If curly braces appear in a `Definition`,
-a [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid) error is generated. 
+a [**DEFINITION_INVALID**](./Appendix_B.md#definition-invalid) error is generated. 
 
 If the curly brace notation is used improperly in a sidecar or elsewhere, a
-[**SIDECAR_BRACES_INVALID**](./Appendix_B.md#sidecar_braces_invalid) is generated.
+[**SIDECAR_BRACES_INVALID**](./Appendix_B.md#sidecar-braces-invalid) is generated.
 
 
 #### 3.2.9.4. A sidecar example
@@ -1203,8 +1202,8 @@ the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
 Definitions many not appear in the `HED` column of a tabular file or
 in any entry of a JSON sidecar that contains items other than definitions.
 
-See [**DEFINITION_INVALID**](./Appendix_B.md#definition_invalid)
-and [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal_tag_error) for information.
+See [**DEFINITION_INVALID**](./Appendix_B.md#definition-invalid)
+and [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal-tag-error) for information.
 
 
 #### 3.2.10.3. Event-level processing
@@ -1224,8 +1223,8 @@ If the HED schema used for processing contains a schema node that has the `uniqu
 then the assembled HED annotations for each row must contain no more than one occurrence of that tag.
 Currently, only `Event-context` has the `unique` attribute for HED schema versions &ge; 8.0.0.
 
-See [**REQUIRED_TAG_MISSING**](./Appendix_B.md#required_tag_missing)
-and [**TAG_NOT_UNIQUE**](./Appendix_B.md#tag_not_unique) for information
+See [**REQUIRED_TAG_MISSING**](./Appendix_B.md#required-tag-missing)
+and [**TAG_NOT_UNIQUE**](./Appendix_B.md#tag-not-unique) for information
 on the validation errors that may occur with tags that have the `required` or `unique`
 schema attributes, respectively.
 
@@ -1285,7 +1284,7 @@ The validator must also check to make sure that `Onset` and `Offset` tags are
 properly matched within the data recording.
 In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 
-See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal_tag_error) for details on the
+See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal-tag-error) for details on the
 type of errors that are generated due to `Onset` and `Offset` errors.
 
 

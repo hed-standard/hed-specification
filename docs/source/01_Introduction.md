@@ -227,4 +227,4 @@ tutorials and code examples.
 
 All HED source code and resources are open-source and staged in 
 the HED Standards Organization GitHub repository
-[**https://github.com/hed-standard**](https://github.com/hed-standard). 
+[**https://github.com/hed-standard**](https://github.com/hed-standard).

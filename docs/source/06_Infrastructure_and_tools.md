@@ -303,4 +303,4 @@ in the `hed.schema` module of the
 [**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
-conversions. 
+conversions.

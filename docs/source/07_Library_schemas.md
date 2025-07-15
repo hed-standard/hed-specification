@@ -524,7 +524,6 @@ A typical annotation is:
 
 ```text
 "Data-feature, sc:Photomyogenic-response, sc:Wicket-spikes"
-```
 ````
 
 
@@ -564,5 +563,4 @@ A typical annotation is:
 
 ```text
 "Data-feature, Photomyogenic-response, Wicket-spikes"
-```
 ````

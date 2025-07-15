@@ -1,13 +1,110 @@
-:root {
-  --code-background: #f6f8fa; /* GitHub-like background color for code */
-  --code-color: #24292e; /* GitHub-like text color for code */
+/* Fix spacing in sidebar navigation titles */
+.bd-sidebar-primary .bd-toc .toctree-l1 > a {
+    white-space: pre-wrap;
 }
 
-.highlight .s, .highlight .nv { /* targeting single-quoted items */
-  background-color: var(--code-background);
-  color: var(--code-color);
-  padding: 0.2em 0.4em;
-  margin: 0;
-  font-size: 85%;
-  border-radius: 3px;
+/* Specifically target numbered sections to add space after numbers */
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="01_Introduction"]:before {
+    content: "1. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="02_Terminology"]:before {
+    content: "2. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="03_HED_formats"]:before {
+    content: "3. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="04_Basic_annotation"]:before {
+    content: "4. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="05_Advanced_annotation"]:before {
+    content: "5. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="06_Infrastructure_and_tools"]:before {
+    content: "6. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="07_Library_schemas"]:before {
+    content: "7. ";
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="08_HED_ontology"]:before {
+    content: "8. ";
+}
+
+/* Hide the original text and replace with properly spaced versions */
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="01_Introduction"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="01_Introduction"]:after {
+    content: "Introduction to HED";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="02_Terminology"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="02_Terminology"]:after {
+    content: "Terminology";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="03_HED_formats"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="03_HED_formats"]:after {
+    content: "HED Formats";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="04_Basic_annotation"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="04_Basic_annotation"]:after {
+    content: "Basic Annotation";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="05_Advanced_annotation"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="05_Advanced_annotation"]:after {
+    content: "Advanced Annotation";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="06_Infrastructure_and_tools"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="06_Infrastructure_and_tools"]:after {
+    content: "Infrastructure and Tools";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="07_Library_schemas"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="07_Library_schemas"]:after {
+    content: "Library Schemas";
+    font-size: 14px;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="08_HED_ontology"] {
+    font-size: 0;
+}
+
+.bd-sidebar-primary .bd-toc .toctree-l1 > a[href*="08_HED_ontology"]:after {
+    content: "HED Ontology";
+    font-size: 14px;
 }

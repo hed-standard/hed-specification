@@ -1,0 +1,72 @@
+site_name: HED Specification
+site_description: Official specification for Hierarchical Event Descriptors (HED)
+site_url: https://hed-standard.github.io/hed-specification/
+
+repo_name: hed-standard/hed-specification
+repo_url: https://github.com/hed-standard/hed-specification
+
+docs_dir: docs/source
+site_dir: docs/site
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - toc.integrate
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+plugins:
+  - search
+  - awesome-pages
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+# No hardcoded nav - will be auto-generated from .pages files or SUMMARY.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hed-standard
+    - icon: fontawesome/brands/slack
+      link: https://hedtags.slack.com/
+
+extra_css:
+  - _static/custom.css

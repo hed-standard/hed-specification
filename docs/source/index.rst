@@ -1,59 +1,41 @@
-HED specification
-==================
+HED Specification
+=================
 
 .. image:: _static/images/croppedWideLogo.png
-  :width: 220
-  :alt: HedLogo
+   :width: 220px
+   :alt: HED Logo
 
-.. sidebar:: **Links**
+Welcome to the official specification for Hierarchical Event Descriptors (HED), a system for annotating events and experimental structure using controlled vocabularies.
 
-   * `PDF released version (V3.3.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_3_0.pdf>`_
+Quick Links
+-----------
 
-   * `PDF working version <https://hed-specification.readthedocs.io/_/downloads/en/develop/pdf/>`_
+* `PDF released version (V3.3.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_3_0.pdf>`_
+* `PDF working version <https://hed-standard.github.io/hed-specification/pdfs/>`_
+* `HED resources <https://www.hed-resources.org/>`_
+* `HED homepage <https://www.hedtags.org/>`_
 
-   * `Specification source <https://github.com/hed-standard/hed-specification/tree/master/docs/source>`_
+About HED
+---------
 
-   * `Stable specification source <https://github.com/hed-standard/hed-specification/tree/stable/docs/source>`_
+HED (Hierarchical Event Descriptors) is a system for annotating events and experimental structure using controlled vocabularies. The HED ecosystem includes:
 
-   * `HED resources <https://www.hed-resources.org/>`_
-
-   * `HED homepage <https://www.hedtags.org/>`_
-
-   * `HED project homepage <https://www.hedtags.org/>`_
-
-
-Specification role
-******************
-
-The HED specification document formalizes the syntax and behavior of
-HED (Hierarchical Event Descriptors) vocabulary, annotations, and supporting tools. The specification supports three versions of the specification:
-
-- `develop <https://hed-specification.readthedocs.io/en/develop/index.html>`_ - development branch which is under discussion.
-- `latest <https://hed-specification.readthedocs.io/en/latest/index.html>`_ - includes revisions approved by the HED Working Group but not released.
-- `stable <https://hed-specification.readthedocs.io/en/stable/index.html>`_ - the latest released form.
-
-For more information about HED see `The HED project homepage <https://www.hedtags.org>`_ and
-the `HED resources page <https://www.hed-resources.org>`_.
-
+- **Vocabularies** - Standardized terms organized in hierarchical schemas
+- **Annotation tools** - Software for creating and validating HED annotations
+- **Analysis tools** - Methods for searching and analyzing HED-annotated data
+- **Community schemas** - Domain-specific extensions to the base vocabulary
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: Specification Contents
 
-   01_Introduction.md
-   02_Terminology.md
-   03_HED_formats.md
-   04_Basic_annotation.md
-   05_Advanced_annotation.md
-   06_Infrastructure_and_tools.md
-   07_Library_schemas.md
-   08_HED_ontology.md
-   Appendix_A.md
-   Appendix_B.md
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+   1. Introduction <01_Introduction>
+   2. Terminology <02_Terminology>
+   3. HED Formats <03_HED_formats>
+   4. Basic Annotation <04_Basic_annotation>
+   5. Advanced Annotation <05_Advanced_annotation>
+   6. Infrastructure and Tools <06_Infrastructure_and_tools>
+   7. Library Schemas <07_Library_schemas>
+   8. HED Ontology <08_HED_ontology>
+   Appendix A <Appendix_A>
+   Appendix B <Appendix_B>
