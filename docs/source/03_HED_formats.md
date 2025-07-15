@@ -716,7 +716,7 @@ Terms from only one schema can appear in the annotation without a namespace pref
 See [TAG_NAMESPACE_PREFIX_INVALID](./Appendix_B.md#tag-namespace-prefix-invalid) 
 for information on the specific validation errors associated with missing schemas.
 
-See [7.5. Library schema in BIDS](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the
+See [7.5. Library schema in BIDS](./07_Library_schemas.md#library-schemas-in-bids) for an example of how the
 namespace prefix notation is used in BIDS.
 
 
@@ -984,9 +984,9 @@ whose keys do not correspond to column names in an associated tabular file.
 When annotations are assembled, sidecar entries with no `"HED"` key are ignored
 as are entries in the corresponding tabular data file that have `n/a` or blank values.
 
-See [3.2.9.4. A sidecar example](./03_HED_formats.md/#3294-a-sidecar-example)
+See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example)
 for an elaborated example of these different types of entries and
-[3.2.10.2 Event-level processing](./03_HED_formats.md/#32103-event-level-processing)
+[3.2.10.2 Event-level processing](./03_HED_formats.md#32103-event-level-processing)
 for an example of how the resulting HED annotations are assembled.
 
 #### 3.2.9.2. Sidecar validation

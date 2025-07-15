@@ -11,7 +11,7 @@ Quick links
 -----------
 
 * `PDF released version (V3.3.0) <https://raw.githubusercontent.com/hed-standard/hed-specification/master/hedspec/HEDSpecification_3_3_0.pdf>`_
-* `PDF working version <https://hed-standard.github.io/hed-specification/pdfs/>`_
+* `PDF working version <https://www.hedtags.org/hed-specification/pdfs/>`_
 * `HED resources <https://www.hed-resources.org/>`_
 * `HED homepage <https://www.hedtags.org/>`_
 

@@ -378,7 +378,7 @@ Library schema developers should also try to avoid overlap of terms found
 in other schema libraries.
 
 All HED schemas, including library schemas, must use [semantic versions](https://semver.org/) and
-adhere to the rules specified [3.3 Semantic versioning](./03_HED_formats.md/#33-semantic-versioning).
+adhere to the rules specified [3.3 Semantic versioning](./03_HED_formats.md#33-semantic-versioning).
 
 Standalone library schema developers must include the auxiliary schema classes from
 the standard HED schema including the schema attributes, unit classes, unit modifiers,
