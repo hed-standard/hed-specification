@@ -75,14 +75,21 @@ latex_elements = {
     'preamble': r'''
         \usepackage[utf8]{inputenc}
         \usepackage{fancyhdr}
+        \usepackage{graphicx}
+        \usepackage{longtable}
+        \usepackage{booktabs}
+        \usepackage{array}
         \pagestyle{fancy}
         \fancyhf{}
         \fancyhead[L]{HED Specification}
         \fancyhead[R]{\thepage}
         \renewcommand{\headrulewidth}{0.4pt}
+        \setcounter{tocdepth}{2}
     ''',
     'fncychap': '\\usepackage[Bjornstrup]{fncychap}',
     'printindex': '\\footnotesize\\raggedright\\printindex',
+    'extraclassoptions': 'openany,oneside',
+    'babel': '\\usepackage[english]{babel}',
 }
 
 latex_documents = [
@@ -92,6 +99,7 @@ latex_documents = [
 
 latex_show_pagerefs = False
 latex_show_urls = 'footnote'
+latex_use_xindy = False
 
 # -- MyST Configuration -----------------------------------------------------
 myst_enable_extensions = [

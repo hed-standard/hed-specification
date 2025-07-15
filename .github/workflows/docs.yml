@@ -48,7 +48,7 @@ jobs:
       - name: Install LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra
+          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-xetex latexmk
 
       - name: Build documentation with Sphinx
         run: |
@@ -60,8 +60,16 @@ jobs:
           cd docs
           sphinx-build -b latex source _build/latex
           cd _build/latex
-          pdflatex HEDSpecification.tex
-          pdflatex HEDSpecification.tex
+          # Run pdflatex multiple times to resolve references and generate TOC
+          pdflatex -interaction=nonstopmode HEDSpecification.tex || true
+          pdflatex -interaction=nonstopmode HEDSpecification.tex || true
+          pdflatex -interaction=nonstopmode HEDSpecification.tex
+          # Check if PDF was created successfully
+          if [ ! -f HEDSpecification.pdf ]; then
+            echo "PDF generation failed, checking log file..."
+            cat HEDSpecification.log | tail -50
+            exit 1
+          fi
 
       - name: Create pdfs directory and copy PDF
         run: |
