@@ -54,7 +54,6 @@ html_theme_options = {
     'show_toc_level': 2,
     'navigation_with_keys': False,
     'show_navbar_depth': 1,
-    'use_source_link': False,
     'use_download_button': False,
     'toc_title': None,
     'use_fullscreen_button': False,
@@ -83,7 +82,7 @@ myst_enable_extensions = [
 ]
 
 # Configure MyST to parse headings for navigation
-myst_heading_anchors = 3
+myst_heading_anchors = 4
 
 # Disable automatic numbering in MyST
 myst_number_code_blocks = []

@@ -1,4 +1,3 @@
-````rest
 HED Specification
 =================
 
@@ -30,14 +29,13 @@ HED (Hierarchical Event Descriptors) is a system for annotating events and exper
    :maxdepth: 3
    :caption: Specification Contents
 
-   Introduction <01_Introduction>
-   Terminology <02_Terminology>
-   HED Formats <03_HED_formats>
-   Basic Annotation <04_Basic_annotation>
-   Advanced Annotation <05_Advanced_annotation>
-   Infrastructure and Tools <06_Infrastructure_and_tools>
-   Library Schemas <07_Library_schemas>
-   HED Ontology <08_HED_ontology>
+   1. Introduction <01_Introduction>
+   2. Terminology <02_Terminology>
+   3. HED Formats <03_HED_formats>
+   4. Basic Annotation <04_Basic_annotation>
+   5. Advanced Annotation <05_Advanced_annotation>
+   6. Infrastructure and Tools <06_Infrastructure_and_tools>
+   7. Library Schemas <07_Library_schemas>
+   8. HED Ontology <08_HED_ontology>
    Appendix A <Appendix_A>
    Appendix B <Appendix_B>
-````

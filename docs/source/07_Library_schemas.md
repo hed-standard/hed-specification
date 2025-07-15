@@ -1,4 +1,4 @@
-# Library schemas
+# 7. Library schemas
 
 ## 7.1. Why library schemas?
 

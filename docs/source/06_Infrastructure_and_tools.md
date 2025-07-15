@@ -1,4 +1,4 @@
-# Infrastructure and tools
+# 6. Infrastructure and tools
 
 The HED infrastructure includes libraries written in Python, Matlab,
 and JavaScript that support the use of HED in validation and/or applications.
