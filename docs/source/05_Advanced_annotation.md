@@ -11,7 +11,7 @@ Often laboratories have a standard setup and event codes with particular meaning
 Researchers can define names and reuse them for multiple experiments. 
 
 Another important role of definitions is to provide the structure for 
-implementing temporal scope as introduced in [**Chapter 5.3: Temporal Scope**](05_Advanced_annotation.md#53-temporal-scope).
+implementing temporal scope as introduced in [Chapter 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
 
 A **HED definition** is a tag group that includes one `Definition` tag whose required 
 child value is the definition's name.
@@ -84,7 +84,7 @@ Definitions cannot be nested.
 Further, definitions must appear as top-level tag groups. 
 
 The validation checks made by the HED validator when assembling and processing definitions 
-are summarized in [**Appendix B: HED errors**](Appendix_B.md#b-hed-errors).
+are summarized in [Appendix B: HED errors](Appendix_B.md#b-hed-errors).
 In addition to syntax checks, which occur in early processing passes,
 HED validators check that the definition names have unique definitions. 
 Additional checks for temporal scope are discussed in 
@@ -462,7 +462,7 @@ may appear in the annotations associated with the same event marker.
 
 The `Duration` tag has the same effect on event context as the 
 `Onset`/`Offset` mechanism explained in 
-[**5.5. Event contexts**](./05_Advanced_annotation.md#55-event-contexts)
+[5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts)
 
 The `Duration` tag is convenient because its use does not require a definition. 
 However, the ending time point of events whose temporal scope is defined 

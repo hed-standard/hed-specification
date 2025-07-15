@@ -54,18 +54,44 @@ html_theme_options = {
     'show_toc_level': 2,
     'navigation_with_keys': False,
     'show_navbar_depth': 1,
-    'use_download_button': False,
+    'use_download_button': True,
     'toc_title': None,
     'use_fullscreen_button': False,
 }
 
 # Force the sidebar to use toctree titles instead of page titles
 html_sidebars = {
-    "**": ["navbar-logo", "search-field", "sbt-sidebar-nav.html"]
+    "**": ["navbar-logo", "search-field", "sbt-sidebar-nav.html", "quicklinks.html"]
 }
 
 html_static_path = ['_static']
 html_css_files = ['custom.css']
+
+# -- Options for LaTeX output -----------------------------------------------
+latex_engine = 'pdflatex'
+latex_elements = {
+    'papersize': 'letterpaper',
+    'pointsize': '10pt',
+    'preamble': r'''
+        \usepackage[utf8]{inputenc}
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[L]{HED Specification}
+        \fancyhead[R]{\thepage}
+        \renewcommand{\headrulewidth}{0.4pt}
+    ''',
+    'fncychap': '\\usepackage[Bjornstrup]{fncychap}',
+    'printindex': '\\footnotesize\\raggedright\\printindex',
+}
+
+latex_documents = [
+    ('index', 'HEDSpecification.tex', 'HED Specification',
+     'HED Working Group', 'manual'),
+]
+
+latex_show_pagerefs = False
+latex_show_urls = 'footnote'
 
 # -- MyST Configuration -----------------------------------------------------
 myst_enable_extensions = [

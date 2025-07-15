@@ -7,32 +7,32 @@ This specification applies to HED Schema versions > 8.0.0 and above.
 The aspects of HED that are described in this document are supported or will soon
 be supported by validators and other tools and are available for immediate use by annotators. 
 The schema vocabulary can be viewed using an expandable
-[**schema viewer**](https://www.hedtags.org/display_hed.html).
+[schema viewer](https://www.hedtags.org/display_hed.html).
 
 All HED-related source and documentation repositories are housed on the HED-standard 
-organization GitHub site, [**https://github.com/hed-standard**](https://github.com/hed-standard),
+organization GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard),
 which is maintained by the HED Working Group. 
 HED development is open-source and community-based. 
-Also see the official HED website [**https://www.hedtags.org**](https://www.hedtags.org)
+Also see the official HED website [https://www.hedtags.org](https://www.hedtags.org)
 for a list of additional resources.
 
 The HED Working Group invites those interested in HED to contribute to the development process. 
 Users are encouraged to use the 
-[**issues**](https://github.com/hed-standard/hed-specification/issues) forum
-on the [**hed-specification**](https://github.com/hed-standard/hed-specification)
+[issues](https://github.com/hed-standard/hed-specification/issues) forum
+on the [hed-specification](https://github.com/hed-standard/hed-specification)
 GitHub repository to report issues with this specification document.
 
 For requests for additional features and vocabulary enhancements of the HED schema use the
-[**issues**](https://github.com/hed-standard/hed-schemas/issues) forum on the
-[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+[issues](https://github.com/hed-standard/hed-schemas/issues) forum on the
+[hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Several other aspects of HED annotation are being planned, but their specification has 
 not been fully determined. These aspects are not contained in this specification document, 
 but rather are contained in ancillary working documents which are open for discussion. 
 These ancillary specifications include the HED working document on 
-[**spatial annotation**](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) 
+[spatial annotation](https://docs.google.com/document/u/0/d/1jpSASpWQwOKtan15iQeiYHVewvEeefcBUn1xipNH5-8/edit) 
 and the HED working document on 
-[**task annotation**](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
+[task annotation](https://docs.google.com/document/u/0/d/1eGRI_gkYutmwmAl524ezwkX7VwikrLTQa9t8PocQMlU/edit).
 
 ## 1.1. Scope of HED 
 
@@ -61,13 +61,13 @@ including but not limited to EEG, MEG, iEEG, fMRI, eye-tracking, motion-capture,
 EKG, and audiovisual recording.
 
 HED annotations may be included in BIDS (Brain Imaging Data Structure)
-datasets [**https://bids.neuroimaging.io**](https://bids.neuroimaging.io) as described in 
-[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md).
+datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in 
+[Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md).
 
 
 ## 1.2. Brief history of HED
-HED was originally proposed by Nima Bigdely-Shamlo in 2010 to support annotation in
-[**HeadIT**](https://headit.ucsd.edu) an early public repository for EEG data hosted by the 
+HED was originally proposed by Nima Bigdely-Shamlo in 2010 to support annotation in 
+HeadIT an early public repository for EEG data hosted by the 
 Swartz Center for Computational Neuroscience, UCSD (Bigdely-Shamlo et al., 2013). 
 HED-1G was partially based on CogPO (Turner and Laird, 2012). 
 
@@ -113,9 +113,9 @@ user experience.
 
 Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to
 be organized in a balanced hierarchy with a limited number of subcategories at each node. 
-Use the expandable [**schema browser**](https://www.hedtags.org/display_hed.html) 
+Use the expandable [schema browser](https://www.hedtags.org/display_hed.html) 
 to browser the vocabulary and explore the overall organization. 
-[**Chapter2:Terminology**](02_Terminology.md#2-hed-terminology)
+[Chapter2:Terminology](02_Terminology.md#2-hed-terminology)
 defines some important HED tags and terminology used in HED.
 
 A major improvement in vocabulary design was the adoption of the requirement that individual
@@ -205,26 +205,26 @@ schema without having to re-implement the annotation tools. A well-specified and
 ## 1.4. Specification organization
 
 This specification is meant to provide guidelines for tool-builders as well as HED annotators.
-[**Chapter 2: Terminology**](02_Terminology.md) reviews the basic terminology used in HED, and
-[**Chapter 3: HED formats**](03_HED_formats.md) specifies the formats for HED vocabularies and annotations.
+[Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and
+[Chapter 3: HED formats](03_HED_formats.md) specifies the formats for HED vocabularies and annotations.
 Basic and advanced event models and their annotations are explained in
-[**Chapter 4: Basic annotation**](04_Basic_annotation.md)
-and [**Chapter 5: Advanced annotation**](05_Advanced_annotation.md).
-[**Chapter 6: Infrastructure and tools**](06_Infrastructure_and_tools.md) discussions how
+[Chapter 4: Basic annotation](04_Basic_annotation.md)
+and [Chapter 5: Advanced annotation](05_Advanced_annotation.md).
+[Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md) discussions how
 tags should be handled by HED-compliant tools.
-[**Chapter 7: Library schemas**](07_Library_schemas.md) discusses the basic
+[Chapter 7: Library schemas](07_Library_schemas.md) discusses the basic
 rules for library schema creation.
 
-[**Appendix A: Schema format**](Appendix_A.md) provides a reference manual for the HED schema format rules, and
-[**Appendix B: HED errors**](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
+[Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED schema format rules, and
+[Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings.
 A common set of test cases for these errors is available 
-in the [**tests**](https://github.com/hed-standard/hed-specification/tree/master/tests) directory of the 
-[**hed-specification**](https://github.com/hed-standard/hed-specification) GitHub repository.
+in the [tests](https://github.com/hed-standard/hed-specification/tree/master/tests) directory of the 
+[hed-specification](https://github.com/hed-standard/hed-specification) GitHub repository.
 
 Other resources include a comprehensive list of 
-[**HED resources**](https://www.hed-resources.org) including additional documentation,
+[HED resources](https://www.hed-resources.org) including additional documentation,
 tutorials and code examples.
 
 All HED source code and resources are open-source and staged in 
 the HED Standards Organization GitHub repository
-[**https://github.com/hed-standard**](https://github.com/hed-standard).
+[https://github.com/hed-standard](https://github.com/hed-standard).

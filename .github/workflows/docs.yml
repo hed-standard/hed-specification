@@ -47,10 +47,28 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra
+
       - name: Build documentation with Sphinx
         run: |
           cd docs
           sphinx-build -b html source _build/html
+
+      - name: Build PDF documentation
+        run: |
+          cd docs
+          sphinx-build -b latex source _build/latex
+          cd _build/latex
+          pdflatex HEDSpecification.tex
+          pdflatex HEDSpecification.tex
+
+      - name: Create pdfs directory and copy PDF
+        run: |
+          mkdir -p docs/_build/html/pdfs
+          cp docs/_build/latex/HEDSpecification.pdf docs/_build/html/pdfs/
 
       - name: Setup Pages
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'

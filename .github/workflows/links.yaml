@@ -3,12 +3,20 @@ name: Lychee link checker
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
 
 permissions:
   contents: read
 
 jobs:
-  codespell:
+  link-checker:
     name: Lychee link checker
     runs-on: ubuntu-latest
 
@@ -16,9 +24,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Link Checker
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build documentation with Sphinx
+        run: |
+          cd docs
+          sphinx-build -b html source _build/html
+
+      - name: Link Checker on built documentation
         id: lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          # Check all markdown, html and reStructuredText files in repo (default)
-          args: --base . --verbose --no-progress './**/*.md' './**/*.html' './**/*.rst'
+          # Check the built HTML files recursively (includes internal links)
+          args: --base . --verbose --no-progress --max-redirects 10 'docs/_build/html/**/*.html'
+          fail: true

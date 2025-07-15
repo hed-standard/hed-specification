@@ -6,16 +6,16 @@ HED-compliant tools may assume that it if a HED annotation has been properly val
 it will comply with the rules of the HED specification.
 Annotators and analysts are mainly concerned with 
 HED validation errors relating to incorrectly annotated events.
-See [**B.1: HED validation errors**](#b1-hed-validation-errors) 
+See [B.1: HED validation errors](#b1-hed-validation-errors) 
 for a listing of errors keyed to the HED specification.
 
 HED-compliant tools assume that the HED schemas available on the 
-[**hed-standard/hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository
+[hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository
 are error-free, and that schema errors can only occur due to failure to locate or read a HED schema.
 
 HED schema developers are mainly concerned with errors and inconsistencies in the schema itself.
 Schemas under development should be validated at all stages of development.
-See [**B.2: Schema validation errors**](#b2-schema-validation-errors) for a listing
+See [B.2: Schema validation errors](#b2-schema-validation-errors) for a listing
 of errors keyed to the HED specification.
 
 
@@ -39,9 +39,9 @@ must satisfy the rules for the  HED name class. The values used after tag names 
 and the unit classes of the tag.
  
 **See also:**
-- [**A.1. Auxiliary schema sections**](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
-- [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
-- [**3.2.4 Tags that take values**](03_HED_formats.md#324-tags-that-take-values) and [**3.2.5: Tag extensions**](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
+- [A.1. Auxiliary schema sections](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
+- [3.2.4 Tags that take values](03_HED_formats.md#324-tags-that-take-values) and [3.2.5: Tag extensions](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
 ### COMMA_MISSING
 
@@ -54,10 +54,10 @@ In the following `A`, `B`, `C`, and `D` represent HED expressions.
 **Note:** Commas missing between two HED tags are generally detected as invalid HED tags,
 rather than as missing commas.
 
-See [**3.2.7.3. Empty tags and groups**](./03_HED_formats.md#3273-empty-tags-and-groups)
+See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-groups)
 for an explanation of the rules for empty tags.
 
-See also [**TAG_EMPTY**](./Appendix_B.md#tag_empty).
+See also [TAG_EMPTY](./Appendix_B.md#tag_empty).
 
 ### DEF_EXPAND_INVALID
 
@@ -69,9 +69,9 @@ See also [**TAG_EMPTY**](./Appendix_B.md#tag_empty).
 **f.**  A `Def-expand` tag group has extra tags or groups.
 
 
-See [**3.2.8.2. The Def and Def-expand tags**](./03_HED_formats.md#3282-def-and-def-expand-tags)
+See [3.2.8.2. The Def and Def-expand tags](./03_HED_formats.md#3282-def-and-def-expand-tags)
 for an explanation of the rules for `Def-expand` and 
-[**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
+[5.2. Using definition](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
 
 ### DEF_INVALID
@@ -80,9 +80,9 @@ for more details and examples.
 **b.**  A `Def` tag is missing an expected placeholder value or has an unexpected placeholder value.    
 **c.**  A `Def` has a placeholder value of incorrect format or units for definition.  
 
-See [**3.2.8.2. The Def and Def-expand tags**](./03_HED_formats.md#3282-def-and-def-expand-tags)
+See [3.2.8.2. The Def and Def-expand tags](./03_HED_formats.md#3282-def-and-def-expand-tags)
 for an explanation of the rules for `Def` and 
-[**5.2. Using definition**](./05_Advanced_annotation.md#52-using-definitions) 
+[5.2. Using definition](./05_Advanced_annotation.md#52-using-definitions) 
 for more details and examples.
 
 ### DEFINITION_INVALID
@@ -102,10 +102,10 @@ the definition's contents.
 **k.**  A definition appears in an unexpected place such as an events file or in a sidecar dictionary that
 contains non-definition entries.  
 
-See [**3.2.8.1. The Definition tag**](./03_HED_formats.md#3281-the-definition-tag)
+See [3.2.8.1. The Definition tag](./03_HED_formats.md#3281-the-definition-tag)
 for an explanation of the rules for definitions.
-See also [**5.1. Creating definitions**](./05_Advanced_annotation.md#51-creating-definitions) 
-and [**5.2. Using definitions**](./05_Advanced_annotation.md#52-using-definitions)
+See also [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) 
+and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions)
 for more details and examples of definition syntax.
 
 ### ELEMENT_DEPRECATED*
@@ -115,7 +115,7 @@ its description is updated to include the reason for deprecation and a suggested
 **a.** A tag has been deprecated and an alternative method of tagging should be used. See tag description for how to replace.    
 **b.** A unit, unit class, value class has been deprecated and an alternative should be used.  
 
-See [**A.1.4. Schema attributes**](./Appendix_A.md#a14-schema-attributes) for additional information
+See [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) for additional information
 about the `deprecatedFrom` schema attribute.
 
 ### PARENTHESES_MISMATCH
@@ -123,7 +123,7 @@ about the `deprecatedFrom` schema attribute.
 **a.**  A HED string does not have the same number of open and closed parentheses.  
 **b.**  The open and closed parentheses are not correctly nested in the HED string.  
 
-See [**3.2.7.1. Parentheses and order**](./03_HED_formats.md#3271-parenthesis-and-order)
+See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-order)
 for the rules for parentheses in HED.
 
 ### PLACEHOLDER_INVALID
@@ -135,8 +135,8 @@ for the rules for parentheses in HED.
 **e.**  Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).  
 **f.**  A placeholder (`#`) does not appear directly after a slash (e.g., `"Label/ #"`).  
 
-See [**3.2.4. Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
-and [**3.2.9.1. Sidecar entries**](./03_HED_formats.md#3291-sidecar-entries) for
+See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
+and [3.2.9.1. Sidecar entries](./03_HED_formats.md#3291-sidecar-entries) for
 information on the use of placeholders in HED.
 
 ### REQUIRED_TAG_MISSING
@@ -148,7 +148,7 @@ schema attribute.
 **Note:**
 An assembled event string must include all tags having the *required* schema attribute.
 
-See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
+See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `required` tag.
 
 ### SCHEMA_LOAD_FAILED
@@ -157,7 +157,7 @@ additional information on the `required` tag.
 **b.** Library schemas in merge group have the same tag.  
 **c.** A schema with that name, version, and namespace prefix cannot be found.   
 
-See [**7.2.5.6 Loading multiple partnered schemas**](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
+See [7.2.5.6 Loading multiple partnered schemas](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas)
 for a more detailed description of the rules.
 
 ### SIDECAR_BRACES_INVALID
@@ -167,7 +167,7 @@ for a more detailed description of the rules.
 **c.** The curly braces in a sidecar are nested or unmatched.  
 **d.** The curly braces appear as the substitution for a placeholder in another tag.
 
-See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for information
+See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for information
 on the requirements for using sidecars.
 
 ### SIDECAR_INVALID
@@ -176,7 +176,7 @@ on the requirements for using sidecars.
 **b.**  An annotation entry is provided for `n/a`.  
 **c.**  A sidecar refers to a column in curly braces, but that column has no HED.  
 
-See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
+See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
 
 ### SIDECAR_KEY_MISSING*
@@ -188,7 +188,7 @@ general explanation of sidecar requirements.
 **Note:** This warning is only triggered if the categorical column in which the value
 appears does have HED annotations.
 
-See [**3.2.9. Sidecars**](./03_HED_formats.md#329-sidecars) for a
+See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a
 general explanation of sidecar requirements.
 
 ### TAG_EMPTY
@@ -197,7 +197,7 @@ general explanation of sidecar requirements.
 **b.**  A HED string begins or ends with a comma (ignoring white space), indicating an empty string.  
 **c.**  A tag group is empty (i.e., empty parentheses are not allowed).  
 
-See [**3.2.7.3. Empty tags and groups**](./03_HED_formats.md#3273-empty-tags-and-groups)
+See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-groups)
 for the rules on empty tags and groups. 
 
 ### TAG_EXPRESSION_REPEATED
@@ -209,7 +209,7 @@ HED strings are not ordered, so (`B`, `C`) is equivalent to (`C`, `B`).
 Thus, (`A`, (`A`, `B`)) is not a duplicate, but 
 (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.  
 
-See [**3.2.7.4. Repeated expressions**](./03_HED_formats.md#3274-repeated-expressions)
+See [3.2.7.4. Repeated expressions](./03_HED_formats.md#3274-repeated-expressions)
 for additional information on the rules for duplication.
 
 ### TAG_EXTENDED*
@@ -221,11 +221,11 @@ for additional information on the rules for duplication.
 
 **Note:** Annotators are discouraged from extending the schema unless absolutely necessary.
 If an extension tag is needed, annotators should consider posting an 
-[**issue**](https://github.com/hed-standard/hed-schemas/issues)
+[issue](https://github.com/hed-standard/hed-schemas/issues)
 explaining the tag extension so that an addition to the respective schema might be
 considered.
 
-See [**3.2.5 Tag extensions**](./03_HED_formats.md#325-tag-extensions)
+See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions)
 for additional information on the tag extension rules.
 
 ### TAG_EXTENSION_INVALID 
@@ -234,7 +234,7 @@ for additional information on the tag extension rules.
 **b.**  A tag extension term does not comply with rules for schema nodes.
 **c.**  A tag has extension, but an extension is not allowed.
 
-See [**3.2.5 Tag extensions**](./03_HED_formats.md#325-tag-extensions)
+See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions)
 for additional information on the tag extension rules.
 
 ### TAG_GROUP_ERROR
@@ -243,10 +243,10 @@ for additional information on the tag extension rules.
 **b.**  A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation. 
 **c.**  Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Duration` and a single `Delay` may be in the same group.  
 
-See [**3.2.7.2. Tag group attributes**](./03_HED_formats.md#3272-tag-group-attributes)
+See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attributes)
 for additional information on the rules for group errors due to schema attributes.
 
-**See also:** [**TEMPORAL_TAG_ERROR**](#temporal_tag_error) for errors involving `Onset`, `Offset`, `Inset`, 
+**See also:** [TEMPORAL_TAG_ERROR](#temporal_tag_error) for errors involving `Onset`, `Offset`, `Inset`, 
 `Duration` and `Delay`.
 
 ### TAG_INVALID
@@ -256,29 +256,29 @@ for additional information on the rules for group errors due to schema attribute
 **c.**  The tag has a leading, trailing, or consecutive forward slashes.  
 **d.**  A tag or tag extension contains a non `name` character.  
 
-See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for a discussion
+See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for a discussion
 of tag forms and their relationship to the HED schema.
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
 **a.**  A tag prefix has invalid characters.  
 
-See [**3.2.6. Tag namespace prefixes**](./03_HED_formats.md#326-tag-namespace-prefixes) and
-[**7. Library schema**](./07_Library_schemas.md) for additional information
+See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes) and
+[7. Library schema](./07_Library_schemas.md) for additional information
 on using multiple schemas in annotation.
 
 ### TAG_NOT_UNIQUE
  
 **a.**  A tag with `unique` attribute appears more than once in an event-level HED string. 
 
-See [**3.2.10.2. Event-level processing**](./03_HED_formats.md#32103-event-level-processing) for
+See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for
 additional information on the `unique` tag.
 
 ### TAG_REQUIRES_CHILD 
  
 **a.**  A tag has the `requireChild` schema attribute but does not have a child.  
 
-See [**3.2.4. Tags that take values**](03_HED_formats.md#324-tags-that-take-values)
+See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values)
 for an explanation of the `requireChild` attribute.
 
 ### TEMPORAL_TAG_ERROR
@@ -305,15 +305,15 @@ that uses the same anchor.
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top level tags, except
 `Delay` and `Duration` which can be paired.  
 
-**See also:** [**TAG_GROUP_ERROR**](#tag_group_error).  
+**See also:** [TAG_GROUP_ERROR](#tag_group_error).  
 
 **Note:** if the `Onset` tag group's definition is in expanded form, 
 the `Def-expand` will be an additional internal tag group.
 
-See [**3.2.8.3 Onset, Offset, and Inset**](./03_HED_formats.md#3283-onset-offset-and-inset)
+See [3.2.8.3 Onset, Offset, and Inset](./03_HED_formats.md#3283-onset-offset-and-inset)
 for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
 
-[**5.3.1. Using Onset and Offset**](./05_Advanced_annotation.md#531-using-onset-and-offset)
+[5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset)
 in Chapter 5 gives examples of usage and additional details.
 
 
@@ -323,7 +323,7 @@ in Chapter 5 gives examples of usage and additional details.
 correct unit class for the tag.  
 **b.**  A unit modifier is applied to units that are not SI units.
 
-See [**3.2.4 Tags that take values**](./03_HED_formats.md#324-tags-that-take-values)
+See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 for more information.
 
 ### VALUE_INVALID
@@ -333,7 +333,7 @@ for more information.
 **c.**  A tag value with no value class is assumed to be a text and contains invalid characters.
 **d.** The units are not separated from the value by a single blank.
 
-See [**3.2.4 Tags that take values**](./03_HED_formats.md) for more information.
+See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 
 
 ## B.2. Schema validation errors
@@ -394,7 +394,7 @@ under an appropriate unit class).
 **c.** A value or unit class name  contains non-`name` or blank characters.
 **d.** The prologue or epilogue contain characters other than `text` or newline.  
 
-See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets-and-restrictions)
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)
 for definitions of the different types of characters.
 
 Note: tag extensions may contain `nonascii` characters.

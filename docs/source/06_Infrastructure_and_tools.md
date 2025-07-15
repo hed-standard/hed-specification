@@ -3,17 +3,17 @@
 The HED infrastructure includes libraries written in Python, Matlab,
 and JavaScript that support the use of HED in validation and/or applications.
 This section describes the expected behavior of the HED infrastructure and
-its integration into other systems such as [**BIDS**](https://bids.neuroimaging.io/).
+its integration into other systems such as [BIDS](https://bids.neuroimaging.io/).
 
 In general, tools should either explicitly call HED validation to assure that the input
 tag strings are valid or should make explicit that they assume the HED has already been validated.
 Most tools will use the latter approach. 
 
-See [**3.2. Annotation formats**](./03_HED_formats.md#32-annotation-formats)
+See [3.2. Annotation formats](./03_HED_formats.md#32-annotation-formats)
 for more detailed specifications of HED formats. 
 
-See [**4. Basic annotation**](./04_Basic_annotation.md) and 
-[**5. Advanced annotation**](./05_Advanced_annotation.md) for examples and usage.
+See [4. Basic annotation](./04_Basic_annotation.md) and 
+[5. Advanced annotation](./05_Advanced_annotation.md) for examples and usage.
 
 ## 6.1. Basic tag handling
 
@@ -45,7 +45,7 @@ any unit classes
 always have associated units.  However, it is implicitly assumed that if
 the units are omitted in this case, the value has the default units.
 
-See [**3.2.2. Tag forms**](./03_HED_formats.md#322-tag-forms) for more information
+See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for more information
 on tag forms.
 
 ### 6.1.2. Parentheses and commas
@@ -87,7 +87,7 @@ Actual `Definition` groups should not appear in the `HED` column of event files.
 
 ## 6.2. File-level handling
 
-Dataset formats such as [**BIDS**](https://bids.neuroimaging.io/) (Brain Imaging Data Structure)
+Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure)
 allow users to provide HED tags in multiple places.
 For example, BIDS dataset event files often use local codes to identify event markers
 in tabular (`events.tsv`) files
@@ -110,7 +110,7 @@ if the tool does not support these tags.
 
 ## 6.3. HED support of BIDS
 
-[**BIDS**](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) is a 
+[BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) is a 
 widely-adopted specification and supporting tools for organizing and 
 describing brain imaging and behavioral data.
 
@@ -136,12 +136,12 @@ The most common types of BIDS tabular files are shown in the following table.
 HED treats tabular files such as (e.g., `events.tsv` files) whose first column has 
 the name `onset` as expressing markers on a timeline.
 These timeline files allow `Onset`, `Inset`, and `Offset` tags in their
-annotations and receive additional [**file-level processing**](./03_HED_formats.md#32104-file-level-processing) to assure that these tags are properly
+annotations and receive additional [file-level processing](./03_HED_formats.md#32104-file-level-processing) to assure that these tags are properly
 matched. 
 
 **Tabular files that do not represent timelines are not permitted to use
 `Onset`, `Inset`, and `Offset` tags in their annotations.**
-See [**TEMPORAL_TAG_ERROR**](./Appendix_B.md#temporal_tag_error)
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error)
 for additional information.
 
 The following shows an excerpt from a BIDS event file:
@@ -193,7 +193,7 @@ BIDS also recommends data dictionaries in the form of JSON sidecars to document
 the meaning of the data in the event files.
 HEDTools supports BIDS dataset format, where event metadata is contained 
 in compatibly-named sidecars.
-See the [**example sidecar**](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3
+See the [example sidecar](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3
 for an explanation of the different sidecar entries.
 
 ### 6.3.4. Annotation assembly
@@ -203,9 +203,9 @@ a tabular file using its `HED` column and the sidecar information associated
 with other columns of the events file.
 
 For example, the annotations for the first row of the 
-[**example event file**](./06_Infrastructure_and_tools.md#631-bids-tabular-files)
+[example event file](./06_Infrastructure_and_tools.md#631-bids-tabular-files)
 above can be assembled using the
-[**example sidecar**](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3
+[example sidecar](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3
 to give the following annotation:
 
 ````{admonition} Example assembled HED annotation for one event marker.
@@ -287,20 +287,20 @@ tags.
 
 ### 6.3.6. HED in the BIDS validator
 
-HED provides a JavaScript validator in the [**hed-javascript**](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [**npm**](https://www.npmjs.com/). 
-The [**BIDS validator**](https://github.com/bids-standard/bids-validator) 
+HED provides a JavaScript validator in the [hed-javascript](https://github.com/hed-standard/hed-javascript) repository, which is available as an installable package via [npm](https://www.npmjs.com/). 
+The [BIDS validator](https://github.com/bids-standard/bids-validator) 
 incorporates calls to this package to validate HED tags in BIDS datasets.
 
 ### 6.3.7. HED python tools
 
-The [**hedtools**](https://pypi.org/project/hedtools/) package includes
-input functions that use [**Pandas**](https://pandas.pydata.org/) data frames to construct internal
+The [hedtools](https://pypi.org/project/hedtools/) package includes
+input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal
 representations of HED-annotated event files. 
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format.
 The tools to convert schema between `.mediawiki` and `.xml` format are located 
 in the `hed.schema` module of the 
-[**hed-python**](https://github.com/hed-standard/hed-python) GitHub repository. 
+[hed-python](https://github.com/hed-standard/hed-python) GitHub repository. 
 All conversions are performed by converting the schema to a `HedSchema` object. 
 Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these
 conversions.

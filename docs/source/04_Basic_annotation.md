@@ -13,7 +13,7 @@ HED also allows more sophisticated models of events that unfold over time using
 multiple event markers. Downstream analyses often look for neurological effects directly 
 following (or preceding) event markers. The addition of HED context, allows information 
 about events that occur over extended periods of time to propagate to intermediate time points. 
-[**Chapter 5: Advanced annotation**](05_Advanced_annotation.md#5-advanced-annotation) 
+[Chapter 5: Advanced annotation](05_Advanced_annotation.md#5-advanced-annotation) 
 develops the HED concepts needed to capture these advanced models of events as well as event
 and task interrelationships. 
 
@@ -301,7 +301,7 @@ and many fields have standardized names for these features.
 Although the HED standard itself does not specify these names, 
 library schema representing terminology in clinical or application subfields may provide 
 the vocabulary. 
-[**Chapter 7: Library schemas**](./07_Library_schemas.md) presents some rules for schema developers.
+[Chapter 7: Library schemas](./07_Library_schemas.md) presents some rules for schema developers.
 
 The following example illustrates how annotation from a human expert can be annotated in HED.
 
@@ -328,13 +328,13 @@ rather than just with text descriptions.
 This is particularly true if this information is relevant to the experimental intent,
 varied during the experiment, or likely to evoke a neural response. 
 
-The example of [**Chapter 4.1:Instantaneous events**](#41-instantaneous-events), 
+The example of [Chapter 4.1:Instantaneous events](#41-instantaneous-events), 
 models the sensory presentation of the stimulus images happening at a single point in time.
 More realistically, the green triangle might be displayed 
 for an extended period (during which other events might occur). 
 Further, the disappearance of the triangle is likely to elicit a neural response.
 Exactly how this information should be represented is discussed in 
-[**Chapter 5.3: Temporal scope**](05_Advanced_annotation.md#53-temporal-scope).
+[Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
 
 Even for a standard setup, aspects such as the screen size,
 the distance and position of the participant relative to the screen and the stimulus,
@@ -343,11 +343,11 @@ should be documented as part of the overall experiment context.
 These details allow analysis tools to compare and contrast studies or to 
 translate visual stimuli into visual field information. 
 `Event-context` tags, which are introduced in 
-[**Chapter 5.5: Event contexts**](05_Advanced_annotation.md#55-event-contexts), 
+[Chapter 5.5: Event contexts](05_Advanced_annotation.md#55-event-contexts), 
 allow this information to be propagated to recording events in a manner 
 that is convenient for analysis.
 
 HED also allows the embedding of annotations for the design of the experiment,
 documenting how and when condition variables and other aspects of an experiment are changed.  
-[**Chapter 5.6: Experimental design**](05_Advanced_annotation.md#56-experimental-design) 
+[Chapter 5.6: Experimental design](05_Advanced_annotation.md#56-experimental-design) 
 describes HED mechanisms for annotating this information.
