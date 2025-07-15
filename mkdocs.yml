@@ -1,6 +1,6 @@
 site_name: HED Specification
 site_description: Official specification for Hierarchical Event Descriptors (HED)
-site_url: https://hed-standard.github.io/hed-specification/
+site_url: https://www.hedtags.org/hed-specification/
 
 repo_name: hed-standard/hed-specification
 repo_url: https://github.com/hed-standard/hed-specification

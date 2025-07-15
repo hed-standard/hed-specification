@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
   workflow_dispatch:
 
 permissions:
@@ -47,23 +45,49 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-xetex latexmk
+
       - name: Build documentation with Sphinx
         run: |
           cd docs
           sphinx-build -b html source _build/html
 
+      - name: Build PDF documentation
+        run: |
+          cd docs
+          sphinx-build -b latex source _build/latex
+          cd _build/latex
+          # Run pdflatex multiple times to resolve references and generate TOC
+          pdflatex -interaction=nonstopmode HEDSpecification.tex || true
+          pdflatex -interaction=nonstopmode HEDSpecification.tex || true
+          pdflatex -interaction=nonstopmode HEDSpecification.tex
+          # Check if PDF was created successfully
+          if [ ! -f HEDSpecification.pdf ]; then
+            echo "PDF generation failed, checking log file..."
+            cat HEDSpecification.log | tail -50
+            exit 1
+          fi
+
+      - name: Create pdfs directory and copy PDF
+        run: |
+          mkdir -p docs/_build/html/pdfs
+          cp docs/_build/latex/HEDSpecification.pdf docs/_build/html/pdfs/
+
       - name: Setup Pages
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_build/html
 
   deploy:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

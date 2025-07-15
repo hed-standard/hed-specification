@@ -2,11 +2,11 @@
 
 This chapter defines the HED ontology and its relationship to the HED schema.
 HED maps all of its entities (i.e., standard schema, library schemas, structural elements, properties)
-into a single namespace with unique [**IRI**](https://datatracker.ietf.org/doc/html/rfc3987) (International Resource Identifier) identifiers
-as explained in [**8.3 HED global identifiers**](#83-hed-global-identifiers).
+into a single namespace with unique [IRI](https://datatracker.ietf.org/doc/html/rfc3987) (International Resource Identifier) identifiers
+as explained in [8.3 HED global identifiers](#83-hed-global-identifiers).
 
-The GitHub source repository for the HED ontologies is [**hed-ontology**](https://github.com/hed-standard/hed-ontology).
-The GitHub source repository for the HED schemas is [**hed-schemas**](https://github.com/hed-standard/hed-schemas).
+The GitHub source repository for the HED ontologies is [hed-ontology](https://github.com/hed-standard/hed-ontology).
+The GitHub source repository for the HED schemas is [hed-schemas](https://github.com/hed-standard/hed-schemas).
 
 ## 8.1. HED views and representations
 
@@ -29,7 +29,7 @@ HED supports "search generality", so searches may specify an exact match or matc
 In the latter case, a search for `Event` may also match any of its descendents
 (e.g., `Sensory-event` or `Agent-action`).
 
-The [**HED schema viewer**](https://www.hedtags.org/display_hed.html),
+The [HED schema viewer](https://www.hedtags.org/display_hed.html),
 allows users to focus on top-level categories or expand the hierarchy view to any specified level of detail.
 
 ### 8.1.2. The ontologist's view
@@ -60,11 +60,11 @@ This HED information space is illustrated schematically in the following diagram
 
 The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema 8.3.0.
 The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) 
-in the [**https://purl.org/hed/hed.owl**](https://purl.org/hed/hed.owl) file.
+in the [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) file.
 This file is currently hosted on GitHub and does not have a mechanism to address individual IDs defined within the file.
 The ontology files are versioned by release date.
-Releases are located in the [**releases**](https://github.com/hed-standard/hed-ontology/tree/main/releases)
-subdirectory of the [**hed-ontology**](https://github.com/hed-standard/hed-ontology) repository on GitHub.
+Releases are located in the [releases](https://github.com/hed-standard/hed-ontology/tree/main/releases)
+subdirectory of the [hed-ontology](https://github.com/hed-standard/hed-ontology) repository on GitHub.
 
 The extended information space is completely represented by the HED ontology in OWL format.
 In this document we use OWL Manchester format (`.omn`) for readability.  
@@ -91,7 +91,7 @@ Alternatively schema developers may opt to create or update schemas from the HED
 #### 8.1.4.1. The MediaWiki format
 The MediaWiki format is line-oriented with each non-blank line corresponding to a HED tag or other HED entity
 such as a unit class or schema attribute definition.
-See [**A.2. MediaWiki file format**](./Appendix_A.md#a2-mediawiki-file-format)
+See [A.2. MediaWiki file format](./Appendix_A.md#a2-mediawiki-file-format)
 for a detailed description of the MediaWiki format.
 
 #### 8.1.4.2. Spreadsheet files
@@ -142,8 +142,8 @@ The prefixes on column names have the following meanings:
 
 | Column name prefix | Meaning                                                                                                            |
 | ------------------ |--------------------------------------------------------------------------------------------------------------------|
-|   `rdfs:`  | from [**RDF Schema**](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema). |
-| `dc:` | from [**DublinCore Ontology**](https://www.dublincore.org/resources/glossary/ontology/). |
+|   `rdfs:`  | from [RDF Schema](https://en.wikipedia.org/wiki/RDF_Schema) (i.e., the Resource Description Framework Schema). |
+| `dc:` | from [DublinCore Ontology](https://www.dublincore.org/resources/glossary/ontology/). |
 |`omn:` | translated directly to OWL Manchester Format. |
 
 Users may add additional columns corresponding to annotation properties from
@@ -195,16 +195,16 @@ the ontology uses the `hedId`.
 ![hed representations](_static/images/HEDRepresentations.png)
 
 The HED ontology represents the entire HED information space in 
-[**OWL**](https://www.w3.org/OWL/) (Web Ontology Language).
-The HED ontology is available in both [**OWL/RDF**](https://www.w3.org/TR/owl2-mapping-to-rdf/) format
-and [**OWL Manchester**](https://www.w3.org/TR/owl2-manchester-syntax/) format,
+[OWL](https://www.w3.org/TR/owl2-overview/) (Web Ontology Language).
+The HED ontology is available in both [OWL/RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/) format
+and [OWL Manchester](https://www.w3.org/TR/owl2-manchester-syntax/) format,
 but the examples in this specification use OWL Manchester format for readability.
 Developers must use the HED spreadsheets to create or update a HED ontology.
 
 Most HED entities (i.e., tags, unit classes, units, unit modifiers, and value classes) map to 
 classes in the HED ontology.
 The HED schema attributes, which describe properties and behavior, are mapped to ontology properties
-as described in [**8.2.3. Schema attributes**](#823-schema-attributes) section.
+as described in [8.2.3. Schema attributes](#823-schema-attributes) section.
 The HED schema properties, which describe the schema attributes, determine the type of property mapping
 and are implicitly mapped.
 
@@ -218,7 +218,7 @@ following table:
 | **rdfs:label**  | *yyy* | `rdfs:label yyy` in the `Annotations` section |
 | **Level**  | *n* | Redundant information -- can be recovered using class hierarchy. |
 | **omn:SubClassOf** | *zzz* | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
-| **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [**8.2.3. Schema attributes**|(./#823-schema-attributes). |
+| **Attributes** | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [8.2.3. Schema attributes**|(./#823-schema-attributes). |
 | **dc:description** | *www* | `dc:description www` in the `Annotations` section. |
 |**omn:EquivalentTo** |    | A combination of the information in **omn:SubClassOf** and **Attributes**. |
 
@@ -378,7 +378,7 @@ its `<node></node>` definition is nested within the  `<node></node>` definition 
 
 #### 8.2.2.3. OWL format for HED classes
 
-We use the [**OWL Manchester syntax**](https://www.w3.org/TR/owl2-manchester-syntax/)
+We use the [OWL Manchester syntax](https://www.w3.org/TR/owl2-manchester-syntax/)
 for the examples in this specification document because of readability.
 The HED ontology is also distributed in OWL/RDF format.
 
@@ -635,16 +635,16 @@ The HED tags in each HED schema are unique,
 so a HED tag is uniquely identified by its name (label) and schema version.
 If the tag is from a library schema, the library name is part of the version. 
 The rules for updating HED version numbers are specified in 
-[**HED semantic versioning**](https://github.com/hed-standard/hed-schemas/blob/main/README.md#hed-semantic-versioning).
+[HED semantic versioning](https://github.com/hed-standard/hed-schemas/blob/main/README.md#hed-semantic-versioning).
 
 Starting with HED schema version 8.2.0 (released April 28, 2023),
 HED library schemas are strongly recommended to be 
-[**partnered with a standard schema**](./07_Library_schemas.md#73-partnered-schemas).
+[partnered with a standard schema](./07_Library_schemas.md#73-partnered-schemas).
 Partnered schemas are joined with a specific version of the standard schema
 and are treated as a single integrated vocabulary for annotation and analysis.
 Partnered schemas MUST not have name conflicts with their standard schema partner.
 
-[**Lazy partnering**](./07_Library_schemas.md#736-lazy-partnering), 
+[Lazy partnering](./07_Library_schemas.md#736-lazy-partnering), 
 introduced with HED schema version 8.3.0, allows any number of library schemas to be loaded
 into a single integrated vocabulary provided they are partnered with the same version of the standard schema
 and there are no name conflicts.
@@ -682,4 +682,4 @@ using the range assignments described in the following table.
 ### 8.3.3. HED IRIs
 
 HED IRIs [(**International Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped
-to [**https://purl.org/hed/hed.owl**](https://purl.org/hed/hed.owl).
+to [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl).

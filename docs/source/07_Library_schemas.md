@@ -27,7 +27,7 @@ core modules of the programming language.
 
 A HED library schema contains the specialized vocabulary terms needed
 for event annotation in a specialized area.
-An example of such a library is the [**HED SCORE schema**](https://hed-schemas.readthedocs.io/en/latest/hed_score_schema.html) for annotation of EEG by clinicians.
+An example of such a library is the [HED SCORE schema](https://hed-schemas.readthedocs.io/en/latest/hed_score_schema.html) for annotation of EEG by clinicians.
 
 ## 7.2. Standalone schemas
 
@@ -67,8 +67,8 @@ The following example shows the XML header for merged TESTLIB library version 2.
 ````
 The canonical filename for this `.xml` file is `HED_testlib_2.0.0.xml`.
 This file is always stored in the libraries `hedxml` directory in the
-[**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
-For the above example, the directory is [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).
+[hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+For the above example, the directory is [library_schemas/testlib/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).
 
 
 As with any HED schema, schema builders develop and maintain their schema in
@@ -97,10 +97,10 @@ library. For other libraries, substitute the library name for the word *testlib*
 
 | Format | Merged<br/>status | Canonical filename | Handling |
 | ------ | ------------- | ------------------ | -------- |
-| XML    |   merged    |  `HED_testlib_2.0.0.xml` | Stored in library [**hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).<br/>Used by tools. |
-| XML    |   unmerged    |  `HED_testlib_2.0.0_unmerged.xml` | Can be generated but is never<br/> stored on [**hed-schemas**](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
-| MediaWiki    |   merged    |  `HED_testlib_2.0.0.mediawiki` | Usually not stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki).<br/>Possibly used during<br/>schema development. |
-| MediaWiki   |   unmerged    |  `HED_testlib_2.0.0_unmerged.mediawiki` | Working format for developers<br/>Should be stored in [**hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki). |
+| XML    |   merged    |  `HED_testlib_2.0.0.xml` | Stored in library [hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml).<br/>Used by tools. |
+| XML    |   unmerged    |  `HED_testlib_2.0.0_unmerged.xml` | Can be generated but is never<br/> stored on [hed-schemas](https://github.com/hed-standard/hed-schemas).<br/>Not used, but available for completeness. |
+| MediaWiki    |   merged    |  `HED_testlib_2.0.0.mediawiki` | Usually not stored in [hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki).<br/>Possibly used during<br/>schema development. |
+| MediaWiki   |   unmerged    |  `HED_testlib_2.0.0_unmerged.mediawiki` | Working format for developers<br/>Should be stored in [hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki). |
 
 ### 7.3.2. Partnered formats
 
@@ -205,7 +205,7 @@ This section describes the motivation for this preference.
 #### 7.3.5.1. Auxiliary consistency
 
 A standalone library schema must duplicate the 
-[**auxiliary schema sections**](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
+[auxiliary schema sections](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
 introducing the possibility of inconsistency in usage or definition
 between the library schema and standard schemas.
 
@@ -303,7 +303,7 @@ since it is already included as a partner of `liba_1.0.0` and
 
 ````
 
-If an incompatible list of schemas is given, a [**SCHEMA_LOAD_FAILED**](./Appendix_B.md#b25-schema-loading-errors)
+If an incompatible list of schemas is given, a [SCHEMA_LOAD_FAILED](./Appendix_B.md#b25-schema-loading-errors)
 error is generated.
 
 ````{admonition} Avoid new auxiliary section entries in library schemas.
@@ -323,9 +323,9 @@ entry might be added to the standard schema instead.
 Library schema should be developed and maintained in MediaWiki format for readability.
 Developers should always validate the schema before converting to XML.
 Only validated versions of the schema should be uploaded to the GitHub
-[**hed-schemas**](https://github.com/) repository.
+[hed-schemas](https://github.com/) repository.
 More information about the development process is contained in the
-[**HED schema developers guide**](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
+[HED schema developers guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
 
 
 ### 7.4.1. General design rules
@@ -341,7 +341,7 @@ This name must appear in the schema header line in the required format.
 <br>&nbsp;</br>
 2. **Use semantic versioning**:<br/>
 A library library must use semantic versioning and follow the versioning update rules used by
-the HED standard schema as specified in [**Semantic versioning**](./03_HED_formats.md#33-semantic-versioning).
+the HED standard schema as specified in [Semantic versioning](./03_HED_formats.md#33-semantic-versioning).
 <br>&nbsp;</br>
 3. **Tag uniqueness**:<br/>
 Every term must be unique within the library schema and must 
@@ -377,8 +377,8 @@ duplicate those found in the latest HED standard schema at the time of release.
 Library schema developers should also try to avoid overlap of terms found
 in other schema libraries.
 
-All HED schemas, including library schemas, must use [**semantic versions**](https://semver.org/) and
-adhere to the rules specified [**3.3 Semantic versioning**](./03_HED_formats.md/#33-semantic-versioning).
+All HED schemas, including library schemas, must use [semantic versions](https://semver.org/) and
+adhere to the rules specified [3.3 Semantic versioning](./03_HED_formats.md#33-semantic-versioning).
 
 Standalone library schema developers must include the auxiliary schema classes from
 the standard HED schema including the schema attributes, unit classes, unit modifiers,
@@ -389,8 +389,8 @@ but in general do not support special handling of added classes beyond basic ver
 
 If your application requires schema classes that are not available
 in the standard HED schema and would like these classes to be supported,
-please make a request using the [**issues**](https://github.com/hed-standard/hed-schemas/issues) 
-forum of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+please make a request using the [issues](https://github.com/hed-standard/hed-schemas/issues) 
+forum of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 
 ### 7.4.2. Standalone design rules
@@ -427,7 +427,7 @@ in enforcing conflict rules with HED standard schemas.
 ### 7.4.3. Partnered design rules
 
 Partnered library schemas are now the recommended format for the reasons
-listed in [**Motivation for partners**](./07_Library_schemas.md#725-motivation-for-partners).
+listed in [Motivation for partners](./07_Library_schemas.md#725-motivation-for-partners).
 The following design rules are specifically meant for partnered library schemas.
 
 ``````{admonition} Design rules specific to partnered HED library schemas.
@@ -493,10 +493,10 @@ a standard HED schema (preferably the latest one) available in the
 `standard_schema/hedxml` directory of the `hed-schemas` repository of the
 `hed-standard` organization on GitHub.
 The standard schemas are available at:
-[**https://github.com/hed-standard/hed-schemas/tree/main/standard_schema**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema).
+[https://github.com/hed-standard/hed-schemas/tree/main/standard_schema](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema).
 
 The **official library schemas** are available at
-[**https://github.com/hed-standard/hed-schemas/tree/main/library_schemas**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas).
+[https://github.com/hed-standard/hed-schemas/tree/main/library_schemas](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas).
 
 Standard schemas are referenced by their version number (e.g., `8.1.0`),
 while library schema are referenced by a combination of library name

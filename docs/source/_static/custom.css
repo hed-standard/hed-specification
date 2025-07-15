@@ -108,3 +108,45 @@
     content: "HED Ontology";
     font-size: 14px;
 }
+
+/* Custom styles for HED Specification */
+
+/* Quick Links sidebar styling */
+.sidebar-quicklinks {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    border-left: 3px solid #007bff;
+}
+
+.sidebar-quicklinks h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #495057;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sidebar-quicklinks ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sidebar-quicklinks li {
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-quicklinks a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.sidebar-quicklinks a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

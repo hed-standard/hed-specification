@@ -2,7 +2,7 @@
 # A. Schema format details
 
 This appendix augments the discussion of HED schema formats presented
-in [**Chapter 3: HED formats**](./03_HED_formats.md) of the HED specification.
+in [Chapter 3: HED formats](./03_HED_formats.md) of the HED specification.
 The appendix presents additional details on the rules with examples
 for standard HED schema and HED library schema in `.mediawiki` and `.xml` formats.
 
@@ -199,7 +199,7 @@ behavior of certain value classes (for example the `numericClass` value class).
   - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
 ``````
 
-See [**2.2 Character sets and restrictions**](./02_Terminology.md#22-character-sets_and_restrictions) for
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for
 definitions of the various character class definitions.
 
 ````{admonition} Notes on rules for allowed characters in the HED schema. 
@@ -541,7 +541,7 @@ their role and to facilitate mapping to the HED ontology.
 
 ````
 
-See [**property example**](#a255-schema-properties) for an example in MediaWiki format.
+See [property example](#a255-schema-properties) for an example in MediaWiki format.
 
 ## A.2. MediaWiki file format
 
@@ -620,12 +620,12 @@ HED version="8.0.0"
 ````
 
 The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the 
-[**standard_schema/hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+[standard_schema/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki)
+directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
 The `xsi` attribute is required if `xmlns:xsi` is given.
-The [**XSD file**](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd)
+The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd)
 allows validators to check the format of the `.xml` using standard XML validators.
 
 The following example shows a sample *header* for `testlib` library schema version 1.0.2 in `.mediawiki` format.
@@ -638,8 +638,8 @@ HED library="testlib" version="1.0.2"
 ````
 
 The `library` and `version` values are used to form the official file name `HED_testlib_1.0.2.mediawiki`.
-The file is found in [**library_schemas/testlib/hedwiki**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The file is found in [library_schemas/testlib/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki)
+directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 A warning is generated when unknown header attributes are translated as attributes of the `HED` line
 during `.mediawiki` file validation.
@@ -838,7 +838,7 @@ The following example defines the `valueClassProperty` in `.mediawiki` format.
 ```
 ````
 
-See [**Schema properties**](#a15-schema-properties) for a list of
+See [Schema properties](#a15-schema-properties) for a list of
 available schema properties.
 
 ## A.3. XML file format
@@ -904,8 +904,8 @@ The `HED` node is the root node of the XML schema.
 ````
 
 The file name corresponding to this example is `HED8.0.0.xml`.
-The file is found in the [**standard_schema/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The file is found in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
+directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Library schemas must include the `library` attribute with the library name
 in their header line as shown in the following example.
@@ -918,8 +918,8 @@ in their header line as shown in the following example.
 
 
 The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
-The file is found in [**library_schemas/testlib/hedxml**](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml)
-directory of the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The file is found in [library_schemas/testlib/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml)
+directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Unknown header attributes are translated as attributes of the `HED` root node of the 
 `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
@@ -1193,5 +1193,5 @@ The following is an example of the layout of the `valueClassProperty` in `.xml` 
 ```
 ````
 
-See [**Schema properties**](#a15-schema-properties) for a list of
+See [Schema properties](#a15-schema-properties) for a list of
 available schema properties.

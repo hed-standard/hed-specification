@@ -8,7 +8,7 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 Note: We here hyphenate multi-word terms as they appear in HED strings themselves; in plain text 
 usage they may not need to be hyphenated. Starred variables [*] correspond to actual HED tags.  
 
-## 2.1 Definitions
+## 2.1. Definitions
 
 ### Agent [*]
 
@@ -137,7 +137,7 @@ but does not include the end time sample.
 A contiguous portion of the data recording during which some aspect of the experiment 
 is fixed or noted.
 
-## 2.2 Character sets and restrictions
+## 2.2. Character sets and restrictions
 
 Starting with HED standard schema versions 8.3.0 and above, HED will allow UTF-8 characters in various settings.
 The types of characters referred to in this specification are:
