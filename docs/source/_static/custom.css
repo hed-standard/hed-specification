@@ -115,15 +115,16 @@
 .sidebar-quicklinks {
     margin: 1rem 0;
     padding: 1rem;
-    background-color: #f8f9fa;
+    background-color: var(--pst-color-surface);
     border-radius: 0.25rem;
-    border-left: 3px solid #007bff;
+    border-left: 3px solid var(--pst-color-primary);
+    border: 1px solid var(--pst-color-border);
 }
 
 .sidebar-quicklinks h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: #495057;
+    color: var(--pst-color-text-base);
     font-size: 1rem;
     font-weight: 600;
 }
@@ -139,14 +140,29 @@
 }
 
 .sidebar-quicklinks a {
-    color: #007bff;
+    color: var(--pst-color-link);
     text-decoration: none;
     font-size: 0.875rem;
     display: block;
     padding: 0.25rem 0;
+    transition: color 0.2s ease;
 }
 
 .sidebar-quicklinks a:hover {
-    color: #0056b3;
+    color: var(--pst-color-link-hover);
     text-decoration: underline;
+}
+
+/* Logo styling for dark mode visibility */
+html[data-theme="dark"] .logo__image.only-dark {
+    background-color: #A0A0A0;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* Index page logo styling for dark mode to match sidebar */
+html[data-theme="dark"] .bd-content img[alt="HED Logo"] {
+    background-color: #A0A0A0;
+    padding: 8px;
+    border-radius: 6px;
 }
