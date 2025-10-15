@@ -1,3 +1,3 @@
 [codespell]
-skip = .git,*.pdf,*.svg,deprecated,*.xml,*.mediawiki,*.omn
+skip = .git,*.pdf,*.svg,deprecated,*.xml,*.mediawiki,*.omn,docs/_build,*/_build
 ignore-words-list = covert,hed,recuse,disjointness

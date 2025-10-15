@@ -3,6 +3,9 @@ site/
 .idea
 venvs
 
+# Copilot instructions (user-specific)
+.github/copilot-instructions.md
+
 pdf_build_src/bids-spec.pdf
 pdf_build_src/src_copy
 
@@ -32,6 +35,7 @@ lib/
 lib64/
 parts/
 sdist/
+status/
 var/
 wheels/
 share/python-wheels/
