@@ -5,6 +5,49 @@
     "warning": true,
     "description": "A schema attribute issue, saying there is a duplicate node.",
     "schema": "",
+    "error_category": "schema_development",
+    "common_causes": [
+      "Defining the same tag or attribute multiple times in schema",
+      "Copy-paste errors leading to duplicate entries",
+      "Conflicting tag definitions in merged schemas",
+      "Case-insensitive duplicate tag names",
+      "Duplicate attribute definitions within same tag"
+    ],
+    "explanation": "Schema nodes (tags, attributes, etc.) must be unique within their scope. Duplicate nodes create ambiguity and can cause validation errors or unexpected behavior.",
+    "correction_strategy": "Remove duplicate entries and ensure unique node definitions",
+    "correction_examples": [
+      {
+        "wrong": "* Tag1\n* Tag1",
+        "correct": "* Tag1",
+        "explanation": "Removed duplicate tag definition"
+      },
+      {
+        "wrong": "* Tag {attribute1, attribute1}",
+        "correct": "* Tag {attribute1}",
+        "explanation": "Removed duplicate attribute from tag definition"
+      }
+    ],
+    "correction_patterns": [
+      "Remove exact duplicate entries",
+      "Merge conflicting definitions if appropriate",
+      "Check for case-insensitive duplicates",
+      "Verify uniqueness within tag hierarchies"
+    ],
+    "fix_instructions": [
+      "1. Identify duplicate node definitions in schema",
+      "2. Determine which definition to keep",
+      "3. Remove or merge duplicate entries",
+      "4. Check for case-insensitive conflicts",
+      "5. Validate schema structure after cleanup"
+    ],
+    "validation_hints": [
+      "Search for exact name matches in schema",
+      "Check case-insensitive duplicates",
+      "Verify tag hierarchy uniqueness",
+      "Test schema loading after duplicate removal"
+    ],
+    "specification_reference": "3.1.2. Schema structure and uniqueness",
+    "related_errors": ["SCHEMA_LOAD_FAILED", "SCHEMA_ATTRIBUTE_INVALID"],
     "definitions": [],
     "tests": {
       "schema_tests": {
