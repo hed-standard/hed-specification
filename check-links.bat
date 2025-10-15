@@ -1,4 +1,6 @@
 @echo off
+call .venv\Scripts\activate.bat
+
 echo Building Sphinx documentation...
 cd docs
 sphinx-build -b html source _build/html

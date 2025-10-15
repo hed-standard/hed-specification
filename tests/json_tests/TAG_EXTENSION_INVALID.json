@@ -216,7 +216,7 @@
             "Using characters not allowed in HED tag names",
             "Violating schema node naming conventions"
         ],
-        "explanation": "Tag extensions must follow the same naming rules as regular schema tags. Invalid characters or naming patterns make extensions unparseable and violate HED syntax rules.",
+        "explanation": "Tag extensions must follow the same naming rules as regular schema tags. Invalid characters or naming patterns make extensions unparsable and violate HED syntax rules.",
         "correction_strategy": "Use only valid characters and naming patterns in tag extensions",
         "correction_examples": [
             {

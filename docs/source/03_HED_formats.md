@@ -1287,3 +1287,227 @@ In particular every `Offset` tag group must correspond to a preceding `Onset` ta
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for details on the
 type of errors that are generated due to `Onset` and `Offset` errors.
 
+
+## 3.3. Annotation semantics
+
+HED annotations describe events and entities using tags drawn from a HED schema vocabulary.
+The semantic interpretation of these annotations depends on their structure and context.
+
+### 3.3.1. The reversibility principle
+
+**A well-formed HED annotation SHOULD be translatable back into a coherent English description.**
+
+This reversibility principle serves as the fundamental semantic validation test.
+If a HED string cannot be converted back into a meaningful English sentence,
+the annotation likely has structural problems, usually related to incorrect grouping.
+
+For example, the HED string:
+> `Experimental-stimulus, Sensory-event, (Visual-presentation, (Red, Circle))`
+
+translates to: "An experimental stimulus sensory event consisting of a visual presentation of a red circle."
+
+In contrast, the ungrouped version:
+> `Experimental-stimulus, Sensory-event, Visual-presentation, Red, Circle`
+
+is ambiguous: "An experimental stimulus sensory event with visual presentation; something red; something circular."
+
+The grouping `(Red, Circle)` makes it clear that both properties describe the same object.
+The outer grouping indicates that the red circle is something to be seen.
+
+### 3.3.2. Semantic grouping
+
+**Parentheses group tags that describe the same entity, relationship, or concept.**
+
+Tags within a group are semantically bound and work together to describe one thing.
+Tags outside the group describe different aspects or entities.
+
+#### 3.3.2.1. Basic grouping rules
+
+The following rules govern how tags should be grouped:
+
+1. **Object properties** - Tags describing properties of an object MUST be grouped together.
+   - Example: `(Red, Circle)` indicates a single red circular object.
+
+2. **Agent-action-object** - Agent-action-object triples require nested grouping.
+   - Pattern: `((Agent-tags), (Action-tag, (Object-tags)))`
+   - Example: `((Experiment-participant), (Press, Mouse-button))`
+
+3. **Directional relationships** - Tags from the `Relation/` subtree require specific nesting.
+   - Pattern: `(A, (Relation-tag, C))` means "A has the relationship to C"
+   - Example: `((Red, Circle), (To-left-of, (Green, Square)))`
+
+4. **Independent facts** - Tags describing independent separate events should be grouped separately.
+   - Pattern: `(Event-type1, Task-event-role1, and Sensory-modality1, (...)), (Event-type2, Task-event-role2, and Sensory-modality2, (...))`.
+   - Example: `(Experimental-stimulus, Sensory-event, Visual-presentation, (Red, Circle)), (Sensory-event)` not `(Experimental-stimulus, Sensory-event, Red, Circle)`
+
+5. **Reserved tags** - Reserved tags have special rules for grouping and location in an annotation.
+   - Tags: `Definition`, `Def`, `Def-expand`, `Onset`, `Inset`, `Offset`, `Duration`, `Event-context`
+   - See: [3.2.8. Special tags](./03_HED_formats.md#3-2-8-special-tags)  and [3.3.5. Temporal semantics](./03_HED_formats.md#3-3-3-temproal-semantics) for details of the specification.
+   - See: [5. Advanced Annotation](./05_Advanced_annotation.md) for example usage.
+
+See [TAG_GROUP_ERROR](./Appendix_B.md#tag-group-error) for validation errors related to grouping.
+
+#### 3.3.2.2. Event structure
+
+Every event annotation SHOULD include both an `Event` tag and a `Task-event-role` tag:
+
+- **Event tags** (from `Event/`) classify the nature of what happened:
+  - `Sensory-event`, `Agent-action`, `Data-feature`, `Experiment-control`, `Experiment-procedure`,
+  `Experiment-structure`, or `Measurement-event`
+
+- **Task-event-role tags** (from `Task-event-role/`) classify the event's role in the task:
+  - `Experimental-stimulus`, `Cue`, `Participant-response`, `Feedback`, `Instructional`, etc.
+
+These tags typically appear at the top level or grouped together in a top-level group.
+
+For `Sensory-event` types, a `Sensory-modality` tag (e.g., `Visual-presentation`, `Auditory-presentation`) SHOULD appear with the `Sensory-event` tag.
+
+### 3.3.3. Assembly semantics
+
+When annotations are assembled from multiple sources (sidecar columns, HED column),
+the semantic interpretation depends on the assembly method.
+
+#### 3.3.3.1. Concatenation assembly
+
+When columns are NOT referenced in curly braces, their annotations are concatenated 
+with commas at the top level. Tags at the same level are independent.
+
+#### 3.3.3.2. Curly brace assembly
+
+When curly braces `{column_name}` appear in a sidecar annotation,
+the referenced column's annotation REPLACES the curly braces,
+allowing explicit control over grouping structure.
+
+Rules for curly brace usage:
+1. The item within curly braces MUST be either `HED` or a HED-annotated column name.
+2. The substituted annotation directly replaces the curly braces and their contents.
+3. If an `n/a` value appears in a curly brace column, the entire curly brace expression is removed.
+4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
+5. Curly braces MUST NOT appear in `Definition` tags or in the `HED` column of tabular files.
+
+See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar-braces-invalid) for curly brace errors.
+
+### 3.3.4. File type semantics
+
+The semantic interpretation of annotations differs fundamentally based on file type.
+
+#### 3.3.4.1. Timeline files
+
+Timeline files (tabular files with an `onset` column) describe EVENTS occurring at specific times.
+Currently the only supported timeline files in BIDS are `*_events.tsv` files.
+
+Requirements:
+- Each assembled annotation SHOULD include at least one `Event`-type tag.
+- MAY use temporal scope tags: `Onset`, `Offset`, `Inset`, `Duration`, `Delay`.
+- Describe what happened at the time point.
+
+#### 3.3.4.2. Descriptor files
+
+Descriptor files (tabular files without an `onset` column) describe PROPERTIES of entities
+(e.g., participants, sessions, samples).
+
+Requirements:
+- MUST NOT include Event-type tags.
+- MUST NOT use `Onset`, `Offset`, `Inset`, or `Delay` tags.
+- The `Duration` tag MAY be allowed in some contexts.
+- Describe characteristics of the entity.
+
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for validation errors
+when temporal tags appear in descriptor files.
+
+### 3.3.5. Temporal semantics
+
+While many experiments model events as things that occur at a single point in time, 
+in reality, most "things" unfold over time as "event processes".
+HED temporal tags and semantics allow representation of complex event processes.
+
+#### 3.3.5.1. Onset and Offset
+
+The `Onset` and `Offset` tags represent the temporal extent of events with non-zero duration.
+
+- Each MUST appear in a top-level tag group with a `Def` tag or `Def-expand` group anchor.
+- An `Onset` group represents the start of a temporally extended event.
+- An `Offset` group represents the end of a previously initiated event.
+- An `Onset` for the same definition name terminates any previous ongoing event with that name.
+
+The `Onset`  tag groups MAY contain one additional inner tag group beyond its anchor.
+These tags are meant to be specific to that particular instance of the event,
+not to all instancee.
+
+
+The `Offset` tag group MUST contain only its anchor.
+
+#### 3.3.5.2. Inset
+
+An `Inset` tag designates an intermediate time point in a temporally extended event.
+
+- MUST appear in a top-level tag group with a `Def` or `Def-expand` anchor.
+- The anchor MUST match the name of an ongoing `Onset`.
+- MAY contain one additional tag group with information about the marked point.
+
+Often `Inset` tags are used to mark intermediate time features of an event process
+and specific to that event instance.
+
+#### 3.3.5.3. Duration and Delay
+
+The `Duration` tag indicates an event's temporal extent:
+- MUST appear in a top-level tag group and MUST have a numerical value (or `#` placeholder).
+- Its group represents an event with the indicated duration.
+- MUST NOT appear with `Onset`, `Offset`, `Inset`, or `Event-context` in the same group.
+- MAY appear with `Delay` in the same top-level group.
+
+The `Delay` tag indicates an event's onset delay:
+- MUST appear in a top-level tag group and MUST take a numerical value (or `#` placeholder).
+- Its group MUST contain an inner tag group representing the delayed event.
+- If the group also contains `Duration`, the event has that duration; otherwise it is a point event.
+
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for temporal tag validation errors.
+
+### 3.3.6. Definition semantics
+
+HED definitions are useful for defining lab-specific groups of tags and are
+required as anchors for the `Onset`, `Offset`, and `Inset` tags.
+Usually are defined externally or appear in special entries in sidecars.
+`Definition` tags can not appear in ordinary HED annotations.
+
+A HED definition is a tag group consisting of a `Definition` tag extended with the definition's name
+and an optional tag group defining the concept.
+
+Requirements:
+- The `Definition` tag MUST be extended with a value representing the definition name.
+- MAY be additionally extended by a `#` placeholder.
+- If the definition name includes `#`, the defining tags MUST include exactly one tag with `#`.
+- MUST NOT contain `Def`, `Def-expand`, `Onset`, `Offset`, or `Inset` tags.
+- Multiple definitions with the same name are not allowed.
+
+Definitions are incorporated into annotations using:
+- `Def/xxx` where `xxx` is the definition's name, or
+- `(Def-expand/xxx, yyy)` where `xxx` is the name and `yyy` is the definition's contents.
+
+The `Def-expand` tag should not be used by users in annotations.
+Its purpose is to allow tools to replace the `Def` tag in annotations with its
+underlying definition.
+
+For definitions with placeholders, a value MUST be substituted for the `#` when used.
+
+See [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) and 
+[DEF_INVALID](./Appendix_B.md#def-invalid) for definition-related errors.
+
+### 3.3.7. Special semantic rules
+
+#### 3.3.7.1. Event-context
+
+The `Event-context` tag group contains information about ongoing events at a specific time point.
+- Has both `topLevelTagGroup` and `unique` attributes.
+- Only one `Event-context` group MAY appear per assembled event-level HED string.
+- Generally generated by tools during processing, not included in manual annotations.
+
+#### 3.3.7.2. Unique and required
+
+Tags with the `unique` schema attribute MUST NOT appear more than once in an assembled annotation.
+
+Tags with the `required` schema attribute MUST appear in every assembled annotation.
+(Note: HED schema versions ≥ 8.0.0 do not currently use the `required` attribute.)
+
+See [TAG_NOT_UNIQUE](./Appendix_B.md#tag-not-unique) and 
+[REQUIRED_TAG_MISSING](./Appendix_B.md#required-tag-missing) for related errors.

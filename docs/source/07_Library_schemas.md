@@ -205,7 +205,7 @@ This section describes the motivation for this preference.
 #### 7.3.5.1. Auxiliary consistency
 
 A standalone library schema must duplicate the 
-[auxiliary schema sections](https://hed-specification.readthedocs.io/en/latest/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
+[auxiliary schema sections](https://www.hedtags.org/hed-specification/Appendix_A.html#a-1-auxiliary-schema-sections) appearing in standard schemas,
 introducing the possibility of inconsistency in usage or definition
 between the library schema and standard schemas.
 

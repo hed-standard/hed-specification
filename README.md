@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7869149.svg)](https://doi.org/10.5281/zenodo.7869149)
-[![Documentation Status](https://readthedocs.org/projects/hed-specification/badge/?version=latest)](https://hed-specification.readthedocs.io/en/latest/?badge=latest)
+[![Documentation](https://img.shields.io/badge/docs-hedtags.org-blue.svg)](https://www.hedtags.org/hed-specification)
 
 
 # HED specification
@@ -13,7 +13,7 @@ If you are a developer of a new HED vocabulary (schema) please see the
 [Schema developer's guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
 
 The latest version of the HED specification is available at the
-[**HED specification**](https://hed-specification.readthedocs.io/en/latest/index.html).
+[**HED specification**](https://www.hedtags.org/hed-specification).
 
 The official library schemas are now housed on the
 [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
