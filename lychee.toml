@@ -1,0 +1,52 @@
+# Lychee link checker configuration
+# https://github.com/lycheeverse/lychee
+
+# Base configuration
+base = "."
+verbose = true
+
+# Include patterns (what to check)
+include = [
+    "**/*.md",
+    "**/*.rst", 
+    "**/*.html"
+]
+
+# Exclude patterns (what to skip)
+exclude = [
+    "docs/_build/**",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/deprecated/**"
+]
+
+# Accepted HTTP status codes
+# 200: OK
+# 204: No Content
+# 206: Partial Content  
+# 403: Forbidden (some sites block bots but are valid)
+# 429: Too Many Requests (rate limited but valid)
+accept = [200, 204, 206, 403, 429]
+
+# Timeout settings
+timeout = 20
+max_redirects = 10
+
+# User agent to avoid bot blocking
+user_agent = "Mozilla/5.0 (compatible; lychee link checker)"
+
+# Rate limiting to be respectful
+max_concurrency = 8
+
+# Skip checking certain URLs that commonly cause issues
+exclude_link_local = true
+exclude_mail = false
+
+# Custom excludes for problematic URLs
+exclude_path = [
+    # GitHub edit links that may not exist yet
+    "**/edit/**",
+    # Localhost URLs
+    "http://localhost*",
+    "http://127.0.0.1*"
+]

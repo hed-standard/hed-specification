@@ -45,6 +45,13 @@ html_theme = 'sphinx_book_theme'
 html_title = 'HED Specification'
 html_logo = '_static/images/croppedWideLogo.png'
 
+# -- Autodoc configuration --------------------------------------------------
+autodoc_default_options = {
+    'members': True,
+    'inherited-members': True,
+    'show-inheritance': True,
+}
+
 html_theme_options = {
     'repository_url': 'https://github.com/hed-standard/hed-specification',
     'use_repository_button': True,
