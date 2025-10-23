@@ -8,9 +8,9 @@
 including information on the format and rules for HED vocabularies (schemas)
 as well as rules for how tools should treat HED-annotated data.
 
-If you want to annotate your data, please visit the [**HED resources**](https://www.hed-resources.org/en/latest/index.html) documentation website. 
+If you want to annotate your data, please visit the [**HED resources**](https://www.hedtags.org/hed-resources/) documentation website. 
 If you are a developer of a new HED vocabulary (schema) please see the
-[Schema developer's guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
+[Schema developer's guide](https://www.hedtags.org/hed-resources/HedSchemaDevelopersGuide.html).
 
 The latest version of the HED specification is available at the
 [**HED specification**](https://www.hedtags.org/hed-specification).

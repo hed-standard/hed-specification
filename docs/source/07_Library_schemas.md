@@ -325,7 +325,7 @@ Developers should always validate the schema before converting to XML.
 Only validated versions of the schema should be uploaded to the GitHub
 [hed-schemas](https://github.com/) repository.
 More information about the development process is contained in the
-[HED schema developers guide](https://www.hed-resources.org/en/latest/HedSchemaDevelopersGuide.html).
+[HED schema developers guide](https://www.hedtags.org/hed-resources/HedSchemaDevelopersGuide.html).
 
 
 ### 7.4.1. General design rules

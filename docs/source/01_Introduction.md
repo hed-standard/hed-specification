@@ -222,7 +222,7 @@ in the [tests](https://github.com/hed-standard/hed-specification/tree/main/tests
 [hed-specification](https://github.com/hed-standard/hed-specification) GitHub repository.
 
 Other resources include a comprehensive list of 
-[HED resources](https://www.hed-resources.org) including additional documentation,
+[HED resources](https://www.hedtags.org/hed-resources) including additional documentation,
 tutorials and code examples.
 
 All HED source code and resources are open-source and staged in 
