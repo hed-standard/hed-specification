@@ -3,7 +3,7 @@
 
 # Base configuration
 base = "."
-verbose = true
+verbose = "true"
 
 # Include patterns (what to check)
 include = [
