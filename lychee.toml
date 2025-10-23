@@ -50,6 +50,14 @@ exclude_path = [
     "http://localhost*",
     "http://127.0.0.1*",
     # NPM registry (often blocks automated checkers)
-    "https://www.npmjs.com*",
-    "http://www.npmjs.com*"
+    "https://www.npmjs.com/**",
+    "https://npmjs.com/**",
+    "https://registry.npmjs.org/**",
+    # ScienceDirect articles (from .lycheeignore)
+    "https://www.sciencedirect.com/science/article/pii/S1053811921010387",
+    "https://www.sciencedirect.com/science/article/pii/S0010945221001106", 
+    "https://www.sciencedirect.com/science/article/pii/S1388245717309069",
+    # Static files and anchors (from .lycheeignore)
+    "**/html/_static/**",
+    "*anchor*"
 ]
