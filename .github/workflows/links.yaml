@@ -35,6 +35,6 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2.1.0
         with:
-          # Check the built HTML files recursively (includes internal links)
-          args: --base . --verbose --no-progress --max-redirects 10 'docs/_build/html/**/*.html'
+          # Use the lychee.toml configuration file
+          args: --config lychee.toml 'docs/_build/html/**/*.html'
           fail: true
