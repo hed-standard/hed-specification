@@ -1,63 +1,34 @@
 # Lychee link checker configuration
-# https://github.com/lycheeverse/lychee
-
-# Base configuration
-base = "."
-verbose = "info"
-
-# Include patterns (what to check)
-include = [
-    "**/*.md",
-    "**/*.rst", 
-    "**/*.html"
-]
-
-# Exclude patterns (what to skip)
-exclude = [
-    "docs/_build/**",
-    "**/node_modules/**",
-    "**/.git/**",
-    "**/deprecated/**"
-]
-
-# Accepted HTTP status codes
-# 200: OK
-# 204: No Content
-# 206: Partial Content  
-# 403: Forbidden (some sites block bots but are valid)
-# 429: Too Many Requests (rate limited but valid)
 accept = [200, 204, 206, 403, 429]
-
-# Timeout settings
 timeout = 20
 max_redirects = 10
-
-# User agent to avoid bot blocking
 user_agent = "Mozilla/5.0 (compatible; lychee link checker)"
-
-# Rate limiting to be respectful
 max_concurrency = 8
-
-# Skip checking certain URLs that commonly cause issues
+exclude_all_private = false
+exclude_loopback = true
 exclude_link_local = true
 exclude_mail = false
 
-# Custom excludes for problematic URLs
-exclude_path = [
-    # GitHub edit links that may not exist yet
-    "**/edit/**",
-    # Localhost URLs
-    "http://localhost*",
-    "http://127.0.0.1*",
+# Exclude specific problematic URLs and patterns
+exclude = [
     # NPM registry (often blocks automated checkers)
-    "https://www.npmjs.com/**",
-    "https://npmjs.com/**",
-    "https://registry.npmjs.org/**",
-    # ScienceDirect articles (from .lycheeignore)
+    "https://www.npmjs.com/.*",
+    "https://npmjs.com/.*", 
+    "https://registry.npmjs.org/.*",
+    # ScienceDirect articles (from original .lycheeignore)
     "https://www.sciencedirect.com/science/article/pii/S1053811921010387",
-    "https://www.sciencedirect.com/science/article/pii/S0010945221001106", 
+    "https://www.sciencedirect.com/science/article/pii/S0010945221001106",
     "https://www.sciencedirect.com/science/article/pii/S1388245717309069",
-    # Static files and anchors (from .lycheeignore)
-    "**/html/_static/**",
-    "*anchor*"
+    # Localhost and local development URLs
+    "http://localhost.*",
+    "http://127.0.0.1.*",
+    "https://localhost.*",
+    # GitHub edit links that may not exist
+    ".*/edit/.*",
+    # Static files and build artifacts
+    ".*/html/_static/.*",
+    ".*/_build/.*",
+    # Anchor patterns from original config
+    ".*anchor.*",
+    ".*#.*"
 ]
