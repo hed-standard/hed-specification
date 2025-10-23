@@ -48,5 +48,8 @@ exclude_path = [
     "**/edit/**",
     # Localhost URLs
     "http://localhost*",
-    "http://127.0.0.1*"
+    "http://127.0.0.1*",
+    # NPM registry (often blocks automated checkers)
+    "https://www.npmjs.com*",
+    "http://www.npmjs.com*"
 ]
