@@ -1269,7 +1269,7 @@ The specific annotation `(Image, Face, Pathname/h234.bmp)` has been substituted 
 `{stim_file}` and the annotation for in the `HED` column of the `events.tsv` file
 has been included. The entries with `n/a` have been ignored.
 
-For more examples of event assembly, see [How HED works in BIDS](https://www.hed-resources.org/en/latest/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
+For more examples of event assembly, see [How HED works in BIDS](https://www.hed-tags.org/hed-resources/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
 
 
 #### 3.2.10.4. File-level processing
