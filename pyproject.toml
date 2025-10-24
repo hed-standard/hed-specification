@@ -7,7 +7,7 @@ name = "hed-specification"
 version = "4.0.0"
 description = "Official specification for Hierarchical Event Descriptors (HED)"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "HED Working Group", email = "hed.maintainers@gmail.com"}
 ]
@@ -26,7 +26,6 @@ keywords = [
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
@@ -40,6 +39,14 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = []
+
+# Package discovery - exclude data directories
+[tool.setuptools]
+packages = []  # This is a documentation-only project, no Python packages
+
+[tool.setuptools.package-data]
+# Include data files but don't treat directories as packages
+"*" = ["*.md", "*.rst", "*.txt", "*.yaml", "*.yml"]
 
 [project.optional-dependencies]
 docs = [
