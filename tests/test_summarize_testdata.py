@@ -26,7 +26,7 @@ class MyTestCase(unittest.TestCase):
             out_list.append(f"{indent}HED {info['schema']}")
             out_list.append(f"{indent}Definitions:")
             for defs in info.get("definitions", []):
-                out_list.append(f"{indent*2}{defs}")
+                out_list.append(f"{indent * 2}{defs}")
             if "string_tests" in info["tests"]:
                 out_list = out_list + MyTestCase.get_test_details(
                     info["tests"]["string_tests"], "string_tests", indent
@@ -46,13 +46,13 @@ class MyTestCase(unittest.TestCase):
         num_fail_tests = len(test_item.get("fails", []))
         num_pass_tests = len(test_item.get("passes", []))
         detail_list = [
-            f"{indent*2}{title}: fail_tests={num_fail_tests} "
+            f"{indent * 2}{title}: fail_tests={num_fail_tests} "
             f"pass_tests={num_pass_tests}"
         ]
         if num_fail_tests > 0:
-            detail_list.append(f"{indent*3}fail_tests:")
+            detail_list.append(f"{indent * 3}fail_tests:")
             for test in test_item["fails"]:
-                detail_list.append(f"{indent*4}{test}")
+                detail_list.append(f"{indent * 4}{test}")
         if num_pass_tests > 0:
             detail_list.append(f"{indent * 3}pass_tests:")
             for test in test_item["passes"]:
