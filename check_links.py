@@ -1,25 +1,29 @@
 #!/usr/bin/env python3
 """
 Local link checker for Sphinx documentation.
-This script builds the Sphinx docs and then checks all links in the generated HTML files.
+This script builds the Sphinx docs and then checks all links in the
+generated HTML files.
 """
 
-import os
 import subprocess
 import sys
 from pathlib import Path
+
 
 def run_command(cmd, cwd=None):
     """Run a command and return the result."""
     print(f"Running: {' '.join(cmd)}")
     try:
-        result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=True)
+        result = subprocess.run(
+            cmd, cwd=cwd, capture_output=True, text=True, check=True
+        )
         return result
     except subprocess.CalledProcessError as e:
         print(f"Error running command: {e}")
         print(f"stdout: {e.stdout}")
         print(f"stderr: {e.stderr}")
         return None
+
 
 def main():
     """Main function to build docs and check links."""
@@ -35,8 +39,7 @@ def main():
     # Step 1: Build Sphinx documentation
     print("\n1. Building Sphinx documentation...")
     build_result = run_command(
-        ["sphinx-build", "-b", "html", "source", "_build/html"],
-        cwd=docs_dir
+        ["sphinx-build", "-b", "html", "source", "_build/html"], cwd=docs_dir
     )
 
     if not build_result:
@@ -70,15 +73,20 @@ def main():
 
     # Run linkchecker - check both internal and external links
     try:
-        link_check_result = subprocess.run([
-            "linkchecker",
-            "--check-extern",  # Check external links
-            "--check-html",    # Check HTML syntax and internal links
-            "--recursion-level=10",  # Follow internal links recursively
-            "--no-warnings",   # Suppress warnings for cleaner output
-            "--output", "text",  # Text output format
-            str(index_file)
-        ], capture_output=True, text=True)
+        link_check_result = subprocess.run(
+            [
+                "linkchecker",
+                "--check-extern",  # Check external links
+                "--check-html",  # Check HTML syntax and internal links
+                "--recursion-level=10",  # Follow internal links recursively
+                "--no-warnings",  # Suppress warnings for cleaner output
+                "--output",
+                "text",  # Text output format
+                str(index_file),
+            ],
+            capture_output=True,
+            text=True,
+        )
 
         print("✅ Link checking completed!")
         print("\nLink checker output:")
@@ -103,6 +111,7 @@ def main():
     print("Link checking process completed!")
     print("=" * 60)
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
