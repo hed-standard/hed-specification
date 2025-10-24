@@ -19,7 +19,8 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.12'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -35,7 +36,6 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2.1.0
         with:
-          args: --config ./lychee.toml --verbose --no-progress ./docs/_build/html/
+          args: --config lychee.toml --base . --verbose --no-progress --max-redirects 10 './docs/_build/html/**/*.html'
           fail: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
