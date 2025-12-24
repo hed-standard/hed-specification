@@ -1,41 +1,30 @@
 (appendix-a-schema-format-details-anchor)=
+
 # A. Schema format details
 
-This appendix augments the discussion of HED schema formats presented
-in [Chapter 3: HED formats](./03_HED_formats.md) of the HED specification.
-The appendix presents additional details on the rules with examples
-for standard HED schema and HED library schema in `.mediawiki` and `.xml` formats.
+This appendix augments the discussion of HED schema formats presented in [Chapter 3: HED formats](./03_HED_formats.md) of the HED specification. The appendix presents additional details on the rules with examples for standard HED schema and HED library schema in `.mediawiki` and `.xml` formats.
 
-## A.1. Auxiliary schema  sections
+## A.1. Auxiliary schema sections
 
-This section gives information about how the various auxiliary sections of the HED 
-schema are used to specify the behavior of the schema elements.
+This section gives information about how the various auxiliary sections of the HED schema are used to specify the behavior of the schema elements.
 
 ### A.1.1. Unit classes and units
 
-Unit classes allow annotators to express the units of values in a consistent way. 
-The plurals of the various units are not explicitly listed, but are allowed as HED
-tools uses standard pluralize functions to expand the list of allowed units.
+Unit classes allow annotators to express the units of values in a consistent way. The plurals of the various units are not explicitly listed, but are allowed as HED tools uses standard pluralize functions to expand the list of allowed units.
 
-Units corresponding to unit symbols (i.e., have a `unitSymbol` attribute)
-represent abbreviated versions of units and cannot be pluralized. 
+Units corresponding to unit symbols (i.e., have a `unitSymbol` attribute) represent abbreviated versions of units and cannot be pluralized.
 
-Elements with the `SIUnit` modifier may be prefixed with a multiple or a sub-multiple modifier.
-If the SI unit does not also have the `unitSymbol` attribute, then multiples and sub-multiples
-with the `SIUnitModifier` attribute are used for the expansion.
+Elements with the `SIUnit` modifier may be prefixed with a multiple or a sub-multiple modifier. If the SI unit does not also have the `unitSymbol` attribute, then multiples and sub-multiples with the `SIUnitModifier` attribute are used for the expansion.
 
-On the other hand, units with both `SIUnit` and `unitSymbol` attributes are expanded using
-multiples and sub-multiples having the `SIUnitSymbolModifier` attribute.
-  
-Note that some units such as byte are designated as SI units,
-although they are not part of the SI standard.
-However, they follow the same rules for unit modifiers as do SI units.
+On the other hand, units with both `SIUnit` and `unitSymbol` attributes are expanded using multiples and sub-multiples having the `SIUnitSymbolModifier` attribute.
 
+Note that some units such as byte are designated as SI units, although they are not part of the SI standard. However, they follow the same rules for unit modifiers as do SI units.
 
-`````{list-table} Unit classes and units in HED 8.0.0 (* indicates unit symbol).
-:widths: 20 10 40
-:header-rows: 1
-
+```{list-table} Unit classes and units in HED 8.0.0 (* indicates unit symbol).
+---
+widths: 20 10 40
+header-rows: 1
+---
 * - Unit class
   - Default units
   - Units
@@ -81,18 +70,17 @@ However, they follow the same rules for unit modifiers as do SI units.
 * - weightUnits
   - g 
   - gram, g*, pound, lb   
-``````
+```
 
 ### A.1.2. Unit modifiers
 
-A unit modifier can be applied to SI base units to indicate a multiple or sub-multiple of the unit.
-Unit symbols are modified by unit symbol modifiers, whereas
-SI units that are not unit symbols are modified by unit modifiers.
+A unit modifier can be applied to SI base units to indicate a multiple or sub-multiple of the unit. Unit symbols are modified by unit symbol modifiers, whereas SI units that are not unit symbols are modified by unit modifiers.
 
-`````{list-table} SI unit modifiers
-:widths: 20 20 50
-:header-rows: 1
-
+```{list-table} SI unit modifiers
+---
+widths: 20 20 50
+header-rows: 1
+---
 * - Modifier
   - Symbol modifier
   - Description
@@ -156,15 +144,11 @@ SI units that are not unit symbols are modified by unit modifiers.
 * - yocto
   - y
   - Submultiple representing 10 to power −24
-``````
+```
 
 ### A.1.3. Value classes
 
-HED has very strict rules about what characters are allowed in various elements of the HED
-schema, HED tags, and the substitutions made for `#` placeholders.
-These rules are encoded in the schema using value classes.
-When a node name extension or placeholder substitution is given a particular value class,
-that name or substituted value can only contain the characters allowed for by that value class.
+HED has very strict rules about what characters are allowed in various elements of the HED schema, HED tags, and the substitutions made for `#` placeholders. These rules are encoded in the schema using value classes. When a node name extension or placeholder substitution is given a particular value class, that name or substituted value can only contain the characters allowed for by that value class.
 
 ```{Warning}
 **Note**: A placeholder `#` specification may include multiple value class attributes.
@@ -174,15 +158,15 @@ characters and any additional characters allowed by a particular unit type.
 
 ```
 
-The allowed characters for a value class are specified in the definition of each value class.
-The HED validator and other HED tools may hardcode information about 
-behavior of certain value classes (for example the `numericClass` value class). 
+The allowed characters for a value class are specified in the definition of each value class. The HED validator and other HED tools may hardcode information about behavior of certain value classes (for example the `numericClass` value class).
 
 (value-class-character-table-anchor)=
-`````{list-table} Allowed characters for value classes.
-:widths: 20 50
-:header-rows: 1
 
+```{list-table} Allowed characters for value classes.
+---
+widths: 20 50
+header-rows: 1
+---
 * - Value class
   - Allowed characters
 * - dateTimeClass
@@ -197,14 +181,14 @@ behavior of certain value classes (for example the `numericClass` value class).
   - `printable` or `nonascii` excluding curly braces, commas, and single quotes.
 * - IRIClass
   - Valid International Resource Identifier as standardized by [rfc3987](https://datatracker.ietf.org/doc/html/rfc3987).
-``````
+```
 
-See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for
-definitions of the various character class definitions.
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the various character class definitions.
 
-````{admonition} Notes on rules for allowed characters in the HED schema. 
-:class: tip
-
+````{admonition} Notes on rules for allowed characters in the HED schema.
+---
+class: tip
+---
 1. Commas or single quotes are not allowed in any values with the exception of
 the Prologue, Epilogue, term descriptions in the HED schema, and in tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
@@ -224,19 +208,15 @@ It is also allowed as the value for other tags such as
 
 ````
 
-
 ### A.1.4. Schema attributes
 
-The type of schema element that a schema attribute may apply to is indicated by
-its schema type property values.
-Tools hardcode processing based on the schema attribute name. 
-Only the schema attributes listed in the following table can be handled by current HED tools.
+The type of schema element that a schema attribute may apply to is indicated by its schema type property values. Tools hardcode processing based on the schema attribute name. Only the schema attributes listed in the following table can be handled by current HED tools.
 
-
-`````{list-table} Schema attributes.
-:widths: 21 15 12 40
-:header-rows: 1
-
+```{list-table} Schema attributes.
+---
+widths: 21 15 12 40
+header-rows: 1
+---
 * - Attribute
   - Domain
   - Range
@@ -333,12 +313,12 @@ Only the schema attributes listed in the following table can be handled by curre
   - node
   - value class 
   - Type of value taken on by the value of a placeholder node.       
-``````
+```
 
 #### A.1.4.1. allowedCharacter
 
-The `allowedCharacter` attribute should appear separately for each individual character to be allowed.
-However, the following group designations are allowed as values for this attribute:
+The `allowedCharacter` attribute should appear separately for each individual character to be allowed. However, the following group designations are allowed as values for this attribute:
+
 - `letters` designates upper and lower case alphabetic characters.
 - `blank` indicates a space is an allowed character.
 - `digits` indicates the digits 0-9 may be used in the value.
@@ -346,34 +326,19 @@ However, the following group designations are allowed as values for this attribu
 
 #### A.1.4.2. conversionFactor
 
-The value of `conversionFactor` is the factor to multiply by the current units to convert to default
-    units. (Added in version 8.1.0.). The `conversionFactor` value must be numeric and positive.
+The value of `conversionFactor` is the factor to multiply by the current units to convert to default units. (Added in version 8.1.0.). The `conversionFactor` value must be numeric and positive.
 
 #### A.1.4.3. defaultUnits
-If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder
-does not have units, tools may assume the value has `defaultUnits` if the unit class has them.
-For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions.
-Tools may assume that tag `Duration/3` is  equivalent to `Duration/3 s` because `Duration` has
-`defaultUnits` of `s`.
+
+If placeholder (`#`) has a `unitClass`, but the replacement value for the placeholder does not have units, tools may assume the value has `defaultUnits` if the unit class has them. For example, the `timeUnits` has the attribute `defaultUnits=s` in HED versions. Tools may assume that tag `Duration/3` is equivalent to `Duration/3 s` because `Duration` has `defaultUnits` of `s`.
 
 #### A.1.4.4. deprecatedFrom
 
-The `deprecatedFrom` attribute value takes a value that must be an existing semantic schema version earlier 
-than the current version.
-Since `deprecatedFrom` has the `elementProperty`, it may be applied to any element in the schema.
-It is an error for the schema to use an element that has the `deprecatedFrom` attribute in a non-deprecated context.
-For example, if a tag has the `deprecatedFrom` attribute, then that tag may not
-appear as a `suggestedTag` or `relatedTag`. 
-Deprecated schema attributes, units, unit modifiers, or value classes cannot be applied except to
-elements that are deprecated. In addition, the children of a deprecated tag must be deprecated
-or moved to a parent that is not deprecated.
-
+The `deprecatedFrom` attribute value takes a value that must be an existing semantic schema version earlier than the current version. Since `deprecatedFrom` has the `elementProperty`, it may be applied to any element in the schema. It is an error for the schema to use an element that has the `deprecatedFrom` attribute in a non-deprecated context. For example, if a tag has the `deprecatedFrom` attribute, then that tag may not appear as a `suggestedTag` or `relatedTag`. Deprecated schema attributes, units, unit modifiers, or value classes cannot be applied except to elements that are deprecated. In addition, the children of a deprecated tag must be deprecated or moved to a parent that is not deprecated.
 
 #### A.1.4.5. extensionAllowed
-The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators.
-However, any node that has a placeholder (`#`) child cannot be extended,
-regardless of the `extensionAllowed` attribute,
-since the node's single child is always interpreted as a user-supplied value.
+
+The `extensionAllowed` tag indicates that descendents of this node may be extended by annotators. However, any node that has a placeholder (`#`) child cannot be extended, regardless of the `extensionAllowed` attribute, since the node's single child is always interpreted as a user-supplied value.
 
 #### A.1.4.6. hedId
 
@@ -412,14 +377,14 @@ since the node's single child is always interpreted as a user-supplied value.
 #### A.1.4.23. valueClass
 
 #### A.1.4.x. Deprecated attributes
-In addition to the attributes listed above, some schema attributes have been deprecated
-and are no longer supported in HED, although they are still present in earlier versions of 
-the schema. The following table lists these.
 
-`````{list-table} Schema attributes deprecated for versions &ge; 8.0.0.
-:widths: 20 15 45
-:header-rows: 1
+In addition to the attributes listed above, some schema attributes have been deprecated and are no longer supported in HED, although they are still present in earlier versions of the schema. The following table lists these.
 
+```{list-table} Schema attributes deprecated for versions &ge; 8.0.0.
+---
+widths: 20 15 45
+header-rows: 1
+---
 * - Schema attribute
   - Target
   - Description
@@ -438,42 +403,23 @@ the schema. The following table lists these.
 * - `required`
   - node      
   - Event-level HED string must include this tag. Removed in standard schema version 8.3.0.  
-``````
+```
 
-The `default` attribute was not implemented in existing tools. 
-The attribute is not used in HED-3G. Only the `defaultUnits` for the unit class 
-will be implemented going forward. 
+The `default` attribute was not implemented in existing tools. The attribute is not used in HED-3G. Only the `defaultUnits` for the unit class will be implemented going forward.
 
-The `position` attribute was used to assist annotation tools, which sought to 
-display required and recommend tags before others. 
-The position attribute value is an integer and the order can start at 0 or 1. 
-Required or recommended tags without this attribute or with negative position 
-were to be shown after the others in canonical ordering. 
-The tagging strategy of HED versions >= 8.0.0 using decomposition
-and definitions does not permit this type of ordering.
-The `position` attribute is not used for HED versions >= 8.0.0.
+The `position` attribute was used to assist annotation tools, which sought to display required and recommend tags before others. The position attribute value is an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position were to be shown after the others in canonical ordering. The tagging strategy of HED versions >= 8.0.0 using decomposition and definitions does not permit this type of ordering. The `position` attribute is not used for HED versions >= 8.0.0.
 
-The `predicateType` attribute was introduced in HED-2G to facilitate mapping to OWL or RDF. 
-It was needed because the HED-2G schema had a mixture of children
-that were properties and subclasses.
-The possible values of `predicateType` were `propertyOf`, `subclassOf`, or `passThrough` 
-to indicate which role each child node had with respect to its parent.
-In HED versions >= 8.0.0, the parent-child relationship MUST be `subclassOf` to allow search generality.
-The attribute is ignored by tools.
-
+The `predicateType` attribute was introduced in HED-2G to facilitate mapping to OWL or RDF. It was needed because the HED-2G schema had a mixture of children that were properties and subclasses. The possible values of `predicateType` were `propertyOf`, `subclassOf`, or `passThrough` to indicate which role each child node had with respect to its parent. In HED versions >= 8.0.0, the parent-child relationship MUST be `subclassOf` to allow search generality. The attribute is ignored by tools.
 
 ### A.1.5. Schema properties
 
-**The schema properties are qualifiers on the domains and ranges of schema attributes.**
-A property's presence implies the attribute has this property,
-while its absence implies it does not.
-Processing of `property` elements is hard-coded into the schema processors.
-The following is a list of schema attribute properties. 
+**The schema properties are qualifiers on the domains and ranges of schema attributes.** A property's presence implies the attribute has this property, while its absence implies it does not. Processing of `property` elements is hard-coded into the schema processors. The following is a list of schema attribute properties.
 
-`````{list-table} Summary of schema attribute properties for HED Version >= 8.0.0.
-:widths: 20 50
-:header-rows: 1
-
+```{list-table} Summary of schema attribute properties for HED Version >= 8.0.0.
+---
+widths: 20 50
+header-rows: 1
+---
 * - Property
   - Description
 * - `annotationProperty`
@@ -506,27 +452,16 @@ The following is a list of schema attribute properties.
   - This schema attribute can apply to value classes.<br/>This property was formerly named `valueClassProperty`. 
 * - `valueClassRange`
   - This schema attribute's value can be a value class.
-``````
+```
 
-Property names ending in `Range` designate the type of value a schema attribute has.
-Starting with HED standard schema version 8.3.0 the `boolProperty`,
-which indicates that a schema attribute value can be true or false,
-was renamed `boolRange`.  In addition, `numericRange` and `stringRange` were
-added, since the `conversionFactor` schema attribute has a numeric value.
+Property names ending in `Range` designate the type of value a schema attribute has. Starting with HED standard schema version 8.3.0 the `boolProperty`, which indicates that a schema attribute value can be true or false, was renamed `boolRange`. In addition, `numericRange` and `stringRange` were added, since the `conversionFactor` schema attribute has a numeric value.
 
-Property names ending in `Domain` indicate the type of schema element
-that a schema attribute applies to.
-String with HED standard schema version 8.3.0 the property names
-`elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, 
-`unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed 
-as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, 
-`unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify
-their role and to facilitate mapping to the HED ontology.
+Property names ending in `Domain` indicate the type of schema element that a schema attribute applies to. String with HED standard schema version 8.3.0 the property names `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify their role and to facilitate mapping to the HED ontology.
 
-
-````{admonition} Format for schema attributes with schema property values. 
-:class: tip
-
+```{admonition} Format for schema attributes with schema property values.
+---
+class: tip
+---
 **Attributes with boolean range** (`boolRange`):
   - In `.xml` the attribute appears as a `<name>` element with the property's name but no 
 `<value>` in an `<attribute>` section of the schema element.
@@ -539,16 +474,13 @@ their role and to facilitate mapping to the HED ontology.
   - In `.mediawiki`, the schema element has the `{name =value}` in the element's specification line.
   - These schema attributes may appear multiple times in an element with different values if appropriate.
 
-````
+```
 
 See [property example](#a255-schema-properties) for an example in MediaWiki format.
 
 ## A.2. MediaWiki file format
 
-The rules for creating a valid `.mediawiki` specification of a HED schema are given below. 
-The format is line-oriented, meaning that all information about an individual entity 
-should be on a single line. 
-Empty lines and lines containing only blanks are ignored.
+The rules for creating a valid `.mediawiki` specification of a HED schema are given below. The format is line-oriented, meaning that all information about an individual entity should be on a single line. Empty lines and lines containing only blanks are ignored.
 
 ### A.2.1. Overall file layout
 
@@ -573,10 +505,9 @@ epilogue
 
 ### A.2.2. MediaWiki header
 
-The first line of the `.mediawiki` file should be a _header_ that starts with the 
-keyword `HED` followed by a blank-separated list of name-value pairs.
+The first line of the `.mediawiki` file should be a _header_ that starts with the keyword `HED` followed by a blank-separated list of name-value pairs.
 
-````{eval-rst}
+```{eval-rst}
 .. list-table:: Allowed HED schema header parameters
    :header-rows: 1
    :widths: 15 15 50
@@ -608,7 +539,7 @@ keyword `HED` followed by a blank-separated list of name-value pairs.
      - | 
        | If true, this is an unmerged partnered library schema.
        | If omitted, assumed false.      
-````
+```
 
 The following example gives a sample *header* for standard schema version 8.0.0 in `.mediawiki` format.
 
@@ -619,14 +550,9 @@ HED version="8.0.0"
 ```
 ````
 
-The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the 
-[standard_schema/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki)
-directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the [standard_schema/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes.
-The `xsi` attribute is required if `xmlns:xsi` is given.
-The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd)
-allows validators to check the format of the `.xml` using standard XML validators.
+The versions of the schema that use XSD validation to verify the format (versions 8.0.0 and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes. The `xsi` attribute is required if `xmlns:xsi` is given. The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd) allows validators to check the format of the `.xml` using standard XML validators.
 
 The following example shows a sample *header* for `testlib` library schema version 1.0.2 in `.mediawiki` format.
 
@@ -637,28 +563,19 @@ HED library="testlib" version="1.0.2"
 ```
 ````
 
-The `library` and `version` values are used to form the official file name `HED_testlib_1.0.2.mediawiki`.
-The file is found in [library_schemas/testlib/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki)
-directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The `library` and `version` values are used to form the official file name `HED_testlib_1.0.2.mediawiki`. The file is found in [library_schemas/testlib/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-A warning is generated when unknown header attributes are translated as attributes of the `HED` line
-during `.mediawiki` file validation.
+A warning is generated when unknown header attributes are translated as attributes of the `HED` line during `.mediawiki` file validation.
 
 ### A.2.3. MediaWiki prologue and epilogue
 
-The prologue is an optional paragraph of text appearing after the *header*.
-The prologue is used by tools for help and display purposes.
+The prologue is an optional paragraph of text appearing after the *header*. The prologue is used by tools for help and display purposes.
 
-Early versions of HED use the prologue section to record a CHANGE_LOG as well as 
-information about the syntax and rules. 
-HED versions &ge; 8.0.0 include a separate change log file for released versions.
+Early versions of HED use the prologue section to record a CHANGE_LOG as well as information about the syntax and rules. HED versions ≥ 8.0.0 include a separate change log file for released versions.
 
-Similar to the prologue section, the epilogue is an optional paragraph of text,
-usually containing references and license information.
-The epilogue appears directly before the ending line of the file.
+Similar to the prologue section, the epilogue is an optional paragraph of text, usually containing references and license information. The epilogue appears directly before the ending line of the file.
 
-Both the prologue and epilogue may contain commas and new lines in addition
-to the characters specified by the  [`textClass`](./Appendix_A.md#a13-value-classes).
+Both the prologue and epilogue may contain commas and new lines in addition to the characters specified by the [`textClass`](./Appendix_A.md#a13-value-classes).
 
 ### A.2.4. MediaWiki schema section
 
@@ -668,23 +585,17 @@ The beginning of the actual specification of the HED vocabulary is marked by the
 !# start schema
 ```
 
-
 The end of the main HED-specification is marked by the *end-line*:
 
 ```moin
 !# end schema
 ```
 
-A section separator is a line starting with `!#`. 
-The section separator lines (`!# start schema`, `!# end schema`, `!# end hed`) must only 
-appear once in the file and must appear in that order within the file. 
+A section separator is a line starting with `!#`. The section separator lines (`!# start schema`, `!# end schema`, `!# end hed`) must only appear once in the file and must appear in that order within the file.
 
-The body of the HED specification is located between the `!# start schema` and `!# end schema`
-section separators.
-Each specification is a single line in the `.mediawiki` file.
+The body of the HED specification is located between the `!# start schema` and `!# end schema` section separators. Each specification is a single line in the `.mediawiki` file.
 
-The three types of lines in the main specification section
-are **top-nodes**, **normal-nodes**, and **placeholders**, respectively.
+The three types of lines in the main specification section are **top-nodes**, **normal-nodes**, and **placeholders**, respectively.
 
 Empty lines or lines containing only blanks are ignored.
 
@@ -694,22 +605,15 @@ The basic format for a node-specification is:
 node-name  <nowiki>{attributes}[description]</nowiki>
 ```
 
-Top node names are enclosed in triple single quotes (e.g., `'''Event'''`),
-while other types of nodes have at least one preceding asterisk (*) 
-followed by a blank and then the name.
+Top node names are enclosed in triple single quotes (e.g., `'''Event'''`), while other types of nodes have at least one preceding asterisk (\*) followed by a blank and then the name.
 
-The number of asterisks indicates the level of the node in the subtree.
-The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
+The number of asterisks indicates the level of the node in the subtree. The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
 
-Node names in HED versions &ge; 8.0.0 can only contain alphanumeric characters, 
-hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)).
-They cannot contain blanks and must be unique.
+Node names in HED versions ≥ 8.0.0 can only contain alphanumeric characters, hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)). They cannot contain blanks and must be unique.
 
-HED versions < 8.0.0 allow blanks in node names and also have some duplicate node names.
-Use of HED versions < 8.0.0 is deprecated and validators no longer support their use.
+HED versions < 8.0.0 allow blanks in node names and also have some duplicate node names. Use of HED versions < 8.0.0 is deprecated and validators no longer support their use.
 
-For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags.
-The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
+For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags. The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
 
 ````{admonition} **Example:** Different types of HED node specifications in .mediawiki format.
 
@@ -732,26 +636,17 @@ The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
 ```
 ````
 
-The `Duration` tag of this example is at the fifth level below the root (top node) of its subtree. 
-The tag: `Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration`
-is the long form. The placeholder in the example is the node directly below `Duration` 
-in the hierarchy.
+The `Duration` tag of this example is at the fifth level below the root (top node) of its subtree. The tag: `Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration` is the long form. The placeholder in the example is the node directly below `Duration` in the hierarchy.
 
 ### A.2.5. MediaWiki auxiliary sections
 
-After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains 
-the unit class definitions, unit modifier definitions, value class definitions, 
-the schema attribute definitions, and property definitions. All of these sections are
-required starting with HED version 8.0.0 and must be given in this order.
+After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, the schema attribute definitions, and property definitions. All of these sections are required starting with HED version 8.0.0 and must be given in this order.
 
 #### A.2.5.1. Unit classes and units
 
-Unit classes specify the types of units allowed to be used with a value
-substituted for a `#` placeholder.
+Unit classes specify the types of units allowed to be used with a value substituted for a `#` placeholder.
 
-The unit class specification section starts with `'''Unit classes'''` and 
-lists the types of units (the unit classes) at the first level
-and the specific units corresponding to those unit classes at the second level.
+The unit class specification section starts with `'''Unit classes'''` and lists the types of units (the unit classes) at the first level and the specific units corresponding to those unit classes at the second level.
 
 ````{admonition} **Example:** Part of the HED unit class for time in .mediawiki format.
 
@@ -765,9 +660,7 @@ and the specific units corresponding to those unit classes at the second level.
 
 #### A.2.5.2. Unit modifiers
 
-The SI units can be modified by SI (International System Units) sub-multiples 
-and multiples. All unit modifiers are at level 1 of the `.mediawiki` file.
-
+The SI units can be modified by SI (International System Units) sub-multiples and multiples. All unit modifiers are at level 1 of the `.mediawiki` file.
 
 ````{admonition} **Example:** Part of the HED unit modifier in .mediawiki format.
 
@@ -778,23 +671,15 @@ and multiples. All unit modifiers are at level 1 of the `.mediawiki` file.
 ```
 ````
 
-A unit must have the `SIUnit` attribute in order to be used with modifiers.
-If the unit has both the `SIUnit` and `unitSymbol` attributes,
-then it only can be used with `SIUnitSymbolModifier` modifiers.
-If the unit has only the `SIUnit` attribute,
-then it only can be used with the `SIUnitModifer`.
+A unit must have the `SIUnit` attribute in order to be used with modifiers. If the unit has both the `SIUnit` and `unitSymbol` attributes, then it only can be used with `SIUnitSymbolModifier` modifiers. If the unit has only the `SIUnit` attribute, then it only can be used with the `SIUnitModifer`.
 
-For example the unit `second` is an `SIUnit` but not a symbol,
-so `second`, `seconds`, `decasecond` and `decaseconds` are all valid units.
+For example the unit `second` is an `SIUnit` but not a symbol, so `second`, `seconds`, `decasecond` and `decaseconds` are all valid units.
 
-The unit `s` is both a `SIUnit` and a `unitSymbol`, so `s` and `das` are valid units.
-Note that rules about pluralization do not apply to unit symbols.
-
+The unit `s` is both a `SIUnit` and a `unitSymbol`, so `s` and `das` are valid units. Note that rules about pluralization do not apply to unit symbols.
 
 #### A.2.5.3. Value classes
 
-Value classes give rules about what kind of value is allowed to be substituted
-for `#` placeholder tags.
+Value classes give rules about what kind of value is allowed to be substituted for `#` placeholder tags.
 
 ````{admonition} **Example:** Part of the HED value class for date-time in .mediawiki format.
 
@@ -804,13 +689,9 @@ for `#` placeholder tags.
 ```
 ````
 
-
 #### A.2.5.4. Schema attributes
 
-The schema attributes specify other characteristics about how 
-particular tags may be used in annotation.
-These attributes allow validators and other tools to process tag strings based
-on the HED schema specification, thus avoiding hard-coding particular behavior.
+The schema attributes specify other characteristics about how particular tags may be used in annotation. These attributes allow validators and other tools to process tag strings based on the HED schema specification, thus avoiding hard-coding particular behavior.
 
 ````{admonition} **Example:** HED schema attributes allowedChaaracter and defaultUnits in .mediawiki format.
 
@@ -820,15 +701,12 @@ on the HED schema specification, thus avoiding hard-coding particular behavior.
 * extensionAllowed <nowiki>{boolProperty}[This schema node may be extended.]</nowiki> 
 ```
 ````
-The schema attributes, themselves, have attributes referred to as*schema properties*. 
-These schema properties are listed in the `Properties` section of the schema.
-The example indicates that `allowedCharacter` is associated with value classes,
-while `defaultUnits` is associated with unit classes.
+
+The schema attributes, themselves, have attributes referred to as*schema properties*. These schema properties are listed in the `Properties` section of the schema. The example indicates that `allowedCharacter` is associated with value classes, while `defaultUnits` is associated with unit classes.
 
 #### A.2.5.5. Schema properties
 
-Properties apply only to schema attributes.
-The following example defines the `valueClassProperty` in `.mediawiki` format.
+Properties apply only to schema attributes. The following example defines the `valueClassProperty` in `.mediawiki` format.
 
 ````{admonition} **Example:** HED schema property valueClassProperty in .mediawiki format.
 
@@ -838,8 +716,7 @@ The following example defines the `valueClassProperty` in `.mediawiki` format.
 ```
 ````
 
-See [Schema properties](#a15-schema-properties) for a list of
-available schema properties.
+See [Schema properties](#a15-schema-properties) for a list of available schema properties.
 
 ## A.3. XML file format
 
@@ -847,8 +724,7 @@ This section describes details of the XML schema format.
 
 ### A.3.1. XML file layout
 
-The XML schema file format has a header, prologue, main schema, definitions, and epilogue
-sections. The general layout is as follows:
+The XML schema file format has a header, prologue, main schema, definitions, and epilogue sections. The general layout is as follows:
 
 ````{admonition} XML layout of the HED schema.
 ```xml
@@ -903,12 +779,9 @@ The `HED` node is the root node of the XML schema.
 ```
 ````
 
-The file name corresponding to this example is `HED8.0.0.xml`.
-The file is found in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
-directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The file name corresponding to this example is `HED8.0.0.xml`. The file is found in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Library schemas must include the `library` attribute with the library name
-in their header line as shown in the following example.
+Library schemas must include the `library` attribute with the library name in their header line as shown in the following example.
 
 ````{admonition} **Example:** Version 1.0.2 of HED testlib library schema in .xml format.
 ```xml
@@ -916,13 +789,9 @@ in their header line as shown in the following example.
 ```
 ````
 
+The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`. The file is found in [library_schemas/testlib/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
-The file is found in [library_schemas/testlib/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml)
-directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
-
-Unknown header attributes are translated as attributes of the `HED` root node of the 
-`.xml` version, but a warning is issued when the `.mediawiki` file is validated.
+Unknown header attributes are translated as attributes of the `HED` root node of the `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
 
 The `library` and `version` values are used to form the official xml file name `HED_testlib_1.0.2.xml`.
 
@@ -934,21 +803,15 @@ Library schemas may also be partnered as is `HED_testlib_2.0.0.xml`.
 ```
 ````
 
-
 ### A.3.3. XML prologue and epilogue
 
-The `<prologue>...</prologue>` and `<epilogue>...</epilogue>` elements 
-are meant to be treated as opaque as far as schema processing goes.
+The `<prologue>...</prologue>` and `<epilogue>...</epilogue>` elements are meant to be treated as opaque as far as schema processing goes.
 
-HED versions < 8.0.0 contained a Change Log for the HED schema in the prologue section
-as well as some basic documentation of syntax. 
-The epilogue section contained additional metadata to be ignored during processing. 
-
+HED versions < 8.0.0 contained a Change Log for the HED schema in the prologue section as well as some basic documentation of syntax. The epilogue section contained additional metadata to be ignored during processing.
 
 ### A.3.4. XML schema section
 
-The schema section of the HED XML document consists of an arbitrary number of `<node></node>` 
-elements enclosed in a single `<schema></schema>` element.
+The schema section of the HED XML document consists of an arbitrary number of `<node></node>` elements enclosed in a single `<schema></schema>` element.
 
 ````{admonition} Top-level XML layout of the HED schema.
 ```xml
@@ -960,8 +823,7 @@ elements enclosed in a single `<schema></schema>` element.
 ```
 ````
 
-A `<node>` element contains a required `<name>` child element, an optional `<description>` 
-child element, and an optional number of additional `<attribute>` child elements:
+A `<node>` element contains a required `<name>` child element, an optional `<description>` child element, and an optional number of additional `<attribute>` child elements:
 
 ````{admonition} XML layout HED node element.
 ```xml
@@ -976,27 +838,15 @@ child element, and an optional number of additional `<attribute>` child elements
 ```
 ````
 
-The `<name>` element text must conform to the rules for naming HED schema nodes. 
-It corresponds to the _node-name_ in the `mediawiki` specification and must not be empty. 
-A `#` value is used to represent value place-holder elements.
+The `<name>` element text must conform to the rules for naming HED schema nodes. It corresponds to the _node-name_ in the `mediawiki` specification and must not be empty. A `#` value is used to represent value place-holder elements.
 
-The `<description>` element has the text contained in the square brackets `[ ]` in the 
-`.mediawiki` node specification.
-If the `.mediawiki` description is missing or has an 
-empty `[ ]`, the `<description>` element is omitted.
+The `<description>` element has the text contained in the square brackets `[ ]` in the `.mediawiki` node specification. If the `.mediawiki` description is missing or has an empty `[ ]`, the `<description>` element is omitted.
 
-The optional `<attribute>` elements are derived from the attribute list contained in curly 
-braces `{ }` of the `.mediawiki` specification.
-An `<attribute>` element has a single non-empty `<name></name>` child element whose text
-value corresponds to the node-name of attribute in the corresponding `.mediawiki` file. 
-If the attribute does not have the `boolProperty`, 
-then the `<attribute>` element should also have one or more child `<value></value>` elements
-giving the value(s) of the attribute.
+The optional `<attribute>` elements are derived from the attribute list contained in curly braces `{ }` of the `.mediawiki` specification. An `<attribute>` element has a single non-empty `<name></name>` child element whose text value corresponds to the node-name of attribute in the corresponding `.mediawiki` file. If the attribute does not have the `boolProperty`, then the `<attribute>` element should also have one or more child `<value></value>` elements giving the value(s) of the attribute.
 
 **Example:** The `requireChild` attribute represents a boolean value. In the `.mediawiki` representation this attribute appears as `{requireChild}` if present and is omitted if absent.
 
-The format of the XML attributes was changed with HED versions &ge 8.0.0.
-Earlier versions of the schema have been deprecated and tools no longer support their validation.
+The format of the XML attributes was changed with HED versions &ge 8.0.0. Earlier versions of the schema have been deprecated and tools no longer support their validation.
 
 ````{admonition} The requireChild attribute represents a boolean value.
 
@@ -1018,12 +868,7 @@ Earlier versions of the schema have been deprecated and tools no longer support 
 ```
 ````
 
-
-**Example:** 
-The `suggestedTag` is a schema attribute that has a value. 
-The attribute is meant to be used by tagging tools to suggest additional tags
-that a user might want to include. Notice that the `suggestedTag` values are  valid HED tags
-in any form (short, long, or intermediate).
+**Example:** The `suggestedTag` is a schema attribute that has a value. The attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are valid HED tags in any form (short, long, or intermediate).
 
 ````{admonition} The suggestedTag old format.
 
@@ -1055,18 +900,9 @@ The auxiliary sections define various aspects of behavior of various types of el
 
 #### A.3.5.1. Unit classes
 
-The unit classes are defined in the `<unitClassDefinitions>` section of the XML
-schema file, and the unit modifiers are defined in the `<unitModifierDefinitions>` 
-section. These sections follow a format similar to the `<node>` element in the `<schema>` 
-section.
+The unit classes are defined in the `<unitClassDefinitions>` section of the XML schema file, and the unit modifiers are defined in the `<unitModifierDefinitions>` section. These sections follow a format similar to the `<node>` element in the `<schema>` section.
 
-The `<unitClassDefinition>` elements have a required `<name>`, 
-an optional `<description>`, 
-and an arbitrary number of additional `<attribute>` child elements.
-These `<attribute>` elements describe properties of the unit class rather 
-than of individual unit types.
-In addition, `<unitClassDefinition>` elements may have an arbitrary number 
-of `<unit>` child elements as shown in the following example.
+The `<unitClassDefinition>` elements have a required `<name>`, an optional `<description>`, and an arbitrary number of additional `<attribute>` child elements. These `<attribute>` elements describe properties of the unit class rather than of individual unit types. In addition, `<unitClassDefinition>` elements may have an arbitrary number of `<unit>` child elements as shown in the following example.
 
 ````{admonition} Example XML layout of the unit class definitions.
 ```xml
@@ -1100,8 +936,7 @@ of `<unit>` child elements as shown in the following example.
 
 #### A.3.5.2. Unit modifiers
 
-Unit modifiers are defined in the `<unitModifierDefinitions>` section of the XML schema file. 
-The following shows the layout of an example unit modifier definitions:
+Unit modifiers are defined in the `<unitModifierDefinitions>` section of the XML schema file. The following shows the layout of an example unit modifier definitions:
 
 ````{admonition} Example XML layout of the unit modifier definition
 ```xml
@@ -1123,11 +958,9 @@ The following shows the layout of an example unit modifier definitions:
 ```
 ````
 
-
 #### A.3.5.3 Value classes
 
-Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. 
-These sections follow a format similar to the `<node>` element in the `<schema>`:
+Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
 ````{admonition} Example XML layout of the unit class definitions.
 ```xml
@@ -1149,10 +982,7 @@ These sections follow a format similar to the `<node>` element in the `<schema>`
 
 #### A.3.5.4. Schema attributes
 
-The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements
-including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and
-`<valueClassDefinition>` elements. The specifications of individual attributes are given in
-`<schemaAttributeDefinition>` elements.
+The `<schemaAttributeDefinitions>` section specifies the allowed attributes of the other elements including the `<node>`, `<unitClassDefinition>`, `<unitModifierDefinition>`, and `<valueClassDefinition>` elements. The specifications of individual attributes are given in `<schemaAttributeDefinition>` elements.
 
 ````{admonition} Example XML layout of the schema attribute definitions.
 ```xml
@@ -1193,5 +1023,4 @@ The following is an example of the layout of the `valueClassProperty` in `.xml` 
 ```
 ````
 
-See [Schema properties](#a15-schema-properties) for a list of
-available schema properties.
+See [Schema properties](#a15-schema-properties) for a list of available schema properties.

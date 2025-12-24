@@ -33,7 +33,7 @@ def main():
     build_dir = docs_dir / "_build" / "html"
 
     print("=" * 60)
-    print("HED Specification - Local Link Checker")
+    print("HED specification - Local link checker")
     print("=" * 60)
 
     # Step 1: Build Sphinx documentation
