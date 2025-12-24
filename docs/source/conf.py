@@ -2,7 +2,7 @@
 
 
 # -- Project information -----------------------------------------------------
-project = "HED Specification"
+project = "HED specification"
 copyright = "2025, HED Working Group"
 author = "HED Working Group"
 release = "3.3.0"
@@ -16,7 +16,6 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
-    "sphinx_design",
     "sphinx_copybutton",
 ]
 
@@ -39,9 +38,41 @@ html_use_smartypants = True
 html_add_permalinks = ""
 
 # -- Options for HTML output ------------------------------------------------
-html_theme = "sphinx_book_theme"
-html_title = "HED Specification"
+html_theme = "furo"
+html_title = "HED specification"
 html_logo = "_static/images/croppedWideLogo.png"
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+html_js_files = ["gh_icon_fix.js"]
+
+# Furo theme options
+html_theme_options = {
+    "sidebar_hide_name": False,
+    "light_css_variables": {
+        "color-brand-primary": "#0969da",
+        "color-brand-content": "#0969da",
+    },
+    "dark_css_variables": {
+        "color-brand-primary": "#58a6ff",
+        "color-brand-content": "#58a6ff",
+    },
+    "source_repository": "https://github.com/hed-standard/hed-specification/",
+    "source_branch": "main",
+    "source_directory": "docs/source/",
+}
+
+# Configure sidebar to show logo, search, navigation, and quick links
+html_sidebars = {
+    "**": [
+        "sidebar/brand.html",
+        "sidebar/search.html",
+        "sidebar/scroll-start.html",
+        "sidebar/navigation.html",
+        "quicklinks.html",
+        "sidebar/ethical-ads.html",
+        "sidebar/scroll-end.html",
+    ]
+}
 
 # -- Autodoc configuration --------------------------------------------------
 autodoc_default_options = {
@@ -49,28 +80,6 @@ autodoc_default_options = {
     "inherited-members": True,
     "show-inheritance": True,
 }
-
-html_theme_options = {
-    "repository_url": "https://github.com/hed-standard/hed-specification",
-    "use_repository_button": True,
-    "use_issues_button": True,
-    "use_edit_page_button": True,
-    "path_to_docs": "docs/source",
-    "show_toc_level": 2,
-    "navigation_with_keys": False,
-    "show_navbar_depth": 1,
-    "use_download_button": True,
-    "toc_title": None,
-    "use_fullscreen_button": False,
-}
-
-# Force the sidebar to use toctree titles instead of page titles
-html_sidebars = {
-    "**": ["navbar-logo", "search-field", "sbt-sidebar-nav.html", "quicklinks.html"]
-}
-
-html_static_path = ["_static"]
-html_css_files = ["custom.css"]
 
 # -- Options for LaTeX output -----------------------------------------------
 latex_engine = "pdflatex"
@@ -86,7 +95,7 @@ latex_elements = {
         \usepackage{array}
         \pagestyle{fancy}
         \fancyhf{}
-        \fancyhead[L]{HED Specification}
+        \fancyhead[L]{HED specification}
         \fancyhead[R]{\thepage}
         \renewcommand{\headrulewidth}{0.4pt}
         \setcounter{tocdepth}{2}
@@ -101,7 +110,7 @@ latex_documents = [
     (
         "index",
         "HEDSpecification.tex",
-        "HED Specification",
+        "HED specification",
         "HED Working Group",
         "manual",
     ),
@@ -131,3 +140,21 @@ myst_heading_anchors = 4
 # Disable automatic numbering in MyST
 myst_number_code_blocks = []
 myst_title_to_header = False
+
+# -- Intersphinx mapping ---------------------------------------------------
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+}
+
+# -- Napoleon settings -----------------------------------------------------
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = False
+napoleon_use_admonition_for_notes = False
+napoleon_use_admonition_for_references = False
+napoleon_use_ivar = False
+napoleon_use_param = True
+napoleon_use_rtype = True

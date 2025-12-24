@@ -65,7 +65,7 @@ and validate various features of HED.
 |   3.0.0    |    Oct 27, 2022   |  &ge; 8.0.0  | - First official release  |
 | 3.1.0  | Apr 5, 2023 |  &ge; 8.0.0  | - Cleanup and clarification<br>- JSON unit tests keyed to errors. |
 
-The first official release of the HED specification, HED Specification 3.0.0, 
+The first official release of the HED specification, HED specification 3.0.0, 
 marked the separation of the versioning of the specification and the schema.
 
 As new features are added to the HED infrastructure, the specification is updated,
