@@ -1,18 +1,12 @@
 # HED-specification developer instructions
 
-If a `.status/local-environment.md` file exists in the repository root, read it first.
-It contains machine-specific settings (OS, shell, virtual-environment activation) that
-override the defaults below.
+If a `.status/local-environment.md` file exists in the repository root, read it first. It contains machine-specific settings (OS, shell, virtual-environment activation) that override the defaults below.
 
-Trust these instructions. Only search the repo for additional context when the
-information here is incomplete or appears incorrect.
+Trust these instructions. Only search the repo for additional context when the information here is incomplete or appears incorrect.
 
 ## Repository overview
 
-This is a **documentation-only** repository that manages the HED (Hierarchical Event
-Descriptors) ecosystem specification. It contains no runtime Python packages — only
-Sphinx/MyST markdown source files, official PDF releases, reference XML schemas, and
-JSON test cases for HED validators.
+This is a **documentation-only** repository that manages the HED (Hierarchical Event Descriptors) ecosystem specification. It contains no runtime Python packages — only Sphinx/MyST markdown source files, official PDF releases, reference XML schemas, and JSON test cases for HED validators.
 
 - **Specification version**: 4.0.0
 - **Target HED schema versions**: ≥ 8.0.0 (HED-3G)
@@ -22,18 +16,45 @@ JSON test cases for HED validators.
 
 ## Project layout
 
-| Path | Purpose |
-|---|---|
-| `docs/source/` | Sphinx/MyST markdown spec chapters (`01_Introduction.md` … `Appendix_B.md`), `conf.py`, static assets |
-| `hedspec/` | Official PDF specification releases (do **not** modify) |
-| `hedxml/` | Reference HED schema XML files (do **not** modify) |
-| `tests/` | JSON test cases keyed by error code |
-| `.status/` | Local analysis scripts and summaries (gitignored) |
-| `pyproject.toml` | Project metadata and `[dev]` dependencies |
-| `lychee.toml` | Link-checker configuration |
-| `.github/workflows/` | CI pipelines (see below) |
+| Path                 | Purpose                                                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------------------- |
+| `docs/source/`       | Sphinx/MyST markdown spec chapters (`01_Introduction.md` … `Appendix_B.md`), `conf.py`, static assets |
+| `hedspec/`           | Official PDF specification releases (do **not** modify)                                               |
+| `hedxml/`            | Reference HED schema XML files (do **not** modify)                                                    |
+| `tests/`             | JSON test cases keyed by error code                                                                   |
+| `.status/`           | Local analysis scripts and summaries (gitignored)                                                     |
+| `pyproject.toml`     | Project metadata and `[dev]` dependencies                                                             |
+| `lychee.toml`        | Link-checker configuration                                                                            |
+| `.github/workflows/` | CI pipelines (see below)                                                                              |
 
 ## Build and validation
+
+### Line endings configuration
+
+This repository is configured to use Unix-style line endings (`\n`, LF) across all platforms.
+
+#### Git configuration
+
+- **`.gitattributes`**: Explicitly sets `* text=auto eol=lf` to normalize all text files to LF line endings on commit
+- **Global Git config**: `core.autocrlf=false` and `core.eol=lf` (prevents automatic CRLF conversion on Windows)
+
+#### VS Code settings
+
+The `.vscode/settings.json` is configured with:
+
+```json
+{
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true
+}
+```
+
+This ensures:
+
+- New files created in VS Code use LF line endings
+- Files always end with a newline (required by CI checks)
+- Trailing whitespace is automatically cleaned up
 
 ### Bootstrap (one time)
 
@@ -53,27 +74,26 @@ sphinx-build -b html docs/source docs/_build/html
 
 Always run these — they mirror the CI pipelines and catch failures early.
 
-| Check | Command |
-|---|---|
-| Spelling (typos) | `uvx typos` |
-| Markdown formatting | `uvx --with mdformat-myst mdformat --check --wrap no --number docs/source *.md` |
-| Link checking | Build docs first, then: `lychee --config lychee.toml 'docs/_build/html/**/*.html'` |
+| Check               | Command                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| Spelling (typos)    | `uvx typos`                                                                        |
+| Markdown formatting | `uvx --with mdformat-myst mdformat --check --wrap no --number docs/source *.md`    |
+| Link checking       | Build docs first, then: `lychee --config lychee.toml 'docs/_build/html/**/*.html'` |
 
 ### CI pipelines (`.github/workflows/`)
 
 Every push and PR to `main` runs these checks automatically:
 
-| Workflow | File | What it checks |
-|---|---|---|
-| Deploy documentation | `deploy-docs.yml` | Sphinx build succeeds |
-| Typos | `typos.yaml` | No typos (`uvx typos`, config in `pyproject.toml [tool.typos]`) |
-| Mdformat | `mdformat.yaml` | Markdown formatting compliance |
-| Lychee link checker | `links.yaml` | No broken links (weekly schedule + manual) |
+| Workflow             | File              | What it checks                                                  |
+| -------------------- | ----------------- | --------------------------------------------------------------- |
+| Deploy documentation | `deploy-docs.yml` | Sphinx build succeeds                                           |
+| Typos                | `typos.yaml`      | No typos (`uvx typos`, config in `pyproject.toml [tool.typos]`) |
+| Mdformat             | `mdformat.yaml`   | Markdown formatting compliance                                  |
+| Lychee link checker  | `links.yaml`      | No broken links (weekly schedule + manual)                      |
 
 ## Markdown style
 
-- **Heading case**: Use sentence case — capitalize only the first letter of the first
-  word (and proper nouns). Example: `## Build and validation`, not `## Build and Validation`.
+- **Heading case**: Use sentence case — capitalize only the first letter of the first word (and proper nouns). Example: `## Build and validation`, not `## Build and Validation`.
 - Use proper heading hierarchy (`#` for chapters, `##` for sections, `###` for subsections).
 - Use code blocks with the `hed` language tag for HED annotation examples.
 - Markdown files must pass `mdformat --check --wrap no --number`.
@@ -101,8 +121,7 @@ Every push and PR to `main` runs these checks automatically:
 
 - Python code follows PEP 8; use `ruff` for linting.
 - Test files use JSON: `{"error_code": {"description": "...", "tests": {"valid": [...], "invalid": [...]}}}`.
-- Use standardized error codes (e.g., `CHARACTER_INVALID`, `COMMA_MISSING`) as listed in
-  `Appendix_B.md`. Add new error codes there following the existing format.
+- Use standardized error codes (e.g., `CHARACTER_INVALID`, `COMMA_MISSING`) as listed in `Appendix_B.md`. Add new error codes there following the existing format.
 - Use `pathlib.Path` for file paths; use type hints and docstrings in Python scripts.
 
 ### Cross-references
