@@ -6,10 +6,12 @@ Purpose: source of the HED (Hierarchical Event Descriptors) specification - Sphi
 
 Test framework: none (documentation-only repository; no test suite).
 
-- Install dev env: `uv venv --clear .venv` then `uv pip install -e ".[dev]"` (or the plain `python -m venv` / `pip install` equivalents)
+Run commands from the activated `.venv`; CI runs the equivalents via uvx.
+
+- Install dev env: `python -m venv .venv`, activate it, then `pip install -e ".[dev]"`
 - Build docs: `sphinx-build -b html docs/source docs/_build/html`
-- Spelling: `uvx typos`
-- Markdown format check: `uvx --with mdformat-myst mdformat --check --wrap no --number docs/source *.md`
+- Spelling: `typos`
+- Markdown format check: `python -m mdformat --check --wrap no --number docs/source *.md`
 - Link check (after building docs): `lychee --config lychee.toml 'docs/_build/html/**/*.html'`
 
 CI runs the same checks on every push and PR to `main` (`.github/workflows/`): deploy-docs.yml (Sphinx build), typos.yaml, mdformat.yaml, and links.yaml (weekly schedule plus manual).
