@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "permissions": {
+    "allow": [
+      "Bash(python -m ruff *)",
+      "Bash(python -m mdformat *)",
+      "Bash(python -c *)",
+      "Bash(python --version)",
+      "Bash(sphinx-build *)",
+      "Bash(uvx typos*)",
+      "Bash(uvx --with mdformat-myst mdformat --check *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch)",
+      "Bash(git ls-files *)",
+      "Bash(grep *)",
+      "Bash(ls)",
+      "Bash(ls *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(cat *)",
+      "Bash(wc *)"
+    ],
+
+    "ask": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git checkout -- *)",
+      "Bash(git restore *)",
+      "Bash(git stash *)"
+    ],
+
+    "deny": [
+      "Read(.env)",
+      "Read(.envrc)",
+      "Read(.status/archive/**)",
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(pip install *)",
+      "Bash(python -m pip install *)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  }
+}
