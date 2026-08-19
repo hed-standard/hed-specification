@@ -1,28 +1,83 @@
 # 3. HED formats
 
-This chapter describes the requirements and formats for HED schema and HED annotations.
+A **HED schema** is a formal specification of a standardized HED vocabulary including its properties and constraints.
 
-## 3.1. Schema formats
+Each HED schema vocabulary is organized hierarchically so that similar concepts and terms appear close to one another in the hierarchy.
 
-A **HED schema** is a formal specification of a HED vocabulary and annotation format rules. A HED schema vocabulary is organized hierarchically so that similar concepts and terms appear close to one another in the organizational hierarchy.
+The individual vocabulary terms (the HED schema nodes) **must** satisfy an "is-a" relationship with their parent nodes in the schema. That is, if node *A* is an ancestor of node *B* in the schema, then *B* is a type of *A*. This relationship is fundamental to HED and permits search generality. Searches for *A* are able to also return instances of *B*. All of the nodes of a HED schema must be unique.
 
-HED schema nodes **must** satisfy an "is-a" relationship with their parent nodes in the schema. That is, if node *A* is an ancestor of node *B* in the schema, then *B* is a type of *A*. This relationship is fundamental to HED and permits search generality. Searches for *A* are able to also return instances of *B*.
+A **HED annotation** is a string consisting of comma-separated (and possibly parenthesized) terms from a HED schema. HED annotations provide a standardized language for describing virtually anything. HED's primary application is to describe what happens during an experiment (the experimental events). HED annotations must be associated with one or more specific HED schema versions.
 
-A key requirement for third generation HED (versions >=8.0.0) is that all node names (tag terms) in the HED schema (except for `#` placeholders) **must be unique**.
+This chapter describes the requirements and formats for HED schemas and HED annotations.
 
-Additional details about HED schema format can be found in appendix [A. Schema format details](./Appendix_A.md). [7. Library schemas](./07_Library_schemas.md#7-library-schemas) discusses the additional requirements and restrictions on library schemas.
+Additional details about HED schema formats can be found in appendix [A. Schema format details](./Appendix_A.md). [7. Library schemas](./07_Library_schemas.md#7-library-schemas) discusses the additional requirements and restrictions on library schemas. [B.2. Schema validation errors](./Appendix_B.md#b2-schema-validation-errors) describes the schema errors.
 
-[B.2. Schema validation errors](./Appendix_B.md#b-2-schema-validation-errors) gives the errors Library specific schema issues usually generate [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema-library-invalid) errors.
+The HED ecosystem supports a standard base schema and additional discipline-specific library schemas. (See the [expandable schema viewer](https://www.hedtags.org/hed-schema-browser) to explore existing schemas.) Releases of the HED standard base schema are stored in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) directory of the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository. Releases of HED library schemas are stored in a subdirectory of [library_schemas](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas) in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-### 3.1.1. Official schema releases
+Additional rules for HED annotations can be found in [4. Basic annotation](./04_Basic_annotation.md) and [5. Advanced annotation](./05_Advanced_annotation.md). The [Making HED meaningful](https://www.hedtags.org/hed-resources/HedAnnotationSemantics.html) tutorial explains the semantics of HED and rules for making meaningful, standardized, and complete annotations. [B.1. HED validation errors](./Appendix_B.md#b1-hed-validation-errors) gives a complete list of HED annotation validation errors.
 
-The HED ecosystem supports a standard base schema and additional discipline-specific library schemas. (See the [expandable schema viewer](https://www.hedtags.org/display_hed.html) to explore existing schemas.)
+## 3.1. Schema rules
 
-Releases of the HED standard base schema are stored in [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) repository.
+### 3.1.1. Schema versions
 
-Releases of a HED library schemas are stored in a subdirectory of [library_schemas](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas) whose name is the library name.
+A HED standard schema version is a string representing a valid semantic version (e.g., `"8.4.0"` specifies standard schema version 8.4.0). HED library schemas have their semantic version appended to `"XXX_"`. Here `"XXX"` is the name of the library (e.g., `"lang_1.2.0"` represents version 1.2.0 of the `lang` HED library schema).
 
-### 3.1.2. Schema layout overview
+A schema version may be preceded by an alphabetic **namespace** name followed by a colon(`:`). An example of a schema version specification using a namespace is `"ts:8.4.0"` or `"mystuff:lang_1.2.0"`. The namespace can be any alphabetic string. If the schema version has a namespace, then all tags drawn from that schema must appear in any corresponding annotation with that namespace name prepended (e.g., `"ts:Sensory-event"` for the `"Sensory-event"` tag in schema `"ts:8.4.0"`).
+
+### 3.1.2. Version combinations
+
+#### 3.1.2.1. Partnered versus unpartnered
+
+Library schemas are of two types: **partnered** and **unpartnered**. A partnered library schema is designed to be used with a specific version of the HED standard schema and has a `withStandard` attribute in its header. For example, the score library schema version 2.1.0 is partnered with standard schema version 8.4.0 and has the header (in XML format):
+
+```xml
+<HED version="2.1.0" library="score" withStandard="8.4.0">
+```
+
+Partnered schemas only have to define tags that aren't already in the standard schema partner. They are designed to be used in the same namespace as other library schemas, so annotations do not require the namespace prefix.
+
+Unpartnered schemas must be in their own namespace. The latest versions of all current library schemas are partnered, and use of unpartnered schema designs is discouraged except in special circumstances.
+
+#### 3.1.2.2. Rules for partnered combination
+
+HED has adopted a strategy that allows multiple small library schemas to be combined into a single build-your-own vocabulary that can reside in a single namespace. The rules for combining partnered library schemas were introduced in HED specification version 4.0.0. Combination of different library schemas into a single vocabulary can proceed provided there are no conflicts as governed by the following rules:
+
+1. The library schemas must all have the same standard schema partner (the same `withStandard` version).
+2. If the same element (tag, unit class, unit, or schema attribute) appears in both libraries, then both elements:
+   - Must have the same attribute values.
+   - Must have the same descriptions.
+   - Must have the same ancestor path.
+   - Must either both have a `#` child, or neither has a `#` child.
+   - A shared element can have different non `#` children, but the conflict rules apply to the children in the same way.
+
+### 3.1.3. Version updates
+
+HED schemas are versioned using the semantic versioning system and use these rules for changing the *major.minor.patch* semantic version. These rules are based on the assumption that annotators using the [HED tag](https://hed-specification.readthedocs.io/en/latest/02_Terminology.html#hed-tag) short form will not have to retag their data for patch-level or minor-version changes of the schema. That is, a dataset tagged using schema version *X.Y.Z* will also validate for *X.Y+.Z+*. In addition, validation errors might occur for patch-level or minor-version changes for changes or corrections in tag values or units.
+
+Here is a summary of the types of changes that correspond to different levels of changes in the semantic version:
+
+| Change                                          | Semantic-level |
+| ----------------------------------------------- | -------------- |
+| Major addition to HED functionality             | Major          |
+| Tag deleted from schema.                        | Major          |
+| Unit or unit class removed from node.           | Major          |
+| Node attribute value changed                    | Minor          |
+| Inherited attribute change                      | Minor          |
+| New property added to or removed from schema    | Minor          |
+| New value class added to schema                 | Minor          |
+| New unit modifier added to schema               | Minor          |
+| New tag added to the schema.                    | Minor          |
+| New attribute added to schema.                  | Minor          |
+| New unit class or unit added to schema.         | Minor          |
+| New unit class added to node.                   | Minor          |
+| New value class added to node.                  | Minor          |
+| Node moved in schema without change in meaning. | Minor          |
+| Revision of description field in schema.        | Patch          |
+| Correction of suggestedTag or relatedTag.       | Patch          |
+
+**Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. If a node becomes out-of-date, a `deprecated` attribute will be added to the tag in the schema. Suggested replacement tags should be included in the node description. A suggested replacement should be added to the tag patch table.
+
+### 3.1.4. Schema layout overview
 
 Schemas can be specified in either `.mediawiki` or `.xml` format. The HED schema [online tools](https://hedtools.org/hed/schemas) provide an easy way for users to validate schema and convert between formats.
 
@@ -50,39 +105,39 @@ The sections in the `.xml` version must always be terminated by closing `</  >` 
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema-section-missing) error occurs.
+If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs.
 
-Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema-attribute-invalid) error occurs.
+Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 See [Appendix A.s](./Appendix_A.md) for additional details on format.
 
-#### 3.1.2.1. The header
+#### 3.1.4.1. The header
 
-The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version. See [SCHEMA_VERSION_INVALID](./Appendix_B.md#schema-version-invalid).
+The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version. See [SCHEMA_VERSION_INVALID](./Appendix_B.md#schema_version_invalid).
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. If the schema contains any additional unrecognized attributes, [SCHEMA_HEADER_INVALID](./Appendix_B.md#schema-header-invalid) error occurs.
+The header may optionally contain an XSD namespace specification. If the schema contains any additional unrecognized attributes, [SCHEMA_HEADER_INVALID](./Appendix_B.md#schema_header_invalid) error occurs.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 
-#### 3.1.2.2. The prologue
+#### 3.1.4.2. The prologue
 
-The prologue should contain a concise introduction to the schema and its purpose. Together with [the epilogue](#the-epilogue) section, the contents are used by tools to provide information about the schema to the users.
+The prologue should contain a concise introduction to the schema and its purpose. Together with [the epilogue](#3149-the-epilogue) section, the contents are used by tools to provide information about the schema to the users.
 
-The prologue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema-character-invalid) error occurs.
+The prologue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
 
-#### 3.1.2.3. The schema section
+#### 3.1.4.3. The schema section
 
 The schema section contains the actual vocabulary contents of the schema. Each element in this section is a *node* element, which we will also call a *tag term*. The location of the node element within the section specifies its relationship to other tag terms in the schema.
 
 A node element specifies a name, node attributes, and an informative description of the tag term's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, `period`, and `nonascii`).
 
-This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema-character-invalid) error occurs.
+This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
 
 Each schema node element must be unique or a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error is generated.
 
-#### 3.1.2.4. Unit classes and units
+#### 3.1.4.4. Unit classes and units
 
 The unit classes are attributes that modify the `#` schema placeholder nodes. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
@@ -99,23 +154,23 @@ Units may be in one of four forms as designated by their unit type attributes:
 
 Most units appear after the value in annotations. However, certain units such as `$` appear before their corresponding values. These units have the `unitPrefix` attribute.
 
-If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema-attribute-invalid) error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
+If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
 
-**Units names are case-insensitive and should not contain blanks. Unit symbols MUST maintain their case.** Unit class names are case-insensitive, but MUST contain only valid `name` characters. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema-character-invalid) error occurs.
+**Units names are case-insensitive and should not contain blanks. Unit symbols MUST maintain their case.** Unit class names are case-insensitive, but MUST contain only valid `name` characters. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
 
-#### 3.1.2.5. Unit modifiers
+#### 3.1.4.5. Unit modifiers
 
 The unit modifier definition section lists the SI unit multiples and submultiples that are allowed to be prepended to units that have the `SIUnit` schema attribute.
 
 Unit modifiers can only be used with SI units and SI unit symbols. SI unit modifiers used with ordinary SI units have the `SIUnitModifier` attribute, while unit modifiers used with SI unit symbols have the `SIUnitSymbolModifier` attribute.
 
-If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema-attribute-invalid) error occurs.
+If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 **Unit modifiers are case-sensitive.**
 
 See appendix [A.1.2. Unit modifiers](./Appendix_A.md#a12-unit-modifiers) for additional details and a listing of values for the standard schema.
 
-#### 3.1.2.6. Value classes
+#### 3.1.4.6. Value classes
 
 The value class definition section specifies rules for the values that are substituted for placeholders (`#`). Examples are special characters that are allowed for numeric values or dates. Placeholders that have no `valueClass` attributes, are assumed to take `textClass` values.
 
@@ -123,15 +178,15 @@ See appendix [A.1.3. Value classes](./Appendix_A.md#a13-value-classes) for addit
 
 Value class names are insensitive, but must contain only valid `name` characters.
 
-#### 3.1.2.7. Schema attributes
+#### 3.1.4.7. Schema attributes
 
 The schema attribute definition section lists the schema attributes that may be applied to schema elements in other sections of the schema (except for the properties section).
 
-The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema-attribute-invalid) error occurs.
+The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for additional details and a listing for the standard schema.
 
-#### 3.1.2.8. Schema properties
+#### 3.1.4.8. Schema properties
 
 The schema properties section lists the allowed properties of the schema attributes. These properties help tools validate certain requirements directly based on the HED schema rather than on a hard-coded implementation.
 
@@ -143,17 +198,17 @@ A schema attribute may have multiple section properties, indicating that the att
 
 See [A.1.4 Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for information and a listing of schema attributes and their respective properties.
 
-#### 3.1.2.9. The epilogue
+#### 3.1.4.9. The epilogue
 
 The epilogue should give license information, acknowledgments, and references.
 
-The epilogue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema-character-invalid) error occurs.
+The epilogue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
 
-### 3.1.3. Naming conventions
+### 3.1.5. Naming conventions
 
 The different parts of the HED schema have different rules for the characters and the names that are allowed.
 
-#### 3.1.3.1. Node elements
+#### 3.1.5.1. Node elements
 
 Schema designers and users that extend HED schema or develop library schema will be mainly concerned with nodes (tag terms) found in the schema section. The names of these elements must conform to the rules for [`nameClass`](./Appendix_A.md#a13-value-classes).
 
@@ -163,18 +218,18 @@ Other conventions and requirements for the contents of schema node elements are 
 ---
 class: tip
 ---
-1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case. 
+1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case.
 2. Schema node names consisting of multiple words should not not contain blanks and should be hyphenated.
 3. Schema descriptions should be concise sentences, possibly with clarifying examples.
 4. Schema descriptions may include only `text` characters but should not contain `newline` or
 square brackets or braces.
 ```
 
-#### 3.1.3.2. Epilogue and prologue
+#### 3.1.5.2. Epilogue and prologue
 
 The epilogue and prologue section text must conform to the rules for [`text`](./Appendix_A.md#a13-value-classes) value. The section text may have new lines, which are preserved.
 
-#### 3.1.3.3. Naming in other blocks
+#### 3.1.5.3. Naming in other blocks
 
 The names of elements corresponding to schema attributes, schema properties, unit classes, and value classes should start with a lower case letter, with the remainder in camel case.
 
@@ -182,7 +237,7 @@ Units and unit modifiers follow the naming conventions of the units they represe
 
 Case is preserved for unit modifiers, as uppercase and lowercase versions often have distinct meanings. The case for unit symbols is also maintained.
 
-### 3.1.4. MediaWiki schema format
+### 3.1.6. MediaWiki schema format
 
 [MediaWiki](https://www.mediawiki.org/wiki/Cheatsheet) is a markdown-like format that was selected as the HED schema editing format because of its flexibility and ability to represent nested or hierarchical relationships.
 
@@ -196,7 +251,7 @@ Descriptions, which are enclosed in square brackets (`[ ]`), indicate the meanin
 
 Attributes are enclosed with curly braces (`{ }`). These attributes provide additional rules about how the item and modifying values should be used and handled by tools.
 
-If an attribute or property is referenced in the schema, it must be defined in the appropriate definition section of the schema, or schema processing tools will generate a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema-attribute-invalid) error.
+If an attribute or property is referenced in the schema, it must be defined in the appropriate definition section of the schema, or schema processing tools will generate a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error.
 
 Allowed HED node attributes include unit class and value class values as well as HED schema attributes that do not have one of the following modifiers: `unitClassProperty`, `unitModifierProperty`, `unitProperty`, or `valueClassProperty`. Note: schema attributes having the `elementProperty` may apply anywhere in the schema, including the schema header, schema attributes having the `nodeProperty` may only apply to node elements.
 
@@ -209,7 +264,7 @@ The following example shows a simple HED schema in `.mediawiki` format.
 ````{admonition} **Example:** Example HED schema in .mediawiki format.
 
 ```tid
-HED version="8.0.0" 
+HED version="8.0.0"
 
 '''Prologue'''
 This prologue introduces the schema.
@@ -221,7 +276,7 @@ This prologue introduces the schema.
 '''Property'''<nowiki>{extensionAllowed}[A characteristic.]</nowiki>
 * Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
 ** Label <nowiki>[A string of 20 or fewer characters.]</nowiki>
-*** <nowiki># {takesValue}</nowiki> 
+*** <nowiki># {takesValue}</nowiki>
 !# end schema
 
 '''Unit classes''' <nowiki>[Unit classes and units for the nodes.]</nowiki>
@@ -233,7 +288,7 @@ This prologue introduces the schema.
 '''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
 * extensionAllowed <nowiki>{boolProperty}[Attribute indicating that users can add child nodes.]</nowiki>
 * suggestedTag <nowiki>[Attribute indicating another tag that is often associated with this tag.]</nowiki>
-* takesValue <nowiki>{boolProperty}[Attribute indicating a placeholder to be replaced by a user-defined value.] </nowiki> 
+* takesValue <nowiki>{boolProperty}[Attribute indicating a placeholder to be replaced by a user-defined value.] </nowiki>
                         . . .
 '''Properties''' <nowiki>[Properties of the schema attributes.]</nowiki>
 * boolProperty <nowiki>[Indicates a schema attribute represents a boolean.]</nowiki>
@@ -258,7 +313,7 @@ Within the HED schema a `#` node indicates that the user must supply a value con
 
 Additional details and rules can be found in appendix [A.2 MediaWiki file format](./Appendix_A.md#a2-mediawiki-file-format)
 
-### 3.1.5. XML schema format
+### 3.1.7. XML schema format
 
 The `.xml` format directly mirrors the order and information in the `.mediawiki` version of the schema.
 
@@ -350,7 +405,7 @@ The following is a translation of the `.mediawiki` example from the previous sec
 
 Additional details and rules can be found in appendix [A.3 XML file format](./Appendix_A.md#a3-xml-file-format)
 
-## 3.2. Annotation formats
+## 3.2. Annotation rules
 
 **HED annotations** are comma-separated strings of HED tags drawn from a HED schema vocabulary. HED validators and other tools use the information encoded in the relevant schema when performing validation and other processing of HED annotations.
 
@@ -358,7 +413,7 @@ Users must provide the version of the HED schema they are using when creating an
 
 ### 3.2.1. Vocabulary organization
 
-HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED versions >= 8.0.0 these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtree represent distinct **is-a** relationships for the vocabulary schema.
+HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED standard schema versions >= 8.0.0 these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtrees represent distinct **is-a** relationships for the vocabulary schema.
 
 The `Event` subtree tags indicate the general event category, such as whether it is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure.
 
@@ -392,12 +447,12 @@ Any **intermediate form** of the tag path is also allowed as illustrated by this
 | Short-form |  Intermediate form(s) | Long-form |
 | -----------|  ------------------ |--------- |
 | *Cough*  |  *Move/Breathe/Cough*<br/> *Breathe/Cough* | *Action/Move/Breathe/Cough* |
-| *Weight/3 lbs* | *Data-property/Data-value/Physical-value/Weight/3 lbs*<br/> *Data-value/Physical-value/Weight/3 lbs*<br/> *Physical-value/Weight/3 lbs* | *Property/Data-property/Data-value/Physical-value/Weight/3 lbs* | 
+| *Weight/3 lbs* | *Data-property/Data-value/Physical-value/Weight/3 lbs*<br/> *Data-value/Physical-value/Weight/3 lbs*<br/> *Physical-value/Weight/3 lbs* | *Property/Data-property/Data-value/Physical-value/Weight/3 lbs* |
 ```
 
 HED tools are available to map between shortened and long forms as needed. The tag must be associated with a schema and must correspond to a path in the schema (excluding any extension or value).
 
-See [TAG_INVALID](./Appendix_B.md#tag-invalid) for errors involving forward slashes (`/`), extra white-space, and other types of tag syntax errors.
+See [TAG_INVALID](./Appendix_B.md#tag_invalid) for errors involving forward slashes (`/`), extra white-space, and other types of tag syntax errors.
 
 ### 3.2.3. Tag case-sensitivity
 
@@ -429,7 +484,7 @@ The values substituted for `#` may themselves be schema node names provided they
 
 Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the `allowedCharacter` attribute. An example of this is the colon in the `dateTimeClass` value class.
 
-See [VALUE_INVALID](./Appendix_B.md#value-invalid) and [UNITS_INVALID](./Appendix_B.md#units-invalid) for information on the specific validation errors associated with tags that take values.
+See [VALUE_INVALID](./Appendix_B.md#value_invalid) and [UNITS_INVALID](./Appendix_B.md#units_invalid) for information on the specific validation errors associated with tags that take values.
 
 ### 3.2.5. Tag extensions
 
@@ -448,13 +503,13 @@ It is needed so that term search works correctly.
 
 ```
 
-Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.3. Naming conventions](#313-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](Appendix_B.md#style-warning) is issued for extension tags that do not follow the HED naming convention.
+Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](./Appendix_B.md#style_warning) is issued for extension tags that do not follow the HED naming convention.
 
 Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
-See [TAG_EXTENSION_INVALID](./Appendix_B.md#tag-extension-invalid) for information on the specific validation errors associated with missing schemas.
+See [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) for information on the specific validation errors associated with missing schemas.
 
-**Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason the [TAG_EXTENDED](./Appendix_B.md#tag-extended) warning is issued for extended tags during validation.
+**Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason the [TAG_EXTENDED](./Appendix_B.md#tag_extended) warning is issued for extended tags during validation.
 
 ### 3.2.6. Tag namespace prefixes
 
@@ -464,9 +519,9 @@ Users are free to use any alphabetic prefix and associate it with a specific sch
 
 Terms from only one schema can appear in the annotation without a namespace prefix followed by a colon.
 
-See [TAG_NAMESPACE_PREFIX_INVALID](./Appendix_B.md#tag-namespace-prefix-invalid) for information on the specific validation errors associated with missing schemas.
+See [TAG_NAMESPACE_PREFIX_INVALID](./Appendix_B.md#tag_namespace_prefix_invalid) for information on the specific validation errors associated with missing schemas.
 
-See [7.5. Library schema in BIDS](./07_Library_schemas.md#library-schemas-in-bids) for an example of how the namespace prefix notation is used in BIDS.
+See [7.5. Library schema in BIDS](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the namespace prefix notation is used in BIDS.
 
 ### 3.2.7. Strings and groups
 
@@ -484,7 +539,7 @@ Parentheses are meaningful and convey association. If `A` and `B` represent HED 
 
 Specific rules of association will be encoded in a future version of the HED specification.
 
-See [PARENTHESES_MISMATCH](./Appendix_B.md#parentheses-mismatch) for validation errors result from improper use of parentheses.
+See [PARENTHESES_MISMATCH](./Appendix_B.md#parentheses_mismatch) for validation errors result from improper use of parentheses.
 
 #### 3.2.7.2. Tag group attributes
 
@@ -492,20 +547,20 @@ A HED tag corresponding to a schema node with the `tagGroup` attribute must appe
 
 A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear in an unnested HED group in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group. The `topLevelTagGroup` attribute is usually associated with tags that have special meanings in HED such as `Definition` and `Onset`.
 
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag-group-error) for information on the group errors detected based on schema attributes.
+See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for information on the group errors detected based on schema attributes.
 
 #### 3.2.7.3. Empty tags and groups
 
 Empty parentheses and multiple commas with no intervening tags represent empty tags and are invalid, as are HED strings with leading or trailing commas. Hence, if `A` and `B` are any HED expressions,\
 (`A`, ((`B`))) is valid but (`A`, ()) is not.
 
-See [TAG_EMPTY](./Appendix_B.md#tag-empty) for information on the validation errors due to empty tags or groups. Some of these errors may be reported as [COMMA_MISSING\*](./Appendix_B.md#comma-missing)
+See [TAG_EMPTY](./Appendix_B.md#tag_empty) for information on the validation errors due to empty tags or groups. Some of these errors may be reported as [COMMA_MISSING\*](./Appendix_B.md#comma_missing)
 
 #### 3.2.7.4. Repeated expressions
 
 Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
 
-See [TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag-expression-repeated) for more details on validation errors due to repeated tag expressions.
+See [TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated) for more details on validation errors due to repeated tag expressions.
 
 ### 3.2.8. Special tags
 
@@ -521,7 +576,7 @@ The `Definition` tag must be extended with a value representing the definition n
 
 Definitions with the same name are considered duplicate definitions regardless of whether one has a placeholder and another does not. **However, each distinct substituted value represents a distinct definition name for purposes of `Onset`/`Offset` processing.**
 
-See [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) for a listing of situations in which a definition may be invalid.
+See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for a listing of situations in which a definition may be invalid.
 
 See also [Chapter 5.1 Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for more details and examples.
 
@@ -535,7 +590,7 @@ The two usages are equivalent, and tools should be able to transform between the
 
 For definitions that include a placeholder, a value must be substituted for the `#` placeholder in `Def` tag and `Def-expand` group when final annotation assembly occurs.
 
-See [DEF_INVALID](./Appendix_B.md#def-invalid) and [DEF_EXPAND_INVALID](./Appendix_B.md#def-expand-invalid) for details on the types of errors that occur with `Def` and `Def-expand`.
+See [DEF_INVALID](./Appendix_B.md#def_invalid) and [DEF_EXPAND_INVALID](./Appendix_B.md#def_expand_invalid) for details on the types of errors that occur with `Def` and `Def-expand`.
 
 See also [Using definitions](./05_Advanced_annotation.md#52-using-definitions) for more details and examples.
 
@@ -555,7 +610,7 @@ These requirements imply that `Onset` and `Offset` must be the only tags in thei
 
 An `Inset` tag designates an intermediate time point in an event of temporal extent. Like `Onset` and `Offset`, the `Inset` tag has the `topLevelTagGroup` attribute and must be anchored by a `Def` or `Def-expand`. The anchor must be the same name as that of an ongoing `Onset`. In addition to its anchor, the `Inset` tag group may contain a single additional tag group with additional information about that marked point. An event of temporal extent may contain several of these intermediate points.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) and [TAG_GROUP_ERROR](./Appendix_B.md#tag-group-error) and for a listing of specific errors associated with onsets, and offsets, and insets.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) and [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and for a listing of specific errors associated with onsets, and offsets, and insets.
 
 [Chapter 5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) in Chapter 5 gives examples of usage and additional details.
 
@@ -575,7 +630,7 @@ The `Event-context` tag corresponds to a schema node with both the `topLevelTagG
 
 In general, the `Event-context` group is not included in annotations, but is generated by tools during downstream event processing.
 
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag-group-error) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag-not-unique) for additional information on validation errors related to `Event-context`.
+See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for additional information on validation errors related to `Event-context`.
 
 Additional details and examples for `Event-context` can be found in [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts).
 
@@ -600,14 +655,14 @@ A BIDS sidecar is a JSON dictionary with several types of entries, three of whic
 - The keys of the annotation dictionary are the unique column values.
 - The entry is not required to have annotations for every possible unique column value.
 - Tools may choose to issue a warning if a column value does not have an annotation.
-- The annotation dictionary may include annotations for values that do not appear in a particular event file.  
+- The annotation dictionary may include annotations for values that do not appear in a particular event file.
 
 
 **Value entries**:
 - The top-level JSON key corresponds to a column name in the event file.
-- The value associated with the HED key is a HED string.  
-- The entry's annotation is applicable to all values in its associated event file column.  
-- The HED annotation must contain a single `#` placeholder.  
+- The value associated with the HED key is a HED string.
+- The entry's annotation is applicable to all values in its associated event file column.
+- The HED annotation must contain a single `#` placeholder.
 - Each row's column value is substituted for the `#` in the annotation
 when the row annotation is assembled.
 
@@ -623,17 +678,17 @@ The other types of sidecar entries include categorical and value entries with no
 
 When annotations are assembled, sidecar entries with no `"HED"` key are ignored as are entries in the corresponding tabular data file that have `n/a` or blank values.
 
-See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for an elaborated example of these different types of entries and [3.2.10.2 Event-level processing](./03_HED_formats.md#32103-event-level-processing) for an example of how the resulting HED annotations are assembled.
+See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for an elaborated example of these different types of entries and [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for an example of how the resulting HED annotations are assembled.
 
 #### 3.2.9.2. Sidecar validation
 
-All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`. Both of these generate a [SIDECAR_INVALID](./Appendix_B.md#sidecar-invalid) error.
+All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`. Both of these generate a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error.
 
-HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry generates a [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) error.
+HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry generates a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error.
 
-The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. However, if a value is encountered in a tabular file column that is annotated as a categorical column but does not have a HED annotation, a [SIDECAR_KEY_MISSING](./Appendix_B.md#sidecar-key-missing) warning is generated.
+The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. However, if a value is encountered in a tabular file column that is annotated as a categorical column but does not have a HED annotation, a [SIDECAR_KEY_MISSING](./Appendix_B.md#sidecar_key_missing) warning is generated.
 
-HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues generate a [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder-invalid) error.
+HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues generate a [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) error.
 
 If the placeholder is followed by a unit designator, the validator checks that these units are consistent with the unit class of the corresponding `#` in the schema. The units are not mandatory.
 
@@ -643,7 +698,7 @@ The curly brace notation is new with HED specification version 3.2.0 and is supp
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
-If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_INVALID](./Appendix_B.md#sidecar-invalid) error is generated.
+If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error is generated.
 
 ```{admonition} Rules for curly braces notation in sidecars.
 ---
@@ -653,21 +708,21 @@ class: tip
 the name of another HED-annotated column within the sidecar.
 2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
 3. During assembly of a HED annotation for an event, if the 'n/a' value appears in a curly brace column,
-the curly brace expression including the curly braces as well as any extra parentheses or commas are removed. 
+the curly brace expression including the curly braces as well as any extra parentheses or commas are removed.
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
 5. The curly braces cannot be used within a `Definition`.
 6. Curly braces can not appear in the HED column of a tabular file.
-7. Curly braces can not be nested. 
+7. Curly braces can not be nested.
 8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
 
 ```
 
-If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character-invalid) error is generated.
+If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character_invalid) error is generated.
 
-If curly braces appear in a `Definition`, a [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) error is generated.
+If curly braces appear in a `Definition`, a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error is generated.
 
-If the curly brace notation is used improperly in a sidecar or elsewhere, a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar-braces-invalid) is generated.
+If the curly brace notation is used improperly in a sidecar or elsewhere, a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) is generated.
 
 #### 3.2.9.4. A sidecar example
 
@@ -767,7 +822,7 @@ The HED strings that appear in a `HED` column must be valid HED strings. If the 
 
 Definitions many not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
 
-See [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for information.
+See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for information.
 
 #### 3.2.10.3. Event-level processing
 
@@ -777,12 +832,12 @@ If the HED schema used for processing contains a schema node that has the `requi
 
 If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute for HED schema versions ≥ 8.0.0.
 
-See [REQUIRED_TAG_MISSING](./Appendix_B.md#required-tag-missing) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag-not-unique) for information on the validation errors that may occur with tags that have the `required` or `unique` schema attributes, respectively.
+See [REQUIRED_TAG_MISSING](./Appendix_B.md#required_tag_missing) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for information on the validation errors that may occur with tags that have the `required` or `unique` schema attributes, respectively.
 
 ```{Admonition} General procedure for event-level (row) assembly.
 
 1. Create an empty result list.
-2. Create an assembly list of columns that contain HED annotations 
+2. Create an assembly list of columns that contain HED annotations
 and whose names do not appear in the curly braces of other HED annotations.
 3. For each the column in the assembly list look up the annotation in the sidecar, replacing all curly braces and place holder values appropriately.
 Append to the result list.
@@ -825,7 +880,7 @@ HED versions >= 8.0.0 allow annotation of relationships among rows in a tabular 
 
 To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for details on the type of errors that are generated due to `Onset` and `Offset` errors.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for details on the type of errors that are generated due to `Onset` and `Offset` errors.
 
 ## 3.3. Annotation semantics
 
@@ -883,10 +938,10 @@ The following rules govern how tags should be grouped:
 5. **Reserved tags** - Reserved tags have special rules for grouping and location in an annotation.
 
    - Tags: `Definition`, `Def`, `Def-expand`, `Onset`, `Inset`, `Offset`, `Duration`, `Event-context`
-   - See: [3.2.8. Special tags](./03_HED_formats.md#3-2-8-special-tags) and [3.3.5. Temporal semantics](./03_HED_formats.md#3-3-3-temporal-semantics) for details of the specification.
+   - See: [3.2.8. Special tags](./03_HED_formats.md#328-special-tags) and [3.3.5. Temporal semantics](./03_HED_formats.md#335-temporal-semantics) for details of the specification.
    - See: [5. Advanced Annotation](./05_Advanced_annotation.md) for example usage.
 
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag-group-error) for validation errors related to grouping.
+See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for validation errors related to grouping.
 
 #### 3.3.2.2. Event structure
 
@@ -924,7 +979,7 @@ Rules for curly brace usage:
 4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
 5. Curly braces MUST NOT appear in `Definition` tags or in the `HED` column of tabular files.
 
-See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar-braces-invalid) for curly brace errors.
+See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) for curly brace errors.
 
 ### 3.3.4. File type semantics
 
@@ -951,7 +1006,7 @@ Requirements:
 - The `Duration` tag MAY be allowed in some contexts.
 - Describe characteristics of the entity.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for validation errors when temporal tags appear in descriptor files.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor files.
 
 ### 3.3.5. Temporal semantics
 
@@ -995,7 +1050,7 @@ The `Delay` tag indicates an event's onset delay:
 - Its group MUST contain an inner tag group representing the delayed event.
 - If the group also contains `Duration`, the event has that duration; otherwise it is a point event.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal-tag-error) for temporal tag validation errors.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for temporal tag validation errors.
 
 ### 3.3.6. Definition semantics
 
@@ -1020,7 +1075,7 @@ The `Def-expand` tag should not be used by users in annotations. Its purpose is 
 
 For definitions with placeholders, a value MUST be substituted for the `#` when used.
 
-See [DEFINITION_INVALID](./Appendix_B.md#definition-invalid) and [DEF_INVALID](./Appendix_B.md#def-invalid) for definition-related errors.
+See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) and [DEF_INVALID](./Appendix_B.md#def_invalid) for definition-related errors.
 
 ### 3.3.7. Special semantic rules
 
@@ -1038,4 +1093,4 @@ Tags with the `unique` schema attribute MUST NOT appear more than once in an ass
 
 Tags with the `required` schema attribute MUST appear in every assembled annotation. (Note: HED schema versions ≥ 8.0.0 do not currently use the `required` attribute.)
 
-See [TAG_NOT_UNIQUE](./Appendix_B.md#tag-not-unique) and [REQUIRED_TAG_MISSING](./Appendix_B.md#required-tag-missing) for related errors.
+See [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) and [REQUIRED_TAG_MISSING](./Appendix_B.md#required_tag_missing) for related errors.

@@ -2,7 +2,7 @@
 
 This document contains the specification for third generation HED or HED-3G. It is meant for the implementers and users of HED tools. Other tutorials and tagging guides are available to researchers using HED to annotate their data. This specification applies to HED Schema versions > 8.0.0 and above.
 
-The aspects of HED that are described in this document are supported or will soon be supported by validators and other tools and are available for immediate use by annotators. The schema vocabulary can be viewed using an expandable [schema viewer](https://www.hedtags.org/display_hed.html).
+The aspects of HED that are described in this document are supported or will soon be supported by validators and other tools and are available for immediate use by annotators. The schema vocabulary can be viewed using an expandable [schema viewer](https://www.hedtags.org/hed-schema-browser).
 
 All HED-related source and documentation repositories are housed on the HED-standard organization GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard), which is maintained by the HED Working Group. HED development is open-source and community-based. Also see the official HED website [https://www.hedtags.org](https://www.hedtags.org) for a list of additional resources.
 
@@ -49,7 +49,7 @@ class: tip
 
 ```
 
-Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to be organized in a balanced hierarchy with a limited number of subcategories at each node. Use the expandable [schema browser](https://www.hedtags.org/display_hed.html) to browser the vocabulary and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology) defines some important HED tags and terminology used in HED.
+Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to be organized in a balanced hierarchy with a limited number of subcategories at each node. Use the expandable [schema browser](https://www.hedtags.org/hed-schema-browser) to browser the vocabulary and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology) defines some important HED tags and terminology used in HED.
 
 A major improvement in vocabulary design was the adoption of the requirement that individual nodes or terms in the HED vocabulary must be unique. This allows users to use individual node names (short form) rather than the full paths to the schema root during annotation, resulting in substantially simpler, more readable annotations.
 
@@ -57,7 +57,7 @@ To enable and regulate the extension process, *HED library schemas* were introdu
 
 HED-3G also introduced a number of advanced tagging concepts that allow users to represent events with temporal duration, as well as annotations that represent experimental design.
 
-## 1.2. Goals of HED
+## 1.3. Goals of HED
 
 An event is a process that unfolds over time and represents something that happens. Events are typically measured by noting sequences of time points (event markers) marking specific transition points.
 
@@ -79,7 +79,7 @@ A central goal of HED is to enable building of archives of brain imaging data in
 
 Most experiments have a limited number of distinct event types, which are often identified in the original experiment by local event codes. The strategy for assigning local codes to individual events depends on the format of the data set. However, in practice, HED tagging usually involves annotating a few event types or codes for an entire study, not tagging individual instances of events in individual data recordings.
 
-## 1.3. HED design principles
+## 1.4. HED design principles
 
 The near decade-long effort to develop effective event annotation for neurophysiological and behavioral data, culminating to date in HED-3G, has revealed the importance of four principles (aka the PASS principles), all of which have roots in other fields:
 
@@ -99,7 +99,7 @@ Abstraction of functionality into layers (2) and separation of content from pres
 
 Similarly, making validation and analysis code independent of the HED schema (4) allows redesign of the schema without having to re-implement the annotation tools. A well-specified and stable API (application program interface) empowers tool developers.
 
-## 1.4. Specification organization
+## 1.5. Specification organization
 
 This specification is meant to provide guidelines for tool-builders as well as HED annotators. [Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and [Chapter 3: HED formats](03_HED_formats.md) specifies the formats for HED vocabularies and annotations. Basic and advanced event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md) and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). [Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md) discussions how tags should be handled by HED-compliant tools. [Chapter 7: Library schemas](07_Library_schemas.md) discusses the basic rules for library schema creation.
 
@@ -109,7 +109,7 @@ Other resources include a comprehensive list of [HED resources](https://www.hedt
 
 All HED source code and resources are open-source and staged in the HED Standards Organization GitHub repository [https://github.com/hed-standard](https://github.com/hed-standard).
 
-## 1.5. Semantic versioning
+## 1.6. Semantic versioning
 
 HED schema use the following rules for changing the *major.minor.patch* semantic version. These rules are based on the assumption that the [HED tag](https://www.hedtags.org/hed-specification/02_Terminology.html#hed-tag) short form will not require data annotators to retag their data for patch-level or minor-version changes of the schema. That is, a dataset tagged using schema version *X.Y.Z* will also validate for *X.Y+.Z+*. However, the reverse is not necessarily true. In addition, validation errors might occur during for patch-level or minor-version changes for changes or corrections in tag values or units.
 

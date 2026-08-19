@@ -1164,7 +1164,7 @@ Unit modifiers are defined in the `<unitModifierDefinitions>` section of the XML
 ```
 ````
 
-#### A.3.5.3 Value classes
+#### A.3.5.3. Value classes
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
@@ -1695,7 +1695,7 @@ Each TSV file begins with a header row defining the column names. The specific c
 The Structure file contains metadata about the schema including header, prologue, and epilogue:
 
 ````{admonition} Example TSV Structure file layout.
-```tsv
+```text
 hedId	rdfs:label	Attributes	omn:SubClassOf	dc:description
 HED_0010010	StandardHeader	version="8.5.0", xmlns:xsi="..."	HedHeader	
 HED_0010011	StandardPrologue		HedPrologue	The HED standard schema is...
@@ -1708,7 +1708,7 @@ HED_0010012	StandardEpilogue		HedEpilogue	This schema is released under...
 The Tag file contains all HED tags with their hierarchy and attributes:
 
 ````{admonition} Example TSV Tag file layout.
-```tsv
+```text
 hedId	Level	rdfs:label	omn:SubClassOf	Attributes	dc:description
 HED_0012001	0	Event	HedTag	suggestedTag=Task-property, annotation=ncit:C25499	Something that happens...
 HED_0012002	1	Sensory-event	Event	suggestedTag=Task-event-role	Something perceivable...
@@ -1722,7 +1722,7 @@ The `Level` column indicates the depth in the hierarchy (0 for top-level tags, 1
 The UnitClass file defines all unit classes:
 
 ````{admonition} Example TSV UnitClass file layout.
-```tsv
+```text
 hedId	rdfs:label	omn:SubClassOf	Attributes	dc:description
 HED_0011513	timeUnits	StandardUnitClass	defaultUnits=s	
 HED_0011510	physicalLengthUnits	StandardUnitClass	defaultUnits=m	
@@ -1734,7 +1734,7 @@ HED_0011510	physicalLengthUnits	StandardUnitClass	defaultUnits=m
 The Unit file contains all units with their attributes and unit class associations:
 
 ````{admonition} Example TSV Unit file layout.
-```tsv
+```text
 hedId	rdfs:label	omn:SubClassOf	Attributes	dc:description	hasUnitClass
 HED_0011633	second	StandardUnit	SIUnit, conversionFactor=1.0		timeUnits
 HED_0011634	s	StandardUnit	SIUnit, unitSymbol, conversionFactor=1.0		timeUnits
@@ -1749,7 +1749,7 @@ The `hasUnitClass` column indicates which unit class the unit belongs to.
 The UnitModifier file defines unit modifiers (SI prefixes):
 
 ````{admonition} Example TSV UnitModifier file layout.
-```tsv
+```text
 hedId	rdfs:label	omn:SubClassOf	Attributes	dc:description
 HED_0011424	milli	StandardUnitModifier	SIUnitModifier, conversionFactor=0.001	SI unit submultiple...
 HED_0011425	m	StandardUnitModifier	SIUnitSymbolModifier, conversionFactor=0.001	SI unit submultiple...
@@ -1761,7 +1761,7 @@ HED_0011425	m	StandardUnitModifier	SIUnitSymbolModifier, conversionFactor=0.001	
 The ValueClass file defines value classes and their allowed characters:
 
 ````{admonition} Example TSV ValueClass file layout.
-```tsv
+```text
 hedId	rdfs:label	omn:SubClassOf	Attributes	dc:description
 HED_0011301	dateTimeClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=T	Date-times should conform...
 HED_0011303	numericClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=E	Value must be a valid...
@@ -1777,7 +1777,7 @@ The schema includes three property files defining different types of properties:
 Defines properties with data type ranges (string, numeric, boolean):
 
 ````{admonition} Example TSV DataProperty file layout.
-```tsv
+```text
 hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
 HED_0010304	allowedCharacter	DataProperty	HedUnit or HedUnitModifier or HedValueClass	string	unitDomain, unitModifierDomain, valueClassDomain, stringRange	A special character...
 HED_0010305	conversionFactor	DataProperty	HedUnit or HedUnitModifier	float	unitDomain, unitModifierDomain, numericRange	The factor to multiply...
@@ -1789,7 +1789,7 @@ HED_0010305	conversionFactor	DataProperty	HedUnit or HedUnitModifier	float	unitD
 Defines properties with object ranges (references to other schema elements):
 
 ````{admonition} Example TSV ObjectProperty file layout.
-```tsv
+```text
 hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
 HED_0010104	defaultUnits	ObjectProperty	HedUnitClass	HedUnit	unitClassDomain, unitRange	The default units...
 HED_0010105	relatedTag	ObjectProperty	HedTag	HedTag	tagDomain, tagRange	A HED tag closely related...
@@ -1801,7 +1801,7 @@ HED_0010105	relatedTag	ObjectProperty	HedTag	HedTag	tagDomain, tagRange	A HED ta
 Defines annotation properties that don't participate in reasoning:
 
 ````{admonition} Example TSV AnnotationProperty file layout.
-```tsv
+```text
 hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
 HED_0010500	hedId	AnnotationProperty	HedElement	string	elementDomain, stringRange	The unique identifier...
 HED_0010501	requireChild	AnnotationProperty	HedTag	boolean	tagDomain, boolRange	This tag must have...
@@ -1813,7 +1813,7 @@ HED_0010501	requireChild	AnnotationProperty	HedTag	boolean	tagDomain, boolRange	
 The AttributeProperty file defines the schema attribute properties (formerly called schema properties):
 
 ````{admonition} Example TSV AttributeProperty file layout.
-```tsv
+```text
 hedId	rdfs:label	Type	dc:description
 HED_0010704	tagDomain	AnnotationProperty	This schema attribute can apply to node (tag-term) elements. This was added so attributes could apply to multiple types of elements. This property was formerly named nodeProperty.
 HED_0010702	boolRange	AnnotationProperty	This schema attribute's value can be true or false. This property was formerly named boolProperty.
@@ -1830,7 +1830,7 @@ The TSV format includes separate files for schema sources, namespace prefixes, a
 Defines external resources used during schema development:
 
 ````{admonition} Example TSV Sources file layout.
-```tsv
+```text
 source	link	description
 Wikipedia	https://en.wikipedia.org	General definitions of concepts.
 ```
@@ -1847,7 +1847,7 @@ Each row has three required columns:
 Defines namespace prefixes used for external ontology references:
 
 ````{admonition} Example TSV Prefixes file layout.
-```tsv
+```text
 prefix	namespace	description
 dc:	http://purl.org/dc/elements/1.1/#	The Dublin Core elements
 ncit:	http://purl.obolibrary.org/obo/ncit.owl	NCI Thesaurus OBO Edition
@@ -1865,7 +1865,7 @@ Each row has three required columns:
 Defines external annotation properties that can be used:
 
 ````{admonition} Example TSV AnnotationPropertyExternal file layout.
-```tsv
+```text
 prefix	id	iri	description
 dc:	creator	http://purl.org/dc/elements/1.1/creator	An entity primarily responsible for making the resource.
 dc:	contributor	http://purl.org/dc/elements/1.1/contributor	An entity responsible for making contributions to the resource.

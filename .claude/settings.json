@@ -5,11 +5,10 @@
     "allow": [
       "Bash(python -m ruff *)",
       "Bash(python -m mdformat *)",
-      "Bash(python -c *)",
       "Bash(python --version)",
       "Bash(sphinx-build *)",
-      "Bash(uvx typos*)",
-      "Bash(uvx --with mdformat-myst mdformat --check *)",
+      "Bash(typos)",
+      "Bash(typos *)",
       "Bash(git status)",
       "Bash(git status *)",
       "Bash(git log)",
