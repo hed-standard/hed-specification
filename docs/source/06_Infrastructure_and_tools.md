@@ -4,7 +4,7 @@ The HED infrastructure includes libraries written in Python, Matlab, and JavaScr
 
 In general, tools should either explicitly call HED validation to assure that the input tag strings are valid or should make explicit that they assume the HED has already been validated. Most tools will use the latter approach.
 
-See [3.2. Annotation formats](./03_HED_formats.md#32-annotation-formats) for more detailed specifications of HED formats.
+See [3.2. Annotation rules](./03_HED_formats.md#32-annotation-rules) for more detailed specifications of HED formats.
 
 See [4. Basic annotation](./04_Basic_annotation.md) and [5. Advanced annotation](./05_Advanced_annotation.md) for examples and usage.
 

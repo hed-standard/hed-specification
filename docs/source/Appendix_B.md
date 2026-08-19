@@ -29,9 +29,9 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 
 **See also:**
 
-- [A.1. Auxiliary schema sections](./Appendix_A.md#a-1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
-- [2.2 Character sets and restrictions](./02_Terminology.md#2-2-character-sets-and-restrictions) for a discussion of the restrictions on characters.
-- [3.2.4 Tags that take values](03_HED_formats.md#324-tags-that-take-values) and [3.2.5: Tag extensions](03_HED_formats.md#3-2-5-tag-extensions) for an explanation of the rules for tag values and extensions.
+- [A.1. Auxiliary schema sections](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
+- [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) and [3.2.5. Tag extensions](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
 ### COMMA_MISSING
 
@@ -152,6 +152,16 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanatio
 **Note:** This warning is only triggered if the categorical column in which the value appears does have HED annotations.
 
 See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanation of sidecar requirements.
+
+### STYLE_WARNING\*
+
+(WARNING)
+
+**a.** A tag does not follow the standard capitalization convention: only the first letter of the tag term should be capitalized, with the remainder lower case.
+
+**Note:** This warning can occur for tag extensions during annotation and for schema nodes in prerelease schema versions under development. Tags drawn from released schemas already follow the convention.
+
+See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions and [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.
 
 ### TAG_EMPTY
 
@@ -362,7 +372,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **b.** A HED version specification does not have the correct syntax for the schema file format.\
 **c.** A HED schema version does not comply with semantic versioning.
 
-### B.2.3. MediaWiki format errors
+### B.2.2. MediaWiki format errors
 
 #### WIKI_DELIMITERS_INVALID
 
@@ -380,13 +390,13 @@ Library schema errors are specific to library schema. Library schema may also ra
 **a.** A malformed section separator is present\
 **b.** A duplicate section separator is present.
 
-### B.2.4. XML format errors
+### B.2.3. XML format errors
 
 #### XML_SYNTAX_INVALID
 
 **a.** XML syntax or does not comply with specified XSD.
 
-### B.2.5 Schema loading errors
+### B.2.4. Schema loading errors
 
 Schema loading errors can occur because the file is inaccessible or is not proper XML. Schema loading errors are handled in different ways by the Python and JavaScript tools.
 

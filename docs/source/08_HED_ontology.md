@@ -483,7 +483,7 @@ AnnotationProperty: heds:HED_0010502
 		hed:HED_0010705 true
 ````
 
-### 8.2.4 Other auxiliary sections
+### 8.2.4. Other auxiliary sections
 
 The schema-ontology mapping for HED schema units, unit classes, unit modifiers, and value classes is similar to that of HED tags. However, each of these auxiliary items should inherit from a superclass tied to the schema in which they are defined.
 
