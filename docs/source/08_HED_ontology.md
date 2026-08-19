@@ -16,7 +16,7 @@ The data annotator's natural view is top-down -- identifying a general category 
 
 In the diagram, top-level tags `S1`, `S4`, and `L6` represent general categories and are roots of subtrees organized so that child nodes are more specific terms. HED supports "search generality", so searches may specify an exact match or matches to any term in a particular subtree. In the latter case, a search for `Event` may also match any of its descendents (e.g., `Sensory-event` or `Agent-action`).
 
-The [HED schema viewer](https://www.hedtags.org/display_hed.html), allows users to focus on top-level categories or expand the hierarchy view to any specified level of detail.
+The [HED schema viewer](https://www.hedtags.org/hed-schema-browser), allows users to focus on top-level categories or expand the hierarchy view to any specified level of detail.
 
 ### 8.1.2. The ontologist's view
 
@@ -199,7 +199,7 @@ header-rows: 1
     * Usually only defined in the standard schema
     * Defining schemas must define a class extending `HedUnitModifier` (`heds:HED_0000008`).
     * Unit modifiers in the standard schema inherit from `StandardUnitModifier` (`HED_0010008`).
-* - **Value class** 
+* - **Value class**
   - * Defined in the `Value classes` section of the HED schema.
     * Usually only defined in the standard schema.
     * Defining schemas must define a class extending `HedValueClass` (`heds:HED_0000009).
@@ -237,8 +237,8 @@ For the example, the `Action` tag is a top-level tag (enclosed in a set of three
 * Communicate <nowiki>{hedId=HED_0012017}[Action conveying knowledge of or about something.]</nowiki>
 ```
 
-In this example `Action` is level 0 (top-level) and `Communicate` is level 1. 
-MediaWiki uses ordering to determine subclasses. 
+In this example `Action` is level 0 (top-level) and `Communicate` is level 1.
+MediaWiki uses ordering to determine subclasses.
 Since `Action` is the closest preceding tag whose level is one less than
 that of `Communicate`, so `Action` is the parent tag of `Communicate`.
 
@@ -269,7 +269,7 @@ The **XML** representation of a HED tag uses nesting to indicate hierarchical re
       <attribute>
          <name>hedId</name>
          <value>HED_0012017</value>
-      </attribute>  
+      </attribute>
    </node>
 </node>
 ```
@@ -287,24 +287,24 @@ The following example illustrates the syntax for the HED mapping. HED schema ele
 
 ```yaml
 Class: hed:HED_0012016
-    Annotations: 
+    Annotations:
         dc:description "Do something.,
-        rdfs:label "Action"   
-    EquivalentTo: 
+        rdfs:label "Action"
+    EquivalentTo:
         heds:HED_0000005
         and (heds:HED_0000102 some hed:HED_0010004)
         and (heds:HED_0010307 value "true")
-    
+
 Class: hed:HED_0012017
-    Annotations: 
+    Annotations:
         dc:description "Action conveying knowledge of or information about something.",
-        rdfs:label "Communicate"   
-    SubClassOf: 
+        rdfs:label "Communicate"
+    SubClassOf:
         hed:HED_0012016
 ```
 
 
-The `Action` (`hed:HED_0012016`) class is a top level schema tag and 
+The `Action` (`hed:HED_0012016`) class is a top level schema tag and
 therefore a subclass of `HedTag` (`heds:HED_0000005`).
 The parentage relationship is represented by `EquivalentTo` rather than `SubClassOf`
 because `Action` has the `extensionAllowed` (`hed:HED_0010307`) data property.
@@ -394,7 +394,7 @@ In the MediaWiki format, schema attributes appear in the `Schema Attributes` sec
 
 ```text
 * extensionAllowed <nowiki>{hedId=HED_0010307,tagDomain, boolRange}[Users can add unlimited levels of child nodes
-                            under this tag. This tag is propagated to child nodes except for 
+                            under this tag. This tag is propagated to child nodes except for
                             hashtag placeholders.]</nowiki>
 ```
 Note: this example has line breaks added to fit on the page. Each element in MediaWiki must appear on one line.
@@ -436,14 +436,14 @@ The Manchester Owl syntax for schema attributes is similar to that of classes ab
 
 ```text
 DataProperty: hed:HED_0010307
-    Annotations: 
+    Annotations:
         dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
         rdfs:label "extensionAllowed",
         hed:HED_0010704 true,
-		hed:HED_0010702 true 
-    Domain: 
-        heds:HED_0000005  
-    Range: 
+		hed:HED_0010702 true
+    Domain:
+        heds:HED_0000005
+    Range:
         xsd:boolean
 
 ```
@@ -476,7 +476,7 @@ Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attr
 
 ```text
 AnnotationProperty: heds:HED_0010502
-    Annotations: 
+    Annotations:
         dc:description "This top-level library schema node should have a parent which is the indicated node in the partnered standard schema.",
         rdfs:label "rooted",
         hed:HED_0010704 true,

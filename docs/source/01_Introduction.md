@@ -2,7 +2,7 @@
 
 This document contains the specification for third generation HED or HED-3G. It is meant for the implementers and users of HED tools. Other tutorials and tagging guides are available to researchers using HED to annotate their data. This specification applies to HED Schema versions > 8.0.0 and above.
 
-The aspects of HED that are described in this document are supported or will soon be supported by validators and other tools and are available for immediate use by annotators. The schema vocabulary can be viewed using an expandable [schema viewer](https://www.hedtags.org/display_hed.html).
+The aspects of HED that are described in this document are supported or will soon be supported by validators and other tools and are available for immediate use by annotators. The schema vocabulary can be viewed using an expandable [schema viewer](https://www.hedtags.org/hed-schema-browser).
 
 All HED-related source and documentation repositories are housed on the HED-standard organization GitHub site, [https://github.com/hed-standard](https://github.com/hed-standard), which is maintained by the HED Working Group. HED development is open-source and community-based. Also see the official HED website [https://www.hedtags.org](https://www.hedtags.org) for a list of additional resources.
 
@@ -49,7 +49,7 @@ class: tip
 
 ```
 
-Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to be organized in a balanced hierarchy with a limited number of subcategories at each node. Use the expandable [schema browser](https://www.hedtags.org/display_hed.html) to browser the vocabulary and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology) defines some important HED tags and terminology used in HED.
+Following basic design principles, the HED Working Group redesigned the HED vocabulary tree to be organized in a balanced hierarchy with a limited number of subcategories at each node. Use the expandable [schema browser](https://www.hedtags.org/hed-schema-browser) to browser the vocabulary and explore the overall organization. [Chapter2:Terminology](02_Terminology.md#2-hed-terminology) defines some important HED tags and terminology used in HED.
 
 A major improvement in vocabulary design was the adoption of the requirement that individual nodes or terms in the HED vocabulary must be unique. This allows users to use individual node names (short form) rather than the full paths to the schema root during annotation, resulting in substantially simpler, more readable annotations.
 
