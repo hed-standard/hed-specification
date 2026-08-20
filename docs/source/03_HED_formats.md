@@ -44,25 +44,25 @@ HED has adopted a strategy that allows multiple small library schemas to be comb
 
 Schemas are combined by **merge group**: the schemas listed without a namespace prefix form one merge group, and the schemas sharing a given namespace prefix form another. Combination of different schemas into a single vocabulary can proceed provided there are no conflicts as governed by the following rules. A specification that violates any of these rules generates a [SCHEMA_LOAD_FAILED](./Appendix_B.md#schema_load_failed) error.
 
-| Topic | Rule |
-| ----- | ---- |
-| Merge groups | Schemas listed without a namespace prefix form a single merge group. |
-| Merge groups | Schemas listed with the same namespace prefix form a single merge group. |
-| Merge groups | Each merge group is resolved independently; the standard schema partners of different merge groups do not have to agree. |
-| Merge groups | Schemas in a merge group are merged in the order listed. Whether or not the load fails is independent of order, but what element first generates a conflict depends on the order. |
-| Merge groups | A merge group cannot have multiple copies of the same schema (the same name and version). Different versions of the same library schema may appear in a merge group if they satisfy the other rules. |
-| Standard partner | All partnered library schemas in a merge group must have the same standard schema partner (the same `withStandard` version). |
-| Standard partner | A standard schema in a merge group is ignored if its version is the same as the group partner. |
-| Standard partner | A standard schema in a merge group raises an error if its version differs from the group partner. |
-| Unpartnered schemas | An unpartnered library schema must be alone in its own namespace. |
+| Topic                 | Rule                                                                                                                                                                                                             |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Merge groups          | Schemas listed without a namespace prefix form a single merge group.                                                                                                                                             |
+| Merge groups          | Schemas listed with the same namespace prefix form a single merge group.                                                                                                                                         |
+| Merge groups          | Each merge group is resolved independently; the standard schema partners of different merge groups do not have to agree.                                                                                         |
+| Merge groups          | Schemas in a merge group are merged in the order listed. Whether or not the load fails is independent of order, but what element first generates a conflict depends on the order.                                |
+| Merge groups          | A merge group cannot have multiple copies of the same schema (the same name and version). Different versions of the same library schema may appear in a merge group if they satisfy the other rules.             |
+| Standard partner      | All partnered library schemas in a merge group must have the same standard schema partner (the same `withStandard` version).                                                                                     |
+| Standard partner      | A standard schema in a merge group is ignored if its version is the same as the group partner.                                                                                                                   |
+| Standard partner      | A standard schema in a merge group raises an error if its version differs from the group partner.                                                                                                                |
+| Unpartnered schemas   | An unpartnered library schema must be alone in its own namespace.                                                                                                                                                |
 | Element compatibility | An element (tag, unit class, unit, or schema attribute) appearing in more than one schema of a merge group must have the same attribute values, the same description, and the same ancestor path in each schema. |
-| Element compatibility | An element appearing in more than one schema of a merge group must either have a `#` child in all of them, or in none of them. |
-| Element compatibility | A shared element can have different non-`#` children, but the compatibility rules apply to shared children in the same way. |
-| Auxiliary sections | Partnered library schemas can specify schema attributes or properties. |
-| Auxiliary sections | New library schema unit classes and their accompanying units are merged directly. |
-| Auxiliary sections | New library schema units under an existing unit class are merged if there are no conflicts. |
-| Auxiliary sections | New library schema value classes are merged if there are no conflicts. |
-| Prologue and epilogue | The prologues and epilogues of the merged schemas are ignored, since merge groups are never saved. |
+| Element compatibility | An element appearing in more than one schema of a merge group must either have a `#` child in all of them, or in none of them.                                                                                   |
+| Element compatibility | A shared element can have different non-`#` children, but the compatibility rules apply to shared children in the same way.                                                                                      |
+| Auxiliary sections    | Partnered library schemas can specify schema attributes or properties.                                                                                                                                           |
+| Auxiliary sections    | New library schema unit classes and their accompanying units are merged directly.                                                                                                                                |
+| Auxiliary sections    | New library schema units under an existing unit class are merged if there are no conflicts.                                                                                                                      |
+| Auxiliary sections    | New library schema value classes are merged if there are no conflicts.                                                                                                                                           |
+| Prologue and epilogue | The prologues and epilogues of the merged schemas are ignored, since merge groups are never saved.                                                                                                               |
 
 See [7.3.6. Lazy partnering](./07_Library_schemas.md#736-lazy-partnering) for a description of the merging process and examples.
 
