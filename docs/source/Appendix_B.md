@@ -119,11 +119,13 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 ### SCHEMA_LOAD_FAILED
 
-**a.** Different standard schema versions in a merge group.\
-**b.** Library schemas in merge group have the same tag.\
-**c.** A schema with that name, version, and namespace prefix cannot be found.
+**a.** Multiple copies of the same schema in a merge group.\
+**b.** Different standard schema partner versions in a merge group.\
+**c.** A partnered library schema has an element (e.g., tag, unit class, unit, value class or schema attribute) that is already in its standard schema partner.\
+**d.** Elements of two library schemas in the same merge group have the same name but have conflicting attributes, description, or parents.\
+**e.** A schema with a specified name and version cannot be found. Note: this issue may elicit a file not found `HED_FILE_ERROR` depending on the validator.
 
-See \[7.2.5.6 Loading multiple partnered schemas\](./07_Library_schemas.md#7256-loading- multiple-partnered-schemas) for a more detailed description of the rules.
+See [3.1.2.2. Rules for partnered combination](./03_HED_formats.md#3122-rules-for-partnered-combination) for the rule table and [7.3.6. Lazy partnering](./07_Library_schemas.md#736-lazy-partnering) for a description of the merging process.
 
 ### SIDECAR_BRACES_INVALID
 

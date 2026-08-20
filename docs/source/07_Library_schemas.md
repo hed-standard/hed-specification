@@ -165,32 +165,13 @@ In the following example, all the library schemas are partnered with '8.2.0'. Li
 ````{admonition} Example: Merging of multiple schemas.
 
 ```
-     ['liba_1.0.0', 'ac:libb_2.8.1', 'libc_4.3.2', '8.2.0', sc:test_1.3.2', 'ac:exam_2.3.2']
+     ['liba_1.0.0', 'ac:libb_2.8.1', 'libc_4.3.2', '8.2.0', 'sc:test_1.3.2', 'ac:exam_2.3.2']
 ```
 ````
 
-```{admonition} Rules for lazy merging of multiple partnered schemas.
----
-class: tip
----
-1. Partnered library schemas MUST have same standard schema partner to merge.
-2. Partnered library schemas with no prefix form a merge group.
-3. Schemas with the same namespace prefix form a merge group.
-4. Schemas in the same merged group are merged in the order.
-5. Standard schemas in a merge group are ignored if already the group partner.  
-6. Standard schemas in a merge group raise an error if different from the group partner.
-7. The prefixes of the resulting merge groups must be unique. 
-8. Elements appearing in more than one library schema in a merge group must satisfy the compatibility rules of [3.1.2.2. Rules for partnered combination](./03_HED_formats.md#3122-rules-for-partnered-combination); otherwise the load fails.
-9. The prologues and epilogues of the schemas are ignored since merge groups are never saved.
-10. Partnered library schemas can specify schema attributes or properties.
-11. New library schema unit classes and their accompanying units are merged directly. 
-12. New library schema units under an existing unit class are merged if no conflicts.
-13. New library schema value classes are merged if no conflicts. 
+The full set of rules governing merge groups and partnered combination is given in the rule table of [3.1.2.2. Rules for partnered combination](./03_HED_formats.md#3122-rules-for-partnered-combination).
 
-
-```
-
-If an incompatible list of schemas is given, a [SCHEMA_LOAD_FAILED](./Appendix_B.md#b24-schema-loading-errors) error is generated.
+If an incompatible list of schemas is given, a [SCHEMA_LOAD_FAILED](./Appendix_B.md#schema_load_failed) error is generated.
 
 ```{admonition} Avoid new auxiliary section entries in library schemas.
 ---
