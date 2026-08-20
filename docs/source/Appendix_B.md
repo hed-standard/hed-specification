@@ -119,7 +119,7 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 ### SCHEMA_LOAD_FAILED
 
-**a.** Multiple copies of the same schema in a merge group.\
+**a.** Multiple copies of the same schema (the same name and version) in a merge group.\
 **b.** Different standard schema partner versions in a merge group.\
 **c.** A partnered library schema has an element (e.g., tag, unit class, unit, value class or schema attribute) that is already in its standard schema partner.\
 **d.** Elements of two library schemas in the same merge group have the same name but have conflicting attributes, description, or parents.\

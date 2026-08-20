@@ -50,7 +50,7 @@ Schemas are combined by **merge group**: the schemas listed without a namespace 
 | Merge groups | Schemas listed with the same namespace prefix form a single merge group. |
 | Merge groups | Each merge group is resolved independently; the standard schema partners of different merge groups do not have to agree. |
 | Merge groups | Schemas in a merge group are merged in the order listed. Whether or not the load fails is independent of order, but what element first generates a conflict depends on the order. |
-| Merge groups | A merge group cannot have multiple copies of the same schema. |
+| Merge groups | A merge group cannot have multiple copies of the same schema (the same name and version). Different versions of the same library schema may appear in a merge group if they satisfy the other rules. |
 | Standard partner | All partnered library schemas in a merge group must have the same standard schema partner (the same `withStandard` version). |
 | Standard partner | A standard schema in a merge group is ignored if its version is the same as the group partner. |
 | Standard partner | A standard schema in a merge group raises an error if its version differs from the group partner. |
