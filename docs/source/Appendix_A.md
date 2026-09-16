@@ -367,7 +367,7 @@ For example, the `numericClass` value class includes `allowedCharacter` entries 
 
 #### A.1.4.2. annotation
 
-The `annotation` attribute provides a link from a HED schema element to a corresponding term in an external ontology or controlled vocabulary. This attribute, added in version `8.3.0`, enables semantic interoperability and allows HED to integrate with broader ontological frameworks. The attribute value uses a standard prefix notation format (e.g., `ncit:C25499` for an NCI Thesaurus term, where `ncit` is the ontology designator and `C25499` is the term identifier). These cross-references support linked data applications, ontology mapping, and semantic reasoning tools. Multiple `annotation` attributes can be used to link a single HED element to terms in multiple external ontologies.
+The `annotation` attribute attaches a property from an external ontology or vocabulary to a HED schema element. The attribute was added in version `8.3.0`. For standard schemas with versions >= `8.5.0` and library schemas partnered with them (HED specification `4.0.0`), the value has the form `prefix:id value`: `prefix:id` names a row of the External annotations section ([A.1.8. External annotations](#a18-external-annotations)), whose `prefix` is a row of the Prefixes section ([A.1.7. Schema prefixes](#a17-schema-prefixes)), and `value` is that property's value. For example, `rdfs:comment Should have this tag in every event process.` attaches a comment, and `dc:source Wikipedia` cites a source ([A.1.6. Schema sources](#a16-schema-sources) says what a `dc:source` value must name). A link from a schema element to a term in an external ontology uses a SKOS mapping property whose value is the external term in prefix notation: `skos:exactMatch ncit:C25499` states a high degree of confidence that the element and NCI Thesaurus term C25499 can be used interchangeably across a wide range of information retrieval applications, and `skos:closeMatch` that they are similar enough to be used interchangeably in some information retrieval applications. The value of a mapping property must be in prefix notation, and the prefix of the term (`ncit:`) must be a row of the Prefixes section; the term itself is not checked. An element may carry several `annotation` attributes. A value that breaks these rules is a [SCHEMA_ANNOTATION_INVALID](./Appendix_B.md#schema_annotation_invalid) warning. Earlier schemas wrote a bare term such as `ncit:C25499`; files partnered with standard schemas before `8.5.0` keep that form, and tools do not check it.
 
 #### A.1.4.3. conversionFactor
 
@@ -577,7 +577,7 @@ The schema sources section provides references to external resources used during
 
 Schema sources serve as documentation and attribution for the intellectual sources that informed the schema design. For example, the HED standard schema typically includes Wikipedia as a source, since many term descriptions and conceptual definitions are informed by or adapted from Wikipedia definitions. Other sources might include published ontologies, scientific literature, or technical standards documents.
 
-While schema sources are informational and do not affect validation or tool processing, they provide important provenance information for schema maintainers and users who need to understand the basis for schema terminology and organization. Each source has three required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
+Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation](#a142-annotation)). The value of a `dc:source` annotation names a source when it begins with a row's `source` name, or contains a URL that begins with a row's `link` (compared without the scheme and without a trailing slash); any other text, such as "Adapted from", is free. A `dc:source` value that names no row is a [SCHEMA_ANNOTATION_INVALID](./Appendix_B.md#schema_annotation_invalid) warning. The rows of a partnered library's standard schema count as the library's own. Each source has three required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
 
 - **`source`**: A short identifier for the source (e.g., "Wikipedia", "NCIT")
 - **`link`**: A URL pointing to the source resource
@@ -591,7 +591,7 @@ The schema sources section was added with the release of HED standard schema `8.
 
 The schema prefixes section defines namespace prefixes used for linking HED schema elements to external ontologies and controlled vocabularies. Each prefix entry associates a short prefix string (e.g., `dc:`, `ncit:`, `owl:`) with its full namespace IRI and provides a description of the ontology or vocabulary it represents.
 
-Schema prefixes are essential for the `annotation` schema attribute, which uses prefix notation to create links between HED elements and external ontology terms. For example, the annotation `ncit:C25499` uses the `ncit:` prefix to reference term C25499 in the NCI Thesaurus. Without the prefix definition, tools cannot resolve these references to their full IRIs.
+Schema prefixes are essential for the `annotation` schema attribute, which uses prefix notation to create links between HED elements and external ontology terms. For example, the annotation `skos:exactMatch ncit:C25499` uses the `skos:` prefix for the mapping property and the `ncit:` prefix to reference term C25499 in the NCI Thesaurus. Without the prefix definition, tools cannot resolve these references to their full IRIs.
 
 Each prefix entry has three required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
 
@@ -620,7 +620,7 @@ External annotations serve multiple purposes:
 
 1. **Documentation**: Properties like `dc:description` and `dc:title` provide standardized ways to document schema elements
 2. **Provenance**: Properties like `dc:creator`, `dc:contributor`, and `dc:date` track authorship and version history
-3. **Cross-references**: Properties like `obogo:has_dbxref` enable systematic cross-referencing with external databases
+3. **Cross-references**: The SKOS mapping properties `skos:exactMatch` and `skos:closeMatch` link a schema element to a term in an external ontology, and properties like `obogo:has_dbxref` enable systematic cross-referencing with external databases
 4. **Licensing**: Properties like `terms:license` formally declare usage rights
 
 The external annotations section works in conjunction with the schema prefixes section. Each annotation must use a prefix that is defined in the schema prefixes section. Tools can use external annotations to generate rich metadata, export schemas to RDF/OWL formats, and integrate HED with broader ontology frameworks.
@@ -1779,7 +1779,7 @@ The Tag file contains all HED tags with their hierarchy and attributes:
 ````{admonition} Example TSV Tag file layout.
 ```text
 hedId	Level	rdfs:label	omn:SubClassOf	Attributes	dc:description
-HED_0012001	0	Event	HedTag	suggestedTag=Task-property, annotation=ncit:C25499	Something that happens...
+HED_0012001	0	Event	HedTag	suggestedTag=Task-property, annotation=skos:exactMatch ncit:C25499	Something that happens...
 HED_0012002	1	Sensory-event	Event	suggestedTag=Task-event-role	Something perceivable...
 ```
 ````

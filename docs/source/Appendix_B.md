@@ -294,6 +294,17 @@ This section is organized by the type of schema format that results in the error
 
 ### B.2.1. General validation errors
 
+#### SCHEMA_ANNOTATION_INVALID\*
+
+**a.** An `annotation` value uses a prefix that is not a row of the Prefixes section.\
+**b.** The `prefix:id` of an `annotation` value is not a row of the External annotations section. A bare external term such as `glotto:afro1255` falls here; write `skos:exactMatch glotto:afro1255`.\
+**c.** A `dc:source` value names no row of the Sources section: it neither begins with a row's `source` name nor contains a URL under a row's `link`.\
+**d.** A value in prefix notation (`prefix:term`) has a prefix that is not a row of the Prefixes section, or the value of a SKOS mapping property (`skos:exactMatch`, `skos:closeMatch`) is not in prefix notation at all (`skos:exactMatch C25499`, `skos:exactMatch https://example.org/C25499`).
+
+The Prefixes, External annotations, and Sources rows of a partnered library's standard schema count as the library's own. Applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them.
+
+See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `annotation` value and [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources) for what a `dc:source` value must name.
+
 #### SCHEMA_ATTRIBUTE_INVALID
 
 **a.** An attribute is used in the schema, but is not defined in the schema attribute section.\

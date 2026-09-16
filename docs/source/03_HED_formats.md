@@ -267,7 +267,7 @@ A tool that reads a schema file requires all three sections in a standard schema
 
 Each of these sections is a table of rows with fixed columns:
 
-- **Sources** records the external resources consulted in developing the schema. Columns: `source` (a short name), `link` (a URL), and `description`.
+- **Sources** records the external resources consulted in developing the schema. Columns: `source` (a short name), `link` (a URL), and `description`. A `dc:source` annotation must name one of these rows (see [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources)).
 - **Prefixes** defines the namespace prefixes used in `annotation` attribute values. Columns: `prefix` (including the trailing colon), `namespace` (the IRI of the namespace), and `description`.
 - **External annotations** lists the properties from external ontologies that may be attached to schema elements. Columns: `prefix` (which must be defined in the Prefixes section), `id` (the local identifier), `iri` (the full IRI of the property), and `description`.
 
