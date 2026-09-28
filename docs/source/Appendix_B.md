@@ -284,7 +284,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 **b.** A tag value is incompatible with the specified value class.\
 **c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
 **d.** The units are not separated from the value by a single blank.\
-**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a`, including rows whose assembled annotation does not use the column.
+**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column.
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 
