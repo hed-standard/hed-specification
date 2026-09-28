@@ -234,7 +234,7 @@ A BIDS regular expression for this is:
 4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
-7. The `textClass` is for descriptions, mainly for use with the `Description` tag. From standard schema `8.5.0` its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
+7. The `textClass` is for descriptions, mainly for use with the `Description` tag. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
 8. The `posixPath` class allows digits, letters, forward slash, and colon characters for POSIX path specifications.
 
 ````

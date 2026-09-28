@@ -151,4 +151,4 @@ Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF
 | `value-text`    | `text` excluding left and right parentheses, number sign, and tilde.              |
 | `vertical-bar`  | ASCII code 124                                                                    |
 
-`text` is the character set of the prologue, epilogue, and element descriptions of a schema, and of textClass values in standard schemas before `8.5.0`. `value-text` is the textClass character set from standard schema `8.5.0`: the characters a value may contain without changing the structure of the HED string it is substituted into.
+`text` is the character set of the prologue, epilogue, and element descriptions of a schema, and of textClass values in standard schemas before `8.5.0`. `value-text` is the textClass character set from standard schema `8.5.0` and in libraries partnered with `8.5.0` or later: the characters a value may contain without changing the structure of the HED string it is substituted into.
