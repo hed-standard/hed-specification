@@ -784,6 +784,7 @@ the name of another HED-annotated column within the sidecar.
 2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
 3. During assembly of a HED annotation for an event, if the 'n/a' value appears in a curly brace column,
 the curly brace expression including the curly braces as well as any extra parentheses or commas are removed.
+A value other than `n/a` or blank in a curly brace column is validated in every row, whether or not the row's template substitutes it.
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
 5. The curly braces cannot be used within a `Definition`.
@@ -892,6 +893,8 @@ See [BIDS tabular files](06_Infrastructure_and_tools.md#631-bids-tabular-files) 
 #### 3.2.10.2. Tabular annotations
 
 HED annotations in tabular files can occur both in a `HED` column within the file and in an associated JSON sidecar.
+
+The values in a tabular column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
 The HED strings that appear in a `HED` column must be valid HED strings. If the first column is not called `onset`, the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
 
