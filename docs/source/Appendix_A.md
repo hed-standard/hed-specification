@@ -213,7 +213,7 @@ header-rows: 1
 * - posixPath
   - `digits`, `letters`, `slash`, `colon`
 * - textClass
-  - `text` (printable characters 32 <= ASCII < 127 excluding comma, square bracket, and curly braces, plus non-ASCII characters with ASCII codes > 127).
+  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for earlier versions. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
 ```
 
 See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the various character class definitions.
@@ -222,8 +222,8 @@ See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-
 ---
 class: tip
 ---
-1. Commas or single quotes are not allowed in any values with the exception of
-the Prologue, Epilogue, term descriptions in the HED schema, and in tsv column values
+1. Commas are not allowed in any values with the exception of
+term descriptions in the HED schema and tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
 2. Date-times should conform to ISO8601 date-time format "YYYY-MM-DDThh:mm:ss[.000000][Z]".
 A BIDS regular expression for this is:
@@ -234,7 +234,7 @@ A BIDS regular expression for this is:
 4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
-7. The `textClass` is for descriptions, mainly for use with the `Description` tag or schema element descriptions.
+7. The `textClass` is for descriptions, mainly for use with the `Description` tag. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
 8. The `posixPath` class allows digits, letters, forward slash, and colon characters for POSIX path specifications.
 
 ````
@@ -741,7 +741,7 @@ Early versions of HED use the prologue section to record a CHANGE_LOG as well as
 
 The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
 
-Both the prologue and epilogue may contain commas and new lines in addition to the characters specified by the [`textClass`](./Appendix_A.md#a13-value-classes).
+Both the prologue and epilogue may contain new lines in addition to the characters of the `text` character set ([2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)); commas are not allowed.
 
 ### A.2.4. MediaWiki schema section
 
@@ -886,7 +886,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 #### A.2.5.6. Epilogue
 
-The epilogue section is marked by `'''Epilogue'''` and contains a text block with information about the schema license, attribution, and other metadata. The epilogue text appears on lines following the header without any special formatting markers. The epilogue may contain commas and extended characters as allowed for `textClass`.
+The epilogue section is marked by `'''Epilogue'''` and contains a text block with information about the schema license, attribution, and other metadata. The epilogue text appears on lines following the header without any special formatting markers. The epilogue may contain new lines and the characters of the `text` character set, which includes non-ASCII characters; commas are not allowed.
 
 ````{admonition} **Example:** HED schema epilogue in .mediawiki format.
 
