@@ -106,46 +106,49 @@ A contiguous portion of the data recording during which some aspect of the exper
 
 Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF-8 characters in various settings. The types of characters referred to in this specification are:
 
-| Name            | Description                                                     |
-| --------------- | --------------------------------------------------------------- |
-| `alphanumeric`  | `letters` and/or `digits`                                       |
-| `ampersand`     | ASCII code 38                                                   |
-| `ascii`         | utf-8 codes 0 to 127 (single byte)                              |
-| `asterisk`      | ASCII code 42                                                   |
-| `at-sign`       | ASCII code 64                                                   |
-| `backslash`     | ASCII code 92                                                   |
-| `blank`         | ASCII code 32                                                   |
-| `caret`         | ASCII code 94                                                   |
-| `colon`         | ASCII code 58                                                   |
-| `comma`         | ASCII code 44                                                   |
-| `dollar`        | ASCII code 36                                                   |
-| `digits`        | 0-9                                                             |
-| `double-quote`  | ASCII code 34                                                   |
-| `equals`        | ASCII code 61                                                   |
-| `exclamation`   | ASCII code 33                                                   |
-| `forward-slash` | ASCII code 47                                                   |
-| `greater-than`  | ASCII code 62                                                   |
-| `hyphen`        | ASCII code 45                                                   |
-| `left-paren`    | ASCII code 40                                                   |
-| `less-than`     | ASCII code 60                                                   |
-| `letters`       | `lowercase` and/or `uppercase`                                  |
-| `lowercase`     | ASCII characters a-z                                            |
-| `name`          | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii`    |
-| `newline`       | ASCII code 10 (linefeed)                                        |
-| `nonascii`      | utf-8 codes >= 160 (multi-byte)                                 |
-| `number-sign`   | ASCII code 35                                                   |
-| `numeric`       | digits, period, hyphen, plus, caret, E, e                       |
-| `percent-sign`  | ASCII code 37                                                   |
-| `period`        | ASCII code 46                                                   |
-| `plus`          | ASCII code 43                                                   |
-| `printable`     | ASCII 32 \<= code < 127                                         |
-| `question-mark` | ASCII code 63                                                   |
-| `right-paren`   | ASCII code 41                                                   |
-| `semicolon`     | ASCII code 59                                                   |
-| `single-quote`  | ASCII code 39                                                   |
-| `tab`           | ASCII code 09                                                   |
-| `text`          | `printable` and/or `nonascii` excluding comma and curly braces. |
-| `tilde`         | ASCII code 126                                                  |
-| `underscore`    | ASCII code 95                                                   |
-| `uppercase`     | ASCII characters A-Z                                            |
-| `vertical-bar`  | ASCII code 124                                                  |
+| Name            | Description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| `alphanumeric`  | `letters` and/or `digits`                                                         |
+| `ampersand`     | ASCII code 38                                                                     |
+| `ascii`         | utf-8 codes 0 to 127 (single byte)                                                |
+| `asterisk`      | ASCII code 42                                                                     |
+| `at-sign`       | ASCII code 64                                                                     |
+| `backslash`     | ASCII code 92                                                                     |
+| `blank`         | ASCII code 32                                                                     |
+| `caret`         | ASCII code 94                                                                     |
+| `colon`         | ASCII code 58                                                                     |
+| `comma`         | ASCII code 44                                                                     |
+| `dollar`        | ASCII code 36                                                                     |
+| `digits`        | 0-9                                                                               |
+| `double-quote`  | ASCII code 34                                                                     |
+| `equals`        | ASCII code 61                                                                     |
+| `exclamation`   | ASCII code 33                                                                     |
+| `forward-slash` | ASCII code 47                                                                     |
+| `greater-than`  | ASCII code 62                                                                     |
+| `hyphen`        | ASCII code 45                                                                     |
+| `left-paren`    | ASCII code 40                                                                     |
+| `less-than`     | ASCII code 60                                                                     |
+| `letters`       | `lowercase` and/or `uppercase`                                                    |
+| `lowercase`     | ASCII characters a-z                                                              |
+| `name`          | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii`                      |
+| `newline`       | ASCII code 10 (linefeed)                                                          |
+| `nonascii`      | utf-8 codes >= 160 (multi-byte)                                                   |
+| `number-sign`   | ASCII code 35                                                                     |
+| `numeric`       | digits, period, hyphen, plus, caret, E, e                                         |
+| `percent-sign`  | ASCII code 37                                                                     |
+| `period`        | ASCII code 46                                                                     |
+| `plus`          | ASCII code 43                                                                     |
+| `printable`     | ASCII 32 \<= code < 127                                                           |
+| `question-mark` | ASCII code 63                                                                     |
+| `right-paren`   | ASCII code 41                                                                     |
+| `semicolon`     | ASCII code 59                                                                     |
+| `single-quote`  | ASCII code 39                                                                     |
+| `tab`           | ASCII code 09                                                                     |
+| `text`          | `printable` and/or `nonascii` excluding comma, square brackets, and curly braces. |
+| `tilde`         | ASCII code 126                                                                    |
+| `underscore`    | ASCII code 95                                                                     |
+| `uppercase`     | ASCII characters A-Z                                                              |
+| `value-text`    | `text` excluding left and right parentheses, number sign, and tilde.              |
+| `vertical-bar`  | ASCII code 124                                                                    |
+
+`text` is the character set of the prologue, epilogue, and element descriptions of a schema, and of textClass values in standard schemas before `8.5.0`. `value-text` is the textClass character set from standard schema `8.5.0`: the characters a value may contain without changing the structure of the HED string it is substituted into.

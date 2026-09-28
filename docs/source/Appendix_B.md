@@ -26,6 +26,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 
 1. Starting with HED `8.3.0`, HED supports UTF-8 encoding.
 2. Different parts of a HED string have different rules for acceptable characters. For example tag names must satisfy the rules for the HED name class. The values used after tag names depend on the value classes of the tag and the unit classes of the tag.
+3. From standard schema `8.5.0`, a textClass value containing a parenthesis, number sign, or tilde is CHARACTER_INVALID under the value class. In earlier schemas the value class allows these characters, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde).
 
 **See also:**
 
@@ -281,7 +282,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 
 **a.** The value substituted for a placeholder (`#`) is not valid.\
 **b.** A tag value is incompatible with the specified value class.\
-**c.** A tag value with no value class is assumed to be a text and contains invalid characters.\
+**c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
 **d.** The units are not separated from the value by a single blank.
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
