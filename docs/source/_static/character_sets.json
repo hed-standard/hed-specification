@@ -1,6 +1,6 @@
 {
   "title": "HED character sets",
-  "description": "Machine-readable form of HED specification section 2.2 (Character sets and restrictions). The table in docs/source/02_Terminology.md is generated from this file by scripts/generate_character_table.py. Validators load this file unchanged; every regex uses only syntax that Python re and JavaScript RegExp share and matches exactly one character (one UTF-16 code unit in JavaScript).",
+  "description": "Machine-readable form of HED specification section 2.2 (Character sets and restrictions). The table in docs/source/02_Terminology.md is generated from this file by scripts/generate_character_table.py. Validators load this file unchanged; every regex uses only syntax that Python re and JavaScript RegExp share, with ASCII digit classes ([0-9], never a Unicode-aware shorthand). Each regex under sets matches exactly one character (one UTF-16 code unit in JavaScript); the regexes under value_class_words match a whole value and the one under hed_string.forbidden matches any single forbidden character.",
   "specification_version": "4.0.0",
   "file_version": "1.0.0",
   "sets": {
@@ -236,11 +236,11 @@
       }
     },
     "numericClass": {
-      "regex": "^[+-]?(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?$",
+      "regex": "^[+-]?([0-9]+(\\.[0-9]*)?|\\.[0-9]+)([eE][+-]?[0-9]+)?$",
       "description": "an optionally signed decimal number, with optional scientific-notation exponent",
       "tests": {
         "valid": ["3", "-3.5", ".5", "3.", "1e10", "-2.5E-3"],
-        "invalid": ["", "3 mA", "1e", "abc", "3^2", "+"]
+        "invalid": ["", "3 mA", "1e", "abc", "3^2", "+", "\u0663", "1\u0663"]
       }
     }
   },
