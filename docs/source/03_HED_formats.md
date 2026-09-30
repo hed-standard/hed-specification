@@ -173,7 +173,7 @@ The prologue may contain `text` characters or `newline`. If other characters app
 
 The schema section contains the actual vocabulary contents of the schema. Each element in this section is a *node* element, which we will also call a *tag term*. The location of the node element within the section specifies its relationship to other tag terms in the schema.
 
-A node element specifies a name, node attributes, and an informative description of the tag term's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, `period`, and `nonascii`).
+A node element specifies a name, node attributes, and an informative description of the tag term's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, and `nonascii`; see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
 This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
 

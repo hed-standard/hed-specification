@@ -228,12 +228,20 @@
   },
   "value_class_words": {
     "dateTimeClass": {
-      "regex": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$",
-      "description": "an ISO 8601 date-time: YYYY-MM-DDThh:mm:ss, optional fractional seconds, optional Z or offset"
+      "regex": "^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])T(?:2[0-3]|[01][0-9]):[0-5][0-9]:(?:[0-5][0-9]|60)(?:\\.[0-9]{1,6})?(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$",
+      "description": "the BIDS Datetime format, RFC 3339 with an optional offset: YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm], fraction 1 to 6 digits, hour 00-23, seconds 00-60; a non-existent date such as 2026-02-31 passes, as in BIDS",
+      "tests": {
+        "valid": ["2026-09-30T09:55:00", "2026-09-30T09:55:00.5", "2026-09-30T09:55:00.123456Z", "2026-09-30T09:55:00+02:00", "2026-09-30T09:55:00-05:30", "2026-09-30T23:59:60"],
+        "invalid": ["2026-09-30", "2026-09-30 09:55:00", "2026-09-30t09:55:00z", "2026-09-30T09:55", "2026-09-30T09:55:00+0200", "2026-09-30T09:55:00+02", "2026-09-30T24:00:00", "2026-09-30T09:55:00.1234567", "2026-13-01T09:55:00", "2026-09-32T09:55:00", "2026-09-30T09:60:00", "2026-09-30T09:55:00+99:99", "20260930T095500"]
+      }
     },
     "numericClass": {
       "regex": "^[+-]?(\\d+(\\.\\d*)?|\\.\\d+)([eE][+-]?\\d+)?$",
-      "description": "an optionally signed decimal number, with optional scientific-notation exponent"
+      "description": "an optionally signed decimal number, with optional scientific-notation exponent",
+      "tests": {
+        "valid": ["3", "-3.5", ".5", "3.", "1e10", "-2.5E-3"],
+        "invalid": ["", "3 mA", "1e", "abc", "3^2", "+"]
+      }
     }
   },
   "hed_string": {

@@ -6,7 +6,7 @@ The table between ``<!-- character-sets:begin -->`` and ``<!-- character-sets:en
 validators load cannot disagree. The script also checks the file itself: every regex compiles in
 Python and, when ``node`` is on the path, in JavaScript; every name that ``value_class_defaults`` and
 ``hed_string`` use resolves to a set, an alias or a single character; and each set's ``excludes`` and
-``tests`` behave as stated in both languages.
+``tests`` behave as stated in both languages, as do the whole-value ``tests`` of ``value_class_words``.
 
 Usage (from the repository root, standard library only):
 
@@ -42,7 +42,10 @@ for (const [name, entry] of Object.entries(data.sets)) {
   for (const ch of (entry.tests || {}).invalid || []) { if (rx.test(ch)) { console.log(`node: ${name}: ${JSON.stringify(ch)} should not match`); failures++; } }
 }
 for (const [name, entry] of Object.entries(data.value_class_words)) {
-  try { new RegExp(entry.regex); } catch (e) { console.log(`node: value_class_words.${name}: ${e.message}`); failures++; }
+  let rx;
+  try { rx = new RegExp(entry.regex); } catch (e) { console.log(`node: value_class_words.${name}: ${e.message}`); failures++; continue; }
+  for (const v of (entry.tests || {}).valid || []) { if (!rx.test(v)) { console.log(`node: value_class_words.${name}: ${JSON.stringify(v)} should match`); failures++; } }
+  for (const v of (entry.tests || {}).invalid || []) { if (rx.test(v)) { console.log(`node: value_class_words.${name}: ${JSON.stringify(v)} should not match`); failures++; } }
 }
 try { new RegExp(data.hed_string.forbidden.regex); } catch (e) { console.log(`node: hed_string.forbidden: ${e.message}`); failures++; }
 process.exit(failures ? 1 : 0);
@@ -98,9 +101,16 @@ def check_file(data):
             problems.append(f"hed_string.tag_chars: unknown name {name}")
     for name, entry in data["value_class_words"].items():
         try:
-            re.compile(entry["regex"])
+            word = re.compile(entry["regex"])
         except re.error as exc:
             problems.append(f"value_class_words.{name}: {exc}")
+            continue
+        for value in entry.get("tests", {}).get("valid", []):
+            if not word.match(value):
+                problems.append(f"value_class_words.{name}: {value!r} should match")
+        for value in entry.get("tests", {}).get("invalid", []):
+            if word.match(value):
+                problems.append(f"value_class_words.{name}: {value!r} should not match")
     try:
         re.compile(data["hed_string"]["forbidden"]["regex"])
     except re.error as exc:
