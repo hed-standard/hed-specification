@@ -549,7 +549,7 @@ Units appear after the value. Units with the deprecated `unitPrefix` attribute (
 
 Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
 
-Additional checks may be made on the substituted values depending on the `valueClass`. For example `numericClass` values must be valid floating point numbers and `dateTimeClass` values must be valid ISO8601 values conforming to the [BIDS data-time requirements](https://bids-specification.readthedocs.io/en/stable/glossary.html#datetime-formats).
+Additional checks are made on the substituted values depending on the `valueClass`: `numericClass` values must be valid floating point numbers and `dateTimeClass` values must have the [BIDS Datetime format](https://bids-specification.readthedocs.io/en/stable/glossary.html#datetime-formats), RFC 3339 with an optional offset. The whole-value rules are the `value_class_words` entries of [`character_sets.json`](_static/character_sets.json); see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes).
 
 The values of HED tag placeholders cannot stand alone, but must include the parent when used in a HED string. For example, the `Label` node in the HED schema has the `#` child. Thus, the value `myLabel` meant to substitute for the `#` child of the `Label` node must include `Label` term when used in a HED tag (e.g., `Label/myLabel` not `myLabel`).
 
