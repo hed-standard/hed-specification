@@ -27,6 +27,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 1. Starting with HED `8.3.0`, HED supports UTF-8 encoding.
 2. Different parts of a HED string have different rules for acceptable characters. For example tag names must satisfy the rules for the HED name class. The values used after tag names depend on the value classes of the tag and the unit classes of the tag.
 3. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, a textClass value containing a parenthesis, number sign, or tilde is CHARACTER_INVALID under the value class. In earlier schemas the value class allows these characters, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde).
+4. The character sets named here and in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) are published as [`character_sets.json`](_static/character_sets.json). A validator reporting this error names the character, its position, and the set it failed.
 
 **See also:**
 
@@ -334,18 +335,18 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 
 **a.** A non-boolean schema attribute has an invalid value or usage as indicated by the following table.
 
-| Attribute          | Invalid Attribute Value                                                            |
-| ------------------ | ---------------------------------------------------------------------------------- |
-| `allowedCharacter` | Not a single character or one of:<br>`letters`, `blank`, `digits`, `alphanumeric`. |
-| `conversionFactor` | Not a positive numeric value.                                                      |
-| `defaultUnits`     | Not a unit, or a derived form of a unit, of this unit class.                       |
-| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error)                          |
-| `inLibrary`        | The value of an inLibrary attribute is for the wrong library.                      |
-| `relatedTag`       | Not an existing tag.                                                               |
-| `rooted`           | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                              |
-| `suggestedTag`     | Not an existing tag.                                                               |
-| `unitClass`        | Not an existing unit class, more than one, or `valueClass` not `numericClass`.     |
-| `valueClass`       | Not an existing value class.                                                       |
+| Attribute          | Invalid Attribute Value                                                                                                         |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `allowedCharacter` | Not a character set name or alias of [2.2](./02_Terminology.md#22-character-sets-and-restrictions), and not a single character. |
+| `conversionFactor` | Not a positive numeric value.                                                                                                   |
+| `defaultUnits`     | Not a unit, or a derived form of a unit, of this unit class.                                                                    |
+| `deprecatedFrom`   | See [SCHEMA_DEPRECATION_ERROR](#schema_deprecation_error)                                                                       |
+| `inLibrary`        | The value of an inLibrary attribute is for the wrong library.                                                                   |
+| `relatedTag`       | Not an existing tag.                                                                                                            |
+| `rooted`           | See [SCHEMA_LIBRARY_INVALID](#schema_library_invalid)                                                                           |
+| `suggestedTag`     | Not an existing tag.                                                                                                            |
+| `unitClass`        | Not an existing unit class, more than one, or `valueClass` not `numericClass`.                                                  |
+| `valueClass`       | Not an existing value class.                                                                                                    |
 
 The `valueClass` condition in the `unitClass` row applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them; earlier standard schemas keep placeholders such as `Sampling-rate/#` that have a unit class and no value class (see [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units)).
 

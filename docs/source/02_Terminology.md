@@ -106,6 +106,8 @@ A contiguous portion of the data recording during which some aspect of the exper
 
 Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF-8 characters in various settings. The types of characters referred to in this specification are:
 
+<!-- character-sets:begin -->
+
 | Name            | Description                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
 | `alphanumeric`  | `letters` and/or `digits`                                                         |
@@ -118,8 +120,8 @@ Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF
 | `caret`         | ASCII code 94                                                                     |
 | `colon`         | ASCII code 58                                                                     |
 | `comma`         | ASCII code 44                                                                     |
-| `dollar`        | ASCII code 36                                                                     |
 | `digits`        | 0-9                                                                               |
+| `dollar`        | ASCII code 36                                                                     |
 | `double-quote`  | ASCII code 34                                                                     |
 | `equals`        | ASCII code 61                                                                     |
 | `exclamation`   | ASCII code 33                                                                     |
@@ -130,19 +132,20 @@ Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF
 | `less-than`     | ASCII code 60                                                                     |
 | `letters`       | `lowercase` and/or `uppercase`                                                    |
 | `lowercase`     | ASCII characters a-z                                                              |
-| `name`          | `alphanumeric`, `hyphen`, `period`, `underscore`, `nonascii`                      |
+| `name`          | `alphanumeric`, `hyphen`, `underscore`, `nonascii`                                |
 | `newline`       | ASCII code 10 (linefeed)                                                          |
-| `nonascii`      | utf-8 codes >= 160 (multi-byte)                                                   |
+| `nonascii`      | utf-8 codes 160 and above (multi-byte)                                            |
 | `number-sign`   | ASCII code 35                                                                     |
 | `numeric`       | digits, period, hyphen, plus, caret, E, e                                         |
 | `percent-sign`  | ASCII code 37                                                                     |
 | `period`        | ASCII code 46                                                                     |
 | `plus`          | ASCII code 43                                                                     |
-| `printable`     | ASCII 32 \<= code < 127                                                           |
+| `printable`     | ASCII codes 32 to 126                                                             |
 | `question-mark` | ASCII code 63                                                                     |
 | `right-paren`   | ASCII code 41                                                                     |
 | `semicolon`     | ASCII code 59                                                                     |
 | `single-quote`  | ASCII code 39                                                                     |
+| `slash`         | Alias of `forward-slash`.                                                         |
 | `tab`           | ASCII code 09                                                                     |
 | `text`          | `printable` and/or `nonascii` excluding comma, square brackets, and curly braces. |
 | `tilde`         | ASCII code 126                                                                    |
@@ -151,4 +154,10 @@ Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF
 | `value-text`    | `text` excluding left and right parentheses, number sign, and tilde.              |
 | `vertical-bar`  | ASCII code 124                                                                    |
 
+<!-- character-sets:end -->
+
 `text` is the character set of the prologue, epilogue, and element descriptions of a schema, and of textClass values in standard schemas before `8.5.0`. `value-text` is the textClass character set from standard schema `8.5.0` and in libraries partnered with `8.5.0` or later: the characters a value may contain without changing the structure of the HED string it is substituted into.
+
+A schema names these sets in its `allowedCharacter` attributes (see [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter)). An `allowedCharacter` name is a name from this table, an alias listed in it, or a single character, which names itself: `allowedCharacter=T` allows `T`, and HED `8.0.0` through `8.2.0` write `allowedCharacter=-` where later versions write `allowedCharacter=hyphen`. The characters that no HED string may contain (Appendix B [CHARACTER_INVALID](./Appendix_B.md#character_invalid)) are excluded from every value whatever its value class allows.
+
+The table is generated from the machine-readable file [`character_sets.json`](_static/character_sets.json), published with this specification at `https://www.hedtags.org/hed-specification/_static/character_sets.json`. The file gives each set as a regular expression usable from Python and JavaScript, the default character sets of the standard value classes by schema version, and the structural characters of HED strings. Validators are expected to read that file rather than transcribe this table.

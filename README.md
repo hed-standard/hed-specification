@@ -60,3 +60,7 @@ The official library schemas are now housed on the [**hed-schemas**](https://git
 > [**Stable directory link for software requiring a HED schema for validation**](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml)
 
 > [**Stable link for the latest version of the HED**](https://raw.githubusercontent.com/hed-standard/hed-schemas/main/standard_schema/hedxml/HEDLatest.xml)
+
+> [**Machine-readable character sets**](https://www.hedtags.org/hed-specification/_static/character_sets.json)
+
+The character sets of section 2.2 of the specification (the names that `allowedCharacter` may use, each as a regular expression usable from Python and JavaScript, plus the default character sets of the standard value classes and the structural characters of HED strings) are published as `docs/source/_static/character_sets.json`. Validators read that file rather than copying the table. The table in `docs/source/02_Terminology.md` is generated from it: edit the JSON, then run `python scripts/generate_character_table.py`; `python scripts/generate_character_table.py --check` (run by CI) fails when the table or the file is off.

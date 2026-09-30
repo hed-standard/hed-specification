@@ -205,18 +205,18 @@ header-rows: 1
 * - Value class
   - Allowed characters
 * - dateTimeClass
-  - `digits`, `T`, `hyphen`, `colon`
+  - `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, `plus` (standard schema versions >= `8.5.0` and libraries partnered with them; earlier versions declare only the first four, and validators apply the same seven).
 * - nameClass
-  - `letters`, `digits`, `hyphen`, `underscore`
+  - `letters`, `digits`, `hyphen`, `underscore`, `nonascii` (`nonascii` from standard schema `8.3.0`; the released `8.3.0` and `8.4.0` rows omit it, and validators apply it anyway).
 * - numericClass
   - `digits`, `E`, `e`, `plus`, `hyphen`, `period`
 * - posixPath
   - `digits`, `letters`, `slash`, `colon`
 * - textClass
-  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for earlier versions. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
+  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for `8.3.0` and `8.4.0`; before `8.3.0` the explicit list `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@`. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
 ```
 
-See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the various character class definitions.
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same table, keyed by standard schema version, is the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json); from standard schema `8.5.0` a value class's own `allowedCharacter` declaration is what validators apply, and for earlier standard schemas they apply these defaults.
 
 ````{admonition} Notes on rules for allowed characters in the HED schema.
 ---
@@ -225,12 +225,15 @@ class: tip
 1. Commas are not allowed in any values with the exception of
 term descriptions in the HED schema and tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
-2. Date-times should conform to ISO8601 date-time format "YYYY-MM-DDThh:mm:ss[.000000][Z]".
-A BIDS regular expression for this is:
+2. A `dateTimeClass` value has the BIDS `Datetime` format, RFC 3339 with an optional offset:
+"YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm]", with one to six fractional digits, hour 00-23, and seconds 00-60.
+The regular expression, also the `value_class_words.dateTimeClass` entry of [`character_sets.json`](_static/character_sets.json), is:
 ```text
-[0-9]{4}-[0-9]{2}-[0-9]{2}T(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9](\.[0-9]{1,6})?([A-Z]{2,4})?
+^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])T(?:2[0-3]|[01][0-9]):[0-5][0-9]:(?:[0-5][0-9]|60)(?:\.[0-9]{1,6})?(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$
 ```
-3. Any variation on the full form of ISO8601 date-time is allowed.
+3. A date that does not exist, such as `2026-02-31`, passes the expression, as it does in BIDS.
+Other ISO 8601 forms (a date without a time, a space instead of `T`, lowercase `t` or `z`, `+hhmm`, basic format, week dates) are not valid.
+NWB's `isodatetime` type accepts every value of this format.
 4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
@@ -362,6 +365,8 @@ The `allowedCharacter` attribute specifies individual characters or character gr
 - `blank` indicates a space character is allowed.
 - `digits` indicates the digits 0-9 may be used in the value.
 - `alphanumeric` indicates both `letters` and `digits`.
+
+A name is a row of the table in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), an alias listed there (`slash` for `forward-slash`), or a single character, which names itself. Any other name is a schema error (SCHEMA_ATTRIBUTE_VALUE_INVALID). From standard schema `8.5.0`, and in library schemas partnered with `8.5.0` or later, the names a value class declares define the characters its values may contain; for earlier standard schemas, whose declarations predate the named sets, validators use the defaults recorded for each standard value class in [`character_sets.json`](_static/character_sets.json).
 
 For example, the `numericClass` value class includes `allowedCharacter` entries for `digits`, `E`, `e`, `+`, `-`, and `.` to support scientific notation and signed decimal numbers. The union of all `allowedCharacter` values for a value class defines the complete set of permissible characters.
 

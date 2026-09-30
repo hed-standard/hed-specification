@@ -11,10 +11,11 @@ Run commands from the activated `.venv`; CI runs the equivalents via uvx.
 - Install dev env: `python -m venv .venv`, activate it, then `pip install -e ".[dev]"`
 - Build docs: `sphinx-build -b html docs/source docs/_build/html`
 - Spelling: `typos`
+- Character table: `python scripts/generate_character_table.py` regenerates the section 2.2 table in `docs/source/02_Terminology.md` from `docs/source/_static/character_sets.json`; `--check` fails when the table or the file is off (CI: `character-sets.yaml`). Edit the JSON, never the table.
 - Markdown format check: `python -m mdformat --check --wrap no --number docs/source *.md`
 - Link check (after building docs): `lychee --config lychee.toml 'docs/_build/html/**/*.html'`
 
-CI runs the same checks on every push and PR to `main` (`.github/workflows/`): deploy-docs.yml (Sphinx build), typos.yaml, mdformat.yaml, and links.yaml (weekly schedule plus manual).
+CI runs the same checks on every push and PR to `main` (`.github/workflows/`): deploy-docs.yml (Sphinx build), typos.yaml, mdformat.yaml, character-sets.yaml (the generator's `--check`), and links.yaml (weekly schedule plus manual).
 
 ## Layout
 
