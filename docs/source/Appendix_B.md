@@ -27,6 +27,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 1. Starting with HED `8.3.0`, HED supports UTF-8 encoding.
 2. Different parts of a HED string have different rules for acceptable characters. For example tag names must satisfy the rules for the HED name class. The values used after tag names depend on the value classes of the tag and the unit classes of the tag.
 3. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, a textClass value containing a parenthesis, number sign, or tilde is CHARACTER_INVALID under the value class. In earlier schemas the value class allows these characters, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde).
+4. The character sets named here and in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) are published as [`character_sets.json`](_static/character_sets.json). A validator reporting this error names the character, its position, and the set it failed.
 
 **See also:**
 

@@ -363,6 +363,8 @@ The `allowedCharacter` attribute specifies individual characters or character gr
 - `digits` indicates the digits 0-9 may be used in the value.
 - `alphanumeric` indicates both `letters` and `digits`.
 
+A name is a row of the table in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), an alias listed there (`slash` for `forward-slash`), or a single character, which names itself. Any other name is a schema error (SCHEMA_ATTRIBUTE_VALUE_INVALID). From standard schema `8.5.0`, and in library schemas partnered with `8.5.0` or later, the names a value class declares define the characters its values may contain; for earlier standard schemas, whose declarations predate the named sets, validators use the defaults recorded for each standard value class in [`character_sets.json`](_static/character_sets.json).
+
 For example, the `numericClass` value class includes `allowedCharacter` entries for `digits`, `E`, `e`, `+`, `-`, and `.` to support scientific notation and signed decimal numbers. The union of all `allowedCharacter` values for a value class defines the complete set of permissible characters.
 
 #### A.1.4.2. annotation

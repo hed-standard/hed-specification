@@ -1,0 +1,24 @@
+---
+name: Character sets
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  character-sets:
+    name: character_sets.json and the section 2.2 table agree
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Check the file and the generated table
+        # The runner image provides python3 and node; the script uses the standard library only.
+        run: python3 scripts/generate_character_table.py --check
