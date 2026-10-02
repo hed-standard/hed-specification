@@ -231,7 +231,8 @@ The regular expression, also the `value_class_words.dateTimeClass` entry of [`ch
 ```text
 ^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])T(?:2[0-3]|[01][0-9]):[0-5][0-9]:(?:[0-5][0-9]|60)(?:\.[0-9]{1,6})?(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$
 ```
-3. A date that does not exist, such as `2026-02-31`, passes the expression, as it does in BIDS.
+3. The date must also exist in the Gregorian calendar (HED specification `4.0.0`): `2026-02-31` and `2027-02-29` are invalid, `2028-02-29` is valid.
+The BIDS specification requires validators to reject such dates; HED validators check the calendar after the expression, for every schema version.
 Other ISO 8601 forms (a date without a time, a space instead of `T`, lowercase `t` or `z`, `+hhmm`, basic format, week dates) are not valid.
 NWB's `isodatetime` type accepts every value of this format.
 4. The `nameClass` is for schema nodes.
