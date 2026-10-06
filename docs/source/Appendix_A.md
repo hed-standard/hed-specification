@@ -213,7 +213,7 @@ header-rows: 1
 * - posixPath
   - `digits`, `letters`, `slash`, `colon`
 * - textClass
-  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for `8.3.0` and `8.4.0`; before `8.3.0` the explicit list `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@`. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
+  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for earlier versions. The `8.0.0` to `8.2.0` schemas enumerate `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@` (no underscore); validators have always applied `text` there and still do. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
 ```
 
 See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same table, keyed by standard schema version, is the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json); from standard schema `8.5.0` a value class's own `allowedCharacter` declaration is what validators apply, and for earlier standard schemas they apply these defaults.
