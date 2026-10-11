@@ -105,7 +105,7 @@ The following shows an excerpt from a BIDS event file:
 
 ```
 onset  duration  trial_type  response_time  HED
-1.2    0.6       go          1.435          Label/Starting-point, Quiet 
+1.2    0.6       go          1.435          Label/Starting-point, Quiet
 5.6    0.6       stop        1.739          n/a
 ```
 ````
@@ -132,9 +132,9 @@ For example, the annotations for the first row of the [example event file](./06_
 
 ```{admonition} Example assembled HED annotation for one event marker.
 
-> `Sensory-event`, `Visual-presentation`, (`Square`, `Blue`), 
+> `Sensory-event`, `Visual-presentation`, (`Square`, `Blue`),
 > (`Delay/1.435 ms`, `Agent-action`, (`Experiment-participant`, (`Press`, `Mouse-button`))),
-> `Label/Starting-point`, `Quiet` 
+> `Label/Starting-point`, `Quiet`
 
 ```
 
@@ -151,7 +151,7 @@ The following example `dataset_description.json` specifies that HED version `8.0
 ```json
 {
    "Name": "A wonderful experiment",
-   "BIDSVersion": "1.4.0", 
+   "BIDSVersion": "1.4.0",
    "HEDVersion": "8.0.0"
 }
 ```
