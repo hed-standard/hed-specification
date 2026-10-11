@@ -41,9 +41,9 @@ The following example defines the *PlayMovie* term.
 > *(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))*
 
 **Long form:** <br/>
-> *(Property/Organizational-property/<strong>Definition/PlayMovie</strong>,*
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*
+> *(Property/Organizational-property/<strong>Definition/PlayMovie</strong>,*\
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*\
 > *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>))*
 
 ```
@@ -53,13 +53,13 @@ The next example gives a definition that uses a placeholder representing a prese
 ```{admonition} **Example:** Use definition with placeholder to annotate a variable presentation rate.
 
 **Short form:**
-> *(Definition/PresentationRate/#,*
+> *(Definition/PresentationRate/#,*\
 > *(Visual-presentation, Experimental-stimulus, Temporal-rate/#))*
 
 **Long form:**
-> *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*\
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*\
 > *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
 
 ```
@@ -137,13 +137,13 @@ The following example shows how `Def-expand` is used in an annotation.
 ```{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
 **Short form:**
-> *(Def-expand/PresentationRate/1.5 Hz,*
+> *(Def-expand/PresentationRate/1.5 Hz,*\
 > *(Visual-presentation, Experimental-stimulus, Temporal-rate/1.5 Hz))*
 
 **Long form:**
-> *(Property/Organizational-property/<strong>Def-expand/PresentationRate/1.5 Hz</strong>,*
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *(Property/Organizational-property/<strong>Def-expand/PresentationRate/1.5 Hz</strong>,*\
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*\
 > *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1.5 Hz</strong>))*
 
 ```
@@ -189,9 +189,9 @@ The following table summarizes `Onset` and `Offset` usage. **Note**: A `Def-expa
  ~ *(Def/xxx/yyy, Offset)*
 
 **Long forms:**
- ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*\
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*\
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
  ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
@@ -217,28 +217,28 @@ For example, the `PlayMovie` definition of the previous section just defines the
 ```{admonition} **Example:** The playing of a Star Wars clip using *PlayMovie*.
 
 **Short form:**
-> [event 1]
+> [event 1]\
 > *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*
 
 >         .... [The Star Wars movie clip is playing] ....
 
-> [event n]
+> [event n]\
 > *Sensory-event, (Def/PlayMovie, Offset)*
 
 **Long form:**
-> [event 1]
-> *Event/<strong>Sensory-event</strong>,*
-> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*
-> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*
-> *(Property/Informational-property/<strong>Label/StarWars</strong>,*
-> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*
+> [event 1]\
+> *Event/<strong>Sensory-event</strong>,*\
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*\
+> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*\
+> *(Property/Informational-property/<strong>Label/StarWars</strong>,*\
+> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*\
 > *Property/Informational-property/<strong>ID/3284</strong>)))*
 
 >         .... [The Star Wars movie clip is playing] ....
 
-> [event n]
-> *Event/<strong>Sensory-event</strong>,*
-> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*
+> [event n]\
+> *Event/<strong>Sensory-event</strong>,*\
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*\
 > *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 ```
 
@@ -251,7 +251,7 @@ If you want to have interleaved movies playing, use definitions with placeholder
 ```{admonition} **Example:** The interleaved playing of Star Wars and Forrest Gump.
 
 **Short form:**
-> [event 1]
+> [event 1]\
 > *Sensory-event, (Def/MyPlayMovie/StarWars, Onset, (Media-clip, ID/3284))*
 
 >         .... [The Star Wars movie clip is playing] ....
@@ -261,12 +261,12 @@ If you want to have interleaved movies playing, use definitions with placeholder
 
 >         .... [Both Star Wars and Forrest Gump are playing] ....
 
-> [event n2]
+> [event n2]\
 > *Sensory-event, (Def/MyPlayMovie/StarWars, Offset)*
 
 >         .... [Just Forrest Gump is playing] ....
 
-> [event n3]
+> [event n3]\
 > *Sensory-event, (Def/MyPlayMovie/ForrestGump, Offset)*
 ```
 
@@ -286,9 +286,9 @@ The following table summarizes `Inset` usage. **Note**: A `Def-expand/xxx` tag g
  ~ *(Def/xxx/yyy, Inset, (tag-group))*
 
 **Long forms:**
- ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*\
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*\
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
 
 ````{admonition} Notes:
@@ -315,10 +315,10 @@ The following table summaries the syntax for `Duration`.
  ~ *(Duration/xxx, Delay/yyy, (tag-group))*
 
 **Long forms:**
- ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*\
    *(tag-group)*
  ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
- *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*\
    *(tag-group))*
 
 ````{admonition} Notes:
@@ -342,10 +342,10 @@ Several events with temporal-scopes defined by `Duration` tag groups may appear 
 > *(Duration/2 s, (Sensory-event, Visual-presentation, (Movie, Label/StarWars)))*
 
 **Long form:**
-> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*
-> *(Event/<strong>Sensory-event</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*
+> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*\
+> *(Event/<strong>Sensory-event</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*\
 > *Property/Informational-property/<strong>Label/StarWars</strong>)))*
 
 ```
@@ -370,10 +370,10 @@ The following table summarizes the syntax for `Delay`.
  ~ *(Delay/xxx, Duration/yyy, (tag-group))*
 
 **Long forms:**
- ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*\
    *(tag-group)*
  ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
- *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*\
    *(tag-group))*
 
 ````{admonition} Notes:
@@ -394,18 +394,18 @@ In the following example, a trial consists of the presentation of a cross in the
 ```{admonition} **Example:** Use the delay mechanism for a participant response.
 
 **Short form:**
-> *(Sensory-event, (Experimental-stimulus, Visual-presentation, Cross)),*
+> *(Sensory-event, (Experimental-stimulus, Visual-presentation, Cross)),*\
 > *(Delay/2.83 ms, (Agent-action, Participant-response, (Press, Mouse-button)))*
 
 **Long form:**
-> *(Event/<strong>Sensory-event</strong>,*
-> *(Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>)),*
-> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*
-> *(Event/<strong>Agent-action</strong>,*
-> *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*
-> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*
+> *(Event/<strong>Sensory-event</strong>,*\
+> *(Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>)),*\
+> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*\
+> *(Event/<strong>Agent-action</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*\
+> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*\
 > *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)))*
 
 ```
@@ -428,10 +428,10 @@ An event having the tag `Event-stream/xxx` indicates that event or marker is par
 > *Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)*
 
 **Long form:**
-> *Event/<strong>Sensory-event</strong>,*
-> *Property/Organizational-property/<strong>Event-stream/Face-stream</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *(Item/Object/Man-made-object/Media/Visualization/<strong>Image</strong>,*
+> *Event/<strong>Sensory-event</strong>,*\
+> *Property/Organizational-property/<strong>Event-stream/Face-stream</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *(Item/Object/Man-made-object/Media/Visualization/<strong>Image</strong>,*\
 > *Item/Biological-item/Anatomical-item/Body-part/Head-part/<strong>Face</strong>)*
 
 ```
@@ -484,23 +484,23 @@ In analysis, the researcher would typically combine the “slow presentation” 
 ```{admonition} **Example:** Condition variables for slow and fast visual presentation rates.
 
 **Short form:**
-> *(Definition/SlowPresentation/#,*
+> *(Definition/SlowPresentation/#,*\
 > *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*
 >
-> *(Definition/FastPresentation/#,*
+> *(Definition/FastPresentation/#,*\
 > *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*
 
 **Long form:**
-> *(Property/Organizational-property/<strong>Definition/SlowPresentation/#</strong>,*
-> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
+> *(Property/Organizational-property/<strong>Definition/SlowPresentation/#</strong>,*\
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*\
 > *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
 >
-> *(Property/Organizational-property/<strong>Definition/FastPresentation/#</strong>,*
-> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
+> *(Property/Organizational-property/<strong>Definition/FastPresentation/#</strong>,*\
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*\
 > *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
 
 ```
@@ -513,8 +513,8 @@ In analysis, the researcher would typically combine the “slow presentation” 
 > *Sensory-event, (Def/SlowPresentation/1 Hz, Onset)*
 
 **Long form:**
-> *Event/<strong>Sensory-event</strong>,*
-> *(Property/Organizational-property/<strong>Def/SlowPresentation/1 Hz</strong>,*
+> *Event/<strong>Sensory-event</strong>,*\
+> *(Property/Organizational-property/<strong>Def/SlowPresentation/1 Hz</strong>,*\
 > *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
@@ -523,17 +523,17 @@ During analysis, the `Def` tags may be replaced with the actual definition’s t
 ```{admonition} **Example:** Expanded form of the previous example.
 
 **Short form with expansion:**
-> *Sensory-event,*
-> *((Def-expand/SlowPresentation/1 Hz, (Condition-variable/Presentation,*
+> *Sensory-event,*\
+> *((Def-expand/SlowPresentation/1 Hz, (Condition-variable/Presentation,*\
 > *Visual-presentation, Computer-screen, Temporal-rate/1 Hz)), Onset)*
 
 **Long form with expansion:**
-> *Event/<strong>Sensory-event</strong>,*
-> *((Property/Organizational-property/<strong>Def-expand/SlowPresentation/1 Hz</strong>,*
-> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
-> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1 Hz</strong>)),*
+> *Event/<strong>Sensory-event</strong>,*\
+> *((Property/Organizational-property/<strong>Def-expand/SlowPresentation/1 Hz</strong>,*\
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*\
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1 Hz</strong>)),*\
 > *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
@@ -550,7 +550,7 @@ The `Parameter` tag and its children `Parameter-label` and `Parameter-value` are
 ```{admonition} **Example:** Annotate face repetition and interval using *Parameter-value*.
 
 **Short form:**
-> *(Parameter-label/Count-of-this-face, Parameter-value/2),*
+> *(Parameter-label/Count-of-this-face, Parameter-value/2),*\
 > *(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)*
 ```
 
@@ -559,13 +559,13 @@ Annotate the number of times a face image has appeared and the interval since la
 ```{admonition} **Example:** Annotate the number of times a face image has appeared.
 
 **Short form:**
-> *(Parameter-label/Count-of-this-face, Item-count/2),*
+> *(Parameter-label/Count-of-this-face, Item-count/2),*\
 > *(Parameter-label/Face-count-since-this-face-last-shown, Item-interval/15)*
 
 **Long form:**
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/Count-of-this-face</strong>,*
-> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>,*
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Count-of-this-face</strong>,*\
+> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*\
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>,*\
 > *Property/Data-property/Data-value/Quantitative-value/<strong>Item-interval/15</strong>)*
 
 ```
