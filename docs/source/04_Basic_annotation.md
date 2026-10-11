@@ -27,8 +27,8 @@ The following example illustrates a very basic annotation of a stimulus event, i
 
 **Long form:**  
 > *Event/<strong>Sensory-event</strong>,*   
-> *Property/task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Property/Sensory-property/<strong>Visual-presentation</strong>,*  
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
 > *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/<strong>Green</strong>,*    
 > *Item/Object/Geometric-object/2D-shape/<strong>Triangle</strong>),*  
 > *Property/Informational-property/Description/An experimental stimulus consisting of*   
@@ -105,7 +105,7 @@ The `Participant-response` tag indicates that this event represents a task-relat
 > *((Agent/<strong>Human-agent</strong>,*    
 > *Property/Agent-property/Agent-task-role/<strong>Experiment-participant</strong>),*   
 > *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*   
-> *Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)),*   
+> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)),*   
 > *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*   
 > *Property/Task-property/Task-stimulus-role/<strong>Oddball</strong>),*   
 > *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*   

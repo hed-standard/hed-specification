@@ -10,24 +10,24 @@ A **HED definition** is a tag group that includes one `Definition` tag whose req
 
 `````{admonition} Syntax summary for HED definitions.
 
-**Short forms:** 
+**Short forms:**
  ~ *(Definition/xxx)*
  ~ *(Definition/xxx, (definition-content))*
  ~ *(Definition/xxx/#, (definition-content))*
- 
-**Long forms:**  
+
+**Long forms:**
  ~ *(Property/Organizational-property/<strong>Definition/xxx</strong>)*
  ~ *(Property/Organizational-property/<strong>Definition/xxx</strong>, (definition-content))*
  ~ *(Property/Organizational-property/<strong>Definition/xxx/#</strong>, (definition-content))*
- 
+
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition, and *(definition-content)* is a tag group
 containing the tags representing the definition’s contents.
-2. If the *xxx/#* form is used, then the *(definition-content)* MUST contain a single `#` 
+2. If the *xxx/#* form is used, then the *(definition-content)* MUST contain a single `#`
 representing a value to be substituted for when the definition is used.
 3. A definition without a *(definition-content)* is sometimes use as a general purpose definition for
-anchoring `Onset` groups with varying content.  
+anchoring `Onset` groups with varying content.
 
 ````
 
@@ -37,14 +37,14 @@ The following example defines the *PlayMovie* term.
 
 ```{admonition} **Example:** *PlayMovie* defines the playing a movie on a computer screen.
 
-**Short form:** <br/> 
-> *(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))* 
+**Short form:** <br/>
+> *(Definition/PlayMovie, (Visual-presentation, Movie, Computer-screen))*
 
 **Long form:** <br/>
-> *(Property/Organization-property/<strong>Definition/PlayMovie</strong>,*  
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*  
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>))*  
+> *(Property/Organizational-property/<strong>Definition/PlayMovie</strong>,*
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>))*
 
 ```
 
@@ -52,15 +52,15 @@ The next example gives a definition that uses a placeholder representing a prese
 
 ```{admonition} **Example:** Use definition with placeholder to annotate a variable presentation rate.
 
-**Short form:**  
-> *(Definition/PresentationRate/#,*  
-> *(Visual-presentation, Experimental-stimulus, Temporal-rate/# Hz))*  
+**Short form:**
+> *(Definition/PresentationRate/#,*
+> *(Visual-presentation, Experimental-stimulus, Temporal-rate/#))*
 
-**Long form:**  
-> *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*  
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/# Hz</strong>))*  
+**Long form:**
+> *(Property/Organizational-property/<strong>Definition/PresentationRate/#</strong>,*
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
 
 ```
 
@@ -79,19 +79,19 @@ When a definition name such as `PlayMovie` or `PresentationRate` is used in an a
 The following summarizes `Def` tag syntax rules.
 
 `````{admonition} Syntax summary for the <code>Def</code> tag:
-**Short forms:** 
+**Short forms:**
  ~ *Def/xxx*
  ~ *Def/xxx/yyy*
- 
+
 **Long forms:**
- ~ *Property/Organizational-property/<strong>Def/xxx</strong>* 
+ ~ *Property/Organizational-property/<strong>Def/xxx</strong>*
  ~ *Property/Organizational-property/<strong>Def/xxx/yyy</strong>*
 
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition.
 2. *yyy* is the value that is substituted for the definition's placeholder if it has one.
-2. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#` 
+2. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#`
 representing a value to be substituted for when the definition is used.
 ````
 `````
@@ -100,10 +100,10 @@ The following example shows how `Def` is used in annotation.
 
 ```{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
-**Short form:**  
+**Short form:**
  ~ *Def/PresentationRate/1.5 Hz*
 
-**Long form:**  
+**Long form:**
  ~ *Property/Organizational-property/<strong>Def/PresentationRate/1.5 Hz</strong>*
 
 ```
@@ -115,12 +115,12 @@ The `Def-expand` tag provides an alternative to `Def` tag in annotations. Unlike
 The following summarizes `Def-expand` tag syntax rules.
 
 `````{admonition} Syntax summary for the <code>Def-expand</code> tag:
-**Short forms:** 
+**Short forms:**
  ~ *(Def-expand/xxx, (definition-contents))*
  ~ *(Def-expand/xxx/yyy, (definition-contents))*
- 
+
 **Long forms:**
- ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>, (definition-contents))* 
+ ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>, (definition-contents))*
  ~ *(Property/Organizational-property/<strong>Def-expand/xxx/yyy</strong>, (definition-contents))*
 
 ````{admonition} Notes:
@@ -128,7 +128,7 @@ The following summarizes `Def-expand` tag syntax rules.
 1. *xxx* is the name of the definition.
 2. *yyy* is the replacement value for the `#` placeholder.
 3. If the *xxx/yyy* form is used in the definition, then the replacement value (*yyy* above)
-must replace placeholders both in the definition's name and its contents. 
+must replace placeholders both in the definition's name and its contents.
 ````
 `````
 
@@ -136,15 +136,15 @@ The following example shows how `Def-expand` is used in an annotation.
 
 ```{admonition} **Example:** Use *PresentationRate* to annotate a presentation rate of 1.5 Hz.
 
-**Short form:**  
-> *(Def-expand/PresentationRate/1.5 Hz,*  
-> *(Visual-presentation, Experimental-stimulus, Temporal-rate/1.5 Hz))*  
+**Short form:**
+> *(Def-expand/PresentationRate/1.5 Hz,*
+> *(Visual-presentation, Experimental-stimulus, Temporal-rate/1.5 Hz))*
 
-**Long form:**  
-> *(Property/Organizational-property/<strong>Def-expand/PresentationRate/1.5 Hz</strong>,*  
-> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1.5 Hz</strong>))*  
+**Long form:**
+> *(Property/Organizational-property/<strong>Def-expand/PresentationRate/1.5 Hz</strong>,*
+> *(Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1.5 Hz</strong>))*
 
 ```
 
@@ -167,9 +167,7 @@ The mechanisms are summarized in the following table and discussed in more detai
 | `Delay`         | Marks delayed time<br/>of a time marker. | Doesn't use a definition anchor.<br/>May be used with `Onset`, `Inset`, `Offset`<br/>or `Duration`. If not grouped with other temporal<br/>tags, it is treated as a point event.<br/>Commonly for delayed response times. |
 | `Event-context` | Context of ongoing events.               | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.                                                                                                              |
 
-All of these tags must appear in a `topLevelTagGroup`, which implies that they can't be nested. `Delay` and `Duration` will not be fully supported until HED standard schema version `8.2.0`.
-
-The `Inset` tag will also not be included until HED standard schema version `8.2.0`, but is listed here for completeness.
+All of these tags must appear in a `topLevelTagGroup`, which implies that they can't be nested.
 
 ### 5.3.1. Using `Onset` and `Offset`
 
@@ -189,11 +187,11 @@ The following table summarizes `Onset` and `Offset` usage. **Note**: A `Def-expa
  ~ *(Def/xxx/yyy, Onset, (tag-group))*
  ~ *(Def/xxx, Offset)*
  ~ *(Def/xxx/yyy, Offset)*
- 
-**Long forms:**  
- ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
+
+**Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*  
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>, <strong>(tag-group)</strong>)*
  ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
@@ -218,30 +216,30 @@ For example, the `PlayMovie` definition of the previous section just defines the
 
 ```{admonition} **Example:** The playing of a Star Wars clip using *PlayMovie*.
 
-**Short form:**  
-> [event 1]  
-> *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*  
- 
+**Short form:**
+> [event 1]
+> *Sensory-event, (Def/PlayMovie, Onset, (Label/StarWars, (Media-clip, ID/3284)))*
+
 >         .... [The Star Wars movie clip is playing] ....
-  
-> [event n]  
+
+> [event n]
 > *Sensory-event, (Def/PlayMovie, Offset)*
 
-**Long form:**  
-> [event 1]  
-> *Event/<strong>Sensory-event</strong>,*  
-> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*  
-> *Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*  
-> *(Property/Informational-property/<strong>Label/StarWars</strong>,*  
-> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*  
-> *Property/Informational-property/<strong>ID/3284</strong>)))*  
-            
+**Long form:**
+> [event 1]
+> *Event/<strong>Sensory-event</strong>,*
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*
+> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>,*
+> *(Property/Informational-property/<strong>Label/StarWars</strong>,*
+> *(Item/Object/Man-made-object/Media/<strong>Media-clip</strong>,*
+> *Property/Informational-property/<strong>ID/3284</strong>)))*
+
 >         .... [The Star Wars movie clip is playing] ....
 
-> [event n]  
-> *Event/<strong>Sensory-event</strong>,*  
-> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*  
-> *Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*  
+> [event n]
+> *Event/<strong>Sensory-event</strong>,*
+> *(Property/Organizational-property/<strong>Def/PlayMovie</strong>,*
+> *Property/Data-property/Data-marker/Temporal-marker/<strong>Offset</strong>)*
 ```
 
 The `PlayMovie` scoped event type can be reused to annotate the playing of other movie clips. However, scoped events with the same defined name (e.g., `PlayMovie`) cannot be nested. The temporal scope of a `PlayMovie` event ends with a `PlayMovie` offset or with the onset of another `PlayMovie` event.
@@ -252,24 +250,24 @@ If you want to have interleaved movies playing, use definitions with placeholder
 
 ```{admonition} **Example:** The interleaved playing of Star Wars and Forrest Gump.
 
-**Short form:**  
-> [event 1]  
-> *Sensory-event, (Def/MyPlayMovie/StarWars, Onset, (Media-clip, ID/3284))*  
- 
+**Short form:**
+> [event 1]
+> *Sensory-event, (Def/MyPlayMovie/StarWars, Onset, (Media-clip, ID/3284))*
+
 >         .... [The Star Wars movie clip is playing] ....
-  
+
 > [event n1]
-> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Onset, (Media-clip, ID/5291))*  
- 
+> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Onset, (Media-clip, ID/5291))*
+
 >         .... [Both Star Wars and Forrest Gump are playing] ....
 
-> [event n2]    
+> [event n2]
 > *Sensory-event, (Def/MyPlayMovie/StarWars, Offset)*
 
 >         .... [Just Forrest Gump is playing] ....
 
-> [event n3]    
-> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Offset)*   
+> [event n3]
+> *Sensory-event, (Def/MyPlayMovie/ForrestGump, Offset)*
 ```
 
 Because tools need to have the definitions in hand when fully expanding during validation and analysis, tools must gather applicable definitions before final processing. Library functions in Python, Matlab, and JavaScript are available to support gathering of definitions and the expansion. These definitions may be given in JSON sidecars or provided externally.
@@ -286,11 +284,11 @@ The following table summarizes `Inset` usage. **Note**: A `Def-expand/xxx` tag g
 **Short forms:**
  ~ *(Def/xxx, Inset, (tag-group))*
  ~ *(Def/xxx/yyy, Inset, (tag-group))*
- 
-**Long forms:**  
- ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*  
+
+**Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def/xxx</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
- ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*  
+ ~ *(Property/Organizational-property/<strong>Def/xxx/#</strong>,*
    *Property/Data-property/Data-marker/Temporal-marker/<strong>Inset</strong>, <strong>(tag-group)</strong>)*
 
 ````{admonition} Notes:
@@ -315,12 +313,12 @@ The following table summaries the syntax for `Duration`.
 **Short forms:**
  ~ *(Duration/xxx, (tag-group))*
  ~ *(Duration/xxx, Delay/yyy, (tag-group))*
- 
-**Long forms:**  
- ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*  
+
+**Long forms:**
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
    *(tag-group)*
  ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
- *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*    
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*
    *(tag-group))*
 
 ````{admonition} Notes:
@@ -340,15 +338,15 @@ Several events with temporal-scopes defined by `Duration` tag groups may appear 
 
 ```{admonition} **Example:** Use the <code>Duration</code> tag to annotate the playing of a 2-s movie clip of Star Wars.
 
-**Short form:**    
-> *(Duration/2 s, (Sensory-event, Visual-presentation, (Movie, Label/StarWars)))*  
+**Short form:**
+> *(Duration/2 s, (Sensory-event, Visual-presentation, (Movie, Label/StarWars)))*
 
-**Long form:**    
-> *(Property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*  
-> *(Event/<strong>Sensory-event</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*  
-> *Property/Informational-property/<strong>Label/StarWars</strong>)))* 
+**Long form:**
+> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/2 s</strong>,*
+> *(Event/<strong>Sensory-event</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *(Item/Object/Man-made-object/Media/Visualization/<strong>Movie</strong>,*
+> *Property/Informational-property/<strong>Label/StarWars</strong>)))*
 
 ```
 
@@ -356,7 +354,7 @@ The `Duration` tag has the same effect on event context as the `Onset`/`Offset` 
 
 In a timeline file such as `events.tsv`, the `Duration` value is added to the time in the row's `onset` column, so it MUST use a unit with a `conversionFactor` (`s`, `ms`, `minute`, `hour`, `day`); `month` and `year` have none and are errors there. In a non-timeline file such as `participants.tsv`, where nothing is placed on a timeline, `Duration/3 years` is valid. See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), cause n.
 
-The `Duration` tag is convenient because its use does not require a definition. However, the ending time point of events whose temporal scope is defined with `Duration` is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for many events involving visual or auditory presentations. The use of the `Duration` tag will not be fully supported by validators until HED standard schema version `8.2.0`.
+The `Duration` tag is convenient because its use does not require a definition. However, the ending time point of events whose temporal scope is defined with `Duration` is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for many events involving visual or auditory presentations.
 
 ### 5.3.4. Using `Delay`
 
@@ -370,12 +368,12 @@ The following table summarizes the syntax for `Delay`.
 **Short forms:**
  ~ *(Delay/xxx, (tag-group))*
  ~ *(Delay/xxx, Duration/yyy, (tag-group))*
- 
-**Long forms:**  
- ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*  
+
+**Long forms:**
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*
    *(tag-group)*
  ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
- *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*    
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*
    *(tag-group))*
 
 ````{admonition} Notes:
@@ -395,30 +393,30 @@ In the following example, a trial consists of the presentation of a cross in the
 
 ```{admonition} **Example:** Use the delay mechanism for a participant response.
 
-**Short form:**  
-> *(Sensory-event, (Experimental-stimulus, Visual-presentation, Cross))*  
-> *(Delay/2.83 ms, (Agent-action, Participant-response, (Press, Mouse-button)))*  
+**Short form:**
+> *(Sensory-event, (Experimental-stimulus, Visual-presentation, Cross)),*
+> *(Delay/2.83 ms, (Agent-action, Participant-response, (Press, Mouse-button)))*
 
-**Long form:**    
-> *(Event/<strong>Sensory-event</strong>,*  
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *(Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>)),*   
-> (*Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,* 
-> *(Event/<strong>Agent-action</strong>,*   
-> *(Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*  
-> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>/,*  
-> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>))),*  
+**Long form:**
+> *(Event/<strong>Sensory-event</strong>,*
+> *(Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Item/Object/Geometric-object/2D-shape/<strong>Cross</strong>)),*
+> *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/2.83 ms</strong>,*
+> *(Event/<strong>Agent-action</strong>,*
+> *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*
+> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)))*
 
 ```
 
 Notice that the `Agent-action` tag from the `Event` subtree is included in the `Delay` tag-group. This allows tools to identify this tag group as a distinct event. For BIDS datasets, such response delays would be recorded in a column of the `events.tsv` event files. The HED annotation for the JSON sidecar corresponding to these files would contain a `#`. At HED expansion time, tools replace the `#` with the column value (2.83) corresponding to each event.
 
-The `Delay` tag can also be used in the same top level tag group as the `Duration` tag to define an event with temporal extent. HED tools are being developed to support the expansion of delayed events to have their own event markers without the delay tag. However, use of the `Delay` tag will not be fully supported by validators until HED standard schema version `8.2.0`.
+The `Delay` tag can also be used in the same top level tag group as the `Duration` tag to define an event with temporal extent.
 
 ## 5.4. Event streams
 
-An event stream is a sequence of events in a data recording. The most obvious event stream is the sequence consisting of all the events in the recording, but there are many other possible streams such as the stream consisting o f all sensory events or the stream consisting of all participant response events.
+An event stream is a sequence of events in a data recording. The most obvious event stream is the sequence consisting of all the events in the recording, but there are many other possible streams such as the stream consisting of all sensory events or the stream consisting of all participant response events.
 
 Event streams can be identified and tagged using the `Event-stream` tag, allowing annotators to more easily identify subsets of events and interrelationships of events within those event sequences.
 
@@ -426,21 +424,19 @@ An event having the tag `Event-stream/xxx` indicates that event or marker is par
 
 ```{admonition} **Example:** Tag a face event as part of the *Face-stream* event stream.
 
-**Short form:**  
+**Short form:**
 > *Sensory-event, Event-stream/Face-stream, Visual-presentation, (Image, Face)*
 
-**Long form:**   
-> *Event/<strong>Sensory-event</strong>,*  
-> *Property/Organizational-property/<strong>Event-stream/Face-stream</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*    
-> *(Item/Object/Man-made-object/Media/Visualization/<strong>Image</strong>,*  
-> *Item/Biological-item/Anatomical-item/Body-part/Head/<strong>Face</strong>)*  
+**Long form:**
+> *Event/<strong>Sensory-event</strong>,*
+> *Property/Organizational-property/<strong>Event-stream/Face-stream</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *(Item/Object/Man-made-object/Media/Visualization/<strong>Image</strong>,*
+> *Item/Biological-item/Anatomical-item/Body-part/Head-part/<strong>Face</strong>)*
 
 ```
 
 Using a tag to identify an event stream makes it easier for downstream tools to compute relationships among subsets of events.
-
-**Note:** Event streams are still under development.
 
 ## 5.5. Event contexts
 
@@ -453,17 +449,17 @@ In normal usage, **the `Event-context` tag is not used directly by annotators**.
 `````{admonition} **Syntax summary for *Event-context*.**
 
 **Short form:**
- ~ *(Event-context, other-tag-groups)*  
- 
+ ~ *(Event-context, other-tag-groups)*
+
 **Long form:**
  ~ *(Property/Organizational-property/<strong>Event-context</strong>, other-tag-groups)*
- 
+
 ````{admonition} Notes:
 :class: tip
 1. The `Event-context` may only appear in a top-level tag group of an assembled HED string.
 2. An event can have at most one `Event-context` tag group in its assembled HED annotation.
-3. HED-compliant analysis tools should insert the annotations describing each temporally 
-scoped event into the `Event-context` tag group of the events within its 
+3. HED-compliant analysis tools should insert the annotations describing each temporally
+scoped event into the `Event-context` tag group of the events within its
 temporal scope during final assembly before analysis of the event.
 4. Each of these internal annotations should be in a group, indicating that they represent a distinct event process.
 ````
@@ -487,25 +483,25 @@ In analysis, the researcher would typically combine the “slow presentation” 
 
 ```{admonition} **Example:** Condition variables for slow and fast visual presentation rates.
 
-**Short form:**  
-> *(Definition/SlowPresentation/#,*   
-> *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*  
->  
-> *(Definition/FastPresentation/#,*  
-> *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*          
+**Short form:**
+> *(Definition/SlowPresentation/#,*
+> *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*
+>
+> *(Definition/FastPresentation/#,*
+> *(Condition-variable/Presentation, Visual-presentation, Computer-screen, Temporal-rate/#))*
 
-**Long form:**  
-> *(Property/Informational-property/<strong>Definition/SlowPresentation/#</strong>,*  
-> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*   
-> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*  
->  
-> *(Property/Informational-property/<strong>Definition/FastPresentation/#</strong>,*  
-> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*   
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*  
-> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*  
+**Long form:**
+> *(Property/Organizational-property/<strong>Definition/SlowPresentation/#</strong>,*
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
+>
+> *(Property/Organizational-property/<strong>Definition/FastPresentation/#</strong>,*
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/#</strong>))*
 
 ```
 
@@ -513,32 +509,32 @@ In analysis, the researcher would typically combine the “slow presentation” 
 
 ```{admonition} **Example:** Annotation using *SlowPresentation* condition.
 
-**Short form:**  
-> *Sensory-event, (Def/SlowPresentation/1 Hz, Onset)*  
+**Short form:**
+> *Sensory-event, (Def/SlowPresentation/1 Hz, Onset)*
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>,*   
-> *(Property/Organizational-property/<strong>Def/SlowPresentation/1 Hz</strong>,*  
-> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*  
+**Long form:**
+> *Event/<strong>Sensory-event</strong>,*
+> *(Property/Organizational-property/<strong>Def/SlowPresentation/1 Hz</strong>,*
+> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
 During analysis, the `Def` tags may be replaced with the actual definition’s tag group with an included `Def-expand` tag giving the definition’s name. Note: expansion is done by tools at analysis time.
 
 ```{admonition} **Example:** Expanded form of the previous example.
 
-**Short form with expansion:**  
-> *Sensory-event,*  
-> *((Def-expand/SlowPresentation, Condition-variable/Presentation,*  
-> *Visual-presentation, Computer-screen, Temporal-rate/1 Hz), Onset)*  
+**Short form with expansion:**
+> *Sensory-event,*
+> *((Def-expand/SlowPresentation/1 Hz, (Condition-variable/Presentation,*
+> *Visual-presentation, Computer-screen, Temporal-rate/1 Hz)), Onset)*
 
-**Long form with expansion:**  
-Event/<strong>Sensory-event</strong>,*  
-> *((Property/Organizational/<strong>Def-expand/SlowPresentation</strong>,*  
-> *Property/Organizational/<strong>Condition-variable/Presentation</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*  
-> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1 Hz</strong>),*  
-> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*  
+**Long form with expansion:**
+> *Event/<strong>Sensory-event</strong>,*
+> *((Property/Organizational-property/<strong>Def-expand/SlowPresentation/1 Hz</strong>,*
+> *(Property/Organizational-property/<strong>Condition-variable/Presentation</strong>,*
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*
+> *Item/Object/Man-made-object/Device/IO-device/Output-device/Display-device/<strong>Computer-screen</strong>,*
+> *Property/Data-property/Data-value/Spatiotemporal-value/Rate-of-change/<strong>Temporal-rate/1 Hz</strong>)),*
+> *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
 Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (ANalysis Of VAriance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags `Time-block` and `Task-trial` and used for visualizations of experimental layout.
@@ -553,27 +549,25 @@ The `Parameter` tag and its children `Parameter-label` and `Parameter-value` are
 
 ```{admonition} **Example:** Annotate face repetition and interval using *Parameter-value*.
 
-**Short form:**  
-> *(Parameter-label/Count-of-this-face, Parameter-value/2)*  
-> *(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)*  
+**Short form:**
+> *(Parameter-label/Count-of-this-face, Parameter-value/2),*
+> *(Parameter-label/Face-count-since-this-face-last-shown, Parameter-value/15)*
 ```
 
 Annotate the number of times a face image has appeared and the interval since last time this face was shown using more specific tags for the value `Parameter-value`:
 
 ```{admonition} **Example:** Annotate the number of times a face image has appeared.
 
-**Short form:**  
-> *(Parameter-label/Count-of-this-face, Item-count/2),*  
-> *(Parameter-label/Face-count-since-this-face-last-shown,Item-count-interval/15),*  
+**Short form:**
+> *(Parameter-label/Count-of-this-face, Item-count/2),*
+> *(Parameter-label/Face-count-since-this-face-last-shown, Item-interval/15)*
 
-**Long form:**  
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/Count-of-this-face</strong>,*  
-> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*  
-> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>*  
-> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count-interval/15</strong>)*  
+**Long form:**
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Count-of-this-face</strong>,*
+> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-count/2</strong>),*
+> *(Property/Informational-property/Parameter/<strong>Parameter-label/Face-count-since-this-face-last-shown</strong>,*
+> *Property/Data-property/Data-value/Quantitative-value/<strong>Item-interval/15</strong>)*
 
 ```
 
 Using more specific tags as in the second version allows downstream tools to treat the value as numeric integers, facilitating automated processing. The use of *Parameter* alerts downstream tools that this entity represents something that annotators regard as important to compute or record for analysis. Summary tools can extract the experimental parameters and their values, while statistical tools can look for dependencies on these variables. The parameter names are designed to be self-documenting. Parameters are often used for derived values such as response times that are used as indicator variables in the experiment. They are also sometimes used as part of control variable definitions.
-
-**Note:** Parameters and related annotations are still under development.
