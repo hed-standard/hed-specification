@@ -219,7 +219,7 @@ The examples rely on the following facts about these libraries:
 | `['testconflict_2.1.0', 'testclash_1.0.0', 'testminimal_2.1.0']` | Yes   | All three libraries are partnered with `8.5.0`, and their elements are either disjoint or identical, so they merge into a single unprefixed vocabulary. |
 | `['8.4.0', 'sc:testconflict_2.1.0', 'ts:testminimal_1.0.0']`     | Yes   | Three merge groups (unprefixed, `sc:`, `ts:`) resolve independently; the standard schema partners of different groups do not have to agree.             |
 | `['8.5.0', 'sc:8.4.0']`                                          | Yes   | A standard schema in its own namespace forms its own merge group, so the two standard versions do not conflict.                                         |
-| `['testconflict_2.0.0', 'testconflict_2.0.0']`                   | Yes   | Duplicate schemas (the same name and version) in a merge group are ignored on loading; the result is the same as listing `testconflict_2.0.0` once.     |
+| `['testconflict_2.0.0', 'testconflict_2.0.0']`                   | No    | Duplicate schemas (the same name, whatever the version) cannot appear in the same merge group; an exact duplicate fails like two different versions.    |
 | `['testconflict_2.0.0', 'testconflict_2.1.0']`                   | No    | Different versions of the same schema cannot appear in the same merge group, even though these two share the `8.5.0` partner and have no conflicts.     |
 | `['8.5.0', 'sc:testconflict_2.0.0', 'sc:testminimal_2.0.0']`     | No    | The rules apply inside each namespace: the `sc` namespace has conflicting partners (`8.5.0` versus `8.4.0`), even though the default namespace is fine. |
 
