@@ -79,7 +79,7 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 **f.** A definition that includes a placeholder (`#`) does not have exactly two `#` characters.\
 **g.** A definition has placeholders (`#`) in incorrect positions.\
 **h.** Definitions of the same name appear with and without a `#`.\
-**i.** Multiple `Definition` tags with same name are encountered.\
+**i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
 **j.** A tag with a `required` or `unique` attribute appears in a definition.\
 **k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.
 
@@ -211,7 +211,8 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 
 **a.** A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.\
 **b.** A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.\
-**c.** Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Duration` and a single `Delay` may be in the same group.
+**c.** Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Delay` may be in the same group as a single `Duration`, `Onset`, `Offset`, or `Inset`.\
+**d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.
 
 See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attributes) for additional information on the rules for group errors due to schema attributes.
 
@@ -252,15 +253,15 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **b.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).\
 **c.** An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.\
 **d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.\
-**e.** An `Offset` appears with one or more tags or additional tag groups.\
+**e.** An `Offset` group contains anything besides its anchor and an optional `Delay` tag.\
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
 **g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag. without the appearance of an intervening `Onset` of the same name.\
-**h.** An `Onset` or an `Inset` tag group with has tags besides the anchor `Def` tag or `Def-expand` group that are not in a tag group.\
+**h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
 **i.** An `Onset` or `Offset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a non-timeline tabular file (a tabular file without an `onset` column).\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.\
-**m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except `Delay` and `Duration` which can be paired.\
+**m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
 **n.** In a timeline file (a tabular file with an `onset` column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the file's timeline. A `Duration` tag in a non-timeline file MAY use any valid unit of its unit class.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).

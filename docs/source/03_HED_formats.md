@@ -643,7 +643,7 @@ A HED definition is a tag group consist of a `Definition` tag that takes a value
 
 The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute, assuring that definitions cannot be nested.
 
-HED definitions may not contain any `Def` or `Def-expand` tags and must contain exactly one `Definition` tag. Multiple definitions with the same definition name are not allowed.
+HED definitions may not contain any `Def` or `Def-expand` tags and must contain exactly one `Definition` tag. A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order. Two definitions with the same name and different contents are a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error.
 
 The `Definition` tag must be extended with a value representing the definition name and may be additionally extended by a `#` placeholder. If the definition name includes the `#` placeholder extension, then the defining tags must include exactly one tag that takes a value along with its `#` placeholder.
 
@@ -675,13 +675,13 @@ Each of these tags must appear in a top level tag group with a `Def` tag or `Def
 
 A tag group with an `Onset` represents the start of an event that extends over time. A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group. A given event of temporal extent is also terminated by the appearance of another `Onset` group with the same `Def` tag or `Def-expand` group anchor.
 
-The `Onset` tag group may only contain its `Def` tag or `Def-expand` group anchor and at most one additional inner tag group in addition to the `Onset` tag.
+The `Onset` tag group may only contain its `Def` tag or `Def-expand` group anchor, an optional `Delay` tag, and at most one additional inner tag group in addition to the `Onset` tag.
 
-The `Offset` tag group may only contain its `Def` tag or `Def-expand` group anchor in addition to the `Offset` tag.
+The `Offset` tag group may only contain its `Def` tag or `Def-expand` group anchor and an optional `Delay` tag in addition to the `Offset` tag.
 
-These requirements imply that `Onset` and `Offset` must be the only tags in their tag group with the `topLevelTagGroup` attribute. `Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute. This implies, for example, that HED definition's contents may not include `Onset` or `Offset` tags.
+These requirements imply that, apart from an optional `Delay`, `Onset` and `Offset` must be the only tags in their tag group with the `topLevelTagGroup` attribute. `Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute. This implies, for example, that HED definition's contents may not include `Onset` or `Offset` tags.
 
-An `Inset` tag designates an intermediate time point in an event of temporal extent. Like `Onset` and `Offset`, the `Inset` tag has the `topLevelTagGroup` attribute and must be anchored by a `Def` or `Def-expand`. The anchor must be the same name as that of an ongoing `Onset`. In addition to its anchor, the `Inset` tag group may contain a single additional tag group with additional information about that marked point. An event of temporal extent may contain several of these intermediate points.
+An `Inset` tag designates an intermediate time point in an event of temporal extent. Like `Onset` and `Offset`, the `Inset` tag has the `topLevelTagGroup` attribute and must be anchored by a `Def` or `Def-expand`. The anchor must be the same name as that of an ongoing `Onset`. In addition to its anchor, the `Inset` tag group may contain an optional `Delay` tag and a single additional tag group with additional information about that marked point. An event of temporal extent may contain several of these intermediate points.
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) and [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and for a listing of specific errors associated with onsets, and offsets, and insets.
 
@@ -690,6 +690,8 @@ See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) and [TAG_GROUP_ERRO
 #### 3.2.8.4. `Duration` and `Delay`
 
 The `Delay` tag MUST appear in a top-level tag group and MUST take a numerical value. Its tag group must contain an inner tag group representing an event whose onset time is delayed by the specified amount. If the top-level tag group contains a `Duration` tag, then this event has the indicated duration otherwise the event is considered a point event.
+
+A `Delay` tag MAY also appear in an `Onset`, `Offset`, or `Inset` group (see [3.2.8.3](#3283-onset-offset-and-inset)), in which case that marker is placed at the time of the row's event marker plus the delay and the inner tag group is optional, as it is for those tags. `Delay` is the only tag with the `topLevelTagGroup` attribute that may share a top-level group with another such tag.
 
 The `Duration` tag MUST appear in a top-level tag group and MUST take a numerical value indicating the duration of the event represented by the other tags in its group. The `Duration` top-level tag group may contain a `Delay`, but no other tags with the `topLevelTagGroup attribute` (e.g., `Onset`, `Offset`, `Inset`, `Event-context`, `Definition`).
 
@@ -702,6 +704,8 @@ See [Chapter 5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-durati
 #### 3.2.8.5. The `Event-context` tag
 
 The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes. This implies that there can be only one `Event-context` group in each assembled event-level HED string. The `Event-context` group contains information about what other events are ongoing at the time point associated with the event marker for which the annotation is included.
+
+An `Event-context` group has the form `(Event-context, (content-group), ...)`. Apart from the `Event-context` tag it contains only tag groups, one for each ongoing event process, for example an image displayed from its `Onset` until its `Offset`; each content group holds the tags that describe that process. A tag that is not inside such a group is a [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error).
 
 In general, the `Event-context` group is not included in annotations, but is generated by tools during downstream event processing.
 
@@ -1099,9 +1103,9 @@ The `Onset` and `Offset` tags represent the temporal extent of events with non-z
 - An `Offset` group represents the end of a previously initiated event.
 - An `Onset` for the same definition name terminates any previous ongoing event with that name.
 
-The `Onset` tag groups MAY contain one additional inner tag group beyond its anchor. These tags are meant to be specific to that particular instance of the event, not to all instancee.
+The `Onset` tag group MAY contain a `Delay` tag and one additional inner tag group beyond its anchor. These tags are meant to be specific to that particular instance of the event, not to all instancee.
 
-The `Offset` tag group MUST contain only its anchor.
+The `Offset` tag group MUST contain only its anchor and, optionally, a `Delay` tag.
 
 #### 3.3.5.2. Inset
 
@@ -1110,6 +1114,7 @@ An `Inset` tag designates an intermediate time point in a temporally extended ev
 - MUST appear in a top-level tag group with a `Def` or `Def-expand` anchor.
 - The anchor MUST match the name of an ongoing `Onset`.
 - MAY contain one additional tag group with information about the marked point.
+- MAY contain a `Delay` tag.
 
 Often `Inset` tags are used to mark intermediate time features of an event process and specific to that event instance.
 
@@ -1123,11 +1128,12 @@ The `Duration` tag indicates an event's temporal extent:
 - MAY appear with `Delay` in the same top-level group.
 - In a timeline file, `Duration` MUST use a unit with a `conversionFactor`, so the end time can be placed on the timeline. In a non-timeline file, `Duration` MAY use any valid unit of its unit class.
 
-The `Delay` tag indicates an event's onset delay:
+The `Delay` tag indicates a delay in the time associated with the event's time marker:
 
 - MUST appear in a top-level tag group and MUST take a numerical value (or `#` placeholder).
-- Its group MUST contain an inner tag group representing the delayed event.
+- Its group MUST contain an inner tag group representing the delayed event, unless the group is an `Onset`, `Offset`, or `Inset` group.
 - If the group also contains `Duration`, the event has that duration; otherwise it is a point event.
+- MAY instead appear in an `Onset`, `Offset`, or `Inset` group, placing that marker at the row's event marker plus the delay.
 - MUST appear only in timeline files and MUST use a unit with a `conversionFactor`, so the delayed onset can be placed on the timeline.
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for temporal tag validation errors.
@@ -1144,7 +1150,7 @@ Requirements:
 - MAY be additionally extended by a `#` placeholder.
 - If the definition name includes `#`, the defining tags MUST include exactly one tag with `#`.
 - MUST NOT contain `Def`, `Def-expand`, `Onset`, `Offset`, or `Inset` tags.
-- Multiple definitions with the same name are not allowed.
+- A name MAY be defined more than once only by identical definitions; the same name with different contents is not allowed.
 
 Definitions are incorporated into annotations using:
 
@@ -1165,6 +1171,7 @@ The `Event-context` tag group contains information about ongoing events at a spe
 
 - Has both `topLevelTagGroup` and `unique` attributes.
 - Only one `Event-context` group MAY appear per assembled event-level HED string.
+- Contains, besides the `Event-context` tag, only tag groups, one per ongoing event process.
 - Generally generated by tools during processing, not included in manual annotations.
 
 #### 3.3.7.2. Unique and required
