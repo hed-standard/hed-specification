@@ -91,7 +91,7 @@ The following summarizes `Def` tag syntax rules.
 :class: tip
 1. *xxx* is the name of the definition.
 2. *yyy* is the value that is substituted for the definition's placeholder if it has one.
-2. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#`
+3. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#`
 representing a value to be substituted for when the definition is used.
 ````
 `````
@@ -325,7 +325,7 @@ The following table summaries the syntax for `Duration`.
 :class: tip
 1. *xxx* is a time value for the duration.
 2. *yyy* is a time value for the delay if given.
-2. The *(tag-group)* contains the additional tags specific to the temporal event whose duration is specified.
+3. The *(tag-group)* contains the additional tags specific to the temporal event whose duration is specified.
 
 ````
 `````
@@ -372,15 +372,15 @@ The following table summarizes the syntax for `Delay`.
 **Long forms:**
  ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*\
    *(tag-group)*
- ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/xxx</strong>,*
- *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/yyy</strong>,*\
+ ~ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Delay/xxx</strong>,*
+ *(Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/<strong>Duration/yyy</strong>,*\
    *(tag-group))*
 
 ````{admonition} Notes:
 :class: tip
-1. *xxx* is a time value for the duration.
-2. *yyy* is a time value for the delay if given.
-2. The *(tag-group)* contains the additional tags specific to the temporal event whose duration is specified.
+1. *xxx* is a time value for the delay.
+2. *yyy* is a time value for the duration if given.
+3. The *(tag-group)* contains the additional tags specific to the delayed event.
 
 ````
 `````
