@@ -22,17 +22,17 @@ The following example illustrates a very basic annotation of a stimulus event, i
 
 ```{admonition} **Example:** Version 1 of a visual stimulus annotation.
 
-**Short form:**  
+**Short form:**
 > *Sensory-event, Experimental-stimulus, Visual-presentation, (Green, Triangle)*
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>,*   
-> *Property/task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Property/Sensory-property/<strong>Visual-presentation</strong>,*  
-> *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/<strong>Green</strong>,*    
-> *Item/Object/Geometric-object/2D-shape/<strong>Triangle</strong>),*  
-> *Property/Informational-property/Description/An experimental stimulus consisting of*   
-> *a green triangle is displayed on the center of the screen.*   
+**Long form:**
+> *Event/<strong>Sensory-event</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/<strong>Green</strong>,*\
+> *Item/Object/Geometric-object/2D-shape/<strong>Triangle</strong>),*\
+> *Property/Informational-property/Description/An experimental stimulus consisting of*\
+> *a green triangle is displayed on the center of the screen.*
 
 ```
 
@@ -54,21 +54,21 @@ In deciding what additional information should be included, the annotator should
 
 ```{admonition} **Example:** Version 2 of a visual stimulus annotation.
 
-**Short form:**  
-> *Sensory-event, Experimental-stimulus, Visual-presentation,*  
-> *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*  
+**Short form:**
+> *Sensory-event, Experimental-stimulus, Visual-presentation,*\
+> *(Green, Triangle), (Intended-effect, Oddball), (Intended-effect, Target)*
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>,*   
-> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*  
-> *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/<strong>Green</strong>,*  
-> *Item/Object/Geometric-object/2D-shape/<strong>Triangle</strong>),*  
-> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*  
-> *Property/Task-property/Task-stimulus-role/<strong>Oddball</strong>),*  
-> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*  
-> *Property/Task-property/Task-stimulus-role/<strong>Target</strong>),*  
-> *Property/Informational-property/Description/A green triangle target oddball is presented*  
+**Long form:**
+> *Event/<strong>Sensory-event</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Experimental-stimulus</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Visual-presentation</strong>,*\
+> *(Property/Sensory-property/Sensory-attribute/Visual-attribute/Color/CSS-color/Green-color/<strong>Green</strong>,*\
+> *Item/Object/Geometric-object/2D-shape/<strong>Triangle</strong>),*\
+> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*\
+> *Property/Task-property/Task-stimulus-role/<strong>Oddball</strong>),*\
+> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*\
+> *Property/Task-property/Task-stimulus-role/<strong>Target</strong>),*\
+> *Property/Informational-property/Description/A green triangle target oddball is presented*\
 > *in the center of the screen with probability 0.1.*
 
 ```
@@ -85,7 +85,7 @@ In many experiments, the participant is asked to press (or select and press) a f
 
 ```{admonition} **Example:** Version 1 of button press annotation.
 
-**Short form:**  
+**Short form:**
  > *Agent-action, (Participant-response, (Press, Mouse-button))*
 
 ```
@@ -94,24 +94,24 @@ The `Participant-response` tag indicates that this event represents a task-relat
 
 ```{admonition} **Example:** Version 2 of a button press annotation.
 
-**Short form:**   
-> *Agent-action, Participant-response,*   
-> *((Human-agent, Experiment-participant), (Press, Mouse-button)),*  
+**Short form:**
+> *Agent-action, Participant-response,*\
+> *((Human-agent, Experiment-participant), (Press, Mouse-button)),*\
 > *(Behavioral-evidence, Oddball), (Behavioral-evidence, Target)*
 
-**Long form:**  
-> *Event/<strong>Agent-action</strong>,*  
-> *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*    
-> *((Agent/<strong>Human-agent</strong>,*    
-> *Property/Agent-property/Agent-task-role/<strong>Experiment-participant</strong>),*   
-> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*   
-> *Item/Object/Man-made-object/Device/IO-Device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)),*   
-> *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*   
-> *Property/Task-property/Task-stimulus-role/<strong>Oddball</strong>),*   
-> *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*   
-> *Property/Task-property/Task-stimulus-role/<strong>Target</strong>),*   
-> *Property/Informational-property/Description/The subject pushes the left mouse button*   
-> *to indicate the appearance of an oddball target using index finger on the left hand.*   
+**Long form:**
+> *Event/<strong>Agent-action</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Participant-response</strong>,*\
+> *((Agent/<strong>Human-agent</strong>,*\
+> *Property/Agent-property/Agent-task-role/<strong>Experiment-participant</strong>),*\
+> *(Action/Move/Move-body-part/Move-upper-extremity/<strong>Press</strong>,*\
+> *Item/Object/Man-made-object/Device/IO-device/Input-device/Computer-mouse/<strong>Mouse-button</strong>)),*\
+> *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*\
+> *Property/Task-property/Task-stimulus-role/<strong>Oddball</strong>),*\
+> *(Property/Task-property/Task-effect-evidence/<strong>Behavioral-evidence</strong>,*\
+> *Property/Task-property/Task-stimulus-role/<strong>Target</strong>),*\
+> *Property/Informational-property/Description/The subject pushes the left mouse button*\
+> *to indicate the appearance of an oddball target using index finger on the left hand.*
 
 ```
 
@@ -125,18 +125,18 @@ Experiments may have experiment control events written into the event record, of
 
 ```{admonition} **Example:** Version 1 of a simple feedback event.
 
-**Short form:**  
-> *Sensory-event, Instructional, Auditory-presentation,*  
-> *(Buzz, (Intended-effect, Rest))*  
+**Short form:**
+> *Sensory-event, Instructional, Auditory-presentation,*\
+> *(Buzz, (Intended-effect, Rest))*
 
-**Long form:**  
-> *Event/<strong>Sensory-event</strong>,*   
-> *Property/Task-property/Task-event-role/<strong>Instructional</strong>,*  
-> *Property/Sensory-property/Sensory-presentation/<strong>Auditory-presentation</strong>,*  
-> *(Item/Sound/Named-object-sound/<strong>Buzz</strong>,*  
-> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*   
-> *Action/Perform/<strong>Rest</strong>)),*  
-> *Property/Informational-property/Description/A buzzer sounds indicating a rest period.*  
+**Long form:**
+> *Event/<strong>Sensory-event</strong>,*\
+> *Property/Task-property/Task-event-role/<strong>Instructional</strong>,*\
+> *Property/Sensory-property/Sensory-presentation/<strong>Auditory-presentation</strong>,*\
+> *(Item/Sound/Named-object-sound/<strong>Buzz</strong>,*\
+> *(Property/Task-property/Task-effect-evidence/<strong>Intended-effect</strong>,*\
+> *Action/Perform/<strong>Rest</strong>)),*\
+> *Property/Informational-property/Description/A buzzer sounds indicating a rest period.*
 
 ```
 
@@ -146,15 +146,15 @@ Another type of tagging documents computed data features and expert annotations 
 
 ```{admonition} **Example:** Annotation of an inserted computed feature.
 
-**Short form:**  
-> *Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*  
+**Short form:**
+> *Data-feature, (Computed-feature, Label/Blinker_BlinkMax)*
 
-**Long form:**  
-> *Event/<strong>Data-feature</strong>,*   
-> *(Property/Data-property/Data-source-type/<strong>Computed-feature</strong>,*     
-> *Property/Informational-property/<strong>Label/Blinker_BlinkMax</strong>),*   
-> *Property/Informational-property/Description/Event marking the maximum signal*    
-> *deviation caused by blink inserted by the Blinker tool.*   
+**Long form:**
+> *Event/<strong>Data-feature</strong>,*\
+> *(Property/Data-property/Data-source-type/<strong>Computed-feature</strong>,*\
+> *Property/Informational-property/<strong>Label/Blinker_BlinkMax</strong>),*\
+> *Property/Informational-property/Description/Event marking the maximum signal*\
+> *deviation caused by blink inserted by the Blinker tool.*
 
 ```
 
@@ -166,14 +166,14 @@ The following example illustrates how annotation from a human expert can be anno
 
 ```{admonition} **Example:** Annotator AJM identifies a K-complex in a sleep record.
 
-**Short form:**   
+**Short form:**
 > *Data-feature, (Observation, Label/AnnotatorAJM_K-complex)*
 
-**Long form:**  
-> *Event/<strong>Data-feature</strong>,*  
-> *(Property/Data-property/Data-source-type/<strong>Observation</strong>,*  
-> *Property/Informational-property/<strong>Label/AnnotatorAJM_K-complex</strong>),*  
-> *Property/Informational-property/Description/K-complex defined by AASM guide.*  
+**Long form:**
+> *Event/<strong>Data-feature</strong>,*\
+> *(Property/Data-property/Data-source-type/<strong>Observation</strong>,*\
+> *Property/Informational-property/<strong>Label/AnnotatorAJM_K-complex</strong>),*\
+> *Property/Informational-property/Description/K-complex defined by AASM guide.*
 
 ```
 
