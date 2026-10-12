@@ -66,7 +66,7 @@ The next example gives a definition that uses a placeholder representing a prese
 
 Definitions may only appear in dummy entries of JSON sidecars and as external dictionaries. Definitions cannot be nested. Further, definitions must appear as top-level tag groups.
 
-The validation checks made by the HED validator when assembling and processing definitions are summarized in [Appendix B: HED errors](Appendix_B.md#b-hed-errors). In addition to syntax checks, which occur in early processing passes, HED validators check that the definition names have unique definitions. Additional checks for temporal scope are discussed in [Chapter 5.2: Using definitions](05_Advanced_annotation.md#52-using-definitions) and [Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
+The validation checks made by the HED validator when assembling and processing definitions are summarized in [Appendix B: HED errors](Appendix_B.md#b-hed-errors). In addition to syntax checks, which occur in early processing passes, HED validators check that a definition name is not defined twice with different contents. Additional checks for temporal scope are discussed in [Chapter 5.2: Using definitions](05_Advanced_annotation.md#52-using-definitions) and [Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
 
 ## 5.2. Using definitions
 
@@ -461,7 +461,7 @@ In normal usage, **the `Event-context` tag is not used directly by annotators**.
 3. HED-compliant analysis tools should insert the annotations describing each temporally
 scoped event into the `Event-context` tag group of the events within its
 temporal scope during final assembly before analysis of the event.
-4. Each of these internal annotations should be in a group, indicating that they represent a distinct event process.
+4. Each of these internal annotations MUST be in its own group, representing a distinct event process; the `Event-context` group contains no tags other than `Event-context` outside these groups.
 ````
 `````
 
