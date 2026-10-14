@@ -74,7 +74,7 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 **a.** A `Definition` tag does not appear in a tag group at the top level in an annotation.\
 **b.** A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).\
 **c.** A definition's enclosing tag group contains more than a `Definition` tag and an inner group.\
-**d.** A definition's contents contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`).\
+**d.** A definition's contents contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`), in every schema version.\
 **e.** A definition uses curly braces.\
 **f.** A definition that includes a placeholder (`#`) does not have exactly two `#` characters.\
 **g.** A definition has placeholders (`#`) in incorrect positions.\

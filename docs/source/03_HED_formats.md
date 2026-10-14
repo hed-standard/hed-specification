@@ -547,7 +547,7 @@ The characters that may be used in the value that replaces the `#` placeholder m
 
 Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are [VALUE_INVALID](./Appendix_B.md#value_invalid) errors.
 
-Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
+Units are always optional. Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
 
 Additional checks are made on the substituted values depending on the `valueClass`: `numericClass` values must be valid floating point numbers and `dateTimeClass` values must have the [BIDS Datetime format](https://bids-specification.readthedocs.io/en/stable/glossary.html#datetime-formats), RFC 3339 with an optional offset. The whole-value rules are the `value_class_words` entries of [`character_sets.json`](_static/character_sets.json); see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes).
 
@@ -693,11 +693,11 @@ These rules are stated from specification `4.0.0`; validators apply them for all
 
 A definition gives a name to a group of tags, so that annotations can refer to the whole group with a `Def` tag. Definitions are useful for lab-specific concepts and are the anchors of `Onset`, `Offset`, and `Inset` groups. Each definition is independent and stands alone.
 
-A definition is a tag group `(Definition/name, (contents))` or `(Definition/name/#, (contents))`; a definition with a placeholder MUST have the inner group. Definitions appear only where definitions are allowed, such as the definition entries of a sidecar or definitions supplied separately to a tool, and MUST NOT appear in the annotations of a tabular file.
+A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`, or `(Definition/name/#, (contents))`: a definition without a placeholder MAY omit the inner group, for example when it serves only as an anchor, and a definition with a placeholder MUST have it. Definitions appear only where definitions are allowed, such as the definition entries of a sidecar or definitions supplied separately to a tool, and MUST NOT appear in the annotations of a tabular file.
 
 `Definition`, `Def`, and `Def-expand` are the only tags that permit values with two parts, `name` or `name/value`, an exception to the rule that the value of a `nameClass` tag contains no `/`. The name MUST be a `nameClass` value. After a `Definition` name only `#` MAY follow, and when it does, the contents MUST contain exactly one tag with a `#` placeholder: `Definition/MyDef/3` is an error.
 
-The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute.
+The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute. This holds for `Delay` and `Duration` in every schema version, including `8.0.0` and `8.1.0`, where they are otherwise ordinary value tags.
 
 A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
 
@@ -725,7 +725,7 @@ See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors and 
 
 A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay (rule 3). The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
 
-The value of `Duration` and `Delay` is a number with a unit of the `timeUnits` unit class (in a sidecar, a `#` placeholder for such a value). In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so it MUST use a unit with a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
+The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors, and [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
 
@@ -1091,6 +1091,6 @@ A table with an `onset` (or equivalent) column is a **timeline table**: each row
 A table without an `onset` or equivalent column is a **descriptor table**: each row describes the properties of an entity, such as a participant, session, or sample. An example of a descriptor table in BIDS is the table contained in the `participants.tsv` file.
 
 - In a timeline table, each assembled annotation SHOULD include at least one `Event` tag. The temporal tags `Onset`, `Offset`, `Inset`, `Duration`, and `Delay` MAY be used.
-- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (rule 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
+- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and, in standard schemas >= `8.2.0`, `Delay` MUST NOT be used (rules 1 and 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor tables.

@@ -120,8 +120,8 @@ def check_file(data):
         for other in row.get("secondaryWith", []):
             if other not in row["otherAllowedNonDefTags"]:
                 problems.append(f"{where}.secondaryWith: {other!r} is not in otherAllowedNonDefTags")
-            elif key in (tags.get(other, {}).get("secondaryWith") or []):
-                problems.append(f"{where}.secondaryWith: {other!r} is also secondary with {key!r}")
+            elif tags.get(other, {}).get("secondaryWith"):
+                problems.append(f"{where}.secondaryWith: {other!r} is itself secondary, so it cannot govern a group")
         if "fromSchema" in row and not VERSION.match(str(row["fromSchema"])):
             problems.append(f"{where}.fromSchema: {row['fromSchema']!r} is not a version x.y.z")
     for key, form in data.get("valueForms", {}).items():
