@@ -28,7 +28,7 @@ Something that happens during the recording or that may be perceived by a partic
 
 ### Event-context [\*]
 
-Circumstances forming or contributing to the setting in which an event occurs that are relevant to its interpretation, assessment, and consequences.
+In general, context is the set of circumstances or background information that helps explain or gives meaning to what is happening at a specific point in time. In HED, the event context specifically means something ongoing that started at another point in time (such as the display of an image that started earlier but continues to be displayed at this time).
 
 ### Event marker
 
@@ -77,6 +77,10 @@ An experiment-specific item, often a specific behavioral or computer measure, th
 ### Recording [\*]
 
 A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
+
+### Reserved tag
+
+A tag with the `reserved` schema attribute has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
 
 ### Schema element
 

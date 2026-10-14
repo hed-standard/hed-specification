@@ -547,7 +547,7 @@ The characters that may be used in the value that replaces the `#` placeholder m
 
 Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are [VALUE_INVALID](./Appendix_B.md#value_invalid) errors.
 
-Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
+Units are always optional. Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
 
 Additional checks are made on the substituted values depending on the `valueClass`: `numericClass` values must be valid floating point numbers and `dateTimeClass` values must have the [BIDS Datetime format](https://bids-specification.readthedocs.io/en/stable/glossary.html#datetime-formats), RFC 3339 with an optional offset. The whole-value rules are the `value_class_words` entries of [`character_sets.json`](_static/character_sets.json); see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes).
 
@@ -575,6 +575,8 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 It is needed so that term search works correctly.
 
 ```
+
+A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah`, `Event-context/Blah` and `Onset/#` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors. This rule is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
 
 Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](./Appendix_B.md#style_warning) is issued for extension tags that do not follow the HED naming convention.
 
@@ -635,83 +637,103 @@ Duplicated tag expressions at the same level in a HED tag group or HED string ar
 
 See [TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated) for more details on validation errors due to repeated tag expressions.
 
-### 3.2.8. Special tags
+### 3.2.8. Reserved tags
+
+A **reserved tag** is a tag with the `reserved` schema attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). Nine of the tags with reserved attributes are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
+
+The other reserved tags (including `Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
+
+The table below gives, for each structural reserved tag other than `Def` and `Def-expand`, the rules for the top-level tag group that contains it. `Def` and `Def-expand` are not rows of the table: they appear in these groups as the anchor. The parts of such a group are named using the example `(Onset, Def/MyDef, Delay/2 s, (Red, Circle))`:
+
+- the **reserved tag**: `Onset`;
+- the **anchor**: `Def/MyDef`, the definition the group refers to, written either as a `Def` tag or as the equivalent `Def-expand` group (see [3.2.8.2](#3282-def-and-def-expand-tags));
+- **other top-level tags**: `Delay/2 s`;
+- **inner groups**: `(Red, Circle)`.
+
+In the table, **Value** says whether the tag requires a value, **Anchor** whether the group requires an anchor, **Others** lists the other top-level tags allowed, and **Min** and **Max** bound the number of inner groups; **Secondary**, **Timeline**, and **{ }** are explained by rules 3, 4, and 5 below. The table is generated from [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which the HED validators also load; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and the field behind each column.
+
+<!-- reserved-tags:begin -->
+
+Every tag in the following table MUST NOT be extended and MUST appear in a top-level tag group.
+
+| Tag             | Schemas    | Value | Anchor | Others                                 | Min | Max      | Secondary                              | Timeline | { } |
+| --------------- | ---------- | ----- | ------ | -------------------------------------- | --- | -------- | -------------------------------------- | -------- | --- |
+| `Definition`    | all        | yes   | no     | none                                   | 0   | 1        | none                                   | no       | no  |
+| `Delay`         | >= `8.2.0` | yes   | no     | `Duration`, `Onset`, `Offset`, `Inset` | 1   | 1        | `Duration`, `Onset`, `Offset`, `Inset` | yes      | yes |
+| `Duration`      | >= `8.2.0` | yes   | no     | `Delay`                                | 1   | 1        | none                                   | no       | yes |
+| `Event-context` | all        | no    | no     | none                                   | 0   | no limit | none                                   | no       | no  |
+| `Inset`         | >= `8.2.0` | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
+| `Offset`        | all        | no    | yes    | `Delay`                                | 0   | 0        | none                                   | yes      | yes |
+| `Onset`         | all        | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
+
+A violation of a rule in this table is reported as [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for `Definition`, [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for `Event-context`, and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for `Delay`, `Duration`, `Inset`, `Offset`, and `Onset`, except that an extension of one of these tags is [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) and a missing value is [TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child).
+
+Tags whose value has two parts:
+
+| Tag          | Value                  | After the name                                                                                                                                                 |
+| ------------ | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Definition` | `name` or `name/#`     | only `#`, present exactly when the definition's contents hold one `#`                                                                                          |
+| `Def`        | `name` or `name/value` | the value of the definition's placeholder, checked against that placeholder tag's value class and units; present exactly when the definition has a placeholder |
+| `Def-expand` | `name` or `name/value` | the value of the definition's placeholder, checked against that placeholder tag's value class and units; present exactly when the definition has a placeholder |
+
+<!-- reserved-tags:end -->
+
+The following rules complete the table:
+
+1. `Delay` and `Duration` follow these rules only in standard schemas >= `8.2.0`, the first in which they have the `reserved` and `topLevelTagGroup` attributes. In `8.0.0` and `8.1.0` they are ordinary value tags: they may appear anywhere a tag may and are not mapped onto the timeline.
+2. A tag whose row says "no" under **Anchor** MUST NOT have a `Def` tag or `Def-expand` group at the top level of its group: `(Duration/3 s, Def/MyDef)` is an error. Except in a definition (see [3.2.8.1](#3281-the-definition-tag)), one may appear inside an inner group: `(Duration/3 s, (Def/MyDef))` is valid.
+3. `Delay` is the only tag of the table that may share a group with another one, and in such a group it is secondary, as its **Secondary** column lists. When `Delay` shares a group with `Onset`, `Offset`, `Inset`, or `Duration`, the row of that tag gives the group rules (**Anchor**, **Others**, **Min**, **Max**, and **{ }**) and `Delay` is one of its allowed other top-level tags: `(Onset, Def/MyDef, Delay/2 s)` is valid with no inner group, as `(Onset, Def/MyDef)` is. The group rules of the `Delay` row apply only when `Delay` is the only tag of the table in its group, so `(Delay/2 s, (Red))` is valid and `(Delay/2 s)` alone is an error. The other rules of the `Delay` row (no extension, a required value, timeline tables only) apply to `Delay` wherever it appears: `(Duration/3 s, Delay/2 s, (Red))` is an error in a descriptor table.
+4. A tag marked "yes" under **Timeline** MUST NOT appear in a table without an `onset` column (or equivalent such as a `TimestampVectorData` column in NWB).
+5. A group whose tag is marked "no" under **{ }** (e.g.,`Definition`, `Event-context`) MUST NOT contain a sidecar column reference (`{column}`). A column reference MAY appear in other groups, and the rules of the table are checked on the assembled annotation (see [3.2.9.3](#3293-sidecar-curly-braces), rule 9).
+6. A violation is reported with the code named after the table, except as that sentence states for extensions and missing values. A tag that is outside a group, outside a top-level group, or next to a top-level tag its row does not allow MAY instead be reported as [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error).
+
+These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`, except as rule 1 says. The subsections below expand on the information.
 
 #### 3.2.8.1. The `Definition` tag
 
-A HED definition is a tag group consist of a `Definition` tag that takes a value representing the definition's name and an optional tag group defining the concept. Each definition is independent and stands alone.
+A definition gives a name to a group of tags, so that annotations can refer to the whole group with a `Def` tag. Definitions are useful for lab-specific concepts and are the anchors of `Onset`, `Offset`, and `Inset` groups. Each definition is independent and stands alone.
 
-The `Definition` tag corresponds to a schema node with the `topLevelTagGroup` attribute, assuring that definitions cannot be nested.
+A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`, or `(Definition/name/#, (contents))`: a definition without a placeholder MAY omit the inner group, for example when it serves only as an anchor, and a definition with a placeholder MUST have it. Definitions appear only where definitions are allowed, such as the definition entries of a sidecar or definitions supplied separately to a tool, and MUST NOT appear in the annotations of a tabular file.
 
-HED definitions may not contain any `Def` or `Def-expand` tags and must contain exactly one `Definition` tag. A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order. Two definitions with the same name and different contents are a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error. This rule is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
+`Definition`, `Def`, and `Def-expand` are the only tags that permit values with two parts, `name` or `name/value`, an exception to the rule that the value of a `nameClass` tag contains no `/`. The name MUST be a `nameClass` value. After a `Definition` name only `#` MAY follow, and when it does, the contents MUST contain exactly one tag with a `#` placeholder: `Definition/MyDef/3` is an error.
 
-The `Definition` tag must be extended with a value representing the definition name and may be additionally extended by a `#` placeholder. If the definition name includes the `#` placeholder extension, then the defining tags must include exactly one tag that takes a value along with its `#` placeholder.
+The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute. This holds for `Delay` and `Duration` in every schema version, including `8.0.0` and `8.1.0`, where they are otherwise ordinary value tags.
 
-Definitions with the same name are considered duplicate definitions regardless of whether one has a placeholder and another does not. **However, each distinct substituted value represents a distinct definition name for purposes of `Onset`/`Offset` processing.**
+A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
 
-See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for a listing of situations in which a definition may be invalid.
-
-See also [Chapter 5.1 Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for more details and examples.
+See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for the errors and [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for examples.
 
 #### 3.2.8.2. `Def` and `Def-expand` tags
 
-A definition is incorporated into annotations using the tag `Def/xxx` where `xxx` is the definition's name.
+A definition is used in an annotation as the tag `Def/name`, or `Def/name/value` when the definition has a placeholder. The equivalent expanded forms are the groups `(Def-expand/name, (contents))` and `(Def-expand/name/value, (contents))`, whose inner group holds the definition's contents with the value substituted for the placeholder. The value MUST be present in the assembled annotation exactly when the definition has a placeholder, and it is checked as the value of the definition's placeholder tag, with that tag's value class and units: `Def/MyDef/3 Hz`. In a sidecar, the value may itself be a `#` placeholder that is filled in during assembly.
 
-Alternatively, the annotator may use an expanded form `(Def-expand/xxx, yyy)` where `xxx` is the definition's name and `yyy` is a tag group containing the definitions contents.
+Annotators SHOULD avoid writing `Def-expand` groups: the expanded form is generally created by tools that need the actual tags of a definition's contents during processing. Tools SHOULD be able to transform between the two forms; transforming a `Def` tag into a `Def-expand` group requires the definition, while the reverse does not.
 
-The two usages are equivalent, and tools should be able to transform between the two representations. Note, however, that transforming from a `Def` tag to a `Def-expand` group requires the definition, while transforming from a `Def-expand` group to `Def` tag does not.
+The two forms are equivalent. A `Def-expand` group stands wherever its `Def` tag would stand, and every rule about the place of a `Def` tag, such as rule 2, applies to it unchanged: `(Duration/3 s, (Def-expand/MyDef, (Red)))` is an error, as `(Duration/3 s, Def/MyDef)` is. The inner group of a `Def-expand` group MUST match the definition's contents, with the value substituted, and is never counted as an inner group of the group that contains it.
 
-For definitions that include a placeholder, a value must be substituted for the `#` placeholder in `Def` tag and `Def-expand` group when final annotation assembly occurs.
-
-See [DEF_INVALID](./Appendix_B.md#def_invalid) and [DEF_EXPAND_INVALID](./Appendix_B.md#def_expand_invalid) for details on the types of errors that occur with `Def` and `Def-expand`.
-
-See also [Using definitions](./05_Advanced_annotation.md#52-using-definitions) for more details and examples.
+See [DEF_INVALID](./Appendix_B.md#def_invalid) and [DEF_EXPAND_INVALID](./Appendix_B.md#def_expand_invalid) for the errors and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for examples.
 
 #### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
-The `Onset` and `Offset` tags are used to represent the temporal extent of events that have non-zero duration.
+Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
 
-Each of these tags must appear in a top level tag group with a `Def` tag or `Def-expand` group anchor.
+An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset` or `Offset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
-A tag group with an `Onset` represents the start of an event that extends over time. A tag group with an `Offset` represents the end of an event that was previously initiated by an `Onset` group. A given event of temporal extent is also terminated by the appearance of another `Onset` group with the same `Def` tag or `Def-expand` group anchor.
-
-The `Onset` tag group may only contain its `Def` tag or `Def-expand` group anchor, an optional `Delay` tag, and at most one additional inner tag group in addition to the `Onset` tag.
-
-The `Offset` tag group may only contain its `Def` tag or `Def-expand` group anchor and an optional `Delay` tag in addition to the `Offset` tag.
-
-These requirements imply that, apart from an optional `Delay`, `Onset` and `Offset` must be the only tags in their tag group with the `topLevelTagGroup` attribute. `Onset` and `Offset` tags correspond to schema nodes with the `topLevelTagGroup` attribute. This implies, for example, that HED definition's contents may not include `Onset` or `Offset` tags.
-
-An `Inset` tag designates an intermediate time point in an event of temporal extent. Like `Onset` and `Offset`, the `Inset` tag has the `topLevelTagGroup` attribute and must be anchored by a `Def` or `Def-expand`. The anchor must be the same name as that of an ongoing `Onset`. In addition to its anchor, the `Inset` tag group may contain an optional `Delay` tag and a single additional tag group with additional information about that marked point. An event of temporal extent may contain several of these intermediate points.
-
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) and [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and for a listing of specific errors associated with onsets, and offsets, and insets.
-
-[Chapter 5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) in Chapter 5 gives examples of usage and additional details.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors and [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
 
 #### 3.2.8.4. `Duration` and `Delay`
 
-The `Delay` tag MUST appear in a top-level tag group and MUST take a numerical value. Its tag group must contain an inner tag group representing an event whose onset time is delayed by the specified amount. If the top-level tag group contains a `Duration` tag, then this event has the indicated duration otherwise the event is considered a point event.
+A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay (rule 3). The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
 
-A `Delay` tag MAY also appear in an `Onset`, `Offset`, or `Inset` group (see [3.2.8.3](#3283-onset-offset-and-inset)), in which case that marker is placed at the time of the row's event marker plus the delay and the inner tag group is optional, as it is for those tags. `Delay` is the only tag with the `topLevelTagGroup` attribute that may share a top-level group with another such tag. This rule is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0` (`Inset` exists from `8.2.0`).
+The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
 
-The `Duration` tag MUST appear in a top-level tag group and MUST take a numerical value indicating the duration of the event represented by the other tags in its group. The `Duration` top-level tag group may contain a `Delay`, but no other tags with the `topLevelTagGroup attribute` (e.g., `Onset`, `Offset`, `Inset`, `Event-context`, `Definition`).
-
-In a timeline file (a tabular file with an `onset` column, see [3.3.4.1. Timeline files](#3341-timeline-files)), the values of `Delay` and `Duration` are mapped onto the file's timeline, so they MUST use units that have a `conversionFactor` in the schema (units such as `month` and `year` have none). `Delay` MUST NOT appear in a non-timeline file. `Duration` MAY appear in a non-timeline file, such as `participants.tsv`, with any valid unit of its unit class, because there is no timeline to map it onto.
-
-Note that the starting or the ending time of the event group with `Delay` or `Duration`, respectively, may not correspond to an actual event-marker appearing in the events file. Instead, tools calculate when the scope at analysis time and may insert additional markers if required. As with all HED tags and groups, order does not matter.
-
-See [Chapter 5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [Chapter 5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for more information.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors, and [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
 
 #### 3.2.8.5. The `Event-context` tag
 
-The `Event-context` tag corresponds to a schema node with both the `topLevelTagGroup` and `unique` attributes. This implies that there can be only one `Event-context` group in each assembled event-level HED string. The `Event-context` group contains information about what other events are ongoing at the time point associated with the event marker for which the annotation is included.
+An `Event-context` group records the event processes that are ongoing at the time of an event marker, for example an image displayed from its `Onset` until its `Offset`. Each inner group holds the tags of one ongoing process. The group is generated by tools during event processing, with every definition and column reference already expanded, and is generally not written by annotators. Because `Event-context` has the `unique` attribute, an assembled annotation contains at most one `Event-context` group.
 
-An `Event-context` group has the form `(Event-context, (content-group), ...)`. Apart from the `Event-context` tag it contains only tag groups, one for each ongoing event process, for example an image displayed from its `Onset` until its `Offset`; each content group holds the tags that describe that process. A tag that is not inside such a group is a [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error). This form is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
-
-In general, the `Event-context` group is not included in annotations, but is generated by tools during downstream event processing.
-
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for additional information on validation errors related to `Event-context`.
-
-Additional details and examples for `Event-context` can be found in [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts).
+See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for the errors and [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts) for examples.
 
 ### 3.2.9. Sidecars
 
@@ -791,10 +813,11 @@ the curly brace expression including the curly braces as well as any extra paren
 A value other than `n/a` or blank in a curly brace column is validated in every row, whether or not the row's template substitutes it.
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
-5. The curly braces cannot be used within a `Definition`.
+5. The curly braces cannot be used within a `Definition` or an `Event-context` group.
 6. Curly braces can not appear in the HED column of a tabular file.
 7. Curly braces can not be nested.
 8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
+9. The group rules of a structural reserved tag (its anchor, the number of inner groups, and the tags allowed beside it, see [3.2.8](#328-reserved-tags)) are checked on the assembled annotation. A sidecar entry such as `(Duration/#, {stim_desc})` is valid when every substitution of `{stim_desc}` supplies the required inner group.
 
 ```
 
@@ -880,25 +903,23 @@ A tabular (`.tsv`) file is a text file in which each line represents a row in a 
 
 #### 3.2.10.1 Tabular types
 
-Generally each row in a tabular file represents an item and the columns values provide properties of that item. The most common HED-annotated tabular files represent event markers in an experiment (e.g., BIDS `events.tsv` files). In this case each row represents a time at which something happened.
+Generally each row in a table represents an item and the columns values provide properties of that item. The most common HED-annotated tables represent event markers in an experiment. For example, each BIDS `events.tsv` file contains a table whose rows represent markers on the experimental timeline. The columns contain additional information pertaining to that time marker.
 
-Another common HED-annotated tabular file represents experiment participants (e.g., BIDS `participants.tsv`). Each row in the file represents a participant, and the columns provide characteristics or other information about the participant identified in that row.
-
-The `events.tsv` files are tabular files representing markers on a timeline. This type of tabular file must have `onset` as the first column, and HED tools use the time values in this column to resolve `Onset`, `Offset` and `Inset`. In contrast, the `participants.tsv` file, which contains information about the experimental participants, is representative of a non time-marker file. Non time-marker files cannot use the `Onset`, `Offset`, or `Inset` tags as these tags are reserved for annotations of time processes and cannot be resolved if there is no time.
+Another common HED-annotated table contains metadata. For example, in the BIDS `participants.tsv` each row represents a participant, and the columns provide characteristics or other information about the participant identified in that row.
 
 In any case, the general strategy for validation or other processing is:
 
 1. Process the individual components of the HED annotation (tag-level and string-level processing).
 2. Assemble the component annotations for a row (event-level or row-level processing).
-3. Check consistency and relationships among the row annotations (file-level processing).
+3. Check consistency and relationships among the row annotations (table-level processing).
 
 See [BIDS tabular files](06_Infrastructure_and_tools.md#631-bids-tabular-files) for more examples.
 
-#### 3.2.10.2. Tabular annotations
+#### 3.2.10.2. Table annotations
 
-HED annotations in tabular files can occur both in a `HED` column within the file and in an associated JSON sidecar.
+BIDS HED annotations for a table can occur both in a column called `HED` within the table and in an associated JSON sidecar.
 
-The values in a tabular column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
+The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
 The HED strings that appear in a `HED` column must be valid HED strings. If the first column is not called `onset`, the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
 
@@ -956,9 +977,9 @@ The specific annotation `(Image, Face, Pathname/h234.bmp)` has been substituted 
 
 For more examples of event assembly, see [How HED works in BIDS](https://www.hedtags.org/hed-resources/BidsAnnotationQuickstart.html#how-hed-works-in-bids) tutorial.
 
-#### 3.2.10.4. File-level processing
+#### 3.2.10.4. Table-level processing
 
-HED versions >= `8.0.0` allow annotation of relationships among rows in a tabular file. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
+HED versions >= `8.0.0` allow annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
 
 To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 
@@ -1017,10 +1038,10 @@ The following rules govern how tags should be grouped:
    - Pattern: `(Event-type1, Task-event-role1, and Sensory-modality1, (...)), (Event-type2, Task-event-role2, and Sensory-modality2, (...))`.
    - Example: `(Experimental-stimulus, Sensory-event, Visual-presentation, (Red, Circle)), (Sensory-event)` not `(Experimental-stimulus, Sensory-event, Red, Circle)`
 
-5. **Reserved tags** - Reserved tags have special rules for grouping and location in an annotation.
+5. **Structural reserved tags** - Structural reserved tags have special rules for grouping and location in an annotation.
 
-   - Tags: `Definition`, `Def`, `Def-expand`, `Onset`, `Inset`, `Offset`, `Duration`, `Event-context`
-   - See: [3.2.8. Special tags](./03_HED_formats.md#328-special-tags) and [3.3.5. Temporal semantics](./03_HED_formats.md#335-temporal-semantics) for details of the specification.
+   - Tags: `Definition`, `Def`, `Def-expand`, `Onset`, `Inset`, `Offset`, `Delay`, `Duration`, `Event-context`
+   - See: [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for details of the specification.
    - See: [5. Advanced Annotation](./05_Advanced_annotation.md) for example usage.
 
 See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for validation errors related to grouping.
@@ -1063,121 +1084,13 @@ Rules for curly brace usage:
 
 See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) for curly brace errors.
 
-### 3.3.4. File type semantics
+### 3.3.4. Timeline versus descriptor tables
 
-The semantic interpretation of annotations differs fundamentally based on file type.
+A table with an `onset` (or equivalent) column is a **timeline table**: each row describes what happened at the time in its `onset` column. Currently the only timeline tables in BIDS are in `*_events.tsv` files. In NWB, dynamic tables with a `TimestampVectorData` type are considered to be timeline tables.
 
-#### 3.3.4.1. Timeline files
+A table without an `onset` or equivalent column is a **descriptor table**: each row describes the properties of an entity, such as a participant, session, or sample. An example of a descriptor table in BIDS is the table contained in the `participants.tsv` file.
 
-Timeline files (tabular files with an `onset` column) describe EVENTS occurring at specific times. Currently the only supported timeline files in BIDS are `*_events.tsv` files.
+- In a timeline table, each assembled annotation SHOULD include at least one `Event` tag. The temporal tags `Onset`, `Offset`, `Inset`, `Duration`, and `Delay` MAY be used.
+- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and, in standard schemas >= `8.2.0`, `Delay` MUST NOT be used (rules 1 and 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
 
-Requirements:
-
-- Each assembled annotation SHOULD include at least one `Event`-type tag.
-- MAY use temporal scope tags: `Onset`, `Offset`, `Inset`, `Duration`, `Delay`.
-- Describe what happened at the time point.
-
-#### 3.3.4.2. Descriptor files
-
-Descriptor files (tabular files without an `onset` column) describe PROPERTIES of entities (e.g., participants, sessions, samples).
-
-Requirements:
-
-- MUST NOT include Event-type tags.
-- MUST NOT use `Onset`, `Offset`, `Inset`, or `Delay` tags.
-- MAY use the `Duration` tag, with any valid unit of its unit class, since there is no timeline to map it onto.
-- Describe characteristics of the entity.
-
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor files.
-
-### 3.3.5. Temporal semantics
-
-While many experiments model events as things that occur at a single point in time, in reality, most "things" unfold over time as "event processes". HED temporal tags and semantics allow representation of complex event processes.
-
-#### 3.3.5.1. Onset and Offset
-
-The `Onset` and `Offset` tags represent the temporal extent of events with non-zero duration.
-
-- Each MUST appear in a top-level tag group with a `Def` tag or `Def-expand` group anchor.
-- An `Onset` group represents the start of a temporally extended event.
-- An `Offset` group represents the end of a previously initiated event.
-- An `Onset` for the same definition name terminates any previous ongoing event with that name.
-
-The `Onset` tag group MAY contain a `Delay` tag and one additional inner tag group beyond its anchor. These tags are meant to be specific to that particular instance of the event, not to all instances.
-
-The `Offset` tag group MUST contain only its anchor and, optionally, a `Delay` tag.
-
-#### 3.3.5.2. Inset
-
-An `Inset` tag designates an intermediate time point in a temporally extended event.
-
-- MUST appear in a top-level tag group with a `Def` or `Def-expand` anchor.
-- The anchor MUST match the name of an ongoing `Onset`.
-- MAY contain one additional tag group with information about the marked point.
-- MAY contain a `Delay` tag.
-
-Often `Inset` tags are used to mark intermediate time features of an event process and specific to that event instance.
-
-#### 3.3.5.3. Duration and Delay
-
-The `Duration` tag indicates an event's temporal extent:
-
-- MUST appear in a top-level tag group and MUST have a numerical value (or `#` placeholder).
-- Its group represents an event with the indicated duration.
-- MUST NOT appear with `Onset`, `Offset`, `Inset`, or `Event-context` in the same group.
-- MAY appear with `Delay` in the same top-level group.
-- In a timeline file, `Duration` MUST use a unit with a `conversionFactor`, so the end time can be placed on the timeline. In a non-timeline file, `Duration` MAY use any valid unit of its unit class.
-
-The `Delay` tag indicates a delay in the time associated with the event's time marker:
-
-- MUST appear in a top-level tag group and MUST take a numerical value (or `#` placeholder).
-- Its group MUST contain an inner tag group representing the delayed event, unless the group is an `Onset`, `Offset`, or `Inset` group.
-- If the group also contains `Duration`, the event has that duration; otherwise it is a point event.
-- MAY instead appear in an `Onset`, `Offset`, or `Inset` group, placing that marker at the row's event marker plus the delay.
-- MUST appear only in timeline files and MUST use a unit with a `conversionFactor`, so the delayed onset can be placed on the timeline.
-
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for temporal tag validation errors.
-
-### 3.3.6. Definition semantics
-
-HED definitions are useful for defining lab-specific groups of tags and are required as anchors for the `Onset`, `Offset`, and `Inset` tags. Usually are defined externally or appear in special entries in sidecars. `Definition` tags can not appear in ordinary HED annotations.
-
-A HED definition is a tag group consisting of a `Definition` tag extended with the definition's name and an optional tag group defining the concept.
-
-Requirements:
-
-- The `Definition` tag MUST be extended with a value representing the definition name.
-- MAY be additionally extended by a `#` placeholder.
-- If the definition name includes `#`, the defining tags MUST include exactly one tag with `#`.
-- MUST NOT contain `Def`, `Def-expand`, `Onset`, `Offset`, or `Inset` tags.
-- A name MAY be defined more than once only by identical definitions; the same name with different contents is not allowed.
-
-Definitions are incorporated into annotations using:
-
-- `Def/xxx` where `xxx` is the definition's name, or
-- `(Def-expand/xxx, yyy)` where `xxx` is the name and `yyy` is the definition's contents.
-
-The `Def-expand` tag should not be used by users in annotations. Its purpose is to allow tools to replace the `Def` tag in annotations with its underlying definition.
-
-For definitions with placeholders, a value MUST be substituted for the `#` when used.
-
-See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) and [DEF_INVALID](./Appendix_B.md#def_invalid) for definition-related errors.
-
-### 3.3.7. Special semantic rules
-
-#### 3.3.7.1. Event-context
-
-The `Event-context` tag group contains information about ongoing events at a specific time point.
-
-- Has both `topLevelTagGroup` and `unique` attributes.
-- Only one `Event-context` group MAY appear per assembled event-level HED string.
-- Contains, besides the `Event-context` tag, only tag groups, one per ongoing event process.
-- Generally generated by tools during processing, not included in manual annotations.
-
-#### 3.3.7.2. Unique and required
-
-Tags with the `unique` schema attribute MUST NOT appear more than once in an assembled annotation.
-
-Tags with the `required` schema attribute MUST appear in every assembled annotation. (Note: HED schema versions >= `8.0.0` do not currently use the `required` attribute.)
-
-See [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) and [REQUIRED_TAG_MISSING](./Appendix_B.md#required_tag_missing) for related errors.
+See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor tables.

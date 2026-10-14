@@ -142,7 +142,7 @@ Although unpartnered library schemas may add additional items to the auxiliary s
 
 #### 7.3.5.2. Reserved tags handling
 
-Several tags in the standard schema have the `reserved` attribute indicating that they are handled specially by tools to implement features of HED. For example, `Definition`, `Onset`, and `Offset` define the temporal scope of events and are handled by validators in a special way. By partnering with a standard schema, a library schema is assured of having HED support for key features such as events of temporal extent and definitions.
+Several tags in the standard schema have the `reserved` attribute: each has a specified meaning in the HED ecosystem that individual schemas, library schemas included, cannot redefine. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) implement definitions and events of temporal extent; see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for their rules. By partnering with a standard schema, a library schema is assured of having HED support for key features such as events of temporal extent and definitions.
 
 #### 7.3.5.3. Annotation conciseness
 
