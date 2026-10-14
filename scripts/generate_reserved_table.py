@@ -62,6 +62,16 @@ SECOND_PARTS = {
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
 
 
+def is_count(value):
+    """True for a non-negative integer; JSON true and false are not counts."""
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def is_name_list(value):
+    """True for a list of strings."""
+    return isinstance(value, list) and all(isinstance(item, str) for item in value)
+
+
 def load_data():
     with open(JSON_PATH, encoding="utf-8") as fp:
         return json.load(fp)
@@ -88,10 +98,20 @@ def check_file(data):
             if not isinstance(row[k], bool):
                 problems.append(f"{where}.{k}: not a boolean")
         low, high = row["minNonDefSubgroups"], row["maxNonDefSubgroups"]
-        if not isinstance(low, int) or low < 0:
+        low_ok = is_count(low)
+        if not low_ok:
             problems.append(f"{where}.minNonDefSubgroups: not a non-negative integer")
-        if high is not None and (not isinstance(high, int) or high < low):
-            problems.append(f"{where}.maxNonDefSubgroups: not null or an integer >= the minimum")
+        if high is not None and not is_count(high):
+            problems.append(f"{where}.maxNonDefSubgroups: not null or a non-negative integer")
+        elif high is not None and low_ok and high < low:
+            problems.append(f"{where}.maxNonDefSubgroups: less than the minimum")
+        lists_ok = True
+        for field in ("otherAllowedNonDefTags", "secondaryWith"):
+            if field in row and not is_name_list(row[field]):
+                problems.append(f"{where}.{field}: not an array of tag names")
+                lists_ok = False
+        if not lists_ok:
+            continue
         for other in row["otherAllowedNonDefTags"]:
             if other not in tags:
                 problems.append(f"{where}.otherAllowedNonDefTags: {other!r} is not a row")
@@ -100,7 +120,7 @@ def check_file(data):
         for other in row.get("secondaryWith", []):
             if other not in row["otherAllowedNonDefTags"]:
                 problems.append(f"{where}.secondaryWith: {other!r} is not in otherAllowedNonDefTags")
-            elif key in tags.get(other, {}).get("secondaryWith", []):
+            elif key in (tags.get(other, {}).get("secondaryWith") or []):
                 problems.append(f"{where}.secondaryWith: {other!r} is also secondary with {key!r}")
         if "fromSchema" in row and not VERSION.match(str(row["fromSchema"])):
             problems.append(f"{where}.fromSchema: {row['fromSchema']!r} is not a version x.y.z")
@@ -188,7 +208,13 @@ def render_block(data):
     clauses = [
         f"[{code}](./Appendix_B.md#{code.lower()}) for {join_words(names)}" for code, names in sorted(by_code.items())
     ]
-    parts.append("A violation of a rule in this table is reported as " + join_words(clauses) + ".")
+    parts.append(
+        "A violation of a rule in this table is reported as "
+        + join_words(clauses)
+        + ", except that an extension of one of these tags is "
+        + "[TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) and a missing value is "
+        + "[TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child)."
+    )
     forms = data.get("valueForms", {})
     if forms:
         form_rows = [

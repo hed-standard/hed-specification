@@ -243,7 +243,7 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 ### TAG_REQUIRES_CHILD
 
-**a.** A tag has the `requireChild` schema attribute but does not have a child.
+**a.** A tag has the `requireChild` schema attribute but does not have a child.\\n**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schema `8.2.0`, which do not yet have `requireChild`.
 
 See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) for an explanation of the `requireChild` attribute.
 
@@ -266,7 +266,7 @@ Note: The causes that involve `Delay` or `Duration` apply to standard schema ver
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a descriptor table (without an `onset` or equivalent column).\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline table (i.e., a table with no `onset` equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the tables's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
+**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 
