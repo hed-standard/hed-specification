@@ -74,14 +74,14 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 **a.** A `Definition` tag does not appear in a tag group at the top level in an annotation.\
 **b.** A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).\
 **c.** A definition's enclosing tag group contains more than a `Definition` tag and an inner group.\
-**d.** A definition's inner tag group contains `Definition`, `Def` or `Def-expand` tags.\
+**d.** A definition's contents contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`).\
 **e.** A definition uses curly braces.\
 **f.** A definition that includes a placeholder (`#`) does not have exactly two `#` characters.\
 **g.** A definition has placeholders (`#`) in incorrect positions.\
 **h.** Definitions of the same name appear with and without a `#`.\
 **i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
 **j.** A tag with a `required` or `unique` attribute appears in a definition.\
-**k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.
+**k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.**l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
 
 See [3.2.8.1. The Definition tag](./03_HED_formats.md#3281-the-definition-tag) for an explanation of the rules for definitions. See also [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for more details and examples of definition syntax.
 
@@ -203,7 +203,7 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 
 **a.** A tag extension term is already in the schema.\
 **b.** A tag extension term does not comply with rules for schema nodes.\
-**c.** A tag has extension, but an extension is not allowed.
+**c.** A tag has extension, but an extension is not allowed. This includes an extension of a reserved tag (`Onset/Blah`, `Onset/#`), although reserved tags inherit `extensionAllowed`; see [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions).
 
 See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.
 
@@ -212,7 +212,9 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 **a.** A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.\
 **b.** A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.\
 **c.** Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Delay` may be in the same group as a single `Duration`, `Onset`, `Offset`, or `Inset`.\
-**d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.
+**d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.\\n**e.** An `Event-context` group contains a curly brace column reference (`{column}`).
+
+**Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR.
 
 See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attributes) for additional information on the rules for group errors due to schema attributes.
 
@@ -249,6 +251,8 @@ See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) 
 
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with different placeholder substitutions are considered to be different.
 
+Note: The causes that involve `Delay` or `Duration` apply to standard schema versions >= `8.2.0`. In `8.0.0` and `8.1.0` these are ordinary value tags.
+
 **a.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.\
 **b.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).\
 **c.** An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.\
@@ -259,10 +263,10 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
 **i.** An `Onset` or `Offset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
-**k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a non-timeline tabular file (a tabular file without an `onset` column).\
-**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group.\
+**k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a descriptor table (without an `onset` or equivalent column).\
+**l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline file (a tabular file with an `onset` column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the file's timeline. A `Duration` tag in a non-timeline file MAY use any valid unit of its unit class.
+**n.** In a timeline table (i.e., a table with no `onset` equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the tables's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 

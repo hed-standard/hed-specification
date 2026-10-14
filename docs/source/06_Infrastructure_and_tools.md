@@ -64,9 +64,9 @@ HED-compliant tools should be able to expand, shrink, or remove definitions.
 
 HED definitions should only appear in sidecars in dummy entries or in an accompanying definition list. Actual `Definition` groups should not appear in the `HED` column of event files.
 
-## 6.2. File-level handling
+## 6.2. Table-level handling
 
-Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) allow users to provide HED tags in multiple places. For example, BIDS dataset event files often use local codes to identify event markers in tabular (`events.tsv`) files and then provide dictionaries called JSON sidecars to map local codes to annotations.
+Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) allow users to provide HED tags in multiple places. For example, the tables in BIDS dataset event files often use local codes to identify event markers and then provide dictionaries called JSON sidecars to map local codes to annotations.
 
 The introduction of definitions and temporal scope for HED versions >= `8.0.0` has added additional complexity to validation and processing. Instead of being able to validate the HED string for each event individually, HED validators must now also check consistency across all events in the data-recording.
 
@@ -80,7 +80,7 @@ Tools should make explicit whether they support insertion of actual events for `
 
 ### 6.3.1. BIDS tabular files
 
-HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files, which are tab-separated value files whose first line has the column names. A BIDS tabular file has extension `.tsv` and can be optionally accompanied by a similarly named `.json` file (i.e., a sidecar) containing metadata for the file.
+A BIDS tabular file is a tab-separated value file with extension `.tsv`. The file contains a single table with a one-line header containing the column names. The remaining lines in the file represent rows in the table. HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files. A BIDS tabular file can be optionally accompanied by one or more similarly named `.json` files (i.e., sidecars) containing metadata for the file.
 
 The most common types of BIDS tabular files are shown in the following table.
 
@@ -95,9 +95,9 @@ The most common types of BIDS tabular files are shown in the following table.
 | `samples.tsv `      | No    | Properties of a particular sample (e.g., tissue). |
 | `phenotype/xxx.tsv` | No    | A measurement from a particular participant.      |
 
-HED treats tabular files such as (e.g., `events.tsv` files) whose first column has the name `onset` as expressing markers on a timeline. These timeline files allow `Onset`, `Inset`, and `Offset` tags in their annotations and receive additional [file-level processing](./03_HED_formats.md#32104-file-level-processing) to assure that these tags are properly matched.
+HED treats the `onset` column of tables such as the ones in `events.tsv` files as expressing markers on a timeline. These timeline tables allow `Onset`, `Inset`, and `Offset` tags in their annotations and receive additional [table-level processing](./03_HED_formats.md#32104-table-level-processing) to assure that these tags are properly matched.
 
-**Tabular files that do not represent timelines are not permitted to use `Onset`, `Inset`, and `Offset` tags in their annotations.** See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for additional information.
+**Tabular files that do not contain timeline tables are not permitted to use `Onset`, `Inset`, and `Offset` tags in their annotations.** See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for additional information.
 
 The following shows an excerpt from a BIDS event file:
 
