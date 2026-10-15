@@ -656,15 +656,15 @@ In the table, **Value** says whether the tag requires a value, **Anchor** whethe
 
 Every tag in the following table MUST NOT be extended and MUST appear in a top-level tag group.
 
-| Tag             | Schemas    | Value | Anchor | Others                                 | Min | Max      | Secondary                              | Timeline | { } |
-| --------------- | ---------- | ----- | ------ | -------------------------------------- | --- | -------- | -------------------------------------- | -------- | --- |
-| `Definition`    | all        | yes   | no     | none                                   | 0   | 1        | none                                   | no       | no  |
-| `Delay`         | >= `8.2.0` | yes   | no     | `Duration`, `Onset`, `Offset`, `Inset` | 1   | 1        | `Duration`, `Onset`, `Offset`, `Inset` | yes      | yes |
-| `Duration`      | >= `8.2.0` | yes   | no     | `Delay`                                | 1   | 1        | none                                   | no       | yes |
-| `Event-context` | all        | no    | no     | none                                   | 0   | no limit | none                                   | no       | no  |
-| `Inset`         | >= `8.2.0` | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
-| `Offset`        | all        | no    | yes    | `Delay`                                | 0   | 0        | none                                   | yes      | yes |
-| `Onset`         | all        | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
+| Tag             | Value | Anchor | Others                                 | Min | Max      | Secondary                              | Timeline | { } |
+| --------------- | ----- | ------ | -------------------------------------- | --- | -------- | -------------------------------------- | -------- | --- |
+| `Definition`    | yes   | no     | none                                   | 0   | 1        | none                                   | no       | no  |
+| `Delay`         | yes   | no     | `Duration`, `Onset`, `Offset`, `Inset` | 1   | 1        | `Duration`, `Onset`, `Offset`, `Inset` | yes      | yes |
+| `Duration`      | yes   | no     | `Delay`                                | 1   | 1        | none                                   | no       | yes |
+| `Event-context` | no    | no     | none                                   | 0   | no limit | none                                   | no       | no  |
+| `Inset`         | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
+| `Offset`        | no    | yes    | `Delay`                                | 0   | 0        | none                                   | yes      | yes |
+| `Onset`         | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
 
 A violation of a rule in this table is reported as [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for `Definition`, [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for `Event-context`, and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for `Delay`, `Duration`, `Inset`, `Offset`, and `Onset`, except that an extension of one of these tags is [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) and a missing value is [TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child).
 
@@ -680,14 +680,14 @@ Tags whose value has two parts:
 
 The following rules complete the table:
 
-1. `Delay` and `Duration` follow these rules only in standard schemas >= `8.2.0`, the first in which they have the `topLevelTagGroup` attribute. In `8.0.0` and `8.1.0` they are ordinary value tags: they may appear anywhere a tag may, except inside a definition ([3.2.8.1](#3281-the-definition-tag)), and are not mapped onto the timeline.
+1. The rules apply in every standard schema version >= `8.0.0`. Standard schemas `8.0.0` and `8.1.0` carry none of the `reserved`, `topLevelTagGroup`, or `requireChild` attributes on `Delay` and `Duration`, and `8.2.0` lacks `requireChild`; the file supplies them, so these two tags follow the table in every version.
 2. A tag whose row says "no" under **Anchor** MUST NOT have a `Def` tag or `Def-expand` group at the top level of its group: `(Duration/3 s, Def/MyDef)` is an error. Except in a definition (see [3.2.8.1](#3281-the-definition-tag)), one may appear inside an inner group: `(Duration/3 s, (Def/MyDef))` is valid.
 3. `Delay` is the only tag of the table that may share a group with another one, and in such a group it is secondary, as its **Secondary** column lists. When `Delay` shares a group with `Onset`, `Offset`, `Inset`, or `Duration`, the row of that tag gives the group rules (**Anchor**, **Others**, **Min**, **Max**, and **{ }**) and `Delay` is one of its allowed other top-level tags: `(Onset, Def/MyDef, Delay/2 s)` is valid with no inner group, as `(Onset, Def/MyDef)` is. The group rules of the `Delay` row apply only when `Delay` is the only tag of the table in its group, so `(Delay/2 s, (Red))` is valid and `(Delay/2 s)` alone is an error. The other rules of the `Delay` row (no extension, a required value, timeline tables only) apply to `Delay` wherever it appears: `(Duration/3 s, Delay/2 s, (Red))` is an error in a descriptor table.
 4. A tag marked "yes" under **Timeline** MUST NOT appear in a table without an `onset` column (or equivalent such as a `TimestampVectorData` column in NWB).
 5. A group whose tag is marked "no" under **{ }** (e.g.,`Definition`, `Event-context`) MUST NOT contain a sidecar column reference (`{column}`). A column reference MAY appear in other groups, and the rules of the table are checked on the assembled annotation (see [3.2.9.3](#3293-sidecar-curly-braces), rule 9).
 6. A violation is reported with the code named after the table, except as that sentence states for extensions and missing values. A tag that is outside a group, outside a top-level group, or next to a top-level tag its row does not allow MAY instead be reported as [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error).
 
-These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`, except as rule 1 says. The standard schema version in effect for an annotation is the highest standard schema version among the schemas of its version specification, a standard schema contributing its own version and a partnered library schema its `withStandard` version. A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)). The subsections below expand on the information.
+These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`. A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)). The subsections below expand on the information.
 
 #### 3.2.8.1. The `Definition` tag
 
@@ -697,7 +697,7 @@ A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`
 
 `Definition`, `Def`, and `Def-expand` are the only tags that permit values with two parts, `name` or `name/value`, an exception to the rule that the value of a `nameClass` tag contains no `/`. The name MUST be a `nameClass` value. After a `Definition` name only `#` MAY follow, and when it does, the contents MUST contain exactly one tag with a `#` placeholder: `Definition/MyDef/3` is an error.
 
-The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute. This holds for `Delay` and `Duration` in every schema version, including `8.0.0` and `8.1.0`, where they are otherwise ordinary value tags.
+The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute.
 
 A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
 
@@ -725,7 +725,7 @@ See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors and 
 
 A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay (rule 3). The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
 
-The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
+The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a standard schema whose `timeUnits` units carry no `conversionFactor` (`8.0.0`), a value in the default unit `s`, given or omitted, is taken as is, and a value in any other unit is an error. In a descriptor table, `Duration` MAY use any unit of its unit class.
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors, and [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
 
@@ -921,7 +921,7 @@ BIDS HED annotations for a table can occur both in a column called `HED` within 
 
 The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
-The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`, nor, in standard schemas >= `8.2.0`, `Delay` (rules 1 and 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
+The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (rule 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
 
 Definitions many not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
 
@@ -1091,6 +1091,6 @@ A table with an `onset` (or equivalent) column is a **timeline table**: each row
 A table without an `onset` or equivalent column is a **descriptor table**: each row describes the properties of an entity, such as a participant, session, or sample. An example of a descriptor table in BIDS is the table contained in the `participants.tsv` file.
 
 - In a timeline table, each assembled annotation SHOULD include at least one `Event` tag. The temporal tags `Onset`, `Offset`, `Inset`, `Duration`, and `Delay` MAY be used.
-- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and, in standard schemas >= `8.2.0`, `Delay` MUST NOT be used (rules 1 and 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
+- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (rule 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor tables.

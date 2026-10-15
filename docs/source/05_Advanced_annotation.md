@@ -352,7 +352,7 @@ Several events with temporal-scopes defined by `Duration` tag groups may appear 
 
 The `Duration` tag has the same effect on event context as the `Onset`/`Offset` mechanism explained in [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts)
 
-In a timeline table such as the one contained in a BIDS `events.tsv`, the `Duration` value is added to the time in the row's `onset` column, so its unit, given or default (`s`), MUST have a `conversionFactor` (`s`, `ms`, `minute`, `hour`, `day`); `month` and `year` have none and are errors there. In a descriptor table such as the one contained in `participants.tsv`, where nothing is placed on a timeline, `Duration/3 years` is valid. See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), cause n.
+In a timeline table such as the one contained in a BIDS `events.tsv`, the `Duration` value is added to the time in the row's `onset` column, so its unit, given or default (`s`), MUST have a `conversionFactor` (`s`, `ms`, `minute`, `hour`, `day`); `month` and `year` have none and are errors there (in standard schema `8.0.0`, whose `timeUnits` carry no `conversionFactor`, a value in the default unit `s` is taken as is; see [3.2.8.4](./03_HED_formats.md#3284-duration-and-delay)). In a descriptor table such as the one contained in `participants.tsv`, where nothing is placed on a timeline, `Duration/3 years` is valid. See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), cause n.
 
 The `Duration` tag is convenient because its use does not require a definition. However, the ending time point of events whose temporal scope is defined with `Duration` is not marked by an explicit event in the data recording. This has distinct disadvantages for analysis if the offset is expected to elicit a neural response, which is the case for many events involving visual or auditory presentations.
 
@@ -385,7 +385,7 @@ The following table summarizes the syntax for `Delay`.
 ````
 `````
 
-`Delay` is only meaningful on a timeline, so it MUST appear only in timeline tables such as the one in `events.tsv` and its unit, given or default (`s`), MUST have a `conversionFactor` (`month` and `year` have none). See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
+`Delay` is only meaningful on a timeline, so it MUST appear only in timeline tables such as the one in `events.tsv` and its unit, given or default (`s`), MUST have a `conversionFactor` (`month` and `year` have none; in standard schema `8.0.0`, where no `timeUnits` unit has one, the default unit `s` is taken as is). See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
 
 A typical use case for `Delay` is when a secondary stimulus appears offset from the first. A typical use case for `Delay` combined with `Duration` is the encoding of a participant response, where the reaction time is measured relative to a secondary stimulus (such as a 'go').
 

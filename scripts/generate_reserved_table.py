@@ -8,7 +8,7 @@ with the right type, each row's name matches its key, the subgroup limits are co
 ``otherAllowedNonDefTags`` name is another row, every ``ERROR_CODE`` is a heading of
 ``Appendix_B.md``, every row field is documented in the Appendix A.6 field table and nothing else
 is, every ``secondaryWith`` name is an allowed companion that is not secondary in turn, every
-``fromSchema`` is a version string, and every ``valueForms`` entry names a known form.
+and every ``valueForms`` entry names a known form.
 
 Usage (from the repository root, standard library only):
 
@@ -42,7 +42,7 @@ BOOLEAN_KEYS = (
     "requiresTimeline",
     "allowSpliceInGroup",
 )
-OPTIONAL_KEYS = ("fromSchema", "secondaryWith")
+OPTIONAL_KEYS = ("secondaryWith",)
 REQUIRED_KEYS = (
     "name",
     *BOOLEAN_KEYS,
@@ -59,7 +59,6 @@ SECOND_PARTS = {
         "and units; present exactly when the definition has a placeholder",
     ),
 }
-VERSION = re.compile(r"^\d+\.\d+\.\d+$")
 
 
 def is_count(value):
@@ -122,8 +121,6 @@ def check_file(data):
                 problems.append(f"{where}.secondaryWith: {other!r} is not in otherAllowedNonDefTags")
             elif tags.get(other, {}).get("secondaryWith"):
                 problems.append(f"{where}.secondaryWith: {other!r} is itself secondary, so it cannot govern a group")
-        if "fromSchema" in row and not VERSION.match(str(row["fromSchema"])):
-            problems.append(f"{where}.fromSchema: {row['fromSchema']!r} is not a version x.y.z")
     for key, form in data.get("valueForms", {}).items():
         if form.get("secondPart") not in SECOND_PARTS:
             problems.append(f"valueForms.{key}.secondPart: expected one of {sorted(SECOND_PARTS)}")
@@ -181,7 +178,6 @@ def render_block(data):
         rows.append(
             (
                 f"`{key}`",
-                f">= `{row['fromSchema']}`" if "fromSchema" in row else "all",
                 yes_no(row["requireValue"]),
                 yes_no(row["requiresDef"]),
                 tag_list(row["otherAllowedNonDefTags"]),
@@ -192,7 +188,7 @@ def render_block(data):
                 yes_no(row["allowSpliceInGroup"]),
             )
         )
-    header = ("Tag", "Schemas", "Value", "Anchor", "Others", "Min", "Max", "Secondary", "Timeline", "{ }")
+    header = ("Tag", "Value", "Anchor", "Others", "Min", "Max", "Secondary", "Timeline", "{ }")
     parts = []
     common = []
     if all(r["noExtension"] for r in tags.values()):
