@@ -404,7 +404,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **j.** A partnered library schema with the `unmerged="true"` header attribute has a non-empty `Properties` section.\
 **k.** A merged partnered library schema has a `Properties` section that differs from that of its standard schema partner.\
 **l.** A library schema uses the `reserved` attribute on one of its own elements (in a merged partnered library schema, an element with the `inLibrary` attribute).\
-**m.** A library schema defines a tag whose name is a reserved tag of a standard schema; for a partnered library schema this is also reason i.\
+**m.** A library schema defines, among its own elements (in a merged partnered library schema, those with the `inLibrary` attribute), a tag whose name is a reserved tag of a standard schema; the partner's reserved tags carried into a merged file are not affected. For an unmerged partnered library schema this is also reason i.\
 **n.** A partnered library schema places a node under a reserved tag with the `rooted` attribute.
 
 #### SCHEMA_MISSING_EXTRA\*
