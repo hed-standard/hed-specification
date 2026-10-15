@@ -620,7 +620,7 @@ See [PARENTHESES_MISMATCH](./Appendix_B.md#parentheses_mismatch) for validation 
 
 A HED tag corresponding to a schema node with the `tagGroup` attribute must appear inside parentheses (e.g., must be in HED tag group).
 
-A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear in an unnested HED group in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group. The `topLevelTagGroup` attribute is usually associated with tags that have special meanings in HED such as `Definition` and `Onset`.
+A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear in an unnested HED group in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group, except that a `Delay` tag may share a group with `Onset`, `Offset`, `Inset`, or `Duration` (rule 3 of [3.2.8. Reserved tags](#328-reserved-tags)). The `topLevelTagGroup` attribute is usually associated with tags that have special meanings in HED such as `Definition` and `Onset`.
 
 See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for information on the group errors detected based on schema attributes.
 
@@ -639,9 +639,9 @@ See [TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated) for more 
 
 ### 3.2.8. Reserved tags
 
-A **reserved tag** is a tag with the `reserved` schema attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). Nine of the tags with reserved attributes are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
+A **reserved tag** is one of the nineteen tags that standard schemas >= `8.3.0` mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). The term and the rules of this section apply by tag name in every standard schema version, including `8.0.0` and `8.1.0`, whose schemas carry no `reserved` attribute. Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
 
-The other reserved tags (including `Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
+The other reserved tags (`Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
 
 The table below gives, for each structural reserved tag other than `Def` and `Def-expand`, the rules for the top-level tag group that contains it. `Def` and `Def-expand` are not rows of the table: they appear in these groups as the anchor. The parts of such a group are named using the example `(Onset, Def/MyDef, Delay/2 s, (Red, Circle))`:
 
@@ -680,14 +680,14 @@ Tags whose value has two parts:
 
 The following rules complete the table:
 
-1. `Delay` and `Duration` follow these rules only in standard schemas >= `8.2.0`, the first in which they have the `reserved` and `topLevelTagGroup` attributes. In `8.0.0` and `8.1.0` they are ordinary value tags: they may appear anywhere a tag may and are not mapped onto the timeline.
+1. `Delay` and `Duration` follow these rules only in standard schemas >= `8.2.0`, the first in which they have the `topLevelTagGroup` attribute. In `8.0.0` and `8.1.0` they are ordinary value tags: they may appear anywhere a tag may, except inside a definition ([3.2.8.1](#3281-the-definition-tag)), and are not mapped onto the timeline.
 2. A tag whose row says "no" under **Anchor** MUST NOT have a `Def` tag or `Def-expand` group at the top level of its group: `(Duration/3 s, Def/MyDef)` is an error. Except in a definition (see [3.2.8.1](#3281-the-definition-tag)), one may appear inside an inner group: `(Duration/3 s, (Def/MyDef))` is valid.
 3. `Delay` is the only tag of the table that may share a group with another one, and in such a group it is secondary, as its **Secondary** column lists. When `Delay` shares a group with `Onset`, `Offset`, `Inset`, or `Duration`, the row of that tag gives the group rules (**Anchor**, **Others**, **Min**, **Max**, and **{ }**) and `Delay` is one of its allowed other top-level tags: `(Onset, Def/MyDef, Delay/2 s)` is valid with no inner group, as `(Onset, Def/MyDef)` is. The group rules of the `Delay` row apply only when `Delay` is the only tag of the table in its group, so `(Delay/2 s, (Red))` is valid and `(Delay/2 s)` alone is an error. The other rules of the `Delay` row (no extension, a required value, timeline tables only) apply to `Delay` wherever it appears: `(Duration/3 s, Delay/2 s, (Red))` is an error in a descriptor table.
 4. A tag marked "yes" under **Timeline** MUST NOT appear in a table without an `onset` column (or equivalent such as a `TimestampVectorData` column in NWB).
 5. A group whose tag is marked "no" under **{ }** (e.g.,`Definition`, `Event-context`) MUST NOT contain a sidecar column reference (`{column}`). A column reference MAY appear in other groups, and the rules of the table are checked on the assembled annotation (see [3.2.9.3](#3293-sidecar-curly-braces), rule 9).
 6. A violation is reported with the code named after the table, except as that sentence states for extensions and missing values. A tag that is outside a group, outside a top-level group, or next to a top-level tag its row does not allow MAY instead be reported as [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error).
 
-These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`, except as rule 1 says. The subsections below expand on the information.
+These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`, except as rule 1 says. The standard schema version in effect for an annotation is the highest standard schema version among the schemas of its version specification, a standard schema contributing its own version and a partnered library schema its `withStandard` version. A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)). The subsections below expand on the information.
 
 #### 3.2.8.1. The `Definition` tag
 
@@ -823,7 +823,7 @@ an annotation that uses curly braces (to prevent circular references).
 
 If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character_invalid) error is generated.
 
-If curly braces appear in a `Definition`, a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error is generated.
+If curly braces appear in a `Definition`, a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error is generated. If they appear in an `Event-context` group, a [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) error (reason e) is generated.
 
 If the curly brace notation is used improperly in a sidecar or elsewhere, a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) is generated.
 
@@ -921,7 +921,7 @@ BIDS HED annotations for a table can occur both in a column called `HED` within 
 
 The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
-The HED strings that appear in a `HED` column must be valid HED strings. If the first column is not called `onset`, the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`.
+The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, or `Inset`, nor, in standard schemas >= `8.2.0`, `Delay` (rules 1 and 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
 
 Definitions many not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
 
@@ -1080,9 +1080,9 @@ Rules for curly brace usage:
 2. The substituted annotation directly replaces the curly braces and their contents.
 3. If an `n/a` value appears in a curly brace column, the entire curly brace expression is removed.
 4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
-5. Curly braces MUST NOT appear in `Definition` tags or in the `HED` column of tabular files.
+5. Curly braces MUST NOT appear in a `Definition` or `Event-context` group or in the `HED` column of tabular files.
 
-See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) for curly brace errors.
+These rules summarize [3.2.9.3. Sidecar curly braces](#3293-sidecar-curly-braces), which is normative. See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) for curly brace errors.
 
 ### 3.3.4. Timeline versus descriptor tables
 

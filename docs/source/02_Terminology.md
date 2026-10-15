@@ -80,7 +80,7 @@ A continuous recording of data from an instrument in a single session without re
 
 ### Reserved tag
 
-A tag with the `reserved` schema attribute has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
+A tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine. Standard schemas mark these tags with the `reserved` attribute from version `8.2.0` (the nine structural tags) and `8.3.0` (all nineteen); the term applies by tag name in every standard schema version, including `8.0.0` and `8.1.0`, which carry no such attribute. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
 
 ### Schema element
 
