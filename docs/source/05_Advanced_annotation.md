@@ -385,7 +385,7 @@ The following table summarizes the syntax for `Delay`.
 ````
 `````
 
-`Delay` is only meaningful on a timeline, so it MUST appear only in timeline files such as `events.tsv` and its unit, given or default (`s`), MUST have a `conversionFactor` (`month` and `year` have none). See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
+`Delay` is only meaningful on a timeline, so it MUST appear only in timeline tables such as the one in `events.tsv` and its unit, given or default (`s`), MUST have a `conversionFactor` (`month` and `year` have none). See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
 
 A typical use case for `Delay` is when a secondary stimulus appears offset from the first. A typical use case for `Delay` combined with `Duration` is the encoding of a participant response, where the reaction time is measured relative to a secondary stimulus (such as a 'go').
 

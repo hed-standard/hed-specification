@@ -81,7 +81,8 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 **h.** Definitions of the same name appear with and without a `#`.\
 **i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
 **j.** A tag with a `required` or `unique` attribute appears in a definition.\
-**k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.**l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
+**k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.\
+**l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
 
 See [3.2.8.1. The Definition tag](./03_HED_formats.md#3281-the-definition-tag) for an explanation of the rules for definitions. See also [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for more details and examples of definition syntax.
 
@@ -212,7 +213,8 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 **a.** A tag has `tagGroup` or `topLevelTagGroup` attribute, but is not enclosed in parentheses.\
 **b.** A tag with the `topLevelTagGroup` does not appear at a HED tag group at the top level in an assembled HED annotation.\
 **c.** Multiple tags with the `topLevelTagGroup` attribute appear in the same top-level tag group. Note: a single `Delay` may be in the same group as a single `Duration`, `Onset`, `Offset`, or `Inset`.\
-**d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.\\n**e.** An `Event-context` group contains a curly brace column reference (`{column}`).
+**d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.\
+**e.** An `Event-context` group contains a curly brace column reference (`{column}`).
 
 **Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR.
 
@@ -243,7 +245,8 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 ### TAG_REQUIRES_CHILD
 
-**a.** A tag has the `requireChild` schema attribute but does not have a child.\\n**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schema `8.2.0`, which do not yet have `requireChild`.
+**a.** A tag has the `requireChild` schema attribute but does not have a child.\
+**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schema `8.2.0`, which do not yet have `requireChild`.
 
 See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) for an explanation of the `requireChild` attribute.
 
@@ -269,8 +272,6 @@ Note: The causes that involve `Delay` or `Duration` apply to standard schema ver
 **n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
-
-**Note:** if the `Onset` tag group's definition is in expanded form, the `Def-expand` will be an additional internal tag group.
 
 See [3.2.8.3 Onset, Offset, and Inset](./03_HED_formats.md#3283-onset-offset-and-inset) for a specification of the required behavior of the `Onset`, `Offset`, and `Inset` tags.
 
@@ -402,13 +403,22 @@ Library schema errors are specific to library schema. Library schema may also ra
 **i.** A partnered library schema with the `unmerged="true"` header attribute has a schema element (tag, unit, unit class, unit modifier, value class, or schema attribute) with the same name as an element of its standard schema partner. Naming an existing unit class solely to add new units under it is not a duplication.\
 **j.** A partnered library schema with the `unmerged="true"` header attribute has a non-empty `Properties` section.\
 **k.** A merged partnered library schema has a `Properties` section that differs from that of its standard schema partner.\
-**l.** A partnered library schema with the `unmerged="true"` header attribute uses the `reserved` attribute.
+**l.** A library schema uses the `reserved` attribute on one of its own elements (in a merged partnered library schema, an element with the `inLibrary` attribute).\
+**m.** A library schema defines a tag whose name is a reserved tag of a standard schema; for a partnered library schema this is also reason i.\
+**n.** A partnered library schema places a node under a reserved tag with the `rooted` attribute.
 
 #### SCHEMA_MISSING_EXTRA\*
 
 **a.** A row of the Sources, Prefixes, or External annotations section has an empty value in a required column.
 
 See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) for the columns of each section.
+
+#### SCHEMA_RESERVED_INVALID
+
+**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` (standard schemas >= `8.2.0`) and `topLevelTagGroup` for every row whose `fromSchema` the version meets; `reserved` on `Def` and `Def-expand`; and, from `8.3.0`, `reserved` on the ten organizational reserved tags.\
+**b.** A reserved tag has a child node other than `#`.
+
+See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file) for the file.
 
 #### SCHEMA_SECTION_MISSING
 
