@@ -246,15 +246,13 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 ### TAG_REQUIRES_CHILD
 
 **a.** A tag has the `requireChild` schema attribute but does not have a child.\
-**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schema `8.2.0`, which do not yet have `requireChild`.
+**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schemas `8.0.0` to `8.2.0`, which do not have `requireChild`.
 
 See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) for an explanation of the `requireChild` attribute.
 
 ### TEMPORAL_TAG_ERROR
 
 Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags with different placeholder substitutions are considered to be different.
-
-Note: The causes that involve `Delay` or `Duration` apply to standard schema versions >= `8.2.0`. In `8.0.0` and `8.1.0` these are ordinary value tags.
 
 **a.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.\
 **b.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).\
@@ -269,7 +267,7 @@ Note: The causes that involve `Delay` or `Duration` apply to standard schema ver
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a descriptor table (without an `onset` or equivalent column).\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
+**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. In a standard schema whose `timeUnits` carry no `conversionFactor` (`8.0.0`), a value in the default unit `s`, given or omitted, is not an error. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 
@@ -415,7 +413,7 @@ See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#
 
 #### SCHEMA_RESERVED_INVALID
 
-**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` (standard schemas >= `8.2.0`) and `topLevelTagGroup` for every row whose `fromSchema` the version meets; `reserved` on `Def` and `Def-expand`; and, from `8.3.0`, `reserved` on the ten organizational reserved tags.\
+**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` (standard schemas >= `8.2.0`) and `topLevelTagGroup` (on `Delay` and `Duration`, standard schemas >= `8.2.0`) for every row, `Inset` existing from `8.2.0`; `reserved` on `Def` and `Def-expand`; and, from `8.3.0`, `reserved` on the ten organizational reserved tags.\
 **b.** A reserved tag has a child node other than `#`.
 
 See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file) for the file.
