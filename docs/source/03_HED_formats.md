@@ -899,7 +899,7 @@ In the example, `Definition/Cue1` is a definition that does not use a placeholde
 
 ### 3.2.10. Tabular files
 
-A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names, which should be unique. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
+A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)); this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
 
 #### 3.2.10.1 Tabular types
 
