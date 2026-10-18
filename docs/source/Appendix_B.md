@@ -172,6 +172,14 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanatio
 
 See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions and [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.
 
+### TABULAR_INVALID
+
+**a.** A column name appears more than once in the first line (the column names) of a tabular file.
+
+The error names each repeated column. It is reported before any row annotation is assembled, and the repeated columns are not renamed, merged, or dropped: assembling the row annotations of such a file would combine the annotations of the repeated columns into one row and report the result as TAG_EXPRESSION_REPEATED, or lose one of them.
+
+See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requirements on tabular files.
+
 ### TAG_EMPTY
 
 **a.** A HED string has extra commas or parentheses separated by only white space, indicating empty tags.\
@@ -185,6 +193,8 @@ See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-gro
 **a.** A tag is repeated in the same tag group or level.
 
 Suppose `A`, `B`, and `C` represent HED expressions. HED strings are not ordered, so (`B`, `C`) is equivalent to (`C`, `B`). Thus, (`A`, (`A`, `B`)) is not a duplicate, but (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.
+
+**Note:** In a tabular file, a repetition can also come from the assembly of a row's annotation rather than from any single annotation, for example two columns whose annotations contain the same tag. A column name that appears twice in the first line of the file is [TABULAR_INVALID](#tabular_invalid), not this error.
 
 See [3.2.7.4. Repeated expressions](./03_HED_formats.md#3274-repeated-expressions) for additional information on the rules for duplication.
 
