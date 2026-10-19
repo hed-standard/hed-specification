@@ -566,7 +566,7 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 ```{warning} **Requirements for tag extensions by users:**
 
 1. Unlike values, an extension term must not already be a node in the schema.
-2. The extension term contain only `name` characters. Blanks should be avoided.
+2. The extension term contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
