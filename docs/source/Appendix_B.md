@@ -176,11 +176,12 @@ See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for 
 ### TABULAR_INVALID
 
 **a.** A column name appears more than once in the first line (the column names) of a tabular file.\
-**b.** A column name in the first line of a tabular file begins or ends with whitespace (blank, tab, line feed, or carriage return).
+**b.** A column name in the first line of a tabular file begins or ends with whitespace (blank, tab, line feed, or carriage return).\
+**c.** A column name in the first line of a tabular file is blank (the empty string).
 
-For (a) the error names each repeated column, and the repeated columns are not renamed, merged, or dropped: assembling the row annotations of such a file would combine the annotations of the repeated columns into one row and report the result as TAG_EXPRESSION_REPEATED, or lose one of them. For (a) names are compared exactly as written, so two names that differ only in leading or trailing whitespace (`trial` and `trial `) are not a repeat; the name with the whitespace is (b). For (b) the error is reported once for each column name with leading or trailing whitespace; a name that is both padded and repeated (`trial ` twice) is reported under (b) only. Both are reported before any row annotation is assembled.
+For (a) the error names each repeated column, and the repeated columns are not renamed, merged, or dropped: assembling the row annotations of such a file would combine the annotations of the repeated columns into one row and report the result as TAG_EXPRESSION_REPEATED, or lose one of them. For (a) names are compared exactly as written, so two names that differ only in leading or trailing whitespace (`trial` and `trial `) are not a repeat; the name with the whitespace is (b). For (b) the error is reported once for each column name with leading or trailing whitespace; a name that is both padded and repeated (`trial ` twice) is reported under (b) only. For (c) the error is reported once for each blank name, by its column position; several blank names are reported under (c) only, not as a repeat under (a), and a name made only of whitespace is (b), not (c). All three are reported before any row annotation is assembled.
 
-Both reasons apply to the column names of any tabular container whose row annotations are assembled from named columns, as 3.2.10 states, by the names under which its columns are assembled: in NWB the `TimestampVectorData` column named `timestamp` counts as `onset`, so a table that also has a column named `onset` is (a). Other `TimestampVectorData` columns keep their own names.
+All three reasons apply to the column names of any tabular container whose row annotations are assembled from named columns, as 3.2.10 states, by the names under which its columns are assembled: in NWB the `TimestampVectorData` column named `timestamp` counts as `onset`, so a table that also has a column named `onset` is (a). Other `TimestampVectorData` columns keep their own names.
 
 See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requirements on tabular files.
 
