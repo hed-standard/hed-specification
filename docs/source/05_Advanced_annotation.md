@@ -385,7 +385,7 @@ The following table summarizes the syntax for `Delay`.
 ````
 `````
 
-`Delay` is only meaningful on a timeline, so it MUST appear only in timeline tables such as the one in `events.tsv` and its unit, given or default (`s`), MUST have a `conversionFactor` (`month` and `year` have none; in standard schema `8.0.0`, where no `timeUnits` unit has one, the default unit, `s`, `second`, or `seconds`, is taken as is). See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
+`Delay` is only meaningful on a timeline, so it MUST appear only in timeline tables such as the one appearing in a BIDS `events.tsv` file. The `Delay` value MUST use a time unit that converts to the default time unit (`s`): the unit has a `conversionFactor`, multiplied by the factor of its SI modifier if it has one (`ms` converts as 0.001 x 1.0), as described in [A.1.4.3. conversionFactor](./Appendix_A.md#a143-conversionfactor). Since `month` and `year` units do not have a `conversionFactor` to the default units, they cannot be unambiguously mapped onto the experimental timeline and cannot be used with `Delay`. Standard schema `8.0.0` was released before conversion factors were introduced, so with that schema only the default unit (`s`, `second`, or `seconds`) may be used with `Delay`. A value with no unit is in the default unit. See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error), causes k and n.
 
 A typical use case for `Delay` is when a secondary stimulus appears offset from the first. A typical use case for `Delay` combined with `Duration` is the encoding of a participant response, where the reaction time is measured relative to a secondary stimulus (such as a 'go').
 

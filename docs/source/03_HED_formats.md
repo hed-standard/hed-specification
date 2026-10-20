@@ -566,7 +566,7 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 ```{warning} **Requirements for tag extensions by users:**
 
 1. Unlike values, an extension term must not already be a node in the schema.
-2. The extension term contain only `name` characters. Blanks should be avoided.
+2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
@@ -777,6 +777,8 @@ when the row annotation is assembled.
 
 The other types of sidecar entries include categorical and value entries with no `"HED"` key, as well as arbitrary entries whose keys do not correspond to column names in an associated tabular file.
 
+A top-level sidecar key corresponds to a column name when the two strings are identical; no trimming or other normalization is applied to either.
+
 When annotations are assembled, sidecar entries with no `"HED"` key are ignored as are entries in the corresponding tabular data file that have `n/a` or blank values.
 
 See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for an elaborated example of these different types of entries and [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for an example of how the resulting HED annotations are assembled.
@@ -784,6 +786,8 @@ See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for
 #### 3.2.9.2. Sidecar validation
 
 All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`. Both of these generate a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error.
+
+A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files) ([SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid)). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry generates a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error.
 
@@ -799,7 +803,9 @@ The curly brace notation is new with HED specification version `3.2.0` and is su
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
-If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error is generated.
+The notation is defined here for BIDS sidecars, but from specification `4.0.0` it applies to any tabular container whose per-row annotation is assembled from named columns in the same way: a column-level annotation (a value template or a categorical mapping) may reference another HED-annotated column of the same table, or `HED` for the table's per-row HED column. The same rules apply. In particular, NWB tables annotated with ndx-hed carry such references in `MeaningsTable` HED entries and `HedValueVector` templates.
+
+If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) error is generated.
 
 ```{admonition} Rules for curly braces notation in sidecars.
 ---
@@ -899,7 +905,7 @@ In the example, `Definition/Cue1` is a definition that does not use a placeholde
 
 ### 3.2.10. Tabular files
 
-A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)); this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
+A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)); this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)), where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
 
 #### 3.2.10.1 Tabular types
 

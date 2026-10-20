@@ -147,7 +147,8 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for information on the r
 
 **a.** The `"HED"` key is not a second-level dictionary key.\
 **b.** An annotation entry is provided for `n/a`.\
-**c.** A sidecar refers to a column in curly braces, but that column has no HED.
+**c.** No longer used: a sidecar that refers in curly braces to a column with no HED is [SIDECAR_BRACES_INVALID](#sidecar_braces_invalid) (a) from specification `4.0.0`.\
+**d.** A top-level sidecar key begins or ends with whitespace (blank, tab, line feed, or carriage return).
 
 See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanation of sidecar requirements.
 
@@ -174,9 +175,10 @@ See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for 
 
 ### TABULAR_INVALID
 
-**a.** A column name appears more than once in the first line (the column names) of a tabular file.
+**a.** A column name appears more than once in the first line (the column names) of a tabular file.\
+**b.** A column name in the first line of a tabular file begins or ends with whitespace (blank, tab, line feed, or carriage return).
 
-The error names each repeated column. It is reported before any row annotation is assembled, and the repeated columns are not renamed, merged, or dropped: assembling the row annotations of such a file would combine the annotations of the repeated columns into one row and report the result as TAG_EXPRESSION_REPEATED, or lose one of them.
+For (a) the error names each repeated column, and the repeated columns are not renamed, merged, or dropped: assembling the row annotations of such a file would combine the annotations of the repeated columns into one row and report the result as TAG_EXPRESSION_REPEATED, or lose one of them. For (b) the error is reported once for each column name with leading or trailing whitespace; a name that is both padded and repeated is reported under (b) only. Both are reported before any row annotation is assembled.
 
 See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requirements on tabular files.
 
@@ -274,7 +276,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
 **i.** An `Onset` or `Offset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
-**k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a descriptor table (without an `onset` or equivalent column).\
+**k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
 **n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. In a standard schema whose `timeUnits` carry no `conversionFactor` (`8.0.0`), a value with no unit, or in the default unit written as `s`, `second`, or `seconds`, is not an error; a value in a modified form such as `ms` or in any other unit is. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
