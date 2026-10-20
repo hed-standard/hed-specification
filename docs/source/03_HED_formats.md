@@ -566,7 +566,7 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 ```{warning} **Requirements for tag extensions by users:**
 
 1. Unlike values, an extension term must not already be a node in the schema.
-2. The extension term contain only `name` characters.
+2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
@@ -803,7 +803,7 @@ The curly brace notation is new with HED specification version `3.2.0` and is su
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
-The notation is defined here for BIDS sidecars, but it applies to any tabular container whose per-row annotation is assembled from named columns in the same way: a column-level annotation (a value template or a categorical mapping) may reference another HED-annotated column of the same table, or `HED` for the table's per-row HED column. The same rules apply. In particular, NWB tables annotated with ndx-hed carry such references in `MeaningsTable` HED entries and `HedValueVector` templates.
+The notation is defined here for BIDS sidecars, but from specification `4.0.0` it applies to any tabular container whose per-row annotation is assembled from named columns in the same way: a column-level annotation (a value template or a categorical mapping) may reference another HED-annotated column of the same table, or `HED` for the table's per-row HED column. The same rules apply. In particular, NWB tables annotated with ndx-hed carry such references in `MeaningsTable` HED entries and `HedValueVector` templates.
 
 If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) error is generated.
 
