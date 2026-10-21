@@ -777,7 +777,7 @@ when the row annotation is assembled.
 
 The other types of sidecar entries include categorical and value entries with no `"HED"` key, as well as arbitrary entries whose keys do not correspond to column names in an associated tabular file.
 
-A top-level sidecar key corresponds to a column name when the two strings are identical; no trimming or other normalization is applied to either.
+A top-level sidecar key corresponds to a column name only when the two strings are identical: no trimming, change of case, or other normalization is applied. A key or column name with leading or trailing whitespace is itself an error ([3.2.9.2. Sidecar validation](#3292-sidecar-validation), [3.2.10. Tabular files](#3210-tabular-files)). In the same way, a categorical value matches a key of its entry's annotation dictionary only when the two strings are identical, and a value is substituted for the `#` exactly as written. This is stated from specification `4.0.0`.
 
 When annotations are assembled, sidecar entries with no `"HED"` key are ignored as are entries in the corresponding tabular data file that have `n/a` or blank values.
 
@@ -788,6 +788,8 @@ See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for
 All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`. Both of these generate a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error.
 
 A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files) ([SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid)). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
+
+In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either ([SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid)). Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry generates a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error.
 
@@ -928,6 +930,8 @@ See [BIDS tabular files](06_Infrastructure_and_tools.md#631-bids-tabular-files) 
 BIDS HED annotations for a table can occur both in a column called `HED` within the table and in an associated JSON sidecar.
 
 The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
+
+A value in a column with categorical or value HED annotations (in BIDS, a column whose sidecar entry has a `"HED"` key) MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files) ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)). Values are used exactly as written (see [3.2.9.1. Sidecar entries](#3291-sidecar-entries)), so such a value would otherwise match no annotation key or be substituted with its whitespace. The rule covers a value made only of whitespace as well as an `n/a` with whitespace before or after it (such as `n/a `); both are reported. An empty value and `n/a` itself are missing values and are not checked. Only the four characters listed in 3.2.10 count as whitespace; a no-break space or other Unicode space does not. The check is made column by column before the value checks of the preceding paragraph and before row assembly. The `HED` column, whose HED strings may have blanks around their tags, and columns without HED annotations are not subject to the rule. This rule is stated from specification `4.0.0`.
 
 The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (rule 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
 
