@@ -107,7 +107,7 @@ See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-or
 **a.** A `#` appears in a place that it should not (such as in the `HED` column of an events file).\
 **b.** A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.\
 **c.** A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.\
-**d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child.\
+**d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`). A `#` directly after a reserved tag that takes no value (`Onset/#`) is [TAG_EXTENSION_INVALID](#tag_extension_invalid) (c) instead, whatever the schema version.\
 **e.** Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).\
 **f.** A placeholder (`#`) does not appear directly after a slash (e.g., `"Label/ #"`).
 
@@ -224,7 +224,7 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 ### TAG_EXTENSION_INVALID
 
 **a.** A tag extension term is already in the schema.\
-**b.** A tag extension term does not comply with rules for schema nodes.\
+**b.** A tag extension term does not comply with rules for schema nodes, or contains no letter (`Item/Blech/3`).\
 **c.** A tag has extension, but an extension is not allowed. This includes an extension of a reserved tag (`Onset/Blah`, `Onset/#`), although reserved tags inherit `extensionAllowed`; see [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions).
 
 See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.

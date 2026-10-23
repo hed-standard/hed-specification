@@ -569,16 +569,28 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
-5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars.
+5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is a [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) error in every context, in an events file or a sidecar alike.
+6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is a [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (standard schema versions >= `8.3.0`; see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
 
 **Note:** The is-a relationship is not checked by validators.
 It is needed so that term search works correctly.
 
 ```
 
+Rule 6 and the error code of rule 5 are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
+
 A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah`, `Event-context/Blah` and `Onset/#` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors. This rule is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
 
-Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](./Appendix_B.md#style_warning) is issued for extension tags that do not follow the HED naming convention.
+**Examples:** `Item` and `Property` inherit `extensionAllowed`; `Age` has a `#` child.
+
+- `Item/Blech` and `Item/Blech/Blech1/Blech2` are valid extensions, of one and of three levels.
+- `Item/3D-printout` and `Item/Blech/1red` are valid: a term may begin with a digit when it contains a letter.
+- `Item/Blech/Red` is a [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) error: `Red` is already a node in the schema (rule 1).
+- `Item/Blech/3` and `Item/1-2` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors: the term has no letter (rule 6).
+- `Item/Blech/#`, `Item/#`, and `Item/Blech/#/Foo` are [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) errors: `#` cannot be an extension (rule 5).
+- `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is a [VALUE_INVALID](./Appendix_B.md#value_invalid) error because the value of `Age` must be numeric (standard schema versions >= `8.1.0`).
+
+Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](./Appendix_B.md#style_warning) may be issued for extension tags that do not follow the HED naming convention.
 
 Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
