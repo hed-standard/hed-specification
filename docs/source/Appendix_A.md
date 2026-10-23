@@ -279,7 +279,7 @@ header-rows: 1
 * - [`extensionAllowed`](#a146-extensionallowed)
   - node
   - boolean
-  - Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes with the exception of the hashtag placeholders.
+  - Users can add unlimited levels of child nodes under this tag (`Item/Blech/Blech1/Blech2`). This tag is propagated to child nodes with the exception of the hashtag placeholders.
 * - [`hedId`](#a147-hedid)
   - element
   - string
@@ -395,7 +395,7 @@ Validators should issue warnings when deprecated elements are encountered in ann
 
 #### A.1.4.6. extensionAllowed
 
-The `extensionAllowed` attribute indicates that annotators may add unlimited levels of child nodes (extensions) under this tag without validation errors. This attribute enables domain-specific customization and extension of the HED vocabulary beyond the terms explicitly defined in the schema. When a tag has `extensionAllowed`, validators will accept any child path extensions provided they follow HED naming conventions. The attribute is typically propagated to child nodes in the schema, allowing extensions at any level of the subtree. However, nodes that have a placeholder (`#`) child cannot be extended, regardless of the `extensionAllowed` attribute, since the `#` placeholder indicates the node takes a user-supplied value rather than extended taxonomy terms. For example, if `Property` has `extensionAllowed`, then `Property/My-custom-property` is valid even though `My-custom-property` is not in the schema.
+The `extensionAllowed` attribute indicates that annotators may add unlimited levels of child nodes (extensions) under this tag without validation errors. This attribute enables domain-specific customization and extension of the HED vocabulary beyond the terms explicitly defined in the schema. When a tag has `extensionAllowed`, validators will accept any child path extensions provided they follow HED naming conventions. The attribute is typically propagated to child nodes in the schema, allowing extensions at any level of the subtree. However, nodes that have a placeholder (`#`) child cannot be extended, regardless of the `extensionAllowed` attribute, since the `#` placeholder indicates the node takes a user-supplied value rather than extended taxonomy terms. For example, if `Property` has `extensionAllowed`, then `Property/My-custom-property` is valid even though `My-custom-property` is not in the schema. An extension may have several levels: `Item/Blech/Blech1/Blech2` extends `Item` by three terms, each subject to the rules of [3.2.5. Tag extensions](./03_HED_formats.md#325-tag-extensions).
 
 #### A.1.4.7. hedId
 
