@@ -225,7 +225,7 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 
 **a.** A tag extension term is already in the schema.\
 **b.** A tag extension term does not comply with rules for schema nodes, or contains no letter (`Item/Blech/3`).\
-**c.** A tag has extension, but an extension is not allowed. This includes an extension of a reserved tag (`Onset/Blah`), although reserved tags inherit `extensionAllowed`; a `#` after a reserved tag (`Onset/#`) may be reported here or as [PLACEHOLDER_INVALID](#placeholder_invalid); see [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions).
+**c.** A tag has extension, but an extension is not allowed. This includes an extension of a reserved tag (`Onset/Blah`), although reserved tags inherit `extensionAllowed`; a `#` after a reserved tag that takes no value (`Onset/#`) may be reported here or as [PLACEHOLDER_INVALID](#placeholder_invalid); see [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions).
 
 See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.
 
