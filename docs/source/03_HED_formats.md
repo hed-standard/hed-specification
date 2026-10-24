@@ -579,7 +579,7 @@ It is needed so that term search works correctly.
 
 Rule 6 and the error code of rule 5 are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
 
-A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah`, `Event-context/Blah` and `Onset/#` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors. This rule is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
+A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah` and `Event-context/Blah` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors. A `#` after a reserved tag that takes no value (`Onset/#`) is also an error in every context, but a validator may report it either as [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) or as [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid), depending on which check finds it first. These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
 
 **Examples:** `Item` and `Property` inherit `extensionAllowed`; `Age` has a `#` child.
 
