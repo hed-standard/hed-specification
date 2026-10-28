@@ -2,6 +2,7 @@
 
 {%- block scripts %}
   {{ super() }}
+  {%- if not pdf_build %}
 
   <!-- OSA Chat Widget (HED Assistant)
        Privacy Note: This widget sends page content to an external AI service when
@@ -41,5 +42,6 @@ For errors, Appendix_B.html is useful.
     defer
     onload="window.OSAChatWidget && window.OSAChatWidget.setConfig(window.osaChatConfig)">
   </script>
+  {%- endif %}
 {%- endblock scripts %}
 

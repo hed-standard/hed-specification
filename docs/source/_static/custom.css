@@ -265,3 +265,72 @@ body[data-theme="dark"] .content-icon-container a[href*="github.com"]:not([href*
     max-width: 100%;
     height: auto;
 }
+
+/* Print (the PDF made by scripts/build_pdf.py); none of this affects the screen. */
+@media print {
+    @page {
+        size: Letter;
+        margin: 20mm 18mm;
+        @bottom-center {
+            content: counter(page) " / " counter(pages);
+            font-size: 9pt;
+            color: #555;
+        }
+    }
+
+    /* Furo chrome; skip-to-content is position: fixed and would print on every page */
+    .sidebar-drawer,
+    .toc-drawer,
+    .back-to-top,
+    .mobile-header,
+    .related-pages,
+    .skip-to-content {
+        display: none !important;
+    }
+
+    /* One chapter per page start; singlehtml demotes chapter titles, so no heading selector */
+    span[id^="document-"] + section {
+        break-before: page;
+    }
+
+    /* Keep headings and example captions with what follows; long blocks may split */
+    h1, h2, h3, h4, h5, h6,
+    .admonition-title,
+    p.rubric {
+        break-after: avoid;
+    }
+
+    /* Scroll containers print as dead scroll bars and clip; pdf_print.js fits long code lines */
+    pre {
+        orphans: 4;
+        widows: 4;
+        overflow: visible !important;
+        white-space: pre !important;
+        tab-size: 8;
+    }
+
+    .highlight,
+    div[class^="highlight-"],
+    .table-wrapper {
+        overflow: visible !important;
+    }
+
+    /* Chrome rasterizes blurred shadows into page-sized images (about half the file size) */
+    .admonition,
+    .topic,
+    table.docutils {
+        box-shadow: none !important;
+    }
+
+    /* Continuation marker that pdf_print.js puts at the start of a wrapped code line */
+    .pdf-cont {
+        color: #999 !important;
+        font-weight: normal !important;
+        font-style: normal !important;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}

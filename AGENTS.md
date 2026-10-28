@@ -14,14 +14,17 @@ Run commands from the activated `.venv`; CI runs the equivalents via uvx.
 - Character table: `python scripts/generate_character_table.py` regenerates the section 2.2 table in `docs/source/02_Terminology.md` from `docs/source/_static/character_sets.json`; `--check` fails when the table or the file is off (CI: `character-sets.yaml`). Edit the JSON, never the table.
 - Reserved-tag tables: `python scripts/generate_reserved_table.py` regenerates the section 3.2.8 tables in `docs/source/03_HED_formats.md` from `docs/source/_static/reserved_tags.json`; `--check` fails when the tables or the file are off (CI: `reserved-tags.yaml`). Edit the JSON, never the tables.
 - Markdown format check: `python -m mdformat --check --wrap no --number docs/source *.md`
+- PDF: `python scripts/build_pdf.py` (needs Chrome or Edge) writes `docs/_build/pdf/hed-specification-<version>.pdf`; `--prerelease` adds the unreleased banner. Release PDFs live in `releases/`: `python scripts/do_spec_release.py prepare|notes|check` (see `RELEASE_GUIDE.md`); `check` needs no browser (CI: `releases.yaml`).
 - Link check (after building docs): `lychee --config lychee.toml 'docs/_build/html/**/*.html'`
 
-CI runs the same checks on every push and PR to `main` (`.github/workflows/`): deploy-docs.yml (Sphinx build), typos.yaml, mdformat.yaml, character-sets.yaml and reserved-tags.yaml (the generators' `--check`), and links.yaml (weekly schedule plus manual).
+CI runs the same checks on every push and PR to `main` (`.github/workflows/`): deploy-docs.yml (Sphinx build of the released site and of `/prerelease/` with its PDF; also deploys on a published release), typos.yaml, mdformat.yaml, character-sets.yaml and reserved-tags.yaml (the generators' `--check`), releases.yaml (`do_spec_release.py check`), and links.yaml (weekly schedule plus manual).
 
 ## Layout
 
 - `docs/source/` - the spec chapters (`01_Introduction.md` ... `Appendix_B.md`), `conf.py`, and static assets. This is the content of the repository.
 - `.github/workflows/` - CI pipelines listed above.
+- `releases/` - the committed release PDFs (`hed-specification-X.Y.Z.pdf`) and `hed-specification-latest.pdf`; written by `scripts/do_spec_release.py prepare`, never by hand.
+- `scripts/` - the table generators, `build_pdf.py`, and `do_spec_release.py`.
 - `pyproject.toml` - project metadata, `[dev]` dependencies, typos config.
 - `lychee.toml` - link-checker configuration.
 - `.status/` - working notes. Gitignored; local to each machine.
