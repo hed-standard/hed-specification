@@ -23,10 +23,10 @@ A **HED definition** is a tag group that includes one `Definition` tag whose req
 ````{admonition} Notes:
 :class: tip
 1. *xxx* is the name of the definition, and *(definition-content)* is a tag group
-containing the tags representing the definition’s contents.
+containing the tags representing the definition's contents.
 2. If the *xxx/#* form is used, then the *(definition-content)* MUST contain a single `#`
 representing a value to be substituted for when the definition is used.
-3. A definition without a *(definition-content)* is sometimes use as a general purpose definition for
+3. A definition without a *(definition-content)* is sometimes used as a general purpose definition for
 anchoring `Onset` groups with varying content.
 
 ````
@@ -91,7 +91,7 @@ The following summarizes `Def` tag syntax rules.
 :class: tip
 1. *xxx* is the name of the definition.
 2. *yyy* is the value that is substituted for the definition's placeholder if it has one.
-3. If the *xxx/yyy* form is used, then the corresponding definition’s tag-group MUST contain a single `#`
+3. If the *xxx/yyy* form is used, then the corresponding definition's tag-group MUST contain a single `#`
 representing a value to be substituted for when the definition is used.
 ````
 `````
@@ -152,7 +152,7 @@ During analysis, tools may replace `Def/PlayMovie` with a fully expanded tag str
 
 ## 5.3. Temporal scope
 
-Events are often modeled as instantaneous occurrences that occur at single points in time (i.e., time-marked or point events). In reality, many events unfold over extended time periods. The interval between the initiation of an event and its completion is called the **temporal scope** of the event. HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are “scoped” events).
+Events are often modeled as instantaneous occurrences that occur at single points in time (i.e., time-marked or point events). In reality, many events unfold over extended time periods. The interval between the initiation of an event and its completion is called the **temporal scope** of the event. HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are "scoped" events).
 
 Some events, such as the setup and initiation of the environmental controls for an experiment, may have a temporal scope that spans the entire data recording. Other events, such as the playing of a movie clip or a participant performing an action in response to a sensory presentation, may last for seconds or minutes. Temporal scope captures the effects of these extended events in a machine-actionable manner. HED has two distinct mechanisms for expressing temporal scope: `Onset`/`Offset` and `Duration`/`Delay`. Tools can transform between one representation and the other. However, transform from the `Duration`/`Delay` representation to the `Onset`/`Offset` representation may require the addition of additional rows (time markers) in the events file.
 
@@ -163,7 +163,7 @@ The mechanisms are summarized in the following table and discussed in more detai
 | `Onset`         | Marks start of event.                    | Used with a `Def` tag or `Def-expand` group anchor. <br/>The corresponding end is marked using<br/> `Onset` or `Offset` with same anchor.                                                                                 |
 | `Offset`        | Marks end of event.                      | Used with a `Def` tag or `Def-expand` group anchor. <br/> Must be preceded by an `Onset` <br/> anchored by the same definition.                                                                                           |
 | `Inset`         | Marks event intermediate pt              | New in standard schema `8.2.0`. <br/> Used with a `Def` tag or `Def-expand` group anchor.<br/> Must be within an `Onset` and `Offset`<br/>for an `Onset` marker with the same anchor.                                     |
-| `Duration `     | Marks end of an event.                   | Doesn't use a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration.                                      |
+| `Duration`      | Marks end of an event.                   | Doesn't use a definition anchor.<br/>Starts at the current event marker unless `Delay`.<br/>If `Delay` included, start = current marker + delay. <br/>The offset = start + duration.                                      |
 | `Delay`         | Marks delayed time<br/>of a time marker. | Doesn't use a definition anchor.<br/>May be used with `Onset`, `Inset`, `Offset`<br/>or `Duration`. If not grouped with other temporal<br/>tags, it is treated as a point event.<br/>Commonly for delayed response times. |
 | `Event-context` | Context of ongoing events.               | Should only be inserted by tools.<br/>Each unique event marker can have <br/>only one `Event-context` group.                                                                                                              |
 
@@ -173,7 +173,7 @@ All of these tags must appear in a `topLevelTagGroup`, which implies that they c
 
 The most direct HED method of specifying scoped events combines `Onset` and `Offset` tags with defined names. Using this method, an event with temporal scope actually corresponds to two point events.
 
-The initiation event is tagged by a `(Def/xxx, Onset)` where `xxx` is a defined name. The end of the event’s temporal scope is marked either by a `(Def/xxx, Offset)` or by another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the `Onset` (and similarly for `Offset`). By anchor, we mean that tools use the anchor to determine where each event of temporal extent begins and ends. A `Def-expand` tag group can also anchor the `Onset` and `Offset` groups.
+The initiation event is tagged by a `(Def/xxx, Onset)` where `xxx` is a defined name. The end of the event's temporal scope is marked either by a `(Def/xxx, Offset)` or by another `(Def/xxx, Onset)`. The `Def/xxx` is said to **anchor** the `Onset` (and similarly for `Offset`). By anchor, we mean that tools use the anchor to determine where each event of temporal extent begins and ends. A `Def-expand` tag group can also anchor the `Onset` and `Offset` groups.
 
 The `Onset` tag group may contain an additional internal tag group in addition to the anchor `Def` tag. This internal tag group usually contains annotations specific to this instance of the event. As with all HED tags and groups, order does not matter.
 
@@ -477,9 +477,9 @@ The `Control-variable` tag represents an aspect of the experiment that is held c
 
 Researchers should use `Condition-variable`, `Control-variable`, and `Indicator-variable` tags to capture the experiment intent and organization in as much detail as possible. Consistent and detailed description allows tools to extract the experiment design from the data in a machine-actionable form. Good tagging processes suggest creating definitions with understandable names to define these aspects of the dataset. This promotes easy searching and extraction for analyses such as regression or other modeling of the experimental design.
 
-To illustrate the use of condition-variables to document experiment design, consider an experiment in which one of the conditions is the rate of presentation of images displayed on the screen. The experiment design compares responses under slow and fast image presentation rate conditions. To avoid unfortunate resonances due to a poor choice of rates, the “slow” and “fast” rate conditions each consist of three possible rates. Selection among the three eligible rates for the given condition is done randomly.
+To illustrate the use of condition-variables to document experiment design, consider an experiment in which one of the conditions is the rate of presentation of images displayed on the screen. The experiment design compares responses under slow and fast image presentation rate conditions. To avoid unfortunate resonances due to a poor choice of rates, the "slow" and "fast" rate conditions each consist of three possible rates. Selection among the three eligible rates for the given condition is done randomly.
 
-In analysis, the researcher would typically combine the “slow presentation” trials into one group and the “fast presentation” trials into another group even though the exact task condition varies within the group varies according This type of grouping structure is very common in experiment design and can be captured by HED tags in a straightforward manner by defining condition variables for each group and using the `#` to capture variability within the group.
+In analysis, the researcher would typically combine the "slow presentation" trials into one group and the "fast presentation" trials into another group even though the exact task condition varies within the group varies according This type of grouping structure is very common in experiment design and can be captured by HED tags in a straightforward manner by defining condition variables for each group and using the `#` to capture variability within the group.
 
 ```{admonition} **Example:** Condition variables for slow and fast visual presentation rates.
 
@@ -518,7 +518,7 @@ In analysis, the researcher would typically combine the “slow presentation” 
 > *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
-During analysis, the `Def` tags may be replaced with the actual definition’s tag group with an included `Def-expand` tag giving the definition’s name. Note: expansion is done by tools at analysis time.
+During analysis, the `Def` tags may be replaced with the actual definition's tag group with an included `Def-expand` tag giving the definition's name. Note: expansion is done by tools at analysis time.
 
 ```{admonition} **Example:** Expanded form of the previous example.
 

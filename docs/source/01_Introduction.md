@@ -111,23 +111,4 @@ All HED source code and resources are open-source and staged in the HED Standard
 
 ## 1.6. Semantic versioning
 
-HED schema use the following rules for changing the *major.minor.patch* semantic version. These rules are based on the assumption that the [HED tag](https://www.hedtags.org/hed-specification/02_Terminology.html#hed-tag) short form will not require data annotators to retag their data for patch-level or minor-version changes of the schema. That is, a dataset tagged using schema version *X.Y.Z* will also validate for *X.Y+.Z+*. However, the reverse is not necessarily true. In addition, validation errors might occur during for patch-level or minor-version changes for changes or corrections in tag values or units.
-
-Here is a summary of the types of changes that correspond to different levels of changes in the semantic version:
-
-| Change                                          | Semantic-level |
-| ----------------------------------------------- | -------------- |
-| Major addition to HED functionality             | Major          |
-| Tag deleted from schema.                        | Major          |
-| Unit or unit class removed from node.           | Major          |
-| Listed unit removed but still derivable (uV).   | Patch          |
-| New tag added to the schema.                    | Minor          |
-| New attribute added to schema.                  | Minor          |
-| New unit class or unit added to schema.         | Minor          |
-| New unit class added to node.                   | Minor          |
-| Node moved in schema without change in meaning. | Minor          |
-| Revision of description field in schema.        | Patch          |
-| Correction of suggestedTag or relatedTag.       | Patch          |
-| Correction of wiki syntax such as closing tags. | Patch          |
-
-**Note:** It is an official policy that once in a schema, a node will not be removed. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, a `deprecated` attribute will be added to the tag in the schema. Suggested replacement tags should be included in the node description. A suggested replacement should be added to the tag patch table.
+HED schemas and the HED specification use semantic versioning (*major.minor.patch*). The rules that decide which level of version change a schema change requires are given in [3.1.3. Version updates](./03_HED_formats.md#313-version-updates), which is normative.

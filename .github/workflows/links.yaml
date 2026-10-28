@@ -37,6 +37,8 @@ jobs:
       - name: Build documentation with Sphinx
         run: |
           sphinx-build -b html docs/source docs/_build/html
+          # The sidebar links to releases/hed-specification-latest.pdf, which deploy-docs.yml publishes
+          cp -r releases docs/_build/html/releases
 
       - name: Link Checker on built documentation
         id: lychee

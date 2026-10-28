@@ -7,8 +7,8 @@ validators load cannot disagree. The script also checks the file itself: every r
 with the right type, each row's name matches its key, the subgroup limits are consistent, every
 ``otherAllowedNonDefTags`` name is another row, every ``ERROR_CODE`` is a heading of
 ``Appendix_B.md``, every row field is documented in the Appendix A.6 field table and nothing else
-is, every ``secondaryWith`` name is an allowed companion that is not secondary in turn, every
-and every ``valueForms`` entry names a known form.
+is, every ``secondaryWith`` name is an allowed companion that is not secondary in turn, and
+every ``valueForms`` entry names a known form.
 
 Usage (from the repository root, standard library only):
 

@@ -55,6 +55,14 @@ Additional technical reference and validation information.
    Appendix_A
    Appendix_B
 
+.. only:: not pdf
+
+   .. toctree::
+      :maxdepth: 1
+      :caption: Maintainers
+
+      Specification release guide <release_guide>
+
 Indices and tables
 ------------------
 

@@ -1,56 +1,287 @@
-# CHANGELOG for HED specification
+# Release 4.0.0 (unreleased)
 
-## Changes for HED specification 4.0.0
+Specification 4.0.0 is a major revision written against HED standard schema `8.5.0`. It makes the reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) a single table of group rules that applies to every standard schema >= `8.0.0`, and publishes that table and the character sets of section 2.2 as machine-readable JSON files that validators load. It sets strict rules for tabular files and sidecars (column names, padded values, sidecar keys, nothing trimmed), makes units case-sensitive with per-component rules for compound units, defines how library schemas combine in merge groups, and adds the JSON and TSV schema formats with the Sources, Prefixes and External annotations sections. Many annotations that passed under 3.3.0 are now errors; read the upgrade notes first. The repository no longer holds schemas, tests or PDFs of the specification; release PDFs are published with the documentation.
 
-This is a breaking change:
+## Upgrade notes for implementers
 
-- The PDF versions of the schema (formerly stored in `hedspec`) has been removed. HED specifications will just undergo the GITHUB releases.
-- The versions of the standard HED schema that were stored in `hedxml` for backwards compatibility has been removed.
-- The `tests` directory containing the JSON tests that HED validators must pass has been moved to the GitHub `hed-standard/hed-tests` repository.
-- Tools that write schema files include the Sources, Prefixes, and External annotations sections in every format, empty when the schema has no entries. Tools that read schema files require these sections in standard schemas with versions >= `8.5.0` and in library schemas partnered with those standard schemas; for compatibility they accept their omission from older standard schemas and from unpartnered library schemas and treat an omitted section as empty.
-- Units: all unit strings (names, symbols, and SI modifiers) are case-sensitive; unit names may be pluralized, symbols never. A value with units is the number, one blank, and the unit.
-- Units: a compound unit (`m-per-s`, `m-per-s^2`, `m^3`, `mol-per-L`) with `SIUnit` takes one SI modifier on each component, with the conversion factor computed component-wise; a modifier no longer applies to the whole string.
-- Units: `conversionFactor` is the factor by which a value in the unit is multiplied to obtain default units; a unit without one has no defined conversion. A unit class in a standard schema >= `8.5.0` (or a partnered library) may not list a unit derivable from another unit of the class by an SI modifier (SCHEMA_DUPLICATE_NODE); `defaultUnits` may be such a derived form.
-- Units: a `#` placeholder has at most one unit class and, when it has one, `valueClass=numericClass` (SCHEMA_ATTRIBUTE_VALUE_INVALID otherwise; the value-class rule is checked for standard schemas >= `8.5.0` and partnered libraries). A schema MAY define the empty pseudo unit class `anyUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class, a listed unit winning over a derived form, and a string derived by two classes and listed by none is SCHEMA_DUPLICATE_NODE. HED `8.5.0` introduces `anyUnits` and `Quantity`. The `unitPrefix` attribute and `$` are deprecated as of HED `8.5.0`.
-- `hedId` values are assigned only at release and never reused; retired identifiers are recorded under `retired_ids` in hed-schemas `library_data.json`.
-- The `annotation` schema attribute has one grammar: `prefix:id value`, where `prefix:id` is a row of the External annotations section and `prefix` a row of the Prefixes section. A link to a term in an external ontology is written with a SKOS mapping property (`skos:exactMatch ncit:C25499`) rather than as a bare term. A `dc:source` value must name a row of the Sources section, by the row's `source` name or by a URL under the row's `link`; Appendix A.1.6 no longer says that sources do not affect validation. A violation of either rule is the new SCHEMA_ANNOTATION_INVALID warning (Appendix B), with reasons a-d. The rules apply to standard schemas with versions >= `8.5.0` and to library schemas partnered with them.
-- The character sets of section 2.2 are published as the machine-readable file `docs/source/_static/character_sets.json`, from which the section 2.2 table is generated; validators read the file instead of transcribing the table. An `allowedCharacter` name is a table row, the alias `slash`, or a single character naming itself. From standard schema `8.5.0` and partnered libraries a value class's declared names define its characters; earlier standard schemas use the recorded defaults. Corrections to the table: `name` no longer lists `period`; `nonascii` is code 160 and above. The textClass default before `8.3.0` is `text`, as validators apply, not the list the `8.0.0` to `8.2.0` schemas enumerate.
-- Top-level group rules made explicit (issue #486): a `Delay` tag MAY appear in an `Onset`, `Offset`, or `Inset` group as well as with `Duration`, delaying that marker (TEMPORAL_TAG_ERROR e, h, m and TAG_GROUP_ERROR c reworded); an `Event-context` group has the form `(Event-context, (content-group), ...)` with only tool-generated content groups beside the tag (new TAG_GROUP_ERROR d); a definition name MAY be defined more than once when every definition of it is identical, and only differing contents are DEFINITION_INVALID (i).
-- The examples of Chapter 4 and Chapter 5 were corrected against the `8.4.0` and `8.5.0` schemas: every long form now gives the full schema path of each tag (`Property/Data-property/...`, `Organizational-property`, `Sensory-presentation`, `Head-part/Face`, `IO-device`), a `Def-expand` group carries the placeholder value and its contents as an inner group, the definition with a placeholder leaves the units to the `Def` value (`Temporal-rate/#` with `Def/PresentationRate/1.5 Hz`), the `Delay` example is one HED string whose long form has the grouping of its short form, and `Item-count-interval`, which no schema defines, is replaced by `Item-interval`.
-- A `dateTimeClass` value has the BIDS `Datetime` format, RFC 3339 with an optional offset (`YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm]`, one to six fractional digits, hour 00-23, seconds 00-60); the date must also exist in the Gregorian calendar, which validators check after the format; the class declares `period`, `Z` and `plus` in addition to `digits`, `T`, `hyphen`, `colon` from standard schema `8.5.0`. Validators previously accepted hour `24`, longer fractions and out-of-range fields.
-- Reserved tags (issue #693): section 3.2.8 is renamed Reserved tags and Chapter 2 defines a reserved tag, a tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine; the nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) carry validation rules, and the other reserved tags carry none beyond their schema attributes and are defined for specific uses by downstream tools (`Condition-variable` and `Task` already have defined behavior). The group rules are published as the machine-readable file `docs/source/_static/reserved_tags.json`, from which the 3.2.8 tables are generated and which validators load; Appendix A.6 defines the file and its fields. Rules made explicit: a reserved tag MUST NOT be extended (TAG_EXTENSION_INVALID c); the value of `Definition`, `Def`, and `Def-expand` has two parts, `name` or `name/value`, and only `#` may follow a `Definition` name (new DEFINITION_INVALID l); a `Def-expand` group stands wherever its `Def` tag would; reserved-group rules are checked after `{column}` substitution (sidecar rule 9), and a `Definition` or `Event-context` group may not contain a column reference (new TAG_GROUP_ERROR e); a `Delay` group without `Onset`, `Offset`, or `Inset` needs exactly one inner group (TEMPORAL_TAG_ERROR l); the rules of `Delay` and `Duration` apply in every standard schema version, the file supplying the attributes that `8.0.0` to `8.2.0` lack, and in `8.0.0`, whose `timeUnits` have no `conversionFactor`, a value in the default unit, written as `s`, `second`, or `seconds`, is taken as is; a group-rule violation is reported with the tag's own code, and a placement error MAY be reported as TAG_GROUP_ERROR. Follow-up after review: the term applies by tag name in every standard schema version, since `8.0.0` and `8.1.0` carry no `reserved` attribute; the standard schema version in effect is the highest in the version specification; a library schema may not carry `reserved`, define a tag with a reserved name, or root a node under a reserved tag (SCHEMA_LIBRARY_INVALID l widened, new m and n); a reserved tag has no child node other than `#`, and a standard schema must define the tags the file names for its version (new SCHEMA_RESERVED_INVALID).
-- Tabular files (issue #666): a column name MUST NOT appear more than once in the first line of a tabular file (3.2.10, formerly "should be unique"); a repeated name is the new TABULAR_INVALID error, reported before any row annotation is assembled. TAG_EXPRESSION_REPEATED gains a note that a repetition may come from row assembly and that a repeated column name is TABULAR_INVALID instead.
-- Tag extensions (3.2.5 rule 2): the sentence "Blanks should be avoided" is removed. It read as if a blank were discouraged but allowed in an extension; the rule is that an extension term contains only `name` characters, so a blank, period, plus, caret, or colon is TAG_EXTENSION_INVALID (b).
-- Whitespace around names: a column name in the first line of a tabular file MUST NOT begin or end with whitespace (the blank, tab, line feed, and carriage return characters), the new TABULAR_INVALID (b), reported before any row annotation is assembled; a top-level sidecar key MUST NOT either, whether or not its entry has a `"HED"` key, the new SIDECAR_INVALID (d). A top-level sidecar key corresponds to a column name only when the two strings are identical, with no trimming.
-- Column names (follow-up): for TABULAR_INVALID (a) names are compared exactly as written, so `trial` and `trial ` are not a repeat and the padded name is (b) only. The column-name rules of 3.2.10 apply to every HED-annotated table whose columns have names, however it stores them (the header row of a `.tsv` file or of a spreadsheet, whether its columns are referred to by name or by number, or the column names an NWB table stores with its columns), by the names its columns are assembled under; in NWB the `TimestampVectorData` column named `timestamp` (the column an `EventsTable` requires) counts as `onset`, so a table that also has a column named `onset` is TABULAR_INVALID (a). Section 3.3.4 now says that only that column makes an NWB table a timeline table; other `TimestampVectorData` columns, which an NWB table may hold, are ordinary columns.
-- Blank column names: a column name in the first line of a tabular file MUST NOT be blank (the empty string), as BIDS also requires; a blank name is the new TABULAR_INVALID (c), reported once per blank name, by position, before any row annotation is assembled. Several blank names are (c) only, not a repeat under (a); a name made only of whitespace is (b). The rule applies to HED-annotated spreadsheets with a header row and to NWB tables too, which accept an empty column name.
-- Curly braces: a reference in curly braces to a column with no HED is SIDECAR_BRACES_INVALID (a), as 3.2.9.3 now says; SIDECAR_INVALID (c), which listed the same condition, is no longer used. Section 3.2.9.3 states that the curly-brace notation applies to any tabular container whose row annotation is assembled from named columns, such as NWB tables annotated with ndx-hed, not only to BIDS sidecars.
-- Whitespace around values: values in a tabular file are used exactly as written, with no trimming, so a categorical value matches an annotation key only when the two strings are identical (3.2.9.1). A value in a column with categorical or value HED annotations MUST NOT begin or end with whitespace (blank, tab, line feed, carriage return), the new TABULAR_INVALID (d), reported once per distinct value per column before the value checks and before any row annotation is assembled; a value made only of whitespace and `n/a` with whitespace around it count, an empty value and `n/a` are missing values, and the `HED` column is not checked (3.2.10.2). In a categorical entry, a column value listed as a key under `"HED"` MUST NOT begin or end with whitespace, the new SIDECAR_INVALID (e) (3.2.9.2); the keys of other dictionaries, such as a BIDS `Levels` dictionary, are not checked. Before, a padded categorical value matched no key and lost its annotation with only a SIDECAR_KEY_MISSING warning.
-- Tag extensions (3.2.5): an extension term MUST contain at least one letter (new rule 6), so a purely numeric term such as `Item/Blech/3` or `Item/1-2` is TAG_EXTENSION_INVALID (b), while `Item/Blech/1red` and `Item/3D-printout` stay valid; a letter is `A`-`Z` or `a`-`z`, or any Unicode letter where `nameClass` allows non-ASCII characters (standard schema versions >= `8.3.0`). A `#` after an extension term (`Item/Blech/#`) is PLACEHOLDER_INVALID (d) in every context, events file or sidecar (rule 5); a `#` directly after a reserved tag that takes no value (`Onset/#`) is an error in every context, which a validator may report as TAG_EXTENSION_INVALID (c) or as PLACEHOLDER_INVALID, depending on which check finds it first. Both rules apply for all standard schema versions >= `8.0.0`. Section 3.2.5 gains worked examples of valid and invalid extensions, Appendix A.1.4.6 a multi-level example, and the STYLE_WARNING for an extension that breaks the naming convention becomes "may be issued", since no validator issues it.
+These changes alter what is valid or how validators must report it.
 
-## Changes for HED specification 3.2.0
+- **Reserved tags (3.2.8).** The group rules of the reserved tags are one generated table, read from `docs/source/_static/reserved_tags.json`, and apply in every standard schema >= `8.0.0`, including `8.0.0` and `8.1.0`, which have no `reserved` attribute. A reserved tag MUST NOT be extended (`Onset/Blah`, TAG_EXTENSION_INVALID c); `Onset/#` may be reported as TAG_EXTENSION_INVALID or PLACEHOLDER_INVALID. `Delay` and `Duration` require a value (TAG_REQUIRES_CHILD b).
+- **`Delay` (3.2.8, 5.3.4).** `Delay` may share a top-level group with `Onset`, `Offset`, `Inset` or `Duration`; on its own it needs exactly one inner group. It may appear only in timeline tables (TEMPORAL_TAG_ERROR k, l, m).
+- **Units of `Delay` and `Duration` (3.2.8.4).** The default unit is `s`. In a timeline table the unit must have a `conversionFactor`, so `month` and `year` are errors there (TEMPORAL_TAG_ERROR n); a descriptor table may use any unit with `Duration`. Under `8.0.0`, whose time units have no conversion factors, a value with no unit or in `s`, `second` or `seconds` is taken as is.
+- **Definitions (3.2.8.1).** A definition without a placeholder MAY have no inner group again (3.1.0 required one). Only `#` may follow the definition name (DEFINITION_INVALID l). The contents may contain no structural reserved tag at any level (d) and no `required` or `unique` tag (j). A name defined twice with identical contents is accepted; only differing contents are DEFINITION_INVALID (i). Definitions MUST NOT appear in the annotations of a tabular file.
+- **`Event-context` (3.2.8.5, 5.5).** The group has the form `(Event-context, (content-group), ...)`, holds no other tags (TAG_GROUP_ERROR d) and no `{column}` reference (TAG_GROUP_ERROR e). It is generated by tools.
+- **Tag extensions (3.2.5).** An extension term MUST contain only `name` characters and at least one letter (new rule 6), so `Item/Blech/3` and `Item/1-2` are TAG_EXTENSION_INVALID (b) while `Item/3D-printout` is valid; a letter may be any Unicode letter in standard schemas >= `8.3.0`. A `#` after an extension (`Item/Blech/#`) is PLACEHOLDER_INVALID (d) in every context. These apply to every standard schema >= `8.0.0`.
+- **Tags (Appendix B).** Internal whitespace in a tag is TAG_INVALID (b), leading, trailing or consecutive slashes TAG_INVALID (c), and a non-`name` character TAG_INVALID (d); these replace NODE_NAME_EMPTY and the extension case of CHARACTER_INVALID.
+- **Forbidden characters (2.2, CHARACTER_INVALID a).** Control characters, `[`, `]`, `~` and `"` are invalid anywhere in a HED string; the tilde was TILDES_UNSUPPORTED.
+- **Units (3.1.4.4, 3.2.3).** Unit names, symbols and SI modifiers are case-sensitive; unit names may be pluralized, symbols never. A value with units is the number, one blank and the unit: `3ms` and `3  ms` are VALUE_INVALID. A compound unit (`m-per-s`, `m-per-s^2`) with `SIUnit` takes one SI modifier on each component, and its conversion is computed per component (UNITS_INVALID c).
+- **Tabular files (3.2.10).** A column name MUST NOT be repeated, begin or end with whitespace, or be blank (TABULAR_INVALID a, b, c); names are compared exactly as written. A value in a column with categorical or value HED annotations MUST NOT begin or end with whitespace (TABULAR_INVALID d); an empty value and `n/a` are missing values and are not checked, and the `HED` column is not subject to the rule. Every value of a value-annotated column other than `n/a` must yield a valid HED string, even when the column is used only in curly braces (VALUE_INVALID e).
+- **Timeline tables (3.2.10, 3.3).** A table is a timeline when it has an `onset` column anywhere (or the NWB `timestamp` column); 3.3.0 required `onset` to be the first column. `Onset`, `Offset`, `Inset` and `Delay` may appear only in timeline tables.
+- **Sidecars (3.2.9).** A top-level sidecar key and a categorical key under `"HED"` MUST NOT begin or end with whitespace (SIDECAR_INVALID d, e); keys match column names exactly. A curly-brace reference to a column that has no HED annotation is SIDECAR_BRACES_INVALID, and a `{ref}` with no matching column is SIDECAR_KEY_MISSING (b).
+- **Schema sections (3.1, Appendix A).** Sources, Prefixes and External annotations are required in standard schemas >= `8.5.0` and in libraries partnered with them (SCHEMA_SECTION_MISSING); tools always write them, empty if they have no rows, and accept their absence in older schemas.
+- **Changed letter meanings in Appendix B.** Validators that report letters must remap: CHARACTER_INVALID (a) is now the forbidden-character list; TAG_NAMESPACE_PREFIX_INVALID dropped its old (a), so the old (b) is now (a); SCHEMA_DEPRECATION_ERROR (h) now means a deprecated default unit (the old h duplicated f, the old i is gone).
+- **Renumbered sections.** Chapter 3 was reorganized (old 3.1.2.x is 3.1.4.x, 3.1.3 is 3.1.5, the MediaWiki and XML sections are 3.1.6 and 3.1.7, semantic versioning moved to 1.6), Appendix A.1.4 gained two subsections (for example `#a142-conversionfactor` is now `#a143-conversionfactor`), and B.2.3-B.2.5 are now B.2.2-B.2.4. Links into the specification that use these anchors must be updated.
 
-- The `Inset` tag was introduced to mark intermediate points in events of temporal extent.
-- Partnered schemas were introduced using the `withStandard` schema header attribute and the `rooted` schema attribute.
-- The curly brace annotation for sidecars was introduced.
+## New rules and features
 
-## Changes for HED specification 3.1.1
+### Reserved tags and temporal annotation
 
-This release is added additional minor corrections and clarifications in the specification document and does not include any enhancements from version 3.0.0.
+- 3.2.8 Reserved tags (formerly Special tags) names 19 reserved tags, 9 of them structural, by tag name in every schema version, and gives one table of group rules (value, anchor, other tags, minimum and maximum inner groups, secondary tags, timeline only, curly braces) followed by rules 1-6 and a table of the two-part values of `Definition`, `Def` and `Def-expand`. A violation takes the code named in the table; a placement error MAY be reported as TAG_GROUP_ERROR.
+- No `Def` or `Def-expand` is allowed at the top level of a group whose reserved tag takes no anchor (for example `Duration` or `Delay`).
+- `Definition` and `Event-context` groups may not contain a `{column}` reference; group rules are checked after the row is assembled.
+- `Onset` and `Offset` MUST NOT occur at the same time as another `Onset`, `Offset` or `Inset` with the same anchor, and an `Offset` before its `Onset` is an error (3.2.8.3).
+- The value of a `Def` or `Def-expand` is checked against the value class and units of the definition's placeholder tag, and a `Def-expand` group stands wherever its `Def` could (3.2.8.2).
+- New 3.2.8.4 on `Duration` and `Delay` (units and conversion, as in the upgrade notes).
+- A definition with no contents can anchor `Onset` groups whose contents vary (5.1).
 
-## Changes for HED specification 3.1.0
+### Schemas: loading, partnering and merge groups
 
-This release is focused on corrections and clarifications in the specification document and does not include any enhancements.
+- New 3.1.1 and 3.1.2 define version strings, namespaces and namespace prefixes (the prefix includes the colon, is chosen per dataset and is not part of a schema), partnered and unpartnered libraries, merged and unmerged files (the `unmerged` value is case-insensitive), and merge groups.
+- Rules for combining schemas in a merge group (3.1.2.4, SCHEMA_LOAD_FAILED): schemas may be listed in any order; no two schemas with the same name, whatever their versions, may be in one group (SCHEMA_LOAD_FAILED c); all libraries in a group must have the same standard partner, and a standard schema listed in the group must be that partner; an unpartnered library must be alone in its namespace; a schema that cannot be found is SCHEMA_LOAD_FAILED (d).
+- Identical elements shared by libraries in one merge group are compatible and kept once, carrying one `inLibrary` value per contributing library; 3.3.0 failed the load for any shared tag. Differences in prologue and epilogue are not conflicts. Chapter 7 (7.3.6) illustrates every rule with the test schemas used by hed-tests (testconflict, testclash, testminimal, testaux).
+- An unmerged partnered library may not contain a tag of its partner or a Properties section; a merged library's Properties must equal its partner's (SCHEMA_LIBRARY_INVALID i, j, k). A library schema MUST NOT carry `reserved`, define a tag with a reserved name, or root a node under a reserved tag (SCHEMA_LIBRARY_INVALID l, m, n). A standard schema must define the reserved tags `reserved_tags.json` names for its version, and a reserved tag may have no child other than `#` (SCHEMA_RESERVED_INVALID).
+- New 3.1.3 table of version updates: which schema changes are major, minor or patch, including a listed unit removed but still derivable (patch).
 
-- \[**Clarification**\] The inner tag group in a definition cannot be empty.
-- \[**Clarification**\] The additional tags within an `Onset` or `Offset` group must be enclosed in parentheses. Consequently, only one definition can anchor an event of temporal extent.
-- \[**Correction/Clarification**\] The initial specification said that definitions could be given anywhere. Our examples only put them in dummy entries in the sidecars. Allowing definitions to be anywhere turned out to be burdensome for downstream analysis tools. We have now restricted definitions so that they can only appear in dummy entries of sidecars.
-- \[**Clarification**\] Chapter 3.2 was rewritten so that full specification details of tag syntax were given and keyed to error codes in Appendix B.
-- \[**Clarification**\] Error codes of Appendix B were modified to have more consistent form, and some additional codes were added to account for requirements of the specification.
-- \[**Improvement**\] Each error code in Appendix B was given its own markdown section so that error messages in the validators could use the error code as a link into the specification for more information about the cause of errors.
-- \[**Improvement**\] A standardized set of validation test data keyed to the error codes was added to the specification repository in the [**tests**](https://github.com/hed-standard/hed-specification/tree/main/tests) directory. This test data will be validated by both the Python and JavaScript validators in addition to their internal tests as part of the GitHub actions.
-- \[**Clarification**\] All chapters of the specification were edited for clarity and correctness.
+### Schema formats and attributes (Appendix A)
 
-## Initial release 3.0.0 Oct. 27, 2022.
+- Four schema formats: MediaWiki, XML, and the new JSON (A.4) and TSV (A.5) formats.
+- New schema sections Sources, Prefixes and External annotations (A.1.6-A.1.8, with subsections in each format). An empty required cell is the SCHEMA_MISSING_EXTRA warning.
+- `annotation` attribute (A.1.4.2): one grammar, `prefix:id value`, where `prefix:id` is a row of External annotations and `prefix` a row of Prefixes; a link to an external ontology term uses a SKOS mapping property (`skos:exactMatch ncit:C25499`). A `dc:source` value must name a row of Sources, by its name or by a URL under its link. A violation is the SCHEMA_ANNOTATION_INVALID warning (a-d). Applies to standard schemas >= `8.5.0` and libraries partnered with them.
+- `hedId` (A.1.4.7): `HED_` plus seven digits, assigned only at release and never reused; retired identifiers are recorded under `retired_ids` in hed-schemas `library_data.json`.
+- `isPartOf` (A.1.4.9, added in schema `8.3.0`) is documented, and every attribute in A.1.4 now has a description.
+- `allowedCharacter` (A.1.4.1): a name is a row of the 2.2 table, the alias `slash`, or a single character naming itself. From standard schema `8.5.0` and in partnered libraries, the names a value class declares define its characters; older schemas use the recorded defaults.
+- Value classes (A.1.3): `textClass` is the new `value-text` set from `8.5.0` and `text` before; `nameClass` drops `blank` and `period`; `numericClass` drops `caret`; `dateTimeClass` follows the BIDS Datetime format (RFC 3339 with optional offset, one to six fractional digits, hour 00-23), and the date must exist in the Gregorian calendar; `IRIClass` is removed; `posixPath` is specified.
+- Schema properties use their domain and range names, with the old names listed (3.1.4.6).
 
-The specification version was set to 3.0.0 to designate the specification for HED-3G corresponding to HED standard schema versions >= 8.0.0
+### Units
+
+- `anyUnits` (`8.5.0`, with `Quantity`): a pseudo unit class whose placeholder accepts a unit from any unit class; a listed unit wins over a derived form (`dB`); a string derived by two classes and listed by none is SCHEMA_DUPLICATE_NODE (c); `anyUnits` may list no units or `defaultUnits` (SCHEMA_ATTRIBUTE_INVALID d).
+- A `#` placeholder has at most one unit class and, when it has one, `valueClass=numericClass` (SCHEMA_ATTRIBUTE_VALUE_INVALID; checked for `8.5.0` and partnered libraries).
+- No unit of a class may be derivable from another unit of the class by an SI modifier (SCHEMA_DUPLICATE_NODE b, `8.5.0` and partnered libraries); `defaultUnits` may be such a derived form (`mA`, `uV`).
+- `conversionFactor` (A.1.4.3) is the factor by which a value in the unit is multiplied to obtain default units; a unit without one has no defined conversion.
+- The `unitPrefix` attribute and `$` are deprecated as of `8.5.0`. The A.1.1 unit table reflects `8.5.0` (25 unit classes).
+
+### Character sets
+
+- The 2.2 table is generated from `docs/source/_static/character_sets.json`, which gives each set as a regular expression usable from Python and JavaScript, the per-version defaults of the standard value classes, and the characters that structure a HED string; validators load the file instead of transcribing the table.
+- New sets `value-text` and `numeric`; `forward-slash` added with the alias `slash`; `name` no longer lists `period`; `nonascii` is code 160 and above.
+
+### Tabular files and sidecars
+
+- The column-name rules apply to spreadsheets with a header row and to NWB tables; the NWB `timestamp` column counts as `onset`, so a table with both repeats a name.
+- Curly-brace notation applies to any container of named columns, including ndx-hed NWB tables.
+
+## Error codes (Appendix B)
+
+### Added
+
+- TABULAR_INVALID (a-d): repeated, padded or blank column name; padded value in an annotated column.
+- SCHEMA_ANNOTATION_INVALID (warning, a-d).
+- SCHEMA_MISSING_EXTRA (warning).
+- SCHEMA_RESERVED_INVALID (a, b).
+
+### Removed
+
+- NODE_NAME_EMPTY: the slash cases are TAG_INVALID (c).
+- TILDES_UNSUPPORTED: the tilde is CHARACTER_INVALID (a).
+- UNITS_MISSING (warning) and VERSION_DEPRECATED (warning): no replacement.
+
+### New or changed reasons
+
+- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_DEPRECATION_ERROR h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e; SIDECAR_KEY_MISSING b; STYLE_WARNING a (capitalization only); TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n; UNITS_INVALID c; VALUE_INVALID c, e.
+
+## Clarifications
+
+- New 3.3 Annotation semantics: reversibility, grouping, event structure, row assembly, and timeline versus descriptor tables.
+- The rules for schema version changes are stated once, in 3.1.3 Version updates, which is normative; 1.6 Semantic versioning points to it.
+- Chapter 2 adds the terms namespace, namespace prefix, reserved tag, schema element and schema section, and rewrites `Event-context`.
+- Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
+- Chapter 7 was rewritten: unpartnered libraries (7.2), partnered file formats and filenames (7.3.1, 7.3.2), merged versus unmerged files (7.3.3), and rules for designing libraries (7.4); the SCORE `1.0.0` and `1.1.0` examples are marked historical.
+- Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 TSV files of the spreadsheet format, including the Sources, Prefixes and External annotations files.
+
+## Corrections
+
+- The examples of Chapters 4 and 5 were checked against the `8.4.0` and `8.5.0` schemas: every long form gives the full schema path of each tag, a `Def-expand` group carries the placeholder value and its contents as an inner group, a definition with a placeholder leaves the units to the `Def` value, the `Delay` example is one HED string, the swapped `xxx`/`yyy` of the `Delay` notes are fixed, and `Item-count-interval`, which no schema defines, is replaced by `Item-interval`.
+- Chapter 5 drops the notes that `Delay`, `Duration` and `Inset` would not be supported until `8.2.0`.
+- Chapter 1 has unique section numbers (3.3.0 had two sections 1.2) and links to hed-tests and the HED schema browser.
+
+## Document and repository
+
+- The specification PDFs moved from `hedspec/` to `releases/`, renamed `hed-specification-X.Y.Z.pdf` (the 3.x PDFs are kept). Each release's PDF is built from the HTML by `scripts/do_spec_release.py`, attached to the GitHub release and added to the Zenodo record. The site publishes the releases at `/releases/` with `hed-specification-latest.pdf`, and the unreleased state of `main` with its PDF under `/prerelease/`. See `RELEASE_GUIDE.md`.
+- The standard schemas (`hedxml/`, `hedwiki/`) were removed; their home is the hed-schemas repository. The JSON validator tests (`tests/`) moved to the hed-tests repository.
+- The documentation is built with Sphinx and the Furo theme and published on GitHub Pages; ReadTheDocs and its PDF build were retired. `pyproject.toml` owns the specification version.
+- CI checks spelling (typos), markdown format (mdformat), links (lychee), and the generated tables (`scripts/generate_character_table.py --check`, `scripts/generate_reserved_table.py --check`).
+
+# Release 3.3.0 July 5, 2024
+
+Specification 3.3.0 accompanies HED standard schema `8.3.0`. It adds Chapter 8 on the HED ontology and the `hedId` identifiers, "lazy partnering" for loading several partnered libraries together, named character sets with UTF-8 support, domain and range names for the schema properties, and deprecation. The onset errors are merged into TEMPORAL_TAG_ERROR with new rules for `Delay` and `Duration`, and tabular files whose first column is not `onset` may not use `Onset`, `Offset` or `Inset`.
+
+## Upgrade notes for implementers
+
+- Error codes renamed: ONSET_OFFSET_INSET_ERROR -> TEMPORAL_TAG_ERROR; TAG_PREFIX_INVALID -> TAG_NAMESPACE_PREFIX_INVALID (3.2.6 is now Tag namespace prefixes).
+- Schema properties renamed (A.1.5): `boolProperty` -> `boolRange`, `elementProperty` -> `elementDomain`, `nodeProperty` -> `tagDomain`, `unitClassProperty` -> `unitClassDomain`, `unitModifierProperty` -> `unitModifierDomain`, `unitProperty` -> `unitDomain`, `valueClassProperty` -> `valueClassDomain`; `isInheritedProperty` is replaced by `annotationProperty`.
+- `rooted` takes a value: `rooted=XXX` names the standard-schema node the library node goes under when merged (7.2).
+- A tabular file whose first column is not `onset` may not contain `Onset`, `Offset` or `Inset` (3.2.10.1).
+- `Delay` and `Duration` must each be in a top-level group with exactly one inner group, and may share it only with each other (TEMPORAL_TAG_ERROR a, b, d, l, m; TAG_GROUP_ERROR c).
+- Definitions are barred from any sidecar entry that contains anything other than definitions (DEFINITION_INVALID k).
+- Curly braces may not appear in the `HED` column, may not be nested, and may not substitute for a placeholder (3.2.9.3, SIDECAR_BRACES_INVALID d).
+- Units are case-insensitive except unit symbols and unit modifiers (3.1.2).
+- Schema versions earlier than `8.0.0` are no longer supported by validators.
+- The schema attributes `required` and `recommended` are removed in schema `8.3.0`.
+
+## New rules and features
+
+### Character sets
+
+- New 2.2 Character sets and restrictions: named classes (`ascii`, `nonascii`, `printable`, `text`, `name`, ...) and named single characters such as `comma` and `dollar`. UTF-8 is allowed from schema `8.3.0`. Node names and tag extensions use `name` characters; unit class and value class names too.
+
+### Library schemas
+
+- Lazy partnering (7.3.6, introduced with schema `8.3.0`): libraries listed without a prefix form one merge group, and libraries sharing a prefix form another; all must have the same standard partner, group prefixes must be unique, and violations are SCHEMA_LOAD_FAILED.
+- New examples of unmerged and merged rooted nodes; the examples use TESTLIB `2.0.0` instead of SCORE `1.1.0`.
+
+### Schema formats and attributes (Appendix A)
+
+- The schema attribute table has Domain and Range columns, with subsections A.1.4.1 onwards.
+- New attributes `deprecatedFrom`, `hedId`, `inLibrary`, `reserved`, `rooted`; new properties `annotationProperty`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, `valueClassRange`.
+- Deprecation (A.1.4.4 `deprecatedFrom`): the value must be an earlier released version; a deprecated tag may not be a `suggestedTag` or `relatedTag`; children of a deprecated tag must also be deprecated or moved. Use of a deprecated element is the ELEMENT_DEPRECATED warning.
+- Value classes: new `IRIClass`; `textClass` is `printable` or `nonascii` without curly braces; `nameClass` adds `blank`, `period` and `nonascii`; `dateTimeClass` gains a BIDS regular expression. New unit class `temperatureUnits`.
+- The MediaWiki header table adds `withStandard` and `unmerged`.
+
+### Ontology
+
+- New Chapter 8, The HED ontology: annotator and ontologist views and the HED information space (8.1); the schema-to-OWL mapping (8.2); global identifiers `HED_xxxxxxx`, their ranges, and their IRIs (8.3).
+
+### Tabular files
+
+- New 3.2.10.1 Tabular types: a file whose first column is `onset` is a timeline. 6.3.1 adds a table of BIDS tabular file types; HED is not supported in BIDS timeseries files (6.3.2).
+
+## Error codes (Appendix B)
+
+### Added
+
+- ELEMENT_DEPRECATED (warning), SCHEMA_LOAD_FAILED, SCHEMA_ATTRIBUTE_VALUE_INVALID, SCHEMA_DEPRECATION_ERROR; TEMPORAL_TAG_ERROR and TAG_NAMESPACE_PREFIX_INVALID by renaming.
+
+### Removed
+
+- ONSET_OFFSET_INSET_ERROR and TAG_PREFIX_INVALID (renamed).
+
+### Changed reasons
+
+- CHARACTER_INVALID a (a tag extension contains a non-`name` character, replacing "contains a UTF-8 character"); SIDECAR_BRACES_INVALID d; DEFINITION_INVALID k; SCHEMA_ATTRIBUTE_INVALID c; SCHEMA_CHARACTER_INVALID a-d; TEMPORAL_TAG_ERROR k-m; WIKI_DELIMITERS_INVALID d; WIKI_SEPARATOR_INVALID a, b.
+
+## Clarifications
+
+- The terms of Chapter 2 are under 2.1 Definitions; "Def-expand-group" is written "`Def-expand` group"; the sections of 5.3 and 6.3 are renumbered.
+
+## Document and repository
+
+- `HedResources.md` and `UnderDiscussion.md` were removed. Spelling (codespell) and link (lychee) checks were added to CI. The repository adds the `8.3.0` schema files, the JSON test files for the new codes, and `hedspec/HEDSpecification_3_3_0.pdf`.
+
+# Release 3.2.0 May 12, 2023
+
+Specification 3.2.0 introduces the `Inset` tag for intermediate points of events of temporal extent, partnered library schemas (merged and unmerged, with the `withStandard` and `unmerged` header attributes and the `rooted` and `inLibrary` attributes), and curly-brace column references in sidecars.
+
+## Upgrade notes for implementers
+
+- Error codes renamed or merged: ONSET_OFFSET_ERROR -> ONSET_OFFSET_INSET_ERROR; LIBRARY_NAME_INVALID -> SCHEMA_LIBRARY_INVALID (a).
+- DEFINITION_INVALID gains a new (e), definitions may not use curly braces, so the old e-j are now f-k.
+- CHARACTER_INVALID (b) now means curly braces in a HED string that is not in a sidecar. Its old meaning, a value not allowed by its value class, duplicated VALUE_INVALID (b), which remains.
+
+## New rules and features
+
+### Temporal annotation
+
+- `Inset` (3.2.8.3, 5.3.2) marks an intermediate point of an ongoing event: it is anchored by the `Def` or `Def-expand` of an ongoing `Onset`, takes at most one additional tag group, and a `Def/xxx/#` value must match the `Onset`'s. `Def-expand` groups may also anchor `Onset` and `Offset` (5.3.1).
+
+### Sidecars
+
+- New 3.2.9.3 Sidecar curly braces: the name in braces is `HED` or a HED-annotated column; the column's annotation replaces the braces; when the value is `n/a` the reference and its extra parentheses and commas are removed; a column may not both be referenced and use braces itself; no braces inside `Definition`.
+
+### Library schemas
+
+- New 7.2 Partnered schemas: merged and unmerged files and their names (`HED_score_1.1.0_unmerged.mediawiki`); an unmerged file has `unmerged="true"` in its header, only the auxiliary sections it extends, `rooted` nodes at the top level, and no `inLibrary`; a merged library's nodes carry `inLibrary`. A partnered library's terms must not overlap the standard schema. 7.3 separates general, standalone and partnered design rules; 7.3.4 covers schema namespaces.
+
+## Error codes (Appendix B)
+
+### Added
+
+- SIDECAR_BRACES_INVALID (a-c); SCHEMA_LIBRARY_INVALID (a-h: library name, `withStandard` without `library`, invalid `withStandard` version, `rooted` outside an unmerged partnered library, `rooted` node not at the top level or not in the partner, `inLibrary` in an unmerged schema, unmerged schema duplicating the partner's auxiliary items); ONSET_OFFSET_INSET_ERROR by renaming.
+
+### Removed
+
+- ONSET_OFFSET_ERROR (renamed), LIBRARY_NAME_INVALID (now SCHEMA_LIBRARY_INVALID a).
+
+### Changed reasons
+
+- ONSET_OFFSET_INSET_ERROR i (same anchor at the same time for any of `Onset`, `Inset`, `Offset`), j (`Inset` without the anchor of an ongoing `Onset`), k (more than one additional group); DEFINITION_INVALID e; CHARACTER_INVALID b.
+
+## Document and repository
+
+- The repository adds schema `8.2.0` (`hedxml/HED8.2.0.xml`, `hedwiki/HED8.2.0.mediawiki`), `hedspec/HEDSpecification_3_2_0.pdf`, and test files for the new codes; the README gains the Zenodo DOI.
+
+# Release 3.1.1 April 15, 2023
+
+A patch release. The JSON validator tests moved from the documentation source (`docs/source/_static/data/error_tests/`) to `tests/json_tests/`, and the documentation configuration was fixed so the site built correctly on ReadTheDocs. The only change to the specification text is a new error reason, TAG_EXTENSION_INVALID (c): a tag has an extension where none is allowed.
+
+# Release 3.1.0 April 5, 2023
+
+Specification 3.1.0 reorganizes the document around a new Chapter 3, HED formats, whose section 3.2 states each annotation rule and links it to an Appendix B error code. Every error code lost its `HED_` prefix and got its own linkable section. Although presented as a clarification, the release tightens several rules: definitions must have contents and may appear only in sidecar definition entries, `Def-expand` needs an inner group, `Onset` and `Offset` groups have a fixed form, and units are separated from values by exactly one blank. A set of JSON test files keyed to the error codes was added for the Python and JavaScript validators.
+
+## Upgrade notes for implementers
+
+- A definition must have a non-empty inner group (3.2.8.1, DEFINITION_INVALID b); 3.0.0 allowed an anchor-only definition.
+- Definitions may appear only in sidecar entries that hold definitions, or in external definition lists, not in the `HED` column or in column annotations (3.2.9.1, 3.2.10.1, 5.1, DEFINITION_INVALID j); 3.0.0 allowed them anywhere.
+- `Def-expand` is written `(Def-expand/xxx, (contents))` with an inner group (5.2.2, DEF_EXPAND_INVALID e, f).
+- `Onset` and `Offset` groups (3.2.8.3, ONSET_OFFSET_ERROR c, e, h, i): exactly one `Def` or `Def-expand` anchor; `Onset` may add at most one inner group, and its other tags must be inside it; `Offset` contains only the anchor; the same anchor may not appear twice in one event marker.
+- Units are separated from values by a single blank, prefix or suffix (VALUE_INVALID d); 3.0.0 said at least one blank.
+- A placeholder with no `valueClass` is treated as `textClass` (3.0.0: `nameClass`).
+- Definition names and values substituted for `#` may be schema node names.
+- Sidecars (3.2.9.1): no annotation for `n/a`, and `"HED"` only as a second-level key (SIDECAR_INVALID).
+- Tags are case-insensitive except units, which keep their case, and unit modifiers, which are case-sensitive (3.2.3).
+- Library prefixes must be alphabetic (3.0.0: alphanumeric); an invalid prefix in the version specification is a schema loading error; at most one schema in the version list may be unprefixed (Chapter 7).
+- Error codes renamed (all lost the `HED_` prefix): HED_DEF_UNMATCHED and HED_DEF_VALUE_INVALID -> DEF_INVALID; HED_LIBRARY_UNMATCHED -> TAG_PREFIX_INVALID; HED_TAG_REPEATED -> TAG_EXPRESSION_REPEATED; HED_UNITS_DEFAULT_USED -> UNITS_MISSING; HED_SCHEMA_REQUIRED_SECTION_MISSING -> SCHEMA_SECTION_MISSING.
+
+## New rules and features
+
+- The 5.3 table places `Duration`, `Delay`, `Inset` and `Event-context` in top-level groups and gives the forms `(Duration/x, (group))` and `(Delay/x, (group))`, noted as not fully supported until schema `8.2.0`.
+- Tools must state whether they support temporal scope and the expansion of `Delay` and `Duration` (6.2).
+- A library schema should not duplicate tags of the standard schema (3.0.0 allowed identical terms), and tools must handle several schemas, including a prefixed standard schema (`["st:8.1.0", "score_1.0.0"]`, 6.3.4).
+
+## Error codes (Appendix B)
+
+- Every code has its own section with lettered reasons, so validators can link to it.
+- Added: SIDECAR_INVALID; TAG_EXTENSION_INVALID (split from HED_TAG_INVALID); LIBRARY_NAME_INVALID.
+- Removed: HED_VERSION_WARNING, HED_SCHEMA_NODE_NAME_INVALID, HED_SCHEMA_LOAD_FAILED.
+
+## Schema formats (Appendix A)
+
+- Reorganized into A.1 auxiliary sections, A.2 MediaWiki and A.3 XML, each with prologue and epilogue subsections.
+- `conversionFactor` (added in schema `8.1.0`) and `unitProperty` are listed; `nameClass` is alphanumeric plus `-` and `_`; commas and single quotes are allowed in the prologue, epilogue and descriptions; `allowedCharacter` group names `letters`, `blank`, `digits`, `alphanumeric`.
+- Official schemas come from the hed-schemas repository.
+
+## Clarifications
+
+- New 3.1 rules for schemas: section order, header and library names, characters of the prologue and epilogue, the is-a requirement and unique node names. New 3.2.5 lists five requirements for tag extensions, 3.2.7 covers tag groups, empty groups and repeated expressions, and 3.2.10 covers row assembly and the `required` and `unique` checks.
+- The temporal scope of an event includes its start sample and excludes its end sample (Chapter 2).
+- Chapter 1: HED-1G is versions < `4.0.0` and HED-2G is `4.0.0` to `7.x.x`.
+
+## Document and repository
+
+- Chapters renamed: `03_Schema` -> `03_HED_formats`, `06_Infrastructure` -> `06_Infrastructure_and_tools`, `07_Library_schema` -> `07_Library_schemas`; the old 6.3 Levels of validation was folded into 3.2.9 and 3.2.10.
+- 27 JSON test files were added under `docs/source/_static/data/error_tests/`.
+- The prerelease `8.2.0` schema files and `HEDSchemaRevisions.md` were removed; `hedspec/HEDSpecification_3_1_0.pdf` was added.
+
+# Release 3.0.0 October 27, 2022
+
+The first separately versioned HED specification. In October 2022 the versions of the HED specification and of the HED schemas were separated: the specification starts at 3.0.0 for HED-3G and applies to standard schema versions >= `8.0.0`, and the official home of the standard schemas became the hed-schemas repository. The text continues the specification that accompanied schema `8.0.0`.
+
+## Contents
+
+- Chapters: 1 Introduction, 2 Terminology, 3 HED schemas (MediaWiki and XML formats, rules for names, tags and placeholders), 4 Basic annotation, 5 Advanced annotation (definitions, temporal scope with `Onset`, `Offset`, `Duration` and `Delay`, event context, experimental design), 6 Infrastructure (short and long forms, BIDS event files and sidecars, levels of validation), 7 Library schemas, Appendix A Schema format, Appendix B Error codes.
+- Library schemas: a library name is alphabetic and uses semantic versioning, and a library should include the auxiliary classes of the standard schema.
+- Error codes carry the `HED_` prefix (HED_CHARACTER_INVALID, HED_DEF_UNMATCHED, HED_ONSET_OFFSET_ERROR, ...).
+
+## Document and repository
+
+- Added `hedspec/HEDSpecification_3_0_0.pdf`. Copies of the standard schemas remained in `hedxml/` and `hedwiki/`, with the prerelease `8.2.0` files under `prerelease/`.

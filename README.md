@@ -51,7 +51,7 @@ The JSON tests now have their own GitHub repository [hed-tests](https://github.c
 
 If you want to annotate your data or want general information about HED, please visit the [**HED resources**](https://www.hedtags.org/hed-resources/) documentation website. If you are a developer of a new HED vocabulary (schema) please see the [Schema developer's guide](https://www.hedtags.org/hed-schemas/developer_guide.html).
 
-The latest version of the HED specification is available at the [**HED specification**](https://www.hedtags.org/hed-specification).
+The latest version of the HED specification is available at the [**HED specification**](https://www.hedtags.org/hed-specification). The PDF of the latest release is [**hed-specification-latest.pdf**](https://www.hedtags.org/hed-specification/releases/hed-specification-latest.pdf); every released PDF is in [`releases/`](releases/), and the unreleased state of `main` is at [**/prerelease/**](https://www.hedtags.org/hed-specification/prerelease/). Maintainers release a version as described in [RELEASE_GUIDE.md](RELEASE_GUIDE.md).
 
 The official library schemas are now housed on the [**hed-schemas**](https://github.com/hed-standard/hed-schemas) GitHub repository.
 

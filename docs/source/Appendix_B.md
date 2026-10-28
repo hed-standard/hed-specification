@@ -318,7 +318,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 
 ## B.2. Schema validation errors
 
-This section is organized by the type of schema format that results in the error. Errors that might be detected regardless of the schema format start with HED_SCHEMA. Errors that are specific to the `.mediawiki` format start with HED_WIKI. Errors that occur in the construction of the XML version or that are detected by XML validators when the planned XSD validation is implemented start with HED_XML.
+This section is organized by the type of schema format that results in the error. Errors that might be detected regardless of the schema format start with `SCHEMA_`. Errors that are specific to the `.mediawiki` format start with `WIKI_`. Errors that occur in the construction of the XML version or that are detected by XML validators when the planned XSD validation is implemented start with `XML_`.
 
 ### B.2.1. General validation errors
 

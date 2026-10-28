@@ -1,12 +1,23 @@
 # Configuration file for the Sphinx documentation builder.
 
+import re
+from pathlib import Path
 
 # -- Project information -----------------------------------------------------
 project = "HED specification"
 copyright = "2025, HED Working Group"
 author = "HED Working Group"
-version = "4.0"
-release = "4.0.0"
+# The specification version is owned by pyproject.toml (regex, since tomllib needs Python 3.11).
+_pyproject = (Path(__file__).resolve().parents[2] / "pyproject.toml").read_text(encoding="utf-8")
+release = re.search(r'^version\s*=\s*"([^"]+)"', _pyproject, re.MULTILINE).group(1)
+version = ".".join(release.split(".")[:2])
+
+# -- Build variants ----------------------------------------------------------
+# sphinx-build -t pdf: the singlehtml page that scripts/build_pdf.py prints to PDF.
+# sphinx-build -t prerelease: the unreleased build of main published under /prerelease/.
+pdf_build = tags.has("pdf")  # noqa: F821 - tags is injected by Sphinx
+prerelease_build = tags.has("prerelease")  # noqa: F821
+site_url = "https://www.hedtags.org/hed-specification/"
 
 
 # -- General configuration ---------------------------------------------------
@@ -21,6 +32,11 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+if pdf_build:
+    # The release guide is for maintainers, not part of the specification document.
+    exclude_patterns.append("release_guide.md")
+    # index.rst lists it inside ".. only:: not pdf", but the toctree is still read
+    suppress_warnings = ["toc.not_readable"]
 
 # Configure source file suffixes
 source_suffix = [".rst", ".md"]
@@ -44,6 +60,15 @@ html_logo = "_static/images/croppedWideLogo.png"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_js_files = ["gh_icon_fix.js"]
+if pdf_build:
+    html_js_files.append("pdf_print.js")
+
+# Template variables: pdf_build drops the chat widget from the PDF; pdf_root is the path from the
+# built root to the site root, where releases/ lives (the prerelease build sits one level down).
+html_context = {
+    "pdf_build": pdf_build,
+    "pdf_root": "../" if prerelease_build else "",
+}
 
 # Furo theme options
 html_theme_options = {
@@ -61,6 +86,11 @@ html_theme_options = {
     "source_directory": "docs/source/",
     "navigation_with_keys": True,
 }
+if prerelease_build:
+    html_theme_options["announcement"] = (
+        f"Unreleased draft of HED specification {release}. "
+        f'The released specification is at <a href="{site_url}">{site_url}</a>.'
+    )
 
 # Configure sidebar to show logo, search, navigation, and quick links
 html_sidebars = {
