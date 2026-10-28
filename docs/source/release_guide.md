@@ -19,7 +19,7 @@ The script never commits, pushes, tags, or calls the GitHub API. The final look 
 | `/releases/hed-specification-X.Y.Z.pdf`  | the committed `releases/` folder                      | once, in the release pull request         |
 | `/releases/hed-specification-latest.pdf` | a copy of the newest committed release PDF            | in each release pull request              |
 
-The workflow `.github/workflows/deploy-docs.yml` assembles all of it. The prerelease PDF is never committed. Until a tag `v4.0.0` or later exists, the root is built from `main` as before; older tags predate the PDF tooling.
+The workflow `.github/workflows/deploy-docs.yml` assembles all of it. The prerelease PDF is never committed. The root is built from the newest `v*` tag whose tree contains `scripts/do_spec_release.py`, so the first one is `v4.0.0`; until it exists, the root is built from `main` as before. The test is the file, not the version number, because the repository also carries the schema-era tags `v7.0.5`, `v8.0.0` and `v8.1.0`, and the 3.x tags do not build with the current toolchain.
 
 The sidebar of every page links to `releases/hed-specification-latest.pdf` and to the `releases/` folder on GitHub.
 
