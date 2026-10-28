@@ -92,7 +92,7 @@ These changes alter what is valid or how validators must report it.
 
 ## Clarifications
 
-- New 3.3 Annotation semantics: reversibility, grouping, event structure, row assembly, and timeline versus descriptor tables.
+- New 3.3 Annotation semantics: reversibility, grouping, event structure, row assembly, and timeline versus descriptor tables. Tags describing properties of one object SHOULD be grouped; a descriptor table may use any tags, `Event` tags included, except `Onset`, `Offset`, `Inset` and `Delay`.
 - The rules for schema version changes are stated once, in 3.1.3 Version updates, which is normative; 1.6 Semantic versioning points to it.
 - Chapter 2 adds the terms namespace, namespace prefix, reserved tag, schema element and schema section, and rewrites `Event-context`.
 - Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
