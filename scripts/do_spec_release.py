@@ -207,7 +207,7 @@ def preflight(repo: Path, version: str, browser: str | None) -> str:
     extract_changelog_entry((repo / "CHANGELOG.md").read_text(encoding="utf-8"), version)
     ok(f"CHANGELOG.md has an entry under '{changelog_heading(version)}'")
 
-    tags = git_quiet(repo, "ls-remote", "--tags", remote, f"v{version}").stdout.strip()
+    tags = git(repo, "ls-remote", "--tags", remote, f"v{version}").strip()
     require(not tags, f"tag v{version} already exists on {remote}")
     ok(f"tag v{version} does not exist yet")
 
@@ -232,7 +232,7 @@ def prepare(repo: Path, version: str, browser: str | None) -> None:
 
     step(1, f"Build {RELEASES}/{pdf.name}")
     try:
-        size = build_pdf.build_pdf(pdf, browser=path)
+        size = build_pdf.build_pdf(pdf, browser=path, repo=repo)
     except (RuntimeError, subprocess.CalledProcessError) as e:
         raise ReleaseError(f"PDF build failed: {e}") from e
     ok(f"{pdf.name}: {size:,} bytes")
@@ -281,7 +281,7 @@ def notes(repo: Path, version: str, out: Path | None) -> None:
     found = pyproject_version(git_quiet(repo, "show", f"{ref}:pyproject.toml").stdout)
     require(found == version, f"{ref}: pyproject.toml says {found}; the tagged tree must say {version}")
     ok(f"{ref}: pyproject.toml says {version}")
-    tags = git_quiet(repo, "ls-remote", "--tags", remote, f"v{version}").stdout.strip()
+    tags = git(repo, "ls-remote", "--tags", remote, f"v{version}").strip()
     require(not tags, f"tag v{version} already exists on {remote}")
     ok(f"tag v{version} does not exist yet")
 

@@ -26,7 +26,6 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SOURCE_DIR = REPO_ROOT / "docs" / "source"
 BUILD_ROOT = REPO_ROOT / "docs" / "_build"
 MIN_BYTES = 100_000
 BROWSERS = [
@@ -59,13 +58,15 @@ def find_browser(explicit=None):
     return None
 
 
-def build_pdf(out, prerelease=False, browser=None, no_sandbox=False, skip_build=False):
-    """Build the singlehtml page and print it to ``out``; return the PDF size in bytes."""
+def build_pdf(out, prerelease=False, browser=None, no_sandbox=False, skip_build=False, repo=REPO_ROOT):
+    """Build the singlehtml page of the checkout ``repo`` and print it to ``out``; return the PDF size in bytes."""
     out = Path(out).resolve()  # Chrome resolves relative paths against its own working directory
-    html_dir = BUILD_ROOT / ("pdf-html-prerelease" if prerelease else "pdf-html")
+    repo = Path(repo).resolve()
+    source_dir = repo / "docs" / "source"
+    html_dir = repo / "docs" / "_build" / ("pdf-html-prerelease" if prerelease else "pdf-html")
     tags = ["-t", "pdf"] + (["-t", "prerelease"] if prerelease else [])
     if not skip_build:
-        cmd = [sys.executable, "-m", "sphinx", "-q", "-b", "singlehtml", *tags, str(SOURCE_DIR), str(html_dir)]
+        cmd = [sys.executable, "-m", "sphinx", "-q", "-b", "singlehtml", *tags, str(source_dir), str(html_dir)]
         print("$ " + " ".join(cmd), flush=True)
         subprocess.run(cmd, check=True)
     index = html_dir / "index.html"
