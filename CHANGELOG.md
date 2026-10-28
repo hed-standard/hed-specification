@@ -93,6 +93,7 @@ These changes alter what is valid or how validators must report it.
 ## Clarifications
 
 - New 3.3 Annotation semantics: reversibility, grouping, event structure, row assembly, and timeline versus descriptor tables.
+- The rules for schema version changes are stated once, in 3.1.3 Version updates, which is normative; 1.6 Semantic versioning points to it.
 - Chapter 2 adds the terms namespace, namespace prefix, reserved tag, schema element and schema section, and rewrites `Event-context`.
 - Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
 - Chapter 7 was rewritten: unpartnered libraries (7.2), partnered file formats and filenames (7.3.1, 7.3.2), merged versus unmerged files (7.3.3), and rules for designing libraries (7.4); the SCORE `1.0.0` and `1.1.0` examples are marked historical.

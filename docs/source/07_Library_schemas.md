@@ -1,6 +1,6 @@
 # 7. Library schemas
 
-A HED library schema contains the vocabulary terms needed for annotation in a specialized area. An example of such a library is the [HED SCORE schema](https://github.com/hed-standard/hed-schemas/blob/main/library_schemas/score/README.md) for annotation of EEG by clinical neurologists. All officially released HED schemas, whether standard or library, are hosted on the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository and can be viewed using the [hed-schema-browser](https://www.hedtags.org/hed-schema-browser). Library schemas were introduced in HED specification version `3.2.0`.
+A HED library schema contains the vocabulary terms needed for annotation in a specialized area. An example of such a library is the [HED SCORE schema](https://github.com/hed-standard/hed-schemas/blob/main/library_schemas/score/README.md) for annotation of EEG by clinical neurologists. All officially released HED schemas, whether standard or library, are hosted on the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository and can be viewed using the [hed-schema-browser](https://www.hedtags.org/hed-schema-browser). Library schemas have been part of the HED specification since version `3.0.0`; partnered library schemas were introduced in version `3.2.0`.
 
 ## 7.1. Why library schemas?
 
@@ -160,7 +160,7 @@ Unpartnered library schemas cannot use the `suggestedTag` or `relatedTag` attrib
 
 ### 7.3.6. Lazy partnering
 
-HED allows multiple partnered schemas from a merge group to be loaded into a namespace (unified vocabulary tree), provided that the schemas are compatible. We refer to this process as **lazy partnering**. Lazy partnering became available with standard schema `8.4.0`. The rules for lazy partnering were codified in HED specification `4.0.0`.
+HED allows multiple partnered schemas from a merge group to be loaded into a namespace (unified vocabulary tree), provided that the schemas are compatible. We refer to this process as **lazy partnering**. Lazy partnering became available with standard schema `8.3.0`. The rules for lazy partnering were codified in HED specification `4.0.0`.
 
 In the following example, all the library schemas are partnered with standard schema `8.4.0`. Library schemas `liba_1.0.0` and `libc_4.3.2` are merged in the default namespace, and library schemas `ac:libb_2.8.1` and `ac:exam_2.3.2` are merged in the `ac` namespace. The schema `sc:test_1.3.2` stays the same, and listing `8.4.0` adds nothing, since it is already the partner of `liba_1.0.0` and `libc_4.3.2`. If there are any conflicts during the merging process, an error is raised.
 

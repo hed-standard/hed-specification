@@ -151,7 +151,7 @@ header-rows: 1
   - Multiple representing 10 to power 24
 * - deci
   - d
-  - Submultiple representing 10 to power −1
+  - Submultiple representing 10 to power -1
 * - centi
   - c
   - Submultiple representing 10 to power -2
@@ -163,22 +163,22 @@ header-rows: 1
   - Submultiple representing 10 to power -6
 * - nano
   - n
-  - Submultiple representing 10 to power −9
+  - Submultiple representing 10 to power -9
 * - pico
   - p
-  - Submultiple representing 10 to power −12
+  - Submultiple representing 10 to power -12
 * - femto
   - f
-  - Submultiple representing 10 to power −15
+  - Submultiple representing 10 to power -15
 * - atto
   - a
-  - Submultiple representing 10 to power −18
+  - Submultiple representing 10 to power -18
 * - zepto
   - z
-  - Submultiple representing 10 to power −21
+  - Submultiple representing 10 to power -21
 * - yocto
   - y
-  - Submultiple representing 10 to power −24
+  - Submultiple representing 10 to power -24
 ```
 
 ### A.1.3. Value classes
@@ -433,7 +433,7 @@ The `SIUnit` attribute indicates that a unit is an International System of Units
 
 #### A.1.4.15. SIUnitModifier
 
-The `SIUnitModifier` attribute identifies a unit modifier that can be applied to SI base units (those with the `SIUnit` attribute but not the `unitSymbol` attribute). These modifiers represent powers of 10 for scaling units and include prefixes like `kilo` (10³), `mega` (10⁶), `milli` (10⁻³), and `micro` (10⁻⁶). For example, the modifier `kilo` with `SIUnitModifier` can be applied to `second` to create `kilosecond`. These modifiers can be pluralized following standard English rules, so both `kiloseconds` and `kilosecond` are valid. SI unit modifiers must only appear in the unit modifier section of the schema.
+The `SIUnitModifier` attribute identifies a unit modifier that can be applied to SI base units (those with the `SIUnit` attribute but not the `unitSymbol` attribute). These modifiers represent powers of 10 for scaling units and include prefixes like `kilo` (10^3), `mega` (10^6), `milli` (10^-3), and `micro` (10^-6). For example, the modifier `kilo` with `SIUnitModifier` can be applied to `second` to create `kilosecond`. These modifiers can be pluralized following standard English rules, so both `kiloseconds` and `kilosecond` are valid. SI unit modifiers must only appear in the unit modifier section of the schema.
 
 #### A.1.4.16. SIUnitSymbolModifier
 
@@ -532,7 +532,7 @@ header-rows: 1
 * - `tagDomain`
   - This schema attribute can apply to node (tag-term) elements.<br/>This was added so attributes could apply to multiple types of elements.<br/>This property was formerly named `nodeProperty`.
 * - `tagRange`
-  - This schema attribute's value can be a node.<br/>This property was formerly named `nodeProperty`.
+  - This schema attribute's value can be a node.
 * - `numericRange`
   - This schema attribute's value can be numeric.
 * - `stringRange`
@@ -1736,19 +1736,19 @@ The TSV schema format consists of multiple files, each representing a different 
 ````{admonition} TSV file organization for HED schema.
 ```text
 HED8.5.0/
-├── HED8.5.0_Structure.tsv
-├── HED8.5.0_Tag.tsv
-├── HED8.5.0_UnitClass.tsv
-├── HED8.5.0_Unit.tsv
-├── HED8.5.0_UnitModifier.tsv
-├── HED8.5.0_ValueClass.tsv
-├── HED8.5.0_DataProperty.tsv
-├── HED8.5.0_ObjectProperty.tsv
-├── HED8.5.0_AnnotationProperty.tsv
-├── HED8.5.0_AnnotationPropertyExternal.tsv
-├── HED8.5.0_AttributeProperty.tsv
-├── HED8.5.0_Prefixes.tsv
-└── HED8.5.0_Sources.tsv
+|-- HED8.5.0_Structure.tsv
+|-- HED8.5.0_Tag.tsv
+|-- HED8.5.0_UnitClass.tsv
+|-- HED8.5.0_Unit.tsv
+|-- HED8.5.0_UnitModifier.tsv
+|-- HED8.5.0_ValueClass.tsv
+|-- HED8.5.0_DataProperty.tsv
+|-- HED8.5.0_ObjectProperty.tsv
+|-- HED8.5.0_AnnotationProperty.tsv
+|-- HED8.5.0_AnnotationPropertyExternal.tsv
+|-- HED8.5.0_AttributeProperty.tsv
+|-- HED8.5.0_Prefixes.tsv
+`-- HED8.5.0_Sources.tsv
 ```
 ````
 

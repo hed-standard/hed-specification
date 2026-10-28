@@ -50,7 +50,7 @@ Notice that the long form version also includes a `Description` tag that gives a
 
 ## 4.3. Task role
 
-In deciding what additional information should be included, the annotator should consider how to convey the nature and intent of the experiment and the EEG responses that are likely to be elicited. The brief description suggests that green triangles are something “looked for”, within the structure of the task that participants are asked to perform during the experiment. The following annotation of the green triangle presentation includes information about the role this stimulus appears in the task.
+In deciding what additional information should be included, the annotator should consider how to convey the nature and intent of the experiment and the EEG responses that are likely to be elicited. The brief description suggests that green triangles are something "looked for", within the structure of the task that participants are asked to perform during the experiment. The following annotation of the green triangle presentation includes information about the role this stimulus appears in the task.
 
 ```{admonition} **Example:** Version 2 of a visual stimulus annotation.
 
@@ -117,7 +117,7 @@ The `Participant-response` tag indicates that this event represents a task-relat
 
 The `Participant-response` tag is modified by tags that indicate that the participant is reacting by responding as though the stimulus were an oddball target. Specifically the `Behavioral-evidence` tag documents that the subject gave a response indicating an oddball target. In other words, the participant pressed the left mouse button indicating an oddball target, which may or may not match the stimulus that was presented.
 
-Other details should be annotated, including whether the subject’s left, right, or dominant hand was used to press the mouse button and whether the left mouse button or right mouse button was pressed. (This factor was indicated in the description, but not in the machine-actionable tags.)
+Other details should be annotated, including whether the subject's left, right, or dominant hand was used to press the mouse button and whether the left mouse button or right mouse button was pressed. (This factor was indicated in the description, but not in the machine-actionable tags.)
 
 ## 4.5. Experimental control
 
@@ -179,7 +179,7 @@ The following example illustrates how annotation from a human expert can be anno
 
 ## 4.7. What else?
 
-Most event annotation focuses on basic identification and description of stimuli and the participant’s direct response to that stimuli. However, for accurate comparisons across studies, much more information is required and should be documented with HED tags rather than just with text descriptions. This is particularly true if this information is relevant to the experimental intent, varied during the experiment, or likely to evoke a neural response.
+Most event annotation focuses on basic identification and description of stimuli and the participant's direct response to that stimuli. However, for accurate comparisons across studies, much more information is required and should be documented with HED tags rather than just with text descriptions. This is particularly true if this information is relevant to the experimental intent, varied during the experiment, or likely to evoke a neural response.
 
 The example of [Chapter 4.1:Instantaneous events](#41-instantaneous-events), models the sensory presentation of the stimulus images happening at a single point in time. More realistically, the green triangle might be displayed for an extended period (during which other events might occur). Further, the disappearance of the triangle is likely to elicit a neural response. Exactly how this information should be represented is discussed in [Chapter 5.3: Temporal scope](05_Advanced_annotation.md#53-temporal-scope).
 

@@ -151,7 +151,7 @@ The mapping of the spreadsheet row and column values to a class in the HED ontol
 | **rdfs:label**         |       *yyy*       | `rdfs:label yyy` in the `Annotations` section                                                                                      |
 | **Level**              |        *n*        | Redundant information -- can be recovered using class hierarchy.                                                                   |
 | **omn:SubClassOf**     |       *zzz*       | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
-| **Attributes**         | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See \[8.2.3. Schema attributes\*\*                     |
+| **Attributes**         | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [8.2.3. Schema attributes](#823-schema-attributes) |
 | **dc:description**     |       *www*       | `dc:description www` in the `Annotations` section.                                                                                 |
 | **omn:EquivalentTo**   |                   | A combination of the information in **omn:SubClassOf** and **Attributes**.                                                         |
 

@@ -87,7 +87,7 @@ See [7.3.6. Lazy partnering](./07_Library_schemas.md#736-lazy-partnering) for a 
 
 ### 3.1.3. Version updates
 
-HED schemas are versioned using the semantic versioning system and use these rules for changing the *major.minor.patch* semantic version. These rules are based on the assumption that annotators using the [HED tag](https://hed-specification.readthedocs.io/en/latest/02_Terminology.html#hed-tag) short form will not have to retag their data for patch-level or minor-version changes of the schema. That is, a dataset tagged using schema version *X.Y.Z* will also validate for *X.Y+.Z+*. In addition, validation errors might occur for patch-level or minor-version changes for changes or corrections in tag values or units.
+HED schemas are versioned using the semantic versioning system and use these rules for changing the *major.minor.patch* semantic version. These rules are based on the assumption that annotators using the [HED tag](https://www.hedtags.org/hed-specification/02_Terminology.html#hed-tag) short form will not have to retag their data for patch-level or minor-version changes of the schema. That is, a dataset tagged using schema version *X.Y.Z* will also validate for *X.Y+.Z+*. In addition, validation errors might occur for patch-level or minor-version changes for changes or corrections in tag values or units.
 
 Here is a summary of the types of changes that correspond to different levels of changes in the semantic version:
 
@@ -111,6 +111,7 @@ Here is a summary of the types of changes that correspond to different levels of
 | Standard schema partner version changed.        | Minor          |
 | Revision of description field in schema.        | Patch          |
 | Correction of suggestedTag or relatedTag.       | Patch          |
+| Correction of wiki syntax such as closing tags. | Patch          |
 
 **Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, a `deprecated` attribute will be added to the tag in the schema. Suggested replacement tags should be included in the node description. A suggested replacement should be added to the tag patch table.
 
@@ -131,7 +132,7 @@ Regardless of the format, the sections of a valid HED schema must appear in the 
 | Schema end  | `!# end schema` | `</schema>` |
 | Unit classes | `'''Unit classes'''` | `<unitClassDefinitions>` ... `</unitClassDefinitions>` |
 | Unit modifiers | `'''Unit modifiers'''`  | `<unitModifierDefinitions>` ... `</unitModifierDefinitions>`  |
-| Value classes | `'''Value classes'''`  | `<valueClassDefinitions>` ... `<valueClassDefinitions>` |
+| Value classes | `'''Value classes'''`  | `<valueClassDefinitions>` ... `</valueClassDefinitions>` |
 | Schema attributes | `'''Schema attributes'''`  | `<schemaAttributeDefinitions>` ... `</schemaAttributeDefinitions>`    |
 | Properties | `'''Properties'''`  | `<propertyDefinitions>` ... `</propertyDefinitions>`  |
 | Epilogue  | `'''Epilogue'''` | `<epilogue>` ... `</epilogue>` |
@@ -151,7 +152,7 @@ If any of the required sections of the schema are missing or out of order, a [SC
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
-See [Appendix A.s](./Appendix_A.md) for additional details on format.
+See [Appendix A](./Appendix_A.md) for additional details on format.
 
 #### 3.1.4.1. The header
 
@@ -181,7 +182,7 @@ Each schema node element must be unique or a [SCHEMA_DUPLICATE_NODE](./Appendix_
 
 #### 3.1.4.4. Unit classes and units
 
-A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is a [SCHEMA_ATTRIBUTE_VALUE_INVALID](./Appendix_B.md#schema_attribute_value_invalid) error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; in standard schemas with versions >= `8.5.0` and library schemas partnered with them, a unit class on a placeholder with any other value class, or with none, is likewise a SCHEMA_ATTRIBUTE_VALUE_INVALID error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class). A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor (HED `8.5.0` introduces `anyUnits` and the tag `Quantity` that uses it). A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, nothing requires a unit on it. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error, and `anyUnits` with units or `defaultUnits` is a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
+A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is a [SCHEMA_ATTRIBUTE_VALUE_INVALID](./Appendix_B.md#schema_attribute_value_invalid) error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; in standard schemas with versions >= `8.5.0` and library schemas partnered with them, a unit class on a placeholder with any other value class, or with none, is likewise a SCHEMA_ATTRIBUTE_VALUE_INVALID error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class). A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor (HED `8.5.0` introduces `anyUnits` and the tag `Quantity` that uses it). A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error, and `anyUnits` with units or `defaultUnits` is a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
 Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed (e.g., `feet` in addition to `foot`, `inches` in addition to `inch`; `hertz` is its own plural). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
@@ -217,7 +218,7 @@ component := [modifier] base ["^" digits]
 
 Here `base` is a component of the listed unit and `modifier` is an `SIUnitSymbolModifier`. Thus `cm-per-us`, `mm-per-s^2`, and `mm^3` are valid forms of `m-per-s`, `m-per-s^2`, and `m^3`, while `kmm-per-s` (two modifiers on one component), `m-per-sec` (not a symbol), and `m-per-S` (wrong case) are not. An exponent applies to the prefixed component, so `mm^3` is a cubic millimeter. The conversion factor of a compound form is the listed `conversionFactor` multiplied, for each component, by the modifier's `conversionFactor` raised to that component's exponent, negative for components after `-per-`: `cm-per-us` = 1.0 x 0.01 x (1e-6)^-1 = 10000 `m-per-s`, and `mm^3` = (0.001)^3 = 1e-9 `m^3`. A compound form that breaks these rules is a [UNITS_INVALID](./Appendix_B.md#units_invalid) error. Before specification version `4.0.0`, tools applied the modifier to the whole compound unit string.
 
-If a `SIUnitModifier`, or `SIUNitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
+If a `SIUnitModifier`, or `SIUnitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
 **Unit modifiers are case-sensitive.**
 
@@ -229,7 +230,7 @@ The value class definition section specifies rules for the values that are subst
 
 See appendix [A.1.3. Value classes](./Appendix_A.md#a13-value-classes) for additional details and a listing of values for the standard schema.
 
-Value class names are insensitive, but must contain only valid `name` characters.
+Value class names are case-insensitive, but must contain only valid `name` characters.
 
 #### 3.1.4.7. Schema attributes
 
@@ -292,7 +293,7 @@ Other conventions and requirements for the contents of schema node elements are 
 class: tip
 ---
 1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case.
-2. Schema node names consisting of multiple words should not not contain blanks and should be hyphenated.
+2. Schema node names consisting of multiple words should not contain blanks and should be hyphenated.
 3. Schema descriptions should be concise sentences, possibly with clarifying examples.
 4. Schema descriptions may include only `text` characters but should not contain `newline` or
 square brackets or braces.
@@ -316,7 +317,7 @@ Case is preserved for unit modifiers, as uppercase and lowercase versions often 
 
 The format is line-oriented, so each schema entry should be on a single line.
 
-The schema must follow the layout described in the previous section. All sections are required, although they may be empty.
+The schema must follow the layout described in the previous section. All sections are required, although they may be empty, except the Sources, Prefixes, and External annotations sections, whose status is given in [3.1.4. Schema layout overview](#314-schema-layout-overview).
 
 Top nodes in the schema are enclosed by pairs of three single quotes (`'''`). The levels of other nodes are designated by the number of asterisks (`*`) at the beginning of the respective defining lines. Each term is separated from its level-indicating asterisks by a single space.
 
@@ -594,7 +595,7 @@ Tag extensions should follow the same naming conventions as those for schema nod
 
 Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
-See [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) for information on the specific validation errors associated with missing schemas.
+See [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) for information on the specific validation errors associated with invalid tag extensions.
 
 **Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason the [TAG_EXTENDED](./Appendix_B.md#tag_extended) warning is issued for extended tags during validation.
 
@@ -947,7 +948,7 @@ A value in a column with categorical or value HED annotations (in BIDS, a column
 
 The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (rule 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
 
-Definitions many not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
+Definitions may not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
 
 See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for information.
 
@@ -977,7 +978,7 @@ In all cases `n/a` column values are skipped.
 
 To illustrate the assembly process, consider the following excerpt from an event file:
 
-```{Admonition} General procedure for event-level (row) assembly.
+```{Admonition} Example: excerpt from an event file.
 
 | onset | duration | event_type | stim_file | key | symmetry | HED |
 | ----- | -------- | ---------- | --------- | --- | -------- | --- |
@@ -1043,7 +1044,7 @@ Tags within a group are semantically bound and work together to describe one thi
 
 The following rules govern how tags should be grouped:
 
-1. **Object properties** - Tags describing properties of an object MUST be grouped together.
+1. **Object properties** - Tags describing properties of an object SHOULD be grouped together.
 
    - Example: `(Red, Circle)` indicates a single red circular object.
 
@@ -1115,6 +1116,6 @@ A table with an `onset` (or equivalent) column is a **timeline table**: each row
 A table without an `onset` or equivalent column is a **descriptor table**: each row describes the properties of an entity, such as a participant, session, or sample. An example of a descriptor table in BIDS is the table contained in the `participants.tsv` file.
 
 - In a timeline table, each assembled annotation SHOULD include at least one `Event` tag. The temporal tags `Onset`, `Offset`, `Inset`, `Duration`, and `Delay` MAY be used.
-- In a descriptor table, annotations describe characteristics of the entity and MUST NOT include `Event` tags. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (rule 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
+- In a descriptor table, annotations describe characteristics of the entity. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (rule 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor tables.
