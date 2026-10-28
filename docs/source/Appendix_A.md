@@ -555,7 +555,7 @@ header-rows: 1
 
 Property names ending in `Range` designate the type of value a schema attribute has. Starting with HED standard schema version `8.3.0` the `boolProperty`, which indicates that a schema attribute value can be true or false, was renamed `boolRange`. In addition, `numericRange` and `stringRange` were added, since the `conversionFactor` schema attribute has a numeric value.
 
-Property names ending in `Domain` indicate the type of schema element that a schema attribute applies to. Starting with HED standard schema version `8.3.0` the property names `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify their role and to facilitate mapping to the HED ontology.
+Property names ending in `Domain` indicate the type of schema element that a schema attribute applies to. Starting with HED standard schema version `8.3.0` the property names `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify their role and to facilitate mapping to the HED ontology.
 
 ```{admonition} Format for schema attributes with schema property values.
 ---
