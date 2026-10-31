@@ -7,6 +7,7 @@ Specification 4.0.0 is a major revision written against HED standard schema `8.5
 These changes alter what is valid or how validators must report it.
 
 - **Reserved tags (3.2.8).** The group rules of the reserved tags are one generated table, read from `docs/source/_static/reserved_tags.json`, and apply in every standard schema >= `8.0.0`, including `8.0.0` and `8.1.0`, which have no `reserved` attribute. A reserved tag MUST NOT be extended (`Onset/Blah`, TAG_EXTENSION_INVALID c); `Onset/#` may be reported as TAG_EXTENSION_INVALID or PLACEHOLDER_INVALID. `Delay` and `Duration` require a value (TAG_REQUIRES_CHILD b).
+- **Versions of the machine-readable files (A.6.1).** `reserved_tags.json` carries `specificationVersion` and `fileVersion`, and `character_sets.json` `specification_version` and `file_version`, each file in the case of its own keys. A validator MUST NOT apply a file whose file version major number it does not support.
 - **`Delay` (3.2.8, 5.3.4).** `Delay` may share a top-level group with `Onset`, `Offset`, `Inset` or `Duration`; on its own it needs exactly one inner group. It may appear only in timeline tables (TEMPORAL_TAG_ERROR k, l, m).
 - **Units of `Delay` and `Duration` (3.2.8.4).** The default unit is `s`. In a timeline table the unit must have a `conversionFactor`, so `month` and `year` are errors there (TEMPORAL_TAG_ERROR n); a descriptor table may use any unit with `Duration`. Under `8.0.0`, whose time units have no conversion factors, a value with no unit or in `s`, `second` or `seconds` is taken as is.
 - **Definitions (3.2.8.1).** A definition without a placeholder MAY have no inner group again (3.1.0 required one). Only `#` may follow the definition name (DEFINITION_INVALID l). The contents may contain no structural reserved tag at any level (d) and no `required` or `unique` tag (j). A name defined twice with identical contents is accepted; only differing contents are DEFINITION_INVALID (i). Definitions MUST NOT appear in the annotations of a tabular file.
@@ -63,7 +64,7 @@ These changes alter what is valid or how validators must report it.
 
 ### Character sets
 
-- The 2.2 table is generated from `docs/source/_static/character_sets.json`, which gives each set as a regular expression usable from Python and JavaScript, the per-version defaults of the standard value classes, and the characters that structure a HED string; validators load the file instead of transcribing the table.
+- The 2.2 table is generated from `docs/source/_static/character_sets.json`, which gives each set as a regular expression usable from Python and JavaScript, the per-version defaults of the standard value classes, and the characters that structure a HED string; validators load the file instead of transcribing the table. Appendix A.7 defines the file and its fields.
 - New sets `value-text` and `numeric`; `forward-slash` added with the alias `slash`; `name` no longer lists `period`; `nonascii` is code 160 and above.
 
 ### Tabular files and sidecars
