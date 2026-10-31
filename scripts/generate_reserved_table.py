@@ -7,8 +7,10 @@ validators load cannot disagree. The script also checks the file itself: every r
 with the right type, each row's name matches its key, the subgroup limits are consistent, every
 ``otherAllowedNonDefTags`` name is another row, every ``ERROR_CODE`` is a heading of
 ``Appendix_B.md``, every row field is documented in the Appendix A.6 field table and nothing else
-is, every ``secondaryWith`` name is an allowed companion that is not secondary in turn, and
-every ``valueForms`` entry names a known form.
+is, every ``secondaryWith`` name is an allowed companion that is not secondary in turn,
+every ``valueForms`` entry names a known form, the top-level keys are exactly those that the
+A.6.1 layout lists, ``fileVersion`` has the form X.Y.Z, and ``specificationVersion`` equals the
+version in ``pyproject.toml``.
 
 Usage (from the repository root, standard library only):
 
@@ -29,7 +31,10 @@ JSON_PATH = REPO_ROOT / "docs" / "source" / "_static" / "reserved_tags.json"
 MARKDOWN_PATH = REPO_ROOT / "docs" / "source" / "03_HED_formats.md"
 APPENDIX_A_PATH = REPO_ROOT / "docs" / "source" / "Appendix_A.md"
 APPENDIX_B_PATH = REPO_ROOT / "docs" / "source" / "Appendix_B.md"
+PYPROJECT_PATH = REPO_ROOT / "pyproject.toml"
 APPENDIX_A_SECTION = "## A.6. Reserved tags file"
+APPENDIX_A_LAYOUT = "### A.6.1. File layout"
+TOP_KEYS = ("title", "description", "specificationVersion", "fileVersion", "tags", "valueForms")
 BEGIN = "<!-- reserved-tags:begin -->"
 END = "<!-- reserved-tags:end -->"
 
@@ -76,9 +81,30 @@ def load_data():
         return json.load(fp)
 
 
+def check_versions(data):
+    """The top-level keys are TOP_KEYS; fileVersion is X.Y.Z; specificationVersion is pyproject's."""
+    problems = []
+    missing = [k for k in TOP_KEYS if k not in data]
+    extra = [k for k in data if k not in TOP_KEYS]
+    if missing:
+        problems.append(f"top level: missing {missing}")
+    if extra:
+        problems.append(f"top level: unknown keys {extra}")
+    file_version = data.get("fileVersion")
+    if not isinstance(file_version, str) or not re.fullmatch(r"\d+\.\d+\.\d+", file_version):
+        problems.append(f"fileVersion: {file_version!r} is not of the form X.Y.Z")
+    match = re.search(r'^version\s*=\s*"([^"]+)"', PYPROJECT_PATH.read_text(encoding="utf-8"), re.M)
+    expected = match.group(1) if match else None
+    if data.get("specificationVersion") != expected:
+        problems.append(
+            f"specificationVersion: {data.get('specificationVersion')!r} differs from pyproject.toml {expected!r}"
+        )
+    return problems
+
+
 def check_file(data):
     """Return a list of problems with the JSON file (empty when sound)."""
-    problems = []
+    problems = check_versions(data)
     codes = set(re.findall(r"^#+ ([A-Z_]+)\\?\*?\s*$", APPENDIX_B_PATH.read_text(encoding="utf-8"), re.M))
     tags = data.get("tags", {})
     for key, row in tags.items():
@@ -141,6 +167,18 @@ def check_documented():
     fields = set(REQUIRED_KEYS) | set(OPTIONAL_KEYS)
     problems = [f"Appendix_A.md A.6: field {f!r} is not documented" for f in sorted(fields - documented)]
     problems += [f"Appendix_A.md A.6: documents {f!r}, which the file does not have" for f in sorted(documented - fields)]
+    if APPENDIX_A_LAYOUT not in section:
+        return problems + [f"Appendix_A.md: subsection {APPENDIX_A_LAYOUT!r} not found"]
+    layout = section[section.index(APPENDIX_A_LAYOUT) + len(APPENDIX_A_LAYOUT) :]
+    following = re.search(r"^### ", layout, re.M)
+    if following:
+        layout = layout[: following.start()]
+    # Only the first bullet list of the subsection is the key list; later lists define fields.
+    first_list = re.search(r"(?:^- .*\n)+", layout, re.M)
+    heads = re.findall(r"^- (.*?):", first_list.group(0), re.M) if first_list else []
+    listed = {name for head in heads for name in re.findall(r"`([A-Za-z_]+)`", head)}
+    problems += [f"Appendix_A.md A.6.1: key {k!r} is not listed" for k in TOP_KEYS if k not in listed]
+    problems += [f"Appendix_A.md A.6.1: lists {k!r}, which the file does not have" for k in sorted(listed - set(TOP_KEYS))]
     return problems
 
 

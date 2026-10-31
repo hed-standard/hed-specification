@@ -7,6 +7,10 @@ validators load cannot disagree. The script also checks the file itself: every r
 Python and, when ``node`` is on the path, in JavaScript; every name that ``value_class_defaults`` and
 ``hed_string`` use resolves to a set, an alias or a single character; and each set's ``excludes`` and
 ``tests`` behave as stated in both languages, as do the whole-value ``tests`` of ``value_class_words``.
+It also checks that the top-level keys are exactly those that the Appendix A.7.1 layout lists, that
+every field of the nested objects is a row of an Appendix A.7 field table and nothing else is, that
+``file_version`` has the form X.Y.Z, and that ``specification_version`` equals the version in
+``pyproject.toml``.
 
 Usage (from the repository root, standard library only):
 
@@ -27,6 +31,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 JSON_PATH = REPO_ROOT / "docs" / "source" / "_static" / "character_sets.json"
 MARKDOWN_PATH = REPO_ROOT / "docs" / "source" / "02_Terminology.md"
+APPENDIX_A_PATH = REPO_ROOT / "docs" / "source" / "Appendix_A.md"
+PYPROJECT_PATH = REPO_ROOT / "pyproject.toml"
+APPENDIX_A_SECTION = "## A.7. Character sets file"
+APPENDIX_A_LAYOUT = "### A.7.1. File layout"
+TOP_KEYS = (
+    "title",
+    "description",
+    "specification_version",
+    "file_version",
+    "sets",
+    "aliases",
+    "literal_names",
+    "declaration_wins_from",
+    "value_class_defaults",
+    "value_class_words",
+    "hed_string",
+)
 BEGIN = "<!-- character-sets:begin -->"
 END = "<!-- character-sets:end -->"
 
@@ -57,6 +78,71 @@ def load_data():
         return json.load(fp)
 
 
+def check_versions(data):
+    """The top-level keys are TOP_KEYS; file_version is X.Y.Z; specification_version is pyproject's."""
+    problems = []
+    missing = [k for k in TOP_KEYS if k not in data]
+    extra = [k for k in data if k not in TOP_KEYS]
+    if missing:
+        problems.append(f"top level: missing {missing}")
+    if extra:
+        problems.append(f"top level: unknown keys {extra}")
+    file_version = data.get("file_version")
+    if not isinstance(file_version, str) or not re.fullmatch(r"\d+\.\d+\.\d+", file_version):
+        problems.append(f"file_version: {file_version!r} is not of the form X.Y.Z")
+    match = re.search(r'^version\s*=\s*"([^"]+)"', PYPROJECT_PATH.read_text(encoding="utf-8"), re.M)
+    expected = match.group(1) if match else None
+    if data.get("specification_version") != expected:
+        problems.append(
+            f"specification_version: {data.get('specification_version')!r} differs from pyproject.toml {expected!r}"
+        )
+    return problems
+
+
+def nested_fields(data):
+    """The field names of the nested objects that the Appendix A.7 field tables document."""
+    fields = set()
+    for entry in data.get("sets", {}).values():
+        fields |= set(entry)
+    fields |= set(data.get("literal_names", {})) | set(data.get("declaration_wins_from", {}))
+    for entries in data.get("value_class_defaults", {}).values():
+        for entry in entries:
+            fields |= set(entry)
+    for entry in data.get("value_class_words", {}).values():
+        fields |= set(entry)
+    for key, obj in data.get("hed_string", {}).items():
+        fields |= {key} | set(obj)
+    return fields
+
+
+def check_documented(data):
+    """A.7.1 lists exactly the top-level keys, and the A.7 field tables exactly the nested fields."""
+    text = APPENDIX_A_PATH.read_text(encoding="utf-8")
+    if APPENDIX_A_SECTION not in text:
+        return [f"Appendix_A.md: section {APPENDIX_A_SECTION!r} not found"]
+    section = text[text.index(APPENDIX_A_SECTION) :]
+    following = re.search(r"^## ", section[len(APPENDIX_A_SECTION) :], re.M)
+    if following:
+        section = section[: len(APPENDIX_A_SECTION) + following.start()]
+    documented = set(re.findall(r"^\| `([A-Za-z_]+)` +\|", section, re.M))
+    fields = nested_fields(data)
+    problems = [f"Appendix_A.md A.7: field {f!r} is not documented" for f in sorted(fields - documented)]
+    problems += [f"Appendix_A.md A.7: documents {f!r}, which the file does not have" for f in sorted(documented - fields)]
+    if APPENDIX_A_LAYOUT not in section:
+        return problems + [f"Appendix_A.md: subsection {APPENDIX_A_LAYOUT!r} not found"]
+    layout = section[section.index(APPENDIX_A_LAYOUT) + len(APPENDIX_A_LAYOUT) :]
+    following = re.search(r"^### ", layout, re.M)
+    if following:
+        layout = layout[: following.start()]
+    # Only the first bullet list of the subsection is the key list; later lists define fields.
+    first_list = re.search(r"(?:^- .*\n)+", layout, re.M)
+    heads = re.findall(r"^- (.*?):", first_list.group(0), re.M) if first_list else []
+    listed = {name for head in heads for name in re.findall(r"`([A-Za-z_]+)`", head)}
+    problems += [f"Appendix_A.md A.7.1: key {k!r} is not listed" for k in TOP_KEYS if k not in listed]
+    problems += [f"Appendix_A.md A.7.1: lists {k!r}, which the file does not have" for k in sorted(listed - set(TOP_KEYS))]
+    return problems
+
+
 def resolve_name(data, name):
     """Return the regex for an allowedCharacter name, or None when the name is unknown."""
     if name in data["sets"]:
@@ -70,7 +156,7 @@ def resolve_name(data, name):
 
 def check_file(data):
     """Return a list of problems with the JSON file (empty when it is sound)."""
-    problems = []
+    problems = check_versions(data) + check_documented(data)
     for name, entry in data["sets"].items():
         try:
             rx = re.compile(f"^(?:{entry['regex']})$")

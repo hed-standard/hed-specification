@@ -1971,11 +1971,19 @@ The validation rules of the structural reserved tags are published as the JSON f
 
 ### A.6.1. File layout
 
-The file is a JSON object with four keys:
+The file is a JSON object with six keys:
 
 - `title` and `description`: text for human readers.
+- `specificationVersion` and `fileVersion`: the version of this specification that the file belongs to and the version of the file's layout, defined below.
 - `tags`: an object with one entry per structural reserved tag that defines a top-level tag group (`Definition`, `Delay`, `Duration`, `Event-context`, `Inset`, `Offset`, `Onset`). Each entry is keyed by the tag name and holds the fields of [A.6.2](#a62-tag-fields). `Def` and `Def-expand` have no entry: they are the anchor that these groups refer to.
 - `valueForms`: an object with one entry for each tag whose value has two parts, described in [A.6.3](#a63-value-forms).
+
+The two version fields have the same meaning in this file and in the character sets file of [A.7](#a7-character-sets-file). Each file spells them in the case of its own keys: camel case here, snake case (`specification_version`, `file_version`) in the character sets file.
+
+- The specification version (`specificationVersion` here, `specification_version` in the character sets file) is a string `X.Y.Z`, the version of this specification that the file belongs to. It equals the specification version and changes with every specification release, even when nothing else in the file changes.
+- The file version (`fileVersion` here, `file_version` in the character sets file) is a string `X.Y.Z`, the version of the file's layout, independent of the specification version. The major number changes when a validator must be updated to apply the file: a key is removed or renamed, the meaning of a key changes, or a key is added that carries a validation rule. The minor number changes when a key is added that carries no validation rule, such as descriptive text or tests. The patch number changes when only values change, other than the specification version.
+
+A validator MUST NOT apply a file whose file version major number it does not support, and it accepts any minor and patch number under a major number it supports. Both fields are introduced in specification `4.0.0`, in which the file version of each file is `1.0.0`.
 
 ### A.6.2. Tag fields
 
@@ -2005,3 +2013,80 @@ Each entry of `valueForms` is keyed by a tag name (`Definition`, `Def`, `Def-exp
 - `placeholderValue`: the value substituted for the definition's placeholder, checked against the placeholder tag's value class and units (used by `Def` and `Def-expand`).
 
 The second table of 3.2.8 is generated from these entries. See [3.2.8.1](./03_HED_formats.md#3281-the-definition-tag) and [3.2.8.2](./03_HED_formats.md#3282-def-and-def-expand-tags) for the rules.
+
+## A.7. Character sets file
+
+The character sets of [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) are published as the JSON file [`character_sets.json`](https://www.hedtags.org/hed-specification/_static/character_sets.json) (`docs/source/_static/character_sets.json` in the specification repository). HED validators load this file unchanged rather than transcribing its sets. The table of 2.2 is generated from it. The file is introduced in specification `4.0.0`. Every regular expression in the file uses only syntax that Python `re` and JavaScript `RegExp` share, with ASCII digit classes (`[0-9]`, never a Unicode-aware shorthand).
+
+### A.7.1. File layout
+
+The file is a JSON object with eleven keys:
+
+- `title` and `description`: text for human readers.
+- `specification_version` and `file_version`: the version of this specification that the file belongs to and the version of the file's layout, as defined in [A.6.1](#a61-file-layout).
+- `sets`: an object with one entry per named character set, keyed by the set name, holding the fields of [A.7.2](#a72-set-entries). These are the rows of the table in 2.2.
+- `aliases`: an object whose keys are alternative names and whose values are keys of `sets` (`slash` for `forward-slash`). An alias is not itself a key of `sets`.
+- `literal_names`: how a single character names itself as an `allowedCharacter` name; fields in [A.7.3](#a73-names-and-value-class-defaults).
+- `declaration_wins_from`: the standard schema version from which a value class's own `allowedCharacter` declaration defines its characters; fields in [A.7.3](#a73-names-and-value-class-defaults).
+- `value_class_defaults`: the characters of the standard value classes in the standard schemas before that version, described in [A.7.3](#a73-names-and-value-class-defaults).
+- `value_class_words`: whole-value regular expressions of value classes, described in [A.7.4](#a74-value-class-words).
+- `hed_string`: the characters that no HED string may contain, the characters that structure a HED string, and the characters of a tag, described in [A.7.5](#a75-hed-string-characters).
+
+### A.7.2. Set entries
+
+Each entry of `sets` has the fields below.
+
+| Field         | Type                           | Meaning                                                                                                                                                                                                                  |
+| ------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `regex`       | string                         | A regular expression that matches exactly one character of the set (one UTF-16 code unit in JavaScript). A validator anchors it at both ends, `^(?:regex)$`, when it tests a single character.                           |
+| `description` | string                         | The description shown in the table of 2.2.                                                                                                                                                                               |
+| `excludes`    | array of one-character strings | Optional. Characters that a set this one is built from includes and this one leaves out; `regex` matches none of them.                                                                                                   |
+| `tests`       | object                         | Optional. Its `valid` array lists characters that `regex` MUST match and its `invalid` array characters that `regex` MUST NOT match; both are checked in Python and JavaScript by `scripts/generate_character_table.py`. |
+
+### A.7.3. Names and value class defaults
+
+A name in an `allowedCharacter` declaration resolves to a key of `sets`, an alias in `aliases`, or a single character, which names itself (see [A.1.4.1. allowedCharacter](#a141-allowedcharacter)). The objects that state these rules have the fields below.
+
+| Field              | Object                          | Type           | Meaning                                                                                                                                                                          |
+| ------------------ | ------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rule`             | `literal_names`                 | string         | The rule that any single character is an `allowedCharacter` name for itself.                                                                                                     |
+| `regex_for`        | `literal_names`                 | string         | The regular expression of such a name: the character, regex-escaped.                                                                                                             |
+| `standard_version` | `declaration_wins_from`         | string `X.Y.Z` | The first standard schema version (`8.5.0`) from which, and in library schemas partnered with it or later, the names a value class declares define the characters of its values. |
+| `rule`             | `declaration_wins_from`         | string         | The text of that rule and of the reason earlier standard schemas use `value_class_defaults`.                                                                                     |
+| `from`             | entry of `value_class_defaults` | string `X.Y.Z` | The first standard schema version to which the entry applies.                                                                                                                    |
+| `sets`             | entry of `value_class_defaults` | array of names | The names, each resolved as above, whose union is the characters of the value class.                                                                                             |
+
+`value_class_defaults` is keyed by standard value class (`dateTimeClass`, `nameClass`, `numericClass`, `posixPath`, `textClass`). Each value is an array of entries in increasing order of `from`. For a standard schema version before `declaration_wins_from.standard_version`, a validator applies the last entry whose `from` is less than or equal to that version. These entries are the table of [A.1.3. Value classes](#a13-value-classes).
+
+### A.7.4. Value class words
+
+`value_class_words` is keyed by value class (`dateTimeClass`, `numericClass`). Its entries check a whole value, after the value's characters have been checked against its value class.
+
+| Field         | Type   | Meaning                                                                                                                                     |
+| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `regex`       | string | A regular expression, anchored with `^` and `$`, that a whole value of the class MUST match.                                                |
+| `description` | string | The format in words, including any check that follows the expression (for `dateTimeClass`, that the date exists in the Gregorian calendar). |
+| `tests`       | object | Optional. Its `valid` array lists values that `regex` MUST match and its `invalid` array values that `regex` MUST NOT match.                |
+
+### A.7.5. HED string characters
+
+`hed_string` has three keys, `forbidden`, `structural`, and `tag_chars`, each an object. Their fields are below.
+
+| Field                 | Object            | Type                                 | Meaning                                                                                                                                      |
+| --------------------- | ----------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `forbidden`           | `hed_string`      | object                               | The characters that no HED string may contain anywhere, whatever the value class ([CHARACTER_INVALID](./Appendix_B.md#character_invalid) a). |
+| `characters`          | `forbidden`       | array of one-character strings       | The forbidden characters outside `code_ranges`.                                                                                              |
+| `code_ranges`         | `forbidden`       | array of `[low, high]` integer pairs | Inclusive ranges of forbidden code points.                                                                                                   |
+| `regex`               | `forbidden`       | string                               | A regular expression that matches any single forbidden character: the union of `characters` and `code_ranges`.                               |
+| `description`         | each of the three | string                               | Text for human readers.                                                                                                                      |
+| `structural`          | `hed_string`      | object                               | The characters that give a HED string its structure; a value may contain one only where its value class allows it.                           |
+| `comma`               | `structural`      | one-character string                 | Separates tags and tag groups.                                                                                                               |
+| `group_open`          | `structural`      | one-character string                 | Opens a tag group.                                                                                                                           |
+| `group_close`         | `structural`      | one-character string                 | Closes a tag group.                                                                                                                          |
+| `column_open`         | `structural`      | one-character string                 | Opens a sidecar column reference.                                                                                                            |
+| `column_close`        | `structural`      | one-character string                 | Closes a sidecar column reference.                                                                                                           |
+| `placeholder`         | `structural`      | one-character string                 | The placeholder that a value replaces.                                                                                                       |
+| `path_separator`      | `structural`      | one-character string                 | Separates the nodes of a tag path.                                                                                                           |
+| `namespace_separator` | `structural`      | one-character string                 | Separates a library schema prefix from a tag.                                                                                                |
+| `tag_chars`           | `hed_string`      | object                               | The characters of a schema node name and of a tag extension.                                                                                 |
+| `sets`                | `tag_chars`       | array of names                       | The names, resolved as in [A.7.3](#a73-names-and-value-class-defaults), whose union is those characters.                                     |

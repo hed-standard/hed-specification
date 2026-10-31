@@ -26,6 +26,7 @@ The sidebar of every page links to `releases/hed-specification-latest.pdf` and t
 ## Before you start
 
 - The version being released is the `version` in `pyproject.toml`; `docs/source/conf.py` reads it from there. Do not change it in the release pull request: the release tag is made on the merged release commit, and the site root is built from that tag, so the tagged tree must name the released version.
+- `specificationVersion` in `docs/source/_static/reserved_tags.json` and `specification_version` in `docs/source/_static/character_sets.json` equal the version in `pyproject.toml`. Change all three together when the version changes; `scripts/generate_reserved_table.py --check` and `scripts/generate_character_table.py --check` (run by CI) fail when they differ.
 - `CHANGELOG.md` has a `# Release X.Y.Z Month Day, Year` heading for the version (the `(unreleased)` heading replaced by the release date), with the entry that becomes the release notes.
 - Chrome or Edge is installed. `scripts/build_pdf.py` looks in the usual install locations; otherwise pass `--browser` or set `CHROME_BIN`.
 - Your checkout has a git remote pointing at `hed-standard/hed-specification` (any name).
