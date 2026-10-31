@@ -8,9 +8,9 @@ Python and, when ``node`` is on the path, in JavaScript; every name that ``value
 ``hed_string`` use resolves to a set, an alias or a single character; and each set's ``excludes`` and
 ``tests`` behave as stated in both languages, as do the whole-value ``tests`` of ``value_class_words``.
 It also checks that the top-level keys are exactly those that the Appendix A.7.1 layout lists, that
-every field of the nested objects is a row of an Appendix A.7 field table and nothing else is, that
-``file_version`` has the form X.Y.Z, and that ``specification_version`` equals the version in
-``pyproject.toml``.
+every field of the nested objects is a row, under its own object, of the field table of its own
+Appendix A.7 subsection and nothing else is, that ``file_version`` has the form X.Y.Z, and that
+``specification_version`` equals the version in ``pyproject.toml``.
 
 Usage (from the repository root, standard library only):
 
@@ -99,20 +99,46 @@ def check_versions(data):
     return problems
 
 
-def nested_fields(data):
-    """The field names of the nested objects that the Appendix A.7 field tables document."""
-    fields = set()
-    for entry in data.get("sets", {}).values():
-        fields |= set(entry)
-    fields |= set(data.get("literal_names", {})) | set(data.get("declaration_wins_from", {}))
-    for entries in data.get("value_class_defaults", {}).values():
-        for entry in entries:
-            fields |= set(entry)
-    for entry in data.get("value_class_words", {}).values():
-        fields |= set(entry)
-    for key, obj in data.get("hed_string", {}).items():
-        fields |= {key} | set(obj)
-    return fields
+def expected_fields(data):
+    """For each Appendix A.7 field table, the (field, object) pairs it must document.
+
+    The object is None for a table without an Object column, whose rows all describe one kind of entry.
+    """
+    sets_fields = {(f, None) for entry in data.get("sets", {}).values() for f in entry}
+    names = {(f, "literal_names") for f in data.get("literal_names", {})}
+    names |= {(f, "declaration_wins_from") for f in data.get("declaration_wins_from", {})}
+    names |= {
+        (f, "value_class_defaults")
+        for entries in data.get("value_class_defaults", {}).values()
+        for entry in entries
+        for f in entry
+    }
+    words = {(f, None) for entry in data.get("value_class_words", {}).values() for f in entry}
+    hed_string = {(key, "hed_string") for key in data.get("hed_string", {})}
+    hed_string |= {(f, key) for key, obj in data.get("hed_string", {}).items() for f in obj}
+    return {"A.7.2": sets_fields, "A.7.3": names, "A.7.4": words, "A.7.5": hed_string}
+
+
+def documented_fields(subsection):
+    """The (field, object) pairs of the field table in one subsection's text.
+
+    The field is the code span of the first column; the object is the first code span of the Object column,
+    or None when the table has no Object column.
+    """
+    rows = [line for line in subsection.split("\n") if line.startswith("|")]
+    if len(rows) < 2:
+        return set()
+    header = [cell.strip() for cell in rows[0].strip("|").split("|")]
+    has_object = len(header) > 1 and header[1] == "Object"
+    pairs = set()
+    for line in rows[2:]:
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        field = re.fullmatch(r"`([A-Za-z_]+)`", cells[0])
+        if not field:
+            continue
+        obj = re.search(r"`([A-Za-z_]+)`", cells[1]) if has_object else None
+        pairs.add((field.group(1), obj.group(1) if obj else None))
+    return pairs
 
 
 def check_documented(data):
@@ -124,10 +150,25 @@ def check_documented(data):
     following = re.search(r"^## ", section[len(APPENDIX_A_SECTION) :], re.M)
     if following:
         section = section[: len(APPENDIX_A_SECTION) + following.start()]
-    documented = set(re.findall(r"^\| `([A-Za-z_]+)` +\|", section, re.M))
-    fields = nested_fields(data)
-    problems = [f"Appendix_A.md A.7: field {f!r} is not documented" for f in sorted(fields - documented)]
-    problems += [f"Appendix_A.md A.7: documents {f!r}, which the file does not have" for f in sorted(documented - fields)]
+    problems = []
+    for number, expected in expected_fields(data).items():
+        heading = re.search(rf"^### {re.escape(number)}\. .*$", section, re.M)
+        if not heading:
+            problems.append(f"Appendix_A.md: subsection {number} not found")
+            continue
+        body = section[heading.end() :]
+        following = re.search(r"^### ", body, re.M)
+        if following:
+            body = body[: following.start()]
+        documented = documented_fields(body)
+
+        def label(pair):
+            return pair[0] if pair[1] is None else f"{pair[1]}.{pair[0]}"
+
+        for pair in sorted(expected - documented, key=label):
+            problems.append(f"Appendix_A.md {number}: field {label(pair)!r} is not documented")
+        for pair in sorted(documented - expected, key=label):
+            problems.append(f"Appendix_A.md {number}: documents {label(pair)!r}, which the file does not have")
     if APPENDIX_A_LAYOUT not in section:
         return problems + [f"Appendix_A.md: subsection {APPENDIX_A_LAYOUT!r} not found"]
     layout = section[section.index(APPENDIX_A_LAYOUT) + len(APPENDIX_A_LAYOUT) :]
