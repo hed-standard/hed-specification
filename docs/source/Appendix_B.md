@@ -109,7 +109,7 @@ See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-or
 **c.** A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.\
 **d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`).\
 **e.** Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).\
-**f.** A placeholder (`#`) is not the whole value of its tag (e.g., `"Label/ #"`, `"Label/x#"`, `"Label/#x"`).
+**f.** A placeholder (`#`) is not the whole value of its tag, or of the second part of a `Definition`, `Def` or `Def-expand` value (e.g., `"Label/ #"`, `"Label/x#"`, `"Label/#x"`, `"Def/MyDef/x#"`).
 
 **Notes:** A `#` directly after a reserved tag that takes no value (`Onset/#`) is an error in every context, which a validator may report either as PLACEHOLDER_INVALID (reason **a** or **d**) or as [TAG_EXTENSION_INVALID](#tag_extension_invalid) (reason **c**), depending on which check finds it first. Units after the placeholder (`"Frequency/# Hz"`) are not part of its value. A validator may report a `#` with other characters in the value (reason **f**) as [VALUE_INVALID](#value_invalid) or [CHARACTER_INVALID](#character_invalid) instead, depending on which check finds it first. Reason **f** is stated in this form from specification `4.0.0`.
 
