@@ -107,9 +107,11 @@ See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-or
 **a.** A `#` appears in a place that it should not (such as in the `HED` column of an events file).\
 **b.** A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.\
 **c.** A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.\
-**d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`). A `#` directly after a reserved tag that takes no value (`Onset/#`) is an error in every context, which a validator may report either as PLACEHOLDER_INVALID (a or d) or as [TAG_EXTENSION_INVALID](#tag_extension_invalid) (c), depending on which check finds it first.\
+**d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`).\
 **e.** Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).\
-**f.** A placeholder (`#`) does not appear directly after a slash (e.g., `"Label/ #"`).
+**f.** A placeholder (`#`) is not the whole value of its tag (e.g., `"Label/ #"`, `"Label/x#"`, `"Label/#x"`).
+
+**Notes:** A `#` directly after a reserved tag that takes no value (`Onset/#`) is an error in every context, which a validator may report either as PLACEHOLDER_INVALID (reason **a** or **d**) or as [TAG_EXTENSION_INVALID](#tag_extension_invalid) (reason **c**), depending on which check finds it first. Units after the placeholder (`"Frequency/# Hz"`) are not part of its value. A validator may report a `#` with other characters in the value (reason **f**) as [VALUE_INVALID](#value_invalid) or [CHARACTER_INVALID](#character_invalid) instead, depending on which check finds it first. Reason **f** is stated in this form from specification `4.0.0`.
 
 See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values) and [3.2.9.1. Sidecar entries](./03_HED_formats.md#3291-sidecar-entries) for information on the use of placeholders in HED.
 
