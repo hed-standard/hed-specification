@@ -839,8 +839,11 @@ an annotation that uses curly braces (to prevent circular references).
 7. Curly braces can not be nested.
 8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
 9. The group rules of a structural reserved tag (its anchor, the number of inner groups, and the tags allowed beside it, see [3.2.8](#328-reserved-tags)) are checked on the assembled annotation. A sidecar entry such as `(Duration/#, {stim_desc})` is valid when every substitution of `{stim_desc}` supplies the required inner group.
+10. A sidecar annotation with curly braces is valid only if every substitution of its references is valid, whether or not a tabular file uses the substituted values.
 
 ```
+
+For rule 10, each annotation of a categorical column in the braces is substituted in turn (every combination, when there are several references). A value column's template is substituted with its `#` unfilled, so for it the sidecar check finds only errors that do not depend on the row's value. What a `{HED}` reference contributes is not known from the sidecar, so a check whose result depends on it is not made there: `(Red, {HED}), (Red)` is a repeated expression only in a row whose `HED` value is `n/a`. These errors are found when each row is assembled, as are checks that need the whole row, such as for required tags. For example, `{"event_code": {"HED": {"face": "(Red, {color})"}}, "color": {"HED": {"warm": "Red", "cool": "Blue"}}}` is invalid, since `warm` gives `(Red, Red)` ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)), even for a file whose rows all have `cool`. With `{"face": "(Label/x, {rt})"}` and the value column `{"rt": {"HED": "Label/#"}}` the sidecar is valid, and only a row whose `rt` is `x` is invalid. Rule 10 is stated from specification `4.0.0`.
 
 If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character_invalid) error is generated.
 
