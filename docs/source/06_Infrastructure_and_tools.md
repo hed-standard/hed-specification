@@ -80,7 +80,7 @@ Tools should make explicit whether they support insertion of actual events for `
 
 ### 6.3.1. BIDS tabular files
 
-A BIDS tabular file is a tab-separated value file with extension `.tsv`. The file contains a single table with a one-line header containing the column names. The remaining lines in the file represent rows in the table. HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files. A BIDS tabular file can be optionally accompanied by one or more similarly named `.json` files (i.e., sidecars) containing metadata for the file.
+A BIDS tabular file is a tab-separated value file with extension `.tsv`. The file contains a single table with a one-line header containing the column names. The remaining lines in the file represent rows in the table. HED requires that no line after the header be empty and that every line have as many tab-separated cells as the header (see [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files)). HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files. A BIDS tabular file can be optionally accompanied by one or more similarly named `.json` files (i.e., sidecars) containing metadata for the file.
 
 The most common types of BIDS tabular files are shown in the following table.
 
