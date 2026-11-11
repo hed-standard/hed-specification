@@ -829,7 +829,7 @@ class: tip
 1. The item within the curly braces must either be the word `HED` or
 the name of another HED-annotated column within the sidecar.
 2. The HED annotation for the column in curly braces directly replaces the curly braces and their contents in the target annotation.
-3. During assembly of a HED annotation for an event, if the 'n/a' value appears in a curly brace column,
+3. During assembly of a HED annotation for an event, if an `n/a` or blank value appears in a curly brace column,
 the curly brace expression including the curly braces as well as any extra parentheses or commas are removed.
 A value other than `n/a` or blank in a curly brace column is validated in every row, whether or not the row's template substitutes it.
 4. A sidecar column name cannot both appear in a curly braces and have
@@ -843,7 +843,7 @@ an annotation that uses curly braces (to prevent circular references).
 
 ```
 
-For rule 10, each annotation of a categorical column in the braces is substituted in turn (every combination, when there are several references). A value column's template is substituted with its `#` unfilled, so for it the sidecar check finds only errors that do not depend on the row's value. What a `{HED}` reference contributes is not known from the sidecar, so a check whose result depends on it is not made there: `(Red, {HED}), (Red)` is a repeated expression only in a row whose `HED` value is `n/a`. These errors are found when each row is assembled, as are checks that need the whole row, such as for required tags. For example, `{"event_code": {"HED": {"face": "(Red, {color})"}}, "color": {"HED": {"warm": "Red", "cool": "Blue"}}}` is invalid, since `warm` gives `(Red, Red)` ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)), even for a file whose rows all have `cool`. With `{"face": "(Label/x, {rt})"}` and the value column `{"rt": {"HED": "Label/#"}}` the sidecar is valid, and only a row whose `rt` is `x` is invalid. Rule 10 is stated from specification `4.0.0`.
+For rule 10, each annotation of a categorical column in the braces is substituted in turn (every combination, when there are several references). A value column's template is substituted with its `#` unfilled, so for it the sidecar check finds only errors that do not depend on the row's value. Any referenced column can hold `n/a` or a blank in some row, so for the repeated-expression check ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)) the annotation with the reference removed (rule 3) is also one of the substitutions, for every reference; for `{HED}`, whose content is not known from the sidecar, it is the only one. Thus `(Red, {HED}), (Red)` and `(Red, {color}), (Red)` are invalid whatever the annotations of `color` are, since a row whose `HED` or `color` value is `n/a` or blank assembles to `(Red), (Red)`. Other checks do not use the removal, since a sidecar may rely on a column being filled, and do not check what a `{HED}` reference contributes: `(Duration/#, {stim_desc})` is checked in the sidecar only with the annotations of `stim_desc`, and a row whose `stim_desc` is `n/a` fails when it is assembled. These errors are found when each row is assembled, as are checks that need the whole row, such as for required tags. For example, `{"event_code": {"HED": {"face": "(Red, {color})"}}, "color": {"HED": {"warm": "Red", "cool": "Blue"}}}` is invalid, since `warm` gives `(Red, Red)` ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)), even for a file whose rows all have `cool`. With `{"face": "(Label/x, {rt})"}` and the value column `{"rt": {"HED": "Label/#"}}` the sidecar is valid, and only a row whose `rt` is `x` is invalid. Rule 10 is stated from specification `4.0.0`.
 
 If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character_invalid) error is generated.
 
@@ -1106,7 +1106,7 @@ Rules for curly brace usage:
 
 1. The item within curly braces MUST be either `HED` or a HED-annotated column name.
 2. The substituted annotation directly replaces the curly braces and their contents.
-3. If an `n/a` value appears in a curly brace column, the entire curly brace expression is removed.
+3. If an `n/a` or blank value appears in a curly brace column, the entire curly brace expression is removed.
 4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
 5. Curly braces MUST NOT appear in a `Definition` or `Event-context` group or in the `HED` column of tabular files.
 

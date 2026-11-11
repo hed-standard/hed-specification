@@ -211,7 +211,7 @@ See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-gro
 
 Suppose `A`, `B`, and `C` represent HED expressions. HED strings are not ordered, so (`B`, `C`) is equivalent to (`C`, `B`). Thus, (`A`, (`A`, `B`)) is not a duplicate, but (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.
 
-**Note:** In a tabular file, a repetition can also come from the assembly of a row's annotation rather than from any single annotation, for example two columns whose annotations contain the same tag. A column name that appears twice in the first line of the file is [TABULAR_INVALID](#tabular_invalid), not this error.
+**Note:** In a tabular file, a repetition can also come from the assembly of a row's annotation rather than from any single annotation, for example two columns whose annotations contain the same tag. In a sidecar, a repetition can also come from a substitution of a curly-brace reference, including the removal of a reference whose column is `n/a` or blank, so `(Red, {HED}), (Red)` is this error (rule 10 of [3.2.9.3. Sidecar curly braces](./03_HED_formats.md#3293-sidecar-curly-braces)). A column name that appears twice in the first line of the file is [TABULAR_INVALID](#tabular_invalid), not this error.
 
 See [3.2.7.4. Repeated expressions](./03_HED_formats.md#3274-repeated-expressions) for additional information on the rules for duplication.
 
