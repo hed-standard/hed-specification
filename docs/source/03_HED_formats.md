@@ -148,7 +148,7 @@ The sections in the `.xml` version must always be terminated by closing `</  >` 
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs. This error is reported by schema validation and does not prevent schemas from loading.
+If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
@@ -264,7 +264,7 @@ The Sources, Prefixes, and External annotations sections (the *extra sections* o
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
 
-Schema validation requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, it reports a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error. For compatibility with files written before this rule, the omission of any of the three sections from a standard schema with version < `8.5.0` or from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
+Schema validation requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, it reports a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error. For compatibility with files written before this rule, the omission of any of the three sections from any other schema (a standard schema with version < `8.5.0`, a library schema partnered with such a standard schema, or an unpartnered library schema) is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
 
 Each of these sections is a table of rows with fixed columns:
 

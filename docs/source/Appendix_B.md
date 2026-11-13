@@ -233,7 +233,7 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 **d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.\
 **e.** An `Event-context` group contains a curly brace column reference (`{column}`).
 
-**Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR. So MAY a reserved tag's group that holds an extra tag or group, such as `(Onset, Def/MyDef, Red)`, `(Duration/3 s, Red, (Blue))`, or `(Definition/A, Red, (Blue))` (TEMPORAL_TAG_ERROR e, h, and l; DEFINITION_INVALID c).
+**Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR. For example, `(Onset, Def/MyDef, Red)` MAY be reported as TAG_GROUP_ERROR.
 
 See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attributes) for additional information on the rules for group errors due to schema attributes.
 
@@ -279,7 +279,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
 **g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag. without the appearance of an intervening `Onset` of the same name.\
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
-**i.** An `Onset`, `Offset`, or `Inset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
+**i.** An `Onset`, `Offset`, or `Inset` group occurs at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor, where the time of a group is the time of its row plus any `Delay`.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
