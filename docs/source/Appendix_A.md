@@ -591,7 +591,7 @@ Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation]
 
 These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of this section and of the Prefixes and External annotations sections (`source` or `prefix`) as `name`; the other column names are identical in every format.
 
-The schema sources section was added with the release of HED standard schema `8.4.0`. A tool that writes a schema file includes the section, empty when the schema has no entries for it. A tool that reads a schema file requires the section in standard schemas with versions >= `8.5.0` and in library schemas partnered with those standard schemas (HED specification `4.0.0`); for compatibility with older files, it accepts the omission of the section from other schemas and treats an omitted section as empty.
+The schema sources section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 ### A.1.7. Schema prefixes
 
@@ -607,7 +607,7 @@ Each prefix entry has three required components (an empty component is a [SCHEMA
 
 Common prefixes in HED schemas include Dublin Core (`dc:`), RDF Schema (`rdfs:`), OWL (`owl:`), Friend-of-a-Friend (`foaf:`), and domain-specific ontologies like NCI Thesaurus (`ncit:`) and the Gene Ontology (`obogo:`). The schema prefixes enable HED to participate in the broader linked data ecosystem and support semantic web applications.
 
-The schema prefixes section was added with the release of HED standard schema `8.4.0`. A tool that writes a schema file includes the section, empty when the schema has no entries for it. A tool that reads a schema file requires the section in standard schemas with versions >= `8.5.0` and in library schemas partnered with those standard schemas (HED specification `4.0.0`); for compatibility with older files, it accepts the omission of the section from other schemas and treats an omitted section as empty. The prefixes are used in `annotation` attribute values. Library schemas may add additional values to this section and they are merged with those of the standard schema.
+The schema prefixes section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. Library schemas may add additional values to this section and they are merged with those of the standard schema.
 
 ### A.1.8. External annotations
 
@@ -631,7 +631,7 @@ External annotations serve multiple purposes:
 
 The external annotations section works in conjunction with the schema prefixes section. Each annotation must use a prefix that is defined in the schema prefixes section. Tools can use external annotations to generate rich metadata, export schemas to RDF/OWL formats, and integrate HED with broader ontology frameworks.
 
-The external annotations section was added with the release of HED standard schema `8.4.0`. A tool that writes a schema file includes the section, empty when the schema has no entries for it. A tool that reads a schema file requires the section in standard schemas with versions >= `8.5.0` and in library schemas partnered with those standard schemas (HED specification `4.0.0`); for compatibility with older files, it accepts the omission of the section from other schemas and treats an omitted section as empty.
+The external annotations section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 ## A.2. MediaWiki file format
 
