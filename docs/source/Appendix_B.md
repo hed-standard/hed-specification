@@ -168,16 +168,6 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanatio
 
 See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanation of sidecar requirements.
 
-### STYLE_WARNING\*
-
-(WARNING)
-
-**a.** A tag does not follow the standard capitalization convention: only the first letter of the tag term should be capitalized, with the remainder lower case.
-
-**Note:** This warning can occur for tag extensions during annotation and for schema nodes in prerelease schema versions under development. Tags drawn from released schemas already follow the convention.
-
-See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions and [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additional information on the tag extension rules.
-
 ### TABULAR_INVALID
 
 **a.** A column name appears more than once in the first line (the column names) of a tabular file.\
@@ -243,7 +233,7 @@ See [3.2.5 Tag extensions](./03_HED_formats.md#325-tag-extensions) for additiona
 **d.** An `Event-context` group contains a tag other than `Event-context` that is not inside a tag group.\
 **e.** An `Event-context` group contains a curly brace column reference (`{column}`).
 
-**Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR.
+**Note:** For the structural reserved tags of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags), a violation of a group rule is reported with the tag's own code ([DEFINITION_INVALID](#definition_invalid), [TEMPORAL_TAG_ERROR](#temporal_tag_error)). A tag that is not in a group (a), not in a top-level group (b), or in a group with a tag not allowed beside it (c) MAY instead be reported as TAG_GROUP_ERROR. So MAY a reserved tag's group that holds an extra tag or group, such as `(Onset, Def/MyDef, Red)`, `(Duration/3 s, Red, (Blue))`, or `(Definition/A, Red, (Blue))` (TEMPORAL_TAG_ERROR e, h, and l; DEFINITION_INVALID c).
 
 See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attributes) for additional information on the rules for group errors due to schema attributes.
 
@@ -252,7 +242,7 @@ See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attribute
 ### TAG_INVALID
 
 **a.** The tag is not valid in the schema it is associated with.\
-**b.** The tag has extra internal whitespace, including directly before or after forward slashes.\
+**b.** The tag has extra internal whitespace, including directly before or after forward slashes. Blanks inside a value are judged by the rules for the value ([VALUE_INVALID](#value_invalid), [CHARACTER_INVALID](#character_invalid)), not by this reason.\
 **c.** The tag has a leading, trailing, or consecutive forward slashes.\
 **d.** A tag or tag extension contains a non `name` character.
 
@@ -289,7 +279,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
 **g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag. without the appearance of an intervening `Onset` of the same name.\
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
-**i.** An `Onset` or `Offset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
+**i.** An `Onset`, `Offset`, or `Inset` with a given `Def` tag or `Def-expand` group anchor appears in an event marker with the same time as with another `Onset`, `Inset`, or `Offset` that uses the same anchor.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
@@ -315,7 +305,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 **a.** The value substituted for a placeholder (`#`) is not valid.\
 **b.** A tag value is incompatible with the specified value class.\
 **c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
-**d.** The units are not separated from the value by a single blank.\
+**d.** The units are not separated from the value by a single blank. More than one blank (`Duration/3  ms`) MAY instead be reported as [UNITS_INVALID](#units_invalid).\
 **e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column.
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
@@ -450,13 +440,23 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 **a.** A required schema section is missing.\
 **b.** The schema sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes, schema attributes, properties, epilogue, and, when present, sources, prefixes, and external annotations) are not in the correct order and hence not detected.
 
-**Note:** A tool that writes a schema file includes every section, even when it is empty. A tool that reads a schema file requires the sources, prefixes, and external annotations sections in standard schemas with versions >= `8.5.0` and in library schemas partnered with those standard schemas (HED specification `4.0.0`). For compatibility with older files, it accepts their omission from standard schemas with versions < `8.5.0` and from unpartnered library schemas and treats an omitted section as empty. When present they must appear in the order listed.
+**Note:** The conditions under which schema validation requires the sources, prefixes, and external annotations sections are given in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 #### SCHEMA_VERSION_INVALID
 
 **a.** The schema version in the HED line or element is invalid.\
 **b.** A HED version specification does not have the correct syntax for the schema file format.\
 **c.** A HED schema version does not comply with semantic versioning.
+
+#### STYLE_WARNING\*
+
+(WARNING)
+
+**a.** A schema node does not follow the standard capitalization convention: only the first letter of the tag term should be capitalized, with the remainder lower case.
+
+**Note:** This warning is reported by schema validation, for the nodes of the schema being validated. It is not reported when annotations are validated: not for a tag extension, and not for a schema tag written with different capitalization, since tag processing is case-insensitive.
+
+See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions.
 
 ### B.2.2. MediaWiki format errors
 

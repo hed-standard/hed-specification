@@ -142,13 +142,13 @@ Regardless of the format, the sections of a valid HED schema must appear in the 
 | Ending line | `!# end hed` | `</HED>` |
 ```
 
-The three extra sections after the epilogue were introduced with HED schema `8.4.0`. A tool that writes a schema file includes them, like the other sections, even when they are empty. A tool that reads a schema file accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
+The three extra sections after the epilogue were introduced with HED schema `8.4.0`. A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
 
 The sections in the `.xml` version must always be terminated by closing `</  >` tokens, whereas the sections of the `.mediawiki` version, which is line-oriented, are terminated when the next section begins (`#!`) or a top tag (`'''`) is encountered.
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs.
+If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs. This error is reported by schema validation and does not prevent schemas from loading.
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
 
@@ -264,7 +264,7 @@ The Sources, Prefixes, and External annotations sections (the *extra sections* o
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
 
-A tool that reads a schema file requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs. For compatibility with files written before this rule, a reader accepts the omission of any of the three sections from a standard schema with version < `8.5.0` or from an unpartnered library schema and treats each omitted section as an empty section.
+Schema validation requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, it reports a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error. For compatibility with files written before this rule, the omission of any of the three sections from a standard schema with version < `8.5.0` or from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
 
 Each of these sections is a table of rows with fixed columns:
 
@@ -546,7 +546,7 @@ If a `unitClass` is specified as an attribute of the `#` node, then the units sp
 
 The characters that may be used in the value that replaces the `#` placeholder must be in the union of the values allowed by the `valueClass` attributes of the`#` node. If units are given, they may place additional restrictions on the allowed values.
 
-Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are [VALUE_INVALID](./Appendix_B.md#value_invalid) errors.
+Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are [VALUE_INVALID](./Appendix_B.md#value_invalid) errors. A validator MAY report more than one blank between the value and the units as [UNITS_INVALID](./Appendix_B.md#units_invalid) instead; it is not a [TAG_INVALID](./Appendix_B.md#tag_invalid) error.
 
 Units are always optional. Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
 
@@ -591,7 +591,7 @@ A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be exte
 - `Item/Blech/#`, `Item/#`, and `Item/Blech/#/Foo` are [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) errors: `#` cannot be an extension (rule 5).
 - `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is a [VALUE_INVALID](./Appendix_B.md#value_invalid) error because the value of `Age` must be numeric (standard schema versions >= `8.1.0`).
 
-Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. A [STYLE_WARNING](./Appendix_B.md#style_warning) may be issued for extension tags that do not follow the HED naming convention.
+Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. No warning is issued for an extension that does not follow the convention.
 
 Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
@@ -730,7 +730,7 @@ See [DEF_INVALID](./Appendix_B.md#def_invalid) and [DEF_EXPAND_INVALID](./Append
 
 Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
 
-An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset` or `Offset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
+An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
 See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors and [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
 
