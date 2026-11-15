@@ -20,7 +20,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 - Tilde (`~`) character. Replace: the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).
 - Double quotes (`"`).
 
-**b.** Curly braces (`{`, `}`) can only appear in a sidecar and indicate a column template, not HED.
+**b.** Curly braces (`{`, `}`) appear in a HED string that is not a sidecar annotation, such as a cell in the `HED` column of a tabular file. Curly braces indicate a column reference in a sidecar and are not HED.
 
 **Notes:**
 
@@ -134,6 +134,8 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 **Note:** Partnered library schemas never define schema properties: the `Properties` section of an unmerged partnered library schema is empty and that of a merged partnered library schema is the `Properties` section of its standard schema partner, so conflicts with the standard partner are detected when the schema itself is validated. See reason **j** and **k** of [SCHEMA_LIBRARY_INVALID](#schema_library_invalid).
 
+A version specification that violates any rule of the rule table in [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations) is this error, including an unpartnered library schema that shares its namespace with another schema.
+
 See [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations) for the rule table and [7.3.6. Lazy partnering](./07_Library_schemas.md#736-lazy-partnering) for a description of the merging process.
 
 ### SIDECAR_BRACES_INVALID
@@ -193,6 +195,8 @@ See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requ
 **b.** A HED string begins or ends with a comma (ignoring white space), indicating an empty string.\
 **c.** A tag group is empty (i.e., empty parentheses are not allowed).
 
+**Note:** Some of these errors MAY instead be reported as [COMMA_MISSING](#comma_missing).
+
 See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-groups) for the rules on empty tags and groups.
 
 ### TAG_EXPRESSION_REPEATED
@@ -250,7 +254,8 @@ See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for a discussion of ta
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.** A tag prefix has invalid characters.
+**a.** A tag prefix has invalid characters.\
+**b.** A tag has a namespace prefix that is not defined: no schema in the HED version specification is associated with that namespace.
 
 See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes) and [7. Library schema](./07_Library_schemas.md) for additional information on using multiple schemas in annotation.
 
@@ -306,7 +311,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 **b.** A tag value is incompatible with the specified value class.\
 **c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
 **d.** The units are not separated from the value by a single blank. More than one blank (`Duration/3  ms`) MAY instead be reported as [UNITS_INVALID](#units_invalid).\
-**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column.
+**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column. Depending on the order of validation, such a value MAY instead be reported as [UNITS_INVALID](#units_invalid) or [CHARACTER_INVALID](#character_invalid).
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 
@@ -334,7 +339,8 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 **a.** An attribute is used in the schema, but is not defined in the schema attribute section.\
 **b.** A schema attribute is applied to the incorrect type (e.g., an element with the unit definition does appear under an appropriate unit class).\
 **c.** A schema attribute is used in an invalid way\
-**d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.
+**d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.\
+**e.** A schema property is used in the schema, but is not defined in the properties section.
 
 | Attribute        | Invalid Usage Location                                    |
 | ---------------- | --------------------------------------------------------- |

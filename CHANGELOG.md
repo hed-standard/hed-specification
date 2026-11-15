@@ -28,7 +28,7 @@ These changes alter what is valid or how validators must report it.
 
 ### Reserved tags and temporal annotation
 
-- 3.2.8 Reserved tags (formerly Special tags) names 19 reserved tags, 9 of them structural, by tag name in every schema version, and gives one table of group rules (value, anchor, other tags, minimum and maximum inner groups, secondary tags, timeline only, curly braces) followed by rules 1-6 and a table of the two-part values of `Definition`, `Def` and `Def-expand`. A violation takes the code named in the table; a placement error MAY be reported as TAG_GROUP_ERROR.
+- 3.2.8 Reserved tags (formerly Special tags) names 19 reserved tags, 9 of them structural, by tag name in every schema version, and gives one table of group rules (value, anchor, other tags, minimum and maximum inner groups, timeline only, curly braces), with each column explained before the table, a paragraph on `Delay` sharing a group, and a table of the two-part values of `Definition`, `Def` and `Def-expand`. The section says why the rules are a table generated from `reserved_tags.json`; Appendix A.6 defines the file's parameters.
 - No `Def` or `Def-expand` is allowed at the top level of a group whose reserved tag takes no anchor (for example `Duration` or `Delay`).
 - `Definition` and `Event-context` groups may not contain a `{column}` reference; group rules are checked after the row is assembled.
 - `Onset`, `Offset` and `Inset` MUST NOT occur at the same time as another `Onset`, `Offset` or `Inset` with the same anchor, and an `Offset` before its `Onset` is an error (3.2.8.3).
@@ -75,8 +75,11 @@ These changes alter what is valid or how validators must report it.
 
 ## Error codes (Appendix B)
 
+Error codes are given only in Appendix B. The chapters and Appendix A state what is required or invalid and no longer name the code a tool reports; no code was added, renamed or removed by this change.
+
 ### Added
 
+- SCHEMA_ATTRIBUTE_INVALID (e): a schema property is used but is not defined in the properties section.
 - TABULAR_INVALID (a-f): repeated, padded or blank column name; padded value in an annotated column; empty line (e); line with a different number of cells than the column-name line (f).
 - SCHEMA_ANNOTATION_INVALID (warning, a-d).
 - SCHEMA_MISSING_EXTRA (warning).

@@ -97,7 +97,7 @@ The most common types of BIDS tabular files are shown in the following table.
 
 HED treats the `onset` column of tables such as the ones in `events.tsv` files as expressing markers on a timeline. These timeline tables allow `Onset`, `Inset`, `Offset`, and `Delay` tags in their annotations and receive additional [table-level processing](./03_HED_formats.md#32104-table-level-processing) to assure that these tags are properly matched.
 
-**Tabular files that do not contain timeline tables are not permitted to use `Onset`, `Inset`, `Offset`, or `Delay` tags in their annotations.** See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for additional information.
+**Tabular files that do not contain timeline tables are not permitted to use `Onset`, `Inset`, `Offset`, or `Delay` tags in their annotations.**
 
 The following shows an excerpt from a BIDS event file:
 
