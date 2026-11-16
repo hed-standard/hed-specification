@@ -435,7 +435,7 @@ See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#
 
 #### SCHEMA_RESERVED_INVALID
 
-**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` and `topLevelTagGroup` for every row; `reserved` on `Def` and `Def-expand`; and `reserved` on the ten organizational reserved tags. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
+**a.** A standard schema does not define a tag that `reserved_tags.json` names, or defines it without the attributes the rules rely on: `reserved` and `topLevelTagGroup` for every row; `reserved` on `Def` and `Def-expand`; and `reserved` on the ten organizational reserved tags. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
 **b.** A reserved tag has a child node other than `#`.
 
 See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file) for the file.
