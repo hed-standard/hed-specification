@@ -8,7 +8,7 @@ The individual vocabulary terms (the HED schema nodes) **must** satisfy an "is-a
 
 A **HED annotation** is a string consisting of comma-separated (and possibly parenthesized) terms from a HED schema. HED annotations provide a standardized language for describing virtually anything. HED's primary application is to describe what happens during an experiment (the experimental events). HED annotations must be associated with one or more specific HED schema versions.
 
-This chapter describes the requirements and formats for HED schemas and HED annotations.
+This chapter describes the requirements and formats for HED schemas and HED annotations. The error code that a tool reports for each violation of these requirements is given in [Appendix B: HED errors](Appendix_B.md).
 
 Additional details about HED schema formats can be found in appendix [A. Schema format details](./Appendix_A.md). [7. Library schemas](./07_Library_schemas.md#7-library-schemas) discusses the additional requirements and restrictions on library schemas. [B.2. Schema validation errors](./Appendix_B.md#b2-schema-validation-errors) describes the schema errors.
 
@@ -53,14 +53,14 @@ HED has adopted a strategy that allows multiple compatible library schemas to be
 Merge groups (i.e., namespaces) are defined in the schema version specification not in the schema itself. The schemas listed in the default namespace (no prefix) form one merge group, and each unique prefix in the version specification designates a distinct merge group. For example the following [BIDS](https://bids.neuroimaging.io/index.html) version specification:
 
 ```json
-"HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:testlib_4.0.0"]
+"HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:mouse_1.0.0"]
 ```
 
-indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from testlib must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace designator. This dataset uses two namespaces (default and `bc:`).
+indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from mouse must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace designator. This dataset uses two namespaces (default and `bc:`).
 
 #### 3.1.2.4. Partnered combinations
 
-Combination of different schemas into a single vocabulary can proceed provided there are no conflicts as governed by the following rules. A specification that violates any of these rules generates a [SCHEMA_LOAD_FAILED](./Appendix_B.md#schema_load_failed) error.
+Combination of different schemas into a single vocabulary can proceed provided there are no conflicts as governed by the following rules. A specification that violates any of these rules cannot be loaded.
 
 | Topic                 | Rule                                                                                                                                                                                                                                         |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -142,25 +142,25 @@ Regardless of the format, the sections of a valid HED schema must appear in the 
 | Ending line | `!# end hed` | `</HED>` |
 ```
 
-The three extra sections after the epilogue were introduced with HED schema `8.4.0`. A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
+A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
 
 The sections in the `.xml` version must always be terminated by closing `</  >` tokens, whereas the sections of the `.mediawiki` version, which is line-oriented, are terminated when the next section begins (`#!`) or a top tag (`'''`) is encountered.
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-If any of the required sections of the schema are missing or out of order, a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
+If any of the required sections of the schema are missing or out of order, an error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
 
-Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, the [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
+Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, an error occurs.
 
 See [Appendix A](./Appendix_A.md) for additional details on format.
 
 #### 3.1.4.1. The header
 
-The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version. See [SCHEMA_VERSION_INVALID](./Appendix_B.md#schema_version_invalid).
+The schema header line MUST specify the `version` attribute whose value MUST be a valid semantic version.
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. If the schema contains any additional unrecognized attributes, [SCHEMA_HEADER_INVALID](./Appendix_B.md#schema_header_invalid) error occurs.
+The header may optionally contain an XSD namespace specification. If the schema contains any additional unrecognized attributes, an error occurs.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 
@@ -168,7 +168,7 @@ See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. 
 
 The prologue should contain a concise introduction to the schema and its purpose. Together with [the epilogue](#3149-the-epilogue) section, the contents are used by tools to provide information about the schema to the users.
 
-The prologue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
+The prologue may contain `text` characters or `newline`. Any other character is invalid.
 
 #### 3.1.4.3. The schema section
 
@@ -176,13 +176,13 @@ The schema section contains the actual vocabulary contents of the schema. Each e
 
 A node element specifies a name, node attributes, and an informative description of the tag term's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, and `nonascii`; see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
-This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
+This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class.
 
-Each schema node element must be unique or a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error is generated.
+Each schema node element must be unique.
 
 #### 3.1.4.4. Unit classes and units
 
-A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is a [SCHEMA_ATTRIBUTE_VALUE_INVALID](./Appendix_B.md#schema_attribute_value_invalid) error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; in standard schemas with versions >= `8.5.0` and library schemas partnered with them, a unit class on a placeholder with any other value class, or with none, is likewise a SCHEMA_ATTRIBUTE_VALUE_INVALID error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class). A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor (HED `8.5.0` introduces `anyUnits` and the tag `Quantity` that uses it). A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error, and `anyUnits` with units or `defaultUnits` is a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
+A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; a unit class on a placeholder with any other value class, or with none, is likewise an error. A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor. A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
 Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed (e.g., `feet` in addition to `foot`, `inches` in addition to `inch`; `hertz` is its own plural). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
@@ -195,13 +195,13 @@ Units may be in one of four forms as designated by their unit type attributes:
 | unit that is not an SI unit   | no unit type attribute         |
 | unit symbol is not an SI unit | only `unitSymbol`              |
 
-Units appear after the value in annotations. A unit with the `unitPrefix` attribute appears before its value instead; the only such unit, `$`, and the `unitPrefix` attribute itself are deprecated as of HED `8.5.0` (`$` carries `deprecatedFrom=8.4.0`) and will be removed in a future major version. Currency values are written with the unit name, as in `5 dollars`.
+Units appear after the value in annotations. A unit with the `unitPrefix` attribute appears before its value instead; the only such unit, `$`, and the `unitPrefix` attribute itself are deprecated and will be removed in a future major version. Currency values are written with the unit name, as in `5 dollars`.
 
-If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
+If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, an error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
 
-**Unit names and unit symbols are case-sensitive and MUST NOT contain blanks. A unit in an annotation MUST be a unit listed in the schema, the plural of a listed unit name, or a form derived from a listed unit that has the `SIUnit` attribute by prepending an SI unit modifier (for a compound unit, one modifier per component; see [3.1.4.5. Unit modifiers](#3145-unit-modifiers)), with the case of the unit and of the modifier exactly as listed. Only unit names may be pluralized (`feet`, `milliseconds`); unit symbols never may. `Feet`, `Milliseconds`, and `MS` are invalid.** The deprecated unit `degree Celsius`, listed since before this rule, is the one legacy exception: it cannot be written in an annotation, because a blank separates the value from its unit, and it remains listed only so that older schemas load. Before specification version `4.0.0`, unit names were case-insensitive. Unit class names are case-insensitive, but MUST contain only valid `name` characters. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
+**Unit names and unit symbols are case-sensitive and MUST NOT contain blanks. A unit in an annotation MUST be a unit listed in the schema, the plural of a listed unit name, or a form derived from a listed unit that has the `SIUnit` attribute by prepending an SI unit modifier (for a compound unit, one modifier per component; see [3.1.4.5. Unit modifiers](#3145-unit-modifiers)), with the case of the unit and of the modifier exactly as listed. Only unit names may be pluralized (`feet`, `milliseconds`); unit symbols never may. `Feet`, `Milliseconds`, and `MS` are invalid.** The deprecated unit `degree Celsius`, listed since before this rule, is the one legacy exception: it cannot be written in an annotation, because a blank separates the value from its unit. Before specification version `4.0.0`, unit names were case-insensitive. Unit class names are case-insensitive, but MUST contain only valid `name` characters. Any other character is invalid.
 
-A unit class MUST NOT list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; such a unit is derived, not listed. For example, `uV` is `u` + `V` and is not listed once `V` has `SIUnit`. This rule applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them; earlier standard schemas (`8.2.0` through `8.4.0` list `uV`) remain valid. A violation is a [SCHEMA_DUPLICATE_NODE](./Appendix_B.md#schema_duplicate_node) error. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for the units of HED `8.5.0`.
+A unit class MUST NOT list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; such a unit is derived, not listed. For example, `uV` is `u` + `V` and is not listed once `V` has `SIUnit`. A violation is an error. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for the units of HED `8.5.0`.
 
 #### 3.1.4.5. Unit modifiers
 
@@ -216,9 +216,9 @@ unit      := component ("-per-" component)*
 component := [modifier] base ["^" digits]
 ```
 
-Here `base` is a component of the listed unit and `modifier` is an `SIUnitSymbolModifier`. Thus `cm-per-us`, `mm-per-s^2`, and `mm^3` are valid forms of `m-per-s`, `m-per-s^2`, and `m^3`, while `kmm-per-s` (two modifiers on one component), `m-per-sec` (not a symbol), and `m-per-S` (wrong case) are not. An exponent applies to the prefixed component, so `mm^3` is a cubic millimeter. The conversion factor of a compound form is the listed `conversionFactor` multiplied, for each component, by the modifier's `conversionFactor` raised to that component's exponent, negative for components after `-per-`: `cm-per-us` = 1.0 x 0.01 x (1e-6)^-1 = 10000 `m-per-s`, and `mm^3` = (0.001)^3 = 1e-9 `m^3`. A compound form that breaks these rules is a [UNITS_INVALID](./Appendix_B.md#units_invalid) error. Before specification version `4.0.0`, tools applied the modifier to the whole compound unit string.
+Here `base` is a component of the listed unit and `modifier` is an `SIUnitSymbolModifier`. Thus `cm-per-us`, `mm-per-s^2`, and `mm^3` are valid forms of `m-per-s`, `m-per-s^2`, and `m^3`, while `kmm-per-s` (two modifiers on one component), `m-per-sec` (not a symbol), and `m-per-S` (wrong case) are not. An exponent applies to the prefixed component, so `mm^3` is a cubic millimeter. The conversion factor of a compound form is the listed `conversionFactor` multiplied, for each component, by the modifier's `conversionFactor` raised to that component's exponent, negative for components after `-per-`: `cm-per-us` = 1.0 x 0.01 x (1e-6)^-1 = 10000 `m-per-s`, and `mm^3` = (0.001)^3 = 1e-9 `m^3`. A compound form that breaks these rules is an error. Before specification version `4.0.0`, tools applied the modifier to the whole compound unit string.
 
-If a `SIUnitModifier`, or `SIUnitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
+If a `SIUnitModifier`, or `SIUnitSymbolModifier` attribute appears in a section other than unit modifier section of the schema, an error occurs.
 
 **Unit modifiers are case-sensitive.**
 
@@ -236,7 +236,7 @@ Value class names are case-insensitive, but must contain only valid `name` chara
 
 The schema attribute definition section lists the schema attributes that may be applied to schema elements in other sections of the schema (except for the properties section).
 
-The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error occurs.
+The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs.
 
 See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for additional details and a listing for the standard schema.
 
@@ -248,7 +248,7 @@ There are two main types of properties: **domain** properties and **range** prop
 
 Property names ending in `Range` indicate the type of value a schema attribute may have. The range properties are `boolRange`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, and `valueClassRange`. A schema attribute with the `boolRange` property does not take a value: its presence indicates true, and its absence indicates false. The remaining property, `annotationProperty`, marks a schema attribute whose value is not inherited by child nodes.
 
-A schema attribute may have multiple domain properties, indicating that the attribute may appear in multiple sections of the schema, and multiple range properties, indicating that its values may be of several types. Before HED standard schema version `8.3.0` these properties had other names (`boolProperty`, `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty`); see [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for the mapping.
+A schema attribute may have multiple domain properties, indicating that the attribute may appear in multiple sections of the schema, and multiple range properties, indicating that its values may be of several types.
 
 See [A.1.4 Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for information and a listing of schema attributes and their respective properties.
 
@@ -256,15 +256,15 @@ See [A.1.4 Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5.
 
 The epilogue should give license information, acknowledgments, and references.
 
-The epilogue may contain `text` characters or `newline`. If other characters appear, a [SCHEMA_CHARACTER_INVALID](./Appendix_B.md#schema_character_invalid) error occurs.
+The epilogue may contain `text` characters or `newline`. Any other character is invalid.
 
 #### 3.1.4.10. Sources, prefixes, and external annotations
 
-The Sources, Prefixes, and External annotations sections (the *extra sections* of [Chapter 2: Terminology](./02_Terminology.md#schema-section)) were introduced in HED schema `8.4.0`. The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas with versions >= `8.5.0` and to library schemas partnered with those standard schemas.
+The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas and to partnered library schemas.
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
 
-Schema validation requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, it reports a [SCHEMA_SECTION_MISSING](./Appendix_B.md#schema_section_missing) error. For compatibility with files written before this rule, the omission of any of the three sections from any other schema (a standard schema with version < `8.5.0`, a library schema partnered with such a standard schema, or an unpartnered library schema) is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
+Schema validation requires all three sections in a standard schema and in a partnered library schema; if one is missing, it reports an error. For compatibility with files written before this rule, the omission of any of the three sections from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
 
 Each of these sections is a table of rows with fixed columns:
 
@@ -274,7 +274,7 @@ Each of these sections is a table of rows with fixed columns:
 
 These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of each section (`source` or `prefix`) as `name`; the other column names are identical in every format.
 
-A section may have no rows at all. Each row that is present must give a non-empty value in each column; if a row has an empty value in any column, a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning is issued.
+A section may have no rows at all. Each row that is present must give a non-empty value in each column; if a row has an empty value in any column, a warning is issued.
 
 See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for further discussion, and the per-format sections of Appendix A for the representation of these sections in each file format.
 
@@ -325,7 +325,7 @@ Descriptions, which are enclosed in square brackets (`[ ]`), indicate the meanin
 
 Attributes are enclosed with curly braces (`{ }`). These attributes provide additional rules about how the item and modifying values should be used and handled by tools.
 
-If an attribute or property is referenced in the schema, it must be defined in the appropriate definition section of the schema, or schema processing tools will generate a [SCHEMA_ATTRIBUTE_INVALID](./Appendix_B.md#schema_attribute_invalid) error.
+If an attribute or property is referenced in the schema, it must be defined in the appropriate definition section of the schema, or schema processing tools will generate an error.
 
 Allowed HED node attributes include unit class and value class values as well as HED schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. Note: schema attributes having the `elementDomain` property may apply anywhere in the schema, including the schema header.
 
@@ -487,7 +487,7 @@ Users must provide the version of the HED schema they are using when creating an
 
 ### 3.2.1. Vocabulary organization
 
-HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED standard schema versions >= `8.0.0` these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtrees represent distinct **is-a** relationships for the vocabulary schema.
+HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED standard schemas these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtrees represent distinct **is-a** relationships for the vocabulary schema.
 
 The `Event` subtree tags indicate the general event category, such as whether it is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure.
 
@@ -511,7 +511,7 @@ A **HED tag** is a term in the HED vocabulary identified by a path consisting of
 
 Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes.
 
-An important requirement of third generation HED (versions >= `8.0.0`) is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
+An important requirement is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
 
 The full path version is referred to as **long form**, and the version with only the final tag element (excluding placeholder) is called **short form**.
 
@@ -526,7 +526,7 @@ Any **intermediate form** of the tag path is also allowed as illustrated by this
 
 HED tools are available to map between shortened and long forms as needed. The tag must be associated with a schema and must correspond to a path in the schema (excluding any extension or value).
 
-See [TAG_INVALID](./Appendix_B.md#tag_invalid) for errors involving forward slashes (`/`), extra white-space, and other types of tag syntax errors.
+See [the invalid-tag errors in Appendix B](./Appendix_B.md#tag_invalid) for errors involving forward slashes (`/`), extra white-space, and other types of tag syntax errors.
 
 ### 3.2.3. Tag case-sensitivity
 
@@ -546,7 +546,7 @@ If a `unitClass` is specified as an attribute of the `#` node, then the units sp
 
 The characters that may be used in the value that replaces the `#` placeholder must be in the union of the values allowed by the `valueClass` attributes of the`#` node. If units are given, they may place additional restrictions on the allowed values.
 
-Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are [VALUE_INVALID](./Appendix_B.md#value_invalid) errors. A validator MAY report more than one blank between the value and the units as [UNITS_INVALID](./Appendix_B.md#units_invalid) instead; it is not a [TAG_INVALID](./Appendix_B.md#tag_invalid) error.
+Units appear after the value. Units with the deprecated `unitPrefix` attribute (`$`) appear before the value. **HED parsers assume that units are separated from values by a single blank regardless of the position of the units.** A value with units is the number, one blank, and the unit: `Duration/3 ms` is valid, while `Duration/3ms` (no blank), `Duration/3  ms` (two blanks), and `Duration/ms` (no value) are errors.
 
 Units are always optional. Some unit classes have the `defaultUnits` attribute specifying the units that downstream analysis tools should assume if units are omitted.
 
@@ -558,8 +558,6 @@ The values substituted for `#` may themselves be schema node names provided they
 
 Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the `allowedCharacter` attribute. An example of this is the colon in the `dateTimeClass` value class.
 
-See [VALUE_INVALID](./Appendix_B.md#value_invalid) and [UNITS_INVALID](./Appendix_B.md#units_invalid) for information on the specific validation errors associated with tags that take values.
-
 ### 3.2.5. Tag extensions
 
 A tag extension, in contrast to a value, is a tag that users add as a child of an existing schema node as a more specific term for an item already in the schema. For example, a user might want to use `Helicopter` instead of the more general term `Aircraft`. Since `Aircraft` inherits the `extensionAllowed` attribute, users may use extended tags such as `Aircraft/Helicopter` in their annotation. The requirements for such an extension are:
@@ -570,34 +568,32 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
-5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is a [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) error in every context, in an events file or a sidecar alike.
-6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is a [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (standard schema versions >= `8.3.0`; see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
+5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in an events file or a sidecar alike.
+6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is an error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
 
 **Note:** The is-a relationship is not checked by validators.
 It is needed so that term search works correctly.
 
 ```
 
-Rule 6 and the error code of rule 5 are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
+Rule 6 is stated from specification `4.0.0`.
 
-A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah` and `Event-context/Blah` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors. A `#` after a reserved tag that takes no value (`Onset/#`) is also an error in every context, but a validator may report it either as [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) or as [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid), depending on which check finds it first. These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
+A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah` and `Event-context/Blah` are errors. A `#` after a reserved tag that takes no value (`Onset/#`) is also an error in every context. These rules are stated from specification `4.0.0`.
 
 **Examples:** `Item` and `Property` inherit `extensionAllowed`; `Age` has a `#` child.
 
 - `Item/Blech` and `Item/Blech/Blech1/Blech2` are valid extensions, of one and of three levels.
 - `Item/3D-printout` and `Item/Blech/1red` are valid: a term may begin with a digit when it contains a letter.
-- `Item/Blech/Red` is a [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) error: `Red` is already a node in the schema (rule 1).
-- `Item/Blech/3` and `Item/1-2` are [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) errors: the term has no letter (rule 6).
-- `Item/Blech/#`, `Item/#`, and `Item/Blech/#/Foo` are [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) errors: `#` cannot be an extension (rule 5).
-- `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is a [VALUE_INVALID](./Appendix_B.md#value_invalid) error because the value of `Age` must be numeric (standard schema versions >= `8.1.0`).
+- `Item/Blech/Red` is an error: `Red` is already a node in the schema (rule 1).
+- `Item/Blech/3` and `Item/1-2` are errors: the term has no letter (rule 6).
+- `Item/Blech/#`, `Item/#`, and `Item/Blech/#/Foo` are errors: `#` cannot be an extension (rule 5).
+- `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is an error because the value of `Age` must be numeric.
 
 Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. No warning is issued for an extension that does not follow the convention.
 
 Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
-See [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) for information on the specific validation errors associated with invalid tag extensions.
-
-**Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason the [TAG_EXTENDED](./Appendix_B.md#tag_extended) warning is issued for extended tags during validation.
+**Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason a warning is issued for extended tags during validation.
 
 ### 3.2.6. Tag namespace prefixes
 
@@ -606,8 +602,6 @@ Users may select tags from multiple schemas, but additional schemas must be incl
 Users are free to choose any alphabetic namespace name and associate it with a specific schema in the HED version specification. The namespace prefix is that name followed by a colon (e.g., `sc:`), and tags from the associated schema must carry this prefix when used in annotation. The namespace name and its prefix are chosen per dataset and are not part of any schema; they are an import mechanism, like `import pandas as pd` in Python, and the same schema may be given a different prefix in another dataset.
 
 Terms from only one schema can appear in the annotation without a namespace prefix.
-
-See [TAG_NAMESPACE_PREFIX_INVALID](./Appendix_B.md#tag_namespace_prefix_invalid) for information on the specific validation errors associated with missing schemas.
 
 See [7.5. Library schema in BIDS](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the namespace prefix notation is used in BIDS.
 
@@ -627,59 +621,65 @@ Parentheses are meaningful and convey association. If `A` and `B` represent HED 
 
 Specific rules of association will be encoded in a future version of the HED specification.
 
-See [PARENTHESES_MISMATCH](./Appendix_B.md#parentheses_mismatch) for validation errors result from improper use of parentheses.
-
 #### 3.2.7.2. Tag group attributes
 
 A HED tag corresponding to a schema node with the `tagGroup` attribute must appear inside parentheses (e.g., must be in HED tag group).
 
-A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear in an unnested HED group in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group, except that a `Delay` tag may share a group with `Onset`, `Offset`, `Inset`, or `Duration` (rule 3 of [3.2.8. Reserved tags](#328-reserved-tags)). The `topLevelTagGroup` attribute is usually associated with tags that have special meanings in HED such as `Definition` and `Onset`.
-
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for information on the group errors detected based on schema attributes.
+A HED tag corresponding to a schema node with the `topLevelTagGroup` must appear in an unnested HED group in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group, except that a `Delay` tag may share a group with `Onset`, `Offset`, `Inset`, or `Duration` (see [3.2.8. Reserved tags](#328-reserved-tags)). The `topLevelTagGroup` attribute is usually associated with tags that have special meanings in HED such as `Definition` and `Onset`.
 
 #### 3.2.7.3. Empty tags and groups
 
 Empty parentheses and multiple commas with no intervening tags represent empty tags and are invalid, as are HED strings with leading or trailing commas. Hence, if `A` and `B` are any HED expressions,\
 (`A`, ((`B`))) is valid but (`A`, ()) is not.
 
-See [TAG_EMPTY](./Appendix_B.md#tag_empty) for information on the validation errors due to empty tags or groups. Some of these errors may be reported as [COMMA_MISSING\*](./Appendix_B.md#comma_missing)
-
 #### 3.2.7.4. Repeated expressions
 
 Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
 
-See [TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated) for more details on validation errors due to repeated tag expressions.
-
 ### 3.2.8. Reserved tags
 
-A **reserved tag** is one of the nineteen tags that standard schemas >= `8.3.0` mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). The term and the rules of this section apply by tag name in every standard schema version, including `8.0.0` and `8.1.0`, whose schemas carry no `reserved` attribute. Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
+A **reserved tag** is one of the nineteen tags that standard schemas mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
 
 The other reserved tags (`Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
 
-The table below gives, for each structural reserved tag other than `Def` and `Def-expand`, the rules for the top-level tag group that contains it. `Def` and `Def-expand` are not rows of the table: they appear in these groups as the anchor. The parts of such a group are named using the example `(Onset, Def/MyDef, Delay/2 s, (Red, Circle))`:
+A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name; a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version.
+
+**Why the rules are given as a table.** The rules for the structural reserved tags are given as one table, generated from a file, rather than as prose and schema attributes, for two reasons:
+
+- Schema attributes cannot express most of these rules. No attribute says that a group needs a definition as its anchor, how many inner groups it may hold, or which other tags may share it.
+- The table is generated from the file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which HED validators load unchanged, so this section and the validators cannot disagree.
+
+Each column of the table is a parameter of that file. This section states what each column requires of an annotation; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and its parameters. The rules are stated from specification `4.0.0`.
+
+**The parts of a group.** Each row of the table gives the rules for the top-level tag group that contains its tag. `Def` and `Def-expand` are not rows of the table: they appear in these groups as the anchor. The parts of such a group are named using the example `(Onset, Def/MyDef, Delay/2 s, (Red, Circle))`:
 
 - the **reserved tag**: `Onset`;
 - the **anchor**: `Def/MyDef`, the definition the group refers to, written either as a `Def` tag or as the equivalent `Def-expand` group (see [3.2.8.2](#3282-def-and-def-expand-tags));
 - **other top-level tags**: `Delay/2 s`;
 - **inner groups**: `(Red, Circle)`.
 
-In the table, **Value** says whether the tag requires a value, **Anchor** whether the group requires an anchor, **Others** lists the other top-level tags allowed, and **Min** and **Max** bound the number of inner groups; **Secondary**, **Timeline**, and **{ }** are explained by rules 3, 4, and 5 below. The table is generated from [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which the HED validators also load; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and the field behind each column.
+**The columns of the table.**
+
+- **Value**: "yes" means the tag MUST have a value, as in `Duration/3 s`. "no" means the tag is written without a value.
+- **Anchor**: "yes" means the group MUST contain exactly one anchor. "no" means the group MUST NOT have a `Def` tag or `Def-expand` group at its top level: `(Duration/3 s, Def/MyDef)` is invalid. Except in a definition (see [3.2.8.1](#3281-the-definition-tag)), a `Def` tag or `Def-expand` group MAY appear inside an inner group: `(Duration/3 s, (Def/MyDef))` is valid.
+- **Other tags**: the only tags, besides the reserved tag and its anchor, that MAY appear at the top level of the group. "none" means that no other tag may: `(Onset, Def/MyDef, Red)` is invalid.
+- **Min groups** and **Max groups**: the smallest and the largest number of inner groups that the group MUST have. A `Def-expand` group that is the anchor is not counted. `(Onset, Def/MyDef)` and `(Onset, Def/MyDef, (Red))` are valid; `(Offset, Def/MyDef, (Red))` is invalid.
+- **Timeline only**: "yes" means the tag MUST NOT appear in a table without an `onset` column (or equivalent, such as the `TimestampVectorData` column named `timestamp` in NWB; see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)).
+- **{ } allowed**: "yes" means a sidecar column reference (`{column}`) MAY appear in the group; the rules of the row are then checked on the assembled annotation (see [3.2.9.3](#3293-sidecar-curly-braces), rule 9). "no" means the group MUST NOT contain a column reference.
 
 <!-- reserved-tags:begin -->
 
 Every tag in the following table MUST NOT be extended and MUST appear in a top-level tag group.
 
-| Tag             | Value | Anchor | Others                                 | Min | Max      | Secondary                              | Timeline | { } |
-| --------------- | ----- | ------ | -------------------------------------- | --- | -------- | -------------------------------------- | -------- | --- |
-| `Definition`    | yes   | no     | none                                   | 0   | 1        | none                                   | no       | no  |
-| `Delay`         | yes   | no     | `Duration`, `Onset`, `Offset`, `Inset` | 1   | 1        | `Duration`, `Onset`, `Offset`, `Inset` | yes      | yes |
-| `Duration`      | yes   | no     | `Delay`                                | 1   | 1        | none                                   | no       | yes |
-| `Event-context` | no    | no     | none                                   | 0   | no limit | none                                   | no       | no  |
-| `Inset`         | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
-| `Offset`        | no    | yes    | `Delay`                                | 0   | 0        | none                                   | yes      | yes |
-| `Onset`         | no    | yes    | `Delay`                                | 0   | 1        | none                                   | yes      | yes |
-
-A violation of a rule in this table is reported as [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for `Definition`, [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for `Event-context`, and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for `Delay`, `Duration`, `Inset`, `Offset`, and `Onset`, except that an extension of one of these tags is [TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) and a missing value is [TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child).
+| Tag             | Value | Anchor | Other tags                             | Min groups | Max groups | Timeline only | { } allowed |
+| --------------- | ----- | ------ | -------------------------------------- | ---------- | ---------- | ------------- | ----------- |
+| `Definition`    | yes   | no     | none                                   | 0          | 1          | no            | no          |
+| `Delay`         | yes   | no     | `Duration`, `Onset`, `Offset`, `Inset` | 1          | 1          | yes           | yes         |
+| `Duration`      | yes   | no     | `Delay`                                | 1          | 1          | no            | yes         |
+| `Event-context` | no    | no     | none                                   | 0          | no limit   | no            | no          |
+| `Inset`         | no    | yes    | `Delay`                                | 0          | 1          | yes           | yes         |
+| `Offset`        | no    | yes    | `Delay`                                | 0          | 0          | yes           | yes         |
+| `Onset`         | no    | yes    | `Delay`                                | 0          | 1          | yes           | yes         |
 
 Tags whose value has two parts:
 
@@ -691,16 +691,9 @@ Tags whose value has two parts:
 
 <!-- reserved-tags:end -->
 
-The following rules complete the table:
+**`Delay` in a group with another tag of the table.** `Delay` is the only tag of the table that may share a group with another tag of the table: `Onset`, `Offset`, `Inset`, or `Duration`. In such a group the row of the other tag gives the rules for the group, and `Delay` is one of its allowed other tags: `(Onset, Def/MyDef, Delay/2 s)` is valid with no inner group, as `(Onset, Def/MyDef)` is. The `Delay` row gives the rules for a group only when `Delay` is the only tag of the table in it: `(Delay/2 s, (Red))` is valid and `(Delay/2 s)` is invalid. Wherever `Delay` appears, it MUST have a value and MUST be in a timeline table: `(Duration/3 s, Delay/2 s, (Red))` is invalid in a descriptor table.
 
-1. The rules apply in every standard schema version >= `8.0.0`. Standard schemas `8.0.0` and `8.1.0` carry none of the `reserved`, `topLevelTagGroup`, or `requireChild` attributes on `Delay` and `Duration`, and `8.2.0` lacks `requireChild`; the file supplies them, so these two tags follow the table in every version.
-2. A tag whose row says "no" under **Anchor** MUST NOT have a `Def` tag or `Def-expand` group at the top level of its group: `(Duration/3 s, Def/MyDef)` is an error. Except in a definition (see [3.2.8.1](#3281-the-definition-tag)), one may appear inside an inner group: `(Duration/3 s, (Def/MyDef))` is valid.
-3. `Delay` is the only tag of the table that may share a group with another one, and in such a group it is secondary, as its **Secondary** column lists. When `Delay` shares a group with `Onset`, `Offset`, `Inset`, or `Duration`, the row of that tag gives the group rules (**Anchor**, **Others**, **Min**, **Max**, and **{ }**) and `Delay` is one of its allowed other top-level tags: `(Onset, Def/MyDef, Delay/2 s)` is valid with no inner group, as `(Onset, Def/MyDef)` is. The group rules of the `Delay` row apply only when `Delay` is the only tag of the table in its group, so `(Delay/2 s, (Red))` is valid and `(Delay/2 s)` alone is an error. The other rules of the `Delay` row (no extension, a required value, timeline tables only) apply to `Delay` wherever it appears: `(Duration/3 s, Delay/2 s, (Red))` is an error in a descriptor table.
-4. A tag marked "yes" under **Timeline** MUST NOT appear in a table without an `onset` column (or equivalent, such as the `TimestampVectorData` column named `timestamp` in NWB; see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)).
-5. A group whose tag is marked "no" under **{ }** (e.g.,`Definition`, `Event-context`) MUST NOT contain a sidecar column reference (`{column}`). A column reference MAY appear in other groups, and the rules of the table are checked on the assembled annotation (see [3.2.9.3](#3293-sidecar-curly-braces), rule 9).
-6. A violation is reported with the code named after the table, except as that sentence states for extensions and missing values. A tag that is outside a group, outside a top-level group, or next to a top-level tag its row does not allow MAY instead be reported as [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error).
-
-These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`. A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)). The subsections below expand on the information.
+The subsections below describe each structural reserved tag.
 
 #### 3.2.8.1. The `Definition` tag
 
@@ -714,7 +707,7 @@ The contents of a definition MUST NOT contain, at any level, a structural reserv
 
 A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
 
-See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) for the errors and [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for examples.
+See [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for examples.
 
 #### 3.2.8.2. `Def` and `Def-expand` tags
 
@@ -722,9 +715,9 @@ A definition is used in an annotation as the tag `Def/name`, or `Def/name/value`
 
 Annotators SHOULD avoid writing `Def-expand` groups: the expanded form is generally created by tools that need the actual tags of a definition's contents during processing. Tools SHOULD be able to transform between the two forms; transforming a `Def` tag into a `Def-expand` group requires the definition, while the reverse does not.
 
-The two forms are equivalent. A `Def-expand` group stands wherever its `Def` tag would stand, and every rule about the place of a `Def` tag, such as rule 2, applies to it unchanged: `(Duration/3 s, (Def-expand/MyDef, (Red)))` is an error, as `(Duration/3 s, Def/MyDef)` is. The inner group of a `Def-expand` group MUST match the definition's contents, with the value substituted, and is never counted as an inner group of the group that contains it.
+The two forms are equivalent. A `Def-expand` group stands wherever its `Def` tag would stand, and every rule about the place of a `Def` tag, such as the rule of the Anchor column, applies to it unchanged: `(Duration/3 s, (Def-expand/MyDef, (Red)))` is an error, as `(Duration/3 s, Def/MyDef)` is. The inner group of a `Def-expand` group MUST match the definition's contents, with the value substituted, and is never counted as an inner group of the group that contains it.
 
-See [DEF_INVALID](./Appendix_B.md#def_invalid) and [DEF_EXPAND_INVALID](./Appendix_B.md#def_expand_invalid) for the errors and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for examples.
+See [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for examples.
 
 #### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
@@ -732,21 +725,21 @@ Many events are not instantaneous but unfold over time as event processes. An `O
 
 An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors and [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
+See [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
 
 #### 3.2.8.4. `Duration` and `Delay`
 
-A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay (rule 3). The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
+A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay. The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
 
-The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a standard schema whose `timeUnits` units carry no `conversionFactor` (`8.0.0`), a value with no unit, or in the default unit written as its symbol `s` or as its name `second` or `seconds`, is taken as is; a value in a modified form (`ms`) or in any other unit is an error. In a descriptor table, `Duration` MAY use any unit of its unit class.
+The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
 
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for the errors, and [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
+See [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
 
 #### 3.2.8.5. The `Event-context` tag
 
 An `Event-context` group records the event processes that are ongoing at the time of an event marker, for example an image displayed from its `Onset` until its `Offset`. Each inner group holds the tags of one ongoing process. The group is generated by tools during event processing, with every definition and column reference already expanded, and is generally not written by annotators. Because `Event-context` has the `unique` attribute, an assembled annotation contains at most one `Event-context` group.
 
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for the errors and [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts) for examples.
+See [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts) for examples.
 
 ### 3.2.9. Sidecars
 
@@ -798,29 +791,29 @@ See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for
 
 #### 3.2.9.2. Sidecar validation
 
-All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`. Both of these generate a [SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid) error.
+All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`.
 
-A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files) ([SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid)). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
+A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
 
-In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either ([SIDECAR_INVALID](./Appendix_B.md#sidecar_invalid)). Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
+In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either. Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
 
-HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry generates a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error.
+HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry is an error.
 
-The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. However, if a value is encountered in a tabular file column that is annotated as a categorical column but does not have a HED annotation, a [SIDECAR_KEY_MISSING](./Appendix_B.md#sidecar_key_missing) warning is generated.
+The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. However, if a value is encountered in a tabular file column that is annotated as a categorical column but does not have a HED annotation, a warning is generated.
 
-HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues generate a [PLACEHOLDER_INVALID](./Appendix_B.md#placeholder_invalid) error.
+HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues are errors.
 
 If the placeholder is followed by a unit designator, the validator checks that these units are consistent with the unit class of the corresponding `#` in the schema. The units are not mandatory.
 
 #### 3.2.9.3. Sidecar curly braces
 
-The curly brace notation is new with HED specification version `3.2.0` and is supported by all versions of the HED schema >= `8.0.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different event file columns when the complete HED annotation for an event marker is assembled.
+The curly brace notation is new with HED specification version `3.2.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different event file columns when the complete HED annotation for an event marker is assembled.
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
 The notation is defined here for BIDS sidecars, but from specification `4.0.0` it applies to any tabular container whose per-row annotation is assembled from named columns in the same way: a column-level annotation (a value template or a categorical mapping) may reference another HED-annotated column of the same table, or `HED` for the table's per-row HED column. The same rules apply. In particular, NWB tables annotated with ndx-hed carry such references in `MeaningsTable` HED entries and `HedValueVector` templates.
 
-If a column is used in curly braces in a HED annotation, then that column must have a HED annotation or a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) error is generated.
+If a column is used in curly braces in a HED annotation, then that column must have a HED annotation.
 
 ```{admonition} Rules for curly braces notation in sidecars.
 ---
@@ -838,18 +831,28 @@ an annotation that uses curly braces (to prevent circular references).
 6. Curly braces can not appear in the HED column of a tabular file.
 7. Curly braces can not be nested.
 8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
-9. The group rules of a structural reserved tag (its anchor, the number of inner groups, and the tags allowed beside it, see [3.2.8](#328-reserved-tags)) are checked on the assembled annotation. A sidecar entry such as `(Duration/#, {stim_desc})` is valid when every substitution of `{stim_desc}` supplies the required inner group.
-10. A sidecar annotation with curly braces is valid only if every substitution of its references is valid, whether or not a tabular file uses the substituted values.
+9. The group rules of a structural reserved tag (its anchor, the number of inner groups, and the tags allowed beside it, see [3.2.8](#328-reserved-tags)) are checked on the assembled annotation. A sidecar entry such as `(Duration/#, {stim_desc})` is valid when each annotation of `stim_desc` supplies the required inner group.
+10. A sidecar annotation with curly braces is valid only if it is valid when the annotations of each referenced column are substituted, one referenced column at a time, whether or not a tabular file uses the substituted values.
 
 ```
 
-For rule 10, each annotation of a categorical column in the braces is substituted in turn (every combination, when there are several references). A value column's template is substituted with its `#` unfilled, so for it the sidecar check finds only errors that do not depend on the row's value. Any referenced column can hold `n/a` or a blank in some row, so for the repeated-expression check ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)) the annotation with the reference removed (rule 3) is also one of the substitutions, for every reference; for `{HED}`, whose content is not known from the sidecar, it is the only one. Thus `(Red, {HED}), (Red)` and `(Red, {color}), (Red)` are invalid whatever the annotations of `color` are, since a row whose `HED` or `color` value is `n/a` or blank assembles to `(Red), (Red)`. Other checks do not use the removal, since a sidecar may rely on a column being filled, and do not check what a `{HED}` reference contributes: `(Duration/#, {stim_desc})` is checked in the sidecar only with the annotations of `stim_desc`, and a row whose `stim_desc` is `n/a` fails when it is assembled. Errors that depend on a row's values (the value of a value column, what a `{HED}` reference contributes, or a reference removed because its value is `n/a` or blank) are found when that row is assembled, as are errors from checks that need the whole row, such as for required tags. For example, `{"event_code": {"HED": {"face": "(Red, {color})"}}, "color": {"HED": {"warm": "Red", "cool": "Blue"}}}` is invalid, since `warm` gives `(Red, Red)` ([TAG_EXPRESSION_REPEATED](./Appendix_B.md#tag_expression_repeated)), even for a file whose rows all have `cool`. With `{"face": "(Label/x, {rt})"}` and the value column `{"rt": {"HED": "Label/#"}}` the sidecar is valid, and only a row whose `rt` is `x` is invalid. Rule 10 is stated from specification `4.0.0`.
+Rule 10 is checked on the sidecar alone. For each annotation with curly braces, a validator MUST check these substitutions:
 
-If curly braces appear in the HED column of a tabular file, a [CHARACTER_INVALID](./Appendix_B.md#character_invalid) error is generated.
+- **One referenced column at a time.** Each annotation of that column is substituted for its reference, and every other reference is removed as in rule 3.
+- **No column.** All references are removed.
 
-If curly braces appear in a `Definition`, a [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) error is generated. If they appear in an `Event-context` group, a [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) error (reason e) is generated.
+A substitution with no reference removed gets every check; this happens only when the annotation references a single column. Every other substitution is checked only for repeated expressions, since the annotation may rely on the removed columns being filled. A value column's template is substituted with its `#` unfilled, and a `{HED}` reference is always removed. Because the values are not known, the number of `#` placeholders is checked on each sidecar entry as written, not on a substitution, and a tag with an unfilled `#` is never counted as repeating another tag. A column referenced more than once counts as one column.
 
-If the curly brace notation is used improperly in a sidecar or elsewhere, a [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) is generated.
+Examples:
+
+- `(Red, {color})` is invalid if any annotation of `color` is `Red`, since it gives `(Red, Red)`, even when no file uses that value.
+- `(Red, {color}), (Red)` and `(Red, {HED}), (Red)` are invalid, since removing the reference leaves `(Red), (Red)`.
+- `(Label/#, {b})`, where the value column `b` is annotated `Label/#`, is valid: the substitution `(Label/#, Label/#)` has two placeholders and two equal tags, but a row with `left` and `right` gives `(Label/left, Label/right)`. A row whose two values are equal fails when it is assembled.
+- `(Duration/#, {stim_desc})` is valid if every annotation of `stim_desc` supplies the inner group. A row whose `stim_desc` is `n/a` fails when it is assembled because `Duration` requires an inner group.
+
+Errors that this check does not find are reported when a row is assembled: those that need two or more referenced columns filled (the repeat in `({color}, {shade})` when both give `Red`), those that depend on a row's values, and those that need the whole row, such as required tags or reserved tags. A validator MAY also check combinations of referenced columns in the sidecar. Rule 10 is stated from specification `4.0.0`.
+
+Curly braces MUST NOT appear in the HED column of a tabular file, in a `Definition`, or in an `Event-context` group.
 
 #### 3.2.9.4. A sidecar example
 
@@ -923,9 +926,11 @@ In the example, `Definition/Cue1` is a definition that does not use a placeholde
 
 ### 3.2.10. Tabular files
 
-A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)); this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)), where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. A column name MUST NOT be blank, that is, the empty string ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)), as BIDS also requires; a first line that ends with a tab, for example, has a blank last column name. A name made only of whitespace is not blank but begins with whitespace, and is reported under the whitespace rule. This rule is stated from specification `4.0.0`. Column names are compared exactly as written when looking for a repeated name: two names that differ only in leading or trailing whitespace, such as `trial` and `trial ` (with a trailing blank), are not a repeated name, and the name with the whitespace is reported under the whitespace rule. A line other than the first MUST NOT be empty, that is, have no characters before its line terminator ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)), as BIDS also requires; a single line ending at the end of the file is allowed and does not make an empty last line, but two line endings at the end of the file do. An empty first line is a single blank column name and is reported under the blank-name rule, not as an empty line. Every line other than the first MUST have as many tab-separated cells as the first line ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)), as BIDS also requires. An empty line is reported as an empty line only, not also under the cell-count rule. A line made only of tabs that has as many cells as the first line is a row of missing values and is allowed. A line made only of blanks has one cell, so it breaks the cell-count rule unless the table has one column; in a table with one column it is a value made only of whitespace, which is an error if the column has categorical or value HED annotations (see [3.2.10.2. Table annotations](#32102-table-annotations)). These two rules are stated from specification `4.0.0`; earlier versions said nothing about empty lines or the number of cells in a row. When a file breaks either rule, every offending line is reported and the rows of the file are not validated. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
+A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line; this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace, where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. A column name MUST NOT be blank, that is, the empty string, as BIDS also requires; a first line that ends with a tab, for example, has a blank last column name. A name made only of whitespace is not blank but begins with whitespace, and is reported under the whitespace rule. This rule is stated from specification `4.0.0`. Column names are compared exactly as written when looking for a repeated name: two names that differ only in leading or trailing whitespace, such as `trial` and `trial ` (with a trailing blank), are not a repeated name, and the name with the whitespace is reported under the whitespace rule. A line other than the first MUST NOT be empty, that is, have no characters before its line terminator, as BIDS also requires; a single line ending at the end of the file is allowed and does not make an empty last line, but two line endings at the end of the file do. An empty first line is a single blank column name and is reported under the blank-name rule, not as an empty line. Every line other than the first MUST have as many tab-separated cells as the first line, as BIDS also requires. An empty line is reported as an empty line only, not also under the cell-count rule. A line made only of tabs that has as many cells as the first line is a row of missing values and is allowed. A line made only of blanks has one cell, so it breaks the cell-count rule unless the table has one column; in a table with one column it is a value made only of whitespace, which is an error if the column has categorical or value HED annotations (see [3.2.10.2. Table annotations](#32102-table-annotations)). These two rules are stated from specification `4.0.0`; earlier versions said nothing about empty lines or the number of cells in a row. When a file breaks either rule, every offending line is reported and the rows of the file are not validated. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
 
-From specification `4.0.0` these column-name rules apply to every HED-annotated table whose columns have names, however the table stores them, not only to `.tsv` files: the header row of a HED-annotated spreadsheet (such as an Excel worksheet) and the column names that a tabular container such as an NWB table stores with its columns are held to them too, whether a tool refers to the columns by name or by column number. A table without column names, such as a spreadsheet with no header row, is not subject to them. They apply to the names under which the columns are assembled. An NWB `DynamicTable` requires its column names to be unique, but it accepts names that differ only in leading or trailing whitespace, such as `onset` and ` onset` (with a leading blank); HED treats the name with the whitespace as a [TABULAR_INVALID](./Appendix_B.md#tabular_invalid) error. NWB also accepts an empty column name, which HED treats as a blank name ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)). A column may also be assembled under a name other than its own: the `TimestampVectorData` column named `timestamp` is the equivalent of an `onset` column (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)). An NWB table that has that column and also a separate column named `onset` therefore has two columns assembled as `onset`, which HED treats as a repeated name ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)). The rules on empty lines and on the number of cells in a line are rules about the lines of a text tabular file and apply only to such files: they do not apply to spreadsheets or to NWB tables.
+A validator MUST apply the rules of this section to every tabular file that carries HED annotations: a file with a column named `HED`, or a file whose associated sidecar contains HED annotations. So that a malformed first line does not hide such a file, a text tabular file also counts as having a `HED` column when a cell of its first non-empty line is `HED` after leading and trailing whitespace is removed; the file is then validated, and its empty first line or its name with whitespace is reported under the rules above. A validator is not required to check a tabular file that carries no HED annotations, and MAY skip it whatever its structure. This scope is stated from specification `4.0.0`.
+
+From specification `4.0.0` these column-name rules apply to every HED-annotated table whose columns have names, however the table stores them, not only to `.tsv` files: the header row of a HED-annotated spreadsheet (such as an Excel worksheet) and the column names that a tabular container such as an NWB table stores with its columns are held to them too, whether a tool refers to the columns by name or by column number. A table without column names, such as a spreadsheet with no header row, is not subject to them. They apply to the names under which the columns are assembled. An NWB `DynamicTable` requires its column names to be unique, but it accepts names that differ only in leading or trailing whitespace, such as `onset` and ` onset` (with a leading blank); HED treats the name with the whitespace as an error. NWB also accepts an empty column name, which HED treats as a blank name. A column may also be assembled under a name other than its own: the `TimestampVectorData` column named `timestamp` is the equivalent of an `onset` column (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)). An NWB table that has that column and also a separate column named `onset` therefore has two columns assembled as `onset`, which HED treats as a repeated name. The rules on empty lines and on the number of cells in a line are rules about the lines of a text tabular file and apply only to such files: they do not apply to spreadsheets or to NWB tables.
 
 #### 3.2.10.1 Tabular types
 
@@ -945,25 +950,21 @@ See [BIDS tabular files](06_Infrastructure_and_tools.md#631-bids-tabular-files) 
 
 BIDS HED annotations for a table can occur both in a column called `HED` within the table and in an associated JSON sidecar.
 
-The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string ([VALUE_INVALID](./Appendix_B.md#value_invalid), [UNITS_INVALID](./Appendix_B.md#units_invalid), or [CHARACTER_INVALID](./Appendix_B.md#character_invalid) as applicable). This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
+The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string. This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
-A value in a column with categorical or value HED annotations (in BIDS, a column whose sidecar entry has a `"HED"` key) MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files) ([TABULAR_INVALID](./Appendix_B.md#tabular_invalid)). Values are used exactly as written (see [3.2.9.1. Sidecar entries](#3291-sidecar-entries)), so such a value would otherwise match no annotation key or be substituted with its whitespace. The rule covers a value made only of whitespace as well as an `n/a` with whitespace before or after it (such as `n/a `); both are reported. An empty value and `n/a` itself are missing values and are not checked. Only the four characters listed in 3.2.10 count as whitespace; a no-break space or other Unicode space does not. The check is made column by column before the value checks of the preceding paragraph and before row assembly. The `HED` column, whose HED strings may have blanks around their tags, and columns without HED annotations are not subject to the rule. This rule is stated from specification `4.0.0`.
+A value in a column with categorical or value HED annotations (in BIDS, a column whose sidecar entry has a `"HED"` key) MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files). Values are used exactly as written (see [3.2.9.1. Sidecar entries](#3291-sidecar-entries)), so such a value would otherwise match no annotation key or be substituted with its whitespace. The rule covers a value made only of whitespace as well as an `n/a` with whitespace before or after it (such as `n/a `); both are reported. An empty value and `n/a` itself are missing values and are not checked. Only the four characters listed in 3.2.10 count as whitespace; a no-break space or other Unicode space does not. The check is made column by column before the value checks of the preceding paragraph and before row assembly. The `HED` column, whose HED strings may have blanks around their tags, and columns without HED annotations are not subject to the rule. This rule is stated from specification `4.0.0`.
 
-The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (rule 4 of [3.2.8. Reserved tags](#328-reserved-tags)).
+The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (the Timeline only column of [3.2.8. Reserved tags](#328-reserved-tags)).
 
 Definitions may not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
-
-See [DEFINITION_INVALID](./Appendix_B.md#definition_invalid) and [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for information.
 
 #### 3.2.10.3. Event-level processing
 
 After individual HED tags and HED strings in the `HED` column of tabular files and in the associated sidecars are validated or otherwise processed, the HED strings associated with each row of the tabular file must be assembled to provide an overall annotation for the row. We refer to this as *event-level* or *row* processing.
 
-If the HED schema used for processing contains a schema node that has the `required` attribute, then the assembled HED annotations for each row must include that tag. Currently, HED schema versions >= `8.0.0` do not contain any nodes with the `required` attribute, and this attribute may be deprecated in future versions of the schema.
+If the HED schema used for processing contains a schema node that has the `required` attribute, then the assembled HED annotations for each row must include that tag.
 
-If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute for HED schema versions >= `8.0.0`.
-
-See [REQUIRED_TAG_MISSING](./Appendix_B.md#required_tag_missing) and [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) for information on the validation errors that may occur with tags that have the `required` or `unique` schema attributes, respectively.
+If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute.
 
 ```{Admonition} General procedure for event-level (row) assembly.
 
@@ -1007,11 +1008,9 @@ For more examples of event assembly, see [How HED works in BIDS](https://www.hed
 
 #### 3.2.10.4. Table-level processing
 
-HED versions >= `8.0.0` allow annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
+HED allows annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
 
 To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
-
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for details on the type of errors that are generated due to `Onset` and `Offset` errors.
 
 ## 3.3. Annotation semantics
 
@@ -1072,8 +1071,6 @@ The following rules govern how tags should be grouped:
    - See: [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for details of the specification.
    - See: [5. Advanced Annotation](./05_Advanced_annotation.md) for example usage.
 
-See [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) for validation errors related to grouping.
-
 #### 3.3.2.2. Event structure
 
 Every event annotation SHOULD include both an `Event` tag and a `Task-event-role` tag:
@@ -1110,7 +1107,7 @@ Rules for curly brace usage:
 4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
 5. Curly braces MUST NOT appear in a `Definition` or `Event-context` group or in the `HED` column of tabular files.
 
-These rules summarize [3.2.9.3. Sidecar curly braces](#3293-sidecar-curly-braces), which is normative. See [SIDECAR_BRACES_INVALID](./Appendix_B.md#sidecar_braces_invalid) for curly brace errors.
+These rules summarize [3.2.9.3. Sidecar curly braces](#3293-sidecar-curly-braces), which is normative.
 
 ### 3.3.4. Timeline versus descriptor tables
 
@@ -1119,6 +1116,4 @@ A table with an `onset` (or equivalent) column is a **timeline table**: each row
 A table without an `onset` or equivalent column is a **descriptor table**: each row describes the properties of an entity, such as a participant, session, or sample. An example of a descriptor table in BIDS is the table contained in the `participants.tsv` file.
 
 - In a timeline table, each assembled annotation SHOULD include at least one `Event` tag. The temporal tags `Onset`, `Offset`, `Inset`, `Duration`, and `Delay` MAY be used.
-- In a descriptor table, annotations describe characteristics of the entity. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (rule 4 of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).
-
-See [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) for validation errors when temporal tags appear in descriptor tables.
+- In a descriptor table, annotations describe characteristics of the entity. `Onset`, `Offset`, `Inset`, and `Delay` MUST NOT be used (the Timeline only column of [3.2.8](#328-reserved-tags)); `Duration` MAY be used with any unit of its unit class ([3.2.8.4](#3284-duration-and-delay)).

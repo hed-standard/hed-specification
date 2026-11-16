@@ -26,7 +26,7 @@ The following diagram shows the ontology view of HED. The nodes of the HED schem
 
 ![ontologist view](_static/images/OntologyView.png)
 
-The ontology represents a complex network of interrelationships among the terms in the HED hierarchy and terms in other ontologies. The HED ontology and its mapping have been made explicit starting with HED standard schema `8.3.0`. The goal is to include links to additional information including provenance and examples during annotation and to leverage AI tools during annotation and analysis.
+The ontology represents a complex network of interrelationships among the terms in the HED hierarchy and terms in other ontologies. The HED ontology and its mapping have been made explicit. The goal is to include links to additional information including provenance and examples during annotation and to leverage AI tools during annotation and analysis.
 
 ### 8.1.3. HED information space
 
@@ -34,7 +34,7 @@ The HED schema is embedded in a larger information space that includes additiona
 
 ![hed information space](_static/images/HEDInformationSpace.png)
 
-The embedding is anchored by the `hedId` schema attribute introduced with HED standard schema `8.3.0`. The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) in the [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) file. This file is currently hosted on GitHub and does not have a mechanism to address individual IDs defined within the file. The ontology files are versioned by release date. Releases are located in the [releases](https://github.com/hed-standard/hed-ontology/tree/main/releases) subdirectory of the [hed-ontology](https://github.com/hed-standard/hed-ontology) repository on GitHub.
+The embedding is anchored by the `hedId` schema attribute. The `hedId` values are of the form `HED_xxxxxxx` and resolve to IRIs (International Resource Identifiers) in the [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl) file. This file is currently hosted on GitHub and does not have a mechanism to address individual IDs defined within the file. The ontology files are versioned by release date. Releases are located in the [releases](https://github.com/hed-standard/hed-ontology/tree/main/releases) subdirectory of the [hed-ontology](https://github.com/hed-standard/hed-ontology) repository on GitHub.
 
 The extended information space is completely represented by the HED ontology in OWL format. In this document we use OWL Manchester format (`.omn`) for readability.
 
@@ -57,17 +57,17 @@ The MediaWiki format is line-oriented with each non-blank line corresponding to 
 
 #### 8.1.4.2. Spreadsheet files
 
-The spreadsheet format consists of 13 tab-separated value (tsv) files (10 for schema versions < `8.4.0`, which lack the three extras files) each containing the information for one type of HED entity as summarized in the following table.
+The spreadsheet format consists of 13 tab-separated value (tsv) files each containing the information for one type of HED entity as summarized in the following table.
 
 | tsv filename                     | Contents                                                                                                                 |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `xxx_AnnotationProperty`         | These correspond to schema attributes that are not inherited.                                                            |
-| `xxx_AnnotationPropertyExternal` | Rows of the `External annotations` extra section (schema versions >= `8.4.0`).                                           |
+| `xxx_AnnotationPropertyExternal` | Rows of the `External annotations` extra section.                                                                        |
 | `xxx_AttributeProperty`          | Definitions of the schema attribute properties corresponding<br/><br/>to the `Properties` section in the MediaWiki File. |
 | `xxx_DataProperty`               | Schema attributes whose value is a literal such as boolean, string or numeric.                                           |
 | `xxx_ObjectProperty`             | Schema attributes whose value is another schema entity such as a HED tag.                                                |
-| `xxx_Prefixes`                   | Rows of the `Prefixes` extra section (schema versions >= `8.4.0`).                                                       |
-| `xxx_Sources`                    | Rows of the `Sources` extra section (schema versions >= `8.4.0`).                                                        |
+| `xxx_Prefixes`                   | Rows of the `Prefixes` extra section.                                                                                    |
+| `xxx_Sources`                    | Rows of the `Sources` extra section.                                                                                     |
 | `xxx_Structure`                  | Structural entities including the header, prologue, and epilogue.                                                        |
 | `xxx_Tag`                        | Definitions of the HED tags (vocabulary) in the schema.                                                                  |
 | `xxx_Unit`                       | Definitions of the HED unit entities.                                                                                    |

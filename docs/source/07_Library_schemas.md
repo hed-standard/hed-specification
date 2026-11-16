@@ -36,7 +36,7 @@ HED schema files (including library schema files) can be represented in one of 4
 
 **MediaWiki** format has one line per tag, is relatively easy to read, and clearly displays the hierarchy structure for human readers. Many developers work in this format after the tag vocabulary has been established.
 
-**TSV** is a multi-file format (13 TSV files for schema versions >= `8.4.0`) that represents each type of element in a spreadsheet. Developers often use TSV format in the initial development of a library vocabulary, because they only need to focus on the `_Tags.tsv` spreadsheet which contains the library tags. Most of the other TSV files will be empty or fixed after the initial setup.
+**TSV** is a multi-file format (13 TSV files) that represents each type of element in a spreadsheet. Developers often use TSV format in the initial development of a library vocabulary, because they only need to focus on the `_Tags.tsv` spreadsheet which contains the library tags. Most of the other TSV files will be empty or fixed after the initial setup.
 
 **XML** is hard to read, so humans almost never use this format directly, but instead, convert XML to MediaWiki or TSV. XML is easily parsed by tools and is the standard format for tools in the HED ecosystem.
 
@@ -57,9 +57,9 @@ Whether a schema file represents a partnered or unpartnered schema can ONLY be d
 
 The following example shows the header for the `.mediawiki` form of a partnered library schema.
 
-````{admonition} MediaWiki header for TESTLIB library 2.0.0 partnered with 8.4.0 (merged).
+````{admonition} MediaWiki header for MOUSE library 1.0.0 partnered with 8.5.0 (merged).
 ```html
-HED library="testlib" version="2.0.0" withStandard="8.4.0"
+HED version="1.0.0" library="mouse" withStandard="8.5.0"
 ```
 ````
 
@@ -88,30 +88,28 @@ There are several significant differences between merged and unmerged partnered 
 
 - In an unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags, and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly under the standard schema node `XXX`.
 
-The following excerpt from an unmerged TESTLIB library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the standard schema.
+The following excerpt from the unmerged MOUSE library schema `1.0.0` in MediaWiki format shows a library schema node (`Fore-limb-part`) rooted to `Body-part` in the standard schema.
 
 ````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
 ```html
                       . . .
-'''Data-mode''' <nowiki>{rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>
-* <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+'''Fore-limb-part''' <nowiki>{rooted=Body-part, hedId=HED_0102006} [A part of the fore-limb.]</nowiki>
+* Manus <nowiki>{hedId=HED_0102007} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
                       . . .
 ```
 ````
 
-In MediaWiki format, the number of asterisks (\*) indicates how deep in the hierarchy that node is. The single `*` in front of the `#` indicates that this element is directly below its top-level ancestor (`'''Data-mode'''`). However, `Data-mode` has the `rooted=Statistical-value` attribute. In the unified tree representation provided by the merged schema, `Data-mode` will be one level below the `Statistical-value` tag of the standard schema, which is three levels below its top-level ancestor (`'''Property'''`):
+In MediaWiki format, the number of asterisks (\*) indicates how deep in the hierarchy that node is. The single `*` in front of `Manus` indicates that this element is directly below its top-level ancestor (`'''Fore-limb-part'''`). However, `Fore-limb-part` has the `rooted=Body-part` attribute. In the unified tree representation provided by the merged schema, `Fore-limb-part` will be one level below the `Body-part` tag of the standard schema, which is three levels below its top-level ancestor (`'''Item'''`):
 
 ````{admonition} When a library is merged with the standard schema, the indentation levels are adjusted.
 ```html
                       . . .
-*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
-                       . . .
-**** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Data-mode <nowiki>{inLibrary=testlib, rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, inLibrary=testlib}</nowiki>
-**** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Body-part <nowiki>{hedId=HED_0012175} [Any part of an organism.]</nowiki>
+**** Fore-limb <nowiki>{rooted=Body-part, hedId=HED_0102005, inLibrary=mouse} [Either of the front pair of limbs in a quadruped.]</nowiki>
+**** Fore-limb-part <nowiki>{rooted=Body-part, hedId=HED_0102006, inLibrary=mouse} [A part of the fore-limb.]</nowiki>
+***** Manus <nowiki>{hedId=HED_0102007, inLibrary=mouse} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
+                      . . .
+**** Head-part <nowiki>{hedId=HED_0013200} [A part of the head.]</nowiki>
                       . . .
 ```
 ````
@@ -120,15 +118,15 @@ Similar differences occur between the merged and unmerged versions in other file
 
 ### 7.3.4. Partnered attributes
 
-To support partnered library schema the following items were introduced in HED standard schema `8.2.0`:
+To support partnered library schema the following items were introduced:
 
-| Name           | Type              | Role                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `withStandard` | Header attribute  | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `unmerged`     | Header attribute  | <ul><li>Its presence indicates that this schema contains only library information.</li><li>Its value is either "true" or "false" (case-insensitive).</li><li>If "false", the attribute should be omitted.</li></ul>                                                                                                                                                                                                                                                                                                                                                                                          |
-| `inLibrary`    | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The attribute appears only in merged schemas.</li><li>An element contributed by more than one library in a merge group carries one `inLibrary` value per contributing library, and the attribute is excluded from element compatibility comparisons.</li></ul>                                                                                                                                                                                                                     |
-| `rooted=XXX`   | Node attribute    | <ul><li>Indicates that this library schema node is to appear directly under<br/> standard schema node `XXX` in the merged schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li></ul>                                                                                                                                                                                                                                                                                                                                                                  |
-| `reserved`     | Node attribute    | <ul><li>Indicates that this node has a specified meaning in the HED ecosystem; see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags).</li><li>**Can only appear in standard schemas.**</li><li>Its use on an element of any library schema is a [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid) error (reason l); in a merged partnered library schema it appears only on the partner's elements, those without the `inLibrary` attribute.</li><li>A library schema MUST NOT define a tag with a reserved name or root a node under a reserved tag (reasons m and n).</li></ul> |
+| Name           | Type              | Role                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `withStandard` | Header attribute  | <ul><li>Indicates that this is a partnered library schema.</li><li>Its value is the version of its standard schema partner.</li></ul>                                                                                                                                                                                                                                                                                                                                                                           |
+| `unmerged`     | Header attribute  | <ul><li>Its presence indicates that this schema contains only library information.</li><li>Its value is either "true" or "false" (case-insensitive).</li><li>If "false", the attribute should be omitted.</li></ul>                                                                                                                                                                                                                                                                                             |
+| `inLibrary`    | Element attribute | <ul><li>Indicates that this element is in the library schema.</li><li>Its value is the library name in lowercase.</li><li>The attribute appears only in merged schemas.</li><li>An element contributed by more than one library in a merge group carries one `inLibrary` value per contributing library, and the attribute is excluded from element compatibility comparisons.</li></ul>                                                                                                                        |
+| `rooted=XXX`   | Node attribute    | <ul><li>Indicates that this library schema node is to appear directly under<br/> standard schema node `XXX` in the merged schema.</li><li>A node with the `rooted` attribute must be<br/>a top-level node in the unmerged schema.</li></ul>                                                                                                                                                                                                                                                                     |
+| `reserved`     | Node attribute    | <ul><li>Indicates that this node has a specified meaning in the HED ecosystem; see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags).</li><li>**Can only appear in standard schemas.**</li><li>Its use on an element of any library schema is an error; in a merged partnered library schema it appears only on the partner's elements, those without the `inLibrary` attribute.</li><li>A library schema MUST NOT define a tag with a reserved name or root a node under a reserved tag.</li></ul> |
 
 ### 7.3.5. Motivation for partners
 
@@ -173,7 +171,7 @@ In the following example, all the library schemas are partnered with standard sc
 
 The full set of rules governing merge groups and partnered combination is given in the rule table of [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations). The subsections below give worked examples of version specifications that load and version specifications that fail, organized by the row groups of that table.
 
-If an incompatible list of schemas is given, a [SCHEMA_LOAD_FAILED](./Appendix_B.md#schema_load_failed) error is generated.
+An incompatible list of schemas cannot be loaded.
 
 ```{admonition} Avoid new auxiliary section entries in library schemas.
 ---
@@ -332,7 +330,7 @@ This is required for HED search generalizability.
 
 Rules 1 through 5 are enforced by validators, while rules 6 through 9 are the responsibility of the schema designers and review committees.
 
-In general, library schema developers should avoid adding schema terms that duplicate those found in the latest HED standard schema at the time of release. For partnered library schemas this is a strict requirement: the unmerged library schema cannot contain a tag that appears in its standard schema partner ([SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); the merged form necessarily contains all of its partner's tags. Library schema developers should also try to avoid overlap of terms found in other schema libraries.
+In general, library schema developers should avoid adding schema terms that duplicate those found in the latest HED standard schema at the time of release. For partnered library schemas this is a strict requirement: the unmerged library schema cannot contain a tag that appears in its standard schema partner; the merged form necessarily contains all of its partner's tags. Library schema developers should also try to avoid overlap of terms found in other schema libraries.
 
 All HED schemas, including library schemas, must use [semantic versions](https://semver.org/) and adhere to the rules specified in [3.1.3. Version updates](./03_HED_formats.md#313-version-updates).
 
@@ -340,7 +338,7 @@ If your application requires schema classes that are not available in the standa
 
 ### 7.4.2. Unpartnered design rules
 
-Normally, a new library schema should be partnered with the latest version of the standard schema. Unpartnered schema creation should be avoided except in rare cases. Unpartnered schemas should copy the `Properties` section of the most recent standard schema, since these properties define the structure of the schema itself. An unpartnered schema must also include the auxiliary sections from the standard HED schema (schema attributes, unit classes, unit modifiers, and value classes) that are needed to support the behavior of its tags; otherwise the schema cannot be validated and used by the tools of the HED ecosystem. No changes should be made to the copied items: HED tools support the auxiliary classes of the standard schema, but in general do not support special handling of added classes beyond basic verification. An unpartnered schema MUST NOT carry the `reserved` attribute and MUST NOT define a tag whose name is a reserved tag of the standard schema (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)); definitions and temporal scope come from a standard schema, either partnered with the library or listed separately in the version specification (see [7.5. Library schemas in BIDS](#75-library-schemas-in-bids)).
+Normally, a new library schema should be partnered with the latest version of the standard schema. Unpartnered schema creation should be avoided except in rare cases. Unpartnered schemas should copy the `Properties` section of the most recent standard schema, since these properties define the structure of the schema itself. An unpartnered schema must also include the auxiliary sections from the standard HED schema (schema attributes, unit classes, unit modifiers, and value classes) that are needed to support the behavior of its tags; otherwise the schema cannot be validated and used by the tools of the HED ecosystem. No changes should be made to the copied items: HED tools support the auxiliary classes of the standard schema, but in general do not support special handling of added classes beyond basic verification. An unpartnered schema MUST NOT carry the `reserved` attribute and MUST NOT define a tag whose name is a reserved tag of the standard schema; definitions and temporal scope come from a standard schema, either partnered with the library or listed separately in the version specification (see [7.5. Library schemas in BIDS](#75-library-schemas-in-bids)).
 
 ### 7.4.3. Partnered design rules
 

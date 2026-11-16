@@ -10,7 +10,7 @@ This section gives information about how the various auxiliary sections of the H
 
 ### A.1.1. Unit classes and units
 
-Unit classes allow annotators to express the units of values in a consistent way. The plurals of the unit names are not explicitly listed, but are allowed (`feet`, `inches`, `seconds`; `hertz` is its own plural), as HED tools use standard pluralize functions to expand the list of allowed units. A `#` placeholder has at most one unit class. The pseudo unit class `anyUnits` (HED `8.5.0`) lists no units; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, and the value converts to the default units of that unit's class when the unit has a `conversionFactor` (see [A.1.4.3. conversionFactor](#a143-conversionfactor)); a value without a unit is valid and has no default unit. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
+Unit classes allow annotators to express the units of values in a consistent way. The plurals of the unit names are not explicitly listed, but are allowed (`feet`, `inches`, `seconds`; `hertz` is its own plural), as HED tools use standard pluralize functions to expand the list of allowed units. A `#` placeholder has at most one unit class. The pseudo unit class `anyUnits` lists no units; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, and the value converts to the default units of that unit's class when the unit has a `conversionFactor` (see [A.1.4.3. conversionFactor](#a143-conversionfactor)); a value without a unit is valid and has no default unit. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
 
 Units corresponding to unit symbols (i.e., have a `unitSymbol` attribute) represent abbreviated versions of units and cannot be pluralized (`mss` and `Hzs` are invalid).
 
@@ -105,7 +105,7 @@ header-rows: 1
   - g*, gram, pound, lb
 ```
 
-The deprecated `degree Celsius` (`deprecatedFrom=8.2.0`) contains a blank and so predates the rule that unit names contain none; it cannot be written in an annotation and stays listed only so that schemas from before `8.3.0` load. Use `degree-Celsius` or `oC`.
+The deprecated `degree Celsius` (`deprecatedFrom=8.2.0`) contains a blank and so predates the rule that unit names contain none; it cannot be written in an annotation. Use `degree-Celsius` or `oC`.
 
 ### A.1.2. Unit modifiers
 
@@ -205,18 +205,18 @@ header-rows: 1
 * - Value class
   - Allowed characters
 * - dateTimeClass
-  - `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, `plus` (standard schema versions >= `8.5.0` and libraries partnered with them; earlier versions declare only the first four, and validators apply the same seven).
+  - `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, `plus`
 * - nameClass
-  - `letters`, `digits`, `hyphen`, `underscore`, `nonascii` (`nonascii` from standard schema `8.3.0`; the released `8.3.0` and `8.4.0` rows omit it, and validators apply it anyway).
+  - `letters`, `digits`, `hyphen`, `underscore`, `nonascii`
 * - numericClass
   - `digits`, `E`, `e`, `plus`, `hyphen`, `period`
 * - posixPath
   - `digits`, `letters`, `slash`, `colon`
 * - textClass
-  - `value-text` for standard schema versions >= `8.5.0` and libraries partnered with them; `text` for earlier versions. The `8.0.0` to `8.2.0` schemas enumerate `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@` (no underscore); validators have always applied `text` there and still do. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
+  - `value-text`. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
 ```
 
-See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same table, keyed by standard schema version, is the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json); from standard schema `8.5.0` a value class's own `allowedCharacter` declaration is what validators apply, and for earlier standard schemas they apply these defaults.
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same table, keyed by standard schema version, is the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json).
 
 ````{admonition} Notes on rules for allowed characters in the HED schema.
 ---
@@ -238,7 +238,7 @@ NWB's `isodatetime` type accepts every value of this format.
 4. The `nameClass` is for schema nodes.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
-7. The `textClass` is for descriptions, mainly for use with the `Description` tag. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
+7. The `textClass` is for descriptions, mainly for use with the `Description` tag. Its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
 8. The `posixPath` class allows digits, letters, forward slash, and colon characters for POSIX path specifications.
 
 ````
@@ -263,11 +263,11 @@ header-rows: 1
 * - [`annotation`](#a142-annotation)
   - element
   - string
-  - Annotation link to an item in another ontology. (Added in version `8.3.0`.)
+  - Annotation link to an item in another ontology.
 * - [`conversionFactor`](#a143-conversionfactor)
   - unit<br/>unit modifier
   - numeric
-  - Multiplicative factor to multiply by to convert to default units. (Added in version `8.1.0`.)
+  - Multiplicative factor to multiply by to convert to default units.
 * - [`defaultUnits`](#a144-defaultunits)
   - unit class
   - unit
@@ -291,7 +291,7 @@ header-rows: 1
 * - [`isPartOf`](#a149-ispartof)
   - node
   - node
-  - This tag is part of the indicated tag. (Added in version `8.3.0`.)
+  - This tag is part of the indicated tag.
 * - [`relatedTag`](#a1410-relatedtag)
   - node
   - node
@@ -367,21 +367,21 @@ The `allowedCharacter` attribute specifies individual characters or character gr
 - `digits` indicates the digits 0-9 may be used in the value.
 - `alphanumeric` indicates both `letters` and `digits`.
 
-A name is a row of the table in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), an alias listed there (`slash` for `forward-slash`), or a single character, which names itself. Any other name is a schema error (SCHEMA_ATTRIBUTE_VALUE_INVALID). From standard schema `8.5.0`, and in library schemas partnered with `8.5.0` or later, the names a value class declares define the characters its values may contain; for earlier standard schemas, whose declarations predate the named sets, validators use the defaults recorded for each standard value class in [`character_sets.json`](_static/character_sets.json).
+A name is a row of the table in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), an alias listed there (`slash` for `forward-slash`), or a single character, which names itself. Any other name is a schema error. The names a value class declares define the characters its values may contain.
 
 For example, the `numericClass` value class includes `allowedCharacter` entries for `digits`, `E`, `e`, `+`, `-`, and `.` to support scientific notation and signed decimal numbers. The union of all `allowedCharacter` values for a value class defines the complete set of permissible characters.
 
 #### A.1.4.2. annotation
 
-The `annotation` attribute attaches a property from an external ontology or vocabulary to a HED schema element. The attribute was added in version `8.3.0`. For standard schemas with versions >= `8.5.0` and library schemas partnered with them (HED specification `4.0.0`), the value has the form `prefix:id value`: `prefix:id` names a row of the External annotations section ([A.1.8. External annotations](#a18-external-annotations)), whose `prefix` is a row of the Prefixes section ([A.1.7. Schema prefixes](#a17-schema-prefixes)), and `value` is that property's value. For example, `rdfs:comment Should have this tag in every event process.` attaches a comment, and `dc:source Wikipedia` cites a source ([A.1.6. Schema sources](#a16-schema-sources) says what a `dc:source` value must name). A link from a schema element to a term in an external ontology uses a SKOS mapping property whose value is the external term in prefix notation: `skos:exactMatch ncit:C25499` states a high degree of confidence that the element and NCI Thesaurus term C25499 can be used interchangeably across a wide range of information retrieval applications, and `skos:closeMatch` that they are similar enough to be used interchangeably in some information retrieval applications. The value of a mapping property must be in prefix notation, and the prefix of the term (`ncit:`) must be a row of the Prefixes section; the term itself is not checked. An element may carry several `annotation` attributes. A value that breaks these rules is a [SCHEMA_ANNOTATION_INVALID](./Appendix_B.md#schema_annotation_invalid) warning. Earlier schemas wrote a bare term such as `ncit:C25499`; files partnered with standard schemas before `8.5.0` keep that form, and tools do not check it.
+The `annotation` attribute attaches a property from an external ontology or vocabulary to a HED schema element. The value has the form `prefix:id value` (HED specification `4.0.0`): `prefix:id` names a row of the External annotations section ([A.1.8. External annotations](#a18-external-annotations)), whose `prefix` is a row of the Prefixes section ([A.1.7. Schema prefixes](#a17-schema-prefixes)), and `value` is that property's value. For example, `rdfs:comment Should have this tag in every event process.` attaches a comment, and `dc:source Wikipedia` cites a source ([A.1.6. Schema sources](#a16-schema-sources) says what a `dc:source` value must name). A link from a schema element to a term in an external ontology uses a SKOS mapping property whose value is the external term in prefix notation: `skos:exactMatch ncit:C25499` states a high degree of confidence that the element and NCI Thesaurus term C25499 can be used interchangeably across a wide range of information retrieval applications, and `skos:closeMatch` that they are similar enough to be used interchangeably in some information retrieval applications. The value of a mapping property must be in prefix notation, and the prefix of the term (`ncit:`) must be a row of the Prefixes section; the term itself is not checked. An element may carry several `annotation` attributes. A value that breaks these rules is reported as a warning.
 
 #### A.1.4.3. conversionFactor
 
-The `conversionFactor` attribute of a unit is the factor by which a value expressed in that unit is multiplied to convert it to the default units of its unit class; the `conversionFactor` of a unit modifier is the factor the modifier contributes. This attribute was added in version `8.1.0` to enable automatic unit conversion in tools and analyses. The attribute value must be a positive numeric value. For example, `minute` has `conversionFactor=60` because 2 minutes x 60 = 120 seconds, the default unit of `timeUnits`. A modifier's factor multiplies the unit's factor: `Duration/300 ms` converts as 300 x 0.001 (`m`) x 1.0 (`s`) = 0.3 s. For compound units the modifier factors are raised to the component exponents; see [3.1.4.5. Unit modifiers](./03_HED_formats.md#3145-unit-modifiers). When a unit has no `conversionFactor` (in HED `8.5.0`: `month`, `year`, `euro`, `point`, `candela`, `cd`), conversion to default units is undefined, and tools MUST NOT treat such a value as already being in default units, except in a unit class none of whose units has a `conversionFactor` (`timeUnits` in standard schema `8.0.0`), where a value in the default unit, under any of its spellings, is taken as is (see [3.2.8.4](./03_HED_formats.md#3284-duration-and-delay)); see [TEMPORAL_TAG_ERROR](./Appendix_B.md#temporal_tag_error) cause n for the consequence in timeline tables. This attribute is particularly useful for units within the same physical dimension but with different scales (e.g., meters, feet, inches).
+The `conversionFactor` attribute of a unit is the factor by which a value expressed in that unit is multiplied to convert it to the default units of its unit class; the `conversionFactor` of a unit modifier is the factor the modifier contributes. This attribute was added to enable automatic unit conversion in tools and analyses. The attribute value must be a positive numeric value. For example, `minute` has `conversionFactor=60` because 2 minutes x 60 = 120 seconds, the default unit of `timeUnits`. A modifier's factor multiplies the unit's factor: `Duration/300 ms` converts as 300 x 0.001 (`m`) x 1.0 (`s`) = 0.3 s. For compound units the modifier factors are raised to the component exponents; see [3.1.4.5. Unit modifiers](./03_HED_formats.md#3145-unit-modifiers). When a unit has no `conversionFactor` (in HED `8.5.0`: `month`, `year`, `euro`, `point`, `candela`, `cd`), conversion to default units is undefined, and tools MUST NOT treat such a value as already being in default units, except in a unit class none of whose units has a `conversionFactor`, where a value in the default unit, under any of its spellings, is taken as is (see [3.2.8.4](./03_HED_formats.md#3284-duration-and-delay)). This attribute is particularly useful for units within the same physical dimension but with different scales (e.g., meters, feet, inches).
 
 #### A.1.4.4. defaultUnits
 
-The `defaultUnits` attribute specifies which unit should be assumed when a value is provided without explicit units for a placeholder that has a `unitClass` attribute. This attribute is applied to unit classes rather than individual tags. For example, the `timeUnits` class has the attribute `defaultUnits=s` (seconds). When a user provides a tag like `Duration/3` without units, tools interpret this as `Duration/3 s` because the `Duration` tag's `#` placeholder has `unitClass=timeUnits`, which has `defaultUnits=s`. This feature improves annotation convenience while maintaining unambiguous interpretation. The `defaultUnits` attribute does not affect the validation of annotation values, but may be used by downstream tools; the attribute value itself is checked during schema validation as described next. The value MAY be a derived form of a listed unit rather than a listed unit: HED `8.5.0` has `defaultUnits=mA` for `currentUnits`, which lists only `ampere` and `A`, and likewise `uV`, `mW`, and `kOhm`; tools resolve such a value with the same modifier rules as annotation units. A value that is neither a listed unit nor a derived form of one is a [SCHEMA_ATTRIBUTE_VALUE_INVALID](./Appendix_B.md#schema_attribute_value_invalid) error, and a deprecated unit MUST NOT be the `defaultUnits` of a non-deprecated unit class ([SCHEMA_DEPRECATION_ERROR](./Appendix_B.md#schema_deprecation_error) cause h).
+The `defaultUnits` attribute specifies which unit should be assumed when a value is provided without explicit units for a placeholder that has a `unitClass` attribute. This attribute is applied to unit classes rather than individual tags. For example, the `timeUnits` class has the attribute `defaultUnits=s` (seconds). When a user provides a tag like `Duration/3` without units, tools interpret this as `Duration/3 s` because the `Duration` tag's `#` placeholder has `unitClass=timeUnits`, which has `defaultUnits=s`. This feature improves annotation convenience while maintaining unambiguous interpretation. The `defaultUnits` attribute does not affect the validation of annotation values, but may be used by downstream tools; the attribute value itself is checked during schema validation as described next. The value MAY be a derived form of a listed unit rather than a listed unit: HED `8.5.0` has `defaultUnits=mA` for `currentUnits`, which lists only `ampere` and `A`, and likewise `uV`, `mW`, and `kOhm`; tools resolve such a value with the same modifier rules as annotation units. A value that is neither a listed unit nor a derived form of one is an error, and a deprecated unit MUST NOT be the `defaultUnits` of a non-deprecated unit class.
 
 #### A.1.4.5. deprecatedFrom
 
@@ -405,11 +405,11 @@ A `hedId` value is the prefix `HED_` followed by a 7 digit integer. The standard
 
 #### A.1.4.8. inLibrary
 
-The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=testlib`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library.
+The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library.
 
 #### A.1.4.9. isPartOf
 
-The `isPartOf` attribute indicates a hierarchical or compositional relationship where the current tag is semantically considered part of another tag. This attribute, added in version `8.3.0`, helps define ontological relationships beyond the structural hierarchy of the schema tree. The value of `isPartOf` must be a valid node in the schema. This relationship can be used by tools for semantic reasoning and for identifying related concepts that may not share a direct parent-child relationship in the schema tree structure.
+The `isPartOf` attribute indicates a hierarchical or compositional relationship where the current tag is semantically considered part of another tag. This attribute helps define ontological relationships beyond the structural hierarchy of the schema tree. The value of `isPartOf` must be a valid node in the schema. This relationship can be used by tools for semantic reasoning and for identifying related concepts that may not share a direct parent-child relationship in the schema tree structure.
 
 #### A.1.4.10. relatedTag
 
@@ -417,11 +417,11 @@ The `relatedTag` attribute specifies a HED tag that is closely related to the cu
 
 #### A.1.4.11. requireChild
 
-The `requireChild` attribute indicates that a tag must have at least one child tag when used in an annotation. This attribute enforces structural requirements to ensure annotations are sufficiently specific. For example, a general category tag with `requireChild` cannot be used alone; users must select a more specific descendant. If a tag with the `requireChild` attribute appears without a child in an annotation, a [TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child) error is generated. This attribute helps maintain annotation quality by preventing overly generic tags from being used when more specific information is required. The `requireChild` attribute is also used for certain tags with placeholder children, such as `Delay`, which are not meaningful without a value.
+The `requireChild` attribute indicates that a tag must have at least one child tag when used in an annotation. This attribute enforces structural requirements to ensure annotations are sufficiently specific. For example, a general category tag with `requireChild` cannot be used alone; users must select a more specific descendant. If a tag with the `requireChild` attribute appears without a child in an annotation, an error is generated. This attribute helps maintain annotation quality by preventing overly generic tags from being used when more specific information is required. The `requireChild` attribute is also used for certain tags with placeholder children, such as `Delay`, which are not meaningful without a value.
 
 #### A.1.4.12. reserved
 
-The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools: `Condition-variable` and `Task` already have defined behavior, and the other reserved tags are expected to have defined behavior in the future. See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag (see [SCHEMA_LIBRARY_INVALID](./Appendix_B.md#schema_library_invalid)). A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names for its version (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)).
+The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools: `Condition-variable` and `Task` already have defined behavior, and the other reserved tags are expected to have defined behavior in the future. See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag. A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names for its version.
 
 #### A.1.4.13. rooted
 
@@ -445,7 +445,7 @@ The `suggestedTag` attribute specifies one or more HED tags that tagging tools m
 
 #### A.1.4.18. tagGroup
 
-The `tagGroup` attribute indicates that a tag must appear within a tag group (enclosed in parentheses) and cannot be used as a standalone tag. This attribute enforces structural requirements for tags that only make sense in association with other tags. For example, temporal offset tags or relational tags might require grouping to establish their context. If a tag with the `tagGroup` attribute appears outside parentheses, a [TAG_GROUP_ERROR](./Appendix_B.md#tag_group_error) error is generated. This attribute ensures proper semantic grouping and prevents tags from being used in isolation when their meaning depends on association.
+The `tagGroup` attribute indicates that a tag must appear within a tag group (enclosed in parentheses) and cannot be used as a standalone tag. This attribute enforces structural requirements for tags that only make sense in association with other tags. For example, temporal offset tags or relational tags might require grouping to establish their context. If a tag with the `tagGroup` attribute appears outside parentheses, an error is generated. This attribute ensures proper semantic grouping and prevents tags from being used in isolation when their meaning depends on association.
 
 #### A.1.4.19. takesValue
 
@@ -453,19 +453,19 @@ The `takesValue` attribute indicates that a node represents a placeholder (`#`) 
 
 #### A.1.4.20. topLevelTagGroup
 
-The `topLevelTagGroup` attribute indicates that a tag must appear in a top-level tag group (not nested within other groups) in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group, except that `Delay` may share a group with `Onset`, `Offset`, `Inset`, or `Duration` (rule 3 of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)). This attribute is typically associated with tags that have special structural meaning, such as `Definition`, `Onset`, `Offset`, `Inset`, and `Event-context`. The restriction to top-level groups ensures these structural elements are properly positioned for tool processing and prevents nested definitions or temporal event structures.
+The `topLevelTagGroup` attribute indicates that a tag must appear in a top-level tag group (not nested within other groups) in an assembled HED annotation. Only one tag with the `topLevelTagGroup` attribute may appear in the same top-level group, except that `Delay` may share a group with `Onset`, `Offset`, `Inset`, or `Duration` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)). This attribute is typically associated with tags that have special structural meaning, such as `Definition`, `Onset`, `Offset`, `Inset`, and `Event-context`. The restriction to top-level groups ensures these structural elements are properly positioned for tool processing and prevents nested definitions or temporal event structures.
 
 #### A.1.4.21. unique
 
-The `unique` attribute indicates that a tag or its descendants can appear only once in a HED string. This constraint is checked after all definitions are expanded and column-based annotations are assembled into a complete event annotation. If a tag with the `unique` attribute appears multiple times, a [TAG_NOT_UNIQUE](./Appendix_B.md#tag_not_unique) error is generated. The `Event-context` is one of the few tags that has the `unique` attribute.
+The `unique` attribute indicates that a tag or its descendants can appear only once in a HED string. This constraint is checked after all definitions are expanded and column-based annotations are assembled into a complete event annotation. If a tag with the `unique` attribute appears multiple times, an error is generated. The `Event-context` is one of the few tags that has the `unique` attribute.
 
 #### A.1.4.22. unitClass
 
-The `unitClass` attribute specifies which unit class the value of a placeholder (`#`) node can belong to. The attribute value must be exactly one valid unit class defined in the schema (e.g., `timeUnits`, `physicalLengthUnits`, `frequencyUnits`); a placeholder MUST NOT have more than one unit class, and a placeholder with a unit class MUST have `valueClass=numericClass` (specification `4.0.0`; checked for standard schemas >= `8.5.0` and libraries partnered with them). The value MAY be the pseudo unit class `anyUnits`, which makes the placeholder accept a unit from any unit class of the schema. When a `unitClass` is specified, the value substituted for the placeholder may include units from that class, and validators will check that any units provided are valid members of the specified unit class. If the replacement value has no units and the unit class has `defaultUnits` defined, tools may assume those default units. The `unitClass` attribute can only be applied to `#` placeholder nodes.
+The `unitClass` attribute specifies which unit class the value of a placeholder (`#`) node can belong to. The attribute value must be exactly one valid unit class defined in the schema (e.g., `timeUnits`, `physicalLengthUnits`, `frequencyUnits`); a placeholder MUST NOT have more than one unit class, and a placeholder with a unit class MUST have `valueClass=numericClass` (specification `4.0.0`). The value MAY be the pseudo unit class `anyUnits`, which makes the placeholder accept a unit from any unit class of the schema. When a `unitClass` is specified, the value substituted for the placeholder may include units from that class, and validators will check that any units provided are valid members of the specified unit class. If the replacement value has no units and the unit class has `defaultUnits` defined, tools may assume those default units. The `unitClass` attribute can only be applied to `#` placeholder nodes.
 
 #### A.1.4.23. unitPrefix
 
-The `unitPrefix` attribute indicates that a unit appears before its corresponding value rather than after it in annotations. Most units in HED appear after their values (e.g., `3 s`, `5 meters`), but certain units like currency symbols conventionally precede values (e.g., `$ 50`). Units with the `unitPrefix` attribute follow this reversed ordering convention. HED parsers recognize these prefix units and handle them appropriately during validation and processing. Even though prefix units appear before values, they are still separated from the value by a single space. The `unitPrefix` attribute and the only unit that carries it, `$`, are deprecated as of HED `8.5.0` (`$` has `deprecatedFrom=8.4.0`) and MUST NOT be used in new schemas; currency is written with the unit name, as in `5 dollars`. Prefix units will be removed in a future major version.
+The `unitPrefix` attribute indicates that a unit appears before its corresponding value rather than after it in annotations. Most units in HED appear after their values (e.g., `3 s`, `5 meters`), but certain units like currency symbols conventionally precede values (e.g., `$ 50`). Units with the `unitPrefix` attribute follow this reversed ordering convention. HED parsers recognize these prefix units and handle them appropriately during validation and processing. Even though prefix units appear before values, they are still separated from the value by a single space. The `unitPrefix` attribute and the only unit that carries it, `$`, are deprecated and MUST NOT be used in new schemas; currency is written with the unit name, as in `5 dollars`. Prefix units will be removed in a future major version.
 
 #### A.1.4.24. unitSymbol
 
@@ -477,9 +477,9 @@ The `valueClass` attribute specifies the type of value that can be substituted f
 
 #### A.1.4.x. Deprecated attributes
 
-In addition to the attributes listed above, some schema attributes have been deprecated and are no longer supported in HED, although they are still present in earlier versions of the schema. The following table lists these.
+In addition to the attributes listed above, some schema attributes have been deprecated and are no longer supported in HED. The following table lists these.
 
-```{list-table} Schema attributes deprecated for versions >= 8.0.0.
+```{list-table} Schema attributes deprecated.
 ---
 widths: 20 15 45
 header-rows: 1
@@ -489,32 +489,32 @@ header-rows: 1
   - Description
 * - `default`
   - node
-  - A default value used if no value is provided. Removed in standard schema version `8.0.0`.
+  - A default value used if no value is provided.
 * - `position`
   - node
-  - Indicates where this tag should appear during display. Removed in standard schema version `8.0.0`.
+  - Indicates where this tag should appear during display.
 * - `predicateType`
   - node
-  - Indicates the relationship of the node to its parent.  Removed standard schema version `8.0.0`.
+  - Indicates the relationship of the node to its parent.
 * - `recommended`
   - node
-  - Event-level HED strings should include this tag.  Removed in standard schema version `8.3.0`.
+  - Event-level HED strings should include this tag.
 * - `required`
   - node
-  - Event-level HED string must include this tag. Removed in standard schema version `8.3.0`.
+  - Event-level HED string must include this tag.
 ```
 
-The `default` attribute was not implemented in existing tools. The attribute is not used in HED-3G. Only the `defaultUnits` for the unit class will be implemented going forward.
+The `default` attribute was not implemented in existing tools. Only the `defaultUnits` for the unit class will be implemented going forward.
 
-The `position` attribute was used to assist annotation tools, which sought to display required and recommended tags before others. The position attribute value is an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position were to be shown after the others in canonical ordering. The tagging strategy of HED versions >= `8.0.0` using decomposition and definitions does not permit this type of ordering. The `position` attribute is not used for HED versions >= `8.0.0`.
+The `position` attribute was used to assist annotation tools, which sought to display required and recommended tags before others. The position attribute value is an integer and the order can start at 0 or 1. Required or recommended tags without this attribute or with negative position were to be shown after the others in canonical ordering. The tagging strategy of HED using decomposition and definitions does not permit this type of ordering. The `position` attribute is not used.
 
-The `predicateType` attribute was introduced in HED-2G to facilitate mapping to OWL or RDF. It was needed because the HED-2G schema had a mixture of children that were properties and subclasses. The possible values of `predicateType` were `propertyOf`, `subclassOf`, or `passThrough` to indicate which role each child node had with respect to its parent. In HED versions >= `8.0.0`, the parent-child relationship MUST be `subclassOf` to allow search generality. The attribute is ignored by tools.
+The `predicateType` attribute was introduced in HED-2G to facilitate mapping to OWL or RDF. It was needed because the HED-2G schema had a mixture of children that were properties and subclasses. The possible values of `predicateType` were `propertyOf`, `subclassOf`, or `passThrough` to indicate which role each child node had with respect to its parent. The parent-child relationship MUST be `subclassOf` to allow search generality. The attribute is ignored by tools.
 
 ### A.1.5. Schema properties
 
 **The schema properties are qualifiers on the domains and ranges of schema attributes.** A property's presence implies the attribute has this property, while its absence implies it does not. Processing of `property` elements is hard-coded into the schema processors. The following is a list of schema attribute properties.
 
-```{list-table} Summary of schema attribute properties for HED Version >= 8.0.0.
+```{list-table} Summary of schema attribute properties.
 ---
 widths: 20 50
 header-rows: 1
@@ -553,9 +553,9 @@ header-rows: 1
   - This schema attribute's value can be a value class.
 ```
 
-Property names ending in `Range` designate the type of value a schema attribute has. Starting with HED standard schema version `8.3.0` the `boolProperty`, which indicates that a schema attribute value can be true or false, was renamed `boolRange`. In addition, `numericRange` and `stringRange` were added, since the `conversionFactor` schema attribute has a numeric value.
+Property names ending in `Range` designate the type of value a schema attribute has.
 
-Property names ending in `Domain` indicate the type of schema element that a schema attribute applies to. Starting with HED standard schema version `8.3.0` the property names `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` were renamed as `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain` to better clarify their role and to facilitate mapping to the HED ontology.
+Property names ending in `Domain` indicate the type of schema element that a schema attribute applies to.
 
 ```{admonition} Format for schema attributes with schema property values.
 ---
@@ -583,7 +583,7 @@ The schema sources section provides references to external resources used during
 
 Schema sources serve as documentation and attribution for the intellectual sources that informed the schema design. For example, the HED standard schema typically includes Wikipedia as a source, since many term descriptions and conceptual definitions are informed by or adapted from Wikipedia definitions. Other sources might include published ontologies, scientific literature, or technical standards documents.
 
-Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation](#a142-annotation)). The value of a `dc:source` annotation names a source when it begins with a row's `source` name, or contains a URL that begins with a row's `link` (compared without the scheme and without a trailing slash); any other text, such as "Adapted from", is free. A `dc:source` value that names no row is a [SCHEMA_ANNOTATION_INVALID](./Appendix_B.md#schema_annotation_invalid) warning. The rows of a partnered library's standard schema count as the library's own. Each source has three required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
+Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation](#a142-annotation)). The value of a `dc:source` annotation names a source when it begins with a row's `source` name, or contains a URL that begins with a row's `link` (compared without the scheme and without a trailing slash); any other text, such as "Adapted from", is free. A `dc:source` value that names no row is reported as a warning. The rows of a partnered library's standard schema count as the library's own. Each source has three required components (an empty component is reported as a warning):
 
 - **`source`**: A short identifier for the source (e.g., "Wikipedia", "NCIT")
 - **`link`**: A URL pointing to the source resource
@@ -591,7 +591,7 @@ Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation]
 
 These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of this section and of the Prefixes and External annotations sections (`source` or `prefix`) as `name`; the other column names are identical in every format.
 
-The schema sources section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 ### A.1.7. Schema prefixes
 
@@ -599,7 +599,7 @@ The schema prefixes section defines namespace prefixes used for linking HED sche
 
 Schema prefixes are essential for the `annotation` schema attribute, which uses prefix notation to create links between HED elements and external ontology terms. For example, the annotation `skos:exactMatch ncit:C25499` uses the `skos:` prefix for the mapping property and the `ncit:` prefix to reference term C25499 in the NCI Thesaurus. Without the prefix definition, tools cannot resolve these references to their full IRIs.
 
-Each prefix entry has three required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
+Each prefix entry has three required components (an empty component is reported as a warning):
 
 - **`prefix`**: The prefix string including the colon separator (e.g., `dc:`, `foaf:`, `rdfs:`)
 - **`namespace`**: The full IRI or URL for the ontology namespace
@@ -607,7 +607,7 @@ Each prefix entry has three required components (an empty component is a [SCHEMA
 
 Common prefixes in HED schemas include Dublin Core (`dc:`), RDF Schema (`rdfs:`), OWL (`owl:`), Friend-of-a-Friend (`foaf:`), and domain-specific ontologies like NCI Thesaurus (`ncit:`) and the Gene Ontology (`obogo:`). The schema prefixes enable HED to participate in the broader linked data ecosystem and support semantic web applications.
 
-The schema prefixes section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. Library schemas may add additional values to this section and they are merged with those of the standard schema.
+The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. Library schemas may add additional values to this section and they are merged with those of the standard schema.
 
 ### A.1.8. External annotations
 
@@ -615,7 +615,7 @@ The external annotations section defines specific annotation properties that can
 
 External annotations extend beyond the HED schema's internal structure to enable rich metadata using standard ontology properties. For example, Dublin Core properties like `dc:creator`, `dc:contributor`, and `dc:date` can be used to document authorship and provenance. Properties from the PROV ontology (`prov:`) support detailed provenance tracking. The Friend-of-a-Friend vocabulary (`foaf:`) enables linking to personal and organizational homepages.
 
-Each external annotation entry has four required components (an empty component is a [SCHEMA_MISSING_EXTRA](./Appendix_B.md#schema_missing_extra) warning):
+Each external annotation entry has four required components (an empty component is reported as a warning):
 
 - **`prefix`**: The prefix identifying the ontology (must match a defined schema prefix)
 - **`id`**: The local identifier for the property within its namespace
@@ -631,7 +631,7 @@ External annotations serve multiple purposes:
 
 The external annotations section works in conjunction with the schema prefixes section. Each annotation must use a prefix that is defined in the schema prefixes section. Tools can use external annotations to generate rich metadata, export schemas to RDF/OWL formats, and integrate HED with broader ontology frameworks.
 
-The external annotations section was added with the release of HED standard schema `8.4.0`. The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 ## A.2. MediaWiki file format
 
@@ -724,26 +724,24 @@ HED version="8.0.0"
 
 The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the [standard_schema/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The versions of the schema that use XSD validation to verify the format (versions `8.0.0` and above) have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes. The `xsi` attribute is required if `xmlns:xsi` is given. The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd) allows validators to check the format of the `.xml` using standard XML validators.
+The versions of the schema that use XSD validation to verify the format have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes. The `xsi` attribute is required if `xmlns:xsi` is given. The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd) allows validators to check the format of the `.xml` using standard XML validators.
 
-The following example shows a sample *header* for `testlib` library schema version `1.0.2` in `.mediawiki` format.
+The following example shows a sample *header* for the unpartnered `score` library schema version `1.0.0` in `.mediawiki` format. Almost all library schemas going forward will be partnered; SCORE `1.0.0` is historical, but it is the only unpartnered library schema that has been released.
 
-````{admonition} **Example:** Sample *header* for testlib library version 1.0.2 in .mediawiki format.
+````{admonition} **Example:** Sample *header* for score library version 1.0.0 in .mediawiki format.
 
 ```moin
-HED library="testlib" version="1.0.2"
+HED library="score" version="1.0.0"
 ```
 ````
 
-The `library` and `version` values are used to form the official filename `HED_testlib_1.0.2.mediawiki`. The file is found in [library_schemas/testlib/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The `library` and `version` values are used to form the official filename `HED_score_1.0.0.mediawiki`. The file is found in [library_schemas/score/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 A warning is generated when unknown header attributes are translated as attributes of the `HED` line during `.mediawiki` file validation.
 
 ### A.2.3. MediaWiki prologue and epilogue
 
 The prologue is an optional paragraph of text appearing after the *header*. The prologue is used by tools for help and display purposes.
-
-Early versions of HED use the prologue section to record a CHANGE_LOG as well as information about the syntax and rules. HED versions >= `8.0.0` include a separate change log file for released versions.
 
 The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
 
@@ -781,9 +779,7 @@ Top node names are enclosed in triple single quotes (e.g., `'''Event'''`), while
 
 The number of asterisks indicates the level of the node in the subtree. The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
 
-Node names in HED versions >= `8.0.0` can only contain alphanumeric characters, hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)). They cannot contain blanks and must be unique.
-
-HED versions < `8.0.0` allow blanks in node names and also have some duplicate node names. Use of HED versions < `8.0.0` is deprecated and validators no longer support their use.
+Node names can only contain alphanumeric characters, hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)). They cannot contain blanks and must be unique.
 
 For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags. The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
 
@@ -812,7 +808,7 @@ The `Duration` tag of this example is at the fifth level below the root (top nod
 
 ### A.2.5. MediaWiki auxiliary sections
 
-After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, the schema attribute definitions, property definitions, and optionally the epilogue, schema sources, schema prefixes, and external annotations sections. The first five sections are required starting with HED version `8.0.0` and must be given in that order. The optional sections (epilogue, sources, prefixes, and external annotations) follow after the properties section.
+After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, the schema attribute definitions, property definitions, and optionally the epilogue, schema sources, schema prefixes, and external annotations sections. The first five sections are required and must be given in that order. The optional sections (epilogue, sources, prefixes, and external annotations) follow after the properties section.
 
 #### A.2.5.1. Unit classes and units
 
@@ -1054,29 +1050,27 @@ The filename corresponding to this example is `HED8.0.0.xml`. The file is found 
 
 Library schemas must include the `library` attribute with the library name in their header line as shown in the following example.
 
-````{admonition} **Example:** Version 1.0.2 of HED testlib library schema in .xml format.
+````{admonition} **Example:** Version 1.0.0 of HED score library schema in .xml format.
 ```xml
-<HED library="testlib" version="1.0.2">
+<HED library="score" version="1.0.0">
 ```
 ````
 
-The `library` and `version` values are used to form the official xml filename `HED_testlib_1.0.2.xml`. The file is found in [library_schemas/testlib/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/testlib/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The `library` and `version` values are used to form the official xml filename `HED_score_1.0.0.xml`. The file is found in [library_schemas/score/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Unknown header attributes are translated as attributes of the `HED` root node of the `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
 
-Library schemas may also be partnered as is `HED_testlib_2.0.0.xml`.
+Library schemas may also be partnered as is `HED_mouse_1.0.0.xml`.
 
-````{admonition} **Example:** Partnered library schema testlib version 2.0.0 in .xml format.
+````{admonition} **Example:** Partnered library schema mouse version 1.0.0 in .xml format.
 ```xml
-<HED library="testlib" version="2.0.0" withStandard="8.2.0">
+<HED version="1.0.0" library="mouse" withStandard="8.5.0">
 ```
 ````
 
 ### A.3.3. XML prologue and epilogue
 
 The `<prologue>...</prologue>` and `<epilogue>...</epilogue>` elements are meant to be treated as opaque as far as schema processing goes.
-
-HED versions < `8.0.0` contained a Change Log for the HED schema in the prologue section as well as some basic documentation of syntax. The epilogue section contained additional metadata to be ignored during processing.
 
 ### A.3.4. XML schema section
 
@@ -1114,8 +1108,6 @@ The `<description>` element has the text contained in the square brackets `[ ]` 
 The optional `<attribute>` elements are derived from the attribute list contained in curly braces `{ }` of the `.mediawiki` specification. An `<attribute>` element has a single non-empty `<name></name>` child element whose text value corresponds to the node-name of attribute in the corresponding `.mediawiki` file. If the attribute does not have the `boolRange` property, then the `<attribute>` element should also have one or more child `<value></value>` elements giving the value(s) of the attribute.
 
 **Example:** The `requireChild` attribute represents a boolean value. In the `.mediawiki` representation this attribute appears as `{requireChild}` if present and is omitted if absent.
-
-The format of the XML attributes was changed with HED versions >= `8.0.0`. Earlier versions of the schema have been deprecated and tools no longer support their validation.
 
 ````{admonition} The requireChild attribute represents a boolean value.
 
@@ -1479,8 +1471,8 @@ Library schemas include a `library` field with the library name:
 ````{admonition} Example JSON header for a library schema.
 ```json
 {
-  "library": "testlib",
-  "version": "1.0.2"
+  "library": "score",
+  "version": "1.0.0"
 }
 ```
 ````
@@ -1490,9 +1482,9 @@ Partnered library schemas also include `withStandard` and optionally `unmerged` 
 ````{admonition} Example JSON header for partnered library schema.
 ```json
 {
-  "library": "testlib",
-  "version": "2.0.0",
-  "withStandard": "8.2.0",
+  "library": "mouse",
+  "version": "1.0.0",
+  "withStandard": "8.5.0",
   "unmerged": "True"
 }
 ```
@@ -1967,7 +1959,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 ## A.6. Reserved tags file
 
-The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and the numbered rules of that section state how the fields are applied. The file is introduced in specification `4.0.0` and applies to all standard schema versions >= `8.0.0`; its `requireValue`, `tagGroup`, and `topLevelTagGroup` fields supply what the `8.0.0` to `8.2.0` schemas lack on `Delay` and `Duration`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, `Inset` from `8.2.0`, with the `topLevelTagGroup` attribute (on `Delay` and `Duration`, from `8.2.0`) and, from `8.2.0`, `reserved`; `Def` and `Def-expand` MUST exist and, from `8.2.0`, carry `reserved` (see [SCHEMA_RESERVED_INVALID](./Appendix_B.md#schema_reserved_invalid)).
+The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and that section states what each column requires of an annotation. The file is introduced in specification `4.0.0`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, with the `topLevelTagGroup` attribute and `reserved`; `Def` and `Def-expand` MUST exist and carry `reserved`.
 
 ### A.6.1. File layout
 
@@ -1989,21 +1981,21 @@ A validator MUST NOT apply a file whose file version major number it does not su
 
 Each entry of `tags` has the fields below. The **Column** is the heading of the corresponding column in the first table of 3.2.8; fields that have the same value in every entry are stated in the sentences around that table instead.
 
-| Field                    | Type               | Column    | Meaning                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------ | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`                   | string             | Tag       | The tag name; equal to the entry's key.                                                                                                                                                                                                                                                                                                                            |
-| `noExtension`            | boolean            | -         | The tag MUST NOT be extended, although it inherits `extensionAllowed` ([3.2.5](./03_HED_formats.md#325-tag-extensions)).                                                                                                                                                                                                                                           |
-| `requireValue`           | boolean            | Value     | The tag MUST have a value. Needed because `Delay` and `Duration` carry the `requireChild` schema attribute only from standard schema `8.3.0`.                                                                                                                                                                                                                      |
-| `tagGroup`               | boolean            | -         | The same as the schema attribute of that name, which the tag carries from `8.2.0`: the tag MUST be in a tag group.                                                                                                                                                                                                                                                 |
-| `topLevelTagGroup`       | boolean            | -         | The same as the schema attribute of that name, which the tag carries from `8.2.0`: the tag MUST be in a top-level tag group.                                                                                                                                                                                                                                       |
-| `requiresDef`            | boolean            | Anchor    | `true`: the group MUST contain exactly one anchor, a `Def` tag or `Def-expand` group. `false`: no anchor at the top level of the group (rule 2).                                                                                                                                                                                                                   |
-| `otherAllowedNonDefTags` | array of tag names | Others    | The only tags, besides the tag itself and its anchor, allowed at the top level of the group.                                                                                                                                                                                                                                                                       |
-| `minNonDefSubgroups`     | integer            | Min       | The minimum number of inner groups in the group, not counting a `Def-expand` anchor group.                                                                                                                                                                                                                                                                         |
-| `maxNonDefSubgroups`     | integer or `null`  | Max       | The maximum number of inner groups, not counting a `Def-expand` anchor group; `null` means no limit.                                                                                                                                                                                                                                                               |
-| `secondaryWith`          | array of tag names | Secondary | Optional. In a group that also holds one of these tags, that tag's entry gives the group rules (`requiresDef`, `otherAllowedNonDefTags`, `minNonDefSubgroups`, `maxNonDefSubgroups`, `allowSpliceInGroup`), and this entry's group rules apply only when its tag is the only one of `tags` in the group; its other fields apply wherever the tag appears (rule 3). |
-| `requiresTimeline`       | boolean            | Timeline  | The tag MUST NOT appear in a table without an `onset` or equivalent column, such as the NWB `TimestampVectorData` column named `timestamp` (rule 4).                                                                                                                                                                                                               |
-| `allowSpliceInGroup`     | boolean            | { }       | `true`: a sidecar column reference (`{column}`) MAY appear in the group, and the rules are checked after substitution. `false`: it MUST NOT (rule 5).                                                                                                                                                                                                              |
-| `ERROR_CODE`             | string             | -         | The error code reported when a rule of the entry is violated (rule 6), except that an extension of the tag is TAG_EXTENSION_INVALID and a missing value TAG_REQUIRES_CHILD; a heading of [Appendix B](./Appendix_B.md).                                                                                                                                            |
+| Field                    | Type               | Column        | Meaning                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------ | ------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                   | string             | Tag           | The tag name; equal to the entry's key.                                                                                                                                                                                                                                                                                                                                                                           |
+| `noExtension`            | boolean            | -             | The tag MUST NOT be extended, although it inherits `extensionAllowed` ([3.2.5](./03_HED_formats.md#325-tag-extensions)).                                                                                                                                                                                                                                                                                          |
+| `requireValue`           | boolean            | Value         | The tag MUST have a value.                                                                                                                                                                                                                                                                                                                                                                                        |
+| `tagGroup`               | boolean            | -             | The same as the schema attribute of that name: the tag MUST be in a tag group.                                                                                                                                                                                                                                                                                                                                    |
+| `topLevelTagGroup`       | boolean            | -             | The same as the schema attribute of that name: the tag MUST be in a top-level tag group.                                                                                                                                                                                                                                                                                                                          |
+| `requiresDef`            | boolean            | Anchor        | `true`: the group MUST contain exactly one anchor, a `Def` tag or `Def-expand` group. `false`: no anchor at the top level of the group.                                                                                                                                                                                                                                                                           |
+| `otherAllowedNonDefTags` | array of tag names | Other tags    | The only tags, besides the tag itself and its anchor, allowed at the top level of the group.                                                                                                                                                                                                                                                                                                                      |
+| `minNonDefSubgroups`     | integer            | Min groups    | The minimum number of inner groups in the group, not counting a `Def-expand` anchor group.                                                                                                                                                                                                                                                                                                                        |
+| `maxNonDefSubgroups`     | integer or `null`  | Max groups    | The maximum number of inner groups, not counting a `Def-expand` anchor group; `null` means no limit.                                                                                                                                                                                                                                                                                                              |
+| `secondaryWith`          | array of tag names | -             | Optional. In a group that also holds one of these tags, that tag's entry gives the group rules (`requiresDef`, `otherAllowedNonDefTags`, `minNonDefSubgroups`, `maxNonDefSubgroups`, `allowSpliceInGroup`), and this entry's group rules apply only when its tag is the only one of `tags` in the group; its other fields apply wherever the tag appears (see the paragraph on `Delay` after the table of 3.2.8). |
+| `requiresTimeline`       | boolean            | Timeline only | The tag MUST NOT appear in a table without an `onset` or equivalent column, such as the NWB `TimestampVectorData` column named `timestamp`.                                                                                                                                                                                                                                                                       |
+| `allowSpliceInGroup`     | boolean            | { } allowed   | `true`: a sidecar column reference (`{column}`) MAY appear in the group, and the rules are checked after substitution. `false`: it MUST NOT.                                                                                                                                                                                                                                                                      |
+| `ERROR_CODE`             | string             | -             | The error code reported by default when a rule of the entry is violated; a heading of [Appendix B](./Appendix_B.md), which gives the violations reported under another code.                                                                                                                                                                                                                                      |
 
 ### A.6.3. Value forms
 
@@ -2072,23 +2064,23 @@ A name in an `allowedCharacter` declaration resolves to a key of `sets`, an alia
 
 `hed_string` has three keys, `forbidden`, `structural`, and `tag_chars`, each an object. Their fields are below.
 
-| Field                 | Object       | Type                                 | Meaning                                                                                                                                      |
-| --------------------- | ------------ | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `forbidden`           | `hed_string` | object                               | The characters that no HED string may contain anywhere, whatever the value class ([CHARACTER_INVALID](./Appendix_B.md#character_invalid) a). |
-| `characters`          | `forbidden`  | array of one-character strings       | The forbidden characters outside `code_ranges`.                                                                                              |
-| `code_ranges`         | `forbidden`  | array of `[low, high]` integer pairs | Inclusive ranges of forbidden code points.                                                                                                   |
-| `regex`               | `forbidden`  | string                               | A regular expression that matches any single forbidden character: the union of `characters` and `code_ranges`.                               |
-| `description`         | `forbidden`  | string                               | Text for human readers.                                                                                                                      |
-| `structural`          | `hed_string` | object                               | The characters that give a HED string its structure; a value may contain one only where its value class allows it.                           |
-| `comma`               | `structural` | one-character string                 | Separates tags and tag groups.                                                                                                               |
-| `group_open`          | `structural` | one-character string                 | Opens a tag group.                                                                                                                           |
-| `group_close`         | `structural` | one-character string                 | Closes a tag group.                                                                                                                          |
-| `column_open`         | `structural` | one-character string                 | Opens a sidecar column reference.                                                                                                            |
-| `column_close`        | `structural` | one-character string                 | Closes a sidecar column reference.                                                                                                           |
-| `placeholder`         | `structural` | one-character string                 | The placeholder that a value replaces.                                                                                                       |
-| `path_separator`      | `structural` | one-character string                 | Separates the nodes of a tag path.                                                                                                           |
-| `namespace_separator` | `structural` | one-character string                 | Separates a library schema prefix from a tag.                                                                                                |
-| `description`         | `structural` | string                               | Text for human readers.                                                                                                                      |
-| `tag_chars`           | `hed_string` | object                               | The characters of a schema node name and of a tag extension.                                                                                 |
-| `sets`                | `tag_chars`  | array of names                       | The names, resolved as in [A.7.3](#a73-names-and-value-class-defaults), whose union is those characters.                                     |
-| `description`         | `tag_chars`  | string                               | Text for human readers.                                                                                                                      |
+| Field                 | Object       | Type                                 | Meaning                                                                                                            |
+| --------------------- | ------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `forbidden`           | `hed_string` | object                               | The characters that no HED string may contain anywhere, whatever the value class.                                  |
+| `characters`          | `forbidden`  | array of one-character strings       | The forbidden characters outside `code_ranges`.                                                                    |
+| `code_ranges`         | `forbidden`  | array of `[low, high]` integer pairs | Inclusive ranges of forbidden code points.                                                                         |
+| `regex`               | `forbidden`  | string                               | A regular expression that matches any single forbidden character: the union of `characters` and `code_ranges`.     |
+| `description`         | `forbidden`  | string                               | Text for human readers.                                                                                            |
+| `structural`          | `hed_string` | object                               | The characters that give a HED string its structure; a value may contain one only where its value class allows it. |
+| `comma`               | `structural` | one-character string                 | Separates tags and tag groups.                                                                                     |
+| `group_open`          | `structural` | one-character string                 | Opens a tag group.                                                                                                 |
+| `group_close`         | `structural` | one-character string                 | Closes a tag group.                                                                                                |
+| `column_open`         | `structural` | one-character string                 | Opens a sidecar column reference.                                                                                  |
+| `column_close`        | `structural` | one-character string                 | Closes a sidecar column reference.                                                                                 |
+| `placeholder`         | `structural` | one-character string                 | The placeholder that a value replaces.                                                                             |
+| `path_separator`      | `structural` | one-character string                 | Separates the nodes of a tag path.                                                                                 |
+| `namespace_separator` | `structural` | one-character string                 | Separates a library schema prefix from a tag.                                                                      |
+| `description`         | `structural` | string                               | Text for human readers.                                                                                            |
+| `tag_chars`           | `hed_string` | object                               | The characters of a schema node name and of a tag extension.                                                       |
+| `sets`                | `tag_chars`  | array of names                       | The names, resolved as in [A.7.3](#a73-names-and-value-class-defaults), whose union is those characters.           |
+| `description`         | `tag_chars`  | string                               | Text for human readers.                                                                                            |

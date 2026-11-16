@@ -6,7 +6,7 @@ HED-compliant tools may assume that it if a HED annotation has been properly val
 
 HED-compliant tools assume that the HED schemas available on the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository are error-free, and that schema errors can only occur due to failure to locate or read a HED schema.
 
-HED schema developers are mainly concerned with errors and inconsistencies in the schema itself. Schemas under development should be validated at all stages of development. See [B.2: Schema validation errors](#b2-schema-validation-errors) for a listing of errors keyed to the HED specification.
+HED schema developers are mainly concerned with errors and inconsistencies in the schema itself. Schemas under development should be validated at all stages of development. See [B.2: Schema validation errors](#b2-schema-validation-errors) for a listing of errors keyed to the HED specification. Rules that a validator applies differently to an earlier schema version are listed in [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 ## B.1. HED validation errors
 
@@ -20,14 +20,13 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 - Tilde (`~`) character. Replace: the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).
 - Double quotes (`"`).
 
-**b.** Curly braces (`{`, `}`) can only appear in a sidecar and indicate a column template, not HED.
+**b.** Curly braces (`{`, `}`) appear in a HED string that is not a sidecar annotation, such as a cell in the `HED` column of a tabular file. Curly braces indicate a column reference in a sidecar and are not HED.
 
 **Notes:**
 
-1. Starting with HED `8.3.0`, HED supports UTF-8 encoding.
-2. Different parts of a HED string have different rules for acceptable characters. For example tag names must satisfy the rules for the HED name class. The values used after tag names depend on the value classes of the tag and the unit classes of the tag.
-3. From standard schema `8.5.0`, and in libraries partnered with `8.5.0` or later, a textClass value containing a parenthesis, number sign, or tilde is CHARACTER_INVALID under the value class. In earlier schemas the value class allows these characters, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde).
-4. The character sets named here and in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) are published as [`character_sets.json`](_static/character_sets.json). A validator reporting this error names the character, its position, and the set it failed.
+1. Different parts of a HED string have different rules for acceptable characters. For example tag names must satisfy the rules for the HED name class. The values used after tag names depend on the value classes of the tag and the unit classes of the tag.
+2. A textClass value containing a parenthesis, number sign, or tilde is CHARACTER_INVALID under the value class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
+3. The character sets named here and in [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) are published as [`character_sets.json`](_static/character_sets.json). A validator reporting this error names the character, its position, and the set it failed.
 
 **See also:**
 
@@ -134,6 +133,8 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 
 **Note:** Partnered library schemas never define schema properties: the `Properties` section of an unmerged partnered library schema is empty and that of a merged partnered library schema is the `Properties` section of its standard schema partner, so conflicts with the standard partner are detected when the schema itself is validated. See reason **j** and **k** of [SCHEMA_LIBRARY_INVALID](#schema_library_invalid).
 
+A version specification that violates any rule of the rule table in [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations) is this error, including an unpartnered library schema that shares its namespace with another schema.
+
 See [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations) for the rule table and [7.3.6. Lazy partnering](./07_Library_schemas.md#736-lazy-partnering) for a description of the merging process.
 
 ### SIDECAR_BRACES_INVALID
@@ -193,6 +194,8 @@ See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requ
 **b.** A HED string begins or ends with a comma (ignoring white space), indicating an empty string.\
 **c.** A tag group is empty (i.e., empty parentheses are not allowed).
 
+**Note:** Some of these errors MAY instead be reported as [COMMA_MISSING](#comma_missing).
+
 See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-groups) for the rules on empty tags and groups.
 
 ### TAG_EXPRESSION_REPEATED
@@ -250,7 +253,8 @@ See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for a discussion of ta
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.** A tag prefix has invalid characters.
+**a.** A tag prefix has invalid characters.\
+**b.** A tag has a namespace prefix that is not defined: no schema in the HED version specification is associated with that namespace.
 
 See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes) and [7. Library schema](./07_Library_schemas.md) for additional information on using multiple schemas in annotation.
 
@@ -263,7 +267,7 @@ See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 ### TAG_REQUIRES_CHILD
 
 **a.** A tag has the `requireChild` schema attribute but does not have a child.\
-**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value. This matters for `Delay` and `Duration` in standard schemas `8.0.0` to `8.2.0`, which do not have `requireChild`.
+**b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value.
 
 See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) for an explanation of the `requireChild` attribute.
 
@@ -284,7 +288,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. In a standard schema whose `timeUnits` carry no `conversionFactor` (`8.0.0`), a value with no unit, or in the default unit written as `s`, `second`, or `seconds`, is not an error; a value in a modified form such as `ms` or in any other unit is. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class.
+**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 
@@ -306,7 +310,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 **b.** A tag value is incompatible with the specified value class.\
 **c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
 **d.** The units are not separated from the value by a single blank. More than one blank (`Duration/3  ms`) MAY instead be reported as [UNITS_INVALID](#units_invalid).\
-**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column.
+**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column. Depending on the order of validation, such a value MAY instead be reported as [UNITS_INVALID](#units_invalid) or [CHARACTER_INVALID](#character_invalid).
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 
@@ -325,7 +329,7 @@ This section is organized by the type of schema format that results in the error
 **c.** A `dc:source` value names no row of the Sources section: it neither begins with a row's `source` name nor contains a URL under a row's `link`.\
 **d.** A value in prefix notation (`prefix:term`) has a prefix that is not a row of the Prefixes section, or the value of a SKOS mapping property (`skos:exactMatch`, `skos:closeMatch`) is not in prefix notation at all (`skos:exactMatch C25499`, `skos:exactMatch https://example.org/C25499`).
 
-The Prefixes, External annotations, and Sources rows of a partnered library's standard schema count as the library's own. Applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them.
+The Prefixes, External annotations, and Sources rows of a partnered library's standard schema count as the library's own. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `annotation` value and [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources) for what a `dc:source` value must name.
 
@@ -334,7 +338,8 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 **a.** An attribute is used in the schema, but is not defined in the schema attribute section.\
 **b.** A schema attribute is applied to the incorrect type (e.g., an element with the unit definition does appear under an appropriate unit class).\
 **c.** A schema attribute is used in an invalid way\
-**d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.
+**d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.\
+**e.** A schema property is used in the schema, but is not defined in the properties section.
 
 | Attribute        | Invalid Usage Location                                    |
 | ---------------- | --------------------------------------------------------- |
@@ -369,7 +374,7 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 | `unitClass`        | Not an existing unit class, more than one, or `valueClass` not `numericClass`.                                                  |
 | `valueClass`       | Not an existing value class.                                                                                                    |
 
-The `valueClass` condition in the `unitClass` row applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them; earlier standard schemas keep placeholders such as `Sampling-rate/#` that have a unit class and no value class (see [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units)).
+For earlier schema versions, where the `valueClass` condition in the `unitClass` row is not checked, see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 #### SCHEMA_CHARACTER_INVALID
 
@@ -396,7 +401,7 @@ Note: tag extensions may contain `nonascii` characters.
 #### SCHEMA_DUPLICATE_NODE
 
 **a.** A schema node name appears in the schema more than once.\
-**b.** In a standard schema with version >= `8.5.0`, or a library schema partnered with one, a unit class lists a unit that is an SI unit modifier applied to another unit of the same class (`uV` beside `V`).\
+**b.** A unit class lists a unit that is an SI unit modifier applied to another unit of the same class (`uV` beside `V`). For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
 **c.** A unit string is derived by two unit classes (an SI unit modifier applied to a unit of each, or a plural) and listed by neither, so it would be ambiguous on a placeholder with `unitClass=anyUnits`. A string listed in one class and derived in another is not an error: the listed unit wins. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
 
 #### SCHEMA_HEADER_INVALID
@@ -430,7 +435,7 @@ See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#
 
 #### SCHEMA_RESERVED_INVALID
 
-**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` (standard schemas >= `8.2.0`) and `topLevelTagGroup` (on `Delay` and `Duration`, standard schemas >= `8.2.0`) for every row, `Inset` existing from `8.2.0`; `reserved` on `Def` and `Def-expand`; and, from `8.3.0`, `reserved` on the ten organizational reserved tags.\
+**a.** A standard schema does not define a tag that `reserved_tags.json` names for its version, or defines it without the attributes the rules rely on: `reserved` and `topLevelTagGroup` for every row; `reserved` on `Def` and `Def-expand`; and `reserved` on the ten organizational reserved tags. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
 **b.** A reserved tag has a child node other than `#`.
 
 See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file) for the file.
@@ -489,3 +494,23 @@ Schema loading errors can occur because the file is inaccessible or is not prope
 Python tools generally raise a `HedFileError` exception when a failure to load the schema occurs. The calling programs are responsible for deciding how to handle such a failure. However, the message associated with the `HedFileError` usually includes the `SCHEMA_LOAD_FAILED` error code.
 
 JavaScript tools in contrast are mainly used for validation of HED annotations in data. These tools are mainly called by the [BIDS](https://bids.neuroimaging.io/) validator. If a **BIDS dataset uses HED**, it must provide a HED version specification in the `dataset_description.json` file. If the HED JavaScript validator cannot load a valid HED schema based on this specification it reports a `SCHEMA_LOAD_FAILED` issue.
+
+## B.3. Differences for earlier schema versions
+
+The rules of this specification are stated for the latest released standard schema, `8.5.0`, and the library schemas partnered with it. This section lists every rule that a validator applies differently to an earlier schema version. A rule not listed here applies unchanged to all schema versions >= `8.0.0`.
+
+**Annotation validation**
+
+- Standard schemas < `8.3.0`: standard schemas mark the reserved tags with the `reserved` attribute only from `8.2.0` (the nine structural tags) and `8.3.0` (all nineteen); `8.0.0` and `8.1.0` carry no such attribute. The term reserved tag and the rules of 3.2.8 apply by tag name in every standard schema version, whether or not the schema marks the tag. See [Reserved tag](./02_Terminology.md#reserved-tag) and [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags).
+- Standard schemas < `8.5.0` and library schemas partnered with them: the `allowedCharacter` names a standard value class declares do not define its characters, because these declarations predate the named sets; validators use the defaults recorded for each standard value class in the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json) (see [A.7.3. Names and value class defaults](./Appendix_A.md#a73-names-and-value-class-defaults)). `dateTimeClass` allows `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, and `plus`, although these versions declare only the first four. `nameClass` allows `letters`, `digits`, `hyphen`, and `underscore`, and `nonascii` from standard schema `8.3.0`, although the released `8.3.0` and `8.4.0` rows omit it. `textClass` values use the `text` character set, not `value-text`; the `8.0.0` to `8.2.0` schemas enumerate `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@` (no underscore), and validators have always applied `text` there and still do. A textClass value containing a parenthesis, number sign, or tilde is therefore not CHARACTER_INVALID under the value class, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde). See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), [A.1.3. Value classes](./Appendix_A.md#a13-value-classes), and [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter).
+- Standard schemas < `8.3.0`: `Delay` and `Duration` do not carry the `requireChild` schema attribute (before `8.3.0`) or the `topLevelTagGroup` schema attribute (before `8.2.0`). The `requireValue`, `tagGroup`, and `topLevelTagGroup` fields of [`reserved_tags.json`](_static/reserved_tags.json) supply what these schemas lack, so the rules of 3.2.8 apply to every standard schema version >= `8.0.0`. A `Delay` or `Duration` tag with no value is TAG_REQUIRES_CHILD (b). See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6.2. Tag fields](./Appendix_A.md#a62-tag-fields).
+- Standard schema `8.0.0`, whose `timeUnits` units carry no `conversionFactor`: in a timeline table, a `Duration` or `Delay` value with no unit, or in the default unit written as its symbol `s` or as its name `second` or `seconds`, is taken as is; a value in a modified form (`ms`) or in any other unit is an error, TEMPORAL_TAG_ERROR (n). See [3.2.8.4. Duration and Delay](./03_HED_formats.md#3284-duration-and-delay).
+
+**Schema validation**
+
+- Standard schemas < `8.5.0` and library schemas partnered with them: a unit class on a placeholder whose value class is not `numericClass`, or that has no value class, is not an error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class), so the `valueClass` condition of the `unitClass` row of SCHEMA_ATTRIBUTE_VALUE_INVALID (a) is not checked. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units) and [A.1.4.22. unitClass](./Appendix_A.md#a1422-unitclass).
+- Standard schemas < `8.5.0` and library schemas partnered with them: a unit class may list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; these schemas remain valid (`8.3.0` and `8.4.0` list `uV`), and SCHEMA_DUPLICATE_NODE (b) is not reported. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
+- Standard schemas < `8.3.0`: the schema properties had other names: `boolProperty` for `boolRange`, and `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` for `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. No error code applies. See [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for the mapping.
+- Standard schemas < `8.5.0` and library schemas partnered with them: the rules of 3.1.4.10 do not apply. For compatibility with files written before these rules, the omission of any of the three extra sections (Sources, Prefixes, External annotations) is not an error, and SCHEMA_SECTION_MISSING is not reported for it. See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+- Standard schemas < `8.5.0` and library schemas partnered with them: an `annotation` value is not required to have the form `prefix:id value`. Earlier schemas wrote a bare term such as `ncit:C25499`; files partnered with standard schemas before `8.5.0` keep that form, and tools do not check it, so SCHEMA_ANNOTATION_INVALID is not reported. See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation).
+- Standard schemas < `8.3.0`: SCHEMA_RESERVED_INVALID (a) requires less. `Inset` must exist only from `8.2.0`; the `reserved` attribute on every row of `tags` and on `Def` and `Def-expand`, and the `topLevelTagGroup` attribute on `Delay` and `Duration`, are required only from `8.2.0`; `reserved` on the ten organizational reserved tags is required only from `8.3.0`. See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file).

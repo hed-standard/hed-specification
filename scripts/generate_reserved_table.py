@@ -190,13 +190,6 @@ def tag_list(names):
     return ", ".join(f"`{t}`" for t in names) or "none"
 
 
-def join_words(items):
-    """Join items as English prose: a, b, and c."""
-    if len(items) <= 2:
-        return " and ".join(items)
-    return ", ".join(items[:-1]) + ", and " + items[-1]
-
-
 def render_table(header, rows):
     """Render a markdown table, aligned the way mdformat aligns it."""
     widths = [max(len(header[i]), *(len(r[i]) for r in rows)) for i in range(len(header))]
@@ -221,12 +214,11 @@ def render_block(data):
                 tag_list(row["otherAllowedNonDefTags"]),
                 str(row["minNonDefSubgroups"]),
                 "no limit" if high is None else str(high),
-                tag_list(row.get("secondaryWith", [])),
                 yes_no(row["requiresTimeline"]),
                 yes_no(row["allowSpliceInGroup"]),
             )
         )
-    header = ("Tag", "Value", "Anchor", "Others", "Min", "Max", "Secondary", "Timeline", "{ }")
+    header = ("Tag", "Value", "Anchor", "Other tags", "Min groups", "Max groups", "Timeline only", "{ } allowed")
     parts = []
     common = []
     if all(r["noExtension"] for r in tags.values()):
@@ -236,19 +228,6 @@ def render_block(data):
     if common:
         parts.append("Every tag in the following table " + " and ".join(common) + ".")
     parts.append(render_table(header, rows))
-    by_code = {}
-    for key, row in tags.items():
-        by_code.setdefault(row["ERROR_CODE"], []).append(f"`{key}`")
-    clauses = [
-        f"[{code}](./Appendix_B.md#{code.lower()}) for {join_words(names)}" for code, names in sorted(by_code.items())
-    ]
-    parts.append(
-        "A violation of a rule in this table is reported as "
-        + join_words(clauses)
-        + ", except that an extension of one of these tags is "
-        + "[TAG_EXTENSION_INVALID](./Appendix_B.md#tag_extension_invalid) and a missing value is "
-        + "[TAG_REQUIRES_CHILD](./Appendix_B.md#tag_requires_child)."
-    )
     forms = data.get("valueForms", {})
     if forms:
         form_rows = [
