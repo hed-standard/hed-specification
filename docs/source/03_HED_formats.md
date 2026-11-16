@@ -647,7 +647,7 @@ A library schema MUST NOT carry the `reserved` attribute on its own elements or 
 **Why the rules are given as a table.** The rules for the structural reserved tags are given as one table, generated from a file, rather than as prose and schema attributes, for three reasons:
 
 - Schema attributes cannot express most of these rules. No attribute says that a group needs a definition as its anchor, how many inner groups it may hold, or which other tags may share it.
-- The attributes that express the rest (`topLevelTagGroup`, `requireChild`) are missing on `Delay` and `Duration` in standard schemas before `8.3.0`, yet the rules apply to every standard schema version >= `8.0.0`.
+- The attributes that express the rest (`topLevelTagGroup`, `requireChild`) are missing on `Delay` and `Duration` in early standard schemas (`topLevelTagGroup` before `8.2.0`, `requireChild` before `8.3.0`), yet the rules apply to every standard schema version >= `8.0.0`.
 - The table is generated from the file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which HED validators load unchanged, so this section and the validators cannot disagree.
 
 Each column of the table is a parameter of that file. This section states what each column requires of an annotation; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and its parameters. The rules are stated from specification `4.0.0`.
