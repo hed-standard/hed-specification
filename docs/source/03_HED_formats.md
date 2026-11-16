@@ -841,12 +841,13 @@ Rule 10 is checked on the sidecar alone. For each annotation with curly braces, 
 - **One referenced column at a time.** Each annotation of that column is substituted for its reference, and every other reference is removed as in rule 3.
 - **No column.** All references are removed.
 
-A substitution with no reference removed gets every check; this happens only when the annotation references a single column. Every other substitution is checked only for repeated expressions, since the annotation may rely on the removed columns being filled. A value column's template is substituted with its `#` unfilled, and a `{HED}` reference is always removed. A column referenced more than once counts as one column.
+A substitution with no reference removed gets every check; this happens only when the annotation references a single column. Every other substitution is checked only for repeated expressions, since the annotation may rely on the removed columns being filled. A value column's template is substituted with its `#` unfilled, and a `{HED}` reference is always removed. Because the values are not known, the number of `#` placeholders is checked on each sidecar entry as written, not on a substitution, and a tag with an unfilled `#` is never counted as repeating another tag. A column referenced more than once counts as one column.
 
 Examples:
 
 - `(Red, {color})` is invalid if any annotation of `color` is `Red`, since it gives `(Red, Red)`, even when no file uses that value.
 - `(Red, {color}), (Red)` and `(Red, {HED}), (Red)` are invalid, since removing the reference leaves `(Red), (Red)`.
+- `(Label/#, {b})`, where the value column `b` is annotated `Label/#`, is valid: the substitution `(Label/#, Label/#)` has two placeholders and two equal tags, but a row with `left` and `right` gives `(Label/left, Label/right)`. A row whose two values are equal fails when it is assembled.
 - `(Duration/#, {stim_desc})` is valid if every annotation of `stim_desc` supplies the inner group. A row whose `stim_desc` is `n/a` fails when it is assembled because `Duration` requires an inner group.
 
 Errors that this check does not find are reported when a row is assembled: those that need two or more referenced columns filled (the repeat in `({color}, {shade})` when both give `Red`), those that depend on a row's values, and those that need the whole row, such as required tags or reserved tags. A validator MAY also check combinations of referenced columns in the sidecar. Rule 10 is stated from specification `4.0.0`.
