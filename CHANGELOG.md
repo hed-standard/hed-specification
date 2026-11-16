@@ -48,7 +48,7 @@ These changes alter what is valid or how validators must report it.
 
 - Four schema formats: MediaWiki, XML, and the new JSON (A.4) and TSV (A.5) formats.
 - New schema sections Sources, Prefixes and External annotations (A.1.6-A.1.8, with subsections in each format). An empty required cell is the SCHEMA_MISSING_EXTRA warning.
-- `annotation` attribute (A.1.4.2): one grammar, `prefix:id value`, where `prefix:id` is a row of External annotations and `prefix` a row of Prefixes; a link to an external ontology term uses a SKOS mapping property (`skos:exactMatch ncit:C25499`). A `dc:source` value must name a row of Sources, by its name or by a URL under its link. A violation is the SCHEMA_ANNOTATION_INVALID warning (a-d). Applies to standard schemas >= `8.5.0` and libraries partnered with them.
+- `annotation` attribute (A.1.4.2): one grammar, `prefix:id value`, where `prefix:id` is a row of External annotations and `prefix` a row of Prefixes; a link to an external ontology term uses a SKOS mapping property (`skos:exactMatch ncit:C25499`). A `dc:source` value must name a row of Sources, by its name or by a URL under its link. A violation is the SCHEMA_ANNOTATION_INVALID warning (a-d). Applies to standard schemas >= `8.5.0`, libraries partnered with them, and unpartnered libraries.
 - `hedId` (A.1.4.7): `HED_` plus seven digits, assigned only at release and never reused; retired identifiers are recorded under `retired_ids` in hed-schemas `library_data.json`.
 - `isPartOf` (A.1.4.9, added in schema `8.3.0`) is documented, and every attribute in A.1.4 now has a description.
 - `allowedCharacter` (A.1.4.1): a name is a row of the 2.2 table, the alias `slash`, or a single character naming itself. From standard schema `8.5.0` and in partnered libraries, the names a value class declares define its characters; older schemas use the recorded defaults.
@@ -58,8 +58,8 @@ These changes alter what is valid or how validators must report it.
 ### Units
 
 - `anyUnits` (`8.5.0`, with `Quantity`): a pseudo unit class whose placeholder accepts a unit from any unit class; a listed unit wins over a derived form (`dB`); a string derived by two classes and listed by none is SCHEMA_DUPLICATE_NODE (c); `anyUnits` may list no units or `defaultUnits` (SCHEMA_ATTRIBUTE_INVALID d).
-- A `#` placeholder has at most one unit class and, when it has one, `valueClass=numericClass` (SCHEMA_ATTRIBUTE_VALUE_INVALID; checked for `8.5.0` and partnered libraries).
-- No unit of a class may be derivable from another unit of the class by an SI modifier (SCHEMA_DUPLICATE_NODE b, `8.5.0` and partnered libraries); `defaultUnits` may be such a derived form (`mA`, `uV`).
+- A `#` placeholder has at most one unit class and, when it has one, `valueClass=numericClass` (SCHEMA_ATTRIBUTE_VALUE_INVALID; checked for `8.5.0`, libraries partnered with it, and unpartnered libraries).
+- No unit of a class may be derivable from another unit of the class by an SI modifier (SCHEMA_DUPLICATE_NODE b, `8.5.0`, libraries partnered with it, and unpartnered libraries); `defaultUnits` may be such a derived form (`mA`, `uV`).
 - `conversionFactor` (A.1.4.3) is the factor by which a value in the unit is multiplied to obtain default units; a unit without one has no defined conversion.
 - The `unitPrefix` attribute and `$` are deprecated as of `8.5.0`. The A.1.1 unit table reflects `8.5.0` (25 unit classes).
 
@@ -84,6 +84,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - SCHEMA_ANNOTATION_INVALID (warning, a-d).
 - SCHEMA_MISSING_EXTRA (warning).
 - SCHEMA_RESERVED_INVALID (a, b).
+- B.3 Differences for earlier schema versions: the schema-version notes are removed from the chapters and appendices, and the rules that a validator applies differently to an earlier standard schema (or a library partnered with one) are collected here.
 
 ### Removed
 
@@ -102,6 +103,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - Chapter 2 adds the terms namespace, namespace prefix, reserved tag, schema element and schema section, and rewrites `Event-context`.
 - Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
 - Chapter 7 was rewritten: unpartnered libraries (7.2), partnered file formats and filenames (7.3.1, 7.3.2), merged versus unmerged files (7.3.3), and rules for designing libraries (7.4); the SCORE `1.0.0` and `1.1.0` examples are marked historical.
+- Examples of library schema headers, rooted nodes and version specifications use SCORE `1.0.0` (unpartnered) and MOUSE `1.0.0` (partnered) instead of TESTLIB, which is removed from hed-schemas.
 - Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 TSV files of the spreadsheet format, including the Sources, Prefixes and External annotations files.
 
 ## Corrections

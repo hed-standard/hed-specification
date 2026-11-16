@@ -14,7 +14,7 @@ A typical example of an experiment using time-marked event annotation is simple 
 
 ## 4.2. Sensory presentations
 
-The target detection experiment described above is an example of a stimulus-response paradigm: perceptually distinct sensory stimuli are presented at precisely recorded times (typically with abrupt onsets) and ensuing and/or preceding precisely-timed changes in the behavioral and physiological data streams are annotated or analyzed. Stimulus onsets (typically) are annotated with the `Sensory-event` tag. Additional tags indicate task role. Separation of what an event is (as designated by a tag from the `Event` subtree) from its task role (as indicated by other descriptive tags) is an important design change that distinguishes HED-3G from earlier versions of HED and enables effective annotation in more complex situations.
+The target detection experiment described above is an example of a stimulus-response paradigm: perceptually distinct sensory stimuli are presented at precisely recorded times (typically with abrupt onsets) and ensuing and/or preceding precisely-timed changes in the behavioral and physiological data streams are annotated or analyzed. Stimulus onsets (typically) are annotated with the `Sensory-event` tag. Additional tags indicate task role. Separation of what an event is (as designated by a tag from the `Event` subtree) from its task role (as indicated by other descriptive tags) is an important design change that enables effective annotation in more complex situations.
 
 A stimulus event can be annotated at different levels of detail. When not needed, fine details can generally be ignored, but once annotated can provide valuable information for later, possibly unanticipated analysis purposes. In a series of examples, we will annotate successively more details about the experiment events. Each example shows both the short form and long form. The elements in the long form that correspond to the short form are shown in bold-face. In addition, the long form includes a `Description` tag, which is omitted from the short-form for readability.
 
@@ -77,7 +77,7 @@ The `Intended-effect` tag is a `Task-effect-evidence` tag that describes the eff
 
 Three other tags in the `Task-effect-evidence` are `Computational-evidence`, `External-evidence`, and `Behavioral-evidence`. In many experiments, a subject indicates that something occurs by performing an action such as pushing the left mouse button for a green triangle and the right button otherwise. When the left-mouse button is pushed, one may conclude that the participant has behaved as though the green triangle appears. If the button push is tagged with `Behavioral-evidence`, automated tools can check whether the intended effect agrees with subject behavior. An example of `External-evidence` is annotation by a speech therapist about whether the participant stuttered in a speech experiment. `Computational-evidence` might be generated from BCI annotation.
 
-HED-3G has more sophisticated methods of specifying the relationships of events and tasks. These require more advanced tagging mechanisms that are discussed later in this document.
+HED has more sophisticated methods of specifying the relationships of events and tasks. These require more advanced tagging mechanisms that are discussed later in this document.
 
 ## 4.4. Agent actions
 

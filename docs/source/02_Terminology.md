@@ -80,7 +80,7 @@ A continuous recording of data from an instrument in a single session without re
 
 ### Reserved tag
 
-A tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine. Standard schemas mark these tags with the `reserved` attribute from version `8.2.0` (the nine structural tags) and `8.3.0` (all nineteen); the term applies by tag name in every standard schema version, including `8.0.0` and `8.1.0`, which carry no such attribute. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
+A tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine. Standard schemas mark these tags with the `reserved` attribute. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
 
 ### Schema element
 
@@ -108,7 +108,7 @@ A contiguous portion of the data recording during which some aspect of the exper
 
 ## 2.2. Character sets and restrictions
 
-Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF-8 characters in various settings. The types of characters referred to in this specification are:
+The types of characters referred to in this specification are:
 
 <!-- character-sets:begin -->
 
@@ -160,8 +160,8 @@ Starting with HED standard schema versions `8.3.0` and above, HED will allow UTF
 
 <!-- character-sets:end -->
 
-`text` is the character set of the prologue, epilogue, and element descriptions of a schema, and of textClass values in standard schemas before `8.5.0`. `value-text` is the textClass character set from standard schema `8.5.0` and in libraries partnered with `8.5.0` or later: the characters a value may contain without changing the structure of the HED string it is substituted into.
+`text` is the character set of the prologue, epilogue, and element descriptions of a schema. `value-text` is the textClass character set: the characters a value may contain without changing the structure of the HED string it is substituted into.
 
-A schema names these sets in its `allowedCharacter` attributes (see [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter)). An `allowedCharacter` name is a name from this table, an alias listed in it, or a single character, which names itself: `allowedCharacter=T` allows `T`, and HED `8.0.0` through `8.2.0` write `allowedCharacter=-` where later versions write `allowedCharacter=hyphen`. The characters that no HED string may contain (listed in [Appendix B](./Appendix_B.md#character_invalid)) are excluded from every value whatever its value class allows.
+A schema names these sets in its `allowedCharacter` attributes (see [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter)). An `allowedCharacter` name is a name from this table, an alias listed in it, or a single character, which names itself: `allowedCharacter=T` allows `T`. The characters that no HED string may contain (listed in [Appendix B](./Appendix_B.md#character_invalid)) are excluded from every value whatever its value class allows.
 
 The table is generated from the machine-readable file [`character_sets.json`](_static/character_sets.json), published with this specification at `https://www.hedtags.org/hed-specification/_static/character_sets.json`. The file gives each set as a regular expression usable from Python and JavaScript, the default character sets of the standard value classes by schema version, and the structural characters of HED strings. Validators are expected to read that file rather than transcribe this table. [A.7. Character sets file](./Appendix_A.md#a7-character-sets-file) defines the file and its fields, including its `specification_version` and `file_version`.

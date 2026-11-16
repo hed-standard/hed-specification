@@ -53,10 +53,10 @@ HED has adopted a strategy that allows multiple compatible library schemas to be
 Merge groups (i.e., namespaces) are defined in the schema version specification not in the schema itself. The schemas listed in the default namespace (no prefix) form one merge group, and each unique prefix in the version specification designates a distinct merge group. For example the following [BIDS](https://bids.neuroimaging.io/index.html) version specification:
 
 ```json
-"HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:testlib_4.0.0"]
+"HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:mouse_1.0.0"]
 ```
 
-indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from testlib must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace designator. This dataset uses two namespaces (default and `bc:`).
+indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from mouse must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace designator. This dataset uses two namespaces (default and `bc:`).
 
 #### 3.1.2.4. Partnered combinations
 
@@ -142,7 +142,7 @@ Regardless of the format, the sections of a valid HED schema must appear in the 
 | Ending line | `!# end hed` | `</HED>` |
 ```
 
-The three extra sections after the epilogue were introduced with HED schema `8.4.0`. A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
+A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
 
 The sections in the `.xml` version must always be terminated by closing `</  >` tokens, whereas the sections of the `.mediawiki` version, which is line-oriented, are terminated when the next section begins (`#!`) or a top tag (`'''`) is encountered.
 
@@ -182,7 +182,7 @@ Each schema node element must be unique.
 
 #### 3.1.4.4. Unit classes and units
 
-A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; in standard schemas with versions >= `8.5.0` and library schemas partnered with them, a unit class on a placeholder with any other value class, or with none, is likewise an error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class). A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor (HED `8.5.0` introduces `anyUnits` and the tag `Quantity` that uses it). A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
+A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; a unit class on a placeholder with any other value class, or with none, is likewise an error. A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor. A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
 Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed (e.g., `feet` in addition to `foot`, `inches` in addition to `inch`; `hertz` is its own plural). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
@@ -195,13 +195,13 @@ Units may be in one of four forms as designated by their unit type attributes:
 | unit that is not an SI unit   | no unit type attribute         |
 | unit symbol is not an SI unit | only `unitSymbol`              |
 
-Units appear after the value in annotations. A unit with the `unitPrefix` attribute appears before its value instead; the only such unit, `$`, and the `unitPrefix` attribute itself are deprecated as of HED `8.5.0` (`$` carries `deprecatedFrom=8.4.0`) and will be removed in a future major version. Currency values are written with the unit name, as in `5 dollars`.
+Units appear after the value in annotations. A unit with the `unitPrefix` attribute appears before its value instead; the only such unit, `$`, and the `unitPrefix` attribute itself are deprecated and will be removed in a future major version. Currency values are written with the unit name, as in `5 dollars`.
 
 If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, an error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
 
-**Unit names and unit symbols are case-sensitive and MUST NOT contain blanks. A unit in an annotation MUST be a unit listed in the schema, the plural of a listed unit name, or a form derived from a listed unit that has the `SIUnit` attribute by prepending an SI unit modifier (for a compound unit, one modifier per component; see [3.1.4.5. Unit modifiers](#3145-unit-modifiers)), with the case of the unit and of the modifier exactly as listed. Only unit names may be pluralized (`feet`, `milliseconds`); unit symbols never may. `Feet`, `Milliseconds`, and `MS` are invalid.** The deprecated unit `degree Celsius`, listed since before this rule, is the one legacy exception: it cannot be written in an annotation, because a blank separates the value from its unit, and it remains listed only so that older schemas load. Before specification version `4.0.0`, unit names were case-insensitive. Unit class names are case-insensitive, but MUST contain only valid `name` characters. Any other character is invalid.
+**Unit names and unit symbols are case-sensitive and MUST NOT contain blanks. A unit in an annotation MUST be a unit listed in the schema, the plural of a listed unit name, or a form derived from a listed unit that has the `SIUnit` attribute by prepending an SI unit modifier (for a compound unit, one modifier per component; see [3.1.4.5. Unit modifiers](#3145-unit-modifiers)), with the case of the unit and of the modifier exactly as listed. Only unit names may be pluralized (`feet`, `milliseconds`); unit symbols never may. `Feet`, `Milliseconds`, and `MS` are invalid.** The deprecated unit `degree Celsius`, listed since before this rule, is the one legacy exception: it cannot be written in an annotation, because a blank separates the value from its unit. Before specification version `4.0.0`, unit names were case-insensitive. Unit class names are case-insensitive, but MUST contain only valid `name` characters. Any other character is invalid.
 
-A unit class MUST NOT list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; such a unit is derived, not listed. For example, `uV` is `u` + `V` and is not listed once `V` has `SIUnit`. This rule applies to standard schemas with versions >= `8.5.0` and to library schemas partnered with them; earlier standard schemas (`8.2.0` through `8.4.0` list `uV`) remain valid. A violation is an error. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for the units of HED `8.5.0`.
+A unit class MUST NOT list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; such a unit is derived, not listed. For example, `uV` is `u` + `V` and is not listed once `V` has `SIUnit`. A violation is an error. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for the units of HED `8.5.0`.
 
 #### 3.1.4.5. Unit modifiers
 
@@ -248,7 +248,7 @@ There are two main types of properties: **domain** properties and **range** prop
 
 Property names ending in `Range` indicate the type of value a schema attribute may have. The range properties are `boolRange`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, and `valueClassRange`. A schema attribute with the `boolRange` property does not take a value: its presence indicates true, and its absence indicates false. The remaining property, `annotationProperty`, marks a schema attribute whose value is not inherited by child nodes.
 
-A schema attribute may have multiple domain properties, indicating that the attribute may appear in multiple sections of the schema, and multiple range properties, indicating that its values may be of several types. Before HED standard schema version `8.3.0` these properties had other names (`boolProperty`, `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty`); see [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for the mapping.
+A schema attribute may have multiple domain properties, indicating that the attribute may appear in multiple sections of the schema, and multiple range properties, indicating that its values may be of several types.
 
 See [A.1.4 Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for information and a listing of schema attributes and their respective properties.
 
@@ -260,11 +260,11 @@ The epilogue may contain `text` characters or `newline`. Any other character is 
 
 #### 3.1.4.10. Sources, prefixes, and external annotations
 
-The Sources, Prefixes, and External annotations sections (the *extra sections* of [Chapter 2: Terminology](./02_Terminology.md#schema-section)) were introduced in HED schema `8.4.0`. The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas with versions >= `8.5.0` and to library schemas partnered with those standard schemas.
+The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas and to partnered library schemas.
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
 
-Schema validation requires all three sections in a standard schema with version >= `8.5.0` and in a library schema partnered with such a standard schema; if one is missing, it reports an error. For compatibility with files written before this rule, the omission of any of the three sections from any other schema (a standard schema with version < `8.5.0`, a library schema partnered with such a standard schema, or an unpartnered library schema) is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
+Schema validation requires all three sections in a standard schema and in a partnered library schema; if one is missing, it reports an error. For compatibility with files written before this rule, the omission of any of the three sections from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
 
 Each of these sections is a table of rows with fixed columns:
 
@@ -487,7 +487,7 @@ Users must provide the version of the HED schema they are using when creating an
 
 ### 3.2.1. Vocabulary organization
 
-HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED standard schema versions >= `8.0.0` these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtrees represent distinct **is-a** relationships for the vocabulary schema.
+HED (Hierarchical Event Descriptors) are nodes (tag terms) organized hierarchically under their respective root or **top nodes**. In HED standard schemas these top nodes are: `Event`, `Agent`, `Action`, `Item`, `Property`, and `Relation`. Each top node and its subtrees represent distinct **is-a** relationships for the vocabulary schema.
 
 The `Event` subtree tags indicate the general event category, such as whether it is a sensory event, an agent action, a data feature, or an event indicating experiment control or structure.
 
@@ -511,7 +511,7 @@ A **HED tag** is a term in the HED vocabulary identified by a path consisting of
 
 Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes.
 
-An important requirement of third generation HED (versions >= `8.0.0`) is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
+An important requirement is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
 
 The full path version is referred to as **long form**, and the version with only the final tag element (excluding placeholder) is called **short form**.
 
@@ -569,16 +569,16 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
 5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in an events file or a sidecar alike.
-6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is an error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (standard schema versions >= `8.3.0`; see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
+6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is an error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
 
 **Note:** The is-a relationship is not checked by validators.
 It is needed so that term search works correctly.
 
 ```
 
-Rule 6 is stated from specification `4.0.0`; validators apply it for all standard schema versions >= `8.0.0`.
+Rule 6 is stated from specification `4.0.0`.
 
-A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah` and `Event-context/Blah` are errors. A `#` after a reserved tag that takes no value (`Onset/#`) is also an error in every context. These rules are stated from specification `4.0.0`; validators apply them for all standard schema versions >= `8.0.0`.
+A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be extended, although it inherits `extensionAllowed` from `Property`: `Onset/Blah` and `Event-context/Blah` are errors. A `#` after a reserved tag that takes no value (`Onset/#`) is also an error in every context. These rules are stated from specification `4.0.0`.
 
 **Examples:** `Item` and `Property` inherit `extensionAllowed`; `Age` has a `#` child.
 
@@ -587,7 +587,7 @@ A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be exte
 - `Item/Blech/Red` is an error: `Red` is already a node in the schema (rule 1).
 - `Item/Blech/3` and `Item/1-2` are errors: the term has no letter (rule 6).
 - `Item/Blech/#`, `Item/#`, and `Item/Blech/#/Foo` are errors: `#` cannot be an extension (rule 5).
-- `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is an error because the value of `Age` must be numeric (standard schema versions >= `8.1.0`).
+- `Age/3` is the tag `Age` with the value `3`, not an extension: `Age` has a `#` child, so any child of `Age` is a value (see [3.2.4. Tags that take values](#324-tags-that-take-values)). For the same reason `Age/Blech` is not an extension: `Blech` is a value of `Age`, and is an error because the value of `Age` must be numeric.
 
 Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. No warning is issued for an extension that does not follow the convention.
 
@@ -638,16 +638,15 @@ Duplicated tag expressions at the same level in a HED tag group or HED string ar
 
 ### 3.2.8. Reserved tags
 
-A **reserved tag** is one of the nineteen tags that standard schemas >= `8.3.0` mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). The term and the rules of this section apply by tag name in every standard schema version, including `8.0.0` and `8.1.0`, whose schemas carry no `reserved` attribute. Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
+A **reserved tag** is one of the nineteen tags that standard schemas mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
 
 The other reserved tags (`Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
 
 A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name; a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names for its version.
 
-**Why the rules are given as a table.** The rules for the structural reserved tags are given as one table, generated from a file, rather than as prose and schema attributes, for three reasons:
+**Why the rules are given as a table.** The rules for the structural reserved tags are given as one table, generated from a file, rather than as prose and schema attributes, for two reasons:
 
 - Schema attributes cannot express most of these rules. No attribute says that a group needs a definition as its anchor, how many inner groups it may hold, or which other tags may share it.
-- The attributes that express the rest (`topLevelTagGroup`, `requireChild`) are missing on `Delay` and `Duration` in early standard schemas (`topLevelTagGroup` before `8.2.0`, `requireChild` before `8.3.0`), yet the rules apply to every standard schema version >= `8.0.0`.
 - The table is generated from the file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which HED validators load unchanged, so this section and the validators cannot disagree.
 
 Each column of the table is a parameter of that file. This section states what each column requires of an annotation; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and its parameters. The rules are stated from specification `4.0.0`.
@@ -732,7 +731,7 @@ See [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-
 
 A `Duration` group represents an event that begins at the time of the row's event marker and lasts for the given time; the other tags of the group describe the event. A `Delay` group represents an event that begins at the row's time plus the given delay; if the group also contains `Duration`, the event lasts for that time, otherwise it is a point event. A `Delay` in an `Onset`, `Offset`, or `Inset` group places that marker at the row's time plus the delay. The start or end time computed this way need not coincide with any event marker in the file; tools compute it during analysis and may insert markers.
 
-The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a standard schema whose `timeUnits` units carry no `conversionFactor` (`8.0.0`), a value with no unit, or in the default unit written as its symbol `s` or as its name `second` or `seconds`, is taken as is; a value in a modified form (`ms`) or in any other unit is an error. In a descriptor table, `Duration` MAY use any unit of its unit class.
+The value of `Duration` and `Delay` is a number, optionally followed by a unit of the `timeUnits` unit class; without a unit, the class's default unit (`s`) applies, so `Duration/3` means `Duration/3 s` (see [A.1.4.4](./Appendix_A.md#a144-defaultunits)). In a sidecar the value may be a `#` placeholder for such a value. In a timeline table (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)) the value is placed on the timeline represented by the table, so its unit, given or default, MUST have a `conversionFactor` in the schema; `month` and `year` have none. In a descriptor table, `Duration` MAY use any unit of its unit class.
 
 See [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and [5.3.4. Using Delay](./05_Advanced_annotation.md#534-using-delay) for examples.
 
@@ -808,7 +807,7 @@ If the placeholder is followed by a unit designator, the validator checks that t
 
 #### 3.2.9.3. Sidecar curly braces
 
-The curly brace notation is new with HED specification version `3.2.0` and is supported by all versions of the HED schema >= `8.0.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different event file columns when the complete HED annotation for an event marker is assembled.
+The curly brace notation is new with HED specification version `3.2.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different event file columns when the complete HED annotation for an event marker is assembled.
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
@@ -962,9 +961,9 @@ Definitions may not appear in the `HED` column of a tabular file or in any entry
 
 After individual HED tags and HED strings in the `HED` column of tabular files and in the associated sidecars are validated or otherwise processed, the HED strings associated with each row of the tabular file must be assembled to provide an overall annotation for the row. We refer to this as *event-level* or *row* processing.
 
-If the HED schema used for processing contains a schema node that has the `required` attribute, then the assembled HED annotations for each row must include that tag. Currently, HED schema versions >= `8.0.0` do not contain any nodes with the `required` attribute, and this attribute may be deprecated in future versions of the schema.
+If the HED schema used for processing contains a schema node that has the `required` attribute, then the assembled HED annotations for each row must include that tag.
 
-If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute for HED schema versions >= `8.0.0`.
+If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute.
 
 ```{Admonition} General procedure for event-level (row) assembly.
 
@@ -1008,7 +1007,7 @@ For more examples of event assembly, see [How HED works in BIDS](https://www.hed
 
 #### 3.2.10.4. Table-level processing
 
-HED versions >= `8.0.0` allow annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
+HED allows annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
 
 To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
 

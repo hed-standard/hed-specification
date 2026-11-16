@@ -68,7 +68,7 @@ HED definitions should only appear in sidecars in dummy entries or in an accompa
 
 Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) allow users to provide HED tags in multiple places. For example, the tables in BIDS dataset event files often use local codes to identify event markers and then provide dictionaries called JSON sidecars to map local codes to annotations.
 
-The introduction of definitions and temporal scope for HED versions >= `8.0.0` has added additional complexity to validation and processing. Instead of being able to validate the HED string for each event individually, HED validators must now also check consistency across all events in the data-recording.
+The introduction of definitions and temporal scope has added additional complexity to validation and processing. Instead of being able to validate the HED string for each event individually, HED validators must now also check consistency across all events in the data-recording.
 
 Tools should make explicit whether they support temporal scope. Tools that support temporal scope should be able to add scoped event information to the `Event-context` tag group of the intermediate events upon request.
 

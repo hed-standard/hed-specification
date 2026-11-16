@@ -36,7 +36,7 @@ HED schema files (including library schema files) can be represented in one of 4
 
 **MediaWiki** format has one line per tag, is relatively easy to read, and clearly displays the hierarchy structure for human readers. Many developers work in this format after the tag vocabulary has been established.
 
-**TSV** is a multi-file format (13 TSV files for schema versions >= `8.4.0`) that represents each type of element in a spreadsheet. Developers often use TSV format in the initial development of a library vocabulary, because they only need to focus on the `_Tags.tsv` spreadsheet which contains the library tags. Most of the other TSV files will be empty or fixed after the initial setup.
+**TSV** is a multi-file format (13 TSV files) that represents each type of element in a spreadsheet. Developers often use TSV format in the initial development of a library vocabulary, because they only need to focus on the `_Tags.tsv` spreadsheet which contains the library tags. Most of the other TSV files will be empty or fixed after the initial setup.
 
 **XML** is hard to read, so humans almost never use this format directly, but instead, convert XML to MediaWiki or TSV. XML is easily parsed by tools and is the standard format for tools in the HED ecosystem.
 
@@ -57,9 +57,9 @@ Whether a schema file represents a partnered or unpartnered schema can ONLY be d
 
 The following example shows the header for the `.mediawiki` form of a partnered library schema.
 
-````{admonition} MediaWiki header for TESTLIB library 2.0.0 partnered with 8.4.0 (merged).
+````{admonition} MediaWiki header for MOUSE library 1.0.0 partnered with 8.5.0 (merged).
 ```html
-HED library="testlib" version="2.0.0" withStandard="8.4.0"
+HED version="1.0.0" library="mouse" withStandard="8.5.0"
 ```
 ````
 
@@ -88,30 +88,28 @@ There are several significant differences between merged and unmerged partnered 
 
 - In an unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags, and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly under the standard schema node `XXX`.
 
-The following excerpt from an unmerged TESTLIB library schema in MediaWiki format shows a library schema node (`Data-mode`) rooted to `Statistical-value` in the standard schema.
+The following excerpt from the unmerged MOUSE library schema `1.0.0` in MediaWiki format shows a library schema node (`Fore-limb-part`) rooted to `Body-part` in the standard schema.
 
 ````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
 ```html
                       . . .
-'''Data-mode''' <nowiki>{rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>
-* <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+'''Fore-limb-part''' <nowiki>{rooted=Body-part, hedId=HED_0102006} [A part of the fore-limb.]</nowiki>
+* Manus <nowiki>{hedId=HED_0102007} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
                       . . .
 ```
 ````
 
-In MediaWiki format, the number of asterisks (\*) indicates how deep in the hierarchy that node is. The single `*` in front of the `#` indicates that this element is directly below its top-level ancestor (`'''Data-mode'''`). However, `Data-mode` has the `rooted=Statistical-value` attribute. In the unified tree representation provided by the merged schema, `Data-mode` will be one level below the `Statistical-value` tag of the standard schema, which is three levels below its top-level ancestor (`'''Property'''`):
+In MediaWiki format, the number of asterisks (\*) indicates how deep in the hierarchy that node is. The single `*` in front of `Manus` indicates that this element is directly below its top-level ancestor (`'''Fore-limb-part'''`). However, `Fore-limb-part` has the `rooted=Body-part` attribute. In the unified tree representation provided by the merged schema, `Fore-limb-part` will be one level below the `Body-part` tag of the standard schema, which is three levels below its top-level ancestor (`'''Item'''`):
 
 ````{admonition} When a library is merged with the standard schema, the indentation levels are adjusted.
 ```html
                       . . .
-*** Statistical-value <nowiki>{extensionAllowed}[A value based on or employing the principles of statistics.]</nowiki>
-                       . . .
-**** Data-minimum <nowiki>[The smallest possible quantity.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
-**** Data-mode <nowiki>{inLibrary=testlib, rooted=Statistical-value}[A value that occurs most often in data.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass, inLibrary=testlib}</nowiki>
-**** Probability <nowiki> [A measure of the expectation of the occurrence of a particular event.]</nowiki>
-***** <nowiki># {takesValue, valueClass=numericClass}</nowiki>
+*** Body-part <nowiki>{hedId=HED_0012175} [Any part of an organism.]</nowiki>
+**** Fore-limb <nowiki>{rooted=Body-part, hedId=HED_0102005, inLibrary=mouse} [Either of the front pair of limbs in a quadruped.]</nowiki>
+**** Fore-limb-part <nowiki>{rooted=Body-part, hedId=HED_0102006, inLibrary=mouse} [A part of the fore-limb.]</nowiki>
+***** Manus <nowiki>{hedId=HED_0102007, inLibrary=mouse} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
+                      . . .
+**** Head-part <nowiki>{hedId=HED_0013200} [A part of the head.]</nowiki>
                       . . .
 ```
 ````
@@ -120,7 +118,7 @@ Similar differences occur between the merged and unmerged versions in other file
 
 ### 7.3.4. Partnered attributes
 
-To support partnered library schema the following items were introduced in HED standard schema `8.2.0`:
+To support partnered library schema the following items were introduced:
 
 | Name           | Type              | Role                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | -------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
