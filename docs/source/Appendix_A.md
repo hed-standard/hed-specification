@@ -216,7 +216,7 @@ header-rows: 1
   - `value-text`. See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions).
 ```
 
-See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same table, keyed by standard schema version, is the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json).
+See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for the definitions of the character sets. The same values, with the earlier ones for older standard schemas, are the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json).
 
 ````{admonition} Notes on rules for allowed characters in the HED schema.
 ---
@@ -421,7 +421,7 @@ The `requireChild` attribute indicates that a tag must have at least one child t
 
 #### A.1.4.12. reserved
 
-The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools: `Condition-variable` and `Task` already have defined behavior, and the other reserved tags are expected to have defined behavior in the future. See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag. A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names for its version.
+The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools: `Condition-variable` and `Task` already have defined behavior, and the other reserved tags are expected to have defined behavior in the future. See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag. A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names.
 
 #### A.1.4.13. rooted
 
@@ -528,7 +528,7 @@ header-rows: 1
 * - `elementDomain`
   - This schema attribute can apply to any type<br/>of element (tag term, unit class, etc).<br/>This property was formerly named `elementProperty`.
 * - `isInheritedProperty`
-  - **Deprecated from `8.2.0`** in favor of `annotationProperty`.<br/>This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.
+  - **Deprecated** in favor of `annotationProperty`.<br/>This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.
 * - `tagDomain`
   - This schema attribute can apply to node (tag-term) elements.<br/>This was added so attributes could apply to multiple types of elements.<br/>This property was formerly named `nodeProperty`.
 * - `tagRange`
@@ -2048,7 +2048,7 @@ A name in an `allowedCharacter` declaration resolves to a key of `sets`, an alia
 | `from`             | entry of `value_class_defaults` | string `X.Y.Z` | The first standard schema version to which the entry applies.                                                                                                                    |
 | `sets`             | entry of `value_class_defaults` | array of names | The names, each resolved as above, whose union is the characters of the value class.                                                                                             |
 
-`value_class_defaults` is keyed by standard value class (`dateTimeClass`, `nameClass`, `numericClass`, `posixPath`, `textClass`). Each value is an array of entries in increasing order of `from`. For a standard schema version before `declaration_wins_from.standard_version`, a validator applies the last entry whose `from` is less than or equal to that version. These entries are the table of [A.1.3. Value classes](#a13-value-classes).
+`value_class_defaults` is keyed by standard value class (`dateTimeClass`, `nameClass`, `numericClass`, `posixPath`, `textClass`). Each value is an array of entries in increasing order of `from`. For a standard schema version before `declaration_wins_from.standard_version`, a validator applies the last entry whose `from` is less than or equal to that version. The last entry of each class is the table of [A.1.3. Value classes](#a13-value-classes); the earlier entries are described in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions).
 
 ### A.7.4. Value class words
 
