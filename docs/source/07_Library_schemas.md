@@ -55,14 +55,6 @@ class: warning
 Whether a schema file represents a partnered or unpartnered schema can ONLY be determined by the schema header not by the filename. If the `withStandard` attribute is present in the schema header, it is partnered. If the `withStandard` is absent it is unpartnered.
 ```
 
-The following example shows the header for the `.mediawiki` form of a partnered library schema.
-
-````{admonition} MediaWiki header for MOUSE library 1.0.0 partnered with 8.5.0 (merged).
-```html
-HED version="1.0.0" library="mouse" withStandard="8.5.0"
-```
-````
-
 ```{admonition} Library schema filenames don't show merge status.
 ---
 class: warning
@@ -80,41 +72,15 @@ There are several significant differences between merged and unmerged partnered 
 
 - An unmerged schema **must** have prologue and epilogue sections that appropriately explain the purpose of the library schema. The contents of these prologue and epilogue sections become the prologue and epilogue, respectively, in the merged schema. The prologue and epilogue of the standard schema are omitted in the merged schema.
 
-- With the exception of the prologue and epilogue sections, the merged form of library schema `xxx` has the `inLibrary=xxx` attribute on every schema element that is in the library and on every row that the library contributes to the extra sections (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). Here `xxx` is the name of the library. The unmerged form has no `inLibrary` attributes. The `inLibrary` attribute is added or removed automatically when a schema file is written depending on whether the output is being written in merged or unmerged format.
+- With the exception of the prologue and epilogue sections, the merged form of library schema `xxx` has the `inLibrary=xxx` attribute on every schema element that is in the library and on every row that the library contributes to the extra sections (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). Here `xxx` is the name of the library. The unmerged form has no `inLibrary` attributes. The `inLibrary` attribute is added or removed automatically when a schema file is written depending on whether the output is being written in merged or unmerged format.
 
 - The schema properties section of an unmerged library schema should always be empty except for its section header. The properties section of a merged schema will have only the standard schema properties.
 
-- An unmerged schema should only include content in the auxiliary sections (unit classes, units, unit modifiers, value classes, and schema attributes) and the extra sections (Sources, Prefixes, and External annotations) that it explicitly extends. Otherwise, the section is present and empty except for its section header in that format. A tool writing the schema includes every section; see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) for the cases where schema validation accepts a file that omits the extra sections. The merged version will have all of the section values from both the library schema and its partner.
+- An unmerged schema should only include content in the auxiliary sections (unit classes, units, unit modifiers, value classes, and schema attributes) and the extra sections (Sources, Prefixes, and External annotations) that it explicitly extends. Otherwise, the section is present and empty except for its section header in that format. A tool writing the schema includes every section (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The merged version will have all of the section values from both the library schema and its partner.
 
 - In an unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags, and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly under the standard schema node `XXX`.
 
-The following excerpt from the unmerged MOUSE library schema `1.0.0` in MediaWiki format shows a library schema node (`Fore-limb-part`) rooted to `Body-part` in the standard schema.
-
-````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
-```html
-                      . . .
-'''Fore-limb-part''' <nowiki>{rooted=Body-part, hedId=HED_0102006} [A part of the fore-limb.]</nowiki>
-* Manus <nowiki>{hedId=HED_0102007} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
-                      . . .
-```
-````
-
-In MediaWiki format, the number of asterisks (\*) indicates how deep in the hierarchy that node is. The single `*` in front of `Manus` indicates that this element is directly below its top-level ancestor (`'''Fore-limb-part'''`). However, `Fore-limb-part` has the `rooted=Body-part` attribute. In the unified tree representation provided by the merged schema, `Fore-limb-part` will be one level below the `Body-part` tag of the standard schema, which is three levels below its top-level ancestor (`'''Item'''`):
-
-````{admonition} When a library is merged with the standard schema, the indentation levels are adjusted.
-```html
-                      . . .
-*** Body-part <nowiki>{hedId=HED_0012175} [Any part of an organism.]</nowiki>
-**** Fore-limb <nowiki>{rooted=Body-part, hedId=HED_0102005, inLibrary=mouse} [Either of the front pair of limbs in a quadruped.]</nowiki>
-**** Fore-limb-part <nowiki>{rooted=Body-part, hedId=HED_0102006, inLibrary=mouse} [A part of the fore-limb.]</nowiki>
-***** Manus <nowiki>{hedId=HED_0102007, inLibrary=mouse} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
-                      . . .
-**** Head-part <nowiki>{hedId=HED_0013200} [A part of the head.]</nowiki>
-                      . . .
-```
-````
-
-Similar differences occur between the merged and unmerged versions in other file formats.
+[A.2.4. MediaWiki schema section](./Appendix_A.md#a24-mediawiki-schema-section) shows a rooted node of the MOUSE library schema in unmerged and in merged form.
 
 ### 7.3.4. Partnered attributes
 

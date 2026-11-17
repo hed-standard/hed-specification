@@ -428,7 +428,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 
 **a.** A row of the Sources, Prefixes, or External annotations section has an empty value in a required column.
 
-See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) for the columns of each section.
+See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for the columns of each section.
 
 #### SCHEMA_RESERVED_INVALID
 
@@ -440,9 +440,9 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 #### SCHEMA_SECTION_MISSING
 
 **a.** A required schema section is missing.\
-**b.** The schema sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes, schema attributes, properties, epilogue, and, when present, sources, prefixes, and external annotations) are not in the correct order and hence not detected.
+**b.** The schema sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes, schema attributes, properties, epilogue, sources, prefixes, and external annotations) are not in the correct order and hence not detected.
 
-**Note:** The conditions under which schema validation requires the sources, prefixes, and external annotations sections are given in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+**Note:** The sources, prefixes, and external annotations sections are required in every schema; a schema without them can still be loaded (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)).
 
 #### SCHEMA_VERSION_INVALID
 
@@ -509,7 +509,6 @@ The rules of this specification are stated for the latest released standard sche
 - Standard schemas < `8.5.0` and library schemas partnered with them: a unit class on a placeholder whose value class is not `numericClass`, or that has no value class, is not an error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class), so the `valueClass` condition of the `unitClass` row of SCHEMA_ATTRIBUTE_VALUE_INVALID (a) is not checked. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units) and [A.1.4.22. unitClass](./Appendix_A.md#a1422-unitclass).
 - Standard schemas < `8.5.0` and library schemas partnered with them: a unit class may list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; these schemas remain valid (`8.3.0` and `8.4.0` list `uV`), and SCHEMA_DUPLICATE_NODE (b) is not reported. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
 - Standard schemas < `8.3.0`: the schema properties had other names: `boolProperty` for `boolRange`, and `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` for `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. No error code applies. See [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for the mapping.
-- Standard schemas < `8.5.0` and library schemas partnered with them: the rules of 3.1.4.10 do not apply. For compatibility with files written before these rules, the omission of any of the three extra sections (Sources, Prefixes, External annotations) is not an error, and SCHEMA_SECTION_MISSING is not reported for it. See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 - Standard schemas < `8.5.0` and library schemas partnered with them: an `annotation` value is not required to have the form `prefix:id value`. Earlier schemas wrote a bare term such as `ncit:C25499`; files partnered with standard schemas before `8.5.0` keep that form, and tools do not check it, so SCHEMA_ANNOTATION_INVALID is not reported. See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation).
 - Standard schemas < `8.3.0`: SCHEMA_RESERVED_INVALID (a) requires less. `Inset` must exist only from `8.2.0`; the `reserved` attribute on every row of `tags` and on `Def` and `Def-expand`, and the `topLevelTagGroup` attribute on `Delay` and `Duration`, are required only from `8.2.0`; `reserved` on the ten organizational reserved tags is required only from `8.3.0`. See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file).
 

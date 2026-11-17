@@ -93,31 +93,9 @@ The prefixes on column names have the following meanings:
 
 Users may add additional columns corresponding to annotation properties from the Dublin Core or the RDF schema (e.g., `dc:comment`) and the HED ontology framework will include them in the ontology. However, these columns do not impact the HED schema.
 
-#### 8.1.4.4. Spreadsheet \<--> MediaWiki
+HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and can use tools to update the representations; [A.5. TSV file format](./Appendix_A.md#a5-tsv-file-format) describes the columns of each file. Users may NOT assign or modify the `hedId`. When creating a new entity such as a tag, leave the `hedId` column blank. If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. Tools will assign and validate the `hedId` during the update process.
 
-Each non-blank line in a HED MediaWiki file corresponds to a single HED entity such as a HED tag. Similarly, each row in a HED spreadsheet file corresponds to a single HED entity. The fields of the HED MediaWiki format have a specific mapping to columns in a HED spreadsheet as illustrated in the following example:
-
-![hed mediawiki to spreadsheet](_static/images/HEDSpreadsheetMediawiki.png)
-
-Note: The information about a single tag in the MediaWiki file must be on a single line, but the above diagram has formatted the information so that it will fit within image boundaries.
-
-The mapping of the spreadsheet row and column values to a line in the MediaWiki is further explained in the following table:
-
-| Spreadsheet<br/>column |     Row value     | MediaWiki format                                                                                                           |
-| ---------------------- | :---------------: | -------------------------------------------------------------------------------------------------------------------------- |
-| **hedId**              |       *xxx*       | {hedId=*xxx*, ... other attributes in comma separated list}                                                                |
-| **rdfs:label**         |       *yyy*       | The tag's unique name is *yyy*.                                                                                            |
-| **Level**              |         0         | This row corresponds to a top-level HED tag. **EX:** `'''tag'''`.                                                          |
-| **Level**              |        *n*        | For level *n* > 0, *n* asterisks appear in front of `tag`.<br/>Example: `* tag` when *n* = 1. **EX:** `** tag` when *n*=2. |
-| **omn:SubClassOf**     |       *zzz*       | The tag's parent tag in the HED hierarchy is *zzz*.                                                                        |
-| **Attributes**         | *uuu*, *vvv*, ... | List appearing in curly braces: {hedId=*xxx*, *uuu*, *vvv*, ...}                                                           |
-| **dc:description**     |       *www*       | The contents of the square braces: \[*www*\].                                                                              |
-
-Note: Attributes that have boolean values are true if the attribute is present and false if absent. Non-boolean attributes are specified using "attribute-name=value".
-
-HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and can use tools to update the representations. Users may NOT assign or modify the `hedId`. When creating a new entity such as a tag, leave the `hedId` column blank. If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. Tools will assign and validate the `hedId` during the update process.
-
-#### 8.1.4.5. Tag spreadsheet \<--> Ontology
+#### 8.1.4.4. Tag spreadsheet \<--> Ontology
 
 HED spreadsheets have been expanded to include additional columns to capture all the information contained in the HED ontology as illustrated in the following example. Notice that while the spreadsheet always refers to the entities by name (e.g., `rdfs:label`), the ontology uses the `hedId`.
 
@@ -211,66 +189,13 @@ header-rows: 1
 
 The HED schema hierarchy is captured by subclassing in the HED ontology. Top-level tag nodes in the HED schema are direct subclasses of the `HedTag` class (`hed:HED_0000005`). A descendant of a top-level tag node is a direct subclass of its parent tag node in the HED schema. The ontology subclass relationship enforces the HED requirement that each tag in the HED schema must satisfy the **is-a** relationship with its parent in the HED schema.
 
-The examples of this section use the `Action` tag and its child `Communicate` to illustrate how subclassing is represented in the various HED formats.
+The example of this section uses the `Action` tag and its child `Communicate` to illustrate how subclassing is represented in the ontology.
 
-#### 8.2.2.1. MediaWiki tag format
-
-The **MediaWiki** representation uses ordering and asterisks to mark parentage relationships. In other words, the HED MediaWiki schema tree is given in depth-first search order. The parent of a tag prefixed by *X* asterisks is the closest tag above it that has *X-1* asterisks. Top level tags are enclosed by three quotes and have no parent within the schema (i.e., *X* = 0).
-
-For the example, the `Action` tag is a top-level tag (enclosed in a set of three quotes). The `Communicate` tag is a child (subclass) of `Action`.
-
-````{admonition} **Example** HED MediaWiki representation of subclasses.
-
-```text
-'''Action''' <nowiki>{extensionAllowed, hedId=HED_0012016}[Do something.]</nowiki>
-* Communicate <nowiki>{hedId=HED_0012017}[Action conveying knowledge of or about something.]</nowiki>
-```
-
-In this example `Action` is level 0 (top-level) and `Communicate` is level 1.
-MediaWiki uses ordering to determine subclasses.
-Since `Action` is the closest preceding tag whose level is one less than
-that of `Communicate`, so `Action` is the parent tag of `Communicate`.
-
-````
-
-The tag's schema attributes are enclosed in curly braces, and the tag's description is enclosed in square brackets.
-
-#### 8.2.2.2. XML tag format
-
-The **XML** representation of a HED tag uses nesting to indicate hierarchical relationships in the HED schema. For HED tags (nodes) the nesting indicates subclassing. For other schema elements such as unit classes and units, nesting indicates organizational grouping rather than subclasses.
-
-````{admonition} **Example** HED XML representation of subclasses.
-
-```xml
-<node>
-   <name>Action</name>
-   <description>Do something.</description>
-   <attribute>
-      <name>extensionAllowed</name>
-   </attribute>
-   <attribute>
-      <name>hedId</name>
-      <value>HED_0012016</value>
-   </attribute>
-   <node>
-      <name>Communicate</name>
-      <description>Action conveying knowledge of or about something.</description>
-      <attribute>
-         <name>hedId</name>
-         <value>HED_0012017</value>
-      </attribute>
-   </node>
-</node>
-```
-`Communicate` tag is a subclass (**is-a**) of `Action` because
-its `<node></node>` definition is nested within the  `<node></node>` definition of `Action`.
-````
-
-#### 8.2.2.3. OWL format for HED classes
+#### 8.2.2.1. OWL format for HED classes
 
 We use the [OWL Manchester syntax](https://www.w3.org/TR/owl2-manchester-syntax/) for the examples in this specification document because of readability. The HED ontology is also distributed in OWL/RDF format.
 
-The following example illustrates the syntax for the HED mapping. HED schema elements (tags, unit classes, unit modifiers, units, and value classes) are mapped to OWL classes. Every element has a unique `hedId`, which is represented as an OWL `AnnotationProperty`. The `rdfs:label` annotation value is the name of the element as it appears in the HED schema. The `dc:description` annotation value is the description of the element as it appears in square brackets in the MediaWiki version of the schema.
+The following example illustrates the syntax for the HED mapping. HED schema elements (tags, unit classes, unit modifiers, units, and value classes) are mapped to OWL classes. Every element has a unique `hedId`, which is represented as an OWL `AnnotationProperty`. The `rdfs:label` annotation value is the name of the element as it appears in the HED schema. The `dc:description` annotation value is the description of the element in the HED schema.
 
 ````{admonition} **Example** HED Manchester OWL syntax.
 
@@ -376,49 +301,7 @@ The following table lists schema attributes with their types (A=`AnnotationPrope
 | `unitSymbol`           | D    | `unitDomain`                                                 | `boolRange`       |                                           |
 | `valueClass`           | O    | `tagDomain`                                                  | `valueClassRange` |                                           |
 
-#### 8.2.3.4. MediaWiki attribute format
-
-In the MediaWiki format, schema attributes appear in the `Schema Attributes` section of the schema.
-
-````{admonition} **Example** HED MediaWiki representation of a schema attribute.
-
-```text
-* extensionAllowed <nowiki>{hedId=HED_0010307,tagDomain, boolRange}[Users can add unlimited levels of child nodes
-                            under this tag. This tag is propagated to child nodes except for
-                            hashtag placeholders.]</nowiki>
-```
-Note: this example has line breaks added to fit on the page. Each element in MediaWiki must appear on one line.
-````
-
-The `extensionAllowed` attribute has a unique `hedId` value `HED_0010307`. The `tagDomain` attribute indicates that `extensionAllowed` is only a schema attribute of HED tags. The `boolRange` attribute indicates that `extensionAllowed` is true if present and false if absent.
-
-#### 8.2.3.5. XML attribute format
-
-Schema attribute definitions are nested in the `<schemaAttributeDefinitions>` section of the schema's XML file. The format of an individual schema attribute is shown here.
-
-````{admonition} **Example** HED XML representation of a schema attribute.
-
-```xml
-<schemaAttributeDefinition>
-   <name>extensionAllowed</name>
-   <description>Users can add unlimited levels of child nodes under this tag.
-                This tag is propagated to child nodes except hashtag placeholders.
-  </description>
-  <property>
-      <name>hedId</name>
-      <value>HED_0010307</value>
-   </property>
-   <property>
-       <name>tagDomain</name>
-   </property>
-   <property>
-       <name>boolRange</name>
-   </property>
-</schemaAttributeDefinition>
-```
-````
-
-#### 8.2.3.6. OWL format for attributes.
+#### 8.2.3.4. OWL format for attributes
 
 The Manchester Owl syntax for schema attributes is similar to that of classes above. The following example shows the OWL definition for the HED `extensionAllowed dataProperty`:
 

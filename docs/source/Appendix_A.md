@@ -405,7 +405,7 @@ A `hedId` value is the prefix `HED_` followed by a 7 digit integer. The standard
 
 #### A.1.4.8. inLibrary
 
-The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library. The attribute also marks the rows that a library contributes to the Sources, Prefixes, and External annotations sections of a merged schema (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)).
+The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library. The attribute also marks the rows that a library contributes to the Sources, Prefixes, and External annotations sections of a merged schema (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)).
 
 #### A.1.4.9. isPartOf
 
@@ -589,7 +589,7 @@ Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation]
 - **`link`**: A URL pointing to the source resource
 - **`description`**: A brief explanation of how the source was used or its relevance
 
-The names that each file format gives these components, the rules for writing the section, and the conditions under which schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+The section is required in every schema (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The names that each file format gives these components are in [A.2.5.7. Schema sources](#a257-schema-sources) (MediaWiki), [A.3.5.7. Schema sources](#a357-schema-sources) (XML), [A.4.5.6. Schema sources](#a456-schema-sources) (JSON), and [A.5.11.1. Sources file](#a5111-sources-file) (TSV).
 
 ### A.1.7. Schema prefixes
 
@@ -605,7 +605,7 @@ Each prefix entry has three required components (an empty component is reported 
 
 Common prefixes in HED schemas include Dublin Core (`dc:`), RDF Schema (`rdfs:`), OWL (`owl:`), Friend-of-a-Friend (`foaf:`), and domain-specific ontologies like NCI Thesaurus (`ncit:`) and the Gene Ontology (`obogo:`). The schema prefixes enable HED to participate in the broader linked data ecosystem and support semantic web applications.
 
-The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. A library schema may add rows of its own to this section; that section also says how they are combined with the rows of its standard schema partner.
+The section is required in every schema (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The prefixes are used in `annotation` attribute values. A library schema may add rows of its own to this section; [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged) says how they are combined with the rows of its standard schema partner.
 
 ### A.1.8. External annotations
 
@@ -629,11 +629,11 @@ External annotations serve multiple purposes:
 
 The external annotations section works in conjunction with the schema prefixes section. Each annotation must use a prefix that is defined in the schema prefixes section. Tools can use external annotations to generate rich metadata, export schemas to RDF/OWL formats, and integrate HED with broader ontology frameworks.
 
-The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+The section is required in every schema (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)).
 
 ## A.2. MediaWiki file format
 
-The rules for creating a valid `.mediawiki` specification of a HED schema are given below. The format is line-oriented, meaning that all information about an individual entity should be on a single line. Empty lines and lines containing only blanks are ignored.
+[MediaWiki](https://www.mediawiki.org/wiki/Cheatsheet) is a markdown-like format that was selected as the HED schema editing format because of its flexibility and ability to represent nested or hierarchical relationships. The rules for creating a valid `.mediawiki` specification of a HED schema are given below. The format is line-oriented, meaning that all information about an individual entity should be on a single line. Empty lines and lines containing only blanks are ignored.
 
 ### A.2.1. Overall file layout
 
@@ -672,6 +672,59 @@ Every section in this layout is present in every file. A section with no entries
 !# end hed
 ```
 ````
+
+The format has no closing markers: a section ends where the next section separator (`!#`) or the next section header in triple single quotes (`'''`) begins.
+
+The following example shows a small but complete HED schema in `.mediawiki` format.
+
+````{admonition} **Example:** Example HED schema in .mediawiki format.
+
+```moin
+HED version="8.4.0"
+
+'''Prologue'''
+This prologue introduces the schema.
+
+!# start schema
+'''Event''' <nowiki>[Something that happens at a given place and time.]</nowiki>
+* Sensory-event <nowiki>{suggestedTag=Task-event-role,suggestedTag=Sensory-presentation}[Something perceivable by an agent.]</nowiki>
+                              . . .
+'''Property'''<nowiki>{extensionAllowed}[A characteristic.]</nowiki>
+* Informational-property <nowiki>[A quality pertaining to information.]</nowiki>
+** Label <nowiki>[A string of 20 or fewer characters.]</nowiki>
+*** <nowiki># {takesValue}</nowiki>
+!# end schema
+
+'''Unit classes''' <nowiki>[Unit classes and units for the nodes.]</nowiki>
+                        . . .
+'''Unit modifiers''' <nowiki>[Unit multiples and submultiples.]</nowiki>
+                       . . .
+'''Value classes''' <nowiki>[Rules for the values provided by users.]</nowiki>
+                       . . .
+'''Schema attributes''' <nowiki>[Allowed node attributes.]</nowiki>
+* extensionAllowed <nowiki>{boolRange}[Attribute indicating that users can add child nodes.]</nowiki>
+* suggestedTag <nowiki>[Attribute indicating another tag that is often associated with this tag.]</nowiki>
+* takesValue <nowiki>{boolRange}[Attribute indicating a placeholder to be replaced by a user-defined value.] </nowiki>
+                        . . .
+'''Properties''' <nowiki>[Properties of the schema attributes.]</nowiki>
+* boolRange <nowiki>[Indicates that a schema attribute's value can be true or false.]</nowiki>
+                        . . .
+'''Epilogue'''
+This epilogue is a place for notes and is ignored in HED processing.
+
+'''Sources'''
+'''Prefixes'''
+'''External annotations'''
+!# end hed
+```
+
+````
+
+In the above example, `Property` in the `schema` section is a top node because it appears enclosed by three single quotes, while `Informational-property` is a first-level node because its defining line begins with a single asterisk (`*`).
+
+`Sensory-event` in the `schema` section has a `suggestedTag` attribute (shown in curly braces). Similarly, `Property` has an `extensionAllowed` attribute, and the `#` placeholder has a `takesValue` attribute. The `schema attributes` section must include definitions of `suggestedTag`, `extensionAllowed` and `takesValue` or the schema will not validate.
+
+The definition of the `takesValue` attribute has `boolRange`, so a definition of `boolRange` must be included in the `Properties` section or the schema will not validate.
 
 ### A.2.2. MediaWiki header
 
@@ -777,6 +830,8 @@ Top node names are enclosed in triple single quotes (e.g., `'''Event'''`), while
 
 The number of asterisks indicates the level of the node in the subtree. The attributes are in curly braces (`{ }`) and the description is in square brackets (`[ ]`).
 
+A schema attribute that has the `boolRange` property appears as its name alone; its presence indicates that it is true. Any other schema attribute is written as a `name=value` pair. An attribute that has several values is written as several `name=value` pairs. The entries within the curly braces are separated by commas.
+
 Node names can only contain alphanumeric characters, hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)). They cannot contain blanks and must be unique.
 
 For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags. The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
@@ -803,6 +858,32 @@ For top nodes and normal nodes, everything after the node name must be contained
 ````
 
 The `Duration` tag of this example is at the fifth level below the root (top node) of its subtree. The tag: `Property/Data-property/Data-value/Spatiotemporal-value/Temporal-value/Duration` is the long form. The placeholder in the example is the node directly below `Duration` in the hierarchy.
+
+In an unmerged partnered library schema, a node with the `rooted` attribute is a top node; in the merged schema it is placed directly under the standard schema node that the attribute names, so the number of asterisks of the node and of its descendants changes. The following excerpt from the unmerged MOUSE library schema `1.0.0` shows a library schema node (`Fore-limb-part`) rooted to `Body-part` in the standard schema.
+
+````{admonition} Example of a rooted node in an unmerged schema in MediaWiki format.
+```moin
+                      . . .
+'''Fore-limb-part''' <nowiki>{rooted=Body-part, hedId=HED_0102006} [A part of the fore-limb.]</nowiki>
+* Manus <nowiki>{hedId=HED_0102007} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
+                      . . .
+```
+````
+
+The single `*` in front of `Manus` indicates that this element is directly below its top-level ancestor (`'''Fore-limb-part'''`). In the merged schema, `Fore-limb-part` is one level below the `Body-part` tag of the standard schema, which is three levels below its top-level ancestor (`'''Item'''`):
+
+````{admonition} When a library is merged with the standard schema, the indentation levels are adjusted.
+```moin
+                      . . .
+*** Body-part <nowiki>{hedId=HED_0012175} [Any part of an organism.]</nowiki>
+**** Fore-limb <nowiki>{rooted=Body-part, hedId=HED_0102005, inLibrary=mouse} [Either of the front pair of limbs in a quadruped.]</nowiki>
+**** Fore-limb-part <nowiki>{rooted=Body-part, hedId=HED_0102006, inLibrary=mouse} [A part of the fore-limb.]</nowiki>
+***** Manus <nowiki>{hedId=HED_0102007, inLibrary=mouse} [The distal segment of the fore-limb, homologous to the hand.]</nowiki>
+                      . . .
+**** Head-part <nowiki>{hedId=HED_0013200} [A part of the head.]</nowiki>
+                      . . .
+```
+````
 
 ### A.2.5. MediaWiki auxiliary sections
 
@@ -914,7 +995,7 @@ Each source entry has three required components:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
-In a merged library schema, a row contributed by the library begins with the attribute block `{inLibrary=xxx}`, with `xxx` the library name, followed by a blank and the name-value pairs (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The rows of the standard schema partner have no attribute block.
+In a merged library schema, a row contributed by the library begins with the attribute block `{inLibrary=xxx}`, with `xxx` the library name, followed by a blank and the name-value pairs (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). The rows of the standard schema partner have no attribute block.
 
 ````{admonition} **Example:** Source contributed by the lang library in a merged .mediawiki schema.
 
@@ -968,7 +1049,7 @@ A row contributed by a library is marked in a merged schema as in [A.2.5.7. Sche
 
 ## A.3. XML file format
 
-This section describes details of the XML schema format.
+This section describes details of the XML schema format. The `.xml` format directly mirrors the order and information in the `.mediawiki` version of the schema.
 
 ### A.3.1. XML file layout
 
@@ -1042,6 +1123,88 @@ Every element in this layout is present in every file. A section with no entries
 <schemaSources/>
 <schemaPrefixes/>
 <externalAnnotations/>
+</HED>
+```
+````
+
+The following is the example schema of [A.2.1. Overall file layout](#a21-overall-file-layout) in XML format.
+
+````{admonition} **Example:** XML version of the example schema of A.2.1.
+
+```xml
+<?xml version="1.0" ?>
+<HED version="8.4.0">
+    <prologue>This prologue introduces the schema.</prologue>
+    <schema>
+        <node>
+           <name>Event</name>
+           <description>Something that happens at a given place and time.</description>
+           <node>
+               <name>Sensory-event</name>
+               <description>Something perceivable by an agent.</description>
+               <attribute>
+                   <name>suggestedTag</name>
+                   <value>Task-event-role</value>
+                   <value>Sensory-presentation</value>
+               </attribute>
+           </node>
+        </node>
+                         . . .
+        <node>
+            <name>Property</name>
+            <description>A characteristic.</description>
+            <attribute>
+                <name>extensionAllowed</name>
+            </attribute>
+            <node>
+                <name>Informational-property</name>
+                <description>A quality pertaining to information.</description>
+                <node>
+                    <name>Label</name>
+                    <description>A string of 20 or fewer characters.</description>
+                    <node>
+                        <name>#</name>
+                        <attribute>
+                            <name>takesValue</name>
+                        </attribute>
+                    </node>
+                </node>
+            </node>
+        </node>
+    </schema>
+    <unitClassDefinitions></unitClassDefinitions>
+    <unitModifierDefinitions></unitModifierDefinitions>
+    <valueClassDefinitions></valueClassDefinitions>
+    <schemaAttributeDefinitions>
+        <schemaAttributeDefinition>
+            <name>extensionAllowed</name>
+            <description>Attribute indicating that users can add child nodes.</description>
+            <property>
+                <name>boolRange</name>
+            </property>
+        </schemaAttributeDefinition>
+        <schemaAttributeDefinition>
+            <name>suggestedTag</name>
+            <description>Attribute indicating another tag that is often associated with this tag.</description>
+        </schemaAttributeDefinition>
+        <schemaAttributeDefinition>
+            <name>takesValue</name>
+            <description>Attribute indicating a placeholder to be replaced by a user-defined value.</description>
+            <property>
+                <name>boolRange</name>
+            </property>
+        </schemaAttributeDefinition>
+    </schemaAttributeDefinitions>
+    <propertyDefinitions>
+        <propertyDefinition>
+             <name>boolRange</name>
+             <description>Indicates that a schema attribute's value can be true or false.</description>
+        </propertyDefinition>
+    </propertyDefinitions>
+    <epilogue>This epilogue is a place for notes and is ignored in HED processing.</epilogue>
+    <schemaSources/>
+    <schemaPrefixes/>
+    <externalAnnotations/>
 </HED>
 ```
 ````
@@ -1356,7 +1519,7 @@ Each `<schemaSource>` element has three required child elements:
 - `<link>`: A URL pointing to the source resource
 - `<description>`: A brief explanation of the source's relevance
 
-In a merged library schema, a `<schemaSource>` element contributed by the library has one more child, an `<attribute>` element for `inLibrary` in the form used for the attributes of a `<node>` (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The elements of the standard schema partner do not have it.
+In a merged library schema, a `<schemaSource>` element contributed by the library has one more child, an `<attribute>` element for `inLibrary` in the form used for the attributes of a `<node>` (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). The elements of the standard schema partner do not have it.
 
 ````{admonition} **Example:** XML source contributed by the lang library in a merged schema.
 ```xml
@@ -1714,7 +1877,7 @@ Each source object has three required properties:
 - `link`: A URL pointing to the source resource
 - `description`: A brief explanation of the source's relevance
 
-In a merged library schema, a source object contributed by the library has one more property, `inLibrary`, whose value is the library name (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The objects of the standard schema partner do not have it.
+In a merged library schema, a source object contributed by the library has one more property, `inLibrary`, whose value is the library name (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). The objects of the standard schema partner do not have it.
 
 ````{admonition} Example JSON source contributed by the lang library in a merged schema.
 ```json
@@ -1993,7 +2156,7 @@ Each row has three required columns:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
-The file also has an `Attributes` column, between `link` and `description`. Its cell is empty except in a merged library schema, where a row contributed by the library has `inLibrary=xxx`, with `xxx` the library name (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). In the merged `lang` library schema `1.2.0`, for example, the `GOLD` row of the Sources file has `inLibrary=lang` and the two rows of the standard schema have an empty cell.
+The file also has an `Attributes` column, between `link` and `description`. Its cell is empty except in a merged library schema, where a row contributed by the library has `inLibrary=xxx`, with `xxx` the library name (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). In the merged `lang` library schema `1.2.0`, for example, the `GOLD` row of the Sources file has `inLibrary=lang` and the two rows of the standard schema have an empty cell.
 
 #### A.5.11.2. Prefixes file
 
