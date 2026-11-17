@@ -260,25 +260,11 @@ The epilogue may contain `text` characters or `newline`. Any other character is 
 
 #### 3.1.4.10. Sources, prefixes, and external annotations
 
-The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas and to partnered library schemas.
+The rules in this section were codified in HED specification `4.0.0`; they apply to standard schemas and to partnered library schemas. Schemas that do not have one or more of these sections or have a different format than specified in this document can be loaded but do not pass schema compliance.
 
-A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
+The purpose of the these sections is to provide a mechanism for HED to link to external sources including other ontologies. The sources section defines external sources with links, the prefixes section defines the namespace prefixes for ontology integration, and the external annotations provide the ID links to actual UUIDs within the resources specified in the sources.
 
-A partnered library schema contributes rows of its own to these sections. In unmerged form the sections hold only the rows of the library, and these rows do not carry `inLibrary`. In merged form the sections hold the rows of the standard schema partner together with the rows of the library, and each row of the library carries `inLibrary` with the library name, as the schema elements of the library do; the rows of the partner are unmarked. A tool that loads an unmerged partnered library schema combines the rows of the library with those of its partner in the same way. An unmerged partnered library schema MUST NOT repeat a row of its standard schema partner. The form of the `inLibrary` mark in each file format is given in [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) (MediaWiki), [A.3.5.7. Schema sources](./Appendix_A.md#a357-schema-sources) (XML), [A.4.5.6. Schema sources](./Appendix_A.md#a456-schema-sources) (JSON), and [A.5.11.1. Sources file](./Appendix_A.md#a5111-sources-file) (TSV).
-
-Schema validation requires all three sections in a standard schema and in a partnered library schema; if one is missing, it reports an error. For compatibility with files written before this rule, the omission of any of the three sections from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
-
-Each of these sections is a table of rows with fixed columns:
-
-- **Sources** records the external resources consulted in developing the schema. Columns: `source` (a short name), `link` (a URL), and `description`. A `dc:source` annotation must name one of these rows (see [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources)).
-- **Prefixes** defines the namespace prefixes used in `annotation` attribute values. Columns: `prefix` (including the trailing colon), `namespace` (the IRI of the namespace), and `description`.
-- **External annotations** lists the properties from external ontologies that may be attached to schema elements. Columns: `prefix` (which must be defined in the Prefixes section), `id` (the local identifier), `iri` (the full IRI of the property), and `description`.
-
-These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of each section (`source` or `prefix`) as `name`; the other column names are identical in every format. The TSV files have one more column, `Attributes`, which holds the `inLibrary` mark (see [A.5.11. TSV sources, prefixes, and annotations](./Appendix_A.md#a511-tsv-sources-prefixes-and-annotations)).
-
-A section may have no rows at all. Each row that is present must give a non-empty value in each column; if a row has an empty value in any column, a warning is issued.
-
-See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for further discussion, and the per-format sections of Appendix A for the representation of these sections in each file format.
+A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5 MediaWiki auxilliary sections](./Appendix_A.md#a225-mediawiki-auxilliary-sections), [A.3.5 XML auxilliary sections](./Appendix_A.md#a235-xml-auxilliary-sections), [A.4.5 JSON auxilliary sections](./Appendix_A.md#a245-json-auxilliary-sections), and [A.5.5 TSV auxilliary sections](./Appendix_A.md#a255-tsv-auxilliary-sections) for specific format details.
 
 ### 3.1.5. Naming conventions
 
