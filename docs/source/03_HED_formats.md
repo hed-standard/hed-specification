@@ -264,7 +264,7 @@ The rules in this section were codified in HED specification `4.0.0`; they apply
 
 The purpose of the these sections is to provide a mechanism for HED to link to external sources including other ontologies. The sources section defines external sources with links, the prefixes section defines the namespace prefixes for ontology integration, and the external annotations provide the ID links to actual UUIDs within the resources specified in the sources.
 
-A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5 MediaWiki auxilliary sections](./Appendix_A.md#a225-mediawiki-auxilliary-sections), [A.3.5 XML auxilliary sections](./Appendix_A.md#a235-xml-auxilliary-sections), [A.4.5 JSON auxilliary sections](./Appendix_A.md#a245-json-auxilliary-sections), and [A.5.5 TSV auxilliary sections](./Appendix_A.md#a255-tsv-auxilliary-sections) for specific format details.
+A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5 MediaWiki auxiliary sections](./Appendix_A.md#a225-mediawiki-auxiliary-sections), [A.3.5 XML auxiliary sections](./Appendix_A.md#a235-xml-auxiliary-sections), [A.4.5 JSON auxiliary sections](./Appendix_A.md#a245-json-auxiliary-sections), and [A.5.5 TSV auxiliary sections](./Appendix_A.md#a255-tsv-auxiliary-sections) for specific format details.
 
 ### 3.1.5. Naming conventions
 
