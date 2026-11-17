@@ -122,23 +122,11 @@ BIDS also includes another type of file with extension `.tsv` that represents co
 
 ### 6.3.3. BIDS sidecars
 
-BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. HEDTools supports BIDS dataset format, where event metadata is contained in compatibly-named sidecars. See the [example sidecar](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3 for an explanation of the different sidecar entries.
+BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. HEDTools supports BIDS dataset format, where event metadata is contained in compatibly-named sidecars. See the [example sidecar](./03_HED_formats.md#3294-a-sidecar-example) in Chapter 3 for an explanation of the different sidecar entries.
 
 ### 6.3.4. Annotation assembly
 
-HED tools are available to assemble the annotations associated with each row in a tabular file using its `HED` column and the sidecar information associated with other columns of the events file.
-
-For example, the annotations for the first row of the [example event file](./06_Infrastructure_and_tools.md#631-bids-tabular-files) above can be assembled using the [example sidecar](./03_HED_formats.md#3291-sidecar-entries) in Chapter 3 to give the following annotation:
-
-```{admonition} Example assembled HED annotation for one event marker.
-
-> `Sensory-event`, `Visual-presentation`, (`Square`, `Blue`),
-> (`Delay/1.435 ms`, `Agent-action`, (`Experiment-participant`, (`Press`, `Mouse-button`))),
-> `Label/Starting-point`, `Quiet`
-
-```
-
-The process is to look up the appropriate row annotation for each column in the sidecar and append these with an annotation in the `HED` column if available.
+HED tools assemble the annotation for each row of a tabular file from its `HED` column and from the sidecar entries for its other columns. The procedure and a worked example (an events excerpt, its sidecar, and the assembled annotation) are in [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing).
 
 ### 6.3.5. HED version in BIDS
 
@@ -172,7 +160,7 @@ It is possible to include library schema in the HED version specification of the
 
 The version specification indicates that tags from the `score` library must be prefixed with `sc:` in dataset HED annotations, placing them in the `sc` namespace.
 
-The prefix notation (such as the `sc:` prefix for the `score` library in the previous example) is required when more than one schema is used in the annotation. However, namespace prefixes can be used with the standard schema as well as library schemas as illustrated by the following example.
+A namespace prefix (such as `sc:` for the `score` library in the previous example) is required on the tags of every schema that the version specification lists with a prefix. Schemas listed without a prefix form one merge group, and their tags are written without a prefix. A standard schema may also be given a prefix, as the following example illustrates.
 
 ````{admonition} **Example:** Prefixed standard schema in BIDS dataset description version specification.
 

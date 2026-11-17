@@ -44,7 +44,7 @@ A partnered library schema can be saved in two equivalent forms: *merged* or *un
 <HED version="2.1.0" library="score" withStandard="8.4.0" unmerged="True">
 ```
 
-The value of the `unmerged` attribute is case-insensitive (`true` and `True` are equivalent). HED schema loaders are **required** to automatically load the HED standard schema partner when loading an unmerged partnered library schema. Elements from a merged library schema always have the `inLibrary` schema attribute to distinguish these elements from standard schema elements. These `inLibrary` attributes are removed when a library schema is saved in unmerged form.
+The value of the `unmerged` attribute is case-insensitive (`true` and `True` are equivalent). HED schema loaders are **required** to automatically load the HED standard schema partner when loading an unmerged partnered library schema. Elements from a merged library schema always have the `inLibrary` schema attribute to distinguish these elements from standard schema elements, and so do the rows that the library contributes to the extra sections (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)). These `inLibrary` attributes are removed when a library schema is saved in unmerged form.
 
 #### 3.1.2.3. Merge groups
 
@@ -121,7 +121,7 @@ Schemas can be specified in any of four equivalent formats: MediaWiki, TSV, XML,
 
 HED schema developers usually use `.mediawiki` format for more convenient editing, display, and viewing on GitHub. However, the stable links provided for tools to access and download the HED schema are to the XML versions. TSV format is sometimes used early in schema development and JSON format is used primarily by AIs. All formats must be available and synchronized in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Regardless of the format, the sections of a valid HED schema must appear in the following order. All sections are required except the three after the epilogue, whose status is described below the table.
+The sections of a HED schema in MediaWiki or XML format must appear in the following order. The TSV format has one file for each section and the JSON format one key, so order has no meaning there. Every section is required, although a section may be empty; the conditions under which schema validation accepts a file without the three sections after the epilogue are given below the table.
 
 ```{Admonition} Sections of a HED schema (in the required order):
 | Section   | MediaWiki format | XML format  |
@@ -144,7 +144,7 @@ Regardless of the format, the sections of a valid HED schema must appear in the 
 
 A tool that writes a schema file includes them, like the other sections, even when they are empty. Schema validation accepts their omission only under the compatibility conditions given in [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations). The sections must appear in the order shown.
 
-The sections in the `.xml` version must always be terminated by closing `</  >` tokens, whereas the sections of the `.mediawiki` version, which is line-oriented, are terminated when the next section begins (`#!`) or a top tag (`'''`) is encountered.
+The sections in the `.xml` version must always be terminated by closing `</  >` tokens, whereas the sections of the `.mediawiki` version, which is line-oriented, are terminated when the next section begins (`!#`) or a top tag (`'''`) is encountered.
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
@@ -160,7 +160,7 @@ The schema header line MUST specify the `version` attribute whose value MUST be 
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. If the schema contains any additional unrecognized attributes, an error occurs.
+The header may optionally contain an XSD namespace specification. An unrecognized header attribute is ignored when the schema is loaded and is an error in schema validation.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 
@@ -182,7 +182,7 @@ Each schema node element must be unique.
 
 #### 3.1.4.4. Unit classes and units
 
-A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST also have `valueClass=numericClass`, because a value with units is a number to be converted; a unit class on a placeholder with any other value class, or with none, is likewise an error. A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor. A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
+A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST have `valueClass=numericClass` as its only value class, because a value with units is a number to be converted; a unit class on a placeholder with any other value class, with several value classes, or with none, is likewise an error. A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor. A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
 Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed (e.g., `feet` in addition to `foot`, `inches` in addition to `inch`; `hertz` is its own plural). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). HED uses a `pluralize` function available in both Python and Javascript to check validity.
 
@@ -264,6 +264,8 @@ The rules in this section were codified in HED specification `4.0.0`; they apply
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty: the section header alone in MediaWiki, an element with no children in XML, an empty array in JSON, and a header-only file in TSV. In an unmerged partnered library schema the extra sections are empty unless the library adds rows of its own. The sections must appear in the order Sources, Prefixes, External annotations, immediately after the epilogue.
 
+A partnered library schema contributes rows of its own to these sections. In unmerged form the sections hold only the rows of the library, and these rows do not carry `inLibrary`. In merged form the sections hold the rows of the standard schema partner together with the rows of the library, and each row of the library carries `inLibrary` with the library name, as the schema elements of the library do; the rows of the partner are unmarked. A tool that loads an unmerged partnered library schema combines the rows of the library with those of its partner in the same way. An unmerged partnered library schema MUST NOT repeat a row of its standard schema partner. The form of the `inLibrary` mark in each file format is given in [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) (MediaWiki), [A.3.5.7. Schema sources](./Appendix_A.md#a357-schema-sources) (XML), [A.4.5.6. Schema sources](./Appendix_A.md#a456-schema-sources) (JSON), and [A.5.11.1. Sources file](./Appendix_A.md#a5111-sources-file) (TSV).
+
 Schema validation requires all three sections in a standard schema and in a partnered library schema; if one is missing, it reports an error. For compatibility with files written before this rule, the omission of any of the three sections from an unpartnered library schema is not an error. A tool that loads a schema for another purpose, such as validating annotations, is not required to check for these sections and treats an omitted section as empty.
 
 Each of these sections is a table of rows with fixed columns:
@@ -272,7 +274,7 @@ Each of these sections is a table of rows with fixed columns:
 - **Prefixes** defines the namespace prefixes used in `annotation` attribute values. Columns: `prefix` (including the trailing colon), `namespace` (the IRI of the namespace), and `description`.
 - **External annotations** lists the properties from external ontologies that may be attached to schema elements. Columns: `prefix` (which must be defined in the Prefixes section), `id` (the local identifier), `iri` (the full IRI of the property), and `description`.
 
-These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of each section (`source` or `prefix`) as `name`; the other column names are identical in every format.
+These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of each section (`source` or `prefix`) as `name`; the other column names are identical in every format. The TSV files have one more column, `Attributes`, which holds the `inLibrary` mark (see [A.5.11. TSV sources, prefixes, and annotations](./Appendix_A.md#a511-tsv-sources-prefixes-and-annotations)).
 
 A section may have no rows at all. Each row that is present must give a non-empty value in each column; if a row has an empty value in any column, a warning is issued.
 
@@ -295,8 +297,7 @@ class: tip
 1. By convention, the first letter of a schema node (tag term) should be capitalized with the remainder lower case.
 2. Schema node names consisting of multiple words should not contain blanks and should be hyphenated.
 3. Schema descriptions should be concise sentences, possibly with clarifying examples.
-4. Schema descriptions may include only `text` characters but should not contain `newline` or
-square brackets or braces.
+4. Schema descriptions may include only `text` characters and the comma, and should not contain `newline`.
 ```
 
 #### 3.1.5.2. Epilogue and prologue
@@ -368,7 +369,7 @@ This prologue introduces the schema.
 * boolRange <nowiki>[Indicates that a schema attribute's value can be true or false.]</nowiki>
                         . . .
 '''Epilogue'''
-An optional section that is the place for notes and is ignored in HED processing.
+This epilogue is a place for notes and is ignored in HED processing.
 
 !# end hed
 ```
@@ -568,7 +569,7 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
-5. The `#` placeholder cannot be used as an extension -- in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in an events file or a sidecar alike.
+5. The `#` placeholder cannot be used as an extension - in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in an events file or a sidecar alike.
 6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is an error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
 
 **Note:** The is-a relationship is not checked by validators.
@@ -601,7 +602,7 @@ Users may select tags from multiple schemas, but additional schemas must be incl
 
 Users are free to choose any alphabetic namespace name and associate it with a specific schema in the HED version specification. The namespace prefix is that name followed by a colon (e.g., `sc:`), and tags from the associated schema must carry this prefix when used in annotation. The namespace name and its prefix are chosen per dataset and are not part of any schema; they are an import mechanism, like `import pandas as pd` in Python, and the same schema may be given a different prefix in another dataset.
 
-Terms from only one schema can appear in the annotation without a namespace prefix.
+Only the tags of one merge group, the schemas listed without a namespace prefix in the version specification, appear in an annotation without a prefix (see [3.1.2.3. Merge groups](#3123-merge-groups)).
 
 See [7.5. Library schema in BIDS](./07_Library_schemas.md#75-library-schemas-in-bids) for an example of how the namespace prefix notation is used in BIDS.
 
@@ -703,7 +704,7 @@ A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`
 
 `Definition`, `Def`, and `Def-expand` are the only tags that permit values with two parts, `name` or `name/value`, an exception to the rule that the value of a `nameClass` tag contains no `/`. The name MUST be a `nameClass` value. After a `Definition` name only `#` MAY follow, and when it does, the contents MUST contain exactly one tag with a `#` placeholder: `Definition/MyDef/3` is an error.
 
-The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `required` or `unique` attribute.
+The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `unique` attribute.
 
 A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
 
@@ -761,7 +762,7 @@ A BIDS sidecar is a JSON dictionary with several types of entries, three of whic
 - The value associated with the HED key is a dictionary of HED annotations.
 - The keys of the annotation dictionary are the unique column values.
 - The entry is not required to have annotations for every possible unique column value.
-- Tools may choose to issue a warning if a column value does not have an annotation.
+- A warning is issued if a column value does not have an annotation (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
 - The annotation dictionary may include annotations for values that do not appear in a particular event file.
 
 
@@ -799,7 +800,7 @@ In a categorical entry, a column value listed as a key under `"HED"` (such as `g
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry is an error.
 
-The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. However, if a value is encountered in a tabular file column that is annotated as a categorical column but does not have a HED annotation, a warning is generated.
+The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. Two conditions are reported as warnings, not errors: a value in a column that the sidecar annotates as a categorical column has no HED annotation in the sidecar, and a column referenced in curly braces in the sidecar is not a column of the associated tabular file.
 
 HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues are errors.
 
@@ -880,7 +881,7 @@ class: tip
    },
    "stim_file": {
        "LongName": "Stimulus image file",
-       "Description": "Time from stimulus presentation until subject presses button",
+       "Description": "Name of the stimulus image file.",
        "HED": "(Image, Face, Pathname/#)"
    },
    "key":   {
@@ -895,8 +896,8 @@ class: tip
        "LongName": "Indicates symmetrical or asymmetrical.",
        "Description": "Indicates the participant's judgement of symmetry.",
        "HED": {
-          "symmetric": "(Judge, Asymmetrical)",
-          "asymmetric": "(Judge, Symmetrical)"
+          "symmetric": "(Judge, Symmetrical)",
+          "asymmetric": "(Judge, Asymmetrical)"
        }
    },
 
@@ -961,8 +962,6 @@ Definitions may not appear in the `HED` column of a tabular file or in any entry
 #### 3.2.10.3. Event-level processing
 
 After individual HED tags and HED strings in the `HED` column of tabular files and in the associated sidecars are validated or otherwise processed, the HED strings associated with each row of the tabular file must be assembled to provide an overall annotation for the row. We refer to this as *event-level* or *row* processing.
-
-If the HED schema used for processing contains a schema node that has the `required` attribute, then the assembled HED annotations for each row must include that tag.
 
 If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute.
 

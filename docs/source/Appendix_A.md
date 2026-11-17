@@ -186,7 +186,7 @@ header-rows: 1
 HED has very strict rules about what characters are allowed in various elements of the HED schema, HED tags, and the substitutions made for `#` placeholders. These rules are encoded in the schema using value classes. When a node name extension or placeholder substitution is given a particular value class, that name or substituted value can only contain the characters allowed for by that value class.
 
 ```{Warning}
-**Note**: A placeholder `#` specification may include multiple value class attributes.
+**Note**: A placeholder `#` specification without a unit class may include multiple value class attributes.
 
 Tools check the value in question against the union of an element's `valueClass` allowed
 characters and any additional characters allowed by a particular unit type.
@@ -405,7 +405,7 @@ A `hedId` value is the prefix `HED_` followed by a 7 digit integer. The standard
 
 #### A.1.4.8. inLibrary
 
-The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library.
+The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library. The attribute also marks the rows that a library contributes to the Sources, Prefixes, and External annotations sections of a merged schema (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)).
 
 #### A.1.4.9. isPartOf
 
@@ -437,7 +437,7 @@ The `SIUnitModifier` attribute identifies a unit modifier that can be applied to
 
 #### A.1.4.16. SIUnitSymbolModifier
 
-The `SIUnitSymbolModifier` attribute identifies a unit modifier that can be applied to SI unit symbols (units with both `SIUnit` and `unitSymbol` attributes). These are single-letter or abbreviated prefix symbols such as `k` (kilo), `M` (mega), `m` (milli), and `u` (micro). For example, the modifier `k` can be applied to the unit symbol `s` to create `ks` (kiloseconds). Unlike `SIUnitModifier` modifiers, symbol modifiers are case-sensitive (`M` for mega vs. `m` for milli) and cannot be pluralized. Unit symbol modifiers must only appear in the unit modifier section of the schema.
+The `SIUnitSymbolModifier` attribute identifies a unit modifier that can be applied to SI unit symbols (units with both `SIUnit` and `unitSymbol` attributes). These are single-letter or abbreviated prefix symbols such as `k` (kilo), `M` (mega), `m` (milli), and `u` (micro). For example, the modifier `k` can be applied to the unit symbol `s` to create `ks` (kiloseconds). Like all unit modifiers, symbol modifiers are case-sensitive (`M` for mega vs. `m` for milli). A unit symbol with a modifier cannot be pluralized. Unit symbol modifiers must only appear in the unit modifier section of the schema.
 
 #### A.1.4.17. suggestedTag
 
@@ -473,7 +473,7 @@ The `unitSymbol` attribute indicates that a unit represents an abbreviated symbo
 
 #### A.1.4.25. valueClass
 
-The `valueClass` attribute specifies the type of value that can be substituted for a placeholder (`#`) node. The attribute value must be a valid value class defined in the schema (e.g., `numericClass`, `textClass`, `nameClass`, `dateTimeClass`, `posixPath`). Each value class defines a set of allowed characters and format requirements. Multiple `valueClass` attributes may be applied to the same placeholder, and tools validate the substituted value against the union of allowed characters from all specified value classes. If no `valueClass` is specified, the placeholder is assumed to take `textClass` values. The `valueClass` attribute can only be applied to `#` placeholder nodes.
+The `valueClass` attribute specifies the type of value that can be substituted for a placeholder (`#`) node. The attribute value must be a valid value class defined in the schema (e.g., `numericClass`, `textClass`, `nameClass`, `dateTimeClass`, `posixPath`). Each value class defines a set of allowed characters and format requirements. Multiple `valueClass` attributes may be applied to a placeholder that has no unit class (see [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units)), and tools validate the substituted value against the union of allowed characters from all specified value classes. If no `valueClass` is specified, the placeholder is assumed to take `textClass` values. The `valueClass` attribute can only be applied to `#` placeholder nodes.
 
 #### A.1.4.x. Deprecated attributes
 
@@ -589,9 +589,7 @@ Schema sources are the targets of `dc:source` annotations ([A.1.4.2. annotation]
 - **`link`**: A URL pointing to the source resource
 - **`description`**: A brief explanation of how the source was used or its relevance
 
-These are the column names used by the MediaWiki and TSV formats. The XML and JSON formats serialize the first column of this section and of the Prefixes and External annotations sections (`source` or `prefix`) as `name`; the other column names are identical in every format.
-
-The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+The names that each file format gives these components, the rules for writing the section, and the conditions under which schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 
 ### A.1.7. Schema prefixes
 
@@ -607,7 +605,7 @@ Each prefix entry has three required components (an empty component is reported 
 
 Common prefixes in HED schemas include Dublin Core (`dc:`), RDF Schema (`rdfs:`), OWL (`owl:`), Friend-of-a-Friend (`foaf:`), and domain-specific ontologies like NCI Thesaurus (`ncit:`) and the Gene Ontology (`obogo:`). The schema prefixes enable HED to participate in the broader linked data ecosystem and support semantic web applications.
 
-The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. Library schemas may add additional values to this section and they are merged with those of the standard schema.
+The rules for writing the section and for when schema validation requires it are in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations). The prefixes are used in `annotation` attribute values. A library schema may add rows of its own to this section; that section also says how they are combined with the rows of its standard schema partner.
 
 ### A.1.8. External annotations
 
@@ -737,11 +735,11 @@ HED library="score" version="1.0.0"
 
 The `library` and `version` values are used to form the official filename `HED_score_1.0.0.mediawiki`. The file is found in [library_schemas/score/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-A warning is generated when unknown header attributes are translated as attributes of the `HED` line during `.mediawiki` file validation.
+An unknown header attribute is ignored when the schema is loaded and is an error in schema validation (see [3.1.4.1. The header](./03_HED_formats.md#3141-the-header)).
 
 ### A.2.3. MediaWiki prologue and epilogue
 
-The prologue is an optional paragraph of text appearing after the *header*. The prologue is used by tools for help and display purposes.
+The prologue is a paragraph of text appearing after the *header*; the section is always present and may be empty. The prologue is used by tools for help and display purposes.
 
 The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
 
@@ -808,7 +806,7 @@ The `Duration` tag of this example is at the fifth level below the root (top nod
 
 ### A.2.5. MediaWiki auxiliary sections
 
-After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, the schema attribute definitions, property definitions, and optionally the epilogue, schema sources, schema prefixes, and external annotations sections. The first five sections are required and must be given in that order. The optional sections (epilogue, sources, prefixes, and external annotations) follow after the properties section.
+After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, schema attribute definitions, property definitions, epilogue, schema sources, schema prefixes, and external annotations sections, in that order. Every section is present; a section with no entries consists of its header alone.
 
 #### A.2.5.1. Unit classes and units
 
@@ -916,6 +914,15 @@ Each source entry has three required components:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
+In a merged library schema, a row contributed by the library begins with the attribute block `{inLibrary=xxx}`, with `xxx` the library name, followed by a blank and the name-value pairs (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The rows of the standard schema partner have no attribute block.
+
+````{admonition} **Example:** Source contributed by the lang library in a merged .mediawiki schema.
+
+```moin
+* <nowiki>{inLibrary=lang} source=GOLD,link=http://purl.org/linguistics/gold,description=General Ontology for Linguistic Description.</nowiki>
+```
+````
+
 #### A.2.5.8. Schema prefixes
 
 The schema prefixes section is marked by `'''Prefixes'''` and defines namespace prefixes for ontology integration. Each prefix is specified on a single line at level 1 with comma-separated name-value pairs in `<nowiki>` tags. The section is present in every MediaWiki file; when the schema has no prefixes, it consists of the `'''Prefixes'''` header alone.
@@ -934,6 +941,8 @@ Each prefix entry has three required components:
 - `prefix`: The prefix string including the colon (e.g., `dc:`)
 - `namespace`: The full IRI for the ontology namespace
 - `description`: A description of the ontology or vocabulary
+
+A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
 
 #### A.2.5.9. External annotations
 
@@ -955,6 +964,8 @@ Each external annotation entry has four required components:
 - `iri`: The full IRI for the property
 - `description`: An explanation of the property's meaning
 
+A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
+
 ## A.3. XML file format
 
 This section describes details of the XML schema format.
@@ -967,7 +978,7 @@ The XML schema file format has a header, prologue, main schema, definitions, and
 ```xml
 <?xml version="1.0" ?>
 <HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
-<prologue>unique optional text blob</prologue>
+<prologue>text of the prologue</prologue>
 <schema>
          ...  schema specification  ...
 </schema>
@@ -1000,7 +1011,7 @@ The XML schema file format has a header, prologue, main schema, definitions, and
     <propertyDefinition> ... </propertyDefinition>
 </propertyDefinitions>
 
-<epilogue>unique optional text blob</epilogue>
+<epilogue>text of the epilogue</epilogue>
 
 <schemaSources>
    <schemaSource> ... </schemaSource>
@@ -1027,7 +1038,7 @@ Every element in this layout is present in every file. A section with no entries
 
 ````{admonition} Empty extra sections at the end of an XML schema file.
 ```xml
-<epilogue>unique optional text blob</epilogue>
+<epilogue>text of the epilogue</epilogue>
 <schemaSources/>
 <schemaPrefixes/>
 <externalAnnotations/>
@@ -1058,7 +1069,7 @@ Library schemas must include the `library` attribute with the library name in th
 
 The `library` and `version` values are used to form the official xml filename `HED_score_1.0.0.xml`. The file is found in [library_schemas/score/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Unknown header attributes are translated as attributes of the `HED` root node of the `.xml` version, but a warning is issued when the `.mediawiki` file is validated.
+Unknown header attributes are treated as in the MediaWiki format ([A.2.2. MediaWiki header](#a22-mediawiki-header)).
 
 Library schemas may also be partnered as is `HED_mouse_1.0.0.xml`.
 
@@ -1315,7 +1326,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 #### A.3.5.6. Epilogue
 
-The `<epilogue>` element contains optional text providing information about the schema license, attribution, and other metadata. It appears as a single child element of the root `<HED>` element.
+The `<epilogue>` element contains text providing information about the schema license, attribution, and other metadata. It appears as a single child element of the root `<HED>` element. The element is always present and may be empty.
 
 ````{admonition} **Example:** XML layout of the epilogue section.
 ```xml
@@ -1345,6 +1356,22 @@ Each `<schemaSource>` element has three required child elements:
 - `<link>`: A URL pointing to the source resource
 - `<description>`: A brief explanation of the source's relevance
 
+In a merged library schema, a `<schemaSource>` element contributed by the library has one more child, an `<attribute>` element for `inLibrary` in the form used for the attributes of a `<node>` (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The elements of the standard schema partner do not have it.
+
+````{admonition} **Example:** XML source contributed by the lang library in a merged schema.
+```xml
+<schemaSource>
+   <name>GOLD</name>
+   <link>http://purl.org/linguistics/gold</link>
+   <description>General Ontology for Linguistic Description.</description>
+   <attribute>
+      <name>inLibrary</name>
+      <value>lang</value>
+   </attribute>
+</schemaSource>
+```
+````
+
 #### A.3.5.8. Schema prefixes
 
 The `<schemaPrefixes>` element contains zero or more `<schemaPrefix>` child elements, each defining a namespace prefix for ontology integration. The element is present in every XML file and has no children when the schema has no prefixes.
@@ -1371,6 +1398,8 @@ Each `<schemaPrefix>` element has three required child elements:
 - `<name>`: The prefix string including the colon (e.g., `dc:`) (the `prefix` column of the MediaWiki and TSV formats)
 - `<namespace>`: The full IRI for the ontology namespace
 - `<description>`: A description of the ontology or vocabulary
+
+A row contributed by a library is marked in a merged schema as in [A.3.5.7. Schema sources](#a357-schema-sources).
 
 #### A.3.5.9. External annotations
 
@@ -1402,6 +1431,8 @@ Each `<externalAnnotation>` element has four required child elements:
 - `<iri>`: The full IRI for the property
 - `<description>`: An explanation of the property's meaning
 
+A row contributed by a library is marked in a merged schema as in [A.3.5.7. Schema sources](#a357-schema-sources).
+
 ## A.4. JSON file format
 
 This section describes details of the JSON schema format.
@@ -1416,8 +1447,7 @@ The JSON schema file format is a nested structure representing the schema in Jav
   "version": "8.5.0",
   "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
   "xsi:noNamespaceSchemaLocation": "...",
-  "prologue": "unique optional text blob",
-  "epilogue": "unique optional text blob",
+  "prologue": "text of the prologue",
   "tags": {
     "tag-name": {
       "short_form": "...",
@@ -1430,11 +1460,13 @@ The JSON schema file format is a nested structure representing the schema in Jav
     },
     ...
   },
+  "units": {...},
   "unit_classes": {...},
   "unit_modifiers": {...},
   "value_classes": {...},
   "schema_attributes": {...},
   "properties": {...},
+  "epilogue": "text of the epilogue",
   "sources": [...],
   "prefixes": [...],
   "external_annotations": [...]
@@ -1442,7 +1474,7 @@ The JSON schema file format is a nested structure representing the schema in Jav
 ```
 ````
 
-Every key in this layout is present in every file. A section with no entries is an empty object (`{}`) for `unit_classes`, `unit_modifiers`, `value_classes`, `schema_attributes`, and `properties`, and an empty array (`[]`) for `sources`, `prefixes`, and `external_annotations`. For example, an unmerged library schema that adds no sources, prefixes, or external annotations of its own ends with:
+Every key in this layout is present in every file. A section with no entries is an empty object (`{}`) for `units`, `unit_classes`, `unit_modifiers`, `value_classes`, `schema_attributes`, and `properties`, and an empty array (`[]`) for `sources`, `prefixes`, and `external_annotations`. For example, an unmerged library schema that adds no sources, prefixes, or external annotations of its own ends with:
 
 ````{admonition} Empty extra sections at the end of a JSON schema file.
 ```json
@@ -1492,7 +1524,7 @@ Partnered library schemas also include `withStandard` and optionally `unmerged` 
 
 ### A.4.3. JSON prologue and epilogue
 
-The `prologue` and `epilogue` fields contain optional text strings that provide documentation about the schema but are not processed during validation.
+The `prologue` and `epilogue` fields are always present and contain text, possibly empty, that provides documentation about the schema but is not processed during validation.
 
 ### A.4.4. JSON tags section
 
@@ -1538,8 +1570,30 @@ The `unit_classes` section defines unit classes as objects where each key is a u
   "timeUnits": {
     "description": "Temporal values except date and time of day.",
     "hedId": "HED_0011513",
-    "units": ["second", "s", "day", "month", "minute", "hour", "year"],
+    "units": ["second", "s", "day", "week", "month", "minute", "hour", "year"],
     "default_units": "s"
+  }
+}
+```
+````
+
+The `units` array of a unit class lists the names of its units. The units themselves are the entries of the top-level `units` object, keyed by unit name; each entry gives the unit's `description`, its `hedId`, and its attributes:
+
+````{admonition} Example JSON layout of units.
+```json
+"units": {
+  "second": {
+    "description": null,
+    "SIUnit": true,
+    "conversionFactor": "1.0",
+    "hedId": "HED_0011633"
+  },
+  "s": {
+    "description": null,
+    "SIUnit": true,
+    "unitSymbol": true,
+    "conversionFactor": "1.0",
+    "hedId": "HED_0011634"
   }
 }
 ```
@@ -1660,6 +1714,19 @@ Each source object has three required properties:
 - `link`: A URL pointing to the source resource
 - `description`: A brief explanation of the source's relevance
 
+In a merged library schema, a source object contributed by the library has one more property, `inLibrary`, whose value is the library name (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The objects of the standard schema partner do not have it.
+
+````{admonition} Example JSON source contributed by the lang library in a merged schema.
+```json
+{
+  "name": "GOLD",
+  "link": "http://purl.org/linguistics/gold",
+  "description": "General Ontology for Linguistic Description.",
+  "inLibrary": "lang"
+}
+```
+````
+
 #### A.4.5.7. Schema prefixes
 
 The `prefixes` section defines namespace prefixes for ontology integration as an array of objects. The array is present in every JSON file and is empty when the schema has no prefixes:
@@ -1686,6 +1753,8 @@ Each prefix object has three required properties:
 - `name`: The prefix string including the colon (e.g., `dc:`) (the `prefix` column of the MediaWiki and TSV formats)
 - `namespace`: The full IRI for the ontology namespace
 - `description`: A description of the ontology or vocabulary
+
+A row contributed by a library is marked in a merged schema as in [A.4.5.6. Schema sources](#a456-schema-sources).
 
 #### A.4.5.8. External annotations
 
@@ -1717,6 +1786,8 @@ Each external annotation object has four required properties:
 - `iri`: The full IRI for the property
 - `description`: An explanation of the property's meaning
 
+A row contributed by a library is marked in a merged schema as in [A.4.5.6. Schema sources](#a456-schema-sources).
+
 ## A.5. TSV file format
 
 This section describes details of the TSV (Tab-Separated Values) schema format. Unlike other HED schema formats that use a single file, the TSV format represents a schema as a collection of separate TSV files organized in a directory structure. This format is designed to facilitate ontology mapping and interoperability with semantic web technologies.
@@ -1744,18 +1815,31 @@ HED8.5.0/
 ```
 ````
 
-Every file in this layout is written for every schema. The file for a section with no entries contains only its header row. For example, the Sources file of an unmerged library schema that adds no sources of its own is the single line `source	link	description`.
+Every file in this layout is written for every schema. The file for a section with no entries contains only its header row. For example, the Sources file of an unmerged library schema that adds no sources of its own is the single line `source	link	Attributes	description`.
 
 ### A.5.2. TSV header formats
 
-Each TSV file begins with a header row defining the column names. The specific columns vary by file type but commonly include:
+Each TSV file begins with a header row of column names. The header row of each file is:
 
-- `hedId`: Unique identifier for the element
-- `rdfs:label`: The element name/label
-- `omn:SubClassOf`: The parent class or type
-- `Attributes`: Tab-separated list of attribute assignments
-- `dc:description`: Human-readable description
-- Additional domain-specific columns
+| File                         | Header row                                                                              |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| `Structure`                  | `hedId`, `rdfs:label`, `Attributes`, `omn:SubClassOf`, `dc:description`                 |
+| `Tag`                        | `hedId`, `Level`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`        |
+| `UnitClass`                  | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`                 |
+| `Unit`                       | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`, `hasUnitClass` |
+| `UnitModifier`               | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`                 |
+| `ValueClass`                 | `hedId`, `rdfs:label`, `omn:SubClassOf`, `Attributes`, `dc:description`                 |
+| `DataProperty`               | `hedId`, `rdfs:label`, `Type`, `Properties`, `dc:description`                           |
+| `ObjectProperty`             | `hedId`, `rdfs:label`, `Type`, `Properties`, `dc:description`                           |
+| `AnnotationProperty`         | `hedId`, `rdfs:label`, `Type`, `Properties`, `dc:description`                           |
+| `AttributeProperty`          | `hedId`, `rdfs:label`, `Type`, `dc:description`                                         |
+| `Sources`                    | `source`, `link`, `Attributes`, `description`                                           |
+| `Prefixes`                   | `prefix`, `namespace`, `Attributes`, `description`                                      |
+| `AnnotationPropertyExternal` | `prefix`, `id`, `iri`, `Attributes`, `description`                                      |
+
+Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments and a `Properties` cell a comma-separated list of schema properties (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)).
+
+A tool that writes a schema in TSV format MUST write these header rows, with the columns in this order, whatever the version of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
 
 ### A.5.3. TSV structure file
 
@@ -1845,9 +1929,9 @@ Defines properties with data type ranges (string, numeric, boolean):
 
 ````{admonition} Example TSV DataProperty file layout.
 ```text
-hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
-HED_0010304	allowedCharacter	DataProperty	HedUnit or HedUnitModifier or HedValueClass	string	unitDomain, unitModifierDomain, valueClassDomain, stringRange	A special character...
-HED_0010305	conversionFactor	DataProperty	HedUnit or HedUnitModifier	float	unitDomain, unitModifierDomain, numericRange	The factor to multiply...
+hedId	rdfs:label	Type	Properties	dc:description
+HED_0010304	allowedCharacter	DataProperty	unitDomain, unitModifierDomain, valueClassDomain, stringRange	A special character...
+HED_0010305	conversionFactor	DataProperty	unitDomain, unitModifierDomain, numericRange	The factor to multiply...
 ```
 ````
 
@@ -1857,9 +1941,9 @@ Defines properties with object ranges (references to other schema elements):
 
 ````{admonition} Example TSV ObjectProperty file layout.
 ```text
-hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
-HED_0010104	defaultUnits	ObjectProperty	HedUnitClass	HedUnit	unitClassDomain, unitRange	The default units...
-HED_0010105	relatedTag	ObjectProperty	HedTag	HedTag	tagDomain, tagRange	A HED tag closely related...
+hedId	rdfs:label	Type	Properties	dc:description
+HED_0010104	defaultUnits	ObjectProperty	unitClassDomain, unitRange	The default units...
+HED_0010105	relatedTag	ObjectProperty	tagDomain, tagRange	A HED tag closely related...
 ```
 ````
 
@@ -1869,9 +1953,9 @@ Defines annotation properties that don't participate in reasoning:
 
 ````{admonition} Example TSV AnnotationProperty file layout.
 ```text
-hedId	rdfs:label	Type	omn:Domain	omn:Range	Properties	dc:description
-HED_0010500	hedId	AnnotationProperty	HedElement	string	elementDomain, stringRange	The unique identifier...
-HED_0010501	requireChild	AnnotationProperty	HedTag	boolean	tagDomain, boolRange	This tag must have...
+hedId	rdfs:label	Type	Properties	dc:description
+HED_0010500	hedId	AnnotationProperty	elementDomain, stringRange	The unique identifier...
+HED_0010501	requireChild	AnnotationProperty	tagDomain, boolRange	This tag must have...
 ```
 ````
 
@@ -1898,8 +1982,8 @@ Defines external resources used during schema development. The file is present i
 
 ````{admonition} Example TSV Sources file layout.
 ```text
-source	link	description
-Wikipedia	https://en.wikipedia.org	General definitions of concepts.
+source	link	Attributes	description
+Wikipedia	https://en.wikipedia.org		General definitions of concepts.
 ```
 ````
 
@@ -1909,15 +1993,17 @@ Each row has three required columns:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
+The file also has an `Attributes` column, between `link` and `description`. Its cell is empty except in a merged library schema, where a row contributed by the library has `inLibrary=xxx`, with `xxx` the library name (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). In the merged `lang` library schema `1.2.0`, for example, the `GOLD` row of the Sources file has `inLibrary=lang` and the two rows of the standard schema have an empty cell.
+
 #### A.5.11.2. Prefixes file
 
 Defines namespace prefixes used for external ontology references. The file is present in every TSV schema directory and contains only the header row when the schema has no prefixes:
 
 ````{admonition} Example TSV Prefixes file layout.
 ```text
-prefix	namespace	description
-dc:	http://purl.org/dc/elements/1.1/#	The Dublin Core elements
-ncit:	http://purl.obolibrary.org/obo/ncit.owl	NCI Thesaurus OBO Edition
+prefix	namespace	Attributes	description
+dc:	http://purl.org/dc/elements/1.1/#		The Dublin Core elements
+ncit:	http://purl.obolibrary.org/obo/ncit.owl		NCI Thesaurus OBO Edition
 ```
 ````
 
@@ -1927,15 +2013,17 @@ Each row has three required columns:
 - `namespace`: The full IRI or URL for the ontology namespace
 - `description`: A description of the ontology or vocabulary
 
+The file also has an `Attributes` column, between `namespace` and `description`, used as in the [Sources file](#a5111-sources-file).
+
 #### A.5.11.3. External annotations file
 
 Defines external annotation properties that can be used. The file is present in every TSV schema directory and contains only the header row when the schema has no external annotations:
 
 ````{admonition} Example TSV AnnotationPropertyExternal file layout.
 ```text
-prefix	id	iri	description
-dc:	creator	http://purl.org/dc/elements/1.1/creator	An entity primarily responsible for making the resource.
-dc:	contributor	http://purl.org/dc/elements/1.1/contributor	An entity responsible for making contributions to the resource.
+prefix	id	iri	Attributes	description
+dc:	creator	http://purl.org/dc/elements/1.1/creator		An entity primarily responsible for making the resource.
+dc:	contributor	http://purl.org/dc/elements/1.1/contributor		An entity responsible for making contributions to the resource.
 ```
 ````
 
@@ -1946,13 +2034,15 @@ Each row has four required columns:
 - `iri`: The full IRI for the property
 - `description`: An explanation of the property's meaning
 
+The file also has an `Attributes` column, between `iri` and `description`, used as in the [Sources file](#a5111-sources-file).
+
 ### A.5.12. TSV format conventions
 
 1. **Delimiters**: Fields are separated by tab characters (`\t`).
 2. **Multiple values**: When a column contains multiple values (e.g., multiple attributes), they are separated by commas.
 3. **Attribute format**: Attributes are specified as `name=value` for valued attributes or just `name` for boolean attributes.
 4. **Encoding**: Files use UTF-8 encoding.
-5. **Hierarchy**: Tag hierarchy is expressed through the `Level` column in the Tag file and through the `omn:SubClassOf` column in all files.
+5. **Hierarchy**: Tag hierarchy is expressed through the `Level` column in the Tag file and through the `omn:SubClassOf` column in the files that have one.
 6. **Identifiers**: Each element has a unique `hedId` that persists across schema versions.
 
 See [Schema properties](#a15-schema-properties) for a list of available schema properties.
