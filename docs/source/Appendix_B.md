@@ -123,7 +123,8 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 **a.** Different standard schema partner versions in a merge group.\
 **b.** Elements (tag, unit class, unit, unit modifier, value class, or schema attribute) of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
 **c.** Different versions of the same schema appear in the same merge group.\
-**d.** A schema with a specified name and version cannot be found.
+**d.** A schema with a specified name and version cannot be found.\
+**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.
 
 **Note:** Depending on the validator, a missing file may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
 
@@ -416,7 +417,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 **e.** In an unmerged schema, a node with the `rooted` attribute is not at the top level; in a merged schema, a node with `rooted=XXX` is not a direct child of `XXX`.\
 **f.** A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.\
 **g.** A partnered library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element or in a row of the extra sections.\
-**h.** A partnered library schema with the `unmerged="true"` header attribute duplicates a row of the extra sections (`Sources`, `Prefixes`, or `External annotations`) of its standard schema partner.\
+**h.** A partnered library schema with the `unmerged="true"` header attribute has a row of the extra sections (`Sources`, `Prefixes`, or `External annotations`) with the same key as a row of its standard schema partner.\
 **i.** A partnered library schema with the `unmerged="true"` header attribute has a schema element (tag, unit, unit class, unit modifier, value class, or schema attribute) with the same name as an element of its standard schema partner. Naming an existing unit class solely to add new units under it is not a duplication.\
 **j.** A partnered library schema with the `unmerged="true"` header attribute has a non-empty `Properties` section.\
 **k.** A merged partnered library schema has a `Properties` section that differs from that of its standard schema partner.\

@@ -2002,7 +2002,7 @@ Each TSV file begins with a header row of column names. The header row of each f
 
 Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments and a `Properties` cell a comma-separated list of schema properties (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)).
 
-A tool that writes a schema in TSV format MUST write these header rows, with the columns in this order, whatever the version of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
+A tool that writes a schema in TSV format MUST write these columns, in this order, whatever the version of the schema. A file MAY also have columns that are not in this table, holding annotation properties for the HED ontology such as `dc:comment` (see [8.1.4.3. Spreadsheet format](./08_HED_ontology.md#8143-spreadsheet-format)); such columns are not part of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
 
 ### A.5.3. TSV structure file
 
