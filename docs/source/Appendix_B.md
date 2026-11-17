@@ -68,7 +68,7 @@ See [3.2.8.2. The Def and Def-expand tags](./03_HED_formats.md#3282-def-and-def-
 
 ### DEFINITION_INVALID
 
-A **definition** is a tag group containing a `Definition` tag and a single tag group with the definition's contents.
+A **definition** is a tag group containing a `Definition` tag and at most one inner tag group, which holds the definition's contents. A definition without a placeholder may omit the inner group, for example when it serves only as an anchor.
 
 **a.** A `Definition` tag does not appear in a tag group at the top level in an annotation.\
 **b.** A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).\
@@ -79,7 +79,7 @@ A **definition** is a tag group containing a `Definition` tag and a single tag g
 **g.** A definition has placeholders (`#`) in incorrect positions.\
 **h.** Definitions of the same name appear with and without a `#`.\
 **i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
-**j.** A tag with a `required` or `unique` attribute appears in a definition.\
+**j.** A tag with the `unique` attribute appears in a definition.\
 **k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.\
 **l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
 
@@ -116,18 +116,15 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 
 ### REQUIRED_TAG_MISSING
 
-**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute.
-
-**Note:** An assembled event string must include all tags having the *required* schema attribute.
-
-See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for additional information on the `required` tag.
+**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. Only standard schemas < `8.3.0` define this attribute; see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 ### SCHEMA_LOAD_FAILED
 
 **a.** Different standard schema partner versions in a merge group.\
 **b.** Elements (tag, unit class, unit, unit modifier, value class, or schema attribute) of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
 **c.** Different versions of the same schema appear in the same merge group.\
-**d.** A schema with a specified name and version cannot be found.
+**d.** A schema with a specified name and version cannot be found.\
+**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.
 
 **Note:** Depending on the validator, a missing file may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
 
@@ -262,7 +259,7 @@ See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefix
 
 **a.** A tag with `unique` attribute appears more than once in an event-level HED string.
 
-See [3.2.10.2. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for additional information on the `unique` tag.
+See [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for additional information on the `unique` tag.
 
 ### TAG_REQUIRES_CHILD
 
@@ -381,7 +378,8 @@ For earlier schema versions, where the `valueClass` condition in the `unitClass`
 **a.** A non-placeholder schema node contains non-`name` characters.\
 **b.** A unit class name contains non-`name` characters.\
 **c.** A value or unit class name contains non-`name` or blank characters.\
-**d.** The prologue or epilogue contain characters other than `text` or newline.
+**d.** The prologue or epilogue contain characters other than `text` or newline.\
+**e.** An element description contains a character other than `text` or the comma.
 
 See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the different types of characters.
 
@@ -418,8 +416,8 @@ Library schema errors are specific to library schema. Library schema may also ra
 **d.** The `rooted` attribute appears in a schema whose header does not have both the `library` and `withStandard` attributes.\
 **e.** In an unmerged schema, a node with the `rooted` attribute is not at the top level; in a merged schema, a node with `rooted=XXX` is not a direct child of `XXX`.\
 **f.** A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.\
-**g.** A partnered library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element.\
-**h.** A partnered library schema with the `unmerged="true"` header attribute duplicates a row of the extra sections (`Sources`, `Prefixes`, or `External annotations`) of its standard schema partner. Extra-section rows are not schema elements and are not merged when the schema is loaded.\
+**g.** A partnered library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element or in a row of the extra sections.\
+**h.** A partnered library schema with the `unmerged="true"` header attribute has a row of the extra sections (`Sources`, `Prefixes`, or `External annotations`) with the same key as a row of its standard schema partner.\
 **i.** A partnered library schema with the `unmerged="true"` header attribute has a schema element (tag, unit, unit class, unit modifier, value class, or schema attribute) with the same name as an element of its standard schema partner. Naming an existing unit class solely to add new units under it is not a duplication.\
 **j.** A partnered library schema with the `unmerged="true"` header attribute has a non-empty `Properties` section.\
 **k.** A merged partnered library schema has a `Properties` section that differs from that of its standard schema partner.\
@@ -431,7 +429,7 @@ Library schema errors are specific to library schema. Library schema may also ra
 
 **a.** A row of the Sources, Prefixes, or External annotations section has an empty value in a required column.
 
-See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) for the columns of each section.
+See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for the columns of each section.
 
 #### SCHEMA_RESERVED_INVALID
 
@@ -443,9 +441,9 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 #### SCHEMA_SECTION_MISSING
 
 **a.** A required schema section is missing.\
-**b.** The schema sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes, schema attributes, properties, epilogue, and, when present, sources, prefixes, and external annotations) are not in the correct order and hence not detected.
+**b.** The schema sections (corresponding to the prologue, schema, unit classes, unit modifiers, value classes, schema attributes, properties, epilogue, sources, prefixes, and external annotations) are not in the correct order and hence not detected.
 
-**Note:** The conditions under which schema validation requires the sources, prefixes, and external annotations sections are given in [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
+**Note:** The sources, prefixes, and external annotations sections are required in every schema; a schema without them can still be loaded (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)).
 
 #### SCHEMA_VERSION_INVALID
 
@@ -505,12 +503,16 @@ The rules of this specification are stated for the latest released standard sche
 - Standard schemas < `8.5.0` and library schemas partnered with them: the `allowedCharacter` names a standard value class declares do not define its characters, because these declarations predate the named sets; validators use the defaults recorded for each standard value class in the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json) (see [A.7.3. Names and value class defaults](./Appendix_A.md#a73-names-and-value-class-defaults)). `dateTimeClass` allows `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, and `plus`, although these versions declare only the first four. `nameClass` allows `letters`, `digits`, `hyphen`, and `underscore`, and `nonascii` from standard schema `8.3.0`, although the released `8.3.0` and `8.4.0` rows omit it. `textClass` values use the `text` character set, not `value-text`; the `8.0.0` to `8.2.0` schemas enumerate `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@` (no underscore), and validators have always applied `text` there and still do. A textClass value containing a parenthesis, number sign, or tilde is therefore not CHARACTER_INVALID under the value class, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde). See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), [A.1.3. Value classes](./Appendix_A.md#a13-value-classes), and [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter).
 - Standard schemas < `8.3.0`: `Delay` and `Duration` do not carry the `requireChild` schema attribute (before `8.3.0`) or the `topLevelTagGroup` schema attribute (before `8.2.0`). The `requireValue`, `tagGroup`, and `topLevelTagGroup` fields of [`reserved_tags.json`](_static/reserved_tags.json) supply what these schemas lack, so the rules of 3.2.8 apply to every standard schema version >= `8.0.0`. A `Delay` or `Duration` tag with no value is TAG_REQUIRES_CHILD (b). See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6.2. Tag fields](./Appendix_A.md#a62-tag-fields).
 - Standard schema `8.0.0`, whose `timeUnits` units carry no `conversionFactor`: in a timeline table, a `Duration` or `Delay` value with no unit, or in the default unit written as its symbol `s` or as its name `second` or `seconds`, is taken as is; a value in a modified form (`ms`) or in any other unit is an error, TEMPORAL_TAG_ERROR (n). See [3.2.8.4. Duration and Delay](./03_HED_formats.md#3284-duration-and-delay).
+- Standard schemas < `8.3.0`: these schemas define the `required` schema attribute. The assembled annotation of each row must include every tag whose schema node has it (REQUIRED_TAG_MISSING), and such a tag MUST NOT appear in the contents of a definition (DEFINITION_INVALID j). No released schema puts the attribute on a tag.
 
 **Schema validation**
 
 - Standard schemas < `8.5.0` and library schemas partnered with them: a unit class on a placeholder whose value class is not `numericClass`, or that has no value class, is not an error (`8.3.0` and earlier have `Sampling-rate/#` with a unit class and no value class), so the `valueClass` condition of the `unitClass` row of SCHEMA_ATTRIBUTE_VALUE_INVALID (a) is not checked. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units) and [A.1.4.22. unitClass](./Appendix_A.md#a1422-unitclass).
 - Standard schemas < `8.5.0` and library schemas partnered with them: a unit class may list a unit that can be formed by applying an SI unit modifier to another unit of the same class that has the `SIUnit` attribute; these schemas remain valid (`8.3.0` and `8.4.0` list `uV`), and SCHEMA_DUPLICATE_NODE (b) is not reported. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
 - Standard schemas < `8.3.0`: the schema properties had other names: `boolProperty` for `boolRange`, and `elementProperty`, `nodeProperty`, `unitClassProperty`, `unitModifierProperty`, `unitProperty`, and `valueClassProperty` for `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. No error code applies. See [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for the mapping.
-- Standard schemas < `8.5.0` and library schemas partnered with them: the rules of 3.1.4.10 do not apply. For compatibility with files written before these rules, the omission of any of the three extra sections (Sources, Prefixes, External annotations) is not an error, and SCHEMA_SECTION_MISSING is not reported for it. See [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations).
 - Standard schemas < `8.5.0` and library schemas partnered with them: an `annotation` value is not required to have the form `prefix:id value`. Earlier schemas wrote a bare term such as `ncit:C25499`; files partnered with standard schemas before `8.5.0` keep that form, and tools do not check it, so SCHEMA_ANNOTATION_INVALID is not reported. See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation).
 - Standard schemas < `8.3.0`: SCHEMA_RESERVED_INVALID (a) requires less. `Inset` must exist only from `8.2.0`; the `reserved` attribute on every row of `tags` and on `Def` and `Def-expand`, and the `topLevelTagGroup` attribute on `Delay` and `Duration`, are required only from `8.2.0`; `reserved` on the ten organizational reserved tags is required only from `8.3.0`. See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6. Reserved tags file](./Appendix_A.md#a6-reserved-tags-file).
+
+**Schema file formats**
+
+- Standard schemas < `8.5.0` and library schemas partnered with them: the TSV files of these schemas were written with other header rows than those of [A.5.2. TSV header formats](./Appendix_A.md#a52-tsv-header-formats). A tool that reads the TSV format accepts them, and no tool writes them. For standard schema `8.4.0` and its partnered libraries, the `DataProperty`, `ObjectProperty`, and `AnnotationProperty` files have the columns `omn:Domain` and `omn:Range` after `Type`, and the `Sources`, `Prefixes`, and `AnnotationPropertyExternal` files have no `Attributes` column. For standard schema `8.3.0` and its partnered libraries, in addition, the `Tag` file has `rdfs:label` before `Level` and ends with an `omn:EquivalentTo` column (followed by an `Annotations` column in `lang_1.0.0`); the `Unit` file has `hasUnitClass` after `omn:SubClassOf` and ends with `omn:EquivalentTo`; the `UnitClass`, `UnitModifier`, and `ValueClass` files end with `omn:EquivalentTo`; and there are no `Sources`, `Prefixes`, or `AnnotationPropertyExternal` files. Standard schemas < `8.3.0` have no TSV files. No error code applies.

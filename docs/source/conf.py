@@ -119,9 +119,12 @@ myst_enable_extensions = [
     "html_admonition",
     "html_image",
     "linkify",
-    "replacements",
     "smartquotes",
 ]
+
+# Sphinx's own smartquotes: curly quotes only. The default also turns "--" and "---" into
+# dashes and "..." into an ellipsis character, which the specification text must not contain.
+smartquotes_action = "q"
 
 # Configure MyST to parse headings for navigation
 myst_heading_anchors = 4

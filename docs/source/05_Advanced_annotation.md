@@ -6,7 +6,7 @@ The `Definition` tag allows researchers to create a name to represent a group of
 
 Another important role of definitions is to provide the structure for implementing temporal scope as introduced in [Chapter 5.3: Temporal Scope](05_Advanced_annotation.md#53-temporal-scope).
 
-A **HED definition** is a tag group that includes one `Definition` tag whose required child value is the definition's name. The definition tag group also includes an internal tag-group specifying the definition's content. The following summarizes the syntax of HED definitions.
+A **HED definition** is a tag group that includes one `Definition` tag whose required child value is the definition's name. The definition tag group may also include an internal tag-group specifying the definition's content; a definition without a placeholder may omit it. The following summarizes the syntax of HED definitions.
 
 `````{admonition} Syntax summary for HED definitions.
 
@@ -469,7 +469,7 @@ temporal scope during final assembly before analysis of the event.
 
 Most experiments are conducted by varying certain aspects of the experiment and measuring the resulting responses while carefully controlling other aspects. The intention of the experiment is annotated using the HED `Condition-variable`, `Control-variable`, and `Indicator-variable` tags.
 
-The `Condition-variable` tag is used to mark the independent variables of the experiment -- those aspects of an experiment that are explicitly varied in order to observe an effect or to control bias. Contrasts, a term that appears in the neuroscience and statistical literature, are examples of experimental conditions as are factors in experimental designs.
+The `Condition-variable` tag is used to mark the independent variables of the experiment - those aspects of an experiment that are explicitly varied in order to observe an effect or to control bias. Contrasts, a term that appears in the neuroscience and statistical literature, are examples of experimental conditions as are factors in experimental designs.
 
 The `Indicator-variable` tag is used to mark quantities that are explicitly measured or calculated to evaluate the effect of varying the experimental conditions. Indicator variables often fall into the `Event/Data-feature` category. Sometimes the values of these data features are explicitly annotated as events. Researchers should provide a sufficiently detailed description of how to compute these data features so that they can be reproduced.
 
@@ -537,7 +537,7 @@ During analysis, the `Def` tags may be replaced with the actual definition's tag
 > *Property/Data-property/Data-marker/Temporal-marker/<strong>Onset</strong>)*
 ```
 
-Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (ANalysis Of VAriance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags `Time-block` and `Task-trial` and used for visualizations of experimental layout.
+Properly annotated condition variables and response variables can allow researchers to understand the details of the experiment design and perform analyses such as ANOVA (ANalysis Of VAriance) or regression to extract the dependence of responses on the condition variables. The time-organization of an experiment can be annotated with the Organizational tags `Time-block` and `Experimental-trial` and used for visualizations of experimental layout.
 
 A typical experiment usually consists of a sequence of subject task-related activities interspersed with rest periods and/or off-line activities such as filling in a survey. The `Time-block` tag is used to mark a contiguous portion of the data recording during which some aspect of the experiment conditions is fixed. `Time-block` tags can be used to represent temporal organization in a manner similar to the way `Condition-variable` tags are used to represent factors in an experiment design.
 

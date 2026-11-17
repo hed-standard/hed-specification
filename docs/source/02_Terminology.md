@@ -56,7 +56,7 @@ A comma-separated list of HED tags and/or tag-groups.
 
 ### HED tag
 
-A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. Any suffix of a valid long-form HED tag is a valid short-form HED tag. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: `Property/Agent-property/Agent-task-role/Experiment-participant`. Valid short-form tags are `Experiment-participant`, `Agent-task-role/Experiment-participant`, and `Agent-property/Agent-task-role/Experiment-participant`. HED tools should treat long-form and short-form tags interchangeably.
+A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. The short form of a tag is the last schema node of its path alone; a path that starts at a node between the root and the last node is an intermediate form. A value or an extension that follows the last schema node is kept in every form: `Weight/3 lbs` is a short form. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: `Property/Agent-property/Agent-task-role/Experiment-participant`. The short form is `Experiment-participant`; the intermediate forms are `Agent-task-role/Experiment-participant` and `Agent-property/Agent-task-role/Experiment-participant`. HED tools should treat the long, intermediate, and short forms of a tag interchangeably.
 
 ### Indicator-variable [\*]
 
@@ -88,7 +88,7 @@ A named item of a HED schema that is assigned a `hedId` in the HED ontology: a t
 
 ### Schema section
 
-One of the ordered blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The *schema section* holds the tags. The *auxiliary sections* (unit classes, unit modifiers, value classes, schema attributes, and properties) hold the other schema elements. The *extra sections* (Sources, Prefixes, and External annotations) hold rows that are not schema elements: they have no `hedId` and are not merged when the schema is loaded.
+One of the ordered blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The *schema section* holds the tags. The *auxiliary sections* (unit classes, unit modifiers, value classes, schema attributes, and properties) hold the other schema elements. The *extra sections* (Sources, Prefixes, and External annotations) hold rows that are not schema elements: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
 
 ### Tag-group
 
@@ -160,7 +160,7 @@ The types of characters referred to in this specification are:
 
 <!-- character-sets:end -->
 
-`text` is the character set of the prologue, epilogue, and element descriptions of a schema. `value-text` is the textClass character set: the characters a value may contain without changing the structure of the HED string it is substituted into.
+`text` is the character set of the prologue and epilogue of a schema. An element description may contain the `text` characters and the comma. `value-text` is the textClass character set: the characters a value may contain without changing the structure of the HED string it is substituted into.
 
 A schema names these sets in its `allowedCharacter` attributes (see [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter)). An `allowedCharacter` name is a name from this table, an alias listed in it, or a single character, which names itself: `allowedCharacter=T` allows `T`. The characters that no HED string may contain (listed in [Appendix B](./Appendix_B.md#character_invalid)) are excluded from every value whatever its value class allows.
 
