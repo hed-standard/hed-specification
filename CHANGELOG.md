@@ -71,7 +71,8 @@ These changes alter what is valid or how validators must report it.
 ### Character sets
 
 - The 2.2 table is generated from `docs/source/_static/character_sets.json`, which gives each set as a regular expression usable from Python and JavaScript, the per-version defaults of the standard value classes, and the characters that structure a HED string; validators load the file instead of transcribing the table. Appendix A.7 defines the file and its fields.
-- An element description may contain the `text` characters and the comma; the prologue and epilogue are `text` only (2.2, SCHEMA_CHARACTER_INVALID e).
+- An element description, the prologue, and the epilogue may contain the `text` characters and the comma; 3.3.0 allowed no comma in the prologue and epilogue (2.2, 3.1.4.2, 3.1.4.9, SCHEMA_CHARACTER_INVALID d, e).
+- The name of every schema element consists of `name` characters; the name of a unit or unit modifier may also contain the characters it declares with `allowedCharacter`, as `m^2` declares `caret` (3.1.4). SCHEMA_CHARACTER_INVALID b and c are reworded to match: b covers the elements other than nodes, c a blank in a unit name or symbol.
 - New sets `value-text` and `numeric`; `forward-slash` added with the alias `slash`; `name` no longer lists `period`; `nonascii` is code 160 and above.
 
 ### Tabular files and sidecars
@@ -101,7 +102,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 
 ### New or changed reasons
 
-- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_DEPRECATION_ERROR h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e; SIDECAR_KEY_MISSING b; STYLE_WARNING a (capitalization of schema nodes only, reported by schema validation; moved to B.2.1); TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n; UNITS_INVALID c; VALUE_INVALID c, e.
+- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_CHARACTER_INVALID b, c, d, e; SCHEMA_DEPRECATION_ERROR h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e; SIDECAR_KEY_MISSING b; STYLE_WARNING a (capitalization of schema nodes only, reported by schema validation; moved to B.2.1); TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n; UNITS_INVALID c; VALUE_INVALID c, e.
 
 ## Clarifications
 
@@ -115,7 +116,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
 - Chapter 7 was rewritten: unpartnered libraries (7.2), partnered file formats and filenames (7.3.1, 7.3.2), merged versus unmerged files (7.3.3), and rules for designing libraries (7.4); the SCORE `1.0.0` and `1.1.0` examples are marked historical.
 - Examples of library schema headers, rooted nodes and version specifications use SCORE `1.0.0` (unpartnered) and MOUSE `1.0.0` (partnered) instead of TESTLIB, which is removed from hed-schemas.
-- Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 TSV files of the spreadsheet format, including the Sources, Prefixes and External annotations files.
+- Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 files of the TSV format, including the Sources, Prefixes and External annotations files.
 
 ## Corrections
 

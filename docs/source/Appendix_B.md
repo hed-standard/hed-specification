@@ -266,7 +266,7 @@ See [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-pro
 **a.** A tag has the `requireChild` schema attribute but does not have a child.\
 **b.** A structural reserved tag whose `requireValue` is true in `reserved_tags.json` (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)) has no value.
 
-See [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) for an explanation of the `requireChild` attribute.
+See [A.1.4.11. requireChild](./Appendix_A.md#a1411-requirechild) for an explanation of the `requireChild` attribute.
 
 ### TEMPORAL_TAG_ERROR
 
@@ -278,7 +278,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.\
 **e.** An `Offset` group contains anything besides its anchor and an optional `Delay` tag.\
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
-**g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag. without the appearance of an intervening `Onset` of the same name.\
+**g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.\
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
 **i.** An `Onset`, `Offset`, or `Inset` group occurs at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor, where the time of a group is the time of its row plus any `Delay`.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
@@ -333,7 +333,7 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 #### SCHEMA_ATTRIBUTE_INVALID
 
 **a.** An attribute is used in the schema, but is not defined in the schema attribute section.\
-**b.** A schema attribute is applied to the incorrect type (e.g., an element with the unit definition does appear under an appropriate unit class).\
+**b.** A schema attribute is applied to the incorrect type (e.g., the `SIUnit` attribute, whose domain is units, appears on a tag).\
 **c.** A schema attribute is used in an invalid way\
 **d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.\
 **e.** A schema property is used in the schema, but is not defined in the properties section.
@@ -376,9 +376,9 @@ For earlier schema versions, where the `valueClass` condition in the `unitClass`
 #### SCHEMA_CHARACTER_INVALID
 
 **a.** A non-placeholder schema node contains non-`name` characters.\
-**b.** A unit class name contains non-`name` characters.\
-**c.** A value or unit class name contains non-`name` or blank characters.\
-**d.** The prologue or epilogue contain characters other than `text` or newline.\
+**b.** The name of an element other than a node (e.g., unit class, unit, unit modifier, value class, schema attribute, or property) contains a character that is neither a `name` character nor, for a unit or unit modifier, one that it declares with `allowedCharacter`.\
+**c.** A unit name or unit symbol contains a blank.\
+**d.** The prologue or epilogue contains a character other than `text`, the comma, or newline.\
 **e.** An element description contains a character other than `text` or the comma.
 
 See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the different types of characters.

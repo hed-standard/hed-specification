@@ -40,24 +40,25 @@ The extended information space is completely represented by the HED ontology in 
 
 ### 8.1.4. HED representations
 
-The HED vocabularies have 4 different formats as shown in the following table:
+The HED vocabularies are held in the four schema formats (MediaWiki, XML, JSON, and TSV; see [3.1. Schema rules](./03_HED_formats.md#31-schema-rules)), which are equivalent, and in the HED ontology (OWL), as shown in the following table:
 
-| Format      | Content  | Uses                                                                                      | Editing                                                        |
-| ----------- | -------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| MediaWiki   | Schema   | Schema development<br/>Schema updating                                                    | Manual editing<br/>Updated from spreadsheet                    |
-| XML         | Schema   | Annotation tools<br/>Validation tools<br/>Analysis tools                                  | Generated from MediaWiki                                       |
-| Spreadsheet | Complete | Schema development<br/>Schema updating<br/>Ontology updating                              | Manual editing<br/>Updated from MediaWiki<br/>Updated from OWL |
-| OWL         | Complete | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from spreadsheet                    |
+| Format    | Content                                | Uses                                                                                      | Editing                                                        |
+| --------- | -------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| MediaWiki | Schema                                 | Schema development<br/>Schema updating                                                    | Manual editing<br/>Updated from TSV                            |
+| XML       | Schema                                 | Annotation tools<br/>Validation tools<br/>Analysis tools                                  | Generated from MediaWiki                                       |
+| JSON      | Schema                                 | AI tools                                                                                  | Generated from MediaWiki                                       |
+| TSV       | Schema, with optional ontology columns | Schema development<br/>Schema updating<br/>Ontology updating                              | Manual editing<br/>Updated from MediaWiki<br/>Updated from OWL |
+| OWL       | Complete                               | Ontology updating<br/>Semantic validation<br/>Documentation generation<br/>Semantic tools | Manual editing<br/>Updated from TSV                            |
 
-The HED schema, which contains the core HED vocabulary and captures the "annotator's view" of HED, can be completely represented in the HED MediaWiki, XML, or spreadsheet formats. The HED schema is used for annotation, validation, searching, and most analyses. Tools access the HED schema in its XML format, but schema developers usually create and update the schema in MediaWiki format, which is easier to read and displays as formatted MarkDown on GitHub. Alternatively schema developers may opt to create or update schemas from the HED spreadsheets.
+The HED schema, which contains the core HED vocabulary and captures the "annotator's view" of HED, can be completely represented in the HED MediaWiki, XML, JSON, or TSV formats. The HED schema is used for annotation, validation, searching, and most analyses. Tools access the HED schema in its XML format, but schema developers usually create and update the schema in MediaWiki format, which is easier to read and displays as formatted MarkDown on GitHub. Alternatively schema developers may opt to create or update schemas from the HED TSV files.
 
 #### 8.1.4.1. The MediaWiki format
 
 The MediaWiki format is line-oriented with each non-blank line corresponding to a HED tag or other HED entity such as a unit class or schema attribute definition. See [A.2. MediaWiki file format](./Appendix_A.md#a2-mediawiki-file-format) for a detailed description of the MediaWiki format.
 
-#### 8.1.4.2. Spreadsheet files
+#### 8.1.4.2. TSV files
 
-The spreadsheet format consists of 13 tab-separated value (tsv) files each containing the information for one type of HED entity as summarized in the following table.
+The TSV format consists of 13 tab-separated value (tsv) files each containing the information for one type of HED entity as summarized in the following table.
 
 | tsv filename                     | Contents                                                                                                                 |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -79,9 +80,9 @@ The `xxx_` prefix identifies the schema version. For example, the prefix for sta
 
 Most schema developers will only edit the `xxx_Tag.tsv` file or the `xxx_Structure.tsv` file.
 
-#### 8.1.4.3. Spreadsheet format
+#### 8.1.4.3. TSV format
 
-Each HED spreadsheet starts with a one-line header containing the column names of the file. The header row of each file is given in [A.5.2. TSV header formats](./Appendix_A.md#a52-tsv-header-formats). The rows of the three extras files (`xxx_Sources`, `xxx_Prefixes`, and `xxx_AnnotationPropertyExternal`) are not schema elements and have no `hedId`.
+Each HED TSV file starts with a one-line header containing the column names of the file. The header row of each file is given in [A.5.2. TSV header formats](./Appendix_A.md#a52-tsv-header-formats). The rows of the three extras files (`xxx_Sources`, `xxx_Prefixes`, and `xxx_AnnotationPropertyExternal`) are not schema elements and have no `hedId`.
 
 The prefixes on column names have the following meanings:
 
@@ -93,28 +94,28 @@ The prefixes on column names have the following meanings:
 
 Users may add additional columns corresponding to annotation properties from the Dublin Core or the RDF schema (e.g., `dc:comment`) and the HED ontology framework will include them in the ontology. However, these columns do not impact the HED schema.
 
-HED schema developers can develop in either HED MediaWiki or HED spreadsheet (tab-separated-value) file format and can use tools to update the representations; [A.5. TSV file format](./Appendix_A.md#a5-tsv-file-format) describes the columns of each file. Users may NOT assign or modify the `hedId`. When creating a new entity such as a tag, leave the `hedId` column blank. If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. Tools will assign and validate the `hedId` during the update process.
+HED schema developers can develop in either HED MediaWiki or HED TSV (tab-separated-value) file format and can use tools to update the representations; [A.5. TSV file format](./Appendix_A.md#a5-tsv-file-format) describes the columns of each file. Users may NOT assign or modify the `hedId`. When creating a new entity such as a tag, leave the `hedId` column blank. If adding a new tag to the MediaWiki file, schema developers should omit the `hedId`. Tools will assign and validate the `hedId` during the update process.
 
-#### 8.1.4.4. Tag spreadsheet \<--> Ontology
+#### 8.1.4.4. Tag TSV file \<--> Ontology
 
-HED spreadsheets have been expanded to include additional columns to capture all the information contained in the HED ontology as illustrated in the following example. Notice that while the spreadsheet always refers to the entities by name (e.g., `rdfs:label`), the ontology uses the `hedId`.
+HED TSV files have been expanded to include additional columns to capture all the information contained in the HED ontology as illustrated in the following example. Notice that while the TSV file always refers to the entities by name (e.g., `rdfs:label`), the ontology uses the `hedId`.
 
 ![hed representations](_static/images/HEDRepresentations.png)
 
-The HED ontology represents the entire HED information space in [OWL](https://www.w3.org/TR/owl2-overview/) (Web Ontology Language). The HED ontology is available in both [OWL/RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/) format and [OWL Manchester](https://www.w3.org/TR/owl2-manchester-syntax/) format, but the examples in this specification use OWL Manchester format for readability. Developers must use the HED spreadsheets to create or update a HED ontology.
+The HED ontology represents the entire HED information space in [OWL](https://www.w3.org/TR/owl2-overview/) (Web Ontology Language). The HED ontology is available in both [OWL/RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/) format and [OWL Manchester](https://www.w3.org/TR/owl2-manchester-syntax/) format, but the examples in this specification use OWL Manchester format for readability. Developers must use the HED TSV files to create or update a HED ontology.
 
 Most HED entities (i.e., tags, unit classes, units, unit modifiers, and value classes) map to classes in the HED ontology. The HED schema attributes, which describe properties and behavior, are mapped to ontology properties as described in [8.2.3. Schema attributes](#823-schema-attributes) section. The HED schema properties, which describe the schema attributes, determine the type of property mapping and are implicitly mapped.
 
-The mapping of the spreadsheet row and column values to a class in the HED ontology is further explained in the following table:
+The mapping of the TSV row and column values to a class in the HED ontology is further explained in the following table:
 
-| Spreadsheet<br/>column |     Row value     | Ontology format                                                                                                                    |
-| ---------------------- | :---------------: | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **hedId**              |       *xxx*       | `Class: hed:xxx`                                                                                                                   |
-| **rdfs:label**         |       *yyy*       | `rdfs:label yyy` in the `Annotations` section                                                                                      |
-| **Level**              |        *n*        | Redundant information - can be recovered using class hierarchy.                                                                    |
-| **omn:SubClassOf**     |       *zzz*       | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
-| **Attributes**         | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [8.2.3. Schema attributes](#823-schema-attributes) |
-| **dc:description**     |       *www*       | `dc:description www` in the `Annotations` section.                                                                                 |
+| TSV<br/>column     |     Row value     | Ontology format                                                                                                                    |
+| ------------------ | :---------------: | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **hedId**          |       *xxx*       | `Class: hed:xxx`                                                                                                                   |
+| **rdfs:label**     |       *yyy*       | `rdfs:label yyy` in the `Annotations` section                                                                                      |
+| **Level**          |        *n*        | Redundant information - can be recovered using class hierarchy.                                                                    |
+| **omn:SubClassOf** |       *zzz*       | The tag is either a `SubClassOf` or `EquivalentTo` *zzz*<br/>but *zzz* is identified in the ontology<br/>by **hedId** rather name. |
+| **Attributes**     | *uuu*, *vvv*, ... | If non-empty, then these appear as restrictions<br/> in the `EquivalentTo`. See [8.2.3. Schema attributes](#823-schema-attributes) |
+| **dc:description** |       *www*       | `dc:description www` in the `Annotations` section.                                                                                 |
 
 The next section describes the ontology structure in more detail.
 

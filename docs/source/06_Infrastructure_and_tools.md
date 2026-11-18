@@ -114,7 +114,7 @@ The first two columns in a BIDS event file are required to be `onset` and `durat
 
 BIDS reserves an optional column named `HED` to contain HED strings relevant for the instance represented by that row. In the above example, the first row `HED` column contains `Label/Starting-point, Quiet`, meaning that the event that starts at time 1.2 has these particular annotations in addition to annotations contributed by any relevant sidecars. The `HED` column in the second row contains `n/a`, indicating that entry should be ignored. In this case only annotations from applicable sidecars are applied.
 
-HED annotations can also be associated with entries in other columns of the event file through an associated JSON sidecar as described in the next section.
+HED annotations can also be associated with entries in other columns of the event file through an associated JSON sidecar as described in [6.3.3. BIDS sidecars](#633-bids-sidecars).
 
 ### 6.3.2. BIDS timeseries
 
@@ -189,4 +189,4 @@ HED provides a JavaScript validator in the [hed-javascript](https://github.com/h
 
 The [hedtools](https://pypi.org/project/hedtools/) package includes input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal representations of HED-annotated event files.
 
-HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert schema between `.mediawiki` and `.xml` format are located in the `hed.schema` module of the [hed-python](https://github.com/hed-standard/hed-python) GitHub repository. All conversions are performed by converting the schema to a `HedSchema` object. Then modules `wiki2xml.py` and `xml2wiki.py` provide top-level functions to perform these conversions.
+HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert a schema among the MediaWiki, XML, JSON, and TSV formats are in the `hed.schema` module of the [hed-python](https://github.com/hed-standard/hed-python) GitHub repository. A schema in any of these formats is loaded into a `HedSchema` object, which can be saved in any of them.

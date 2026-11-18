@@ -223,7 +223,7 @@ See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-
 class: tip
 ---
 1. Commas are not allowed in any values with the exception of
-term descriptions in the HED schema and tsv column values
+term descriptions, the prologue, and the epilogue in the HED schema and tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
 2. A `dateTimeClass` value has the BIDS `Datetime` format, RFC 3339 with an optional offset:
 "YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm]", with one to six fractional digits, hour 00-23, and seconds 00-60.
@@ -360,7 +360,7 @@ header-rows: 1
 
 #### A.1.4.1. allowedCharacter
 
-The `allowedCharacter` attribute specifies individual characters or character groups that are allowed in values of a value class, unit class, or unit modifier. This attribute determines what characters can be used when values are substituted for placeholders or when units are specified. Each allowed character should have a separate `allowedCharacter` attribute entry in the schema. The following group designations are allowed as shorthand values:
+The `allowedCharacter` attribute specifies individual characters or character groups that are allowed in the values of a value class, or in the name of a unit or unit modifier that declares it (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). This attribute determines what characters can be used when values are substituted for placeholders or when units are specified. Each allowed character should have a separate `allowedCharacter` attribute entry in the schema. The following group designations are allowed as shorthand values:
 
 - `letters` designates upper and lower case alphabetic characters (A-Z, a-z).
 - `blank` indicates a space character is allowed.
@@ -377,7 +377,7 @@ The `annotation` attribute attaches a property from an external ontology or voca
 
 #### A.1.4.3. conversionFactor
 
-The `conversionFactor` attribute of a unit is the factor by which a value expressed in that unit is multiplied to convert it to the default units of its unit class; the `conversionFactor` of a unit modifier is the factor the modifier contributes. This attribute was added to enable automatic unit conversion in tools and analyses. The attribute value must be a positive numeric value. For example, `minute` has `conversionFactor=60` because 2 minutes x 60 = 120 seconds, the default unit of `timeUnits`. A modifier's factor multiplies the unit's factor: `Duration/300 ms` converts as 300 x 0.001 (`m`) x 1.0 (`s`) = 0.3 s. For compound units the modifier factors are raised to the component exponents; see [3.1.4.5. Unit modifiers](./03_HED_formats.md#3145-unit-modifiers). When a unit has no `conversionFactor` (in HED `8.5.0`: `month`, `year`, `euro`, `point`, `candela`, `cd`), conversion to default units is undefined, and tools MUST NOT treat such a value as already being in default units, except in a unit class none of whose units has a `conversionFactor`, where a value in the default unit, under any of its spellings, is taken as is (see [3.2.8.4](./03_HED_formats.md#3284-duration-and-delay)). This attribute is particularly useful for units within the same physical dimension but with different scales (e.g., meters, feet, inches).
+The `conversionFactor` attribute of a unit is the factor by which a value expressed in that unit is multiplied to convert it to the default units of its unit class; the `conversionFactor` of a unit modifier is the factor the modifier contributes. This attribute was added to enable automatic unit conversion in tools and analyses. The attribute value must be a positive numeric value. For example, `minute` has `conversionFactor=60` because 2 minutes x 60 = 120 seconds, the default unit of `timeUnits`. A modifier's factor multiplies the unit's factor: `Duration/300 ms` converts as 300 x 0.001 (`m`) x 1.0 (`s`) = 0.3 s. For compound units the modifier factors are raised to the component exponents; see [3.1.4.5. Unit modifiers](./03_HED_formats.md#3145-unit-modifiers). When a unit has no `conversionFactor` (in HED `8.5.0`: `month`, `year`, `euro`, `point`, `candela`, `cd`), conversion to default units is undefined, and tools MUST NOT treat such a value as already being in default units. The exception for standard schema `8.0.0`, whose units carry no `conversionFactor`, is in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This attribute is particularly useful for units within the same physical dimension but with different scales (e.g., meters, feet, inches).
 
 #### A.1.4.4. defaultUnits
 
@@ -457,7 +457,7 @@ The `topLevelTagGroup` attribute indicates that a tag must appear in a top-level
 
 #### A.1.4.21. unique
 
-The `unique` attribute indicates that a tag or its descendants can appear only once in a HED string. This constraint is checked after all definitions are expanded and column-based annotations are assembled into a complete event annotation. If a tag with the `unique` attribute appears multiple times, an error is generated. The `Event-context` is one of the few tags that has the `unique` attribute.
+The `unique` attribute indicates that a tag or its descendants can appear only once in a HED string. This constraint is checked after all definitions are expanded and column-based annotations are assembled into a complete event annotation. If a tag with the `unique` attribute appears multiple times, an error is generated. `Event-context` is the only tag that has the `unique` attribute.
 
 #### A.1.4.22. unitClass
 
@@ -796,7 +796,7 @@ The prologue is a paragraph of text appearing after the *header*; the section is
 
 The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
 
-Both the prologue and epilogue may contain new lines in addition to the characters of the `text` character set ([2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)); commas are not allowed.
+Both the prologue and epilogue may contain new lines and commas in addition to the characters of the `text` character set ([2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
 ### A.2.4. MediaWiki schema section
 
@@ -832,7 +832,7 @@ The number of asterisks indicates the level of the node in the subtree. The attr
 
 A schema attribute that has the `boolRange` property appears as its name alone; its presence indicates that it is true. Any other schema attribute is written as a `name=value` pair. An attribute that has several values is written as several `name=value` pairs. The entries within the curly braces are separated by commas.
 
-Node names can only contain alphanumeric characters, hyphens, and under-bars (i.e., they must be of type [`nameClass`](./Appendix_A.md#a13-value-classes)). They cannot contain blanks and must be unique.
+The characters allowed in a node name are given in [3.1.4.3. The schema section](./03_HED_formats.md#3143-the-schema-section). Node names cannot contain blanks and must be unique.
 
 For top nodes and normal nodes, everything after the node name must be contained within `<nowiki></nowiki>` tags. The `#` is included within the `<nowiki></nowiki>` tags in placeholder nodes.
 
@@ -853,7 +853,7 @@ For top nodes and normal nodes, everything after the node name must be contained
 **Placeholder node:**
 
 ```moin
-****** <nowiki># {takesValue, unitClass=time,valueClass=numericClass}</nowiki>
+****** <nowiki># {takesValue, valueClass=numericClass, unitClass=timeUnits}</nowiki>
 ```
 ````
 
@@ -899,7 +899,7 @@ The unit class specification section starts with `'''Unit classes'''` and lists 
 
 ```moin
 '''Unit classes'''
-* time <nowiki>{defaultUnits=s}</nowiki>
+* timeUnits <nowiki>{defaultUnits=s}</nowiki>
 ** second <nowiki>{SIUnit}</nowiki>
 ** s <nowiki>{SIUnit, unitSymbol}</nowiki>
 ```
@@ -913,8 +913,8 @@ The SI units can be modified by SI (International System Units) sub-multiples an
 
 ```moin
 '''Unit modifiers'''
-* deca <nowiki>{SIUnitModifier} [SI unit multiple for 10 raised to power 1]</nowiki>
-* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple for 10 raised to power 1]</nowiki>
+* deca <nowiki>{SIUnitModifier, conversionFactor=10.0} [SI unit multiple representing 10^1.]</nowiki>
+* da <nowiki>{SIUnitSymbolModifier, conversionFactor=10.0} [SI unit multiple representing 10^1.]</nowiki>
 ```
 ````
 
@@ -932,7 +932,7 @@ Value classes give rules about what kind of value is allowed to be substituted f
 
 ```moin
 '''Value classes'''
-* dateTimeClass <nowiki>{allowedCharacter=digits,allowedCharacter=T,allowedCharacter=-,allowedCharacter=:}[Should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.]</nowiki>
+* dateTimeClass <nowiki>{allowedCharacter=digits, allowedCharacter=T, allowedCharacter=hyphen, allowedCharacter=colon, allowedCharacter=period, allowedCharacter=Z, allowedCharacter=plus} [Date-times conform to the BIDS Datetime format, RFC 3339 with an optional offset: YYYY-MM-DDThh:mm:ss (year, month, day, hour (24h), minute, second), an optional fraction of one to six digits, and an optional Z for UTC or a +hh:mm or -hh:mm offset.]</nowiki>
 ```
 ````
 
@@ -944,12 +944,12 @@ The schema attributes specify other characteristics about how particular tags ma
 
 ```moin
 '''Schema attributes'''
-* allowedCharacter <nowiki>{valueClassDomain, stringRange}[A character that is allowed in the value of a placeholder that has this value class.]</nowiki>
+* allowedCharacter <nowiki>{unitDomain, unitModifierDomain, valueClassDomain, stringRange} [A special character that is allowed in expressing the value of a placeholder of a specified value class.]</nowiki>
 * extensionAllowed <nowiki>{tagDomain, boolRange}[This tag may be extended by user-defined terms.]</nowiki>
 ```
 ````
 
-The schema attributes, themselves, have attributes referred to as *schema properties*. These schema properties are listed in the `Properties` section of the schema. The example indicates that `allowedCharacter` is associated with value classes (via `valueClassDomain`), while `extensionAllowed` applies to tags (via `tagDomain`).
+The schema attributes, themselves, have attributes referred to as *schema properties*. These schema properties are listed in the `Properties` section of the schema. The example indicates that `allowedCharacter` is associated with units, unit modifiers, and value classes (via `unitDomain`, `unitModifierDomain`, and `valueClassDomain`), while `extensionAllowed` applies to tags (via `tagDomain`).
 
 #### A.2.5.5. Schema properties
 
@@ -967,7 +967,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 #### A.2.5.6. Epilogue
 
-The epilogue section is marked by `'''Epilogue'''` and contains a text block with information about the schema license, attribution, and other metadata. The epilogue text appears on lines following the header without any special formatting markers. The epilogue may contain new lines and the characters of the `text` character set, which includes non-ASCII characters; commas are not allowed.
+The epilogue section is marked by `'''Epilogue'''` and contains a text block with information about the schema license, attribution, and other metadata. The epilogue text appears on lines following the header without any special formatting markers. The epilogue may contain new lines, commas, and the characters of the `text` character set, which includes non-ASCII characters.
 
 ````{admonition} **Example:** HED schema epilogue in .mediawiki format.
 
@@ -1058,7 +1058,7 @@ The XML schema file format has a header, prologue, main schema, definitions, and
 ````{admonition} XML layout of the HED schema.
 ```xml
 <?xml version="1.0" ?>
-<HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/hed-standard/hed-specification/raw/master/hedxml/HED8.0.0-beta.3.xsd">
+<HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/standard_schema/hedxml/HED8.4.0.xsd">
 <prologue>text of the prologue</prologue>
 <schema>
          ...  schema specification  ...
@@ -1270,7 +1270,7 @@ A `<node>` element contains a required `<name>` child element, an optional `<des
     <attribute> ... </attribute>
     <attribute> ... </attribute>
     <attribute> ... </attribute>
-    <node> ... <node>
+    <node> ... </node>
 </node>
 ```
 ````
@@ -1281,17 +1281,9 @@ The `<description>` element has the text contained in the square brackets `[ ]` 
 
 The optional `<attribute>` elements are derived from the attribute list contained in curly braces `{ }` of the `.mediawiki` specification. An `<attribute>` element has a single non-empty `<name></name>` child element whose text value corresponds to the node-name of attribute in the corresponding `.mediawiki` file. If the attribute does not have the `boolRange` property, then the `<attribute>` element should also have one or more child `<value></value>` elements giving the value(s) of the attribute.
 
-**Example:** The `requireChild` attribute represents a boolean value. In the `.mediawiki` representation this attribute appears as `{requireChild}` if present and is omitted if absent.
+**Example:** The `requireChild` attribute has the `boolRange` property. In the `.mediawiki` representation it appears as `{requireChild}` if present and is omitted if absent.
 
-````{admonition} The requireChild attribute represents a boolean value.
-
-**Old xml if true:**
-
-```xml
-<node requireChild="true"><name>xxx</name></node>
-```
-
-**New xml if true:**
+````{admonition} XML layout of an attribute that has the boolRange property.
 
 ```xml
 <node>
@@ -1305,25 +1297,15 @@ The optional `<attribute>` elements are derived from the attribute list containe
 
 **Example:** The `suggestedTag` is a schema attribute that has a value. The attribute is meant to be used by tagging tools to suggest additional tags that a user might want to include. Notice that the `suggestedTag` values are valid HED tags in any form (short, long, or intermediate).
 
-````{admonition} The suggestedTag old format.
-
-**Old xml if present:**
-
-```xml
-<node suggestedTag="Sweet,Gustatory-attribute/Salty">
-    <name>xxx</name>
-</node>
-```
-
-**New xml if present:**
+````{admonition} XML layout of an attribute that has values.
 
 ```xml
 <node>
    <name>xxx</name>
    <attribute>
       <name>suggestedTag</name>
-    	 <value>Sweet</value>
-    	 <value>Gustatory-attribute/Salty</value>
+      <value>Sweet</value>
+      <value>Gustatory-attribute/Salty</value>
    </attribute>
 </node>
 ```
@@ -1342,8 +1324,8 @@ The `<unitClassDefinition>` elements have a required `<name>`, an optional `<des
 ````{admonition} Example XML layout of the unit class definitions.
 ```xml
 <unitClassDefinition>
-    <name>time</name>
-    <description>Temporal values except date and time of day.</description>
+    <name>timeUnits</name>
+    <description>Units of time, for example durations, delays, and intervals between events.</description>
     <attribute>
        <name>defaultUnits</name>
        <value>s</value>
@@ -1397,18 +1379,21 @@ Unit modifiers are defined in the `<unitModifierDefinitions>` section of the XML
 
 Value classes are defined in the `<valueClassDefinitions>` section of the XML schema file. These sections follow a format similar to the `<node>` element in the `<schema>`:
 
-````{admonition} Example XML layout of the unit class definitions.
+````{admonition} Example XML layout of the value class definitions.
 ```xml
 <valueClassDefinitions>
    <valueClassDefinition>
        <name>dateTimeClass</name>
-       <description>Should conform to ISO8601 date-time format YYYY-MM-DDThh:mm:ss.</description>
+       <description>Date-times conform to the BIDS Datetime format, RFC 3339 with an optional offset: YYYY-MM-DDThh:mm:ss (year, month, day, hour (24h), minute, second), an optional fraction of one to six digits, and an optional Z for UTC or a +hh:mm or -hh:mm offset.</description>
        <attribute>
            <name>allowedCharacter</name>
            <value>digits</value>
            <value>T</value>
-           <value>-</value>
-           <value>:</value>
+           <value>hyphen</value>
+           <value>colon</value>
+           <value>period</value>
+           <value>Z</value>
+           <value>plus</value>
        </attribute>
    </valueClassDefinition>
 </valueClassDefinitions>
@@ -1731,7 +1716,7 @@ The `unit_classes` section defines unit classes as objects where each key is a u
 ```json
 "unit_classes": {
   "timeUnits": {
-    "description": "Temporal values except date and time of day.",
+    "description": "Units of time, for example durations, delays, and intervals between events.",
     "hedId": "HED_0011513",
     "units": ["second", "s", "day", "week", "month", "minute", "hour", "year"],
     "default_units": "s"
@@ -1770,13 +1755,13 @@ The `unit_modifiers` section defines unit modifiers with their properties:
 ```json
 "unit_modifiers": {
   "deca": {
-    "description": "SI unit multiple representing 10e1.",
+    "description": "SI unit multiple representing 10^1.",
     "hedId": "HED_0011400",
     "conversionFactor": "10.0",
     "SIUnitModifier": true
   },
   "da": {
-    "description": "SI unit multiple representing 10e1.",
+    "description": "SI unit multiple representing 10^1.",
     "hedId": "HED_0011401",
     "conversionFactor": "10.0",
     "SIUnitSymbolModifier": true
@@ -1793,9 +1778,9 @@ The `value_classes` section defines value classes with their allowed characters:
 ```json
 "value_classes": {
   "dateTimeClass": {
-    "description": "Date-times should conform to ISO8601...",
+    "description": "Date-times conform to the BIDS Datetime format, RFC 3339 with an optional offset: YYYY-MM-DDThh:mm:ss (year, month, day, hour (24h), minute, second), an optional fraction of one to six digits, and an optional Z for UTC or a +hh:mm or -hh:mm offset.",
     "hedId": "HED_0011301",
-    "allowed_characters": ["digits", "T", "hyphen", "colon"]
+    "allowed_characters": ["digits", "T", "hyphen", "colon", "period", "Z", "plus"]
   },
   "numericClass": {
     "description": "Value must be a valid numerical value.",
@@ -2002,7 +1987,7 @@ Each TSV file begins with a header row of column names. The header row of each f
 
 Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments and a `Properties` cell a comma-separated list of schema properties (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)).
 
-A tool that writes a schema in TSV format MUST write these columns, in this order, whatever the version of the schema. A file MAY also have columns that are not in this table, holding annotation properties for the HED ontology such as `dc:comment` (see [8.1.4.3. Spreadsheet format](./08_HED_ontology.md#8143-spreadsheet-format)); such columns are not part of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
+A tool that writes a schema in TSV format MUST write these columns, in this order, whatever the version of the schema. A file MAY also have columns that are not in this table, holding annotation properties for the HED ontology such as `dc:comment` (see [8.1.4.3. TSV format](./08_HED_ontology.md#8143-tsv-format)); such columns are not part of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
 
 ### A.5.3. TSV structure file
 
@@ -2077,8 +2062,8 @@ The ValueClass file defines value classes and their allowed characters:
 ````{admonition} Example TSV ValueClass file layout.
 ```text
 hedId	rdfs:label	omn:SubClassOf	Attributes	dc:description
-HED_0011301	dateTimeClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=T	Date-times should conform...
-HED_0011303	numericClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=E	Value must be a valid...
+HED_0011301	dateTimeClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=T, allowedCharacter=hyphen, allowedCharacter=colon, allowedCharacter=period, allowedCharacter=Z, allowedCharacter=plus	Date-times conform to the BIDS Datetime format, RFC 3339 with an optional offset: YYYY-MM-DDThh:mm:ss (year, month, day, hour (24h), minute, second), an optional fraction of one to six digits, and an optional Z for UTC or a +hh:mm or -hh:mm offset.
+HED_0011303	numericClass	StandardValueClass	allowedCharacter=digits, allowedCharacter=E, allowedCharacter=e, allowedCharacter=plus, allowedCharacter=hyphen, allowedCharacter=period	Value must be a valid numerical value.
 ```
 ````
 
