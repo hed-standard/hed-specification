@@ -161,7 +161,7 @@ The schema header line MUST specify the `version` attribute whose value MUST be 
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. An unrecognized header attribute is ignored when the schema is loaded and is an error in schema validation.
+The header may optionally contain an XSD namespace specification. An unrecognized header attribute does not prevent the schema from loading and does not affect the validation of annotations with that schema. It is an error in schema validation.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 

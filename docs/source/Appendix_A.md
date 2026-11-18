@@ -788,7 +788,7 @@ HED library="score" version="1.0.0"
 
 The `library` and `version` values are used to form the official filename `HED_score_1.0.0.mediawiki`. The file is found in [library_schemas/score/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-An unknown header attribute is ignored when the schema is loaded and is an error in schema validation (see [3.1.4.1. The header](./03_HED_formats.md#3141-the-header)).
+The treatment of an unrecognized header attribute is given in [3.1.4.1. The header](./03_HED_formats.md#3141-the-header).
 
 ### A.2.3. MediaWiki prologue and epilogue
 
@@ -1232,7 +1232,7 @@ Library schemas must include the `library` attribute with the library name in th
 
 The `library` and `version` values are used to form the official xml filename `HED_score_1.0.0.xml`. The file is found in [library_schemas/score/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Unknown header attributes are treated as in the MediaWiki format ([A.2.2. MediaWiki header](#a22-mediawiki-header)).
+The treatment of an unrecognized header attribute is given in [3.1.4.1. The header](./03_HED_formats.md#3141-the-header).
 
 Library schemas may also be partnered as is `HED_mouse_1.0.0.xml`.
 
