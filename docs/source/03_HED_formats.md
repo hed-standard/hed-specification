@@ -161,7 +161,7 @@ The schema header line MUST specify the `version` attribute whose value MUST be 
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. An unrecognized header attribute does not prevent the schema from loading and does not affect the validation of annotations with that schema. It is an error in schema validation.
+The header may optionally contain an XSD namespace specification. An unrecognized header attribute does not prevent the schema from loading and does not affect the validation of annotations with that schema. It is an error in schema validation, and a tool that writes the schema writes the attribute and its value unchanged.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 
@@ -237,7 +237,7 @@ Value class names are case-insensitive, but must contain only valid `name` chara
 
 The schema attributes section defines the schema attributes that may be assigned to the schema elements: nodes, unit classes, units, unit modifiers, and value classes.
 
-The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs. A schema attribute that is used in the schema MUST be defined in the schema attribute definition section; otherwise an error occurs.
+The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs. A schema attribute that is used in the schema MUST be defined in the schema attribute definition section; otherwise an error occurs. An undefined attribute on a schema element does not prevent the schema from loading: it is an error in schema validation, and a tool that writes the schema writes the attribute and its value unchanged.
 
 See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for additional details and a listing for the standard schema.
 
