@@ -62,17 +62,17 @@ HED-compliant tools should not rely on the order that HED tags appear within a s
 HED-compliant tools should be able to expand, shrink, or remove definitions.
 ```
 
-HED definitions should only appear in sidecars in dummy entries or in an accompanying definition list. Actual `Definition` groups should not appear in the `HED` column of event files.
+HED definitions should only appear in sidecars in dummy entries or in an accompanying definition list. Actual `Definition` groups should not appear in the `HED` column of tables.
 
 ## 6.2. Table-level handling
 
-Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) allow users to provide HED tags in multiple places. For example, the tables in BIDS dataset event files often use local codes to identify event markers and then provide dictionaries called JSON sidecars to map local codes to annotations.
+Dataset formats such as [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) allow users to provide HED tags in multiple places. For example, the timeline tables in BIDS `events.tsv` files often use local codes to identify event markers and then provide dictionaries called JSON sidecars to map local codes to annotations.
 
 The introduction of definitions and temporal scope has added additional complexity to validation and processing. Instead of being able to validate the HED string for each event individually, HED validators must now also check consistency across all events in the data-recording.
 
 Tools should make explicit whether they support temporal scope. Tools that support temporal scope should be able to add scoped event information to the `Event-context` tag group of the intermediate events upon request.
 
-Tools should make explicit whether they support insertion of actual events for `Delay` tag expansions and for the offsets of `Duration` tags. This information will allow analysts to call HED tools that support these operations to appropriately modify event files as a preamble to processing if the tool does not support these tags.
+Tools should make explicit whether they support insertion of actual events for `Delay` tag expansions and for the offsets of `Duration` tags. This information will allow analysts to call HED tools that support these operations to appropriately modify timeline tables as a preamble to processing if the tool does not support these tags.
 
 ## 6.3. HED support of BIDS
 
@@ -80,7 +80,7 @@ Tools should make explicit whether they support insertion of actual events for `
 
 ### 6.3.1. BIDS tabular files
 
-A BIDS tabular file is a tab-separated value file with extension `.tsv`. The file contains a single table with a one-line header containing the column names. The remaining lines in the file represent rows in the table. HED requires that no line after the header be empty and that every line have as many tab-separated cells as the header (see [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files)). HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files. A BIDS tabular file can be optionally accompanied by one or more similarly named `.json` files (i.e., sidecars) containing metadata for the file.
+A BIDS tabular file is a tab-separated value file with extension `.tsv`. The file contains a single table with a one-line header containing the column names. The remaining lines in the file represent rows in the table. HED requires that no line after the header be empty and that every line have as many tab-separated cells as the header (see [3.2.10. Tabular files and structures](./03_HED_formats.md#3210-tabular-files-and-structures)). HED has been incorporated into the BIDS standard as the mechanism for annotating BIDS tabular files. A BIDS tabular file can be optionally accompanied by one or more similarly named `.json` files (i.e., sidecars) containing metadata for the file.
 
 The most common types of BIDS tabular files are shown in the following table.
 
@@ -97,9 +97,9 @@ The most common types of BIDS tabular files are shown in the following table.
 
 HED treats the `onset` column of tables such as the ones in `events.tsv` files as expressing markers on a timeline. These timeline tables allow `Onset`, `Inset`, `Offset`, and `Delay` tags in their annotations and receive additional [table-level processing](./03_HED_formats.md#32104-table-level-processing) to assure that these tags are properly matched.
 
-**Tabular files that do not contain timeline tables are not permitted to use `Onset`, `Inset`, `Offset`, or `Delay` tags in their annotations.**
+**Tables that are not timeline tables are not permitted to use `Onset`, `Inset`, `Offset`, or `Delay` tags in their annotations.**
 
-The following shows an excerpt from a BIDS event file:
+The following shows an excerpt from a BIDS `events.tsv` file:
 
 ````{admonition} **Example:** Excerpt from a BIDS events.tsv file.
 
@@ -110,11 +110,11 @@ onset  duration  trial_type  response_time  HED
 ```
 ````
 
-The first two columns in a BIDS event file are required to be `onset` and `duration`, respectively. The `onset` is the time in seconds of an event marker relative to the start of its corresponding data recording, while the `duration` represents the duration in seconds of some aspect of the event. The remaining columns in this event file are optional.
+The first two columns in a BIDS `events.tsv` file are required to be `onset` and `duration`, respectively. The `onset` is the time in seconds of an event marker relative to the start of its corresponding data recording, while the `duration` represents the duration in seconds of some aspect of the event. The remaining columns in this file are optional.
 
 BIDS reserves an optional column named `HED` to contain HED strings relevant for the instance represented by that row. In the above example, the first row `HED` column contains `Label/Starting-point, Quiet`, meaning that the event that starts at time 1.2 has these particular annotations in addition to annotations contributed by any relevant sidecars. The `HED` column in the second row contains `n/a`, indicating that entry should be ignored. In this case only annotations from applicable sidecars are applied.
 
-HED annotations can also be associated with entries in other columns of the event file through an associated JSON sidecar as described in [6.3.3. BIDS sidecars](#633-bids-sidecars).
+HED annotations can also be associated with entries in other columns of the file through an associated JSON sidecar as described in [6.3.3. BIDS sidecars](#633-bids-sidecars).
 
 ### 6.3.2. BIDS timeseries
 
@@ -122,11 +122,11 @@ BIDS also includes another type of file with extension `.tsv` that represents co
 
 ### 6.3.3. BIDS sidecars
 
-BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the event files. HEDTools supports BIDS dataset format, where event metadata is contained in compatibly-named sidecars. See the [example sidecar](./03_HED_formats.md#3294-a-sidecar-example) in Chapter 3 for an explanation of the different sidecar entries.
+BIDS also recommends data dictionaries in the form of JSON sidecars to document the meaning of the data in the `events.tsv` files. HEDTools supports BIDS dataset format, where event metadata is contained in compatibly-named sidecars. See the [example sidecar](./03_HED_formats.md#3294-a-sidecar-example) in Chapter 3 for an explanation of the different sidecar entries.
 
 ### 6.3.4. Annotation assembly
 
-HED tools assemble the annotation for each row of a tabular file from its `HED` column and from the sidecar entries for its other columns. The procedure and a worked example (an events excerpt, its sidecar, and the assembled annotation) are in [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing).
+HED tools assemble the annotation for each row of a table from its `HED` column and from the sidecar entries for its other columns. The procedure and a worked example (an events excerpt, its sidecar, and the assembled annotation) are in [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing).
 
 ### 6.3.5. HED version in BIDS
 
@@ -187,6 +187,6 @@ HED provides a JavaScript validator in the [hed-javascript](https://github.com/h
 
 ### 6.3.7. HED python tools
 
-The [hedtools](https://pypi.org/project/hedtools/) package includes input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal representations of HED-annotated event files.
+The [hedtools](https://pypi.org/project/hedtools/) package includes input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal representations of HED-annotated tables.
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert a schema among the MediaWiki, XML, JSON, and TSV formats are in the `hed.schema` module of the [hed-python](https://github.com/hed-standard/hed-python) GitHub repository. A schema in any of these formats is loaded into a `HedSchema` object, which can be saved in any of them.

@@ -390,7 +390,7 @@ A tag extension, in contrast to a value, is a tag that users add as a child of a
 2. The extension term MUST contain only `name` characters.
 3. The parent of the tag extension must always be included with the extended tag in annotation.
 4. The extension term must satisfy the "is-a" relationship with its parent node.
-5. The `#` placeholder cannot be used as an extension - in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in an events file or a sidecar alike.
+5. The `#` placeholder cannot be used as an extension - in particular it cannot be used as a placeholder in definitions or as value annotations in sidecars. A `#` after an extension term (`Item/Blech/#`) is an error in every context, in a table or a sidecar alike.
 6. An extension term MUST contain at least one letter. A term made only of digits, hyphens, and underscores (`3`, `42`, `1-2`) reads as a value and is an error. A letter is `A`-`Z` or `a`-`z`, or any Unicode letter in schema versions whose `nameClass` allows non-ASCII characters (see [A.1.3. Value classes](./Appendix_A.md#a13-value-classes)).
 
 **Note:** The is-a relationship is not checked by validators.
@@ -521,7 +521,7 @@ The subsections below describe each structural reserved tag.
 
 A definition gives a name to a group of tags, so that annotations can refer to the whole group with a `Def` tag. Definitions are useful for lab-specific concepts and are the anchors of `Onset`, `Offset`, and `Inset` groups. Each definition is independent and stands alone.
 
-A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`, or `(Definition/name/#, (contents))`: a definition without a placeholder MAY omit the inner group, for example when it serves only as an anchor, and a definition with a placeholder MUST have it. Definitions appear only where definitions are allowed, such as the definition entries of a sidecar or definitions supplied separately to a tool, and MUST NOT appear in the annotations of a tabular file.
+A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`, or `(Definition/name/#, (contents))`: a definition without a placeholder MAY omit the inner group, for example when it serves only as an anchor, and a definition with a placeholder MUST have it. Definitions appear only where definitions are allowed, such as the definition entries of a sidecar or definitions supplied separately to a tool, and MUST NOT appear in the annotations of a table.
 
 `Definition`, `Def`, and `Def-expand` are the only tags that permit values with two parts, `name` or `name/value`, an exception to the rule that the value of a `nameClass` tag contains no `/`. The name MUST be a `nameClass` value. After a `Definition` name only `#` MAY follow, and when it does, the contents MUST contain exactly one tag with a `#` placeholder: `Definition/MyDef/3` is an error.
 
@@ -567,9 +567,9 @@ See [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts) for exa
 
 JSON sidecars are an integral part of the [BIDS](https://bids.neuroimaging.io/) (Brain Imaging Data Structure) neuroimaging standard and are used to associate metadata with data files.
 
-The JSON sidecars that are relevant to HED are associated with tabular data files. For example, the rows of tabular event files represent time markers on the experimental timeline, and the assembled HED annotations for each row describe what happened at that time marker. A sidecar containing annotations associated with the columns of such an event file allows HED tools to assemble HED annotations for each row of the file.
+The JSON sidecars that are relevant to HED are associated with tables. For example, the rows of a timeline table represent time markers on the experimental timeline, and the assembled HED annotations for each row describe what happened at that time marker. A sidecar containing annotations associated with the columns of such a table allows HED tools to assemble HED annotations for each row of the table.
 
-In addition to sidecars, HED annotations can also be given in the `HED` column of tabular files. At validation or analysis time the HED information from both the `HED` column of a tabular file and its associated sidecar are assembled to provide the annotation.
+In addition to sidecars, HED annotations can also be given in the `HED` column of a table. At validation or analysis time the HED information from both the `HED` column of a table and its associated sidecar are assembled to provide the annotation.
 
 HED validators assume that the annotation dictionary is saved in JSON format and that they comply with the [BIDS sidecar](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
 
@@ -579,35 +579,35 @@ A BIDS sidecar is a JSON dictionary with several types of entries, three of whic
 
 ```{Admonition} Three types of JSON sidecar HED-related entries.
 **Categorical entries**
-- The top-level JSON key corresponds to a column name in the event file.
+- The top-level JSON key corresponds to a column name in the table.
 - The value associated with the HED key is a dictionary of HED annotations.
 - The keys of the annotation dictionary are the unique column values.
 - The entry is not required to have annotations for every possible unique column value.
 - A warning is issued if a column value does not have an annotation (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
-- The annotation dictionary may include annotations for values that do not appear in a particular event file.
+- The annotation dictionary may include annotations for values that do not appear in a particular table.
 
 
 **Value entries**:
-- The top-level JSON key corresponds to a column name in the event file.
+- The top-level JSON key corresponds to a column name in the table.
 - The value associated with the HED key is a HED string.
-- The entry's annotation is applicable to all values in its associated event file column.
+- The entry's annotation is applicable to all values in its associated table column.
 - The HED annotation must contain a single `#` placeholder.
 - Each row's column value is substituted for the `#` in the annotation
 when the row annotation is assembled.
 
 **Dummy entries**:
-- The top-level JSON key must not correspond to a column name in the event file.
+- The top-level JSON key must not correspond to a column name in the table.
 - The value associated with the HED key is a dictionary of HED annotations.
 - The keys are dummy entries.
 - Used to gather HED definitions.
 
 ```
 
-The other types of sidecar entries include categorical and value entries with no `"HED"` key, as well as arbitrary entries whose keys do not correspond to column names in an associated tabular file.
+The other types of sidecar entries include categorical and value entries with no `"HED"` key, as well as arbitrary entries whose keys do not correspond to column names in an associated table.
 
-A top-level sidecar key corresponds to a column name only when the two strings are identical: no trimming, change of case, or other normalization is applied. A key or column name with leading or trailing whitespace is itself an error ([3.2.9.2. Sidecar validation](#3292-sidecar-validation), [3.2.10. Tabular files](#3210-tabular-files)). In the same way, a categorical value matches a key of its entry's annotation dictionary only when the two strings are identical, and a value is substituted for the `#` exactly as written. This is stated from specification `4.0.0`.
+A top-level sidecar key corresponds to a column name only when the two strings are identical: no trimming, change of case, or other normalization is applied. A key or column name with leading or trailing whitespace is itself an error ([3.2.9.2. Sidecar validation](#3292-sidecar-validation), [3.2.10. Tabular files and structures](#3210-tabular-files-and-structures)). In the same way, a categorical value matches a key of its entry's annotation dictionary only when the two strings are identical, and a value is substituted for the `#` exactly as written. This is stated from specification `4.0.0`.
 
-When annotations are assembled, sidecar entries with no `"HED"` key are ignored as are entries in the corresponding tabular data file that have `n/a` or blank values.
+When annotations are assembled, sidecar entries with no `"HED"` key are ignored as are entries in the corresponding table that have `n/a` or blank values.
 
 See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for an elaborated example of these different types of entries and [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) for an example of how the resulting HED annotations are assembled.
 
@@ -615,13 +615,13 @@ See [3.2.9.4. A sidecar example](./03_HED_formats.md#3294-a-sidecar-example) for
 
 All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second-level dictionary. `"HED"` cannot appear as a sidecar key that is not at the second level. Further, a sidecar is not permitted to provide a HED annotation for `n/a`.
 
-A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
+A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files and structures](#3210-tabular-files-and-structures). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
 
 In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either. Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry is an error.
 
-The sidecar does not have to provide a HED-relevant entry for every event file column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for an event file row. Two conditions are reported as warnings, not errors: a value in a column that the sidecar annotates as a categorical column has no HED annotation in the sidecar, and a column referenced in curly braces in the sidecar is not a column of the associated tabular file.
+The sidecar does not have to provide a HED-relevant entry for every table column. Columns with no corresponding sidecar entry are skipped during assembly of the HED annotation for a table row. Two conditions are reported as warnings, not errors: a value in a column that the sidecar annotates as a categorical column has no HED annotation in the sidecar, and a column referenced in curly braces in the sidecar is not a column of the associated table.
 
 HED value sidecar entries must contain exactly one `#` placeholder in the HED string annotation associated with the entry. The `#` placeholder should correspond to a `#` in the HED schema, indicating that the parent tag (also included in the annotation) expects a value. These issues are errors.
 
@@ -629,7 +629,7 @@ If the placeholder is followed by a unit designator, the validator checks that t
 
 #### 3.2.9.3. Sidecar curly braces
 
-The curly brace notation is new with HED specification version `3.2.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different event file columns when the complete HED annotation for an event marker is assembled.
+The curly brace notation is new with HED specification version `3.2.0`. The notation was introduced to facilitate proper nesting of HED tags associated with different table columns when the complete HED annotation for an event marker is assembled.
 
 When a column name appears in curly braces within a HED annotation in a JSON sidecar, the corresponding HED annotation for that row is substituted for the curly braces and their contents when the HED annotation is assembled.
 
@@ -650,11 +650,11 @@ A value other than `n/a` or blank in a curly brace column is validated in every 
 4. A sidecar column name cannot both appear in a curly braces and have
 an annotation that uses curly braces (to prevent circular references).
 5. The curly braces cannot be used within a `Definition` or an `Event-context` group.
-6. Curly braces can not appear in the HED column of a tabular file.
+6. Curly braces can not appear in the HED column of a table.
 7. Curly braces can not be nested.
 8. A pair of curly braces must appear syntactically as a tag and not as the substitution for a place holder.
 9. The group rules of a structural reserved tag (its anchor, the number of inner groups, and the tags allowed beside it, see [3.2.8](#328-reserved-tags)) are checked on the assembled annotation. A sidecar entry such as `(Duration/#, {stim_desc})` is valid when each annotation of `stim_desc` supplies the required inner group.
-10. A sidecar annotation with curly braces is valid only if it is valid when the annotations of each referenced column are substituted, one referenced column at a time, whether or not a tabular file uses the substituted values.
+10. A sidecar annotation with curly braces is valid only if it is valid when the annotations of each referenced column are substituted, one referenced column at a time, whether or not a table uses the substituted values.
 
 ```
 
@@ -674,7 +674,7 @@ Examples:
 
 Errors that this check does not find are reported when a row is assembled: those that need two or more referenced columns filled (the repeat in `({color}, {shade})` when both give `Red`), those that depend on a row's values, and those that need the whole row, such as required tags or reserved tags. A validator MAY also check combinations of referenced columns in the sidecar. Rule 10 is stated from specification `4.0.0`.
 
-Curly braces MUST NOT appear in the HED column of a tabular file, in a `Definition`, or in an `Event-context` group.
+Curly braces MUST NOT appear in the HED column of a table, in a `Definition`, or in an `Event-context` group.
 
 #### 3.2.9.4. A sidecar example
 
@@ -742,15 +742,15 @@ Notice use of curly braces in the notation. Here `"stim_file"` must correspond t
 
 Since `"stim_file"` and `"key"` appear within curly braces in annotations for `"event_type"`, their HED annotations can not use curly braces.
 
-The `"dummy_defs"` is an example of a **dummy annotation**. The value of this entry is a dictionary with a `"HED"` key pointing to a dictionary. A dummy annotation is similar in form to a **categorical annotation**, but its keys do not correspond to any event file column values. Rather it is used as a container to organize HED definitions.
+The `"dummy_defs"` is an example of a **dummy annotation**. The value of this entry is a dictionary with a `"HED"` key pointing to a dictionary. A dummy annotation is similar in form to a **categorical annotation**, but its keys do not correspond to any table column values. Rather it is used as a container to organize HED definitions.
 
 In the example, `Definition/Cue1` is a definition that does not use a placeholder (`#`) modifier in its name, while `Definition/Image/#` is a definition whose name `Image` is modified by a placeholder value. Notice that `Image` is both a definition name and an actual tag in the schema in this example. This is permitted.
 
-### 3.2.10. Tabular files
+### 3.2.10. Tabular files and structures
 
 A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line; this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace, where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. A column name MUST NOT be blank, that is, the empty string, as BIDS also requires; a first line that ends with a tab, for example, has a blank last column name. A name made only of whitespace is not blank but begins with whitespace, and is reported under the whitespace rule. This rule is stated from specification `4.0.0`. Column names are compared exactly as written when looking for a repeated name: two names that differ only in leading or trailing whitespace, such as `trial` and `trial ` (with a trailing blank), are not a repeated name, and the name with the whitespace is reported under the whitespace rule. A line other than the first MUST NOT be empty, that is, have no characters before its line terminator, as BIDS also requires; a single line ending at the end of the file is allowed and does not make an empty last line, but two line endings at the end of the file do. An empty first line is a single blank column name and is reported under the blank-name rule, not as an empty line. Every line other than the first MUST have as many tab-separated cells as the first line, as BIDS also requires. An empty line is reported as an empty line only, not also under the cell-count rule. A line made only of tabs that has as many cells as the first line is a row of missing values and is allowed. A line made only of blanks has one cell, so it breaks the cell-count rule unless the table has one column; in a table with one column it is a value made only of whitespace, which is an error if the column has categorical or value HED annotations (see [3.2.10.2. Table annotations](#32102-table-annotations)). These two rules are stated from specification `4.0.0`; earlier versions said nothing about empty lines or the number of cells in a row. When a file breaks either rule, every offending line is reported and the rows of the file are not validated. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
 
-A validator MUST apply the rules of this section to every tabular file that carries HED annotations: a file with a column named `HED`, or a file whose associated sidecar contains HED annotations. So that a malformed first line does not hide such a file, a text tabular file also counts as having a `HED` column when a cell of its first non-empty line is `HED` after leading and trailing whitespace is removed; the file is then validated, and its empty first line or its name with whitespace is reported under the rules above. A validator is not required to check a tabular file that carries no HED annotations, and MAY skip it whatever its structure. This scope is stated from specification `4.0.0`.
+A validator MUST apply the rules of this section to every table that carries HED annotations, whether the table is stored in a file or held in a data structure in memory: a table with a column named `HED`, or a table whose associated sidecar contains HED annotations. The sidecar, too, is a JSON structure that may be stored in a file or held in memory. So that a malformed first line does not hide such a table, a text tabular file also counts as having a `HED` column when a cell of its first non-empty line is `HED` after leading and trailing whitespace is removed; the file is then validated, and its empty first line or its name with whitespace is reported under the rules above. A validator is not required to check a table that carries no HED annotations, and MAY skip it whatever its structure. This scope is stated from specification `4.0.0`.
 
 From specification `4.0.0` these column-name rules apply to every HED-annotated table whose columns have names, however the table stores them, not only to `.tsv` files: the header row of a HED-annotated spreadsheet (such as an Excel worksheet) and the column names that a tabular container such as an NWB table stores with its columns are held to them too, whether a tool refers to the columns by name or by column number. A table without column names, such as a spreadsheet with no header row, is not subject to them. They apply to the names under which the columns are assembled. An NWB `DynamicTable` requires its column names to be unique, but it accepts names that differ only in leading or trailing whitespace, such as `onset` and ` onset` (with a leading blank); HED treats the name with the whitespace as an error. NWB also accepts an empty column name, which HED treats as a blank name. A column may also be assembled under a name other than its own: the `TimestampVectorData` column named `timestamp` is the equivalent of an `onset` column (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)). An NWB table that has that column and also a separate column named `onset` therefore has two columns assembled as `onset`, which HED treats as a repeated name. The rules on empty lines and on the number of cells in a line are rules about the lines of a text tabular file and apply only to such files: they do not apply to spreadsheets or to NWB tables.
 
@@ -774,15 +774,15 @@ BIDS HED annotations for a table can occur both in a column called `HED` within 
 
 The values in a table column that a sidecar value entry annotates must also be valid: for every row whose value is not `n/a` or blank, the string obtained by substituting the value for the `#` in the column's annotation must be a valid HED string. This check is made column by column before row assembly and does not depend on whether the row's assembled annotation uses the column, in particular when the column appears in curly braces only in templates the row does not select.
 
-A value in a column with categorical or value HED annotations (in BIDS, a column whose sidecar entry has a `"HED"` key) MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files](#3210-tabular-files). Values are used exactly as written (see [3.2.9.1. Sidecar entries](#3291-sidecar-entries)), so such a value would otherwise match no annotation key or be substituted with its whitespace. The rule covers a value made only of whitespace as well as an `n/a` with whitespace before or after it (such as `n/a `); both are reported. An empty value and `n/a` itself are missing values and are not checked. Only the four characters listed in 3.2.10 count as whitespace; a no-break space or other Unicode space does not. The check is made column by column before the value checks of the preceding paragraph and before row assembly. The `HED` column, whose HED strings may have blanks around their tags, and columns without HED annotations are not subject to the rule. This rule is stated from specification `4.0.0`.
+A value in a column with categorical or value HED annotations (in BIDS, a column whose sidecar entry has a `"HED"` key) MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files and structures](#3210-tabular-files-and-structures). Values are used exactly as written (see [3.2.9.1. Sidecar entries](#3291-sidecar-entries)), so such a value would otherwise match no annotation key or be substituted with its whitespace. The rule covers a value made only of whitespace as well as an `n/a` with whitespace before or after it (such as `n/a `); both are reported. An empty value and `n/a` itself are missing values and are not checked. Only the four characters listed in 3.2.10 count as whitespace; a no-break space or other Unicode space does not. The check is made column by column before the value checks of the preceding paragraph and before row assembly. The `HED` column, whose HED strings may have blanks around their tags, and columns without HED annotations are not subject to the rule. This rule is stated from specification `4.0.0`.
 
-The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the tabular file cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (the Timeline only column of [3.2.8. Reserved tags](#328-reserved-tags)).
+The HED strings that appear in a `HED` column must be valid HED strings. If the table has no `onset` column (or equivalent, see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)), the assembled annotation for the table cannot contain any of the tags `Onset`, `Offset`, `Inset`, or `Delay` (the Timeline only column of [3.2.8. Reserved tags](#328-reserved-tags)).
 
-Definitions may not appear in the `HED` column of a tabular file or in any entry of a JSON sidecar that contains items other than definitions.
+Definitions may not appear in the `HED` column of a table or in any entry of a JSON sidecar that contains items other than definitions.
 
 #### 3.2.10.3. Event-level processing
 
-After individual HED tags and HED strings in the `HED` column of tabular files and in the associated sidecars are validated or otherwise processed, the HED strings associated with each row of the tabular file must be assembled to provide an overall annotation for the row. We refer to this as *event-level* or *row* processing.
+After individual HED tags and HED strings in the `HED` column of tables and in the associated sidecars are validated or otherwise processed, the HED strings associated with each row of the table must be assembled to provide an overall annotation for the row. We refer to this as *event-level* or *row* processing.
 
 If the HED schema used for processing contains a schema node that has the `unique` attribute, then the assembled HED annotations for each row must contain no more than one occurrence of that tag. Currently, only `Event-context` has the `unique` attribute.
 
@@ -800,9 +800,9 @@ in curly braces in the sidecar, concatenate the annotation to the result list.
 In all cases `n/a` column values are skipped.
 ```
 
-To illustrate the assembly process, consider the following excerpt from an event file:
+To illustrate the assembly process, consider the following excerpt from a timeline table:
 
-```{Admonition} Example: excerpt from an event file.
+```{Admonition} Example: excerpt from a timeline table.
 
 | onset | duration | event_type | stim_file | key | symmetry | HED |
 | ----- | -------- | ---------- | --------- | --- | -------- | --- |
@@ -811,7 +811,7 @@ To illustrate the assembly process, consider the following excerpt from an event
 | 7.42  | n/a    | show  |   h734.bmp  |  n/a |   n/a | n/a |
 ```
 
-Using the [example sidecar](example-sidecar-anchor) results in the following assembled HED annotation for the first row of the event file:
+Using the [example sidecar](example-sidecar-anchor) results in the following assembled HED annotation for the first row of the table:
 
 ````{Admonition} A result for event-level (row) assembly of the sample file.
 ---
@@ -925,7 +925,7 @@ Rules for curly brace usage:
 2. The substituted annotation directly replaces the curly braces and their contents.
 3. If an `n/a` or blank value appears in a curly brace column, the entire curly brace expression is removed.
 4. A column name MUST NOT both appear in curly braces and use curly braces in its own annotation.
-5. Curly braces MUST NOT appear in a `Definition` or `Event-context` group or in the `HED` column of tabular files.
+5. Curly braces MUST NOT appear in a `Definition` or `Event-context` group or in the `HED` column of a table.
 
 These rules summarize [3.2.9.3. Sidecar curly braces](#3293-sidecar-curly-braces), which is normative.
 
