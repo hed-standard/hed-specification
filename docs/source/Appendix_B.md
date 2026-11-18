@@ -96,6 +96,14 @@ A schema element has been deprecated and should not be used. When an element is 
 
 See [3.2. Annotation rules](./03_HED_formats.md#32-annotation-rules) for the rule and [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom) for additional information about the `deprecatedFrom` schema attribute.
 
+### ONSETS_UNORDERED\*
+
+(WARNING)
+
+**a.** The rows of a timeline table are not in time order: the time of a row is earlier than the time of a row above it. Rows whose `onset` value is `n/a` are not considered. The warning is reported once for the table.
+
+See [3.2.10.4. Table-level processing](./03_HED_formats.md#32104-table-level-processing) for the rule.
+
 ### PARENTHESES_MISMATCH
 
 **a.** A HED string does not have the same number of open and closed parentheses.\
@@ -288,7 +296,8 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
+**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
+**o.** An `Onset`, `Offset`, `Inset`, or `Delay` tag appears in a row of a timeline table whose `onset` value is `n/a`. A `Duration` tag MAY appear in such a row.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 

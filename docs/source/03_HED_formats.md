@@ -547,9 +547,9 @@ See [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) f
 
 #### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
-Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
+Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. A process that has neither lasts to the end of the table: an `Onset` with no `Offset` is not an error. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
 
-An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
+An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. In these rules "before", "after" and "later" refer to time, not to the position of a row in the table (see [3.2.10.4. Table-level processing](#32104-table-level-processing)). An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
 See [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
 
@@ -569,7 +569,7 @@ A tool generates the group for an event marker from the event processes of the t
 
 - A process is ongoing at an event marker when the time of the marker is later than the start of the process and earlier than its end. A process is not in the context of the marker at which it starts, nor of the marker at which it ends.
 - The start of a process is the time of the row that holds its `Onset` or `Duration` group, plus the value of any `Delay` in that group.
-- A process started by an `Onset` group ends at its `Offset`, or at the next `Onset` with the same anchor, or, when neither occurs, at the end of the table. A process given by a `Duration` group ends at its start plus the duration.
+- A process started by an `Onset` group ends as stated in [3.2.8.3. `Onset`, `Offset`, and `Inset`](#3283-onset-offset-and-inset). A process given by a `Duration` group ends at its start plus the duration.
 - The entry for a process is its `Onset` or `Duration` group with the `Onset` or `Duration` tag and any `Delay` tag removed. The entry is itself a group: `(Def/PlayMovie, (Label/Clip1), Onset)` gives the entry `(Def/PlayMovie, (Label/Clip1))`, and `(Duration/2 s, Delay/1 s, (Sound))` gives the entry `((Sound))`.
 - The generated group has the form `(Event-context, (entry, entry, ...))`: a single inner group that holds the entries of all the ongoing processes. An event marker with no ongoing process gets no `Event-context` group.
 
@@ -847,7 +847,13 @@ For more examples of event assembly, see [How HED works in BIDS](https://www.hed
 
 HED allows annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
 
-To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
+In a timeline table, a validator MUST check the rules of [3.2.8.3. `Onset`, `Offset`, and `Inset`](#3283-onset-offset-and-inset) over the whole table. The rules apply to one table at a time: an event process that starts in one table cannot end in another. They use time, not row position:
+
+- The time of a row is the value in its `onset` column, or in the equivalent column (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)).
+- The rows of a table need not be in time order. `Onset`, `Offset`, and `Inset` groups are matched by their times, whatever the order of the rows. A table in which the time of a row is earlier than the time of a row above it is valid, but a validator reports a warning for it, once for the table.
+- A row whose `onset` value is `n/a` has no time and takes no part in the order of the rows. Its annotation MUST NOT contain `Onset`, `Offset`, `Inset`, or `Delay`; it MAY contain `Duration`. The rest of its annotation is validated as in any other row.
+
+These rules are stated from specification `4.0.0`.
 
 ## 3.3. Annotation semantics
 
