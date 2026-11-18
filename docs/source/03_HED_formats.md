@@ -12,7 +12,7 @@ This chapter describes the requirements and formats for HED schemas and HED anno
 
 Additional details about HED schema formats can be found in appendix [A. Schema format details](./Appendix_A.md). [7. Library schemas](./07_Library_schemas.md#7-library-schemas) discusses the additional requirements and restrictions on library schemas. [B.2. Schema validation errors](./Appendix_B.md#b2-schema-validation-errors) describes the schema errors.
 
-The HED ecosystem supports a standard base schema and additional discipline-specific library schemas. (See the [expandable schema viewer](https://www.hedtags.org/hed-schema-browser) to explore existing schemas.) Releases of the HED standard base schema are stored in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) directory of the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository. Releases of HED library schemas are stored in a subdirectory of [library_schemas](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas) in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
+The HED ecosystem supports a standard schema and additional discipline-specific library schemas. (See the [expandable schema viewer](https://www.hedtags.org/hed-schema-browser) to explore existing schemas.) Releases of the HED standard schema are stored in the [standard_schema/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedxml) directory of the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository. Releases of HED library schemas are stored in a subdirectory of [library_schemas](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas) in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
 Additional rules for HED annotations can be found in [4. Basic annotation](./04_Basic_annotation.md) and [5. Advanced annotation](./05_Advanced_annotation.md). The [Making HED meaningful](https://www.hedtags.org/hed-resources/HedAnnotationSemantics.html) tutorial explains the semantics of HED and rules for making meaningful, standardized, and complete annotations. [B.1. HED validation errors](./Appendix_B.md#b1-hed-validation-errors) gives a complete list of HED annotation validation errors.
 
@@ -22,7 +22,7 @@ Additional rules for HED annotations can be found in [4. Basic annotation](./04_
 
 A HED standard schema version is a string representing a valid [semantic version](https://semver.org/) (e.g., `8.4.0` specifies standard schema version `8.4.0`). HED library schemas have their semantic version appended to `"XXX_"`. Here `"XXX"` is the name of the library (e.g., `lang_1.2.0` represents version `1.2.0` of the `lang` HED library schema).
 
-A schema version specification may be preceded by a **namespace prefix**: an alphabetic namespace name followed by a colon (`:`). An example of a schema version specification using a namespace prefix is `"ts:8.4.0"` or `"mystuff:lang_1.2.0"`. The namespace name can be any alphabetic string. If the schema version specification has a namespace prefix, then all tags drawn from that schema must appear in any corresponding annotation with that namespace prefix prepended (e.g., `"ts:Sensory-event"` for the `"Sensory-event"` tag in schema `"ts:8.4.0"`). Namespace designations allow annotators to use tags from incompatible HED schemas to annotate a dataset.
+A schema version specification may be preceded by a **namespace prefix**: an alphabetic namespace name followed by a colon (`:`). An example of a schema version specification using a namespace prefix is `"ts:8.4.0"` or `"mystuff:lang_1.2.0"`. The namespace name can be any alphabetic string. If the schema version specification has a namespace prefix, then all tags drawn from that schema must appear in any corresponding annotation with that namespace prefix prepended (e.g., `"ts:Sensory-event"` for the `"Sensory-event"` tag in schema `"ts:8.4.0"`). Namespaces allow annotators to use tags from incompatible HED schemas to annotate a dataset.
 
 ### 3.1.2. Version combinations
 
@@ -58,7 +58,7 @@ Merge groups are defined in the schema version specification, not in the schema 
 "HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:mouse_1.0.0"]
 ```
 
-indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from mouse must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace designator. This dataset uses two namespaces (default and `bc:`).
+indicates for this particular BIDS dataset HED tags from the lang and score HED library schemas can be used without prefix, but tags from mouse must have the `bc:` prefix prepended. The user-selected prefix `bc:` is a namespace prefix. This dataset uses two namespaces (default and `bc:`).
 
 #### 3.1.2.4. Partnered combinations
 
@@ -263,7 +263,7 @@ The epilogue may contain `text` characters, the comma, or `newline`. Any other c
 
 The rules in this section were codified in HED specification `4.0.0`; they apply to every schema: standard schemas and partnered and unpartnered library schemas. Schemas that do not have one or more of these sections or have a different format than specified in this document can be loaded but do not pass schema compliance.
 
-The purpose of these sections is to provide a mechanism for HED to link to external sources including other ontologies. The sources section defines external sources with links, the prefixes section defines the namespace prefixes for ontology integration, and the external annotations provide the ID links to actual UUIDs within the resources specified in the sources.
+The purpose of these sections is to provide a mechanism for HED to link to external sources including other ontologies. The sources section defines external sources with links, the prefixes section defines the prefixes of the external ontologies and vocabularies, and the external annotations provide the ID links to actual UUIDs within the resources specified in the sources.
 
 A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5. MediaWiki auxiliary sections](./Appendix_A.md#a25-mediawiki-auxiliary-sections), [A.3.5. XML auxiliary sections](./Appendix_A.md#a35-xml-auxiliary-sections), [A.4.5. JSON auxiliary sections](./Appendix_A.md#a45-json-auxiliary-sections), and [A.5.11. TSV sources, prefixes, and annotations](./Appendix_A.md#a511-tsv-sources-prefixes-and-annotations) for specific format details.
 

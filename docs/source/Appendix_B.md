@@ -252,7 +252,7 @@ See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for a discussion of ta
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.** A tag prefix has invalid characters.\
+**a.** A namespace prefix has invalid characters.\
 **b.** A tag has a namespace prefix that is not defined: no schema in the HED version specification is associated with that namespace.
 
 See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes) and [7. Library schema](./07_Library_schemas.md) for additional information on using multiple schemas in annotation.

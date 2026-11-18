@@ -593,7 +593,7 @@ The section is required in every schema (see [3.1.4.10. Sources, prefixes, and e
 
 ### A.1.7. Schema prefixes
 
-The schema prefixes section defines namespace prefixes used for linking HED schema elements to external ontologies and controlled vocabularies. Each prefix entry associates a short prefix string (e.g., `dc:`, `ncit:`, `owl:`) with its full namespace IRI and provides a description of the ontology or vocabulary it represents.
+The schema prefixes section defines the prefixes used for linking HED schema elements to external ontologies and controlled vocabularies. These prefixes are not the namespace prefixes of tags (see [Namespace prefix](./02_Terminology.md#namespace-prefix)). Each prefix entry associates a short prefix string (e.g., `dc:`, `ncit:`, `owl:`) with its full namespace IRI and provides a description of the ontology or vocabulary it represents.
 
 Schema prefixes are essential for the `annotation` schema attribute, which uses prefix notation to create links between HED elements and external ontology terms. For example, the annotation `skos:exactMatch ncit:C25499` uses the `skos:` prefix for the mapping property and the `ncit:` prefix to reference term C25499 in the NCI Thesaurus. Without the prefix definition, tools cannot resolve these references to their full IRIs.
 
@@ -1006,7 +1006,7 @@ In a merged library schema, a row contributed by the library begins with the att
 
 #### A.2.5.8. Schema prefixes
 
-The schema prefixes section is marked by `'''Prefixes'''` and defines namespace prefixes for ontology integration. Each prefix is specified on a single line at level 1 with comma-separated name-value pairs in `<nowiki>` tags. The section is present in every MediaWiki file; when the schema has no prefixes, it consists of the `'''Prefixes'''` header alone.
+The schema prefixes section is marked by `'''Prefixes'''` and defines prefixes for ontology integration. Each prefix is specified on a single line at level 1 with comma-separated name-value pairs in `<nowiki>` tags. The section is present in every MediaWiki file; when the schema has no prefixes, it consists of the `'''Prefixes'''` header alone.
 
 ````{admonition} **Example:** HED schema prefixes in .mediawiki format.
 
@@ -1877,7 +1877,7 @@ In a merged library schema, a source object contributed by the library has one m
 
 #### A.4.5.7. Schema prefixes
 
-The `prefixes` section defines namespace prefixes for ontology integration as an array of objects. The array is present in every JSON file and is empty when the schema has no prefixes:
+The `prefixes` section defines prefixes for ontology integration as an array of objects. The array is present in every JSON file and is empty when the schema has no prefixes:
 
 ````{admonition} Example JSON layout of schema prefixes.
 ```json
@@ -2122,7 +2122,7 @@ HED_0010713	valueClassDomain	AnnotationProperty	This schema attribute can apply 
 
 ### A.5.11. TSV sources, prefixes, and annotations
 
-The TSV format includes separate files for schema sources, namespace prefixes, and external annotation properties.
+The TSV format includes separate files for schema sources, schema prefixes, and external annotation properties.
 
 #### A.5.11.1. Sources file
 
@@ -2145,7 +2145,7 @@ The file also has an `Attributes` column, between `link` and `description`. Its 
 
 #### A.5.11.2. Prefixes file
 
-Defines namespace prefixes used for external ontology references. The file is present in every TSV schema directory and contains only the header row when the schema has no prefixes:
+Defines the prefixes used for external ontology references. The file is present in every TSV schema directory and contains only the header row when the schema has no prefixes:
 
 ````{admonition} Example TSV Prefixes file layout.
 ```text
@@ -2317,7 +2317,7 @@ A name in an `allowedCharacter` declaration resolves to a key of `sets`, an alia
 | `column_close`        | `structural` | one-character string                 | Closes a sidecar column reference.                                                                                 |
 | `placeholder`         | `structural` | one-character string                 | The placeholder that a value replaces.                                                                             |
 | `path_separator`      | `structural` | one-character string                 | Separates the nodes of a tag path.                                                                                 |
-| `namespace_separator` | `structural` | one-character string                 | Separates a library schema prefix from a tag.                                                                      |
+| `namespace_separator` | `structural` | one-character string                 | Separates a namespace prefix from a tag.                                                                           |
 | `description`         | `structural` | string                               | Text for human readers.                                                                                            |
 | `tag_chars`           | `hed_string` | object                               | The characters of a schema node name and of a tag extension.                                                       |
 | `sets`                | `tag_chars`  | array of names                       | The names, resolved as in [A.7.3](#a73-names-and-value-class-defaults), whose union is those characters.           |
