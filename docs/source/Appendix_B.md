@@ -151,7 +151,8 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for information on the r
 **b.** An annotation entry is provided for `n/a`.\
 **c.** No longer used: a sidecar that refers in curly braces to a column with no HED is [SIDECAR_BRACES_INVALID](#sidecar_braces_invalid) (a) from specification `4.0.0`.\
 **d.** A top-level sidecar key begins or ends with whitespace (blank, tab, line feed, or carriage return), whether or not its entry has a `"HED"` key.\
-**e.** In a categorical entry, a column value listed as a key under `"HED"` begins or ends with whitespace (blank, tab, line feed, or carriage return), such as `"go "` in `{"trial": {"HED": {"go ": "Sensory-event"}}}`.
+**e.** In a categorical entry, a column value listed as a key under `"HED"` begins or ends with whitespace (blank, tab, line feed, or carriage return), such as `"go "` in `{"trial": {"HED": {"go ": "Sensory-event"}}}`.\
+**f.** An annotation in a categorical entry is empty or consists only of blanks. A column value that has no HED annotation is given the annotation `n/a`.
 
 For (e) only the keys under `"HED"` in a categorical entry are checked: the column values that the entry annotates. The top-level key (`trial`, the column name) is (d), and the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not checked. A column value is matched to these keys exactly, so a key with whitespace could only match a column value with whitespace, which is itself TABULAR_INVALID (d), and could never annotate a row. Both (d) and (e) are stated from specification `4.0.0`.
 

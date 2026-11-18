@@ -352,9 +352,11 @@ See [the invalid-tag errors in Appendix B](./Appendix_B.md#tag_invalid) for erro
 
 ### 3.2.3. Tag case-sensitivity
 
-Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat tags containing the same characters, but different variations in capitalization as equivalent.
+Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat schema node names that differ only in capitalization as equivalent, in every tag form.
 
-The only exception to the case-insensitive processing rule is that units (unit names as well as unit symbols) and unit modifiers MUST be matched with their case preserved, both during schema processing and during annotation processing. SI distinguishes symbols and unit modifiers that differ in case (`m` and `M`), and a unit name, with or without a modifier, must have the case listed in the schema, optionally pluralized. See [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units).
+The value that replaces a `#` placeholder is not part of this rule: a value is compared exactly as written. `Label/abc` and `label/abc` are the same tag expression, whereas `Label/abc` and `Label/ABC` are different. This is stated from specification `4.0.0`; earlier versions did not say whether the value was included.
+
+Units (unit names as well as unit symbols) and unit modifiers MUST likewise be matched with their case preserved, both during schema processing and during annotation processing. SI distinguishes symbols and unit modifiers that differ in case (`m` and `M`), and a unit name, with or without a modifier, must have the case listed in the schema, optionally pluralized. See [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units).
 
 ### 3.2.4. Tags that take values
 
@@ -456,7 +458,7 @@ Empty parentheses and multiple commas with no intervening tags represent empty t
 
 #### 3.2.7.4. Repeated expressions
 
-Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
+Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. Tags are compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
 
 ### 3.2.8. Reserved tags
 
@@ -583,6 +585,7 @@ A BIDS sidecar is a JSON dictionary with several types of entries, three of whic
 - The value associated with the HED key is a dictionary of HED annotations.
 - The keys of the annotation dictionary are the unique column values.
 - The entry is not required to have annotations for every possible unique column value.
+- An annotation is a HED string or `n/a`; it is never empty (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
 - A warning is issued if a column value does not have an annotation (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
 - The annotation dictionary may include annotations for values that do not appear in a particular table.
 
@@ -618,6 +621,8 @@ All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second
 A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files and structures](#3210-tabular-files-and-structures). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
 
 In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either. Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
+
+An annotation in a categorical entry MUST NOT be empty or consist only of blanks. A column value that has no HED annotation is given the annotation `n/a` (as in `{"trial": {"HED": {"go": "Sensory-event", "rest": "n/a"}}}`), which contributes nothing when the annotation of a row is assembled; the column value then has an entry, so no warning is reported for it. The annotation of a value entry must contain a `#`, so it is never `n/a`: a value column that has no annotation has no `"HED"` key. This is stated from specification `4.0.0`.
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry is an error.
 
