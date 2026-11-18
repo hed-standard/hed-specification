@@ -349,7 +349,7 @@ ObjectProperty: hed:HED_0010106
 
 The `hed:HED_0000005` ID is the `HedTag` class, indicating that `suggestedTag` maps one HED tag into another. The `hed:HED_0010704 true` and `hed:HED_0010705 true` provide this information as annotations.
 
-Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attributes are not inherited and do not use domain and range specifications. These must be handled individual by tools as flagged by the HED schema `annotationProperty` property. In the OWL representation, information about the handling should be provided in an `rdfs:comment` field.
+Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attributes are not inherited and do not use domain and range specifications. These must be handled individually by tools as flagged by the HED schema `annotationProperty` property.
 
 ````{admonition} **Example** HED Manchester OWL syntax for rooted.
 
@@ -408,6 +408,7 @@ All HED standard and library schema entities are mapped to the `HED_xxxxxxx` nam
 | HED_0012000-<br/>HED_0039999 | `HedTag`             | Standard schema HED tag (EX: `Sensory-event`).                              |
 | HED_0042000-<br/>HED_0059999 | `HedTag`             | SCORE schema HED tag (EX: `Episode`).                                       |
 | HED_0062000-<br/>HED_0079999 | `HedTag`             | LANG schema HED tag.                                                        |
+| HED_0082000-<br/>HED_0099999 | `HedTag`             | SLAM schema HED tag.                                                        |
 | HED_0102000-<br/>HED_0119999 | `HedTag`             | MOUSE schema HED tag (EX: `Lick`).                                          |
 
 ### 8.3.3. HED IRIs

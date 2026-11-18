@@ -121,7 +121,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - Chapter 6 (6.2 Table-level handling) defines a tabular file as one table with a one-line header and one or more sidecars.
 - Chapter 7 was rewritten: unpartnered libraries (7.2), partnered file formats and filenames (7.3.1, 7.3.2), merged versus unmerged files (7.3.3), and rules for designing libraries (7.4); the SCORE `1.0.0` and `1.1.0` examples are marked historical.
 - Examples of library schema headers, rooted nodes and version specifications use SCORE `1.0.0` (unpartnered) and MOUSE `1.0.0` (partnered) instead of TESTLIB, which is removed from hed-schemas.
-- Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 files of the TSV format, including the Sources, Prefixes and External annotations files.
+- Chapter 8 separates schema namespaces from the `hedId` ontology namespace (8.3.1) and describes the 13 files of the TSV format, including the Sources, Prefixes and External annotations files. The identifier range table (8.3.2) adds the tag ranges of the MOUSE and SLAM library schemas.
 
 ## Corrections
 
