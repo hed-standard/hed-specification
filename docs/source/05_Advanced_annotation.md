@@ -110,7 +110,7 @@ The following example shows how `Def` is used in annotation.
 
 ### 5.2.2. The *Def-expand* tag
 
-The `Def-expand` tag provides an alternative to `Def` tag in annotations. Unlike the `Def` tag, a `Def-expand` tag must be in a tag group that includes an inner tag group with the definition's contents. If the definition includes a placeholder, that must be replaced with these contents by the appropriate value.
+The `Def-expand` tag provides an alternative to `Def` tag in annotations. Unlike the `Def` tag, a `Def-expand` tag must be in a tag group that includes an inner tag group with the definition's contents. If the definition includes a placeholder, the placeholder in these contents must be replaced by the appropriate value.
 
 The following summarizes `Def-expand` tag syntax rules.
 
@@ -295,8 +295,7 @@ The following table summarizes `Inset` usage. **Note**: A `Def-expand/xxx` tag g
 :class: tip
 1. *xxx* is the name of the definition anchoring the scoped event.
 2. *yyy* is the value substituted for a definition's placeholder if it has one.
-3. The *(tag-group)*, which is optional, contains information specific to that intermediate.
-point in the ongoing event. This tag group is not the tag group specifying the contents of the definition..
+3. The *(tag-group)*, which is optional, contains information specific to that intermediate point in the ongoing event. This tag group is not the tag group specifying the contents of the definition.
 4. The additional <em>tag-group</em> is only in effect at that particular point.
 5. If the *Def/xxx/#* form is used, the `#` must be replaced by an actual value that is
 the same as the value used for its `Onset`.
@@ -479,7 +478,7 @@ Researchers should use `Condition-variable`, `Control-variable`, and `Indicator-
 
 To illustrate the use of condition-variables to document experiment design, consider an experiment in which one of the conditions is the rate of presentation of images displayed on the screen. The experiment design compares responses under slow and fast image presentation rate conditions. To avoid unfortunate resonances due to a poor choice of rates, the "slow" and "fast" rate conditions each consist of three possible rates. Selection among the three eligible rates for the given condition is done randomly.
 
-In analysis, the researcher would typically combine the "slow presentation" trials into one group and the "fast presentation" trials into another group even though the exact task condition varies within the group varies according This type of grouping structure is very common in experiment design and can be captured by HED tags in a straightforward manner by defining condition variables for each group and using the `#` to capture variability within the group.
+In analysis, the researcher would typically combine the "slow presentation" trials into one group and the "fast presentation" trials into another group even though the exact task condition varies within the group. This type of grouping structure is very common in experiment design and can be captured by HED tags in a straightforward manner by defining condition variables for each group and using the `#` to capture variability within the group.
 
 ```{admonition} **Example:** Condition variables for slow and fast visual presentation rates.
 

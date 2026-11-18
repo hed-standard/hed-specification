@@ -118,7 +118,7 @@ Here is a summary of the types of changes that correspond to different levels of
 | Correction of suggestedTag or relatedTag.       | Patch          |
 | Correction of wiki syntax such as closing tags. | Patch          |
 
-**Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, a `deprecated` attribute will be added to the tag in the schema. Suggested replacement tags should be included in the node description. A suggested replacement should be added to the tag patch table.
+**Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, the `deprecatedFrom` attribute is added to the node in the schema (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). A suggested replacement SHOULD be included in the node description.
 
 ### 3.1.4. Schema layout overview
 
@@ -147,6 +147,8 @@ The names and markers that delimit the sections in each format are given in [A.2
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
+The name of every schema element other than the `#` placeholder MUST consist of `name` characters (see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)). Elements are the nodes and the entries of the other sections: unit classes, units, unit modifiers, value classes, schema attributes, and schema properties. The name of a unit or unit modifier MAY also contain the characters that the unit or unit modifier itself declares with the `allowedCharacter` attribute: the unit `m^2` declares `allowedCharacter=caret`. Any other character in an element name is an error. The one exception is the deprecated unit `degree Celsius`, whose name contains a blank (see [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units)).
+
 If a section of the schema is missing or, in the MediaWiki or XML format, out of order, an error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
 
 Each of the schema sections has "schema attributes", which are the attributes that may be assigned to elements in a given section. If a schema attribute is applied improperly to an element in a given section, an error occurs.
@@ -167,7 +169,7 @@ See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. 
 
 The prologue should contain a concise introduction to the schema and its purpose. Together with [the epilogue](#3149-the-epilogue) section, the contents are used by tools to provide information about the schema to the users.
 
-The prologue may contain `text` characters or `newline`. Any other character is invalid.
+The prologue may contain `text` characters, the comma, or `newline`. Any other character is invalid. The comma is allowed from specification `4.0.0`.
 
 #### 3.1.4.3. The schema section
 
@@ -196,7 +198,7 @@ Units may be in one of four forms as designated by their unit type attributes:
 
 Units appear after the value in annotations. A unit with the `unitPrefix` attribute appears before its value instead; the only such unit, `$`, and the `unitPrefix` attribute itself are deprecated and will be removed in a future major version. Currency values are written with the unit name, as in `5 dollars`.
 
-If a unit class, `SIUnit`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, an error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
+If the `SIUnit`, `unitSymbol`, or `unitPrefix` attribute appears in a section other than the unit class definition section of the schema, an error occurs. See appendix [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units) for additional details and a listing.
 
 **Unit names and unit symbols are case-sensitive and MUST NOT contain blanks. A unit in an annotation MUST be a unit listed in the schema, the plural of a listed unit name, or a form derived from a listed unit that has the `SIUnit` attribute by prepending an SI unit modifier (for a compound unit, one modifier per component; see [3.1.4.5. Unit modifiers](#3145-unit-modifiers)), with the case of the unit and of the modifier exactly as listed. Only unit names may be pluralized (`feet`, `milliseconds`); unit symbols never may. `Feet`, `Milliseconds`, and `MS` are invalid.** The deprecated unit `degree Celsius`, listed since before this rule, is the one legacy exception: it cannot be written in an annotation, because a blank separates the value from its unit. Before specification version `4.0.0`, unit names were case-insensitive. Unit class names are case-insensitive, but MUST contain only valid `name` characters. Any other character is invalid.
 
@@ -255,7 +257,7 @@ See [A.1.4 Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5.
 
 The epilogue should give license information, acknowledgments, and references.
 
-The epilogue may contain `text` characters or `newline`. Any other character is invalid.
+The epilogue may contain `text` characters, the comma, or `newline`. Any other character is invalid. The comma is allowed from specification `4.0.0`.
 
 #### 3.1.4.10. Sources, prefixes, and external annotations
 
@@ -287,7 +289,7 @@ class: tip
 
 #### 3.1.5.2. Epilogue and prologue
 
-The epilogue and prologue section text must conform to the rules for [`text`](./Appendix_A.md#a13-value-classes) value. The section text may have new lines, which are preserved.
+The epilogue and prologue section text may contain `text` characters and the comma. The section text may have new lines, which are preserved.
 
 #### 3.1.5.3. Naming in other blocks
 
@@ -302,6 +304,8 @@ Case is preserved for unit modifiers, as uppercase and lowercase versions often 
 **HED annotations** are comma-separated strings of HED tags drawn from a HED schema vocabulary. HED validators and other tools use the information encoded in the relevant schema when performing validation and other processing of HED annotations.
 
 Users must provide the version of the HED schema they are using when creating an annotation.
+
+A schema element that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
 
 ### 3.2.1. Vocabulary organization
 
@@ -374,7 +378,7 @@ The values of HED tag placeholders cannot stand alone, but must include the pare
 
 The values substituted for `#` may themselves be schema node names provided they conform with any value class requirements associated with that `#`. Thus, `Label/Item` is a valid HED tag event though `Item`, itself, is a valid top tag. It is the `Label` tag with its value `Item` and is unrelated to the `Item` HED tag. However, `Data-maximum/Item` is not valid because the `#` child of `Data-maximum` has a `valueClass=numericClass` attribute and the `Item` value is not numeric.
 
-Certain unit classes allow other special characters in their value specification. These special characters are specified in the schema with the `allowedCharacter` attribute. An example of this is the colon in the `dateTimeClass` value class.
+Certain value classes allow other special characters in their value specification. These special characters are specified in the schema with the `allowedCharacter` attribute. An example of this is the colon in the `dateTimeClass` value class.
 
 ### 3.2.5. Tag extensions
 
@@ -409,7 +413,7 @@ A reserved tag (see [3.2.8. Reserved tags](#328-reserved-tags)) MUST NOT be exte
 
 Tag extensions should follow the same naming conventions as those for schema nodes. See [3.1.5. Naming conventions](#315-naming-conventions) for more information about HED naming conventions. No warning is issued for an extension that does not follow the convention.
 
-Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-examples/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
+Users should not use tag extension unless necessary for their application, as this breaks the commonality among annotations across datasets. Please open an [issue](https://github.com/hed-standard/hed-schemas/issues) proposing that the new term be added to the schema in question, if you think the term would be useful to other users.
 
 **Note:** User tag extensions are sometimes accidental and due to misspelling, particularly when a long or intermediate form of the tag is used. For this reason a warning is issued for extended tags during validation.
 
@@ -678,7 +682,7 @@ The following example illustrates the different types of JSON sidecar entries.
 
 (example-sidecar-anchor)=
 
-````{Admonition} Different types of sidecar annotation entries that might appear in
+````{Admonition} Different types of annotation entries that might appear in a sidecar.
 ---
 class: tip
 ---
@@ -734,9 +738,9 @@ The value of `"Levels"` is a dictionary with the unique values in the `"event_ty
 
 The value of `"HED"` is a dictionary with the unique values in `"event_type"` keyed to the corresponding HED annotations of these unique values. In the above example, the unique values are `"show"` and `"press"`. The HED annotation for `show` is `"Sensory-event, Visual-presentation, {stim_file}"`.
 
-Notice use of curly braces in the notation. Here `"stim_file"` must correspond to another HED-annotated column in the sidecar. The `"stim_file"` column is an example of a value column. Its top level dictionary keys are `"LongName"`, `"Description"`, and `"HED"`. and its annotation entry: `"(Image, Face, Pathname/#)"`. This annotation has a single `#`. The filename in the `stim_file` column replaces this `#` when the HED annotation for a line in an associated `events.tsv` file is assembled.
+Notice use of curly braces in the notation. Here `"stim_file"` must correspond to another HED-annotated column in the sidecar. The `"stim_file"` column is an example of a value column. Its top level dictionary keys are `"LongName"`, `"Description"`, and `"HED"`, and its annotation entry is `"(Image, Face, Pathname/#)"`. This annotation has a single `#`. The filename in the `stim_file` column replaces this `#` when the HED annotation for a line in an associated `events.tsv` file is assembled.
 
-Since `"stim_file` and `"key"` appear within curly braces in annotations for `"event_type"`, their HED annotations can not use curly braces.
+Since `"stim_file"` and `"key"` appear within curly braces in annotations for `"event_type"`, their HED annotations can not use curly braces.
 
 The `"dummy_defs"` is an example of a **dummy annotation**. The value of this entry is a dictionary with a `"HED"` key pointing to a dictionary. A dummy annotation is similar in form to a **categorical annotation**, but its keys do not correspond to any event file column values. Rather it is used as a container to organize HED definitions.
 

@@ -46,7 +46,7 @@ A living agent, particularly a human from whom data is acquired during an experi
 
 A contiguous data period that is considered a unit used to observe or measure something, typically a data period including an expected event sequence that is repeated many times during the experiment (possibly with variations). Example: a repeating sequence of stimulus presentation, participant response action, and sensory feedback delivery events in a sensory judgment task.
 
-### HED schema [\*]
+### HED schema
 
 A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in one of four formats: MediaWiki, XML, JSON, or TSV (see [3.1. Schema rules](./03_HED_formats.md#31-schema-rules)). The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
 
@@ -160,7 +160,7 @@ The types of characters referred to in this specification are:
 
 <!-- character-sets:end -->
 
-`text` is the character set of the prologue and epilogue of a schema. An element description may contain the `text` characters and the comma. `value-text` is the textClass character set: the characters a value may contain without changing the structure of the HED string it is substituted into.
+`text` together with the comma is the character set of the prologue, the epilogue, and the element descriptions of a schema. `value-text` is the textClass character set: the characters a value may contain without changing the structure of the HED string it is substituted into.
 
 A schema names these sets in its `allowedCharacter` attributes (see [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter)). An `allowedCharacter` name is a name from this table, an alias listed in it, or a single character, which names itself: `allowedCharacter=T` allows `T`. The characters that no HED string may contain (listed in [Appendix B](./Appendix_B.md#character_invalid)) are excluded from every value whatever its value class allows.
 

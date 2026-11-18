@@ -294,7 +294,7 @@ This is required for HED search generalizability.
 
 ```
 
-Rules 1 through 5 are enforced by validators, while rules 6 through 9 are the responsibility of the schema designers and review committees.
+Validators enforce rules 1 and 3 and the version format of rule 2. The version update rules of rule 2, the content of the prologue and epilogue (rules 4 and 5), and rules 6 through 9 are the responsibility of the schema designers and review committees.
 
 In general, library schema developers should avoid adding schema terms that duplicate those found in the latest HED standard schema at the time of release. For partnered library schemas this is a strict requirement: the unmerged library schema cannot contain a tag that appears in its standard schema partner; the merged form necessarily contains all of its partner's tags. Library schema developers should also try to avoid overlap of terms found in other schema libraries.
 
