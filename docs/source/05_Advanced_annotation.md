@@ -154,7 +154,7 @@ During analysis, tools may replace `Def/PlayMovie` with a fully expanded tag str
 
 Events are often modeled as instantaneous occurrences that occur at single points in time (i.e., time-marked or point events). In reality, many events unfold over extended time periods. The interval between the initiation of an event and its completion is called the **temporal scope** of the event. HED events are assumed to be point events unless they are given an explicit temporal scope (i.e., they are "scoped" events).
 
-Some events, such as the setup and initiation of the environmental controls for an experiment, may have a temporal scope that spans the entire data recording. Other events, such as the playing of a movie clip or a participant performing an action in response to a sensory presentation, may last for seconds or minutes. Temporal scope captures the effects of these extended events in a machine-actionable manner. HED has two distinct mechanisms for expressing temporal scope: `Onset`/`Offset` and `Duration`/`Delay`. Tools can transform between one representation and the other. However, transform from the `Duration`/`Delay` representation to the `Onset`/`Offset` representation may require the addition of additional rows (time markers) in the events file.
+Some events, such as the setup and initiation of the environmental controls for an experiment, may have a temporal scope that spans the entire data recording. Other events, such as the playing of a movie clip or a participant performing an action in response to a sensory presentation, may last for seconds or minutes. Temporal scope captures the effects of these extended events in a machine-actionable manner. HED has two distinct mechanisms for expressing temporal scope: `Onset`/`Offset` and `Duration`/`Delay`. Tools can transform between one representation and the other. However, transform from the `Duration`/`Delay` representation to the `Onset`/`Offset` representation may require the addition of additional rows (time markers) in the timeline table.
 
 The mechanisms are summarized in the following table and discussed in more detail in the following sections.
 
@@ -409,7 +409,7 @@ In the following example, a trial consists of the presentation of a cross in the
 
 ```
 
-Notice that the `Agent-action` tag from the `Event` subtree is included in the `Delay` tag-group. This allows tools to identify this tag group as a distinct event. For BIDS datasets, such response delays would be recorded in a column of the `events.tsv` event files. The HED annotation for the JSON sidecar corresponding to these files would contain a `#`. At HED expansion time, tools replace the `#` with the column value (2.83) corresponding to each event.
+Notice that the `Agent-action` tag from the `Event` subtree is included in the `Delay` tag-group. This allows tools to identify this tag group as a distinct event. For BIDS datasets, such response delays would be recorded in a column of the `events.tsv` files. The HED annotation for the JSON sidecar corresponding to these files would contain a `#`. At HED expansion time, tools replace the `#` with the column value (2.83) corresponding to each event.
 
 The `Delay` tag can also be used in the same top level tag group as the `Duration` tag to define an event with temporal extent.
 
@@ -441,7 +441,7 @@ Using a tag to identify an event stream makes it easier for downstream tools to 
 
 Event annotations generally focus on describing what happened at the instant an event was initiated. However, the details of the setting in which the event occurs also influence neural responses. For the `PlayMovie` example of the previous section, events that occur between the `Onset` and `Offset` pairs for `PlayMovie` should inherit the information that a particular movie is playing without requiring the user to explicitly enter those tags for every intervening event.
 
-The process of event context mapping should be deferred until analysis time because other events might be added to the event file after the initial annotation of the recording. For example, a user might run a tool to mark blink or other features as events prior to doing other analyses. HED uses the `Event-context` tag to accomplish the required context mapping.
+The process of event context mapping should be deferred until analysis time because other events might be added to the timeline table after the initial annotation of the recording. For example, a user might run a tool to mark blink or other features as events prior to doing other analyses. HED uses the `Event-context` tag to accomplish the required context mapping.
 
 In normal usage, **the `Event-context` tag is not used directly by annotators**. Rather, tools insert the `Event-context` tag at analysis time to handle the implicit context created by enduring or scoped events. However, annotators may use the tag when an event has explicit context information that must be accounted for. Tools are available to insert the appropriate `Event-context` at analysis time. The `Event-context` has the `unique` attribute, implying that only one `Event-context` tag group may appear in the assembled HED annotation corresponding to each time-marker value.
 

@@ -20,7 +20,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 - Tilde (`~`) character. Replace: the syntax (`A` ~ `B` ~ `C`) with (`A`, (`B`, `C`)).
 - Double quotes (`"`).
 
-**b.** Curly braces (`{`, `}`) appear in a HED string that is not a sidecar annotation, such as a cell in the `HED` column of a tabular file. Curly braces indicate a column reference in a sidecar and are not HED.
+**b.** Curly braces (`{`, `}`) appear in a HED string that is not a sidecar annotation, such as a cell in the `HED` column of a table. Curly braces indicate a column reference in a sidecar and are not HED.
 
 **Notes:**
 
@@ -80,7 +80,7 @@ A **definition** is a tag group containing a `Definition` tag and at most one in
 **h.** Definitions of the same name appear with and without a `#`.\
 **i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
 **j.** A tag with the `unique` attribute appears in a definition.\
-**k.** A definition appears in an unexpected place such as an events file or in a sidecar dictionary that contains non-definition entries.\
+**k.** A definition appears in an unexpected place such as a table or a sidecar dictionary that contains non-definition entries.\
 **l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
 
 See [3.2.8.1. The Definition tag](./03_HED_formats.md#3281-the-definition-tag) for an explanation of the rules for definitions. See also [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) and [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) for more details and examples of definition syntax.
@@ -105,7 +105,7 @@ See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-or
 
 ### PLACEHOLDER_INVALID
 
-**a.** A `#` appears in a place that it should not (such as in the `HED` column of an events file).\
+**a.** A `#` appears in a place that it should not (such as in the `HED` column of a table).\
 **b.** A JSON sidecar has a placeholder (`#`) in the HED dictionary for a categorical column.\
 **c.** A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.\
 **d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`).\
@@ -162,7 +162,7 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for a general explanatio
 (WARNING)
 
 **a.** A value in a categorical column does not have an expected entry in a sidecar.\
-**b.** A \{ref} in a sidecar does not correspond to a column in the associated tabular file.
+**b.** A \{ref} in a sidecar does not correspond to a column in the associated table.
 
 **Note:** This warning is only triggered if the categorical column in which the value appears does have HED annotations.
 
@@ -185,7 +185,7 @@ For (e) and (f) every offending line is reported, by its line number in the file
 
 Reasons (a), (b), and (c) apply to the column names of every HED-annotated table whose columns have names, however the table stores them (the header row of a `.tsv` file or spreadsheet, or the column names an NWB table stores with its columns), as 3.2.10 states, including a spreadsheet whose columns a tool refers to by number, and they apply to the names under which the columns are assembled: in NWB the `TimestampVectorData` column named `timestamp` counts as `onset`, so a table that also has a column named `onset` is (a). Other `TimestampVectorData` columns keep their own names. Reasons (e) and (f) apply only to text tabular files (`.tsv`), not to spreadsheets or NWB tables.
 
-See [3.2.10. Tabular files](./03_HED_formats.md#3210-tabular-files) for the requirements on tabular files.
+See [3.2.10. Tabular files and structures](./03_HED_formats.md#3210-tabular-files-and-structures) for the requirements on tabular files.
 
 ### TAG_EMPTY
 
@@ -203,7 +203,7 @@ See [3.2.7.3. Empty tags and groups](./03_HED_formats.md#3273-empty-tags-and-gro
 
 Suppose `A`, `B`, and `C` represent HED expressions. HED strings are not ordered, so (`B`, `C`) is equivalent to (`C`, `B`). Thus, (`A`, (`A`, `B`)) is not a duplicate, but (`A`, (`B`, `C`), `A`) and (`A`, (`B`, `C`), (`C`, `B`)) are duplicates.
 
-**Note:** In a tabular file, a repetition can also come from the assembly of a row's annotation rather than from any single annotation, for example two columns whose annotations contain the same tag. In a sidecar, a repetition can also come from a substitution of a curly-brace reference, including the removal of a reference whose column is `n/a` or blank, so `(Red, {HED}), (Red)` is this error (rule 10 of [3.2.9.3. Sidecar curly braces](./03_HED_formats.md#3293-sidecar-curly-braces)). A column name that appears twice in the first line of the file is [TABULAR_INVALID](#tabular_invalid), not this error.
+**Note:** In a table, a repetition can also come from the assembly of a row's annotation rather than from any single annotation, for example two columns whose annotations contain the same tag. In a sidecar, a repetition can also come from a substitution of a curly-brace reference, including the removal of a reference whose column is `n/a` or blank, so `(Red, {HED}), (Red)` is this error (rule 10 of [3.2.9.3. Sidecar curly braces](./03_HED_formats.md#3293-sidecar-curly-braces)). A column name that appears twice in the first line of the file is [TABULAR_INVALID](#tabular_invalid), not this error.
 
 See [3.2.7.4. Repeated expressions](./03_HED_formats.md#3274-repeated-expressions) for additional information on the rules for duplication.
 
@@ -252,7 +252,7 @@ See [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms) for a discussion of ta
 
 ### TAG_NAMESPACE_PREFIX_INVALID
 
-**a.** A tag prefix has invalid characters.\
+**a.** A namespace prefix has invalid characters.\
 **b.** A tag has a namespace prefix that is not defined: no schema in the HED version specification is associated with that namespace.
 
 See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes) and [7. Library schema](./07_Library_schemas.md) for additional information on using multiple schemas in annotation.
@@ -309,7 +309,7 @@ See [3.2.4 Tags that take values](./03_HED_formats.md#324-tags-that-take-values)
 **b.** A tag value is incompatible with the specified value class.\
 **c.** A tag value with no value class is assumed to be textClass and contains invalid characters.\
 **d.** The units are not separated from the value by a single blank. More than one blank (`Duration/3  ms`) MAY instead be reported as [UNITS_INVALID](#units_invalid).\
-**e.** A value in a tabular column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column. Depending on the order of validation, such a value MAY instead be reported as [UNITS_INVALID](#units_invalid) or [CHARACTER_INVALID](#character_invalid).
+**e.** A value in a table column annotated by a sidecar value entry is invalid, in any row whose value is not `n/a` or blank, including rows whose assembled annotation does not use the column. Depending on the order of validation, such a value MAY instead be reported as [UNITS_INVALID](#units_invalid) or [CHARACTER_INVALID](#character_invalid).
 
 See [3.2.4 Tags that take values](./03_HED_formats.md) for more information.
 

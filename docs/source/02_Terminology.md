@@ -62,9 +62,13 @@ A valid path along one branch of a HED vocabulary hierarchy. A valid long-form H
 
 An aspect of the experiment or task that is measured or calculated for analysis. Indicator variables, sometimes called dependent variables, can be data features that are calculated from measurements rather than aspects that are directly measured.
 
+### Merge group
+
+The set of schemas that a version specification lists in the same namespace. The namespace is the name; the merge group is the set of schemas listed under it. The schemas of a merge group are combined into one vocabulary under the rules of [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations). See [3.1.2.3. Merge groups](./03_HED_formats.md#3123-merge-groups).
+
 ### Namespace
 
-A named partition of the vocabulary used when several schemas are combined. Schemas listed in a version specification with the same namespace name form one merge group; those listed with no namespace form the default merge group. Every unpartnered library schema must be alone in its own namespace. See [3.1.2. Version combinations](./03_HED_formats.md#312-version-combinations).
+A named partition of the vocabulary used when several schemas are combined. The schemas listed in a version specification with the same namespace name form one merge group; those listed with no namespace name form the merge group of the default namespace. Every unpartnered library schema must be alone in its own namespace. See [3.1.2. Version combinations](./03_HED_formats.md#312-version-combinations).
 
 ### Namespace prefix
 
@@ -88,7 +92,11 @@ A named item of a HED schema that is assigned a `hedId` in the HED ontology: a t
 
 ### Schema section
 
-One of the ordered blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The *schema section* holds the tags. The *auxiliary sections* (unit classes, unit modifiers, value classes, schema attributes, and properties) hold the other schema elements. The *extra sections* (Sources, Prefixes, and External annotations) hold rows that are not schema elements: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
+One of the blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The *schema section* holds the tags. The *auxiliary sections* (unit classes, unit modifiers, value classes, schema attributes, and properties) hold the other schema elements. The *extra sections* (sources, prefixes, and external annotations) hold rows that are not schema elements: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
+
+### Table
+
+An arrangement of rows and columns that carries HED annotations in a `HED` column, in an associated sidecar, or in both. A table may be stored as a tabular (`.tsv`) file, as a spreadsheet, or in a container such as an NWB table (see [3.2.10. Tabular files and structures](./03_HED_formats.md#3210-tabular-files-and-structures)). A table that has an `onset` column or its equivalent is a *timeline table*, such as the contents of a BIDS `events.tsv` file; any other table is a *descriptor table*, such as the contents of a BIDS `participants.tsv` file (see [3.3.4. Timeline versus descriptor tables](./03_HED_formats.md#334-timeline-versus-descriptor-tables)).
 
 ### Tag-group
 

@@ -16,7 +16,7 @@ vocabularies. The HED ecosystem includes:
 - **Vocabularies** - Standardized terms organized in hierarchical schemas
 - **Annotation tools** - Software for creating and validating HED annotations
 - **Analysis tools** - Methods for searching and analyzing HED-annotated data
-- **Community schemas** - Domain-specific extensions to the base vocabulary
+- **Library schemas** - Domain-specific extensions to the standard schema
 
 Core specification
 ------------------
