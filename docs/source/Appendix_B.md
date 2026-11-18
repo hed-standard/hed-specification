@@ -1,4 +1,4 @@
-D# B. HED errors
+# B. HED errors
 
 This appendix summarizes the error codes used by HED validators and other tools.
 
