@@ -50,9 +50,9 @@ A partnered library schema may also contribute rows of its own to the three extr
 
 #### 3.1.2.3. Merge groups
 
-HED has adopted a strategy that allows multiple compatible library schemas to be combined into a single build-your-own unified vocabulary. The rules for combining compatible partnered library schemas were introduced in HED specification version `4.0.0`. If the library schemas are incompatible, they can still be used together by placing them in different namespaces. We refer to library schemas in the same namespace as a **merge group**.
+HED has adopted a strategy that allows multiple compatible library schemas to be combined into a single build-your-own unified vocabulary. The rules for combining compatible partnered library schemas were introduced in HED specification version `4.0.0`. If the library schemas are incompatible, they can still be used together by placing them in different namespaces. We refer to the schemas that a version specification lists in the same namespace as a **merge group**.
 
-Merge groups (i.e., namespaces) are defined in the schema version specification not in the schema itself. The schemas listed in the default namespace (no prefix) form one merge group, and each unique prefix in the version specification designates a distinct merge group. For example the following [BIDS](https://bids.neuroimaging.io/index.html) version specification:
+Merge groups are defined in the schema version specification, not in the schema itself: each namespace has one merge group. The schemas listed in the default namespace (no prefix) form one merge group, and each unique prefix in the version specification designates a distinct merge group. For example the following [BIDS](https://bids.neuroimaging.io/index.html) version specification:
 
 ```json
 "HEDVersion": ["lang_1.1.0", "score_2.1.0", "bc:mouse_1.0.0"]
