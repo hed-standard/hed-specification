@@ -96,7 +96,7 @@ A tag with a specified meaning in the HED ecosystem that individual HED schemas 
 
 ### Schema attribute
 
-A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section (see [3.1.4.7. Schema attributes](./03_HED_formats.md#3147-schema-attributes)). A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` to a schema property (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the HED ontology it is a property, not a class.
+A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section (see [3.1.4.7. Schema attributes](./03_HED_formats.md#3147-schema-attributes)). A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` and `deprecatedFrom` to a schema property (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the HED ontology it is a property, not a class.
 
 ### Schema element
 
@@ -108,7 +108,7 @@ A named characteristic of a [schema attribute](#schema-attribute): the kinds of 
 
 ### Schema section
 
-One of the blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The header, the prologue, and the epilogue each hold one [structural element](#structural-element). The *schema section* holds the nodes: the tags and their `#` placeholders. The *auxiliary sections* hold the other schema elements (unit classes with their units, unit modifiers, and value classes) and the definitions of the schema attributes and the schema properties. The *extra sections* (sources, prefixes, and external annotations) hold rows that are not HED entities: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
+One of the blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The header, the prologue, and the epilogue are the three [structural elements](#structural-element). The *schema section* holds the nodes: the tags and their `#` placeholders. The *auxiliary sections* hold the other schema elements (unit classes with their units, unit modifiers, and value classes) and the definitions of the schema attributes and the schema properties. The *extra sections* (sources, prefixes, and external annotations) hold rows that are not HED entities: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
 
 ### Structural element
 

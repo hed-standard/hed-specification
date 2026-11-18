@@ -245,7 +245,7 @@ See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes)
 
 The schema properties section lists the allowed properties of the schema attributes. These properties help tools validate certain requirements directly based on the HED schema rather than on a hard-coded implementation. A property that is used on a schema attribute MUST be defined in the schema properties section; otherwise an error occurs.
 
-There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to nodes. A node (a tag or a `#` placeholder) may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may be assigned to a schema element of any kind and to a schema attribute. A schema property is assigned no schema attribute other than `hedId`.
+There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to nodes. A node (a tag or a `#` placeholder) may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may be assigned to a schema element of any kind and to a schema attribute. A schema property is assigned no schema attribute other than `hedId` and `deprecatedFrom`.
 
 Property names ending in `Range` indicate the type of value a schema attribute may have. The range properties are `boolRange`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, and `valueClassRange`. A schema attribute with the `boolRange` property does not take a value: its presence indicates true, and its absence indicates false. The remaining property, `annotationProperty`, marks a schema attribute whose value is not inherited by child nodes.
 
@@ -305,7 +305,7 @@ Case is preserved for unit modifiers, as uppercase and lowercase versions often 
 
 Users must provide the version of the HED schema they are using when creating an annotation.
 
-A schema element or schema attribute that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
+A schema element, schema attribute, or schema property that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
 
 ### 3.2.1. Vocabulary organization
 

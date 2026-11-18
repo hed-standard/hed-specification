@@ -357,7 +357,7 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 - A `unit` element can only have schema attributes that have the `unitDomain` or the `elementDomain` property.
 - A `valueClass` element can only have schema attributes that have the `valueClassDomain` or the `elementDomain` property.
 - A schema attribute can only have schema attributes that have the `elementDomain` property.
-- A schema property can only have the `hedId` attribute.
+- A schema property can only have the `hedId` and `deprecatedFrom` attributes.
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
