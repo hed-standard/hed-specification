@@ -391,7 +391,7 @@ The `deprecatedFrom` attribute indicates that a schema element is deprecated (no
 - Deprecated schema attributes, units, unit modifiers, or value classes cannot be applied to non-deprecated elements.
 - Child tags of deprecated tags must themselves be deprecated unless they are moved to a non-deprecated parent.
 
-Validators should issue warnings when deprecated elements are encountered in annotations, helping users transition to preferred alternatives.
+A validator issues a warning when an annotation uses a deprecated element (see [3.2. Annotation rules](./03_HED_formats.md#32-annotation-rules)).
 
 #### A.1.4.6. extensionAllowed
 
@@ -775,7 +775,7 @@ HED version="8.0.0"
 
 The schema `.mediawiki` file specified in this example is named `HED8.0.0.mediawiki` and can be found in the [standard_schema/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/standard_schema/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The versions of the schema that use XSD validation to verify the format have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes. The `xsi` attribute is required if `xmlns:xsi` is given. The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.0.0.xsd) allows validators to check the format of the `.xml` using standard XML validators.
+The versions of the schema that use XSD validation to verify the format have `xmlns:xsi` and `xsi:noNamespaceSchemaLocation` attributes. The `xsi` attribute is required if `xmlns:xsi` is given. The [XSD file](https://github.com/hed-standard/hed-schemas/blob/main/standard_schema/hedxml/HED8.4.0.xsd) allows validators to check the format of the `.xml` using standard XML validators; `HED8.4.0.xsd` is the latest. It declares `version` as the only attribute of the header, so it applies to standard schemas. The released library schemas do not reference an XSD file.
 
 The following example shows a sample *header* for the unpartnered `score` library schema version `1.0.0` in `.mediawiki` format. Almost all library schemas going forward will be partnered; SCORE `1.0.0` is historical, but it is the only unpartnered library schema that has been released.
 
@@ -1058,7 +1058,7 @@ The XML schema file format has a header, prologue, main schema, definitions, and
 ````{admonition} XML layout of the HED schema.
 ```xml
 <?xml version="1.0" ?>
-<HED library="test" version="0.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/standard_schema/hedxml/HED8.4.0.xsd">
+<HED xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.5.0" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/standard_schema/hedxml/HED8.4.0.xsd">
 <prologue>text of the prologue</prologue>
 <schema>
          ...  schema specification  ...

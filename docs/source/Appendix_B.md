@@ -1,4 +1,4 @@
-# B. HED errors
+D# B. HED errors
 
 This appendix summarizes the error codes used by HED validators and other tools.
 
@@ -87,12 +87,14 @@ See [3.2.8.1. The Definition tag](./03_HED_formats.md#3281-the-definition-tag) f
 
 ### ELEMENT_DEPRECATED\*
 
+(WARNING)
+
 A schema element has been deprecated and should not be used. When an element is updated, its description is updated to include the reason for deprecation and a suggested path for updating usage.
 
 **a.** A tag has been deprecated and an alternative method of tagging should be used. See tag description for how to replace.\
-**b.** A unit, unit class, value class has been deprecated and an alternative should be used.
+**b.** A unit or unit modifier has been deprecated and an alternative should be used.
 
-See [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) for additional information about the `deprecatedFrom` schema attribute.
+See [3.2. Annotation rules](./03_HED_formats.md#32-annotation-rules) for the rule and [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom) for additional information about the `deprecatedFrom` schema attribute.
 
 ### PARENTHESES_MISMATCH
 
@@ -380,6 +382,8 @@ For earlier schema versions, where the `valueClass` condition in the `unitClass`
 **c.** A unit name or unit symbol contains a blank.\
 **d.** The prologue or epilogue contains a character other than `text`, the comma, or newline.\
 **e.** An element description contains a character other than `text` or the comma.
+
+The deprecated unit `degree Celsius` is the one exception to **b** and **c** (see [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units)).
 
 See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for definitions of the different types of characters.
 

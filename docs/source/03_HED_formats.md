@@ -147,7 +147,7 @@ The names and markers that delimit the sections in each format are given in [A.2
 
 The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-The name of every schema element other than the `#` placeholder MUST consist of `name` characters (see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)). Elements are the nodes and the entries of the other sections: unit classes, units, unit modifiers, value classes, schema attributes, and schema properties. The name of a unit or unit modifier MAY also contain the characters that the unit or unit modifier itself declares with the `allowedCharacter` attribute: the unit `m^2` declares `allowedCharacter=caret`. Any other character in an element name is an error.
+The name of every schema element other than the `#` placeholder MUST consist of `name` characters (see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)). Elements are the nodes and the entries of the other sections: unit classes, units, unit modifiers, value classes, schema attributes, and schema properties. The name of a unit or unit modifier MAY also contain the characters that the unit or unit modifier itself declares with the `allowedCharacter` attribute: the unit `m^2` declares `allowedCharacter=caret`. Any other character in an element name is an error. The one exception is the deprecated unit `degree Celsius`, whose name contains a blank (see [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units)).
 
 If a section of the schema is missing or, in the MediaWiki or XML format, out of order, an error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
 
@@ -304,6 +304,8 @@ Case is preserved for unit modifiers, as uppercase and lowercase versions often 
 **HED annotations** are comma-separated strings of HED tags drawn from a HED schema vocabulary. HED validators and other tools use the information encoded in the relevant schema when performing validation and other processing of HED annotations.
 
 Users must provide the version of the HED schema they are using when creating an annotation.
+
+A schema element that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
 
 ### 3.2.1. Vocabulary organization
 
