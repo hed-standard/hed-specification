@@ -123,7 +123,7 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 ### SCHEMA_LOAD_FAILED
 
 **a.** Different standard schema partner versions in a merge group.\
-**b.** Elements (tag, unit class, unit, unit modifier, value class, or schema attribute) of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
+**b.** Schema elements (tag, unit class, unit, unit modifier, or value class) or schema attributes of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
 **c.** Different versions of the same schema appear in the same merge group.\
 **d.** A schema with a specified name and version cannot be found.\
 **e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.
@@ -338,7 +338,7 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 **b.** A schema attribute is applied to the incorrect type (e.g., the `SIUnit` attribute, whose domain is units, appears on a tag).\
 **c.** A schema attribute is used in an invalid way\
 **d.** The pseudo unit class `anyUnits` lists a unit or has `defaultUnits`.\
-**e.** A schema property is used in the schema, but is not defined in the properties section.
+**e.** A schema property is used in the schema, but is not defined in the schema properties section.
 
 | Attribute        | Invalid Usage Location                                    |
 | ---------------- | --------------------------------------------------------- |
@@ -350,11 +350,13 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 
 **Notes:**
 
-- A `tag` (referred to as a node element in the schema) can have schema attributes that have the `tagDomain` or the `elementDomain` property or have no domain property.
+- A `tag` or a `#` placeholder (the nodes of the schema) can have schema attributes that have the `tagDomain` or the `elementDomain` property or have no domain property.
 - A `unitClass` element can only have schema attributes that have the `unitClassDomain` or the `elementDomain` property.
 - A `unitModifier` element can only have schema attributes that have the `unitModifierDomain` or the `elementDomain` property.
 - A `unit` element can only have schema attributes that have the `unitDomain` or the `elementDomain` property.
 - A `valueClass` element can only have schema attributes that have the `valueClassDomain` or the `elementDomain` property.
+- A schema attribute can only have schema attributes that have the `elementDomain` property.
+- A schema property can only have the `hedId` attribute.
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
@@ -378,10 +380,10 @@ For earlier schema versions, where the `valueClass` condition in the `unitClass`
 #### SCHEMA_CHARACTER_INVALID
 
 **a.** A non-placeholder schema node contains non-`name` characters.\
-**b.** The name of an element other than a node (e.g., unit class, unit, unit modifier, value class, schema attribute, or property) contains a character that is neither a `name` character nor, for a unit or unit modifier, one that it declares with `allowedCharacter`.\
+**b.** The name of a schema element other than a tag (unit class, unit, unit modifier, or value class), of a schema attribute, or of a schema property contains a character that is neither a `name` character nor, for a unit or unit modifier, one that it declares with `allowedCharacter`.\
 **c.** A unit name or unit symbol contains a blank.\
 **d.** The prologue or epilogue contains a character other than `text`, the comma, or newline.\
-**e.** An element description contains a character other than `text` or the comma.
+**e.** The description of a schema element, schema attribute, or schema property contains a character other than `text` or the comma.
 
 The deprecated unit `degree Celsius` is the one exception to **b** and **c** (see [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units)).
 
@@ -420,9 +422,9 @@ Library schema errors are specific to library schema. Library schema may also ra
 **d.** The `rooted` attribute appears in a schema whose header does not have both the `library` and `withStandard` attributes.\
 **e.** In an unmerged schema, a node with the `rooted` attribute is not at the top level; in a merged schema, a node with `rooted=XXX` is not a direct child of `XXX`.\
 **f.** A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.\
-**g.** A partnered library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute in some element or in a row of the extra sections.\
+**g.** A partnered library schema with the `unmerged="true"` header attribute has an `inLibrary` attribute on some schema element or schema attribute or in a row of the extra sections.\
 **h.** A partnered library schema with the `unmerged="true"` header attribute has a row of the extra sections (`Sources`, `Prefixes`, or `External annotations`) with the same key as a row of its standard schema partner.\
-**i.** A partnered library schema with the `unmerged="true"` header attribute has a schema element (tag, unit, unit class, unit modifier, value class, or schema attribute) with the same name as an element of its standard schema partner. Naming an existing unit class solely to add new units under it is not a duplication.\
+**i.** A partnered library schema with the `unmerged="true"` header attribute has a schema element (tag, unit, unit class, unit modifier, or value class) or a schema attribute with the same name as one of its standard schema partner. Naming an existing unit class solely to add new units under it is not a duplication.\
 **j.** A partnered library schema with the `unmerged="true"` header attribute has a non-empty `Properties` section.\
 **k.** A merged partnered library schema has a `Properties` section that differs from that of its standard schema partner.\
 **l.** A library schema uses the `reserved` attribute on one of its own elements (in a merged partnered library schema, an element with the `inLibrary` attribute).\

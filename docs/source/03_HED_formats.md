@@ -44,9 +44,9 @@ A partnered library schema can be saved in two equivalent forms: *merged* or *un
 <HED version="2.1.0" library="score" withStandard="8.4.0" unmerged="True">
 ```
 
-The value of the `unmerged` attribute is case-insensitive (`true` and `True` are equivalent). HED schema loaders are **required** to automatically load the HED standard schema partner when loading an unmerged partnered library schema. Elements from a merged library schema always have the `inLibrary` schema attribute to distinguish these elements from standard schema elements. These `inLibrary` attributes are removed when a library schema is saved in unmerged form.
+The value of the `unmerged` attribute is case-insensitive (`true` and `True` are equivalent). HED schema loaders are **required** to automatically load the HED standard schema partner when loading an unmerged partnered library schema. In a merged library schema the schema elements and schema attributes of the library always have the `inLibrary` schema attribute, which distinguishes them from those of the standard schema. These `inLibrary` attributes are removed when a library schema is saved in unmerged form.
 
-A partnered library schema may also contribute rows of its own to the three extra sections (Sources, Prefixes, and External annotations; see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)). In unmerged form these sections hold only the rows of the library, and the rows do not carry `inLibrary`. In merged form they hold the rows of the standard schema partner together with the rows of the library, and each row of the library carries `inLibrary` with the library name, as the schema elements of the library do; the rows of the partner are unmarked. A tool that loads an unmerged partnered library schema combines the rows of the library with those of its partner in the same way. A row of an extra section is identified by its key: `source` in Sources, `prefix` in Prefixes, and `prefix` together with `id` in External annotations. An unmerged partnered library schema MUST NOT have a row with the same key as a row of its standard schema partner, whether or not the other columns of the two rows agree. The rows of the libraries in a merge group are combined as described in [3.1.2.4. Partnered combinations](#3124-partnered-combinations). The form of the `inLibrary` mark on a row in each file format is given in [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) (MediaWiki), [A.3.5.7. Schema sources](./Appendix_A.md#a357-schema-sources) (XML), [A.4.5.6. Schema sources](./Appendix_A.md#a456-schema-sources) (JSON), and [A.5.11.1. Sources file](./Appendix_A.md#a5111-sources-file) (TSV).
+A partnered library schema may also contribute rows of its own to the three extra sections (Sources, Prefixes, and External annotations; see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)). In unmerged form these sections hold only the rows of the library, and the rows do not carry `inLibrary`. In merged form they hold the rows of the standard schema partner together with the rows of the library, and each row of the library carries `inLibrary` with the library name, as the schema elements and schema attributes of the library do; the rows of the partner are unmarked. A tool that loads an unmerged partnered library schema combines the rows of the library with those of its partner in the same way. A row of an extra section is identified by its key: `source` in Sources, `prefix` in Prefixes, and `prefix` together with `id` in External annotations. An unmerged partnered library schema MUST NOT have a row with the same key as a row of its standard schema partner, whether or not the other columns of the two rows agree. The rows of the libraries in a merge group are combined as described in [3.1.2.4. Partnered combinations](#3124-partnered-combinations). The form of the `inLibrary` mark on a row in each file format is given in [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) (MediaWiki), [A.3.5.7. Schema sources](./Appendix_A.md#a357-schema-sources) (XML), [A.4.5.6. Schema sources](./Appendix_A.md#a456-schema-sources) (JSON), and [A.5.11.1. Sources file](./Appendix_A.md#a5111-sources-file) (TSV).
 
 #### 3.1.2.3. Merge groups
 
@@ -74,12 +74,12 @@ Combination of different schemas into a single vocabulary can proceed provided t
 | Standard partner      | A standard schema in a merge group is allowed if its version is the same as the group partner; it adds nothing to the merged result.                                                                                                                                                                        |
 | Standard partner      | A standard schema in a merge group raises an error if its version differs from the group partner.                                                                                                                                                                                                           |
 | Unpartnered schemas   | An unpartnered library schema must be alone in its own namespace.                                                                                                                                                                                                                                           |
-| Element compatibility | An element (tag, unit class, unit, unit modifier, value class, or schema attribute) appearing in more than one schema of a merge group must have the same attribute values, the same description, and the same ancestor path in each schema.                                                                |
-| Element compatibility | For schema attribute elements, the properties are the attribute values that are compared: two schema attributes with the same name must have the same properties.                                                                                                                                           |
+| Element compatibility | A schema element (tag, unit class, unit, unit modifier, or value class) or a schema attribute appearing in more than one schema of a merge group must have the same attribute values, the same description, and the same ancestor path in each schema.                                                      |
+| Element compatibility | For a schema attribute, the schema properties are the attribute values that are compared: two schema attributes with the same name must have the same properties.                                                                                                                                           |
 | Element compatibility | An element appearing in more than one schema of a merge group must either have a `#` child in all of its appearances, or in none of them. When the `#` is present, it must have the same attributes in all schemas.                                                                                         |
 | Element compatibility | A shared element can have different non-`#` children, but the compatibility rules apply to shared children in the same way.                                                                                                                                                                                 |
-| Element compatibility | The `inLibrary` bookkeeping attribute is excluded from the comparison of attribute values: an element contributed by different library schemas necessarily carries a different `inLibrary` value in each library's merged schema.                                                                           |
-| Element compatibility | An element contributed by more than one library schema of a merge group carries one `inLibrary` value for each contributing library in the merged result.                                                                                                                                                   |
+| Element compatibility | The `inLibrary` bookkeeping attribute is excluded from the comparison of attribute values: a schema element or schema attribute contributed by different library schemas necessarily carries a different `inLibrary` value in each library's merged schema.                                                 |
+| Element compatibility | A schema element or schema attribute contributed by more than one library schema of a merge group carries one `inLibrary` value for each contributing library in the merged result.                                                                                                                         |
 | Auxiliary sections    | New library schema unit classes and their accompanying units are merged directly.                                                                                                                                                                                                                           |
 | Auxiliary sections    | New library schema units under an existing unit class are merged if there are no conflicts.                                                                                                                                                                                                                 |
 | Auxiliary sections    | New library schema value classes are merged if there are no conflicts.                                                                                                                                                                                                                                      |
@@ -126,7 +126,7 @@ Schemas can be specified in any of four equivalent formats: MediaWiki, TSV, XML,
 
 HED schema developers usually use `.mediawiki` format for more convenient editing, display, and viewing on GitHub. However, the stable links provided for tools to access and download the HED schema are to the XML versions. TSV format is sometimes used early in schema development and JSON format is used primarily by AIs. All formats must be available and synchronized in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The sections of a HED schema are listed below in the order in which they MUST appear in the MediaWiki and XML formats. The TSV format has one file for each section and the JSON format one key, so order has no meaning there. Every section is required, although a section may be empty, and a tool that writes a schema file writes every section.
+The sections of a HED schema are listed below in the order in which they MUST appear in the MediaWiki and XML formats. The JSON format stores the sections under keys and the TSV format in separate files, so order has no meaning there. Every section is required, although a section may be empty, and a tool that writes a schema file writes every section.
 
 | Order | Section              | Rules                                                                                                     |
 | ----- | -------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -137,7 +137,7 @@ The sections of a HED schema are listed below in the order in which they MUST ap
 | 5     | Unit modifiers       | [3.1.4.5. Unit modifiers](#3145-unit-modifiers)                                                           |
 | 6     | Value classes        | [3.1.4.6. Value classes](#3146-value-classes)                                                             |
 | 7     | Schema attributes    | [3.1.4.7. Schema attributes](#3147-schema-attributes)                                                     |
-| 8     | Properties           | [3.1.4.8. Schema properties](#3148-schema-properties)                                                     |
+| 8     | Schema properties    | [3.1.4.8. Schema properties](#3148-schema-properties)                                                     |
 | 9     | Epilogue             | [3.1.4.9. The epilogue](#3149-the-epilogue)                                                               |
 | 10    | Sources              | [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations) |
 | 11    | Prefixes             | [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations) |
@@ -145,9 +145,9 @@ The sections of a HED schema are listed below in the order in which they MUST ap
 
 The names and markers that delimit the sections in each format are given in [A.2.1. Overall file layout](./Appendix_A.md#a21-overall-file-layout) (MediaWiki), [A.3.1. XML file layout](./Appendix_A.md#a31-xml-file-layout), [A.4.1. JSON file layout](./Appendix_A.md#a41-json-file-layout), and [A.5.1. TSV file organization](./Appendix_A.md#a51-tsv-file-organization).
 
-The actual HED tag specifications (referred to in the discussion as nodes or tag terms) appear in the `schema` section, while the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
+The HED tags are defined in the schema section, where the entry for a tag is called a node; the remaining sections specify additional information and behavior. These additional sections are required, but are allowed to be empty.
 
-The name of every schema element other than the `#` placeholder MUST consist of `name` characters (see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)). Elements are the nodes and the entries of the other sections: unit classes, units, unit modifiers, value classes, schema attributes, and schema properties. The name of a unit or unit modifier MAY also contain the characters that the unit or unit modifier itself declares with the `allowedCharacter` attribute: the unit `m^2` declares `allowedCharacter=caret`. Any other character in an element name is an error. The one exception is the deprecated unit `degree Celsius`, whose name contains a blank (see [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units)).
+The name of every schema element other than the `#` placeholder, of every schema attribute, and of every schema property MUST consist of `name` characters (see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)). The name of a unit or unit modifier MAY also contain the characters that the unit or unit modifier itself declares with the `allowedCharacter` attribute: the unit `m^2` declares `allowedCharacter=caret`. Any other character in such a name is an error. The one exception is the deprecated unit `degree Celsius`, whose name contains a blank (see [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units)).
 
 If a section of the schema is missing or, in the MediaWiki or XML format, out of order, an error occurs. This error is reported by schema validation. The omission of one of the three extra sections does not prevent a schema from loading (see [3.1.4.10. Sources, prefixes, and external annotations](#31410-sources-prefixes-and-external-annotations)).
 
@@ -173,9 +173,9 @@ The prologue may contain `text` characters, the comma, or `newline`. Any other c
 
 #### 3.1.4.3. The schema section
 
-The schema section contains the actual vocabulary contents of the schema. Each element in this section is a *node* element, which we will also call a *tag term*. The location of the node element within the section specifies its relationship to other tag terms in the schema.
+The schema section contains the actual vocabulary contents of the schema. Each entry in this section is a *node*: it defines one tag or is the `#` placeholder of a tag that takes a value. The location of a node within the section specifies its relationship to the other nodes of the schema.
 
-A node element specifies a name, node attributes, and an informative description of the tag term's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, and `nonascii`; see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
+The node of a tag specifies a name, schema attributes, and an informative description of the tag's meaning. A node name may only contain valid `name` characters (`alphanumeric`, `hyphen`, `underscore`, and `nonascii`; see [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
 This also applies to tag extensions. Substitutions for the `#` placeholder that have value classes are governed by the rules of that value class.
 
@@ -235,7 +235,7 @@ Value class names are case-insensitive, but must contain only valid `name` chara
 
 #### 3.1.4.7. Schema attributes
 
-The schema attribute definition section lists the schema attributes that may be applied to schema elements in other sections of the schema (except for the properties section).
+The schema attributes section defines the schema attributes that may be assigned to the schema elements: nodes, unit classes, units, unit modifiers, and value classes.
 
 The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs. A schema attribute that is used in the schema MUST be defined in the schema attribute definition section; otherwise an error occurs.
 
@@ -245,7 +245,7 @@ See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes)
 
 The schema properties section lists the allowed properties of the schema attributes. These properties help tools validate certain requirements directly based on the HED schema rather than on a hard-coded implementation. A property that is used on a schema attribute MUST be defined in the schema properties section; otherwise an error occurs.
 
-There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to node (tag-term) elements. A node element may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may apply anywhere in the schema, including the schema header.
+There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to nodes. A node (a tag or a `#` placeholder) may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may be assigned to a schema element of any kind and to a schema attribute. A schema property is assigned no schema attribute other than `hedId`.
 
 Property names ending in `Range` indicate the type of value a schema attribute may have. The range properties are `boolRange`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, and `valueClassRange`. A schema attribute with the `boolRange` property does not take a value: its presence indicates true, and its absence indicates false. The remaining property, `annotationProperty`, marks a schema attribute whose value is not inherited by child nodes.
 
@@ -293,7 +293,7 @@ The epilogue and prologue section text may contain `text` characters and the com
 
 #### 3.1.5.3. Naming in other blocks
 
-The names of elements corresponding to schema attributes, schema properties, unit classes, and value classes should start with a lower case letter, with the remainder in camel case.
+The names of schema attributes, schema properties, unit classes, and value classes should start with a lower case letter, with the remainder in camel case.
 
 Units and unit modifiers follow the naming conventions of the units they represent.
 
@@ -305,7 +305,7 @@ Case is preserved for unit modifiers, as uppercase and lowercase versions often 
 
 Users must provide the version of the HED schema they are using when creating an annotation.
 
-A schema element that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
+A schema element or schema attribute that has the `deprecatedFrom` attribute is deprecated (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). An annotation that uses a deprecated tag, unit, or unit modifier remains valid, but a validator issues a warning for each such use.
 
 ### 3.2.1. Vocabulary organization
 

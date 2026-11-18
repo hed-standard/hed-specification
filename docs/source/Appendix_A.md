@@ -385,7 +385,7 @@ The `defaultUnits` attribute specifies which unit should be assumed when a value
 
 #### A.1.4.5. deprecatedFrom
 
-The `deprecatedFrom` attribute indicates that a schema element is deprecated (no longer recommended for use). Its value is the last released schema version in which the element was not deprecated; the element is deprecated in every later version. For example, `$` carries `deprecatedFrom=8.4.0` in HED `8.5.0`, and `degree Celsius` carries `deprecatedFrom=8.2.0` from `8.3.0` on. The attribute value must be a released semantic schema version that is earlier than the current schema version. Since `deprecatedFrom` can be applied to any element type (tags, units, unit classes, schema attributes, etc.), it provides a comprehensive deprecation mechanism. Deprecated elements remain in the schema for backward compatibility but are subject to strict usage rules:
+The `deprecatedFrom` attribute indicates that a schema element is deprecated (no longer recommended for use). Its value is the last released schema version in which the element was not deprecated; the element is deprecated in every later version. For example, `$` carries `deprecatedFrom=8.4.0` in HED `8.5.0`, and `degree Celsius` carries `deprecatedFrom=8.2.0` from `8.3.0` on. The attribute value must be a released semantic schema version that is earlier than the current schema version. Since `deprecatedFrom` can be applied to a schema element of any kind and to a schema attribute, it provides a comprehensive deprecation mechanism. Deprecated elements remain in the schema for backward compatibility but are subject to strict usage rules:
 
 - Deprecated tags cannot appear as values in `suggestedTag` or `relatedTag` attributes of non-deprecated tags.
 - Deprecated schema attributes, units, unit modifiers, or value classes cannot be applied to non-deprecated elements.
@@ -399,13 +399,13 @@ The `extensionAllowed` attribute indicates that annotators may add unlimited lev
 
 #### A.1.4.7. hedId
 
-The `hedId` attribute provides a unique identifier for each element in the HED namespace. This identifier remains stable across schema versions and is used to track elements when names change or elements are restructured. The `hedId` format follows a structured pattern (e.g., `HED_0012001`) that categorizes elements by type. These identifiers are essential for maintaining references to HED elements in ontologies, linked data representations, and cross-version mappings. Tools use `hedId` values to maintain consistency when schemas evolve.
+The `hedId` attribute provides a unique identifier for each HED entity in the HED namespace. This identifier remains stable across schema versions and is used to track entities when names change or entities are restructured. The `hedId` format follows a structured pattern (e.g., `HED_0012001`) that categorizes entities by kind. These identifiers are essential for maintaining references to HED entities in ontologies, linked data representations, and cross-version mappings. Tools use `hedId` values to maintain consistency when schemas evolve.
 
-A `hedId` value is the prefix `HED_` followed by a 7 digit integer. The standard schema occupies an ID range [0010000, 0039999]. Each library schema is assigned its own range of 20000 identifiers when the library is officially created. The assignment list is kept in the [library_data.json](https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/library_data.json) file in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository. Structural elements have their own ID range. Identifiers are assigned when a schema is released, after Working Group review; new elements in a prerelease carry none. Identifiers are never reused: an identifier whose element is removed from a released schema, or one that a prerelease carried and the release withdrew, is recorded under `retired_ids` in the same `library_data.json` file (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). For more information, see the section [8.3.2 Ontology Namespace](./08_HED_ontology.md#832-ontology-namespace).
+A `hedId` value is the prefix `HED_` followed by a 7 digit integer. The standard schema occupies an ID range [0010000, 0039999]. Each library schema is assigned its own range of 20000 identifiers when the library is officially created. The assignment list is kept in the [library_data.json](https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/library_data.json) file in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository. The base ontology has its own ID range. Identifiers are assigned when a schema is released, after Working Group review; new entities in a prerelease carry none. Identifiers are never reused: an identifier whose entity is removed from a released schema, or one that a prerelease carried and the release withdrew, is recorded under `retired_ids` in the same `library_data.json` file (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). For more information, see the section [8.3.2 Ontology Namespace](./08_HED_ontology.md#832-ontology-namespace).
 
 #### A.1.4.8. inLibrary
 
-The `inLibrary` attribute indicates that a schema element originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library. The attribute also marks the rows that a library contributes to the Sources, Prefixes, and External annotations sections of a merged schema (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)).
+The `inLibrary` attribute indicates that a schema element or schema attribute originates from a named library schema rather than the standard schema. The attribute value is the library name in lowercase (e.g., `inLibrary=mouse`). This attribute is automatically added by tools during the schema merging process when a partnered library schema is merged with a standard schema. In unmerged library schemas, nodes cannot have the `inLibrary` attribute. The attribute helps tools and validators track the provenance of schema elements when multiple schemas are combined and ensures proper validation against the original library schema definitions. Users should not manually add this attribute to the schema as it is managed automatically by tools. Because `inLibrary` is bookkeeping, it is excluded from the element compatibility comparisons of [3.1.2.4](./03_HED_formats.md#3124-partnered-combinations): an element contributed by more than one library schema of a merge group carries a different `inLibrary` value in each library's merged schema, and the merged result retains one `inLibrary` value for each contributing library. The attribute also marks the rows that a library contributes to the Sources, Prefixes, and External annotations sections of a merged schema (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)).
 
 #### A.1.4.9. isPartOf
 
@@ -512,9 +512,9 @@ The `predicateType` attribute was introduced in HED-2G to facilitate mapping to 
 
 ### A.1.5. Schema properties
 
-**The schema properties are qualifiers on the domains and ranges of schema attributes.** A property's presence implies the attribute has this property, while its absence implies it does not. Processing of `property` elements is hard-coded into the schema processors. The following is a list of schema attribute properties.
+**The schema properties are qualifiers on the domains and ranges of schema attributes.** A property's presence implies the attribute has this property, while its absence implies it does not. Processing of `property` elements is hard-coded into the schema processors. The following is a list of the schema properties.
 
-```{list-table} Summary of schema attribute properties.
+```{list-table} Summary of schema properties.
 ---
 widths: 20 50
 header-rows: 1
@@ -1817,7 +1817,7 @@ The `schema_attributes` section defines the allowed schema attributes with their
 
 #### A.4.5.5. Schema properties
 
-The `properties` section defines schema attribute properties in JSON format:
+The `properties` section defines the schema properties in JSON format:
 
 ````{admonition} Example JSON layout of schema properties.
 ```json
@@ -1985,7 +1985,7 @@ Each TSV file begins with a header row of column names. The header row of each f
 | `Prefixes`                   | `prefix`, `namespace`, `Attributes`, `description`                                      |
 | `AnnotationPropertyExternal` | `prefix`, `id`, `iri`, `Attributes`, `description`                                      |
 
-Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments and a `Properties` cell a comma-separated list of schema properties (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)).
+Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments. A `Properties` cell is a comma-separated list of the schema properties of a schema attribute, together with any schema attribute other than `hedId` that is assigned to it: the cell for `unitPrefix` in HED `8.5.0` is `deprecatedFrom=8.4.0, unitDomain, boolRange` (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)). The `AttributeProperty` file has neither column, because a schema property is assigned no schema attribute other than `hedId` (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)).
 
 A tool that writes a schema in TSV format MUST write these columns, in this order, whatever the version of the schema. A file MAY also have columns that are not in this table, holding annotation properties for the HED ontology such as `dc:comment` (see [8.1.4.3. TSV format](./08_HED_ontology.md#8143-tsv-format)); such columns are not part of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
 
@@ -2069,11 +2069,11 @@ HED_0011303	numericClass	StandardValueClass	allowedCharacter=digits, allowedChar
 
 ### A.5.9. TSV property files
 
-The schema includes three property files defining different types of properties:
+The schema attributes are stored in three files, one for each kind of ontology property:
 
 #### A.5.9.1. DataProperty file
 
-Defines properties with data type ranges (string, numeric, boolean):
+Defines the schema attributes that are data properties (their values are strings, numbers, or booleans):
 
 ````{admonition} Example TSV DataProperty file layout.
 ```text
@@ -2085,7 +2085,7 @@ HED_0010305	conversionFactor	DataProperty	unitDomain, unitModifierDomain, numeri
 
 #### A.5.9.2. ObjectProperty file
 
-Defines properties with object ranges (references to other schema elements):
+Defines the schema attributes that are object properties (their values are other schema elements):
 
 ````{admonition} Example TSV ObjectProperty file layout.
 ```text
@@ -2097,7 +2097,7 @@ HED_0010105	relatedTag	ObjectProperty	tagDomain, tagRange	A HED tag closely rela
 
 #### A.5.9.3. AnnotationProperty file
 
-Defines annotation properties that don't participate in reasoning:
+Defines the schema attributes that are annotation properties (they are not inherited and do not participate in reasoning):
 
 ````{admonition} Example TSV AnnotationProperty file layout.
 ```text
@@ -2109,7 +2109,7 @@ HED_0010501	requireChild	AnnotationProperty	tagDomain, boolRange	This tag must h
 
 ### A.5.10. TSV attribute property file
 
-The AttributeProperty file defines the schema attribute properties (formerly called schema properties):
+The AttributeProperty file defines the schema properties:
 
 ````{admonition} Example TSV AttributeProperty file layout.
 ```text

@@ -1,6 +1,6 @@
 # 8. The HED ontology
 
-This chapter defines the HED ontology and its relationship to the HED schema. HED maps all of its entities (i.e., standard schema, library schemas, structural elements, properties) into a single namespace with unique [IRI](https://datatracker.ietf.org/doc/html/rfc3987) (Internationalized Resource Identifier) identifiers as explained in [8.3 HED global identifiers](#83-hed-global-identifiers).
+This chapter defines the HED ontology and its relationship to the HED schema. HED maps all of the entities of its standard schema and library schemas (schema elements, schema attributes, schema properties, and structural elements) into a single namespace with unique [IRI](https://datatracker.ietf.org/doc/html/rfc3987) (Internationalized Resource Identifier) identifiers as explained in [8.3 HED global identifiers](#83-hed-global-identifiers).
 
 The GitHub source repository for the HED ontologies is [hed-ontology](https://github.com/hed-standard/hed-ontology). The GitHub source repository for the HED schemas is [hed-schemas](https://github.com/hed-standard/hed-schemas).
 
@@ -60,21 +60,21 @@ The MediaWiki format is line-oriented with each non-blank line corresponding to 
 
 The TSV format consists of 13 tab-separated value (tsv) files each containing the information for one type of HED entity as summarized in the following table.
 
-| tsv filename                     | Contents                                                                                                                 |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `xxx_AnnotationProperty`         | These correspond to schema attributes that are not inherited.                                                            |
-| `xxx_AnnotationPropertyExternal` | Rows of the `External annotations` extra section.                                                                        |
-| `xxx_AttributeProperty`          | Definitions of the schema attribute properties corresponding<br/><br/>to the `Properties` section in the MediaWiki File. |
-| `xxx_DataProperty`               | Schema attributes whose value is a literal such as boolean, string or numeric.                                           |
-| `xxx_ObjectProperty`             | Schema attributes whose value is another schema entity such as a HED tag.                                                |
-| `xxx_Prefixes`                   | Rows of the `Prefixes` extra section.                                                                                    |
-| `xxx_Sources`                    | Rows of the `Sources` extra section.                                                                                     |
-| `xxx_Structure`                  | Structural entities including the header, prologue, and epilogue.                                                        |
-| `xxx_Tag`                        | Definitions of the HED tags (vocabulary) in the schema.                                                                  |
-| `xxx_Unit`                       | Definitions of the HED unit entities.                                                                                    |
-| `xxx_UnitClass`                  | Definitions of the HED unit classes.                                                                                     |
-| `xxx_UnitModifier`               | Definitions of the HED unit modifiers.                                                                                   |
-| `xxx_ValueClass`                 | Definitions of the HED value classes.                                                                                    |
+| tsv filename                     | Contents                                                                               |
+| -------------------------------- | -------------------------------------------------------------------------------------- |
+| `xxx_AnnotationProperty`         | These correspond to schema attributes that are not inherited.                          |
+| `xxx_AnnotationPropertyExternal` | Rows of the `External annotations` extra section.                                      |
+| `xxx_AttributeProperty`          | Definitions of the schema properties (the `Properties` section of the MediaWiki file). |
+| `xxx_DataProperty`               | Schema attributes whose value is a literal such as boolean, string or numeric.         |
+| `xxx_ObjectProperty`             | Schema attributes whose value is another schema entity such as a HED tag.              |
+| `xxx_Prefixes`                   | Rows of the `Prefixes` extra section.                                                  |
+| `xxx_Sources`                    | Rows of the `Sources` extra section.                                                   |
+| `xxx_Structure`                  | The structural elements: header, prologue, and epilogue.                               |
+| `xxx_Tag`                        | Definitions of the HED tags (vocabulary) in the schema.                                |
+| `xxx_Unit`                       | Definitions of the HED unit entities.                                                  |
+| `xxx_UnitClass`                  | Definitions of the HED unit classes.                                                   |
+| `xxx_UnitModifier`               | Definitions of the HED unit modifiers.                                                 |
+| `xxx_ValueClass`                 | Definitions of the HED value classes.                                                  |
 
 The `xxx_` prefix identifies the schema version. For example, the prefix for standard schema version `8.3.0` is `HED8.3.0_` and the prefix for SCORE library schema `2.0.0` is `HED_score_2.0.0_`.
 
@@ -104,7 +104,7 @@ HED TSV files have been expanded to include additional columns to capture all th
 
 The HED ontology represents the entire HED information space in [OWL](https://www.w3.org/TR/owl2-overview/) (Web Ontology Language). The HED ontology is available in both [OWL/RDF](https://www.w3.org/TR/owl2-mapping-to-rdf/) format and [OWL Manchester](https://www.w3.org/TR/owl2-manchester-syntax/) format, but the examples in this specification use OWL Manchester format for readability. Developers must use the HED TSV files to create or update a HED ontology.
 
-Most HED entities (i.e., tags, unit classes, units, unit modifiers, and value classes) map to classes in the HED ontology. The HED schema attributes, which describe properties and behavior, are mapped to ontology properties as described in [8.2.3. Schema attributes](#823-schema-attributes) section. The HED schema properties, which describe the schema attributes, determine the type of property mapping and are implicitly mapped.
+The schema elements (tags with their `#` placeholders, unit classes, units, unit modifiers, and value classes) and the structural elements map to classes in the HED ontology. The HED schema attributes, which describe properties and behavior, are mapped to ontology properties as described in [8.2.3. Schema attributes](#823-schema-attributes) section. The schema properties, which describe the schema attributes, map to annotation properties and determine the kind of ontology property that each schema attribute becomes.
 
 The mapping of the TSV row and column values to a class in the HED ontology is further explained in the following table:
 
@@ -121,7 +121,9 @@ The next section describes the ontology structure in more detail.
 
 ## 8.2. HED schema to ontology
 
-Each element of a HED schema (i.e., tag, unit, unit class, unit modifier, value class, schema attribute, schema attribute property, schema header, epilogue, and prologue) is assigned a persistent globally unique identifier (GUID). This GUID appears as the entity identifier in the ontology and as the `hedId` attribute value in the HED schema. In addition to the HED elements the HED ontology also has some overall structural elements that are also assigned `hedId` values.
+Each HED entity of a schema (see [HED entity](./02_Terminology.md#hed-entity)) - each schema element, schema attribute, schema property, and structural element - is assigned a persistent globally unique identifier (GUID). This GUID appears as the entity identifier in the ontology and, for every entity except the structural elements, as the value of its `hedId` attribute in the HED schema (see [8.3.1. Schema namespaces versus the ontology namespace](#831-schema-namespaces-versus-the-ontology-namespace)). The classes and properties of the base ontology, such as `HedTag` and `inHedSchema`, have identifiers of the same form.
+
+The base ontology is the set of classes and properties, shared by all schemas, from which the entities of each schema are defined. It has three top classes. `HedEntity` (`hed:HED_0000001`) is the parent of the other two. `HedElement` (`hed:HED_0000003`) is the class of the schema elements; `HedTag`, `HedUnitClass`, `HedUnit`, `HedUnitModifier`, and `HedValueClass` are defined from it. `HedStructure` (`hed:HED_0000002`) is the class of the structural elements; `HedSchema`, `HedHeader`, `HedPrologue`, and `HedEpilogue` are defined from it. Schema attributes and schema properties are HED entities that are not classes: each is an ontology property (see [8.2.3. Schema attributes](#823-schema-attributes)).
 
 The examples in this section use the `hed:` prefix to represent schema-specific elements.
 
@@ -181,8 +183,8 @@ header-rows: 1
   - * Defined in the `Properties` section of the HED schema.
     * Property names ending in `Domain` specify classes the attribute can be applied to.
     * Property names ending in `Range` specify values the property can have.
-    * The `AnnotationProperty` indicates that this schema attribute is not inherited.
-    * Implicitly present in the HED ontology.
+    * The `annotationProperty` property indicates that the schema attribute is not inherited.
+    * Each is an `AnnotationProperty` in the HED ontology.
 
 ```
 
@@ -196,7 +198,7 @@ The example of this section uses the `Action` tag and its child `Communicate` to
 
 We use the [OWL Manchester syntax](https://www.w3.org/TR/owl2-manchester-syntax/) for the examples in this specification document because of readability. The HED ontology is also distributed in OWL/RDF format.
 
-The following example illustrates the syntax for the HED mapping. HED schema elements (tags, unit classes, unit modifiers, units, and value classes) are mapped to OWL classes. Every element has a unique `hedId`, which is represented as an OWL `AnnotationProperty`. The `rdfs:label` annotation value is the name of the element as it appears in the HED schema. The `dc:description` annotation value is the description of the element in the HED schema.
+The following example illustrates the syntax for the HED mapping. HED schema elements (tags, unit classes, unit modifiers, units, and value classes) are mapped to OWL classes. Every element has a unique `hedId`, which is the identifier of its class in the ontology. The `rdfs:label` annotation value is the name of the element as it appears in the HED schema. The `dc:description` annotation value is the description of the element in the HED schema.
 
 ````{admonition} **Example** HED Manchester OWL syntax.
 
@@ -208,7 +210,7 @@ Class: hed:HED_0012016
     EquivalentTo:
         hed:HED_0000005
         and (hed:HED_0000102 some hed:HED_0010004)
-        and (hed:HED_0010307 value "true")
+        and (hed:HED_0010307 value true)
 
 Class: hed:HED_0012017
     Annotations:
@@ -224,7 +226,7 @@ therefore a subclass of `HedTag` (`hed:HED_0000005`).
 The parentage relationship is represented by `EquivalentTo` rather than `SubClassOf`
 because `Action` has the `extensionAllowed` (`hed:HED_0010307`) data property.
 and the `inHedSchema` (`hed:HED_0000102`) object property.
-Here `hed:HED_0010004` is the `HedStandardSchema` class, which has been declared elsewhere in the ontology.
+Here `hed:HED_0010004` is the `StandardSchema` class, which has been declared elsewhere in the ontology.
 
 The `Communicate` HED tag (`hed:HED_0012017`) is a direct child of `Action` as indicated by the `SubClassOf` entry.
 Since `Communicate` is a subclass of `Action`, it inherits the `inHedSchema` association
@@ -239,17 +241,19 @@ The purpose of HED schema attributes is to specify characteristics and/or behavi
 
 A given HED schema attribute's representation in the HED ontology is determined by its domain, its range, and whether the attribute is inherited. The mapping strategy is summarized in the following table.
 
-| Ontology             | Domain     | Range                    | Inherited? |
-| -------------------- | ---------- | ------------------------ | ---------- |
-| `AnnotationProperty` | HED entity | string, numeric, boolean | No         |
-| `DataProperty`       | HED entity | string, numeric, boolean | Yes        |
-| `ObjectProperty`     | HED entity | HED element              | Yes        |
+| Ontology             | Domain         | Range                                       | Inherited? |
+| -------------------- | -------------- | ------------------------------------------- | ---------- |
+| `AnnotationProperty` | schema element | string, numeric, boolean, or schema element | No         |
+| `DataProperty`       | schema element | string, numeric, boolean                    | Yes        |
+| `ObjectProperty`     | schema element | schema element                              | Yes        |
+
+The Domain column gives the domain of the property in the ontology, which is narrower than where the schema attribute may be written in a schema: [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) also allows an attribute that has `elementDomain` to be assigned to a schema attribute, and `hedId` to a schema property. The `hedId` of a schema attribute or of a schema property is the identifier of its ontology property.
 
 `DataProperty` and `ObjectProperty` are inherited by subclasses, and reasoners can check their consistency. `AnnotationProperty` is not inherited by subclasses, and reasoners ignore them.
 
-#### 8.2.3.2. Schema attribute properties
+#### 8.2.3.2. Schema properties
 
-Schema attribute properties appear in the `Properties` section of a HED schema. Schema attribute properties determine how schema attributes behave and described in the following table.
+Schema properties appear in the `Properties` section of a HED schema. They determine how schema attributes behave and are described in the following table. In the ontology the schema attributes are themselves properties, which is why the TSV file that holds the schema properties is named `AttributeProperty`. In this chapter a property name in code font (`ObjectProperty`, `DataProperty`, `AnnotationProperty`) is a kind of ontology property; schema property always means an entry of the `Properties` section.
 
 | Attribute name       | Description                                                                                                                                                |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -268,7 +272,7 @@ Schema attribute properties appear in the `Properties` section of a HED schema. 
 | `valueClassDomain`   | The attribute can apply to value classes. This property was formerly named `valueClassProperty`.                                                           |
 | `valueClassRange`    | The value can be a value class.                                                                                                                            |
 
-Each schema attribute property is translated to an `AnnotationProperty` in the ontology.
+Each schema property is translated to an `AnnotationProperty` in the ontology.
 
 #### 8.2.3.3. Attribute representation
 
@@ -311,7 +315,7 @@ The Manchester Owl syntax for schema attributes is similar to that of classes ab
 ```text
 DataProperty: hed:HED_0010307
     Annotations:
-        dc:description "A schema attribute indicating that users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
+        dc:description "Users can add unlimited levels of child nodes under this tag. This tag is propagated to child nodes except for hashtag placeholders.",
         rdfs:label "extensionAllowed",
         hed:HED_0010704 true,
 		hed:HED_0010702 true
@@ -371,13 +375,13 @@ HED uses the word namespace in two different senses, and the two must not be con
 
 A **schema namespace** (see [Namespace](./02_Terminology.md#namespace) and [3.1.2. Version combinations](./03_HED_formats.md#312-version-combinations)) is a mechanism for combining several schemas into a unified vocabulary for a particular application. The annotator chooses a namespace name for each additional schema in the dataset's HED version specification and writes the corresponding namespace prefix (e.g., `sc:`) in front of the tags drawn from that schema. Schema namespaces are dynamic: they are chosen per dataset, are not part of any schema, and say nothing about the identity of the tags they qualify. The same tag may appear with different prefixes in different datasets, much as the same Python module may be imported under different names with `import ... as`.
 
-The **ontology namespace** is the set of global identifiers of the form `HED_xxxxxxx`, where `xxxxxxx` is a 7-digit integer. Every element of a HED schema (tag, unit class, unit, unit modifier, value class, schema attribute, and property) is assigned an identifier of this form when the schema is released, and the identifier is recorded in the element's [`hedId`](./Appendix_A.md#a147-hedid) schema attribute. The identifiers are allocated by schema, not by schema version: common schema structural elements occupy `HED_0000001` to `HED_0009999`, the standard schema occupies `HED_0010000` to `HED_0039999`, and each library schema is assigned its own range when it is first created, as recorded in [library_data.json](https://github.com/hed-standard/hed-schemas/blob/main/library_data.json) in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) repository. Within each schema's range, every type of element has a fixed subrange, so the `hedId` alone reveals both the schema an element came from and what type of element it is. The subranges are listed in [8.3.2. Ontology namespace](#832-ontology-namespace).
+The **ontology namespace** is the set of global identifiers of the form `HED_xxxxxxx`, where `xxxxxxx` is a 7-digit integer. Every HED entity of a schema (schema element, schema attribute, schema property, or structural element) is assigned an identifier of this form when the schema is released. For every entity except the structural elements, the identifier is recorded as the value of its [`hedId`](./Appendix_A.md#a147-hedid) schema attribute; the identifiers of the header, prologue, and epilogue are assigned by tools and recorded in the `Structure` file of the TSV format. The identifiers are allocated by schema, not by schema version: the base ontology occupies `HED_0000001` to `HED_0009999`, the standard schema occupies `HED_0010000` to `HED_0039999`, and each library schema is assigned its own range when it is first created, as recorded in [library_data.json](https://github.com/hed-standard/hed-schemas/blob/main/library_data.json) in the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) repository. Within each schema's range, every kind of entity has a fixed subrange, so the `hedId` alone reveals both the schema an entity came from and what kind of entity it is. The subranges are listed in [8.3.2. Ontology namespace](#832-ontology-namespace).
 
-A `hedId` assignment is permanent. Once an element has been given an identifier, that identifier represents the element in the ontology through all later schema versions, even if the element is renamed, moved, or deprecated, and the identifier is never reassigned to another element. The `hedId` values are used to construct a valid ontology in OWL format from the schema, as described in [8.3.3. HED IRIs](#833-hed-iris).
+A `hedId` assignment is permanent. Once an entity has been given an identifier, that identifier represents the entity in the ontology through all later schema versions, even if the entity is renamed, moved, or deprecated, and the identifier is never reassigned to another entity. The `hedId` values are used to construct a valid ontology in OWL format from the schema, as described in [8.3.3. HED IRIs](#833-hed-iris).
 
-Identifiers are assigned when a schema is released, after Working Group review; new elements in a prerelease carry none. Should an identifier nonetheless appear in a prerelease and be withdrawn before release, as `HED_0010308` was in the `8.3.0` prerelease, it is retired like one whose element is removed from a released schema. Either kind is recorded in the `retired_ids` section of [library_data.json](https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/library_data.json) in the hed-schemas repository, with the element's label, the version that removed it, the reason, and any replacement. A retired identifier is never reused, and its element appears in the HED ontology as a deprecated class. HED `8.5.0` retires `HED_0011644` (`uV`, now derived as `u` + `V`).
+Identifiers are assigned when a schema is released, after Working Group review; new entities in a prerelease carry none. Should an identifier nonetheless appear in a prerelease and be withdrawn before release, as `HED_0010308` was in the `8.3.0` prerelease, it is retired like one whose entity is removed from a released schema. Either kind is recorded in the `retired_ids` section of [library_data.json](https://raw.githubusercontent.com/hed-standard/hed-schemas/refs/heads/main/library_data.json) in the hed-schemas repository, with the entity's label, the version that removed it, the reason, and any replacement. A retired identifier is never reused, and the entity it identified remains in the HED ontology, marked as deprecated. HED `8.5.0` retires `HED_0011644` (`uV`, now derived as `u` + `V`).
 
-In short, the ontology namespace fixes what an element *is*, independent of any schema version or dataset, while a schema namespace fixes how an annotator *refers to* an element's tag in one dataset's version specification. Tools resolve a prefixed tag through the version specification to a schema element, and from there through `hedId` to its ontology identifier and its [IRI](#833-hed-iris).
+In short, the ontology namespace fixes what an entity *is*, independent of any schema version or dataset, while a schema namespace fixes how an annotator *refers to* a tag in one dataset's version specification. Tools resolve a prefixed tag through the version specification to a schema element, and from there through `hedId` to its ontology identifier and its [IRI](#833-hed-iris).
 
 ### 8.3.2. Ontology namespace
 
@@ -385,24 +389,24 @@ The HED ontology uses globally unique identifiers (GUIDs) of the form `HED_xxxxx
 
 All HED standard and library schema entities are mapped to the `HED_xxxxxxx` namespace using the range assignments described in the following table.
 
-| HED ID                       | Owl type             | Description                                                |
-| ---------------------------- | -------------------- | ---------------------------------------------------------- |
-| HED_0000001-<br/>HED_0000099 | `Class`              | HED schema structure (EX: `HedTag`).                       |
-| HED_0000100-<br/>HED_0000299 | `ObjectProperty`     | Common object function (EX: `hasUnitClass`).               |
-| HED_0000300-<br/>HED_0000499 | `DataProperty`       | Common data function (EX: `library`).                      |
-| HED_0000500-<br/>HED_0000999 | `AnnotationProperty` | Currently not used.                                        |
-| HED_0010001-<br/>HED_0010099 | `Class`              | Standard schema structure (EX: `StandardHeader`).          |
-| HED_0010100-<br/>HED_0010299 | `ObjectProperty`     | Standard schema object function (EX: `suggestedTag`).      |
-| HED_0010300-<br/>HED_0010499 | `DataProperty`       | Standard schema data function (EX: `extensionAllowed`).    |
-| HED_0010500-<br/>HED_0010699 | `AnnotationProperty` | Standard schema property not inherited (EX: `takesValue`). |
-| HED_0010700-<br/>HED_0010899 | `AnnotationProperty` | Standard schema attribute property (EX: `tagDomain`).      |
-| HED_0011300-<br/>HED_0011399 | `HedValueClass`      | Standard schema value class (EX:`textClass`).              |
-| HED_0011400-<br/>HED_0011499 | `HedUnitModifier`    | Standard schema unit modifier (EX: `deca`).                |
-| HED_0011500-<br/>HED_0011599 | `HedUnitClass`       | Standard schema unit class (EX: `timeUnits`).              |
-| HED_0011600-<br/>HED_0011699 | `HedUnit`            | Standard schema unit (EX: `hour`).                         |
-| HED_0012000-<br/>HED_0039999 | `HedTag`             | Standard schema HED tag (EX: `Sensory-event`).             |
-| HED_0042000-<br/>HED_0059999 | `HedTag`             | SCORE schema HED tag (EX: `Episode`).                      |
-| HED_0062000-<br/>HED_0079999 | `HedTag`             | LANG schema HED tag.                                       |
+| HED ID                       | Owl type             | Description                                                         |
+| ---------------------------- | -------------------- | ------------------------------------------------------------------- |
+| HED_0000001-<br/>HED_0000099 | `Class`              | Base class (EX: `HedTag`).                                          |
+| HED_0000100-<br/>HED_0000299 | `ObjectProperty`     | Base object property (EX: `hasUnitClass`).                          |
+| HED_0000300-<br/>HED_0000499 | `DataProperty`       | Base data property (EX: `library`).                                 |
+| HED_0000500-<br/>HED_0000999 | `AnnotationProperty` | Base annotation property (EX: `hedId`).                             |
+| HED_0010001-<br/>HED_0010099 | `Class`              | Standard schema structure (EX: `StandardHeader`).                   |
+| HED_0010100-<br/>HED_0010299 | `ObjectProperty`     | Standard schema object function (EX: `suggestedTag`).               |
+| HED_0010300-<br/>HED_0010499 | `DataProperty`       | Standard schema data function (EX: `extensionAllowed`).             |
+| HED_0010500-<br/>HED_0010699 | `AnnotationProperty` | Standard schema attribute that is not inherited (EX: `takesValue`). |
+| HED_0010700-<br/>HED_0010899 | `AnnotationProperty` | Standard schema property (EX: `tagDomain`).                         |
+| HED_0011300-<br/>HED_0011399 | `HedValueClass`      | Standard schema value class (EX:`textClass`).                       |
+| HED_0011400-<br/>HED_0011499 | `HedUnitModifier`    | Standard schema unit modifier (EX: `deca`).                         |
+| HED_0011500-<br/>HED_0011599 | `HedUnitClass`       | Standard schema unit class (EX: `timeUnits`).                       |
+| HED_0011600-<br/>HED_0011699 | `HedUnit`            | Standard schema unit (EX: `hour`).                                  |
+| HED_0012000-<br/>HED_0039999 | `HedTag`             | Standard schema HED tag (EX: `Sensory-event`).                      |
+| HED_0042000-<br/>HED_0059999 | `HedTag`             | SCORE schema HED tag (EX: `Episode`).                               |
+| HED_0062000-<br/>HED_0079999 | `HedTag`             | LANG schema HED tag.                                                |
 
 ### 8.3.3. HED IRIs
 
