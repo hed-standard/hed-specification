@@ -121,7 +121,7 @@ The next section describes the ontology structure in more detail.
 
 ## 8.2. HED schema to ontology
 
-Each HED entity of a schema (see [HED entity](./02_Terminology.md#hed-entity)) - each schema element, schema attribute, schema property, and structural element - is assigned a persistent globally unique identifier (GUID). This GUID appears as the entity identifier in the ontology and as the `hedId` attribute value in the HED schema. The classes and properties of the base ontology, such as `HedTag` and `inHedSchema`, have identifiers of the same form.
+Each HED entity of a schema (see [HED entity](./02_Terminology.md#hed-entity)) - each schema element, schema attribute, schema property, and structural element - is assigned a persistent globally unique identifier (GUID). This GUID appears as the entity identifier in the ontology and, for every entity except the structural elements, as the value of its `hedId` attribute in the HED schema (see [8.3.1. Schema namespaces versus the ontology namespace](#831-schema-namespaces-versus-the-ontology-namespace)). The classes and properties of the base ontology, such as `HedTag` and `inHedSchema`, have identifiers of the same form.
 
 The base ontology is the set of classes and properties, shared by all schemas, from which the entities of each schema are defined. It has three top classes. `HedEntity` (`hed:HED_0000001`) is the parent of the other two. `HedElement` (`hed:HED_0000003`) is the class of the schema elements; `HedTag`, `HedUnitClass`, `HedUnit`, `HedUnitModifier`, and `HedValueClass` are defined from it. `HedStructure` (`hed:HED_0000002`) is the class of the structural elements; `HedSchema`, `HedHeader`, `HedPrologue`, and `HedEpilogue` are defined from it. Schema attributes and schema properties are HED entities that are not classes: each is an ontology property (see [8.2.3. Schema attributes](#823-schema-attributes)).
 
@@ -246,6 +246,8 @@ A given HED schema attribute's representation in the HED ontology is determined 
 | `AnnotationProperty` | schema element | string, numeric, boolean, or schema element | No         |
 | `DataProperty`       | schema element | string, numeric, boolean                    | Yes        |
 | `ObjectProperty`     | schema element | schema element                              | Yes        |
+
+The Domain column gives the domain of the property in the ontology, which is narrower than where the schema attribute may be written in a schema: [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) also allows an attribute that has `elementDomain` to be assigned to a schema attribute, and `hedId` to a schema property. The `hedId` of a schema attribute or of a schema property is the identifier of its ontology property.
 
 `DataProperty` and `ObjectProperty` are inherited by subclasses, and reasoners can check their consistency. `AnnotationProperty` is not inherited by subclasses, and reasoners ignore them.
 

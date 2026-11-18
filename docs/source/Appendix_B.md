@@ -355,7 +355,8 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 - A `unitModifier` element can only have schema attributes that have the `unitModifierDomain` or the `elementDomain` property.
 - A `unit` element can only have schema attributes that have the `unitDomain` or the `elementDomain` property.
 - A `valueClass` element can only have schema attributes that have the `valueClassDomain` or the `elementDomain` property.
-- A schema attribute or a schema property can only have schema attributes that have the `elementDomain` property.
+- A schema attribute can only have schema attributes that have the `elementDomain` property.
+- A schema property can only have the `hedId` attribute.
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
