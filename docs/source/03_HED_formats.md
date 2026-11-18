@@ -352,9 +352,9 @@ See [the invalid-tag errors in Appendix B](./Appendix_B.md#tag_invalid) for erro
 
 ### 3.2.3. Tag case-sensitivity
 
-Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat schema node names that differ only in capitalization as equivalent, in every tag form.
+Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat schema node names that differ only in capitalization as equivalent, in every tag form. A tag extension and the name of a definition (the part that follows `Definition`, `Def`, or `Def-expand`) are treated like node names: `Red/Blech` and `Red/blech` are the same tag expression, and so are `Def/MyDef` and `Def/mydef`.
 
-The value that replaces a `#` placeholder is not part of this rule: a value is compared exactly as written. `Label/abc` and `label/abc` are the same tag expression, whereas `Label/abc` and `Label/ABC` are different. This is stated from specification `4.0.0`; earlier versions did not say whether the value was included.
+The value that replaces a `#` placeholder is not part of this rule: a value is compared exactly as written. `Label/abc` and `label/abc` are the same tag expression, whereas `Label/abc` and `Label/ABC` are different. The value that follows a definition name, as in `Def/MyDef/abc`, is such a value. This is stated from specification `4.0.0`; earlier versions did not say whether the value was included.
 
 Units (unit names as well as unit symbols) and unit modifiers MUST likewise be matched with their case preserved, both during schema processing and during annotation processing. SI distinguishes symbols and unit modifiers that differ in case (`m` and `M`), and a unit name, with or without a modifier, must have the case listed in the schema, optionally pluralized. See [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units).
 
@@ -434,6 +434,8 @@ See [7.5. Library schema in BIDS](./07_Library_schemas.md#75-library-schemas-in-
 A **HED string** is an unordered, comma-separated list of HED tags and/or HED tag groups.
 
 A **HED tag group** is an unordered, comma-separated list of HED tags and/or tag groups enclosed in parentheses. Tag groups may include other tag groups.
+
+Blanks before and after a comma or a parenthesis are not significant: `(Red,Blue)` and `( Red , Blue )` are the same HED string.
 
 The validation errors for HED tags and HED strings are summarized in [Appendix B: HED errors](Appendix_B.md#b-hed-errors).
 
