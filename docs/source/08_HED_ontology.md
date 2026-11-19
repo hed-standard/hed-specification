@@ -125,7 +125,7 @@ Each HED entity of a schema (see [HED entity](./02_Terminology.md#hed-entity)) -
 
 The base ontology is the set of classes and properties, shared by all schemas, from which the entities of each schema are defined. It has three top classes. `HedEntity` (`hed:HED_0000001`) is the parent of the other two. `HedElement` (`hed:HED_0000003`) is the class of the schema elements; `HedTag`, `HedUnitClass`, `HedUnit`, `HedUnitModifier`, and `HedValueClass` are defined from it. `HedStructure` (`hed:HED_0000002`) is the class of the structural elements; `HedSchema`, `HedHeader`, `HedPrologue`, and `HedEpilogue` are defined from it. Schema attributes and schema properties are HED entities that are not classes: each is an ontology property (see [8.2.3. Schema attributes](#823-schema-attributes)).
 
-The examples in this section use the `hed:` prefix to represent schema-specific elements.
+The examples in this section write identifiers with the `hed:` prefix.
 
 ### 8.2.1. Overall ontology structure
 
@@ -190,7 +190,7 @@ header-rows: 1
 
 ### 8.2.2. HED Tags
 
-The HED schema hierarchy is captured by subclassing in the HED ontology. Top-level tag nodes in the HED schema are direct subclasses of the `HedTag` class (`hed:HED_0000005`). A descendant of a top-level tag node is a direct subclass of its parent tag node in the HED schema. The ontology subclass relationship enforces the HED requirement that each tag in the HED schema must satisfy the **is-a** relationship with its parent in the HED schema.
+The HED schema hierarchy is captured by subclassing in the HED ontology. Top-level tag nodes in the HED schema are defined from the `HedTag` class (`hed:HED_0000005`), restricted to the schema they belong to, and so are subclasses of it. A descendant of a top-level tag node is a direct subclass of its parent tag node in the HED schema. The ontology subclass relationship enforces the HED requirement that each tag in the HED schema must satisfy the **is-a** relationship with its parent in the HED schema.
 
 The example of this section uses the `Action` tag and its child `Communicate` to illustrate how subclassing is represented in the ontology.
 
@@ -224,8 +224,9 @@ Class: hed:HED_0012017
 The `Action` (`hed:HED_0012016`) class is a top level schema tag and
 therefore a subclass of `HedTag` (`hed:HED_0000005`).
 The parentage relationship is represented by `EquivalentTo` rather than `SubClassOf`
-because `Action` has the `extensionAllowed` (`hed:HED_0010307`) data property.
+because `Action` has property restrictions: the `extensionAllowed` (`hed:HED_0010307`) data property
 and the `inHedSchema` (`hed:HED_0000102`) object property.
+Every top-level tag has the `inHedSchema` restriction, so every top-level tag is defined with `EquivalentTo`.
 Here `hed:HED_0010004` is the `StandardSchema` class, which has been declared elsewhere in the ontology.
 
 The `Communicate` HED tag (`hed:HED_0012017`) is a direct child of `Action` as indicated by the `SubClassOf` entry.
@@ -348,7 +349,7 @@ ObjectProperty: hed:HED_0010106
 
 The `hed:HED_0000005` ID is the `HedTag` class, indicating that `suggestedTag` maps one HED tag into another. The `hed:HED_0010704 true` and `hed:HED_0010705 true` provide this information as annotations.
 
-Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attributes are not inherited and do not use domain and range specifications. These must be handled individual by tools as flagged by the HED schema `annotationProperty` property. In the OWL representation, information about the handling should be provided in an `rdfs:comment` field.
+Unlike `DataProperty` and `ObjectProperty` attributes, `AnnotationProperty` attributes are not inherited and do not use domain and range specifications. These must be handled individually by tools as flagged by the HED schema `annotationProperty` property.
 
 ````{admonition} **Example** HED Manchester OWL syntax for rooted.
 
@@ -389,25 +390,33 @@ The HED ontology uses globally unique identifiers (GUIDs) of the form `HED_xxxxx
 
 All HED standard and library schema entities are mapped to the `HED_xxxxxxx` namespace using the range assignments described in the following table.
 
-| HED ID                       | Owl type             | Description                                                         |
-| ---------------------------- | -------------------- | ------------------------------------------------------------------- |
-| HED_0000001-<br/>HED_0000099 | `Class`              | Base class (EX: `HedTag`).                                          |
-| HED_0000100-<br/>HED_0000299 | `ObjectProperty`     | Base object property (EX: `hasUnitClass`).                          |
-| HED_0000300-<br/>HED_0000499 | `DataProperty`       | Base data property (EX: `library`).                                 |
-| HED_0000500-<br/>HED_0000999 | `AnnotationProperty` | Base annotation property (EX: `hedId`).                             |
-| HED_0010001-<br/>HED_0010099 | `Class`              | Standard schema structure (EX: `StandardHeader`).                   |
-| HED_0010100-<br/>HED_0010299 | `ObjectProperty`     | Standard schema object function (EX: `suggestedTag`).               |
-| HED_0010300-<br/>HED_0010499 | `DataProperty`       | Standard schema data function (EX: `extensionAllowed`).             |
-| HED_0010500-<br/>HED_0010699 | `AnnotationProperty` | Standard schema attribute that is not inherited (EX: `takesValue`). |
-| HED_0010700-<br/>HED_0010899 | `AnnotationProperty` | Standard schema property (EX: `tagDomain`).                         |
-| HED_0011300-<br/>HED_0011399 | `HedValueClass`      | Standard schema value class (EX:`textClass`).                       |
-| HED_0011400-<br/>HED_0011499 | `HedUnitModifier`    | Standard schema unit modifier (EX: `deca`).                         |
-| HED_0011500-<br/>HED_0011599 | `HedUnitClass`       | Standard schema unit class (EX: `timeUnits`).                       |
-| HED_0011600-<br/>HED_0011699 | `HedUnit`            | Standard schema unit (EX: `hour`).                                  |
-| HED_0012000-<br/>HED_0039999 | `HedTag`             | Standard schema HED tag (EX: `Sensory-event`).                      |
-| HED_0042000-<br/>HED_0059999 | `HedTag`             | SCORE schema HED tag (EX: `Episode`).                               |
-| HED_0062000-<br/>HED_0079999 | `HedTag`             | LANG schema HED tag.                                                |
+| HED ID                       | Owl type             | Description                                                                 |
+| ---------------------------- | -------------------- | --------------------------------------------------------------------------- |
+| HED_0000001-<br/>HED_0000099 | `Class`              | Base class (EX: `HedTag`).                                                  |
+| HED_0000100-<br/>HED_0000299 | `ObjectProperty`     | Base object property (EX: `hasUnitClass`).                                  |
+| HED_0000300-<br/>HED_0000499 | `DataProperty`       | Base data property (EX: `library`).                                         |
+| HED_0000500-<br/>HED_0000999 | `AnnotationProperty` | Base annotation property (EX: `hedId`).                                     |
+| HED_0010001-<br/>HED_0010099 | `Class`              | Standard schema structure class (EX: `StandardHeader`).                     |
+| HED_0010100-<br/>HED_0010299 | `ObjectProperty`     | Standard schema attribute that is an object property (EX: `suggestedTag`).  |
+| HED_0010300-<br/>HED_0010499 | `DataProperty`       | Standard schema attribute that is a data property (EX: `extensionAllowed`). |
+| HED_0010500-<br/>HED_0010699 | `AnnotationProperty` | Standard schema attribute that is not inherited (EX: `takesValue`).         |
+| HED_0010700-<br/>HED_0010899 | `AnnotationProperty` | Standard schema property (EX: `tagDomain`).                                 |
+| HED_0011300-<br/>HED_0011399 | `HedValueClass`      | Standard schema value class (EX:`textClass`).                               |
+| HED_0011400-<br/>HED_0011499 | `HedUnitModifier`    | Standard schema unit modifier (EX: `deca`).                                 |
+| HED_0011500-<br/>HED_0011599 | `HedUnitClass`       | Standard schema unit class (EX: `timeUnits`).                               |
+| HED_0011600-<br/>HED_0011699 | `HedUnit`            | Standard schema unit (EX: `hour`).                                          |
+| HED_0012000-<br/>HED_0039999 | `HedTag`             | Standard schema HED tag (EX: `Sensory-event`).                              |
+| HED_0042000-<br/>HED_0059999 | `HedTag`             | SCORE schema HED tag (EX: `Episode`).                                       |
+| HED_0062000-<br/>HED_0079999 | `HedTag`             | LANG schema HED tag.                                                        |
+| HED_0082000-<br/>HED_0099999 | `HedTag`             | SLAM schema HED tag.                                                        |
+| HED_0102000-<br/>HED_0119999 | `HedTag`             | MOUSE schema HED tag (EX: `Lick`).                                          |
 
 ### 8.3.3. HED IRIs
 
 HED IRIs [(**Internationalized Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped to [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl).
+
+The `hedId` is the permanent identifier of a HED entity. The IRI of a HED entity is its `hedId` appended to the entity prefix `http://purl.org/hed/hed/`: the IRI of the tag `Action` (`HED_0012016`) is `http://purl.org/hed/hed/HED_0012016`. The IRI of an entity does not contain a release date and is the same in every release of the HED ontology. The `hed:` prefix of the examples in this chapter stands for the entity prefix.
+
+A release of the HED ontology is identified by its version IRI, which contains the release date: `http://purl.org/hed/releases/2024-06-10/hed.owl` for the release of 2024-06-10.
+
+The release of 2024-06-10 is the one exception to the form of the entity IRI: it declares the dated entity prefix `http://purl.org/hed/releases/2024-06-10/hed/`. The `hedId` values of its entities are unaffected; only the prefix differs.

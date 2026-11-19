@@ -445,6 +445,17 @@ The process of event context mapping should be deferred until analysis time beca
 
 In normal usage, **the `Event-context` tag is not used directly by annotators**. Rather, tools insert the `Event-context` tag at analysis time to handle the implicit context created by enduring or scoped events. However, annotators may use the tag when an event has explicit context information that must be accounted for. Tools are available to insert the appropriate `Event-context` at analysis time. The `Event-context` has the `unique` attribute, implying that only one `Event-context` tag group may appear in the assembled HED annotation corresponding to each time-marker value.
 
+The following example shows the `Event-context` groups that a tool generates for a table in which a movie plays from 1.0 s to 5.0 s and a sound lasts from 2.5 s to 4.5 s. The rules are given in [3.2.8.5. The `Event-context` tag](./03_HED_formats.md#3285-the-event-context-tag).
+
+| onset | Annotation of the row                    | `Event-context` group generated for the row                    |
+| ----- | ---------------------------------------- | -------------------------------------------------------------- |
+| 1.0   | `(Def/PlayMovie, (Label/Clip1), Onset)`  | none: the movie is not in the context of its own start         |
+| 2.0   | `Agent-action, Blink`                    | `(Event-context, ((Def/PlayMovie, (Label/Clip1))))`            |
+| 2.5   | `Sensory-event, (Duration/2 s, (Sound))` | `(Event-context, ((Def/PlayMovie, (Label/Clip1))))`            |
+| 3.0   | `Agent-action, Blink`                    | `(Event-context, ((Def/PlayMovie, (Label/Clip1)), ((Sound))))` |
+| 5.0   | `(Def/PlayMovie, Offset)`                | none: the movie has ended, and the sound ended at 4.5 s        |
+| 6.0   | `Agent-action, Blink`                    | none                                                           |
+
 `````{admonition} **Syntax summary for *Event-context*.**
 
 **Short form:**

@@ -4,9 +4,9 @@
 
 This appendix augments the discussion of HED schema formats presented in [Chapter 3: HED formats](./03_HED_formats.md) of the HED specification. The appendix presents additional details on the rules with examples for standard HED schema and HED library schema in `.mediawiki`, `.xml`, `.json`, and `.tsv` formats.
 
-## A.1. Auxiliary schema sections
+## A.1. Auxiliary and extra schema sections
 
-This section gives information about how the various auxiliary sections of the HED schema are used to specify the behavior of the schema elements.
+This section describes the auxiliary sections of the HED schema, which specify the behavior of the schema elements, and the three extra sections (see [Schema section](./02_Terminology.md#schema-section)).
 
 ### A.1.1. Unit classes and units
 
@@ -528,7 +528,7 @@ header-rows: 1
 * - `elementDomain`
   - This schema attribute can apply to any type<br/>of element (tag term, unit class, etc).<br/>This property was formerly named `elementProperty`.
 * - `isInheritedProperty`
-  - **Deprecated** in favor of `annotationProperty`.<br/>This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.
+  - Listed in `8.2.0` only; replaced by `annotationProperty`.<br/>This schema attribute is inherited by child nodes.<br/>This property only applies to schema attributes for nodes.
 * - `tagDomain`
   - This schema attribute can apply to node (tag-term) elements.<br/>This was added so attributes could apply to multiple types of elements.<br/>This property was formerly named `nodeProperty`.
 * - `tagRange`
@@ -788,13 +788,13 @@ HED library="score" version="1.0.0"
 
 The `library` and `version` values are used to form the official filename `HED_score_1.0.0.mediawiki`. The file is found in [library_schemas/score/hedwiki](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedwiki) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-An unknown header attribute is ignored when the schema is loaded and is an error in schema validation (see [3.1.4.1. The header](./03_HED_formats.md#3141-the-header)).
+The treatment of an unrecognized header attribute is given in [3.1.4.1. The header](./03_HED_formats.md#3141-the-header).
 
 ### A.2.3. MediaWiki prologue and epilogue
 
 The prologue is a paragraph of text appearing after the *header*; the section is always present and may be empty. The prologue is used by tools for help and display purposes.
 
-The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
+The epilogue is described in [Section A.2.5.6](#a256-epilogue), with the sections that follow the schema section.
 
 Both the prologue and epilogue may contain new lines and commas in addition to the characters of the `text` character set ([2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
@@ -885,7 +885,7 @@ The single `*` in front of `Manus` indicates that this element is directly below
 ```
 ````
 
-### A.2.5. MediaWiki auxiliary sections
+### A.2.5. MediaWiki sections after the schema section
 
 After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, schema attribute definitions, property definitions, epilogue, schema sources, schema prefixes, and external annotations sections, in that order. Every section is present; a section with no entries consists of its header alone.
 
@@ -1232,7 +1232,7 @@ Library schemas must include the `library` attribute with the library name in th
 
 The `library` and `version` values are used to form the official xml filename `HED_score_1.0.0.xml`. The file is found in [library_schemas/score/hedxml](https://github.com/hed-standard/hed-schemas/tree/main/library_schemas/score/hedxml) directory of the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-Unknown header attributes are treated as in the MediaWiki format ([A.2.2. MediaWiki header](#a22-mediawiki-header)).
+The treatment of an unrecognized header attribute is given in [3.1.4.1. The header](./03_HED_formats.md#3141-the-header).
 
 Library schemas may also be partnered as is `HED_mouse_1.0.0.xml`.
 
@@ -1311,9 +1311,9 @@ The optional `<attribute>` elements are derived from the attribute list containe
 ```
 ````
 
-### A.3.5. XML auxiliary sections
+### A.3.5. XML sections after the schema section
 
-The auxiliary sections define various aspects of behavior of various types of elements in the schema.
+The auxiliary sections define various aspects of behavior of various types of elements in the schema. The epilogue and the three extra sections follow them.
 
 #### A.3.5.1. Unit classes
 
@@ -1706,7 +1706,7 @@ The `tags` section is an object where each key is a tag name and the value is an
 ```
 ````
 
-### A.4.5. JSON auxiliary sections
+### A.4.5. JSON sections after the schema section
 
 #### A.4.5.1. Unit classes
 
@@ -1963,6 +1963,23 @@ HED8.5.0/
 ```
 ````
 
+The twelve sections of a schema (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)) are stored in these files as follows:
+
+| Section              | TSV files                                              |
+| -------------------- | ------------------------------------------------------ |
+| Header               | `Structure`                                            |
+| Prologue             | `Structure`                                            |
+| Schema               | `Tag`                                                  |
+| Unit classes         | `UnitClass`, `Unit`                                    |
+| Unit modifiers       | `UnitModifier`                                         |
+| Value classes        | `ValueClass`                                           |
+| Schema attributes    | `DataProperty`, `ObjectProperty`, `AnnotationProperty` |
+| Schema properties    | `AttributeProperty`                                    |
+| Epilogue             | `Structure`                                            |
+| Sources              | `Sources`                                              |
+| Prefixes             | `Prefixes`                                             |
+| External annotations | `AnnotationPropertyExternal`                           |
+
 Every file in this layout is written for every schema. The file for a section with no entries contains only its header row. For example, the Sources file of an unmerged library schema that adds no sources of its own is the single line `source	link	Attributes	description`.
 
 ### A.5.2. TSV header formats
@@ -1985,7 +2002,7 @@ Each TSV file begins with a header row of column names. The header row of each f
 | `Prefixes`                   | `prefix`, `namespace`, `Attributes`, `description`                                      |
 | `AnnotationPropertyExternal` | `prefix`, `id`, `iri`, `Attributes`, `description`                                      |
 
-Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments. A `Properties` cell is a comma-separated list of the schema properties of a schema attribute, together with any schema attribute other than `hedId` that is assigned to it: the cell for `unitPrefix` in HED `8.5.0` is `deprecatedFrom=8.4.0, unitDomain, boolRange` (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)). The `AttributeProperty` file has neither column, because a schema property is assigned no schema attribute other than `hedId` (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)).
+Columns are identified by name. `rdfs:label` is the name of the element, `omn:SubClassOf` its parent, `dc:description` its description, and `Level` the depth of a tag in the hierarchy. An `Attributes` cell is a comma-separated list of attribute assignments. A `Properties` cell is a comma-separated list of the schema properties of a schema attribute, together with any schema attribute other than `hedId` that is assigned to it: the cell for `unitPrefix` in HED `8.5.0` is `deprecatedFrom=8.4.0, unitDomain, boolRange` (see [A.5.12. TSV format conventions](#a512-tsv-format-conventions)). The `AttributeProperty` file has neither column: a schema property is assigned no schema attribute other than `hedId`, which has its own column (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)).
 
 A tool that writes a schema in TSV format MUST write these columns, in this order, whatever the version of the schema. A file MAY also have columns that are not in this table, holding annotation properties for the HED ontology such as `dc:comment` (see [8.1.4.3. TSV format](./08_HED_ontology.md#8143-tsv-format)); such columns are not part of the schema. A tool that reads a schema in TSV format MUST also accept the header rows that earlier schema versions were written with, which are listed in [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions). This is stated from specification `4.0.0`.
 

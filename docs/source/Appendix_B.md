@@ -30,7 +30,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 
 **See also:**
 
-- [A.1. Auxiliary schema sections](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [A.1. Auxiliary and extra schema sections](./Appendix_A.md#a1-auxiliary-and-extra-schema-sections) for a discussion of the HED name and unit class rules.
 - [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
 - [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) and [3.2.5. Tag extensions](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
@@ -78,7 +78,7 @@ A **definition** is a tag group containing a `Definition` tag and at most one in
 **f.** A definition that includes a placeholder (`#`) does not have exactly two `#` characters.\
 **g.** A definition has placeholders (`#`) in incorrect positions.\
 **h.** Definitions of the same name appear with and without a `#`.\
-**i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
+**i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents in any order, under the case rule of [3.2.3. Tag case-sensitivity](./03_HED_formats.md#323-tag-case-sensitivity)) are allowed and treated as one definition.\
 **j.** A tag with the `unique` attribute appears in a definition.\
 **k.** A definition appears in an unexpected place such as a table or a sidecar dictionary that contains non-definition entries.\
 **l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
@@ -95,6 +95,14 @@ A schema element has been deprecated and should not be used. When an element is 
 **b.** A unit or unit modifier has been deprecated and an alternative should be used.
 
 See [3.2. Annotation rules](./03_HED_formats.md#32-annotation-rules) for the rule and [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom) for additional information about the `deprecatedFrom` schema attribute.
+
+### ONSETS_UNORDERED\*
+
+(WARNING)
+
+**a.** The rows of a timeline table are not in time order: the time of a row is earlier than the time of a row above it. Rows whose `onset` value is `n/a` are not considered. The warning is reported once for the table.
+
+See [3.2.10.4. Table-level processing](./03_HED_formats.md#32104-table-level-processing) for the rule.
 
 ### PARENTHESES_MISMATCH
 
@@ -151,7 +159,8 @@ See [3.2.9. Sidecars](./03_HED_formats.md#329-sidecars) for information on the r
 **b.** An annotation entry is provided for `n/a`.\
 **c.** No longer used: a sidecar that refers in curly braces to a column with no HED is [SIDECAR_BRACES_INVALID](#sidecar_braces_invalid) (a) from specification `4.0.0`.\
 **d.** A top-level sidecar key begins or ends with whitespace (blank, tab, line feed, or carriage return), whether or not its entry has a `"HED"` key.\
-**e.** In a categorical entry, a column value listed as a key under `"HED"` begins or ends with whitespace (blank, tab, line feed, or carriage return), such as `"go "` in `{"trial": {"HED": {"go ": "Sensory-event"}}}`.
+**e.** In a categorical entry, a column value listed as a key under `"HED"` begins or ends with whitespace (blank, tab, line feed, or carriage return), such as `"go "` in `{"trial": {"HED": {"go ": "Sensory-event"}}}`.\
+**f.** An annotation in a categorical entry is empty or consists only of blanks. A column value that has no HED annotation is given the annotation `n/a`.
 
 For (e) only the keys under `"HED"` in a categorical entry are checked: the column values that the entry annotates. The top-level key (`trial`, the column name) is (d), and the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not checked. A column value is matched to these keys exactly, so a key with whitespace could only match a column value with whitespace, which is itself TABULAR_INVALID (d), and could never annotate a row. Both (d) and (e) are stated from specification `4.0.0`.
 
@@ -287,7 +296,8 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
 **m.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears with other top-level tags, except that a `Delay` MAY be paired with a `Duration`, `Onset`, `Offset`, or `Inset`.\
-**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
+**n.** In a timeline table (a table with an `onset` or equivalent column), a `Duration` or `Delay` tag has a value that cannot be converted to the default units of its unit class (non-numeric value, invalid units, or units with no `conversionFactor`, such as `month` or `year`), so the delayed onset (`Delay`) or the end time (`Duration`) cannot be placed on the table's timeline. A `Duration` tag in a descriptor table MAY use any valid unit of its unit class. For earlier schema versions see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).\
+**o.** An `Onset`, `Offset`, `Inset`, or `Delay` tag appears in a row of a timeline table whose `onset` value is `n/a`. A `Duration` tag MAY appear in such a row.
 
 **See also:** [TAG_GROUP_ERROR](#tag_group_error).
 
@@ -397,7 +407,7 @@ Note: tag extensions may contain `nonascii` characters.
 **b.** A deprecated tag is used as a `suggestedTag` or a `relatedTag` in a non-deprecated tag.\
 **c.** A child tag of a deprecated tag does not have the `deprecatedFrom` attribute.\
 **d.** A deprecated attribute is used on a non-deprecated element.\
-**e.** A deprecated property is used on a non-deprecated attribute.\
+**e.** No longer used: a schema property cannot be deprecated (specification `4.0.0`).\
 **f.** A deprecated unit class has non-deprecated units.\
 **g.** A tag has deprecated unit or value classes.\
 **h.** A unit class has a deprecated default unit.

@@ -80,9 +80,8 @@ Combination of different schemas into a single vocabulary can proceed provided t
 | Element compatibility | A shared element can have different non-`#` children, but the compatibility rules apply to shared children in the same way.                                                                                                                                                                                 |
 | Element compatibility | The `inLibrary` bookkeeping attribute is excluded from the comparison of attribute values: a schema element or schema attribute contributed by different library schemas necessarily carries a different `inLibrary` value in each library's merged schema.                                                 |
 | Element compatibility | A schema element or schema attribute contributed by more than one library schema of a merge group carries one `inLibrary` value for each contributing library in the merged result.                                                                                                                         |
-| Auxiliary sections    | New library schema unit classes and their accompanying units are merged directly.                                                                                                                                                                                                                           |
+| Auxiliary sections    | New library schema unit classes with their units, unit modifiers, value classes, and schema attributes are merged directly.                                                                                                                                                                                 |
 | Auxiliary sections    | New library schema units under an existing unit class are merged if there are no conflicts.                                                                                                                                                                                                                 |
-| Auxiliary sections    | New library schema value classes are merged if there are no conflicts.                                                                                                                                                                                                                                      |
 | Extra sections        | A row of the Sources, Prefixes, or External annotations section that appears with the same key (see [3.1.2.2. Merged vs unmerged](#3122-merged-vs-unmerged)) and the same contents in more than one library schema of a merge group is kept once, with one `inLibrary` value for each contributing library. |
 | Extra sections        | The `inLibrary` mark of a row is excluded from the comparison of row contents: a row contributed by different library schemas necessarily carries a different `inLibrary` value in each library's merged schema.                                                                                            |
 | Extra sections        | Rows with the same key and different contents in two library schemas of a merge group are a conflict.                                                                                                                                                                                                       |
@@ -161,7 +160,7 @@ The schema header line MUST specify the `version` attribute whose value MUST be 
 
 A schema may optionally contain `library`, `withStandard`, and `unmerged` attributes for library schemas. A schema's library name or lack there of is used to locate the schema in the [hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository.
 
-The header may optionally contain an XSD namespace specification. An unrecognized header attribute is ignored when the schema is loaded and is an error in schema validation.
+The header may optionally contain an XSD namespace specification. An unrecognized header attribute does not prevent the schema from loading and does not affect the validation of annotations with that schema. It is an error in schema validation, and a tool that writes the schema writes the attribute and its value unchanged.
 
 See [A.2.2. MediaWiki header](./Appendix_A.md#a22-mediawiki-header) and [A.3.2. XML header](./Appendix_A.md#a32-xml-header) for more detailed information on the MediaWiki and XML header formats, respectively.
 
@@ -237,7 +236,7 @@ Value class names are case-insensitive, but must contain only valid `name` chara
 
 The schema attributes section defines the schema attributes that may be assigned to the schema elements: nodes, unit classes, units, unit modifiers, and value classes.
 
-The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs. A schema attribute that is used in the schema MUST be defined in the schema attribute definition section; otherwise an error occurs.
+The specification of which type of schema elements a particular schema attribute may apply to is specified by its schema properties. If a schema attribute appears in a section contradicted by its properties, an error occurs. A schema attribute that is used in the schema MUST be defined in the schema attribute definition section; otherwise an error occurs. An undefined attribute on a schema element does not prevent the schema from loading: it is an error in schema validation, and a tool that writes the schema writes the attribute and its value unchanged.
 
 See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes) and [A.1.5. Schema properties](./Appendix_A.md#a15-schema-properties) for additional details and a listing for the standard schema.
 
@@ -245,7 +244,7 @@ See appendices [A.1.4. Schema attributes](./Appendix_A.md#a14-schema-attributes)
 
 The schema properties section lists the allowed properties of the schema attributes. These properties help tools validate certain requirements directly based on the HED schema rather than on a hard-coded implementation. A property that is used on a schema attribute MUST be defined in the schema properties section; otherwise an error occurs.
 
-There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to nodes. A node (a tag or a `#` placeholder) may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may be assigned to a schema element of any kind and to a schema attribute. A schema property is assigned no schema attribute other than `hedId`.
+There are two main types of properties: **domain** properties and **range** properties. Property names ending in `Domain` indicate the types of schema element a schema attribute may apply to. The domain properties are `elementDomain`, `tagDomain`, `unitClassDomain`, `unitModifierDomain`, `unitDomain`, and `valueClassDomain`. Schema attributes without any domain property are assumed to apply to nodes. A node (a tag or a `#` placeholder) may have the schema attributes that have the `tagDomain` or the `elementDomain` property or no domain property. A schema attribute that has the `elementDomain` property may be assigned to a schema element of any kind and to a schema attribute. A schema property is assigned no schema attribute other than `hedId`, so a schema property cannot be deprecated.
 
 Property names ending in `Range` indicate the type of value a schema attribute may have. The range properties are `boolRange`, `numericRange`, `stringRange`, `tagRange`, `unitClassRange`, `unitRange`, and `valueClassRange`. A schema attribute with the `boolRange` property does not take a value: its presence indicates true, and its absence indicates false. The remaining property, `annotationProperty`, marks a schema attribute whose value is not inherited by child nodes.
 
@@ -265,7 +264,7 @@ The rules in this section were codified in HED specification `4.0.0`; they apply
 
 The purpose of these sections is to provide a mechanism for HED to link to external sources including other ontologies. The sources section defines external sources with links, the prefixes section defines the prefixes of the external ontologies and vocabularies, and the external annotations provide the ID links to actual UUIDs within the resources specified in the sources.
 
-A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5. MediaWiki auxiliary sections](./Appendix_A.md#a25-mediawiki-auxiliary-sections), [A.3.5. XML auxiliary sections](./Appendix_A.md#a35-xml-auxiliary-sections), [A.4.5. JSON auxiliary sections](./Appendix_A.md#a45-json-auxiliary-sections), and [A.5.11. TSV sources, prefixes, and annotations](./Appendix_A.md#a511-tsv-sources-prefixes-and-annotations) for specific format details.
+A tool that writes a schema file, in any format, includes all three extra sections, whether the schema is a standard schema or a library schema and whether a library schema is in merged or unmerged form. A section for which the schema has no entries is written empty. See [A.2.5. MediaWiki sections after the schema section](./Appendix_A.md#a25-mediawiki-sections-after-the-schema-section), [A.3.5. XML sections after the schema section](./Appendix_A.md#a35-xml-sections-after-the-schema-section), [A.4.5. JSON sections after the schema section](./Appendix_A.md#a45-json-sections-after-the-schema-section), and [A.5.11. TSV sources, prefixes, and annotations](./Appendix_A.md#a511-tsv-sources-prefixes-and-annotations) for specific format details.
 
 ### 3.1.5. Naming conventions
 
@@ -352,9 +351,11 @@ See [the invalid-tag errors in Appendix B](./Appendix_B.md#tag_invalid) for erro
 
 ### 3.2.3. Tag case-sensitivity
 
-Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat tags containing the same characters, but different variations in capitalization as equivalent.
+Although by convention tag terms start with a capital letter with the remainder being lower case, tag processing is case-insensitive. This convention makes annotation strings more readable and is recommended for tag extensions. Validators and other tools must treat schema node names that differ only in capitalization as equivalent, in every tag form. A tag extension and the name of a definition (the part that follows `Definition`, `Def`, or `Def-expand`) are treated like node names: `Red/Blech` and `Red/blech` are the same tag expression, and so are `Def/MyDef` and `Def/mydef`.
 
-The only exception to the case-insensitive processing rule is that units (unit names as well as unit symbols) and unit modifiers MUST be matched with their case preserved, both during schema processing and during annotation processing. SI distinguishes symbols and unit modifiers that differ in case (`m` and `M`), and a unit name, with or without a modifier, must have the case listed in the schema, optionally pluralized. See [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units).
+The value that replaces a `#` placeholder is not part of this rule: a value is compared exactly as written. `Label/abc` and `label/abc` are the same tag expression, whereas `Label/abc` and `Label/ABC` are different. The value that follows a definition name, as in `Def/MyDef/abc`, is such a value. This is stated from specification `4.0.0`; earlier versions did not say whether the value was included.
+
+Units (unit names as well as unit symbols) and unit modifiers MUST likewise be matched with their case preserved, both during schema processing and during annotation processing. SI distinguishes symbols and unit modifiers that differ in case (`m` and `M`), and a unit name, with or without a modifier, must have the case listed in the schema, optionally pluralized. See [3.1.4.4. Unit classes and units](#3144-unit-classes-and-units).
 
 ### 3.2.4. Tags that take values
 
@@ -433,6 +434,8 @@ A **HED string** is an unordered, comma-separated list of HED tags and/or HED ta
 
 A **HED tag group** is an unordered, comma-separated list of HED tags and/or tag groups enclosed in parentheses. Tag groups may include other tag groups.
 
+Blanks before and after a comma or a parenthesis are not significant: `(Red,Blue)` and `( Red , Blue )` are the same HED string.
+
 The validation errors for HED tags and HED strings are summarized in [Appendix B: HED errors](Appendix_B.md#b-hed-errors).
 
 #### 3.2.7.1. Parenthesis and order
@@ -456,7 +459,7 @@ Empty parentheses and multiple commas with no intervening tags represent empty t
 
 #### 3.2.7.4. Repeated expressions
 
-Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
+Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. Tags are compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
 
 ### 3.2.8. Reserved tags
 
@@ -527,7 +530,7 @@ A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`
 
 The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `unique` attribute.
 
-A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents, without regard to case or order.
+A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents in any order, compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). `(Definition/X, (Label/abc))` and `(Definition/X, (Label/ABC))` are therefore different definitions of `X`.
 
 See [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for examples.
 
@@ -543,9 +546,9 @@ See [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) f
 
 #### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
-Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
+Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. A process that has neither lasts to the end of the table: an `Onset` with no `Offset` is not an error. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
 
-An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
+An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. In these rules "before", "after" and "later" refer to time, not to the position of a row in the table (see [3.2.10.4. Table-level processing](#32104-table-level-processing)). An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
 See [5.3.1. Using Onset and Offset](./05_Advanced_annotation.md#531-using-onset-and-offset) for examples.
 
@@ -559,7 +562,18 @@ See [5.3.3. Using Duration](./05_Advanced_annotation.md#533-using-duration) and 
 
 #### 3.2.8.5. The `Event-context` tag
 
-An `Event-context` group records the event processes that are ongoing at the time of an event marker, for example an image displayed from its `Onset` until its `Offset`. Each inner group holds the tags of one ongoing process. The group is generated by tools during event processing, with every definition and column reference already expanded, and is generally not written by annotators. Because `Event-context` has the `unique` attribute, an assembled annotation contains at most one `Event-context` group.
+An `Event-context` group records the event processes that are ongoing at the time of an event marker, for example an image displayed from its `Onset` until its `Offset`. The group is generated by tools during event processing, after every column reference has been substituted, and is generally not written by annotators. Because `Event-context` has the `unique` attribute, an assembled annotation contains at most one `Event-context` group.
+
+A tool generates the group for an event marker from the event processes of the table:
+
+- A process is ongoing at an event marker when the time of the marker is later than the start of the process and earlier than its end. A process is not in the context of the marker at which it starts, nor of the marker at which it ends.
+- The start of a process is the time of the row that holds its `Onset` or `Duration` group, plus the value of any `Delay` in that group.
+- A process started by an `Onset` group ends as stated in [3.2.8.3. `Onset`, `Offset`, and `Inset`](#3283-onset-offset-and-inset). A process given by a `Duration` group ends at its start plus the duration.
+- The entry for a process is its `Onset` or `Duration` group with the `Onset` or `Duration` tag and any `Delay` tag removed. The entry is itself a group: `(Def/PlayMovie, (Label/Clip1), Onset)` gives the entry `(Def/PlayMovie, (Label/Clip1))`, and `(Duration/2 s, Delay/1 s, (Sound))` gives the entry `((Sound))`. A `Def` tag in an entry MAY be written as its equivalent `Def-expand` group (see [3.2.8.2. `Def` and `Def-expand` tags](#3282-def-and-def-expand-tags)).
+- The generated group has the form `(Event-context, (entry, entry, ...))`: a single inner group that holds the entries of all the ongoing processes. An event marker with no ongoing process gets no `Event-context` group.
+- A row whose `onset` value is `n/a` has no time (see [3.2.10.4. Table-level processing](#32104-table-level-processing)): it gets no `Event-context` group, and a `Duration` group in it is in the context of no event marker.
+
+These rules are stated from specification `4.0.0`.
 
 See [5.5. Event contexts](./05_Advanced_annotation.md#55-event-contexts) for examples.
 
@@ -583,6 +597,7 @@ A BIDS sidecar is a JSON dictionary with several types of entries, three of whic
 - The value associated with the HED key is a dictionary of HED annotations.
 - The keys of the annotation dictionary are the unique column values.
 - The entry is not required to have annotations for every possible unique column value.
+- An annotation is a HED string or `n/a`; it is never empty (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
 - A warning is issued if a column value does not have an annotation (see [3.2.9.2. Sidecar validation](#3292-sidecar-validation)).
 - The annotation dictionary may include annotations for values that do not appear in a particular table.
 
@@ -618,6 +633,8 @@ All HED-related entries in a JSON sidecar must have `"HED"` as a key in a second
 A top-level sidecar key MUST NOT begin or end with whitespace, as defined for column names in [3.2.10. Tabular files and structures](#3210-tabular-files-and-structures). The rule applies to every top-level key, whether or not its entry has a `"HED"` key, and is stated from specification `4.0.0`.
 
 In a categorical entry, a column value listed as a key under `"HED"` (such as `go` in `{"trial": {"HED": {"go": "Sensory-event"}}}`) MUST NOT begin or end with whitespace either. Only these keys are checked; the keys of other dictionaries in the entry, such as a BIDS `Levels` dictionary, are not. Since values are matched exactly, such a key could only match a column value that begins or ends with whitespace, which is itself an error (see [3.2.10.2. Table annotations](#32102-table-annotations)), so it could never annotate a row. This rule is stated from specification `4.0.0`.
+
+An annotation in a categorical entry MUST NOT be empty or consist only of blanks. A column value that has no HED annotation is given the annotation `n/a` (as in `{"trial": {"HED": {"go": "Sensory-event", "rest": "n/a"}}}`), which contributes nothing when the annotation of a row is assembled; the column value then has an entry, so no warning is reported for it. The annotation of a value entry must contain a `#`, so it is never `n/a`: a value column that has no annotation has no `"HED"` key. This is stated from specification `4.0.0`.
 
 HED definitions are required to be separated into dummy sidecar column entries and cannot appear in sidecar entries containing tags other than definitions. A HED definition appearing in a categorical or value sidecar entry is an error.
 
@@ -830,7 +847,13 @@ For more examples of event assembly, see [How HED works in BIDS](https://www.hed
 
 HED allows annotation of relationships among rows in a table. Hence, processing generally requires that annotations for all the rows be assembled so that consistency can be checked.
 
-To validate temporal scope, the validator must assure that each `Onset` and `Offset` tag is associated with an appropriately defined identifier corresponding to a definition name. The validator must also check to make sure that `Onset` and `Offset` tags are properly matched within the data recording. In particular every `Offset` tag group must correspond to a preceding `Onset` tag group.
+In a timeline table, a validator MUST check the rules of [3.2.8.3. `Onset`, `Offset`, and `Inset`](#3283-onset-offset-and-inset) over the whole table. The rules apply to one table at a time: an event process that starts in one table cannot end in another. They use time, not row position:
+
+- The time of a row is the value in its `onset` column, or in the equivalent column (see [3.3.4. Timeline versus descriptor tables](#334-timeline-versus-descriptor-tables)).
+- The rows of a table need not be in time order. `Onset`, `Offset`, and `Inset` groups are matched by their times, whatever the order of the rows. A table in which the time of a row is earlier than the time of a row above it is valid, but a validator reports a warning for it, once for the table.
+- A row whose `onset` value is `n/a` has no time and takes no part in the order of the rows. Its annotation MUST NOT contain `Onset`, `Offset`, `Inset`, or `Delay`; it MAY contain `Duration`. The rest of its annotation is validated as in any other row.
+
+These rules are stated from specification `4.0.0`.
 
 ## 3.3. Annotation semantics
 

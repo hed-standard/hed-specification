@@ -76,7 +76,7 @@ There are several significant differences between merged and unmerged partnered 
 
 - The schema properties section of an unmerged library schema should always be empty except for its section header. The schema properties section of a merged schema will have only the standard schema properties.
 
-- An unmerged schema should only include content in the auxiliary sections (unit classes, units, unit modifiers, value classes, and schema attributes) and the extra sections (Sources, Prefixes, and External annotations) that it explicitly extends. Otherwise, the section is present and empty except for its section header in that format. A tool writing the schema includes every section (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The merged version will have all of the section values from both the library schema and its partner.
+- An unmerged schema should only include content in the auxiliary sections and the extra sections (Sources, Prefixes, and External annotations) that it explicitly extends. Otherwise, the section is present and empty except for its section header in that format. A tool writing the schema includes every section (see [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations)). The merged version will have all of the section values from both the library schema and its partner.
 
 - In an unmerged schema, nodes with the `rooted=XXX` schema attribute must be top-level tags, and `XXX` must correspond to a node in the standard schema. In the merged schema, nodes with the `rooted=XXX` schema attribute are placed directly under the standard schema node `XXX`.
 
@@ -100,7 +100,7 @@ Partnered library schemas are the strongly preferred format for HED libraries fo
 
 #### 7.3.5.1. Auxiliary consistency
 
-An unpartnered library schema must duplicate the [auxiliary schema sections](./Appendix_A.md#a1-auxiliary-schema-sections) appearing in standard schemas, introducing the possibility of inconsistency in usage or definition between the library schema and standard schemas. A partnered library schema automatically inherits its standard partner's auxiliary sections, assuring consistent handling by tools and preventing the introduction of inconsistently handled attributes.
+An unpartnered library schema must duplicate the [auxiliary schema sections](./Appendix_A.md#a1-auxiliary-and-extra-schema-sections) appearing in standard schemas, introducing the possibility of inconsistency in usage or definition between the library schema and standard schemas. A partnered library schema automatically inherits its standard partner's auxiliary sections, assuring consistent handling by tools and preventing the introduction of inconsistently handled attributes.
 
 Although unpartnered library schemas may add additional items to the auxiliary sections, HED tools only guarantee support of standard schema auxiliary items requiring special handling. **Thus, addition of items in the auxiliary sections of a library schema is discouraged.**
 
@@ -147,7 +147,7 @@ Auxiliary sections have information for HED tools, and new entries may require m
 schema validation and analysis tools.
 
 With the possible (and rare) exception of new `unitClasses` and `units`, partnered library schemas
-usually have empty auxiliary sections except for the `prologue` and `epilogue`. The empty sections
+usually have empty auxiliary sections. The empty sections
 are still written in every format; they are not removed from the file.
 
 While new value class and schema attribute definitions are allowed in library schemas, this is strongly discouraged. If a new entry is needed, contact the HED Working Group (hed.maintainers@gmail.com) to see if the
@@ -323,7 +323,7 @@ A partnered library schema should always use the latest version of the HED schem
 available at the time of its release. While in development a partnered library schema may be partnered with a prerelease version of the standard schema.
 <br>&nbsp;</br>
 3. **The auxiliary sections of the unmerged partnered library schema are usually empty**:<br/>
-The auxiliary sections of an unmerged partnered library schema (e.g., schema attributes, unit classes, unit modifiers, and value classes) should be empty
+The auxiliary sections of an unmerged partnered library schema should be empty
 unless a new item is added to a section, in which case only that item should appear.
 <br>&nbsp;</br>
 4. **Seek reviews early in the process**:<br/>
