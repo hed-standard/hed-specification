@@ -78,7 +78,7 @@ A **definition** is a tag group containing a `Definition` tag and at most one in
 **f.** A definition that includes a placeholder (`#`) does not have exactly two `#` characters.\
 **g.** A definition has placeholders (`#`) in incorrect positions.\
 **h.** Definitions of the same name appear with and without a `#`.\
-**i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents, without regard to case or order) are allowed and treated as one definition.\
+**i.** Two definitions with the same name have different contents. Identical definitions of one name (the same placeholder form and the same contents in any order, under the case rule of [3.2.3. Tag case-sensitivity](./03_HED_formats.md#323-tag-case-sensitivity)) are allowed and treated as one definition.\
 **j.** A tag with the `unique` attribute appears in a definition.\
 **k.** A definition appears in an unexpected place such as a table or a sidecar dictionary that contains non-definition entries.\
 **l.** The value of a `Definition` tag has a part after the name other than a single `#` (`Definition/MyDef/3`, `Definition/MyDef/#/#`).
@@ -366,7 +366,7 @@ See [A.1.4.2. annotation](./Appendix_A.md#a142-annotation) for the form of an `a
 - A `unit` element can only have schema attributes that have the `unitDomain` or the `elementDomain` property.
 - A `valueClass` element can only have schema attributes that have the `valueClassDomain` or the `elementDomain` property.
 - A schema attribute can only have schema attributes that have the `elementDomain` property.
-- A schema property can only have the `hedId` and `deprecatedFrom` attributes.
+- A schema property can only have the `hedId` attribute.
 
 #### SCHEMA_ATTRIBUTE_VALUE_INVALID
 
@@ -407,7 +407,7 @@ Note: tag extensions may contain `nonascii` characters.
 **b.** A deprecated tag is used as a `suggestedTag` or a `relatedTag` in a non-deprecated tag.\
 **c.** A child tag of a deprecated tag does not have the `deprecatedFrom` attribute.\
 **d.** A deprecated attribute is used on a non-deprecated element.\
-**e.** A deprecated property is used on a non-deprecated attribute.\
+**e.** No longer used: a schema property cannot be deprecated (specification `4.0.0`).\
 **f.** A deprecated unit class has non-deprecated units.\
 **g.** A tag has deprecated unit or value classes.\
 **h.** A unit class has a deprecated default unit.

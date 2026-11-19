@@ -96,7 +96,7 @@ A tag with a specified meaning in the HED ecosystem that individual HED schemas 
 
 ### Schema attribute
 
-A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section (see [3.1.4.7. Schema attributes](./03_HED_formats.md#3147-schema-attributes)). A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` and `deprecatedFrom` to a schema property (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the HED ontology it is a property, not a class.
+A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section (see [3.1.4.7. Schema attributes](./03_HED_formats.md#3147-schema-attributes)). A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` to a schema property (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the HED ontology it is a property, not a class.
 
 ### Schema element
 

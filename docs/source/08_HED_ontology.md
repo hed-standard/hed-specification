@@ -248,7 +248,7 @@ A given HED schema attribute's representation in the HED ontology is determined 
 | `DataProperty`       | schema element | string, numeric, boolean                    | Yes        |
 | `ObjectProperty`     | schema element | schema element                              | Yes        |
 
-The Domain column gives the domain of the property in the ontology, which is narrower than where the schema attribute may be written in a schema: [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) also allows an attribute that has `elementDomain` to be assigned to a schema attribute, and `hedId` and `deprecatedFrom` to a schema property. The `hedId` of a schema attribute or of a schema property is the identifier of its ontology property.
+The Domain column gives the domain of the property in the ontology, which is narrower than where the schema attribute may be written in a schema: [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties) also allows an attribute that has `elementDomain` to be assigned to a schema attribute, and `hedId` to a schema property. The `hedId` of a schema attribute or of a schema property is the identifier of its ontology property.
 
 `DataProperty` and `ObjectProperty` are inherited by subclasses, and reasoners can check their consistency. `AnnotationProperty` is not inherited by subclasses, and reasoners ignore them.
 
