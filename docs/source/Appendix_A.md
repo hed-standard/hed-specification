@@ -4,9 +4,9 @@
 
 This appendix augments the discussion of HED schema formats presented in [Chapter 3: HED formats](./03_HED_formats.md) of the HED specification. The appendix presents additional details on the rules with examples for standard HED schema and HED library schema in `.mediawiki`, `.xml`, `.json`, and `.tsv` formats.
 
-## A.1. Auxiliary schema sections
+## A.1. Auxiliary and extra schema sections
 
-This section gives information about how the various auxiliary sections of the HED schema are used to specify the behavior of the schema elements.
+This section describes the auxiliary sections of the HED schema, which specify the behavior of the schema elements, and the three extra sections (see [Schema section](./02_Terminology.md#schema-section)).
 
 ### A.1.1. Unit classes and units
 
@@ -794,7 +794,7 @@ The treatment of an unrecognized header attribute is given in [3.1.4.1. The head
 
 The prologue is a paragraph of text appearing after the *header*; the section is always present and may be empty. The prologue is used by tools for help and display purposes.
 
-The epilogue is described in [Section A.2.5.6](#a256-epilogue) as part of the auxiliary sections that appear after the main schema specification.
+The epilogue is described in [Section A.2.5.6](#a256-epilogue), with the sections that follow the schema section.
 
 Both the prologue and epilogue may contain new lines and commas in addition to the characters of the `text` character set ([2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions)).
 
@@ -885,7 +885,7 @@ The single `*` in front of `Manus` indicates that this element is directly below
 ```
 ````
 
-### A.2.5. MediaWiki auxiliary sections
+### A.2.5. MediaWiki sections after the schema section
 
 After the line marking the end of the schema (`!# end schema`), the `.mediawiki` file contains the unit class definitions, unit modifier definitions, value class definitions, schema attribute definitions, property definitions, epilogue, schema sources, schema prefixes, and external annotations sections, in that order. Every section is present; a section with no entries consists of its header alone.
 
@@ -1311,9 +1311,9 @@ The optional `<attribute>` elements are derived from the attribute list containe
 ```
 ````
 
-### A.3.5. XML auxiliary sections
+### A.3.5. XML sections after the schema section
 
-The auxiliary sections define various aspects of behavior of various types of elements in the schema.
+The auxiliary sections define various aspects of behavior of various types of elements in the schema. The epilogue and the three extra sections follow them.
 
 #### A.3.5.1. Unit classes
 
@@ -1706,7 +1706,7 @@ The `tags` section is an object where each key is a tag name and the value is an
 ```
 ````
 
-### A.4.5. JSON auxiliary sections
+### A.4.5. JSON sections after the schema section
 
 #### A.4.5.1. Unit classes
 

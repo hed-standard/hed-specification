@@ -30,7 +30,7 @@ HED schema developers are mainly concerned with errors and inconsistencies in th
 
 **See also:**
 
-- [A.1. Auxiliary schema sections](./Appendix_A.md#a1-auxiliary-schema-sections) for a discussion of the HED name and unit class rules.
+- [A.1. Auxiliary and extra schema sections](./Appendix_A.md#a1-auxiliary-and-extra-schema-sections) for a discussion of the HED name and unit class rules.
 - [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions) for a discussion of the restrictions on characters.
 - [3.2.4. Tags that take values](03_HED_formats.md#324-tags-that-take-values) and [3.2.5. Tag extensions](03_HED_formats.md#325-tag-extensions) for an explanation of the rules for tag values and extensions.
 
