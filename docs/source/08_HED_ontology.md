@@ -414,3 +414,9 @@ All HED standard and library schema entities are mapped to the `HED_xxxxxxx` nam
 ### 8.3.3. HED IRIs
 
 HED IRIs [(**Internationalized Resource Identifiers**)](https://datatracker.ietf.org/doc/html/rfc3987) are mapped to [https://purl.org/hed/hed.owl](https://purl.org/hed/hed.owl).
+
+The `hedId` is the permanent identifier of a HED entity. The IRI of a HED entity is its `hedId` appended to the entity prefix `http://purl.org/hed/hed/`: the IRI of the tag `Action` (`HED_0012016`) is `http://purl.org/hed/hed/HED_0012016`. The IRI of an entity does not contain a release date and is the same in every release of the HED ontology. The `hed:` prefix of the examples in this chapter stands for the entity prefix.
+
+A release of the HED ontology is identified by its version IRI, which contains the release date: `http://purl.org/hed/releases/2024-06-10/hed.owl` for the release of 2024-06-10.
+
+The release of 2024-06-10 is the one exception to the form of the entity IRI: it declares the dated entity prefix `http://purl.org/hed/releases/2024-06-10/hed/`. The `hedId` values of its entities are unaffected; only the prefix differs.
