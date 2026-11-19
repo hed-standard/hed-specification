@@ -20,7 +20,7 @@ As the name HED implies, much of the HED framework focuses on associating metada
 
 This specification describes the third generation of HED (HED-3G), which began with HED schema version `8.0.0`. Third generation HED represents a significant advance in documenting the content and intent of experiments in a format that enables large-scale cross-study analysis of time-series behavioral and neuroimaging data, including but not limited to EEG, MEG, iEEG, fMRI, eye-tracking, motion-capture, EKG, and audiovisual recording.
 
-HED annotations may be included in BIDS (Brain Imaging Data Structure) datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) as described in [Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md).
+HED annotations may be included in BIDS (Brain Imaging Data Structure) datasets [https://bids.neuroimaging.io](https://bids.neuroimaging.io) and in NWB (Neurodata Without Borders) files [https://www.nwb.org](https://www.nwb.org/), as described in [Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md).
 
 ## 1.2. Brief history of HED
 
