@@ -10,6 +10,14 @@ This specification uses a list of terms and abbreviations whose meaning is clari
 
 A person or thing, living or virtual, that produces (or appears to participants to be ready and capable of producing) specified effects. Agents include the study participants from whom data is collected. Virtual agents may be human or other actors in virtual-reality or augmented-reality paradigms or on-screen in video or cartoon presentations (e.g., an actor interacting with the recorded participant in a social neuroscience experiment, or a dog or robot active in a live action or animated video).
 
+### Anchor
+
+The [definition](#definition-) that an `Onset`, `Offset`, or `Inset` group refers to, written in the group as a `Def` tag or as the equivalent `Def-expand` group. The anchor identifies the event process that the group starts, ends, or marks.
+
+### Assembled annotation
+
+The [HED string](#hed-string) for one row of a [table](#table), formed by combining the row's entry in the `HED` column with the [sidecar](#sidecar) annotations of the row's other columns.
+
 ### Condition-variable [\*]
 
 An aspect of the experiment that is set or manipulated during the experiment to observe an effect or to manage bias. Condition variables are sometimes called independent variables.
@@ -21,6 +29,10 @@ An aspect of the experiment that is fixed throughout the study and usually is ex
 ### Dataset
 
 A set of neuroimaging and behavioral data acquired for a purpose of a particular study. A dataset consists of data recordings acquired from one or more subjects, possibly from multiple sessions and sensor modalities. A dataset is often referred to as a study.
+
+### Definition [\*]
+
+A name given to a group of tags, so that an annotation can refer to the whole group with a `Def` tag. A definition is written as a [tag group](#tag-group) that contains a `Definition` tag.
 
 ### Event [\*]
 
@@ -48,11 +60,15 @@ A contiguous data period that is considered a unit used to observe or measure so
 
 ### HED entity
 
-An item of a HED schema that is assigned a `hedId` and so has a counterpart in the HED ontology. The HED entities of a schema are its [schema elements](#schema-element), its [schema attributes](#schema-attribute), its [schema properties](#schema-property), and its three [structural elements](#structural-element). The rows of the sources, prefixes, and external annotations sections are not HED entities: they have no `hedId`. See [8.2. HED schema to ontology](./08_HED_ontology.md#82-hed-schema-to-ontology).
+An item of a HED schema that is assigned a [hedId](#hedid) and so has a counterpart in the [HED ontology](#hed-ontology). The HED entities of a schema are its [schema elements](#schema-element), its [schema attributes](#schema-attribute), its [schema properties](#schema-property), and its three [structural elements](#structural-element). The rows of the sources, prefixes, and external annotations sections are not HED entities: they have no `hedId`.
+
+### HED ontology
+
+The representation of the HED schemas as an ontology, which supports semantic analysis and reasoning and links HED terms to the terms of other ontologies. Every [HED entity](#hed-entity) has a counterpart in the HED ontology, identified by its [hedId](#hedid): a [schema element](#schema-element) is a class, and a [schema attribute](#schema-attribute) or a [schema property](#schema-property) is a property.
 
 ### HED schema
 
-A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in one of four formats: MediaWiki, XML, JSON, or TSV (see [3.1. Schema rules](./03_HED_formats.md#31-schema-rules)). The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
+A formal specification of the vocabulary and rules of a particular version of HED for use in annotation, validation, and analysis. A HED schema is given in one of four formats: MediaWiki, XML, JSON, or TSV. The top-level versioned HED schema is used for all HED event annotations. Named and versioned HED library schema may be used as well to make use of descriptive terms used by a particular research community. (For example, an experiment on comprehension of connected speech might annotate events using a grammatical vocabulary contained in a linguistics HED schema library.)
 
 ### HED string
 
@@ -62,21 +78,29 @@ A comma-separated list of HED tags and/or tag-groups.
 
 A valid path along one branch of a HED vocabulary hierarchy. A valid long-form HED tag is a slash-separated path following the schema tree hierarchy from its root to a term along some branch. The short form of a tag is the last schema node of its path alone; a path that starts at a node between the root and the last node is an intermediate form. A value or an extension that follows the last schema node is kept in every form: `Weight/3 lbs` is a short form. No white space is allowed within terms themselves. For example, the long form of the HED tag specifying an experiment participant is: `Property/Agent-property/Agent-task-role/Experiment-participant`. The short form is `Experiment-participant`; the intermediate forms are `Agent-task-role/Experiment-participant` and `Agent-property/Agent-task-role/Experiment-participant`. HED tools should treat the long, intermediate, and short forms of a tag interchangeably.
 
+### hedId
+
+The permanent identifier of a [HED entity](#hed-entity): the prefix `HED_` followed by seven digits, as `HED_0012016` for the tag `Action`. The identifier stays the same when the entity is renamed or moved within the schema, and it identifies the entity in the [HED ontology](#hed-ontology). Schema elements, schema attributes, and schema properties carry it as the value of the `hedId` [schema attribute](#schema-attribute).
+
 ### Indicator-variable [\*]
 
 An aspect of the experiment or task that is measured or calculated for analysis. Indicator variables, sometimes called dependent variables, can be data features that are calculated from measurements rather than aspects that are directly measured.
 
+### Library schema
+
+A [HED schema](#hed-schema) that holds the vocabulary of a particular research community, identified by a library name and a version (for example, `score_2.1.0`). A library schema is either a [partnered library schema](#partnered-library-schema) or an unpartnered one.
+
 ### Merge group
 
-The set of schemas that a version specification lists in the same namespace. The namespace is the name; the merge group is the set of schemas listed under it. The schemas of a merge group are combined into one vocabulary under the rules of [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations). See [3.1.2.3. Merge groups](./03_HED_formats.md#3123-merge-groups).
+The set of schemas that a version specification lists in the same namespace. The namespace is the name; the merge group is the set of schemas listed under it. The schemas of a merge group are combined into one vocabulary.
 
 ### Namespace
 
-A named partition of the vocabulary used when several schemas are combined. The schemas listed in a version specification with the same namespace name form one merge group; those listed with no namespace name form the merge group of the default namespace. Every unpartnered library schema must be alone in its own namespace. See [3.1.2. Version combinations](./03_HED_formats.md#312-version-combinations).
+A named partition of the vocabulary used when several schemas are combined. The schemas listed in a version specification with the same namespace name form one merge group; those listed with no namespace name form the merge group of the default namespace. Every unpartnered library schema must be alone in its own namespace.
 
 ### Namespace prefix
 
-The namespace name followed by a colon (e.g., `sc:`), placed before a schema version in a version specification and before every tag drawn from that namespace in an annotation. Tags in the default namespace carry no prefix. See [3.2.6. Tag namespace prefixes](./03_HED_formats.md#326-tag-namespace-prefixes).
+The namespace name followed by a colon (e.g., `sc:`), placed before a schema version in a version specification and before every tag drawn from that namespace in an annotation. Tags in the default namespace carry no prefix.
 
 ### Node
 
@@ -86,37 +110,57 @@ An entry of the schema section of a HED schema. A node is either a tag, which ha
 
 An experiment-specific item, often a specific behavioral or computer measure, that is useful in documenting the analysis or assisting downstream analysis.
 
+### Partnered library schema
+
+A [library schema](#library-schema) whose header has the `withStandard` attribute, which names the version of the [standard schema](#standard-schema) that it is used with to form one vocabulary. A library schema without the attribute is *unpartnered* and is self-contained.
+
+### Placeholder
+
+The `#` character. In a schema it is the child [node](#node) of a tag that takes a value; in a [definition](#definition-) or a [sidecar](#sidecar) annotation it marks where a value is substituted. The *value* is the text that takes the place of the placeholder, as `3 s` in `Duration/3 s`.
+
 ### Recording [\*]
 
 A continuous recording of data from an instrument in a single session without repositioning the recording sensors.
 
 ### Reserved tag
 
-A tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine. Standard schemas mark these tags with the `reserved` attribute. Some reserved tags determine the structure of an annotation and carry the validation rules of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags). Other reserved tags are defined for specific uses by downstream tools.
+A tag with a specified meaning in the HED ecosystem that individual HED schemas cannot redefine. Standard schemas mark these tags with the `reserved` attribute. Some reserved tags determine the structure of an annotation. These tags and their validation rules are defined in the file [`docs/source/_static/reserved_tags.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/reserved_tags.json) of the specification repository, and all HED validators should use this file to handle them. Other reserved tags are defined for specific uses by downstream tools.
 
 ### Schema attribute
 
-A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section (see [3.1.4.7. Schema attributes](./03_HED_formats.md#3147-schema-attributes)). A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` to a schema property (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the HED ontology it is a property, not a class.
+A named characteristic that may be assigned to the [schema elements](#schema-element) of a HED schema, such as `takesValue` or `conversionFactor`. Schema attributes are defined in the schema attributes section. A schema attribute that has the `elementDomain` property may also be assigned to a schema attribute, and `hedId` to a schema property. A schema attribute is a [HED entity](#hed-entity) but not a schema element: in the [HED ontology](#hed-ontology) it is a property, not a class.
 
 ### Schema element
 
-A named item of the vocabulary that a HED schema defines, of one of five kinds: tag, unit class, unit, unit modifier, or value class. The `#` placeholder of a tag that takes a value is a schema element of the tag kind, although it has no name and is not itself a tag (see [Node](#node)). Schema elements are the items to which [schema attributes](#schema-attribute) are assigned; in the HED ontology each is a class under `HedElement`. Schema attributes, schema properties, and structural elements are [HED entities](#hed-entity) but not schema elements. The descriptions in released schemas sometimes use the word element for any HED entity.
+A named item of the vocabulary that a HED schema defines, of one of five kinds: tag, unit class, unit, unit modifier, or value class. The `#` placeholder of a tag that takes a value is a schema element of the tag kind, although it has no name and is not itself a tag (see [Node](#node)). Schema elements are the items to which [schema attributes](#schema-attribute) are assigned; in the [HED ontology](#hed-ontology) each is a class under `HedElement`. Schema attributes, schema properties, and structural elements are [HED entities](#hed-entity) but not schema elements. The descriptions in released schemas sometimes use the word element for any HED entity.
 
 ### Schema property
 
-A named characteristic of a [schema attribute](#schema-attribute): the kinds of schema element it may be assigned to, the kind of value it takes, and whether its value is inherited. Schema properties are defined in the schema properties section (see [3.1.4.8. Schema properties](./03_HED_formats.md#3148-schema-properties)). A schema property is a [HED entity](#hed-entity) but not a schema element. The TSV format stores the schema properties in the file `AttributeProperty`.
+A named characteristic of a [schema attribute](#schema-attribute): the kinds of schema element it may be assigned to, the kind of value it takes, and whether its value is inherited. Schema properties are defined in the schema properties section. A schema property is a [HED entity](#hed-entity) but not a schema element. The TSV format stores the schema properties in the file `AttributeProperty`.
 
 ### Schema section
 
-One of the blocks of a HED schema file (see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The header, the prologue, and the epilogue are the three [structural elements](#structural-element). The *schema section* holds the nodes: the tags and their `#` placeholders. The *auxiliary sections* hold the other schema elements (unit classes with their units, unit modifiers, and value classes) and the definitions of the schema attributes and the schema properties. The *extra sections* (sources, prefixes, and external annotations) hold rows that are not HED entities: they have no `hedId`. [3.1.4.10. Sources, prefixes, and external annotations](./03_HED_formats.md#31410-sources-prefixes-and-external-annotations) says how the rows of a library schema are combined with those of its standard schema partner.
+One of the blocks of a HED schema file. The header, the prologue, and the epilogue are the three [structural elements](#structural-element). The *schema section* holds the nodes: the tags and their `#` placeholders. The *auxiliary sections* hold the other schema elements (unit classes with their units, unit modifiers, and value classes) and the definitions of the schema attributes and the schema properties. The *extra sections* (sources, prefixes, and external annotations) hold rows that are not HED entities: they have no [hedId](#hedid).
+
+### Sidecar
+
+A JSON structure, stored in a file or held in memory, that associates HED annotations with the columns of a [table](#table) and may hold [definitions](#definition-).
+
+### Standard schema
+
+The [HED schema](#hed-schema) that holds the base vocabulary of HED, identified by a version alone (for example, `8.5.0`). A [library schema](#library-schema) holds additional vocabulary.
 
 ### Structural element
 
-The header, the prologue, or the epilogue of a HED schema. Each is a [HED entity](#hed-entity) (`HedStructure` in the HED ontology) and is also one of the [schema sections](#schema-section). A structural element is not a [schema element](#schema-element): it is not assigned schema attributes and takes no part in merging (see [3.1.2.4. Partnered combinations](./03_HED_formats.md#3124-partnered-combinations)).
+One of the three parts of a HED schema that describe the schema itself and hold none of its vocabulary: the header, which gives the version of the schema and, for a library schema, its library name; the prologue, which introduces the schema and its purpose; and the epilogue, which gives license information, acknowledgments, and references. Each is one of the [schema sections](#schema-section) and is a [HED entity](#hed-entity). A structural element is not a [schema element](#schema-element): it defines no term, and no [schema attribute](#schema-attribute) is assigned to it.
 
 ### Table
 
-An arrangement of rows and columns that carries HED annotations in a `HED` column, in an associated sidecar, or in both. A table may be stored as a tabular (`.tsv`) file, as a spreadsheet, or in a container such as an NWB table (see [3.2.10. Tabular files and structures](./03_HED_formats.md#3210-tabular-files-and-structures)). A table that has an `onset` column or its equivalent is a *timeline table*, such as the contents of a BIDS `events.tsv` file; any other table is a *descriptor table*, such as the contents of a BIDS `participants.tsv` file (see [3.3.4. Timeline versus descriptor tables](./03_HED_formats.md#334-timeline-versus-descriptor-tables)).
+An arrangement of rows and columns that carries HED annotations in a `HED` column, in an associated sidecar, or in both. A table may be stored as a tabular (`.tsv`) file, as a spreadsheet, or in a container such as an NWB table. A table that has an `onset` column or its equivalent, such as the NWB `timestamp` column, is a *timeline table*, such as the contents of a BIDS `events.tsv` file; any other table is a *descriptor table*, such as the contents of a BIDS `participants.tsv` file.
+
+### Tag extension
+
+A term that a user adds as a child of an existing schema [node](#node), as a more specific term for an item already in the schema, as `Helicopter` in `Aircraft/Helicopter`. A tag extension is not a [value](#placeholder).
 
 ### Tag-group
 
@@ -133,6 +177,14 @@ The time interval between the start and end of an event process. Often the start
 ### Time-block [\*]
 
 A contiguous portion of the data recording during which some aspect of the experiment is fixed or noted.
+
+### Top-level tag group
+
+A [tag group](#tag-group) that is not nested inside another tag group.
+
+### Version specification
+
+The schema version, or the list of schema versions, that names the HED schemas used for a set of annotations, as `8.5.0` or `['8.4.0', 'sc:score_2.1.0']`. A version in the list may be preceded by a [namespace prefix](#namespace-prefix).
 
 ## 2.2. Character sets and restrictions
 
