@@ -134,9 +134,10 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 **b.** Schema elements (tag, unit class, unit, unit modifier, or value class) or schema attributes of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
 **c.** Different versions of the same schema appear in the same merge group.\
 **d.** A schema with a specified name and version cannot be found.\
-**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.
+**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.\
+**f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.
 
-**Note:** Depending on the validator, a missing file may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
+**Note:** Depending on the validator, a missing file or a file that cannot be parsed may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
 
 **Note:** Partnered library schemas never define schema properties: the `Properties` section of an unmerged partnered library schema is empty and that of a merged partnered library schema is the `Properties` section of its standard schema partner, so conflicts with the standard partner are detected when the schema itself is validated. See reason **j** and **k** of [SCHEMA_LIBRARY_INVALID](#schema_library_invalid).
 
@@ -503,9 +504,9 @@ See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for 
 
 ### B.2.4. Schema loading errors
 
-Schema loading errors can occur because the file is inaccessible or is not proper XML. Schema loading errors are handled in different ways by the Python and JavaScript tools.
+Schema loading errors can occur because the file is inaccessible or cannot be parsed in its format (MediaWiki, XML, JSON, or TSV); see reason **f** of [SCHEMA_LOAD_FAILED](#schema_load_failed). Schema loading errors are handled in different ways by the Python and JavaScript tools.
 
-Python tools generally raise a `HedFileError` exception when a failure to load the schema occurs. The calling programs are responsible for deciding how to handle such a failure. However, the message associated with the `HedFileError` usually includes the `SCHEMA_LOAD_FAILED` error code.
+Python tools generally raise a `HedFileError` exception when a failure to load the schema occurs. The calling programs are responsible for deciding how to handle such a failure. The exception carries a code that says what failed. The code is `SCHEMA_LOAD_FAILED` when the schemas of a version specification cannot be combined; for a file that is missing or cannot be parsed it is a code of the Python tools that is not listed in this appendix.
 
 JavaScript tools in contrast are mainly used for validation of HED annotations in data. These tools are mainly called by the [BIDS](https://bids.neuroimaging.io/) validator. If a **BIDS dataset uses HED**, it must provide a HED version specification in the `dataset_description.json` file. If the HED JavaScript validator cannot load a valid HED schema based on this specification it reports a `SCHEMA_LOAD_FAILED` issue.
 

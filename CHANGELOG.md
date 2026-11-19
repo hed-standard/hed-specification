@@ -95,6 +95,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - SCHEMA_ANNOTATION_INVALID (warning, a-d).
 - SCHEMA_MISSING_EXTRA (warning).
 - SCHEMA_RESERVED_INVALID (a, b).
+- SCHEMA_LOAD_FAILED (f): a schema file that cannot be parsed in its format, when no MediaWiki or XML format code applies; no code is specific to the JSON or TSV format. B.2.4 names the four formats and no longer says that the Python exception usually carries SCHEMA_LOAD_FAILED.
 - B.3 Differences for earlier schema versions: the schema-version notes are removed from the chapters and appendices, and the rules that a validator applies differently to an earlier standard schema (or a library partnered with one) are collected here. Its opening says which entries apply to an unpartnered library schema, which has no standard schema version: value class characters, the `required` attribute and the schema property names as for a standard schema < `8.3.0`; the placeholder unit class, derived unit and `annotation` form rules as for `8.5.0`.
 
 ### Removed
