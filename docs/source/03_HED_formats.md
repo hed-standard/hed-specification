@@ -95,27 +95,35 @@ HED schemas are versioned using the semantic versioning system and use these rul
 
 Here is a summary of the types of changes that correspond to different levels of changes in the semantic version:
 
-| Change                                          | Semantic-level |
-| ----------------------------------------------- | -------------- |
-| Major addition to HED functionality             | Major          |
-| Tag deleted from schema.                        | Major          |
-| Unit or unit class removed from node.           | Major          |
-| Listed unit removed but still derivable (uV).   | Patch          |
-| Node attribute value changed                    | Minor          |
-| Inherited attribute change                      | Minor          |
-| New property added to or removed from schema    | Minor          |
-| New value class added to schema                 | Minor          |
-| New unit modifier added to schema               | Minor          |
-| New tag added to the schema.                    | Minor          |
-| New attribute added to schema.                  | Minor          |
-| New unit class or unit added to schema.         | Minor          |
-| New unit class added to node.                   | Minor          |
-| New value class added to node.                  | Minor          |
-| Node moved in schema without change in meaning. | Minor          |
-| Standard schema partner version changed.        | Minor          |
-| Revision of description field in schema.        | Patch          |
-| Correction of suggestedTag or relatedTag.       | Patch          |
-| Correction of wiki syntax such as closing tags. | Patch          |
+| Change                                                              | Semantic-level |
+| ------------------------------------------------------------------- | -------------- |
+| Major addition to HED functionality                                 | Major          |
+| Tag deleted from schema                                             | Major          |
+| Tag renamed                                                         | Major          |
+| Unit or unit class removed from node                                | Major          |
+| `#` child removed from node                                         | Major          |
+| Schema attribute, value class, or unit modifier removed from schema | Major          |
+| Schema property removed from schema                                 | Major          |
+| `allowedCharacter` narrowed, so that fewer characters are allowed   | Major          |
+| Node attribute value changed                                        | Minor          |
+| Inherited attribute change                                          | Minor          |
+| New property added to schema                                        | Minor          |
+| New value class added to schema                                     | Minor          |
+| New unit modifier added to schema                                   | Minor          |
+| New tag added to the schema                                         | Minor          |
+| New attribute added to schema                                       | Minor          |
+| New unit class or unit added to schema                              | Minor          |
+| New unit class added to node                                        | Minor          |
+| New value class added to node                                       | Minor          |
+| `#` child added to node                                             | Minor          |
+| Node moved in schema without change in meaning                      | Minor          |
+| Schema element or schema attribute deprecated                       | Minor          |
+| `allowedCharacter` widened, so that more characters are allowed     | Minor          |
+| Standard schema partner version changed                             | Minor          |
+| Listed unit removed but still derivable (uV)                        | Patch          |
+| Revision of description field in schema                             | Patch          |
+| Correction of suggestedTag or relatedTag                            | Patch          |
+| Correction of wiki syntax such as closing tags                      | Patch          |
 
 **Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, the `deprecatedFrom` attribute is added to the node in the schema (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). A suggested replacement SHOULD be included in the node description.
 
