@@ -95,7 +95,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - SCHEMA_ANNOTATION_INVALID (warning, a-d).
 - SCHEMA_MISSING_EXTRA (warning).
 - SCHEMA_RESERVED_INVALID (a, b).
-- B.3 Differences for earlier schema versions: the schema-version notes are removed from the chapters and appendices, and the rules that a validator applies differently to an earlier standard schema (or a library partnered with one) are collected here.
+- B.3 Differences for earlier schema versions: the schema-version notes are removed from the chapters and appendices, and the rules that a validator applies differently to an earlier standard schema (or a library partnered with one) are collected here. Its opening says which entries apply to an unpartnered library schema, which has no standard schema version: value class characters, the `required` attribute and the schema property names as for a standard schema < `8.3.0`; the placeholder unit class, derived unit and `annotation` form rules as for `8.5.0`.
 
 ### Removed
 
@@ -111,7 +111,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 
 - Blanks before and after a comma or a parenthesis in a HED string are not significant (3.2.7). Earlier versions said so only in the definition of TAG_EMPTY.
 - New 3.3 Annotation semantics: reversibility, grouping, event structure, row assembly, and timeline versus descriptor tables. Tags describing properties of one object SHOULD be grouped; a descriptor table may use `Event` tags but not `Onset`, `Offset`, `Inset` or `Delay`.
-- The `required` schema attribute exists only in standard schemas < `8.3.0`, and no released schema puts it on a tag. Its rules moved from 3.2.10.3 and DEFINITION_INVALID (j) to B.3; REQUIRED_TAG_MISSING stays in Appendix B and points there.
+- The `required` schema attribute exists only in standard schemas < `8.3.0` and the unpartnered SCORE `1.0.0`, and no released schema puts it on a tag. Its rules moved from 3.2.10.3 and DEFINITION_INVALID (j) to B.3; REQUIRED_TAG_MISSING stays in Appendix B and points there.
 - The short form of a tag is its last node alone; a path that starts between the root and the last node is an intermediate form (Chapter 2). All unit modifiers are case-sensitive (A.1.4.16). The tags of one merge group are the ones written without a namespace prefix (3.2.6, 6.3.5).
 - Schema file formats are described only in Appendix A. The MediaWiki and XML format sections of Chapter 3 and their example schema are now in A.2.1 and A.3.1; the layout overview (3.1.4) lists the sections without markup; the rooted-node example of Chapter 7 is in A.2.4; and Chapter 8 no longer repeats a tag and an attribute in MediaWiki and XML form (its sections 8.1.4.4, 8.2.2.1, 8.2.2.2, 8.2.3.4 and 8.2.3.5 are removed and the following ones renumbered).
 - The rules that a schema attribute and a property must be defined before use, which were stated only in the MediaWiki format section, are in 3.1.4.7 and 3.1.4.8.

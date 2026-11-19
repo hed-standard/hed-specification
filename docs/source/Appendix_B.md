@@ -126,7 +126,7 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 
 ### REQUIRED_TAG_MISSING
 
-**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. Only standard schemas < `8.3.0` define this attribute; see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
+**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. Only standard schemas < `8.3.0` and the unpartnered library schema SCORE `1.0.0` define this attribute; see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 ### SCHEMA_LOAD_FAILED
 
@@ -512,6 +512,8 @@ JavaScript tools in contrast are mainly used for validation of HED annotations i
 ## B.3. Differences for earlier schema versions
 
 The rules of this specification are stated for the latest released standard schema, `8.5.0`, and the library schemas partnered with it. This section lists every rule that a validator applies differently to an earlier schema version. A rule not listed here applies unchanged to all schema versions >= `8.0.0`.
+
+An unpartnered library schema has no standard schema version, so the entries below are applied to it as follows, whatever its own version. The entries on value class characters, on the `required` schema attribute, and on the names of the schema properties apply to it as they apply to a standard schema < `8.3.0`. The entries on the unit class of a placeholder, on derived units, and on the form of an `annotation` value do not apply to it: SCHEMA_ATTRIBUTE_VALUE_INVALID (a), SCHEMA_DUPLICATE_NODE (b), and SCHEMA_ANNOTATION_INVALID are reported for an unpartnered library schema as they are for standard schema `8.5.0`. The other entries concern reserved tags, which an unpartnered library schema does not have, and TSV files written for earlier standard schemas. SCORE `1.0.0`, the only unpartnered library schema that has been released, has the auxiliary sections of standard schema `8.1.0` and no TSV files.
 
 **Annotation validation**
 
