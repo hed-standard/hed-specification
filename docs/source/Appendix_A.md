@@ -2214,7 +2214,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 ## A.6. Reserved tags file
 
-The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and that section states what each column requires of an annotation. The file is introduced in specification `4.0.0`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, with the `topLevelTagGroup` attribute and `reserved`; `Def` and `Def-expand` MUST exist and carry `reserved`.
+The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and that section states what each column requires of an annotation. The file is introduced in specification `4.0.0`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, with the `topLevelTagGroup` attribute and `reserved`; `Def` and `Def-expand` MUST exist and carry `reserved`.
 
 ### A.6.1. File layout
 
