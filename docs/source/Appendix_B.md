@@ -2,6 +2,8 @@
 
 This appendix summarizes the error codes used by HED validators and other tools.
 
+A code marked with a star (`*`) is a warning. A warning reports something that an annotator or a schema developer should look at; it does not make the annotation or the schema invalid, and a tool MAY let the user suppress warnings. Every other code is an error.
+
 HED-compliant tools may assume that it if a HED annotation has been properly validated, it will comply with the rules of the HED specification. Annotators and analysts are mainly concerned with HED validation errors relating to incorrectly annotated events. See [B.1: HED validation errors](#b1-hed-validation-errors) for a listing of errors keyed to the HED specification.
 
 HED-compliant tools assume that the HED schemas available on the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository are error-free, and that schema errors can only occur due to failure to locate or read a HED schema.
@@ -334,6 +336,8 @@ This section is organized by the type of schema format that results in the error
 
 #### SCHEMA_ANNOTATION_INVALID\*
 
+(WARNING)
+
 **a.** An `annotation` value uses a prefix that is not a row of the Prefixes section.\
 **b.** The `prefix:id` of an `annotation` value is not a row of the External annotations section. A bare external term such as `glotto:afro1255` falls here; write `skos:exactMatch glotto:afro1255`.\
 **c.** A `dc:source` value names no row of the Sources section: it neither begins with a row's `source` name nor contains a URL under a row's `link`.\
@@ -444,6 +448,8 @@ Library schema errors are specific to library schema. Library schema may also ra
 
 #### SCHEMA_MISSING_EXTRA\*
 
+(WARNING)
+
 **a.** A row of the Sources, Prefixes, or External annotations section has an empty value in a required column.
 
 See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for the columns of each section.
@@ -467,16 +473,6 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 **a.** The schema version in the HED line or element is invalid.\
 **b.** A HED version specification does not have the correct syntax for the schema file format.\
 **c.** A HED schema version does not comply with semantic versioning.
-
-#### STYLE_WARNING\*
-
-(WARNING)
-
-**a.** A schema node does not follow the standard capitalization convention: only the first letter of the tag term should be capitalized, with the remainder lower case.
-
-**Note:** This warning is reported by schema validation, for the nodes of the schema being validated. It is not reported when annotations are validated: not for a tag extension, and not for a schema tag written with different capitalization, since tag processing is case-insensitive.
-
-See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions.
 
 ### B.2.2. MediaWiki format errors
 

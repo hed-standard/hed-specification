@@ -95,6 +95,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - SCHEMA_ANNOTATION_INVALID (warning, a-d).
 - SCHEMA_MISSING_EXTRA (warning).
 - SCHEMA_RESERVED_INVALID (a, b).
+- Appendix B says what the star on a code means: the code is a warning, which does not make the annotation or the schema invalid and which a tool may let the user suppress; every other code is an error. SCHEMA_ANNOTATION_INVALID and SCHEMA_MISSING_EXTRA, which had the star, now also have the (WARNING) line.
 - SCHEMA_LOAD_FAILED (f): a schema file that cannot be parsed in its format, when no MediaWiki or XML format code applies; no code is specific to the JSON or TSV format. B.2.4 names the four formats and no longer says that the Python exception usually carries SCHEMA_LOAD_FAILED.
 - B.3 Differences for earlier schema versions: the schema-version notes are removed from the chapters and appendices, and the rules that a validator applies differently to an earlier standard schema (or a library partnered with one) are collected here. Its opening says which entries apply to an unpartnered library schema, which has no standard schema version: value class characters, the `required` attribute and the schema property names as for a standard schema < `8.3.0`; the placeholder unit class, derived unit and `annotation` form rules as for `8.5.0`.
 
@@ -103,10 +104,11 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 - NODE_NAME_EMPTY: the slash cases are TAG_INVALID (c).
 - TILDES_UNSUPPORTED: the tilde is CHARACTER_INVALID (a).
 - UNITS_MISSING (warning) and VERSION_DEPRECATED (warning): no replacement.
+- STYLE_WARNING (warning): no replacement. The capitalization of schema nodes and of tag extensions remains a convention (3.1.5.1), and no code is reported for it.
 
 ### New or changed reasons
 
-- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_CHARACTER_INVALID b, c, d, e; SCHEMA_DEPRECATION_ERROR e (no longer used), h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e, f; SIDECAR_KEY_MISSING b; STYLE_WARNING a (capitalization of schema nodes only, reported by schema validation; moved to B.2.1); TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n, o; UNITS_INVALID c; VALUE_INVALID c, e.
+- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_CHARACTER_INVALID b, c, d, e; SCHEMA_DEPRECATION_ERROR e (no longer used), h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e, f; SIDECAR_KEY_MISSING b; TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n, o; UNITS_INVALID c; VALUE_INVALID c, e.
 
 ## Clarifications
 
