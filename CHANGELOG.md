@@ -76,7 +76,7 @@ These changes alter what is valid or how validators must report it.
 - The 2.2 table is generated from `docs/source/_static/character_sets.json`, which gives each set as a regular expression usable from Python and JavaScript, the per-version defaults of the standard value classes, and the characters that structure a HED string; validators load the file instead of transcribing the table. Appendix A.7 defines the file and its fields.
 - An element description, the prologue, and the epilogue may contain the `text` characters and the comma; 3.3.0 allowed no comma in the prologue and epilogue (2.2, 3.1.4.2, 3.1.4.9, SCHEMA_CHARACTER_INVALID d, e).
 - The name of every schema element, schema attribute and schema property consists of `name` characters; the name of a unit or unit modifier may also contain the characters it declares with `allowedCharacter`, as `m^2` declares `caret` (3.1.4). SCHEMA_CHARACTER_INVALID b and c are reworded to match: b covers the schema elements other than tags, the schema attributes and the schema properties, c a blank in a unit name or symbol.
-- New sets `value-text` and `numeric`; `forward-slash` added with the alias `slash`; `name` no longer lists `period`; `nonascii` is code 160 and above.
+- New set `value-text`; `forward-slash` added with the alias `slash`; `name` no longer lists `period`; `nonascii` is code 160 and above.
 
 ### Tabular files and sidecars
 

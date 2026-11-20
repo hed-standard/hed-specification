@@ -220,7 +220,6 @@ The types of characters referred to in this specification are:
 | `newline`       | ASCII code 10 (linefeed)                                                          |
 | `nonascii`      | utf-8 codes 160 and above (multi-byte)                                            |
 | `number-sign`   | ASCII code 35                                                                     |
-| `numeric`       | digits, period, hyphen, plus, caret, E, e                                         |
 | `percent-sign`  | ASCII code 37                                                                     |
 | `period`        | ASCII code 46                                                                     |
 | `plus`          | ASCII code 43                                                                     |
