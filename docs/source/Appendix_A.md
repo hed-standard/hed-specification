@@ -240,7 +240,8 @@ NWB's `isodatetime` type accepts every value of this format.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
 7. The `textClass` is for descriptions, mainly for use with the `Description` tag. Its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
-8. The `posixPath` class allows digits, letters, forward slash, and colon characters for POSIX path specifications.
+8. No placeholder of a standard schema through `8.5.0` has `valueClass=posixPath`: `Pathname/#` has no value class, so its values are `textClass` values.
+The characters of `posixPath` do not include the period, the hyphen, or the underscore.
 
 ````
 

@@ -60,7 +60,7 @@ These changes alter what is valid or how validators must report it.
 - `hedId` (A.1.4.7): `HED_` plus seven digits, assigned only at release and never reused; retired identifiers are recorded under `retired_ids` in hed-schemas `library_data.json`.
 - `isPartOf` (A.1.4.9, added in schema `8.3.0`) is documented, and every attribute in A.1.4 now has a description.
 - `allowedCharacter` (A.1.4.1): a name is a row of the 2.2 table, the alias `slash`, or a single character naming itself. From standard schema `8.5.0` and in partnered libraries, the names a value class declares define its characters; older schemas use the recorded defaults.
-- Value classes (A.1.3): `textClass` is the new `value-text` set from `8.5.0` and `text` before; `nameClass` drops `blank` and `period`; `numericClass` drops `caret`; `dateTimeClass` follows the BIDS Datetime format (RFC 3339 with optional offset, one to six fractional digits, hour 00-23), and the date must exist in the Gregorian calendar; `IRIClass` is removed; `posixPath` is specified.
+- Value classes (A.1.3): `textClass` is the new `value-text` set from `8.5.0` and `text` before; `nameClass` drops `blank` and `period`; `numericClass` drops `caret`; `dateTimeClass` follows the BIDS Datetime format (RFC 3339 with optional offset, one to six fractional digits, hour 00-23), and the date must exist in the Gregorian calendar; `IRIClass` is removed; `posixPath` is specified as the schemas declare it (digits, letters, slash, colon), and no placeholder of a standard schema through `8.5.0` uses it.
 - Schema properties use their domain and range names, with the old names listed (3.1.4.6).
 
 ### Units
