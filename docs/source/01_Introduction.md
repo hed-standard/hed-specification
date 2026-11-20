@@ -101,7 +101,7 @@ Similarly, making validation and analysis code independent of the HED schema (4)
 
 ## 1.5. Specification organization
 
-This specification is meant to provide guidelines for tool-builders as well as HED annotators. [Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and [Chapter 3: HED formats](03_HED_formats.md) specifies the formats for HED vocabularies and annotations. Basic and advanced event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md) and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). [Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md) discussions how tags should be handled by HED-compliant tools. [Chapter 7: Library schemas](07_Library_schemas.md) discusses the basic rules for library schema creation.
+This specification is meant to provide guidelines for tool-builders as well as HED annotators. [Chapter 2: Terminology](02_Terminology.md) reviews the basic terminology used in HED, and [Chapter 3: HED formats](03_HED_formats.md) specifies the formats for HED vocabularies and annotations. Basic and advanced event models and their annotations are explained in [Chapter 4: Basic annotation](04_Basic_annotation.md) and [Chapter 5: Advanced annotation](05_Advanced_annotation.md). [Chapter 6: Infrastructure and tools](06_Infrastructure_and_tools.md) discusses how tags should be handled by HED-compliant tools. [Chapter 7: Library schemas](07_Library_schemas.md) discusses the basic rules for library schema creation. [Chapter 8: HED ontology](08_HED_ontology.md) describes how HED schemas map to the HED ontology and how `hedId` identifiers are assigned.
 
 [Appendix A: Schema format](Appendix_A.md) provides a reference manual for the HED schema format rules, and [Appendix B: HED errors](Appendix_B.md) gives a complete listing of HED error codes and their meanings. A common set of test cases for these errors is available in the [hed-tests](https://github.com/hed-standard/hed-tests) GitHub repository.
 
@@ -112,3 +112,11 @@ All HED source code and resources are open-source and staged in the HED Standard
 ## 1.6. Semantic versioning
 
 HED schemas and the HED specification use semantic versioning (*major.minor.patch*). The rules that decide which level of version change a schema change requires are given in [3.1.3. Version updates](./03_HED_formats.md#313-version-updates), which is normative.
+
+## 1.7. References
+
+Bigdely-Shamlo, N., Kreutz-Delgado, K., Robbins, K., Miyakoshi, M., Westerfield, M., Bel-Bahar, T., Kothe, C., Hsi, J., and Makeig, S. (2013). Hierarchical Event Descriptor (HED) tags for analysis of event-related EEG studies. *2013 IEEE Global Conference on Signal and Information Processing*, 1-4. [https://doi.org/10.1109/GlobalSIP.2013.6736796](https://doi.org/10.1109/GlobalSIP.2013.6736796)
+
+Gamma, E., Helm, R., Johnson, R., and Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley. ISBN 0-201-63361-2.
+
+Turner, J. A., and Laird, A. R. (2012). The Cognitive Paradigm Ontology: Design and Application. *Neuroinformatics*, 10(1), 57-66. [https://doi.org/10.1007/s12021-011-9126-x](https://doi.org/10.1007/s12021-011-9126-x)

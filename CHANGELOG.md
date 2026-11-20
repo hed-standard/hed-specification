@@ -135,7 +135,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 
 - The examples of Chapters 4 and 5 were checked against the `8.4.0` and `8.5.0` schemas: every long form gives the full schema path of each tag, a `Def-expand` group carries the placeholder value and its contents as an inner group, a definition with a placeholder leaves the units to the `Def` value, the `Delay` example is one HED string, the swapped `xxx`/`yyy` of the `Delay` notes are fixed, and `Item-count-interval`, which no schema defines, is replaced by `Item-interval`.
 - Chapter 5 drops the notes that `Delay`, `Duration` and `Inset` would not be supported until `8.2.0`.
-- Chapter 1 has unique section numbers (3.3.0 had two sections 1.2) and links to hed-tests and the HED schema browser.
+- Chapter 1 has unique section numbers (3.3.0 had two sections 1.2) and links to hed-tests and the HED schema browser. Its overview of the chapters (1.5) lists Chapter 8, and the new 1.7 References gives the three works that the chapter cites.
 
 ## Document and repository
 
