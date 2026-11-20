@@ -481,7 +481,10 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 **a.** Delimiters used in the wiki are invalid.\
 **b.** Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.\
 **c.** A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.\
-**d.** Attributes section of a node is malformed(e.g., hanging `=` character).
+**d.** Attributes section of a node is malformed(e.g., hanging `=` character).\
+**e.** A comma-separated piece of a row of the Sources, Prefixes, or External annotations section that comes before the `description` pair is not a `name=value` pair. A comma in a value other than `description` has this effect.
+
+See [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) for how a row of these sections is split.
 
 #### WIKI_LINE_START_INVALID
 

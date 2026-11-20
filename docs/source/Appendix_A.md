@@ -223,7 +223,8 @@ See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-
 class: tip
 ---
 1. Commas are not allowed in any values with the exception of
-term descriptions, the prologue, and the epilogue in the HED schema and tsv column values
+term descriptions, the descriptions of the rows of the sources, prefixes, and external annotations sections,
+the prologue, and the epilogue in the HED schema and tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
 2. A `dateTimeClass` value has the BIDS `Datetime` format, RFC 3339 with an optional offset:
 "YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm]", with one to six fractional digits, hour 00-23, and seconds 00-60.
@@ -995,6 +996,8 @@ Each source entry has three required components:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
+The pairs of a row are written in the order shown, so `description` is the last pair. The value of `description` is everything after `description=` to the end of the row, and it may contain commas: a row is split at commas only before the `description` pair. The value of any other pair MUST NOT contain a comma. This rule is stated from specification `4.0.0`.
+
 In a merged library schema, a row contributed by the library begins with the attribute block `{inLibrary=xxx}`, with `xxx` the library name, followed by a blank and the name-value pairs (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). The rows of the standard schema partner have no attribute block.
 
 ````{admonition} **Example:** Source contributed by the lang library in a merged .mediawiki schema.
@@ -1023,7 +1026,7 @@ Each prefix entry has three required components:
 - `namespace`: The full IRI for the ontology namespace
 - `description`: A description of the ontology or vocabulary
 
-A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
+The pairs of a row are ordered and split at commas, and a row contributed by a library is marked in a merged schema, as in [A.2.5.7. Schema sources](#a257-schema-sources).
 
 #### A.2.5.9. External annotations
 
@@ -1045,7 +1048,7 @@ Each external annotation entry has four required components:
 - `iri`: The full IRI for the property
 - `description`: An explanation of the property's meaning
 
-A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
+The pairs of a row are ordered and split at commas, and a row contributed by a library is marked in a merged schema, as in [A.2.5.7. Schema sources](#a257-schema-sources).
 
 ## A.3. XML file format
 

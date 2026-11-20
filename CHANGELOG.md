@@ -51,6 +51,7 @@ These changes alter what is valid or how validators must report it.
 - Four schema formats: MediaWiki, XML, and the new JSON (A.4) and TSV (A.5) formats.
 - New schema sections Sources, Prefixes and External annotations (A.1.6-A.1.8, with subsections in each format). An empty required cell is the SCHEMA_MISSING_EXTRA warning.
 - In a merged library schema, the rows that the library contributes to Sources, Prefixes and External annotations carry `inLibrary`, as its schema elements and schema attributes do (3.1.2.2; the form in each format is in A.2.5.7, A.3.5.7, A.4.5.6 and A.5.11.1). A row is identified by its key (`source`; `prefix`; `prefix` and `id`). An unmerged library schema must not have a row with the key of a row of its standard schema partner (SCHEMA_LIBRARY_INVALID h); in a merge group, rows of two libraries that are identical apart from `inLibrary` are kept once, with one `inLibrary` value per contributing library, and rows with the same key and different contents fail the load (SCHEMA_LOAD_FAILED e).
+- MediaWiki format (A.2.5.7-A.2.5.9): in a row of the Sources, Prefixes or External annotations section the pairs are in a fixed order with `description` last; the value of `description` runs to the end of the row and may contain commas, and the value of any other pair MUST NOT contain one.
 - TSV format (A.5.2): the header row of each of the thirteen files is the one written for standard schema `8.5.0`. A tool that writes TSV writes these header rows for a schema of any version; a tool that reads TSV also accepts the earlier header rows, listed in B.3.
 - JSON format (A.4): the layout includes the top-level `units` object.
 - Every section of a schema, including the prologue and epilogue, is present and may be empty; nothing is optional. The order of sections is a rule of the MediaWiki and XML formats only (3.1.4).
@@ -108,7 +109,7 @@ Error codes are given only in Appendix B. The chapters and Appendix A state what
 
 ### New or changed reasons
 
-- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_CHARACTER_INVALID b, c, d, e; SCHEMA_DEPRECATION_ERROR e (no longer used), h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e, f; SIDECAR_KEY_MISSING b; TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n, o; UNITS_INVALID c; VALUE_INVALID c, e.
+- CHARACTER_INVALID a; DEFINITION_INVALID b, d, i, l; PLACEHOLDER_INVALID d, e (several `#`), f (`#` not directly after a slash); SCHEMA_CHARACTER_INVALID b, c, d, e; SCHEMA_DEPRECATION_ERROR e (no longer used), h; SCHEMA_DUPLICATE_NODE b, c; SCHEMA_LIBRARY_INVALID i-n; SCHEMA_LOAD_FAILED c, d, e; SCHEMA_SECTION_MISSING b; SIDECAR_INVALID d, e, f; SIDECAR_KEY_MISSING b; TAG_EXTENSION_INVALID b, c; TAG_GROUP_ERROR c, d, e; TAG_INVALID b, c, d; TAG_NAMESPACE_PREFIX_INVALID a; TAG_REQUIRES_CHILD b; TEMPORAL_TAG_ERROR e, h, k, l, m, n, o; UNITS_INVALID c; VALUE_INVALID c, e; WIKI_DELIMITERS_INVALID e (a piece of a Sources, Prefixes or External annotations row that is not a `name=value` pair).
 
 ## Clarifications
 
