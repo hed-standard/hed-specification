@@ -134,7 +134,7 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 
 **a.** Different standard schema partner versions in a merge group.\
 **b.** Schema elements (tag, unit class, unit, unit modifier, or value class) or schema attributes of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
-**c.** Different versions of the same schema appear in the same merge group.\
+**c.** The same schema (a library schema with the same library name, or the standard schema) is listed more than once in a merge group, in the same or in different versions.\
 **d.** A schema with a specified name and version cannot be found.\
 **e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.\
 **f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.
