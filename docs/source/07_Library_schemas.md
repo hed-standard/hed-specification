@@ -195,7 +195,7 @@ The examples rely on the following facts about these libraries:
 | `['8.5.0', 'testconflict_2.0.0']`             | Yes   | A standard schema matching the group partner is allowed and adds nothing to the merged result.                                                                                    |
 | `['8.4.0', 'testconflict_2.0.0']`             | No    | A standard schema in a merge group must match the group partner; `testconflict_2.0.0` is partnered with `8.5.0`, not `8.4.0`.                                                     |
 | `['testconflict_2.0.0', 'testminimal_2.0.0']` | No    | Partnered library schemas in a merge group must have the same partner; here the partners are `8.5.0` and `8.4.0`.                                                                 |
-| `['8.4.0', '8.5.0']`                          | No    | Two bare standard schema versions give the unprefixed group two conflicting partners.                                                                                             |
+| `['8.4.0', '8.5.0']`                          | No    | Two standard schemas cannot be listed in the same merge group, whatever their versions; `['8.5.0', '8.5.0']` fails as well.                                                       |
 
 #### 7.3.6.4. Unpartnered examples
 

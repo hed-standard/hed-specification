@@ -134,7 +134,7 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 
 **a.** Different standard schema partner versions in a merge group.\
 **b.** Schema elements (tag, unit class, unit, unit modifier, or value class) or schema attributes of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
-**c.** Different versions of the same schema appear in the same merge group.\
+**c.** The same schema (a library schema with the same library name, or the standard schema) is listed more than once in a merge group, in the same or in different versions.\
 **d.** A schema with a specified name and version cannot be found.\
 **e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.\
 **f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.
@@ -294,7 +294,7 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
 **g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.\
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
-**i.** An `Onset`, `Offset`, or `Inset` group occurs at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor, where the time of a group is the time of its row plus any `Delay`.\
+**i.** An `Onset`, `Offset`, or `Inset` group occurs at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor.\
 **j.** An `Inset` tag is not grouped with a `Def` tag or a `Def-expand` group corresponding to an ongoing `Onset`.\
 **k.** An `Onset`, `Inset`, `Offset`, or `Delay` tag appears in an annotation for a table without an `onset` or equivalent column.\
 **l.** A `Duration` or `Delay` tag group contains extra tags or groups, or is missing the required group. A `Delay` group that does not contain `Onset`, `Offset`, or `Inset` MUST have exactly one inner group, so `(Delay/2 s)` alone is an error.\
