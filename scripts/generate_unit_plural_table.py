@@ -187,12 +187,16 @@ def main(argv=None):
         ok = not stale and not problems
         print("unit plurals: OK" if ok else "unit plurals: FAILED")
         return 0 if ok else 1
+    if problems:
+        # An unsound file can render a broken table (a newline in a plural), so nothing is written.
+        print(f"{MARKDOWN_PATH.relative_to(REPO_ROOT)}: not written; fix the problems above first")
+        return 1
     if stale:
         MARKDOWN_PATH.write_text(rendered, encoding="utf-8", newline="\n")
         print(f"wrote {MARKDOWN_PATH.relative_to(REPO_ROOT)}")
     else:
         print("table already current")
-    return 1 if problems else 0
+    return 0
 
 
 if __name__ == "__main__":
