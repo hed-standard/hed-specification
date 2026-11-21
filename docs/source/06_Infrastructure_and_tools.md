@@ -1,6 +1,6 @@
 # 6. Infrastructure and tools
 
-The HED infrastructure includes libraries written in Python, Matlab, and JavaScript that support the use of HED in validation and/or applications. This section describes the expected behavior of the HED infrastructure and its integration into other systems such as [BIDS](https://bids.neuroimaging.io/).
+The HED infrastructure includes libraries written in Python, Matlab, and JavaScript that support the use of HED in validation and/or applications. This section describes the expected behavior of the HED infrastructure and its integration into other systems such as [BIDS](https://bids.neuroimaging.io/) and [NWB](https://www.nwb.org/).
 
 In general, tools should either explicitly call HED validation to assure that the input tag strings are valid or should make explicit that they assume the HED has already been validated. Most tools will use the latter approach.
 
@@ -190,3 +190,59 @@ HED provides a JavaScript validator in the [hed-javascript](https://github.com/h
 The [hedtools](https://pypi.org/project/hedtools/) package includes input functions that use [Pandas](https://pandas.pydata.org/) data frames to construct internal representations of HED-annotated tables.
 
 HED schema developers generally do initial development of the schema using `.mediawiki` format. The tools to convert a schema among the MediaWiki, XML, JSON, and TSV formats are in the `hed.schema` module of the [hed-python](https://github.com/hed-standard/hed-python) GitHub repository. A schema in any of these formats is loaded into a `HedSchema` object, which can be saved in any of them.
+
+## 6.4. HED support of NWB
+
+[NWB](https://www.nwb.org/) (Neurodata Without Borders) is a data standard for neurophysiology data that stores the data of one recording session in a single file. HED annotations are stored in an NWB file with the [ndx-hed](https://github.com/hed-standard/ndx-hed) extension, which is documented in [HED integration for NWB](https://www.hedtags.org/ndx-hed). This section describes ndx-hed `0.3.0`.
+
+### 6.4.1. NWB tables
+
+A table in an NWB file is a `DynamicTable`: a set of named columns that have the same number of rows. HED treats a `DynamicTable` as a table in the same way that it treats the contents of a BIDS `.tsv` file, and the column-name rules of [3.2.10. Tabular files and structures](./03_HED_formats.md#3210-tabular-files-and-structures) apply to it.
+
+An `EventsTable` is a `DynamicTable` for events. Its `TimestampVectorData` column named `timestamp` is the equivalent of the `onset` column of a BIDS `events.tsv` file, and its optional `DurationVectorData` column named `duration` is the equivalent of the `duration` column. Which NWB tables are timeline tables is stated in [3.3.4. Timeline versus descriptor tables](./03_HED_formats.md#334-timeline-versus-descriptor-tables).
+
+### 6.4.2. HED types in NWB
+
+The ndx-hed extension defines four types.
+
+| Type                | Extends              | Holds                                                                                                                |
+| ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `HedLabMetaData`    | `LabMetaData`        | The HED version of the file and, optionally, HED definitions.                                                        |
+| `HedTags`           | `VectorData`         | A column named `HED` that has one HED string for each row. A table has at most one.                                  |
+| `HedValueVector`    | `VectorData`         | A column of values with one HED annotation, containing a `#` placeholder, that applies to every value of the column. |
+| `HedDurationVector` | `DurationVectorData` | The `duration` column of an `EventsTable` with such an annotation.                                                   |
+
+A column of categorical values has no HED type of its own. It is a `VectorData` column that is annotated by a `MeaningsTable`, which lists the values of the column, and a `HedTags` column in that `MeaningsTable` gives the HED annotation of each value.
+
+The following table shows where a BIDS dataset and an NWB file hold the same information.
+
+| Information                          | BIDS                                             | NWB with ndx-hed                                                  |
+| ------------------------------------ | ------------------------------------------------ | ----------------------------------------------------------------- |
+| HED annotation of a row              | `HED` column of a `.tsv` file                    | `HedTags` column of a `DynamicTable`                              |
+| HED annotation of a value column     | sidecar entry with a `#` placeholder             | `hed` attribute of a `HedValueVector` or `HedDurationVector`      |
+| HED annotation of categorical values | sidecar entry with one annotation for each value | `HedTags` column of the `MeaningsTable` that annotates the column |
+| HED version                          | `HEDVersion` in `dataset_description.json`       | `hed_schema_version` attribute of the `HedLabMetaData`            |
+| HED definitions                      | sidecar entries                                  | `definitions` attribute of the `HedLabMetaData`                   |
+
+### 6.4.3. Annotation assembly in NWB
+
+HED tools assemble the annotation of each row of a `DynamicTable` from its `HedTags` column, from the `MeaningsTable` annotations of its categorical columns, and from the annotations of its `HedValueVector` and `HedDurationVector` columns, as [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) describes for a `.tsv` file and its sidecar. A `MeaningsTable` annotation or a `HedValueVector` annotation may use the curly-brace notation of [3.2.9.3. Sidecar curly braces](./03_HED_formats.md#3293-sidecar-curly-braces).
+
+### 6.4.4. HED version in NWB
+
+The `hed_schema_version` attribute of the `HedLabMetaData` gives the HED schemas used in the file. An NWB file has at most one `HedLabMetaData`. The value is text in one of three forms: one version, several versions of one namespace joined by commas, or a JSON array of versions.
+
+````{admonition} **Example:** The three forms of the HED version in an NWB file.
+
+```
+8.5.0
+8.5.0,score_2.2.0
+["8.5.0", "sc:score_2.2.0"]
+```
+````
+
+See [3.1.2. Version combinations](./03_HED_formats.md#312-version-combinations) for the schemas that may be combined.
+
+### 6.4.5. HED tools for NWB
+
+The [ndx-hed](https://pypi.org/project/ndx-hed/) Python package provides the four types for [PyNWB](https://github.com/NeurodataWithoutBorders/pynwb) and a validator, `HedNWBValidator`, which assembles the annotations of a table or of every table in a file and validates them with [hedtools](https://pypi.org/project/hedtools/).

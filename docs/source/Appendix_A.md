@@ -10,7 +10,7 @@ This section describes the auxiliary sections of the HED schema, which specify t
 
 ### A.1.1. Unit classes and units
 
-Unit classes allow annotators to express the units of values in a consistent way. The plurals of the unit names are not explicitly listed, but are allowed (`feet`, `inches`, `seconds`; `hertz` is its own plural), as HED tools use standard pluralize functions to expand the list of allowed units. A `#` placeholder has at most one unit class. The pseudo unit class `anyUnits` lists no units; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, and the value converts to the default units of that unit's class when the unit has a `conversionFactor` (see [A.1.4.3. conversionFactor](#a143-conversionfactor)); a value without a unit is valid and has no default unit. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units).
+Unit classes allow annotators to express the units of values in a consistent way. The plurals of the unit names are not listed in a schema; the plurals that are allowed are those of the table of unit plurals at the end of this section. A `#` placeholder has at most one unit class. The pseudo unit class `anyUnits` lists no units; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, and the value converts to the default units of that unit's class when the unit has a `conversionFactor` (see [A.1.4.3. conversionFactor](#a143-conversionfactor)); a value without a unit is valid and has no default unit. See [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units) for these rules and for the rule on plurals.
 
 Units corresponding to unit symbols (i.e., have a `unitSymbol` attribute) represent abbreviated versions of units and cannot be pluralized (`mss` and `Hzs` are invalid).
 
@@ -106,6 +106,34 @@ header-rows: 1
 ```
 
 The deprecated `degree Celsius` (`deprecatedFrom=8.2.0`) contains a blank and so predates the rule that unit names contain none; it cannot be written in an annotation. Use `degree-Celsius` or `oC`.
+
+The table below gives the plural of each unit name that has one. It is generated from the unit plurals file described in [A.8. Unit plurals file](#a8-unit-plurals-file); a unit name that is not in the table has no plural. The table covers the unit names of every released schema, so it has a row for `Volt`, which is a unit name of standard schemas `8.1.0` and `8.2.0` only. It has no row for `uV`, which standard schemas `8.3.0` and `8.4.0` list as a unit name, and none for the deprecated `degree Celsius`.
+
+<!-- unit-plurals:begin -->
+
+| Unit name        | Plural            | Unit name | Plural    |
+| ---------------- | ----------------- | --------- | --------- |
+| `Volt`           | `Volts`           | `litre`   | `litres`  |
+| `ampere`         | `amperes`         | `meter`   | `meters`  |
+| `byte`           | `bytes`           | `metre`   | `metres`  |
+| `calorie`        | `calories`        | `mile`    | `miles`   |
+| `candela`        | `candelas`        | `minute`  | `minutes` |
+| `coulomb`        | `coulombs`        | `molar`   | `molars`  |
+| `day`            | `days`            | `month`   | `months`  |
+| `degree`         | `degrees`         | `newton`  | `newtons` |
+| `degree-Celsius` | `degrees-Celsius` | `ohm`     | `ohms`    |
+| `dollar`         | `dollars`         | `pascal`  | `pascals` |
+| `euro`           | `euros`           | `point`   | `points`  |
+| `foot`           | `feet`            | `pound`   | `pounds`  |
+| `gram`           | `grams`           | `radian`  | `radians` |
+| `hertz`          | `hertz`           | `second`  | `seconds` |
+| `hour`           | `hours`           | `tesla`   | `teslas`  |
+| `inch`           | `inches`          | `volt`    | `volts`   |
+| `joule`          | `joules`          | `watt`    | `watts`   |
+| `lb`             | `lbs`             | `week`    | `weeks`   |
+| `liter`          | `liters`          | `year`    | `years`   |
+
+<!-- unit-plurals:end -->
 
 ### A.1.2. Unit modifiers
 
@@ -223,7 +251,8 @@ See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-
 class: tip
 ---
 1. Commas are not allowed in any values with the exception of
-term descriptions, the prologue, and the epilogue in the HED schema and tsv column values
+term descriptions, the descriptions of the rows of the sources, prefixes, and external annotations sections,
+the prologue, and the epilogue in the HED schema and tsv column values
 declared to be of type "list". The latter must be handled specially by tools.
 2. A `dateTimeClass` value has the BIDS `Datetime` format, RFC 3339 with an optional offset:
 "YYYY-MM-DDThh:mm:ss[.ffffff][Z|+hh:mm|-hh:mm]", with one to six fractional digits, hour 00-23, and seconds 00-60.
@@ -239,7 +268,8 @@ NWB's `isodatetime` type accepts every value of this format.
 5. Values of `numericClass` must be equivalent to a valid floating point value.
 6. Scientific notation is supported with the `numericClass`.
 7. The `textClass` is for descriptions, mainly for use with the `Description` tag. Its values use the `value-text` character set, so parentheses, the number sign, and the tilde may not appear in a value; they are structural characters of HED strings.
-8. The `posixPath` class allows digits, letters, forward slash, and colon characters for POSIX path specifications.
+8. No placeholder of a standard schema through `8.5.0` has `valueClass=posixPath`: `Pathname/#` has no value class, so its values are `textClass` values.
+The characters of `posixPath` do not include the period, the hyphen, or the underscore.
 
 ````
 
@@ -421,7 +451,7 @@ The `requireChild` attribute indicates that a tag must have at least one child t
 
 #### A.1.4.12. reserved
 
-The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools: `Condition-variable` and `Task` already have defined behavior, and the other reserved tags are expected to have defined behavior in the future. See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag. A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names.
+The `reserved` attribute indicates that a tag has a specified meaning in the HED ecosystem and cannot be redefined by individual HED schemas. The nine structural reserved tags (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`) determine the structure of an annotation; their validation rules are given in [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and in the machine-readable file `reserved_tags.json` that validators load. The other reserved tags carry no validation rule beyond their schema attributes and are defined for specific uses by downstream tools (see [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)). See the [Reserved tag](./02_Terminology.md#reserved-tag) entry in Chapter 2. The attribute can only appear in standard schemas: a library schema MUST NOT carry it on its own elements (those with `inLibrary` in a merged partnered library schema), MUST NOT define a tag with a reserved name, and MUST NOT root a node under a reserved tag. A reserved tag has no child node other than `#`, and a standard schema MUST define the tags that `reserved_tags.json` names.
 
 #### A.1.4.13. rooted
 
@@ -995,6 +1025,8 @@ Each source entry has three required components:
 - `link`: A URL pointing to the source
 - `description`: A brief explanation of the source's relevance
 
+The pairs of a row are written in the order shown, so `description` is the last pair. The value of `description` is everything after `description=` to the end of the row, and it may contain commas: a row is split at commas only before the `description` pair. The value of any other pair MUST NOT contain a comma. This rule is stated from specification `4.0.0`.
+
 In a merged library schema, a row contributed by the library begins with the attribute block `{inLibrary=xxx}`, with `xxx` the library name, followed by a blank and the name-value pairs (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). The rows of the standard schema partner have no attribute block.
 
 ````{admonition} **Example:** Source contributed by the lang library in a merged .mediawiki schema.
@@ -1023,7 +1055,7 @@ Each prefix entry has three required components:
 - `namespace`: The full IRI for the ontology namespace
 - `description`: A description of the ontology or vocabulary
 
-A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
+The pairs of a row are ordered and split at commas, and a row contributed by a library is marked in a merged schema, as in [A.2.5.7. Schema sources](#a257-schema-sources).
 
 #### A.2.5.9. External annotations
 
@@ -1045,7 +1077,7 @@ Each external annotation entry has four required components:
 - `iri`: The full IRI for the property
 - `description`: An explanation of the property's meaning
 
-A row contributed by a library is marked in a merged schema as in [A.2.5.7. Schema sources](#a257-schema-sources).
+The pairs of a row are ordered and split at commas, and a row contributed by a library is marked in a merged schema, as in [A.2.5.7. Schema sources](#a257-schema-sources).
 
 ## A.3. XML file format
 
@@ -2214,7 +2246,7 @@ See [Schema properties](#a15-schema-properties) for a list of available schema p
 
 ## A.6. Reserved tags file
 
-The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and that section states what each column requires of an annotation. The file is introduced in specification `4.0.0`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, with the `topLevelTagGroup` attribute and `reserved`; `Def` and `Def-expand` MUST exist and carry `reserved`.
+The validation rules of the structural reserved tags are published as the JSON file [`reserved_tags.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/reserved_tags.json) (`docs/source/_static/reserved_tags.json` in the specification repository). HED validators load this file unchanged rather than transcribing its rules. The tables of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) are generated from it, and that section states what each column requires of an annotation. The file is introduced in specification `4.0.0`. A standard schema is checked against the file: every row of `tags` MUST exist as a tag, with the `topLevelTagGroup` attribute and `reserved`; `Def` and `Def-expand` MUST exist and carry `reserved`.
 
 ### A.6.1. File layout
 
@@ -2225,10 +2257,10 @@ The file is a JSON object with six keys:
 - `tags`: an object with one entry per structural reserved tag that defines a top-level tag group (`Definition`, `Delay`, `Duration`, `Event-context`, `Inset`, `Offset`, `Onset`). Each entry is keyed by the tag name and holds the fields of [A.6.2](#a62-tag-fields). `Def` and `Def-expand` have no entry: they are the anchor that these groups refer to.
 - `valueForms`: an object with one entry for each tag whose value has two parts, described in [A.6.3](#a63-value-forms).
 
-The two version fields have the same meaning in this file and in the character sets file of [A.7](#a7-character-sets-file). Each file spells them in the case of its own keys: camel case here, snake case (`specification_version`, `file_version`) in the character sets file.
+The two version fields have the same meaning in this file, in the character sets file of [A.7](#a7-character-sets-file), and in the unit plurals file of [A.8](#a8-unit-plurals-file). Each file spells them in the case of its own keys: camel case here, snake case (`specification_version`, `file_version`) in the other two files.
 
-- The specification version (`specificationVersion` here, `specification_version` in the character sets file) is a string `X.Y.Z`, the version of this specification that the file belongs to. It equals the specification version and changes with every specification release, even when nothing else in the file changes.
-- The file version (`fileVersion` here, `file_version` in the character sets file) is a string `X.Y.Z`, the version of the file's layout, independent of the specification version. The major number changes when a validator must be updated to apply the file: a key is removed or renamed, the meaning of a key changes, or a key is added that carries a validation rule. The minor number changes when a key is added that carries no validation rule, such as descriptive text or tests. The patch number changes when only values change, other than the specification version.
+- The specification version (`specificationVersion` here, `specification_version` in the other two files) is a string `X.Y.Z`, the version of this specification that the file belongs to. It equals the specification version and changes with every specification release, even when nothing else in the file changes.
+- The file version (`fileVersion` here, `file_version` in the other two files) is a string `X.Y.Z`, the version of the file's layout, independent of the specification version. The major number changes when a validator must be updated to apply the file: a key is removed or renamed, the meaning of a key changes, or a key is added that carries a validation rule. The minor number changes when a key is added that carries no validation rule, such as descriptive text or tests. The patch number changes when only values change, other than the specification version.
 
 A validator MUST NOT apply a file whose file version major number it does not support, and it accepts any minor and patch number under a major number it supports. Both fields are introduced in specification `4.0.0`, in which the file version of each file is `1.0.0`.
 
@@ -2339,3 +2371,26 @@ A name in an `allowedCharacter` declaration resolves to a key of `sets`, an alia
 | `tag_chars`           | `hed_string` | object                               | The characters of a schema node name and of a tag extension.                                                       |
 | `sets`                | `tag_chars`  | array of names                       | The names, resolved as in [A.7.3](#a73-names-and-value-class-defaults), whose union is those characters.           |
 | `description`         | `tag_chars`  | string                               | Text for human readers.                                                                                            |
+
+## A.8. Unit plurals file
+
+The plurals of the unit names are published as the JSON file [`unit_plurals.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/unit_plurals.json) (`docs/source/_static/unit_plurals.json` in the specification repository). HED validators load this file unchanged rather than deriving a plural by a rule or with a pluralize function. The table of plurals in [A.1.1. Unit classes and units](#a11-unit-classes-and-units) is generated from it, and [3.1.4.4. Unit classes and units](./03_HED_formats.md#3144-unit-classes-and-units) gives the rule on plurals. The file is introduced in specification `4.0.0`.
+
+### A.8.1. File layout
+
+The file is a JSON object with five keys:
+
+- `title` and `description`: text for human readers.
+- `specification_version` and `file_version`: the version of this specification that the file belongs to and the version of the file's layout, as defined in [A.6.1](#a61-file-layout).
+- `plurals`: an object with one entry per unit name that has a plural. The key is the unit name and the value is its plural, both strings in the case in which the schema lists the unit name.
+
+The entries of `plurals` have these properties:
+
+- The keys are in ascending order of character code, so `Volt` precedes `ampere`.
+- A key or a value consists of ASCII characters and contains no blank.
+- No two keys have the same value, and no value is a different key. A value that equals its own key (`hertz`) means that the unit name is its own plural.
+- A key is a unit name of at least one released schema; a unit symbol is never a key.
+
+A validator applies an entry only when its key is a unit of the schema in use and that unit is a unit name, that is, has no `unitSymbol` attribute. `Volts` is therefore a unit under standard schema `8.2.0`, which lists `Volt`, and not under `8.5.0`, which lists `volt`.
+
+The unit names are values of the file, not keys of its layout: adding, changing, or removing an entry of `plurals` changes the patch number of the file version. A unit name that a schema adds has no plural until an entry for it is added to the file.
