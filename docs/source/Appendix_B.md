@@ -2,6 +2,8 @@
 
 This appendix summarizes the error codes used by HED validators and other tools.
 
+A code marked with a star (`*`) is a warning. A warning reports something that an annotator or a schema developer should look at; it does not make the annotation or the schema invalid, and a tool MAY let the user suppress warnings. Every other code is an error.
+
 HED-compliant tools may assume that it if a HED annotation has been properly validated, it will comply with the rules of the HED specification. Annotators and analysts are mainly concerned with HED validation errors relating to incorrectly annotated events. See [B.1: HED validation errors](#b1-hed-validation-errors) for a listing of errors keyed to the HED specification.
 
 HED-compliant tools assume that the HED schemas available on the [hed-standard/hed-schemas](https://github.com/hed-standard/hed-schemas) GitHub repository are error-free, and that schema errors can only occur due to failure to locate or read a HED schema.
@@ -126,7 +128,7 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 
 ### REQUIRED_TAG_MISSING
 
-**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. Only standard schemas < `8.3.0` define this attribute; see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
+**a.** An event-level annotation does not have a tag corresponding to a node with the `required` schema attribute. Only standard schemas < `8.3.0` and the unpartnered library schema SCORE `1.0.0` define this attribute; see [B.3. Differences for earlier schema versions](#b3-differences-for-earlier-schema-versions).
 
 ### SCHEMA_LOAD_FAILED
 
@@ -134,9 +136,10 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 **b.** Schema elements (tag, unit class, unit, unit modifier, or value class) or schema attributes of two library schemas in the same merge group have the same name but have conflicting attributes, description, parents, or placeholder (`#`) children.\
 **c.** Different versions of the same schema appear in the same merge group.\
 **d.** A schema with a specified name and version cannot be found.\
-**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.
+**e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.\
+**f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.
 
-**Note:** Depending on the validator, a missing file may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
+**Note:** Depending on the validator, a missing file or a file that cannot be parsed may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
 
 **Note:** Partnered library schemas never define schema properties: the `Properties` section of an unmerged partnered library schema is empty and that of a merged partnered library schema is the `Properties` section of its standard schema partner, so conflicts with the standard partner are detected when the schema itself is validated. See reason **j** and **k** of [SCHEMA_LIBRARY_INVALID](#schema_library_invalid).
 
@@ -333,6 +336,8 @@ This section is organized by the type of schema format that results in the error
 
 #### SCHEMA_ANNOTATION_INVALID\*
 
+(WARNING)
+
 **a.** An `annotation` value uses a prefix that is not a row of the Prefixes section.\
 **b.** The `prefix:id` of an `annotation` value is not a row of the External annotations section. A bare external term such as `glotto:afro1255` falls here; write `skos:exactMatch glotto:afro1255`.\
 **c.** A `dc:source` value names no row of the Sources section: it neither begins with a row's `source` name nor contains a URL under a row's `link`.\
@@ -443,6 +448,8 @@ Library schema errors are specific to library schema. Library schema may also ra
 
 #### SCHEMA_MISSING_EXTRA\*
 
+(WARNING)
+
 **a.** A row of the Sources, Prefixes, or External annotations section has an empty value in a required column.
 
 See [A.1.6. Schema sources](./Appendix_A.md#a16-schema-sources), [A.1.7. Schema prefixes](./Appendix_A.md#a17-schema-prefixes), and [A.1.8. External annotations](./Appendix_A.md#a18-external-annotations) for the columns of each section.
@@ -467,16 +474,6 @@ See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) for the tags a
 **b.** A HED version specification does not have the correct syntax for the schema file format.\
 **c.** A HED schema version does not comply with semantic versioning.
 
-#### STYLE_WARNING\*
-
-(WARNING)
-
-**a.** A schema node does not follow the standard capitalization convention: only the first letter of the tag term should be capitalized, with the remainder lower case.
-
-**Note:** This warning is reported by schema validation, for the nodes of the schema being validated. It is not reported when annotations are validated: not for a tag extension, and not for a schema tag written with different capitalization, since tag processing is case-insensitive.
-
-See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for the HED naming conventions.
-
 ### B.2.2. MediaWiki format errors
 
 #### WIKI_DELIMITERS_INVALID
@@ -484,7 +481,10 @@ See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for 
 **a.** Delimiters used in the wiki are invalid.\
 **b.** Schema line content after node name is not enclosed with `<nowiki></nowiki>` delimiters.\
 **c.** A line has unmatched or multiple `<nowiki></nowiki>`, `[ ]`, or `{ }` delimiters.\
-**d.** Attributes section of a node is malformed(e.g., hanging `=` character).
+**d.** Attributes section of a node is malformed(e.g., hanging `=` character).\
+**e.** A comma-separated piece of a row of the Sources, Prefixes, or External annotations section that comes before the `description` pair is not a `name=value` pair. A comma in a value other than `description` has this effect.
+
+See [A.2.5.7. Schema sources](./Appendix_A.md#a257-schema-sources) for how a row of these sections is split.
 
 #### WIKI_LINE_START_INVALID
 
@@ -503,9 +503,9 @@ See [3.1.5. Naming conventions](./03_HED_formats.md#315-naming-conventions) for 
 
 ### B.2.4. Schema loading errors
 
-Schema loading errors can occur because the file is inaccessible or is not proper XML. Schema loading errors are handled in different ways by the Python and JavaScript tools.
+Schema loading errors can occur because the file is inaccessible or cannot be parsed in its format (MediaWiki, XML, JSON, or TSV); see reason **f** of [SCHEMA_LOAD_FAILED](#schema_load_failed). Schema loading errors are handled in different ways by the Python and JavaScript tools.
 
-Python tools generally raise a `HedFileError` exception when a failure to load the schema occurs. The calling programs are responsible for deciding how to handle such a failure. However, the message associated with the `HedFileError` usually includes the `SCHEMA_LOAD_FAILED` error code.
+Python tools generally raise a `HedFileError` exception when a failure to load the schema occurs. The calling programs are responsible for deciding how to handle such a failure. The exception carries a code that says what failed. The code is `SCHEMA_LOAD_FAILED` when the schemas of a version specification cannot be combined; for a file that is missing or cannot be parsed it is a code of the Python tools that is not listed in this appendix.
 
 JavaScript tools in contrast are mainly used for validation of HED annotations in data. These tools are mainly called by the [BIDS](https://bids.neuroimaging.io/) validator. If a **BIDS dataset uses HED**, it must provide a HED version specification in the `dataset_description.json` file. If the HED JavaScript validator cannot load a valid HED schema based on this specification it reports a `SCHEMA_LOAD_FAILED` issue.
 
@@ -513,11 +513,13 @@ JavaScript tools in contrast are mainly used for validation of HED annotations i
 
 The rules of this specification are stated for the latest released standard schema, `8.5.0`, and the library schemas partnered with it. This section lists every rule that a validator applies differently to an earlier schema version. A rule not listed here applies unchanged to all schema versions >= `8.0.0`.
 
+An unpartnered library schema has no standard schema version, so the entries below are applied to it as follows, whatever its own version. The entries on value class characters, on the `required` schema attribute, and on the names of the schema properties apply to it as they apply to a standard schema < `8.3.0`. The entries on the unit class of a placeholder, on derived units, and on the form of an `annotation` value do not apply to it: SCHEMA_ATTRIBUTE_VALUE_INVALID (a), SCHEMA_DUPLICATE_NODE (b), and SCHEMA_ANNOTATION_INVALID are reported for an unpartnered library schema as they are for standard schema `8.5.0`. The other entries concern reserved tags, which an unpartnered library schema does not have, and TSV files written for earlier standard schemas. SCORE `1.0.0`, the only unpartnered library schema that has been released, has the auxiliary sections of standard schema `8.1.0` and no TSV files.
+
 **Annotation validation**
 
 - Standard schemas < `8.3.0`: standard schemas mark the reserved tags with the `reserved` attribute only from `8.2.0` (the nine structural tags) and `8.3.0` (all nineteen); `8.0.0` and `8.1.0` carry no such attribute. The term reserved tag and the rules of 3.2.8 apply by tag name in every standard schema version, whether or not the schema marks the tag. See [Reserved tag](./02_Terminology.md#reserved-tag) and [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags).
 - Standard schemas < `8.5.0` and library schemas partnered with them: the `allowedCharacter` names a standard value class declares do not define its characters, because these declarations predate the named sets; validators use the defaults recorded for each standard value class in the `value_class_defaults` section of [`character_sets.json`](_static/character_sets.json) (see [A.7.3. Names and value class defaults](./Appendix_A.md#a73-names-and-value-class-defaults)). `dateTimeClass` allows `digits`, `T`, `hyphen`, `colon`, `period`, `Z`, and `plus`, although these versions declare only the first four. `nameClass` allows `letters`, `digits`, `hyphen`, and `underscore`, and `nonascii` from standard schema `8.3.0`, although the released `8.3.0` and `8.4.0` rows omit it. `textClass` values use the `text` character set, not `value-text`; the `8.0.0` to `8.2.0` schemas enumerate `letters`, `digits`, `blank`, `+`, `-`, `:`, `;`, `.`, `/`, `(`, `)`, `?`, `*`, `%`, `$`, `@` (no underscore), and validators have always applied `text` there and still do. A textClass value containing a parenthesis, number sign, or tilde is therefore not CHARACTER_INVALID under the value class, but the substituted string is still parsed as HED, so tools report the structural error instead (PARENTHESES_MISMATCH, PLACEHOLDER_INVALID, or CHARACTER_INVALID for the tilde). See [2.2 Character sets and restrictions](./02_Terminology.md#22-character-sets-and-restrictions), [A.1.3. Value classes](./Appendix_A.md#a13-value-classes), and [A.1.4.1. allowedCharacter](./Appendix_A.md#a141-allowedcharacter).
-- Standard schemas < `8.3.0`: `Delay` and `Duration` do not carry the `requireChild` schema attribute (before `8.3.0`) or the `topLevelTagGroup` schema attribute (before `8.2.0`). The `requireValue`, `tagGroup`, and `topLevelTagGroup` fields of [`reserved_tags.json`](_static/reserved_tags.json) supply what these schemas lack, so the rules of 3.2.8 apply to every standard schema version >= `8.0.0`. A `Delay` or `Duration` tag with no value is TAG_REQUIRES_CHILD (b). See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6.2. Tag fields](./Appendix_A.md#a62-tag-fields).
+- Standard schemas < `8.3.0`: `Delay` and `Duration` do not carry the `requireChild` schema attribute (before `8.3.0`) or the `topLevelTagGroup` schema attribute (before `8.2.0`). The `requireValue`, `tagGroup`, and `topLevelTagGroup` fields of [`reserved_tags.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/reserved_tags.json) supply what these schemas lack, so the rules of 3.2.8 apply to every standard schema version >= `8.0.0`. A `Delay` or `Duration` tag with no value is TAG_REQUIRES_CHILD (b). See [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags) and [A.6.2. Tag fields](./Appendix_A.md#a62-tag-fields).
 - Standard schema `8.0.0`, whose `timeUnits` units carry no `conversionFactor`: in a timeline table, a `Duration` or `Delay` value with no unit, or in the default unit written as its symbol `s` or as its name `second` or `seconds`, is taken as is; a value in a modified form (`ms`) or in any other unit is an error, TEMPORAL_TAG_ERROR (n). See [3.2.8.4. Duration and Delay](./03_HED_formats.md#3284-duration-and-delay).
 - Standard schemas < `8.3.0`: these schemas define the `required` schema attribute. The assembled annotation of each row must include every tag whose schema node has it (REQUIRED_TAG_MISSING), and such a tag MUST NOT appear in the contents of a definition (DEFINITION_INVALID j). No released schema puts the attribute on a tag.
 

@@ -95,27 +95,35 @@ HED schemas are versioned using the semantic versioning system and use these rul
 
 Here is a summary of the types of changes that correspond to different levels of changes in the semantic version:
 
-| Change                                          | Semantic-level |
-| ----------------------------------------------- | -------------- |
-| Major addition to HED functionality             | Major          |
-| Tag deleted from schema.                        | Major          |
-| Unit or unit class removed from node.           | Major          |
-| Listed unit removed but still derivable (uV).   | Patch          |
-| Node attribute value changed                    | Minor          |
-| Inherited attribute change                      | Minor          |
-| New property added to or removed from schema    | Minor          |
-| New value class added to schema                 | Minor          |
-| New unit modifier added to schema               | Minor          |
-| New tag added to the schema.                    | Minor          |
-| New attribute added to schema.                  | Minor          |
-| New unit class or unit added to schema.         | Minor          |
-| New unit class added to node.                   | Minor          |
-| New value class added to node.                  | Minor          |
-| Node moved in schema without change in meaning. | Minor          |
-| Standard schema partner version changed.        | Minor          |
-| Revision of description field in schema.        | Patch          |
-| Correction of suggestedTag or relatedTag.       | Patch          |
-| Correction of wiki syntax such as closing tags. | Patch          |
+| Change                                                              | Semantic-level |
+| ------------------------------------------------------------------- | -------------- |
+| Major addition to HED functionality                                 | Major          |
+| Tag deleted from schema                                             | Major          |
+| Tag renamed                                                         | Major          |
+| Unit or unit class removed from node                                | Major          |
+| `#` child removed from node                                         | Major          |
+| Schema attribute, value class, or unit modifier removed from schema | Major          |
+| Schema property removed from schema                                 | Major          |
+| `allowedCharacter` narrowed, so that fewer characters are allowed   | Major          |
+| Node attribute value changed                                        | Minor          |
+| Inherited attribute change                                          | Minor          |
+| New property added to schema                                        | Minor          |
+| New value class added to schema                                     | Minor          |
+| New unit modifier added to schema                                   | Minor          |
+| New tag added to the schema                                         | Minor          |
+| New attribute added to schema                                       | Minor          |
+| New unit class or unit added to schema                              | Minor          |
+| New unit class added to node                                        | Minor          |
+| New value class added to node                                       | Minor          |
+| `#` child added to node                                             | Minor          |
+| Node moved in schema without change in meaning                      | Minor          |
+| Schema element or schema attribute deprecated                       | Minor          |
+| `allowedCharacter` widened, so that more characters are allowed     | Minor          |
+| Standard schema partner version changed                             | Minor          |
+| Listed unit removed but still derivable (uV)                        | Patch          |
+| Revision of description field in schema                             | Patch          |
+| Correction of suggestedTag or relatedTag                            | Patch          |
+| Correction of wiki syntax such as closing tags                      | Patch          |
 
 **Note:** It is an official policy that once in a schema, a node will not be removed without a major schema version change. The one exception is a listed unit that stays valid because it is derived from another unit of its class by an SI unit modifier (`uV` is `u` + `V`, so HED `8.5.0` no longer lists it): removing such a listing changes the validity of no annotation and is a patch-level change; the unit's `hedId` is retired, not reused (see [8.3.1. Schema namespaces versus the ontology namespace](./08_HED_ontology.md#831-schema-namespaces-versus-the-ontology-namespace)). If a node becomes out-of-date, the `deprecatedFrom` attribute is added to the node in the schema (see [A.1.4.5. deprecatedFrom](./Appendix_A.md#a145-deprecatedfrom)). A suggested replacement SHOULD be included in the node description.
 
@@ -184,7 +192,7 @@ Each schema node element must be unique.
 
 A unit class is an attribute of a `#` schema placeholder node. A placeholder MUST NOT have more than one unit class (specification `4.0.0`); a `unitClass` attribute listing several unit classes is an error. A placeholder with a unit class MUST have `valueClass=numericClass` as its only value class, because a value with units is a number to be converted; a unit class on a placeholder with any other value class, with several value classes, or with none, is likewise an error. A schema MAY define the pseudo unit class `anyUnits`, which lists no units and has no `defaultUnits`; a placeholder with `unitClass=anyUnits` accepts a unit from any unit class of the schema, listed or derived, and, when that unit has a `conversionFactor`, its value converts to the default units of the class that unit belongs to; otherwise conversion is undefined, as for any unit without a factor. A value on such a placeholder MAY be written without a unit: it is then valid as a plain number with no default unit and no conversion; unlike `Delay` and `Duration`, whose bare numbers are in the default unit `s`, it has no default unit. When a unit string resolves in more than one unit class, the class that lists it outright wins over a class that only derives it (`dB` is the decibel of `intensityUnits`, not `d` + `B` of `memorySizeUnits`); a string that two classes derive and none lists is an error, and `anyUnits` with units or `defaultUnits` is an error. The unit class definition section specifies the allowed unit classes for the schema as well as the associated units that can be used with tags that take values.
 
-Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed (e.g., `feet` in addition to `foot`, `inches` in addition to `inch`; `hertz` is its own plural). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). HED uses a `pluralize` function available in both Python and Javascript to check validity.
+Only the singular version of each unit name is explicitly specified, but the corresponding plurals are also allowed. No plural is derived by a rule: the plural of a unit name is the one that the unit plurals file [`unit_plurals.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/unit_plurals.json) lists for it (`seconds` for `second`, `feet` for `foot`, `inches` for `inch`, `degrees-Celsius` for `degree-Celsius`; `hertz` is its own plural). The plurals are shown as a table in [A.1.1. Unit classes and units](./Appendix_A.md#a11-unit-classes-and-units), and the file is described in [A.8. Unit plurals file](./Appendix_A.md#a8-unit-plurals-file). A unit name that the file does not list has no plural, and no other plural is valid (`foots` and `inchs` are invalid). Only unit names may be pluralized; unit symbols never are (`mss` and `Hzs` are invalid). A unit name that takes an SI unit modifier takes it in the plural too, as the modifier followed by the listed plural (`milliseconds`, `kilohertz`). The plurals are listed from specification `4.0.0`; earlier versions referred to a pluralize function without giving the plurals.
 
 Units may be in one of four forms as designated by their unit type attributes:
 
@@ -465,14 +473,14 @@ Duplicated tag expressions at the same level in a HED tag group or HED string ar
 
 A **reserved tag** is one of the nineteen tags that standard schemas mark with the `reserved` attribute (see [Chapter 2](./02_Terminology.md#reserved-tag)). Nine of these tags are *structural*: `Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, and `Event-context`. These tags determine the structure of an annotation and carry the validation rules of this section.
 
-The other reserved tags (`Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` and `Task` already have defined behaviors, and the other reserved tags are expected to have specific defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
+The other reserved tags (`Collection`, `Condition-variable`, `Task`, `Control-variable`, `Indicator-variable`, `Experimental-trial`, `Experimental-intertrial`, `Time-block`, `Recording` and `Event-stream`) carry no rules beyond their schema attributes. However, these tags are expected to be used by downstream analysis tools in specific ways. `Condition-variable` has defined behavior (see [5.6. Experimental design](./05_Advanced_annotation.md#56-experimental-design)); the other reserved tags are expected to have defined behaviors in the future. The `reserved` attribute indicates that these tags have an assigned meaning and are not to be used or modified for other purposes.
 
 A library schema MUST NOT carry the `reserved` attribute on its own elements or define a tag with a reserved name; a merged partnered library schema keeps its partner's reserved tags unchanged. An annotation drawn only from unpartnered library schemas therefore contains no reserved tags. A reserved tag has no child node other than `#`, and a standard schema MUST define, with the attributes these rules rely on, every tag that `reserved_tags.json` names.
 
 **Why the rules are given as a table.** The rules for the structural reserved tags are given as one table, generated from a file, rather than as prose and schema attributes, for two reasons:
 
 - Schema attributes cannot express most of these rules. No attribute says that a group needs a definition as its anchor, how many inner groups it may hold, or which other tags may share it.
-- The table is generated from the file [`reserved_tags.json`](https://www.hedtags.org/hed-specification/_static/reserved_tags.json), which HED validators load unchanged, so this section and the validators cannot disagree.
+- The table is generated from the file [`reserved_tags.json`](https://github.com/hed-standard/hed-specification/blob/main/docs/source/_static/reserved_tags.json), which HED validators load unchanged, so this section and the validators cannot disagree.
 
 Each column of the table is a parameter of that file. This section states what each column requires of an annotation; [Appendix A.6](./Appendix_A.md#a6-reserved-tags-file) defines the file and its parameters. The rules are stated from specification `4.0.0`.
 
@@ -546,7 +554,7 @@ See [5.2. Using definitions](./05_Advanced_annotation.md#52-using-definitions) f
 
 #### 3.2.8.3. `Onset`, `Offset`, and `Inset`
 
-Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. A process that has neither lasts to the end of the table: an `Onset` with no `Offset` is not an error. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
+Many events are not instantaneous but unfold over time as event processes. An `Onset` group marks the start of such a process, identified by its anchor; an `Offset` group with the same anchor marks its end. A later `Onset` group with the same anchor also ends the process and starts a new one. A process that has neither does not end within the table: it is ongoing at every later time in the table, including the time of the last row. An `Onset` with no `Offset` is not an error. The inner group of an `Onset` holds the tags that are specific to that instance of the event, not to every instance. An `Inset` group marks an intermediate time point of an ongoing process, and its inner group describes that point; a process may have several.
 
 An `Offset` or `Inset` group MUST have the same anchor as an `Onset` that is ongoing at its time: an `Offset` before the corresponding `Onset`, or after an `Offset` with no `Onset` of that anchor in between, is an error. In these rules "before", "after" and "later" refer to time, not to the position of a row in the table (see [3.2.10.4. Table-level processing](#32104-table-level-processing)). An `Onset`, `Offset`, or `Inset` group MUST NOT occur at the same time as another `Onset`, `Offset`, or `Inset` group with the same anchor. Anchors with different placeholder values are different anchors.
 
@@ -585,7 +593,7 @@ The JSON sidecars that are relevant to HED are associated with tables. For examp
 
 In addition to sidecars, HED annotations can also be given in the `HED` column of a table. At validation or analysis time the HED information from both the `HED` column of a table and its associated sidecar are assembled to provide the annotation.
 
-HED validators assume that the annotation dictionary is saved in JSON format and that they comply with the [BIDS sidecar](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format.
+HED validators assume that the annotation dictionary is saved in JSON format and that they comply with the [BIDS sidecar](https://bids-specification.readthedocs.io/en/stable/appendices/hed.html) format. A sidecar that is stored in a file is encoded in UTF-8, as BIDS requires of a JSON file. This statement is made from specification `4.0.0`; earlier versions said nothing about the encoding.
 
 #### 3.2.9.1. Sidecar entries
 
@@ -765,7 +773,7 @@ In the example, `Definition/Cue1` is a definition that does not use a placeholde
 
 ### 3.2.10. Tabular files and structures
 
-A tabular (`.tsv`) file is a text file in which each line represents a row in a table. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line; this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace, where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. A column name MUST NOT be blank, that is, the empty string, as BIDS also requires; a first line that ends with a tab, for example, has a blank last column name. A name made only of whitespace is not blank but begins with whitespace, and is reported under the whitespace rule. This rule is stated from specification `4.0.0`. Column names are compared exactly as written when looking for a repeated name: two names that differ only in leading or trailing whitespace, such as `trial` and `trial ` (with a trailing blank), are not a repeated name, and the name with the whitespace is reported under the whitespace rule. A line other than the first MUST NOT be empty, that is, have no characters before its line terminator, as BIDS also requires; a single line ending at the end of the file is allowed and does not make an empty last line, but two line endings at the end of the file do. An empty first line is a single blank column name and is reported under the blank-name rule, not as an empty line. Every line other than the first MUST have as many tab-separated cells as the first line, as BIDS also requires. An empty line is reported as an empty line only, not also under the cell-count rule. A line made only of tabs that has as many cells as the first line is a row of missing values and is allowed. A line made only of blanks has one cell, so it breaks the cell-count rule unless the table has one column; in a table with one column it is a value made only of whitespace, which is an error if the column has categorical or value HED annotations (see [3.2.10.2. Table annotations](#32102-table-annotations)). These two rules are stated from specification `4.0.0`; earlier versions said nothing about empty lines or the number of cells in a row. When a file breaks either rule, every offending line is reported and the rows of the file are not validated. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
+A tabular (`.tsv`) file is a text file in which each line represents a row in a table. A tabular file is encoded in UTF-8. A byte-order mark at the start of the file is not part of the first column name. These two statements are made from specification `4.0.0`; earlier versions said nothing about the encoding. The column entries in a given row are separated by tabs. The first line of the file must contain a tab-separated list of column names. A column name MUST NOT appear more than once in the first line; this rule is stated from specification `4.0.0`, where earlier versions said the names should be unique. A column name MUST NOT begin or end with whitespace, where whitespace means the blank (ASCII code 32), tab (9), line feed (10), and carriage return (13) characters and no others; the line terminator of the first line (LF or CRLF) is not part of the last column name. This rule is stated from specification `4.0.0`; earlier versions said nothing about whitespace in column names. A column name MUST NOT be blank, that is, the empty string, as BIDS also requires; a first line that ends with a tab, for example, has a blank last column name. A name made only of whitespace is not blank but begins with whitespace, and is reported under the whitespace rule. This rule is stated from specification `4.0.0`. Column names are compared exactly as written when looking for a repeated name: two names that differ only in leading or trailing whitespace, such as `trial` and `trial ` (with a trailing blank), are not a repeated name, and the name with the whitespace is reported under the whitespace rule. A line other than the first MUST NOT be empty, that is, have no characters before its line terminator, as BIDS also requires; a single line ending at the end of the file is allowed and does not make an empty last line, but two line endings at the end of the file do. An empty first line is a single blank column name and is reported under the blank-name rule, not as an empty line. Every line other than the first MUST have as many tab-separated cells as the first line, as BIDS also requires. An empty line is reported as an empty line only, not also under the cell-count rule. A line made only of tabs that has as many cells as the first line is a row of missing values and is allowed. A line made only of blanks has one cell, so it breaks the cell-count rule unless the table has one column; in a table with one column it is a value made only of whitespace, which is an error if the column has categorical or value HED annotations (see [3.2.10.2. Table annotations](#32102-table-annotations)). These two rules are stated from specification `4.0.0`; earlier versions said nothing about empty lines or the number of cells in a row. When a file breaks either rule, every offending line is reported and the rows of the file are not validated. This description of tabular files conforms to that used by [BIDS](https://bids.neuroimaging.io/).
 
 A validator MUST apply the rules of this section to every table that carries HED annotations, whether the table is stored in a file or held in a data structure in memory: a table with a column named `HED`, or a table whose associated sidecar contains HED annotations. The sidecar, too, is a JSON structure that may be stored in a file or held in memory. So that a malformed first line does not hide such a table, a text tabular file also counts as having a `HED` column when a cell of its first non-empty line is `HED` after leading and trailing whitespace is removed; the file is then validated, and its empty first line or its name with whitespace is reported under the rules above. A validator is not required to check a table that carries no HED annotations, and MAY skip it whatever its structure. This scope is stated from specification `4.0.0`.
 
