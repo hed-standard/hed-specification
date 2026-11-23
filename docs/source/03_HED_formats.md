@@ -338,7 +338,7 @@ Binary relations are in the `Relation` subtree. Like items from the `Action` sub
 
 A **HED tag** is a term in the HED vocabulary identified by a path consisting of the individual node names from some branch of the HED schema hierarchy separated by forward slashes (`/`).
 
-Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes.
+Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes. A blank MUST NOT appear directly before or after a forward slash, including the slash that separates a tag from its value: `Event/ Sensory-event`, `Label/ abc` and, in a sidecar, `Label/ #` are invalid.
 
 An important requirement is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
 
@@ -467,7 +467,7 @@ Empty parentheses and multiple commas with no intervening tags represent empty t
 
 #### 3.2.7.4. Repeated expressions
 
-Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. Tags are compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid.
+Duplicated tag expressions at the same level in a HED tag group or HED string are not allowed. Tags are compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). For example, the expressions (`Red`, `Blue`, `Red`) and (`Red`, `Blue`), (`Red`, `Blue`) have duplicated tag expressions at the same level and are hence invalid. Identical `Definition` groups are not repeated expressions (see [3.2.8.1. The `Definition` tag](#3281-the-definition-tag)).
 
 ### 3.2.8. Reserved tags
 
@@ -538,7 +538,7 @@ A definition is a tag group `(Definition/name)`, `(Definition/name, (contents))`
 
 The contents of a definition MUST NOT contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`) or a tag with the `unique` attribute.
 
-A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents in any order, compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). `(Definition/X, (Label/abc))` and `(Definition/X, (Label/ABC))` are therefore different definitions of `X`.
+A definition name MAY be defined more than once only when every definition of that name is identical: the same placeholder form and the same contents in any order, compared under the case rule of [3.2.3. Tag case-sensitivity](#323-tag-case-sensitivity). `(Definition/X, (Label/abc))` and `(Definition/X, (Label/ABC))` are therefore different definitions of `X`. This holds also when the copies are in the same HED string: each definition is processed on its own, apart from the annotation it appears in, so identical `Definition` groups are not a repeated expression.
 
 See [5.1. Creating definitions](./05_Advanced_annotation.md#51-creating-definitions) for examples.
 

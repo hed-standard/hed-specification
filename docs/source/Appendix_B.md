@@ -73,7 +73,7 @@ See [3.2.8.2. The Def and Def-expand tags](./03_HED_formats.md#3282-def-and-def-
 A **definition** is a tag group containing a `Definition` tag and at most one inner tag group, which holds the definition's contents. A definition without a placeholder may omit the inner group, for example when it serves only as an anchor.
 
 **a.** A `Definition` tag does not appear in a tag group at the top level in an annotation.\
-**b.** A definition's enclosing tag group contains an empty group (i.e., an actual inner `()`).\
+**b.** No longer used: an empty inner group in a definition is [TAG_EMPTY](#tag_empty) (c) from specification `4.0.0`.\
 **c.** A definition's enclosing tag group contains more than a `Definition` tag and an inner group.\
 **d.** A definition's contents contain, at any level, a structural reserved tag (`Definition`, `Def`, `Def-expand`, `Onset`, `Offset`, `Inset`, `Delay`, `Duration`, `Event-context`), in every schema version.\
 **e.** A definition uses curly braces.\
@@ -120,7 +120,7 @@ See [3.2.7.1. Parentheses and order](./03_HED_formats.md#3271-parenthesis-and-or
 **c.** A JSON sidecar does not have exactly one placeholder (`#`) in each HED string representing a value column.\
 **d.** A placeholder (`#`) is used in JSON sidecar or definition, but its parent in the schema does not have a placeholder child, or its parent is a user extension (`Item/Blech/#`).\
 **e.** Multiple placeholders (`#`) appear in a HED string (e.g., `"Label/#, Parameter-value/#"`).\
-**f.** A placeholder (`#`) is not the whole value of its tag, or of the second part of a `Definition`, `Def` or `Def-expand` value (e.g., `"Label/ #"`, `"Label/x#"`, `"Label/#x"`, `"Def/MyDef/x#"`).
+**f.** A placeholder (`#`) is not the whole value of its tag, or of the second part of a `Definition`, `Def` or `Def-expand` value (e.g., `"Label/x#"`, `"Label/#x"`, `"Def/MyDef/x#"`).
 
 **Notes:** A `#` directly after a reserved tag that takes no value (`Onset/#`) is an error in every context, which a validator may report either as PLACEHOLDER_INVALID (reason **a** or **d**) or as [TAG_EXTENSION_INVALID](#tag_extension_invalid) (reason **c**), depending on which check finds it first. Units after the placeholder (`"Frequency/# Hz"`) are not part of its value. A validator may report a `#` with other characters in the value (reason **f**) as [VALUE_INVALID](#value_invalid) or [CHARACTER_INVALID](#character_invalid) instead, depending on which check finds it first. Reason **f** is stated in this form from specification `4.0.0`.
 
@@ -256,7 +256,7 @@ See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attribute
 ### TAG_INVALID
 
 **a.** The tag is not valid in the schema it is associated with.\
-**b.** The tag has extra internal whitespace, including directly before or after forward slashes. Blanks inside a value are judged by the rules for the value ([VALUE_INVALID](#value_invalid), [CHARACTER_INVALID](#character_invalid)), not by this reason.\
+**b.** The tag has extra internal whitespace, including directly before or after a forward slash (`Event/ Sensory-event`, `Label/ abc`, `Label/ #`). Blanks inside a value, after its first character, are judged by the rules for the value ([VALUE_INVALID](#value_invalid), [CHARACTER_INVALID](#character_invalid)), not by this reason.\
 **c.** The tag has a leading, trailing, or consecutive forward slashes.\
 **d.** A tag or tag extension contains a non `name` character.
 
@@ -289,8 +289,8 @@ Note: For the purpose of `Onset`/`Offset` matching, `Def` or `Def-expand` tags w
 **a.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag does not appear in a tag group.\
 **b.** An `Offset`, `Onset`, `Inset`, `Duration`, or `Delay` tag appears in a nested tag group (not a top-level tag group).\
 **c.** An `Onset`, `Offset` or `Inset` tag is not grouped with exactly one `Def` tag or `Def-expand` group.\
-**d.** An `Onset`, `Inset`, `Duration`, or `Delay` tag group contains more than one additional tag group.\
-**e.** An `Offset` group contains anything besides its anchor and an optional `Delay` tag.\
+**d.** An `Onset`, `Inset`, or `Offset` group contains too many inner tag groups (more than the Max groups of [3.2.8. Reserved tags](./03_HED_formats.md#328-reserved-tags)).\
+**e.** An `Offset` group contains top-level tags besides its anchor and an optional `Delay` tag.\
 **f.** An `Offset` tag appears before an `Onset` tag associated with the same definition.\
 **g.** An `Offset` tag associated with a given definition appears after a previous `Offset` tag without the appearance of an intervening `Onset` of the same name.\
 **h.** An `Onset` or an `Inset` tag group has tags besides the anchor `Def` tag or `Def-expand` group and an optional `Delay` tag that are not in a tag group.\
