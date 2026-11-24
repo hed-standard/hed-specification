@@ -256,7 +256,7 @@ See [3.2.7.2. Tag group attributes](./03_HED_formats.md#3272-tag-group-attribute
 ### TAG_INVALID
 
 **a.** The tag is not valid in the schema it is associated with.\
-**b.** The tag has extra internal whitespace, including directly before or after a forward slash (`Event/ Sensory-event`, `Label/ abc`, `Label/ #`). Blanks inside a value, after its first character, are judged by the rules for the value ([VALUE_INVALID](#value_invalid), [CHARACTER_INVALID](#character_invalid)), not by this reason.\
+**b.** The tag has extra internal whitespace, including directly before or after a forward slash of the tag path or the slash that begins a value (`Event/ Sensory-event`, `Label/ abc`, `Label/ #`); see [3.2.2. Tag forms](./03_HED_formats.md#322-tag-forms). Blanks inside a value, after its first character, including blanks next to a slash inside the value (`Description/left / right`), are judged by the rules for the value ([VALUE_INVALID](#value_invalid), [CHARACTER_INVALID](#character_invalid)), not by this reason.\
 **c.** The tag has a leading, trailing, or consecutive forward slashes.\
 **d.** A tag or tag extension contains a non `name` character.
 

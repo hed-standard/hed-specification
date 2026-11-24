@@ -338,7 +338,7 @@ Binary relations are in the `Relation` subtree. Like items from the `Action` sub
 
 A **HED tag** is a term in the HED vocabulary identified by a path consisting of the individual node names from some branch of the HED schema hierarchy separated by forward slashes (`/`).
 
-Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes. A blank MUST NOT appear directly before or after a forward slash, including the slash that separates a tag from its value: `Event/ Sensory-event`, `Label/ abc` and, in a sidecar, `Label/ #` are invalid.
+Valid HED tags do not have leading or trailing forward slashes (`/`). A HED tag path may also not have consecutive forward slashes. A blank MUST NOT appear directly before or after a forward slash of the tag path, including the slashes of a tag extension and the slash that begins a value (for `Definition`, `Def` and `Def-expand`, also the slash before the second part of the value): `Event/ Sensory-event`, `Label/ abc` and, in a sidecar, `Label/ #` are invalid. A slash inside a value is part of the value, and the blanks next to it are judged by the rules for the value's class: `Description/left / right` is valid.
 
 An important requirement is that the node names in the HED schema **must be unique**. As a consequence, the user may specify as much of the path to the root as desired when using the tag in annotation.
 
