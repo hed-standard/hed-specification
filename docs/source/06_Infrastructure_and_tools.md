@@ -110,7 +110,7 @@ onset  duration  trial_type  response_time  HED
 ```
 ````
 
-The first two columns in a BIDS `events.tsv` file are required to be `onset` and `duration`, respectively. The `onset` is the time in seconds of an event marker relative to the start of its corresponding data recording, while the `duration` represents the duration in seconds of some aspect of the event. The remaining columns in this file are optional.
+The first two columns in a BIDS `events.tsv` file are required to be `onset` and `duration`, respectively. The `onset` is the time in seconds of an event marker relative to the start of its corresponding data recording, while the `duration` represents the duration in seconds of some aspect of the event. The `duration` column has no HED meaning of its own: it is not a `Duration` tag and does not end an event process. It contributes to a row's annotation only through a sidecar entry that annotates it, for example `"duration": {"HED": "(Duration/# s, (Sensory-event))"}`. The remaining columns in this file are optional.
 
 BIDS reserves an optional column named `HED` to contain HED strings relevant for the instance represented by that row. In the above example, the first row `HED` column contains `Label/Starting-point, Quiet`, meaning that the event that starts at time 1.2 has these particular annotations in addition to annotations contributed by any relevant sidecars. The `HED` column in the second row contains `n/a`, indicating that entry should be ignored. In this case only annotations from applicable sidecars are applied.
 
@@ -174,7 +174,7 @@ A namespace prefix (such as `sc:` for the `score` library in the previous exampl
 ```
 ````
 
-For this specification tags from the standard schema must be prefixed by `st:`, while tags from the `score` library are unprefixed. The namespace names (`sc` in the previous example and `st` in this one) are arbitrary (usually short) alphabetic strings chosen by the annotator and are specific to each dataset based on its version specification; the prefix is the name followed by a colon.
+For this specification tags from the standard schema must be prefixed by `st:`, while tags from the `score` library are unprefixed. The namespace names (`sc` in the previous example and `st` in this one) are short strings of ASCII letters (see [3.1.1. Schema versions](./03_HED_formats.md#311-schema-versions)) chosen by the annotator and are specific to each dataset based on its version specification; the prefix is the name followed by a colon.
 
 ```{warning}
 HED-compliant tools must be able to handle multiple schemas and prefixed
@@ -205,12 +205,12 @@ An `EventsTable` is a `DynamicTable` for events. Its `TimestampVectorData` colum
 
 The ndx-hed extension defines four types.
 
-| Type                | Extends              | Holds                                                                                                                |
-| ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `HedLabMetaData`    | `LabMetaData`        | The HED version of the file and, optionally, HED definitions.                                                        |
-| `HedTags`           | `VectorData`         | A column named `HED` that has one HED string for each row. A table has at most one.                                  |
-| `HedValueVector`    | `VectorData`         | A column of values with one HED annotation, containing a `#` placeholder, that applies to every value of the column. |
-| `HedDurationVector` | `DurationVectorData` | The `duration` column of an `EventsTable` with such an annotation.                                                   |
+| Type                | Extends              | Holds                                                                                                                             |
+| ------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `HedLabMetaData`    | `LabMetaData`        | The HED version of the file and, optionally, HED definitions.                                                                     |
+| `HedTags`           | `VectorData`         | A column named `HED` that has one HED string for each row. NWB allows at most one per table; NWB checks this, not HED validation. |
+| `HedValueVector`    | `VectorData`         | A column of values with one HED annotation, containing a `#` placeholder, that applies to every value of the column.              |
+| `HedDurationVector` | `DurationVectorData` | The `duration` column of an `EventsTable` with such an annotation.                                                                |
 
 A column of categorical values has no HED type of its own. It is a `VectorData` column that is annotated by a `MeaningsTable`, which lists the values of the column, and a `HedTags` column in that `MeaningsTable` gives the HED annotation of each value.
 
@@ -226,11 +226,11 @@ The following table shows where a BIDS dataset and an NWB file hold the same inf
 
 ### 6.4.3. Annotation assembly in NWB
 
-HED tools assemble the annotation of each row of a `DynamicTable` from its `HedTags` column, from the `MeaningsTable` annotations of its categorical columns, and from the annotations of its `HedValueVector` and `HedDurationVector` columns, as [3.2.10.3. Event-level processing](./03_HED_formats.md#32103-event-level-processing) describes for a `.tsv` file and its sidecar. A `MeaningsTable` annotation or a `HedValueVector` annotation may use the curly-brace notation of [3.2.9.3. Sidecar curly braces](./03_HED_formats.md#3293-sidecar-curly-braces).
+How HED tools assemble the annotation of each row of an NWB `DynamicTable` and validate it is not yet finalized. This includes how the `HedTags` column, the `MeaningsTable` annotations of categorical columns, and the `HedValueVector` and `HedDurationVector` columns are combined, and how column references in NWB annotations are resolved.
 
 ### 6.4.4. HED version in NWB
 
-The `hed_schema_version` attribute of the `HedLabMetaData` gives the HED schemas used in the file. An NWB file has at most one `HedLabMetaData`. The value is text in one of three forms: one version, several versions of one namespace joined by commas, or a JSON array of versions.
+The `hed_schema_version` attribute of the `HedLabMetaData` gives the HED schemas used in the file. An NWB file has at most one `HedLabMetaData`, which NWB checks, not HED validation. The value is text in one of three forms: one version, several versions of one namespace joined by commas, or a JSON array of versions.
 
 ````{admonition} **Example:** The three forms of the HED version in an NWB file.
 
