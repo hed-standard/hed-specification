@@ -16,7 +16,7 @@ The [definition](#definition-) that an `Onset`, `Offset`, or `Inset` group refer
 
 ### Assembled annotation
 
-The [HED string](#hed-string) for one row of a [table](#table), formed by combining the row's entry in the `HED` column with the [sidecar](#sidecar) annotations of the row's other columns.
+The [HED string](#hed-string) for one row of a [table](#table), formed by combining the row's entry in the `HED` column with the [sidecar](#sidecar) annotations of the row's other columns. In a timeline table, the assembled annotations of the rows that have the same time are joined into one assembled annotation for the [event marker](#event-marker) at that time.
 
 ### Condition-variable [\*]
 
@@ -172,7 +172,7 @@ A set of structured activities performed by the participant that are integrally 
 
 ### Temporal scope
 
-The time interval between the start and end of an event process. Often the start time is annotated with the `Onset` tag, and the end time is annotated with the `Offset` tag. Since in practical terms the time is measured in discrete samples, the temporal scope includes the start time sample but does not include the end time sample.
+The time interval between the start and end of an event process. Often the start time is annotated with the `Onset` tag, and the end time is annotated with the `Offset` tag. Since in practical terms the time is measured in discrete samples, the temporal scope includes the start time sample but does not include the end time sample. A process does not appear in the event context of the event marker at which it starts, which holds the process's own annotation, nor of the one at which it ends.
 
 ### Time-block [\*]
 

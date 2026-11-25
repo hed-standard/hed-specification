@@ -28,7 +28,7 @@ Annotations using this version specification must prefix every tag from the stan
 
 ## 7.3. Partnered library schemas
 
-A **partnered library schema** is tied to a specific version of the HED standard schema and designed to be used with its partner as a unified vocabulary in a single namespace. A given library schema version is either **partnered** or **unpartnered** depending on whether its header has the `withStandard="x.y.z"` attribute. Here `x.y.z` corresponds to the semantic version of a standard schema >= `8.2.0`. Unpartnered library schemas do not have a `withStandard` attribute. The filenames for library schemas are the same regardless of partnership.
+A **partnered library schema** is tied to a specific version of the HED standard schema and designed to be used with its partner as a unified vocabulary in a single namespace. A given library schema version is either **partnered** or **unpartnered** depending on whether its header has the `withStandard="x.y.z"` attribute, where `x.y.z` is the version of its standard schema partner. **A new version of a partnered library schema MUST be partnered with the latest released standard schema at the time the library version is released.** While it is in development it may be partnered with a prerelease of the standard schema. The partner can never be earlier than `8.2.0` (see [3.1.2.1. Partnered vs unpartnered](./03_HED_formats.md#3121-partnered-vs-unpartnered)). Unpartnered library schemas do not have a `withStandard` attribute. The filenames for library schemas are the same regardless of partnership.
 
 ### 7.3.1. Partnered file formats
 
@@ -70,7 +70,7 @@ There are several significant differences between merged and unmerged partnered 
 
 - An unmerged schema has the `unmerged="true"` attribute in its header line. The merged version does not have an `unmerged` attribute in its header.
 
-- An unmerged schema **must** have prologue and epilogue sections that appropriately explain the purpose of the library schema. The contents of these prologue and epilogue sections become the prologue and epilogue, respectively, in the merged schema. The prologue and epilogue of the standard schema are omitted in the merged schema.
+- An unmerged schema SHOULD have a non-empty prologue and epilogue that explain the purpose of the library schema (the sections themselves are always present, see [3.1.4. Schema layout overview](./03_HED_formats.md#314-schema-layout-overview)). The contents of these prologue and epilogue sections become the prologue and epilogue, respectively, in the merged schema. The prologue and epilogue of the standard schema are omitted in the merged schema.
 
 - With the exception of the prologue and epilogue sections, the merged form of library schema `xxx` has the `inLibrary=xxx` attribute on every schema element and schema attribute that is in the library and on every row that the library contributes to the extra sections (see [3.1.2.2. Merged vs unmerged](./03_HED_formats.md#3122-merged-vs-unmerged)). Here `xxx` is the name of the library. The unmerged form has no `inLibrary` attributes. The `inLibrary` attribute is added or removed automatically when a schema file is written depending on whether the output is being written in merged or unmerged format.
 
@@ -224,7 +224,7 @@ Each example in this subsection loads `testconflict_2.0.0` together with one of 
 | `['testconflict_2.0.0', 'testclash_11.0.0']` | `Rooted-tag` subtree | The chain `Rooted-tag`/`Rooted-one` is identical; below it `testclash` declares `Deep-two` where `testconflict` declares `Deep-one`. The differing grandchildren are not shared, so the merged `Rooted-one` carries both.                                             | Yes   |
 | `['testconflict_2.0.0', 'testclash_12.0.0']` | `Rooted-tag` subtree | The shared grandchild `Deep-one` carries a different description. Compatibility applies at every depth of a shared hierarchy.                                                                                                                                         | No    |
 
-Two versions of one library are never compared element by element, because different versions of the same schema cannot appear in the same merge group: `['testconflict_2.1.0', 'testconflict_2.1.1']` fails to load on that rule alone. To use two versions together, give one its own namespace, for example `['testconflict_2.1.0', 'alt:testconflict_2.1.1']` (namespace names must be alphabetic, so a name such as `v2` is not allowed).
+Two versions of one library are never compared element by element, because different versions of the same schema cannot appear in the same merge group: `['testconflict_2.1.0', 'testconflict_2.1.1']` fails to load on that rule alone. To use two versions together, give one its own namespace, for example `['testconflict_2.1.0', 'alt:testconflict_2.1.1']` (a name such as `v2` is not a namespace name; see [3.1.1. Schema versions](./03_HED_formats.md#311-schema-versions)).
 
 Any failing pair in this subsection can still be used together by giving one schema its own namespace. For example, `['testconflict_2.0.0', 'cl:testclash_2.0.0']` loads because the two `Attribute-item` declarations are in different merge groups and are never compared.
 
@@ -247,7 +247,7 @@ The element compatibility rules apply to the auxiliary elements (unit classes, u
 
 Most library schema developers work with unmerged MediaWiki or unmerged TSV format. Developers should always validate the schema before converting to XML. Only validated versions of the schema should be uploaded to the GitHub [hed-schemas](https://github.com/hed-standard/hed-schemas) repository. The [online HEDtools](https://hedtools.org/hed/schemas) provide easy access to tools for schema validation, conversion, and comparison. More information about the development process is contained in the HED [Schema developers guide](https://www.hedtags.org/hed-schemas/developer_guide.html).
 
-Developers of partnered library schemas should release new versions whenever HED updates its standard schema. This ensures that the partnered library schema benefits from the latest updates to HED features and tools.
+Because a new version of a partnered library schema must be partnered with the latest standard schema ([7.3. Partnered library schemas](#73-partnered-library-schemas)), developers release new versions whenever HED updates its standard schema. This ensures that the partnered library schema benefits from the latest updates to HED features and tools.
 
 If the update can be done without conflict, this update may be initiated as part of the release mechanism by the maintainers of the HED repositories.
 
@@ -304,7 +304,7 @@ If your application requires schema classes that are not available in the standa
 
 ### 7.4.2. Unpartnered design rules
 
-Normally, a new library schema should be partnered with the latest version of the standard schema. Unpartnered schema creation should be avoided except in rare cases. Unpartnered schemas should copy the `Properties` section of the most recent standard schema, since these properties define the structure of the schema itself. An unpartnered schema must also include the auxiliary sections from the standard HED schema (schema attributes, unit classes, unit modifiers, and value classes) that are needed to support the behavior of its tags; otherwise the schema cannot be validated and used by the tools of the HED ecosystem. No changes should be made to the copied items: HED tools support the auxiliary classes of the standard schema, but in general do not support special handling of added classes beyond basic verification. An unpartnered schema MUST NOT carry the `reserved` attribute and MUST NOT define a tag whose name is a reserved tag of the standard schema; definitions and temporal scope come from a standard schema, either partnered with the library or listed separately in the version specification (see [7.5. Library schemas in BIDS](#75-library-schemas-in-bids)).
+A new library schema is partnered with the latest released standard schema ([7.3. Partnered library schemas](#73-partnered-library-schemas)). A new unpartnered library schema is not supported until rules for one are specified: [B.3. Differences for earlier schema versions](./Appendix_B.md#b3-differences-for-earlier-schema-versions) states how the released unpartnered library, SCORE `1.0.0`, is validated. An unpartnered schema MUST NOT carry the `reserved` attribute and MUST NOT define a tag whose name is a reserved tag of the standard schema; definitions and temporal scope come from a standard schema, either partnered with the library or listed separately in the version specification (see [7.5. Library schemas in BIDS](#75-library-schemas-in-bids)).
 
 ### 7.4.3. Partnered design rules
 
@@ -319,8 +319,7 @@ The terms in the partnered library schema must not duplicate terms present in it
 standard schema, and no term may be rooted under a reserved tag such as `Onset`.
 <br>&nbsp;</br>
 2. **Use the latest released version of the standard schema**:<br/>
-A partnered library schema should always use the latest version of the HED schema
-available at the time of its release. While in development a partnered library schema may be partnered with a prerelease version of the standard schema.
+A partnered library schema MUST be partnered with the latest released standard schema when it is released; see [7.3. Partnered library schemas](#73-partnered-library-schemas).
 <br>&nbsp;</br>
 3. **The auxiliary sections of the unmerged partnered library schema are usually empty**:<br/>
 The auxiliary sections of an unmerged partnered library schema should be empty

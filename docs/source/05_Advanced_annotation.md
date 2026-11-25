@@ -110,16 +110,18 @@ The following example shows how `Def` is used in annotation.
 
 ### 5.2.2. The *Def-expand* tag
 
-The `Def-expand` tag provides an alternative to `Def` tag in annotations. Unlike the `Def` tag, a `Def-expand` tag must be in a tag group that includes an inner tag group with the definition's contents. If the definition includes a placeholder, the placeholder in these contents must be replaced by the appropriate value.
+The `Def-expand` tag provides an alternative to `Def` tag in annotations. Unlike the `Def` tag, a `Def-expand` tag must be in a tag group that includes an inner tag group with the definition's contents, when the definition has contents (see [3.2.8.2. `Def` and `Def-expand` tags](./03_HED_formats.md#3282-def-and-def-expand-tags)). If the definition includes a placeholder, the placeholder in these contents must be replaced by the appropriate value.
 
 The following summarizes `Def-expand` tag syntax rules.
 
 `````{admonition} Syntax summary for the <code>Def-expand</code> tag:
 **Short forms:**
+ ~ *(Def-expand/xxx)*
  ~ *(Def-expand/xxx, (definition-contents))*
  ~ *(Def-expand/xxx/yyy, (definition-contents))*
 
 **Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>)*
  ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>, (definition-contents))*
  ~ *(Property/Organizational-property/<strong>Def-expand/xxx/yyy</strong>, (definition-contents))*
 
@@ -129,6 +131,7 @@ The following summarizes `Def-expand` tag syntax rules.
 2. *yyy* is the replacement value for the `#` placeholder.
 3. If the *xxx/yyy* form is used in the definition, then the replacement value (*yyy* above)
 must replace placeholders both in the definition's name and its contents.
+4. The forms without an inner group are used only for a definition that has no contents.
 ````
 `````
 
@@ -469,8 +472,9 @@ The following example shows the `Event-context` groups that a tool generates for
 1. The `Event-context` may only appear in a top-level tag group of an assembled HED string.
 2. An event can have at most one `Event-context` tag group in its assembled HED annotation.
 3. HED-compliant analysis tools should insert the annotations describing each temporally
-scoped event into the `Event-context` tag group of the events within its
-temporal scope during final assembly before analysis of the event.
+scoped event into the `Event-context` tag group of the event markers later than
+its start and earlier than its end (see [3.2.8.5. The `Event-context` tag](./03_HED_formats.md#3285-the-event-context-tag))
+during final assembly before analysis of the event.
 4. Each of these internal annotations MUST be in its own group, representing a distinct event process; the `Event-context` group contains no tags other than `Event-context` outside these groups.
 ````
 `````

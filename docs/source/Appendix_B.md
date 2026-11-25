@@ -55,7 +55,7 @@ See also [TAG_EMPTY](./Appendix_B.md#tag_empty).
 **b.** A `Def-expand` is missing an expected placeholder value or has an unexpected placeholder value.\
 **c.** A `Def-expand` has a placeholder value of incorrect format or units for definition.\
 **d.** The tags within a `Def-expand` do not match the corresponding definition.\
-**e.** A `Def-expand` tag group is missing its inner tag group.\
+**e.** A `Def-expand` tag group of a definition that has contents is missing its inner tag group.\
 **f.** A `Def-expand` tag group has extra tags or groups.
 
 See [3.2.8.2. The Def and Def-expand tags](./03_HED_formats.md#3282-def-and-def-expand-tags) for an explanation of the rules for `Def-expand` and [5.2. Using definition](./05_Advanced_annotation.md#52-using-definitions) for more details and examples.
@@ -137,7 +137,9 @@ See [3.2.4. Tags that take values](./03_HED_formats.md#324-tags-that-take-values
 **c.** The same schema (a library schema with the same library name, or the standard schema) is listed more than once in a merge group, in the same or in different versions.\
 **d.** A schema with a specified name and version cannot be found.\
 **e.** Rows of the `Sources`, `Prefixes`, or `External annotations` section of two library schemas in the same merge group have the same key but different contents.\
-**f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.
+**f.** A schema file cannot be parsed in its format, and no code of [B.2.2. MediaWiki format errors](#b22-mediawiki-format-errors) or [B.2.3. XML format errors](#b23-xml-format-errors) applies. No code is specific to the JSON or TSV format.\
+**g.** A version specification names a standard schema version earlier than `8.0.0` (see [3.1.1. Schema versions](./03_HED_formats.md#311-schema-versions)).\
+**h.** A namespace name in a version specification is not made of ASCII letters only (see [3.1.1. Schema versions](./03_HED_formats.md#311-schema-versions)).
 
 **Note:** Depending on the validator, a missing file or a file that cannot be parsed may be reported through a file error exception (e.g., a `HedFileError` exception in the Python tools) rather than as `SCHEMA_LOAD_FAILED`.
 
@@ -433,7 +435,7 @@ Note: tag extensions may contain `nonascii` characters.
 Library schema errors are specific to library schema. Library schema may also raise any of the other schema errors.\
 **a.** The specified library name is not alphabetic or lowercase.\
 **b.** The `withStandard` attribute is used in a header that does not also have the `library` attribute.\
-**c.** The `withStandard` attribute value does not correspond to a valid standard schema version.\
+**c.** The `withStandard` attribute value does not correspond to a valid standard schema version, or names a version earlier than `8.2.0` (see [3.1.2.1. Partnered vs unpartnered](./03_HED_formats.md#3121-partnered-vs-unpartnered)).\
 **d.** The `rooted` attribute appears in a schema whose header does not have both the `library` and `withStandard` attributes.\
 **e.** In an unmerged schema, a node with the `rooted` attribute is not at the top level; in a merged schema, a node with `rooted=XXX` is not a direct child of `XXX`.\
 **f.** A node with the `rooted` attribute does not correspond to a node in its partnered standard schema.\
@@ -513,7 +515,7 @@ JavaScript tools in contrast are mainly used for validation of HED annotations i
 
 The rules of this specification are stated for the latest released standard schema, `8.5.0`, and the library schemas partnered with it. This section lists every rule that a validator applies differently to an earlier schema version. A rule not listed here applies unchanged to all schema versions >= `8.0.0`.
 
-An unpartnered library schema has no standard schema version, so the entries below are applied to it as follows, whatever its own version. The entries on value class characters, on the `required` schema attribute, and on the names of the schema properties apply to it as they apply to a standard schema < `8.3.0`. The entries on the unit class of a placeholder, on derived units, and on the form of an `annotation` value do not apply to it: SCHEMA_ATTRIBUTE_VALUE_INVALID (a), SCHEMA_DUPLICATE_NODE (b), and SCHEMA_ANNOTATION_INVALID are reported for an unpartnered library schema as they are for standard schema `8.5.0`. The other entries concern reserved tags, which an unpartnered library schema does not have, and TSV files written for earlier standard schemas. SCORE `1.0.0`, the only unpartnered library schema that has been released, has the auxiliary sections of standard schema `8.1.0` and no TSV files.
+This paragraph covers the released unpartnered library schema, SCORE `1.0.0`; a new unpartnered library schema is not supported ([7.4.2. Unpartnered design rules](./07_Library_schemas.md#742-unpartnered-design-rules)). An unpartnered library schema has no standard schema version, so the entries below are applied to it as follows, whatever its own version. The entries on value class characters, on the `required` schema attribute, and on the names of the schema properties apply to it as they apply to a standard schema < `8.3.0`. The entries on the unit class of a placeholder, on derived units, and on the form of an `annotation` value do not apply to it: SCHEMA_ATTRIBUTE_VALUE_INVALID (a), SCHEMA_DUPLICATE_NODE (b), and SCHEMA_ANNOTATION_INVALID are reported for an unpartnered library schema as they are for standard schema `8.5.0`. The other entries concern reserved tags, which an unpartnered library schema does not have, and TSV files written for earlier standard schemas. SCORE `1.0.0` has the auxiliary sections of standard schema `8.1.0` and no TSV files.
 
 **Annotation validation**
 
