@@ -430,7 +430,7 @@ Users should not use tag extension unless necessary for their application, as th
 
 Users may select tags from multiple schemas, but additional schemas must be included in the HED version specification.
 
-Users are free to choose any alphabetic namespace name and associate it with a specific schema in the HED version specification. The namespace prefix is that name followed by a colon (e.g., `sc:`), and tags from the associated schema must carry this prefix when used in annotation. The namespace name and its prefix are chosen per dataset and are not part of any schema; they are an import mechanism, like `import pandas as pd` in Python, and the same schema may be given a different prefix in another dataset.
+Users are free to choose any namespace name made of ASCII letters (see [3.1.1. Schema versions](#311-schema-versions)) and associate it with a specific schema in the HED version specification. The namespace prefix is that name followed by a colon (e.g., `sc:`), and tags from the associated schema must carry this prefix when used in annotation. The namespace name and its prefix are chosen per dataset and are not part of any schema; they are an import mechanism, like `import pandas as pd` in Python, and the same schema may be given a different prefix in another dataset.
 
 Only the tags of one merge group, the schemas listed without a namespace prefix in the version specification, appear in an annotation without a prefix (see [3.1.2.3. Merge groups](#3123-merge-groups)).
 

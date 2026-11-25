@@ -116,10 +116,12 @@ The following summarizes `Def-expand` tag syntax rules.
 
 `````{admonition} Syntax summary for the <code>Def-expand</code> tag:
 **Short forms:**
+ ~ *(Def-expand/xxx)*
  ~ *(Def-expand/xxx, (definition-contents))*
  ~ *(Def-expand/xxx/yyy, (definition-contents))*
 
 **Long forms:**
+ ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>)*
  ~ *(Property/Organizational-property/<strong>Def-expand/xxx</strong>, (definition-contents))*
  ~ *(Property/Organizational-property/<strong>Def-expand/xxx/yyy</strong>, (definition-contents))*
 
@@ -129,6 +131,7 @@ The following summarizes `Def-expand` tag syntax rules.
 2. *yyy* is the replacement value for the `#` placeholder.
 3. If the *xxx/yyy* form is used in the definition, then the replacement value (*yyy* above)
 must replace placeholders both in the definition's name and its contents.
+4. The forms without an inner group are used only for a definition that has no contents.
 ````
 `````
 
